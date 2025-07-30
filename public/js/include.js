@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Determinar si estamos en una subcarpeta
   const base = path.includes("/lection/") || path.includes("/appendice/")
     ? "../components/"
-    : "./components/";
+    : "components/";
 
   function include(selector, file) {
     fetch(base + file)
