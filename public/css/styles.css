@@ -1,0 +1,246 @@
+:root {
+  --primary-color: #082743;
+  --bg-color: #fdfbe7;
+  --text-color: #333;
+  --card-bg: #fff;
+  --radius: 8px;
+}
+
+/* Reset y base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header y navegación */
+header {
+  background: var(--primary-color);
+  padding: 1rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.nav-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  color: #fff;
+  font-size: 1.25rem;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.nav-links li {
+  position: relative;
+}
+.nav-links a {
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  transition: background 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  background: rgba(255,255,255,0.2);
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--card-bg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: var(--radius);
+  overflow: hidden;
+  z-index: 10;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-menu li a {
+  display: block;
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+.dropdown-menu li a:hover {
+  background: var(--bg-color);
+}
+
+/* Main */
+main {
+  max-width: 960px;
+  margin: 2rem auto;
+}
+
+/* Card */
+.card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+h2 {
+  margin-bottom: 1rem;
+}
+
+/* Audio */
+#audio {
+  margin-bottom: 1.5rem;
+}
+
+/* Flex: texto e imagen */
+.flex-two {
+  display: flex;
+  gap: 1.5rem;
+}
+.text-block {
+  flex: 1;
+  line-height: 1.6;
+}
+/* Imagen dentro de text-block (p.ej vocabulario) */
+.text-block img {
+  margin: 1rem 0;
+}
+
+.image-block img {
+  width: 350px;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Tabla de vocabulario */
+.vocab-table {
+  flex: 1.2;
+  background: #d0e1f2;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.vocab-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.vocab-table thead {
+  background: #000;
+  color: #fff;
+}
+.vocab-table th,
+.vocab-table td {
+  padding: 0.75rem;
+  vertical-align: top;
+}
+.vocab-table td {
+  width: 33%;
+}
+.vocab-table ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.vocab-table li {
+  margin-bottom: 0.5rem;
+}
+
+/* Grid de dos columnas */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Gramática y ejercicio */
+.grammar,
+.exercise {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.footer {
+  background: var(--primary-color);
+  padding: 0.5rem 0;
+  color: #fff;
+  border-radius: var(--radius) var(--radius) 0 0;
+  margin-top: auto;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.8;
+}
+
+.footer .icon {
+  font-size: 1.5rem;
+}
+
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.brand-text {
+  display: inline-block;
+  color: #fff;
+}
