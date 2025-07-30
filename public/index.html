@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Schola Interlingua</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/icons/favicon-16x16.png">
+  <link rel="manifest" href="/public/icons/site.webmanifest">
+  <link rel="icon" href="/public/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <nav></nav>
+
+  <main>
+    <!-- Sección Home / Prefacio -->
+    <section id="home-section" class="card">
+      <h1>Benvenite a Schola Interlingua!</h1>
+      <p>
+        Schola Interlingua es un plattaforma digital disveloppate con le scopo de impulsar le apprension de Interlingua IALA.
+        Con un stile clar e moderne, nos offre lectiones structurate, vocabulario, grammatica explicate, e exercitios que le permitte apprender passo a passo e con confidentia.
+        Nos crede in le fortia del saber collaborative, proque tote le material de Schola Interlingua es software libere e open source.
+        Tu pote explorar, adaptar e compartir iste recurso sin restrictiones, e etiam contribuir al melioramento continuate del sito.
+      </p>
+    </section>
+
+    <!-- Sección Appendice -->
+    <section id="appendix-section" class="card" style="display:none;">
+      <h2>Appendice</h2>
+      <ul>
+        <li><a href="Clave.pdf" download>Clave</a></li>
+        <li><a href="Grammatica.pdf" download>Gramática esencial</a></li>
+        <li><a href="Vocabulario.pdf" download>Vocabulario</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer></footer>
+
+  <!-- Scripts -->
+  <script src="public/js/include.js"></script>
+  <script>
+    // Navegación interna para Home y Appendice
+    document.addEventListener("DOMContentLoaded", () => {
+      const homeNav = document.getElementById('home-nav');
+      const appendixNav = document.getElementById('appendix-nav');
+      const homeSection = document.getElementById('home-section');
+      const appendixSection = document.getElementById('appendix-section');
+
+      if (homeNav && appendixNav && homeSection && appendixSection) {
+        homeNav.addEventListener('click', (e) => {
+          e.preventDefault();
+          homeNav.classList.add('active');
+          appendixNav.classList.remove('active');
+          homeSection.style.display = 'block';
+          appendixSection.style.display = 'none';
+        });
+
+        appendixNav.addEventListener('click', (e) => {
+          e.preventDefault();
+          appendixNav.classList.add('active');
+          homeNav.classList.remove('active');
+          homeSection.style.display = 'none';
+          appendixSection.style.display = 'block';
+        });
+
+        // Inicializa en Home
+        homeNav.click();
+      }
+    });
+  </script>
+</body>
+</html>
