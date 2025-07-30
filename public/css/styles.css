@@ -244,3 +244,39 @@ main {
   display: inline-block;
   color: #fff;
 }
+
+/* === Ejercicios en grid de 2 columnas === */
+#exercise-form {
+  display: grid;                 /* activa grid */
+  grid-template-columns: 1fr 1fr;/* 2 columnas iguales */
+  gap: 1rem 2rem;                /* filas 1 rem, columnas 2 rem */
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  #exercise-form {
+    grid-template-columns: 1fr;  /* una sola columna en móvil */
+  }
+}
+
+/* cada ítem */
+.exercise-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.exercise-item label {
+  flex: 0 0 110px;               /* ancho fijo para label */
+  text-align: right;
+  font-weight: bold;
+}
+
+.exercise-item input {
+  flex: 1;                       /* el input se expande */
+}
+
+.exercise-item .feedback-icon {
+  width: 24px;                   /* espacio p/ ✓ ó ✗ */
+  text-align: center;
+}
