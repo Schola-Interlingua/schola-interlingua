@@ -20,13 +20,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     tbody.appendChild(tr);
   });
   const btn = document.createElement('button');
-  btn.textContent = 'Mostrar vocabulario';
-  btn.className = 'btn btn-secondary vocab-toggle';
+  btn.innerHTML = '<i class="fa-solid fa-book-open"></i> Mostrar vocabulario';
+  btn.className = 'vocab-toggle';
   table.before(btn);
   table.style.display = 'none';
   btn.addEventListener('click', () => {
     const visible = table.style.display !== 'none';
     table.style.display = visible ? 'none' : 'block';
-    btn.textContent = visible ? 'Mostrar vocabulario' : 'Ocultar vocabulario';
+    btn.innerHTML = visible
+      ? '<i class="fa-solid fa-book-open"></i> Mostrar vocabulario'
+      : '<i class="fa-solid fa-eye-slash"></i> Ocultar vocabulario';
   });
 });
