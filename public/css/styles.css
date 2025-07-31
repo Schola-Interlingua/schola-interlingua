@@ -326,3 +326,20 @@ main {
     top: 125%;
   }
 }
+
+/* Botón para desplegar tabla de vocabulario */
+.vocab-toggle {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.6rem 1.5rem;
+  font-size: 1.1rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.vocab-toggle:hover {
+  background: #0a3a63;
+}

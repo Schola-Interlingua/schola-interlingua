@@ -5,22 +5,25 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const data = await fetch('/data/vocab.json').then(r => r.json());
   const items = data[lesson] || [];
+  const lang = localStorage.getItem('lang') || 'es';
 
   const template = await fetch('/components/exercise.html').then(r => r.text());
   container.innerHTML = template;
 
   const form = container.querySelector('#exercise-form');
-  items.forEach(({ term, answer }) => {
-    const item = document.createElement('div');
-    item.className = 'exercise-item';
-    item.innerHTML = `
+  items.forEach(vocab => {
+    const answer = vocab[lang] || vocab.es;
+    const term = vocab.term;
+    const element = document.createElement('div');
+    element.className = 'exercise-item';
+    element.innerHTML = `
       <label class="term">${term}:</label>
       <div class="answer">
         <input type="text" data-answer="${answer}" class="exercise-input">
         <span class="feedback-icon"></span>
       </div>
     `;
-    form.appendChild(item);
+    form.appendChild(element);
   });
 
   const btnCheck = container.querySelector('.btn-comprobar');
