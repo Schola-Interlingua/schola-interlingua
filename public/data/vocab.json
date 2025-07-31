@@ -111,7 +111,7 @@
   ],
   "10": [
     {
-      "term": "pasatempo",
+      "term": "passatempore",
       "answer": "pasatiempo, hobby"
     },
     {
@@ -123,7 +123,7 @@
       "answer": "jugar"
     },
     {
-      "term": "futbol",
+      "term": "football",
       "answer": "fútbol"
     },
     {
@@ -135,7 +135,7 @@
       "answer": "proyecto"
     },
     {
-      "term": "tempore liber",
+      "term": "tempore libere",
       "answer": "tiempo libre"
     },
     {
@@ -175,7 +175,7 @@
       "answer": "JavaScript (lenguage de programmation)"
     },
     {
-      "term": "applicato web",
+      "term": "application web",
       "answer": "aplicacion web"
     },
     {
@@ -205,7 +205,7 @@
       "answer": "mañana"
     },
     {
-      "term": "eveliar",
+      "term": "eveliar se",
       "answer": "despertarse"
     },
     {
@@ -311,15 +311,15 @@
       "answer": "dormitorio, habitación"
     },
     {
-      "term": "morbide",
+      "term": "molle",
       "answer": "blando"
     },
     {
-      "term": "materasso",
+      "term": "matras",
       "answer": "colchón"
     },
     {
-      "term": "cuscino",
+      "term": "cossino",
       "answer": "almohada"
     },
     {
@@ -429,7 +429,7 @@
       "answer": "pantalones"
     },
     {
-      "term": "comfortabile",
+      "term": "confortabile",
       "answer": "cómodo"
     },
     {
@@ -489,7 +489,7 @@
       "answer": "escribir"
     },
     {
-      "term": "relation",
+      "term": "reporto",
       "answer": "informe, reporte"
     },
     {
@@ -497,7 +497,7 @@
       "answer": "responder"
     },
     {
-      "term": "e-posta",
+      "term": "e-mail",
       "answer": "correo electrónico"
     },
     {
@@ -535,7 +535,7 @@
       "answer": "pizza"
     },
     {
-      "term": "formaggio",
+      "term": "caseo",
       "answer": "queso"
     },
     {
@@ -631,7 +631,7 @@
       "answer": "fría"
     },
     {
-      "term": "frigorifero",
+      "term": "refrigerator",
       "answer": "heladera, refrigerador"
     },
     {
@@ -647,7 +647,7 @@
       "answer": "viernes"
     },
     {
-      "term": "gauder",
+      "term": "gauder de",
       "answer": "disfrutar"
     },
     {
@@ -681,7 +681,7 @@
       "answer": "barrio, vecindario"
     },
     {
-      "term": "caracter",
+      "term": "character",
       "answer": "caracter, personalidad"
     },
     {
@@ -693,7 +693,7 @@
       "answer": "museo"
     },
     {
-      "term": "famoso",
+      "term": "famose",
       "answer": "famoso"
     },
     {
@@ -725,7 +725,7 @@
       "answer": "comprender, incluir"
     },
     {
-      "term": "trene",
+      "term": "traino",
       "answer": "tren"
     },
     {
@@ -783,7 +783,7 @@
       "answer": "días"
     },
     {
-      "term": "soleate",
+      "term": "insolate",
       "answer": "soleado"
     },
     {
@@ -827,8 +827,8 @@
       "answer": "intenso"
     },
     {
-      "term": "cielo",
-      "answer": "cielo"
+      "term": "celo",
+      "answer": "cielo[B"
     },
     {
       "term": "clar",
@@ -843,7 +843,7 @@
       "answer": "veces"
     },
     {
-      "term": "tempestate",
+      "term": "tempesta",
       "answer": "tormenta"
     },
     {
@@ -853,10 +853,6 @@
     {
       "term": "forte",
       "answer": "fuerte"
-    },
-    {
-      "term": "intense",
-      "answer": "intenso (fem.)"
     },
     {
       "term": "temperatura",
@@ -871,11 +867,11 @@
       "answer": "bastante"
     },
     {
-      "term": "require",
+      "term": "requirer",
       "answer": "requerir"
     },
     {
-      "term": "prepara",
+      "term": "preparar",
       "answer": "preparar"
     },
     {
@@ -893,7 +889,7 @@
       "answer": "comprar"
     },
     {
-      "term": "grammatic",
+      "term": "grammatica",
       "answer": "gramatica"
     },
     {
@@ -917,7 +913,7 @@
       "answer": "digital"
     },
     {
-      "term": "manda",
+      "term": "mandar",
       "answer": "enviar"
     },
     {
@@ -937,8 +933,8 @@
       "answer": "descuento"
     },
     {
-      "term": "por cento",
-      "answer": "porcentaje (10 por cento = 10%)"
+      "term": "per cento",
+      "answer": "por ciento"
     },
     {
       "term": "fidel",
@@ -957,7 +953,7 @@
       "answer": "conservar"
     },
     {
-      "term": "futura",
+      "term": "futur",
       "answer": "futuro/a"
     },
     {
@@ -967,11 +963,11 @@
   ],
   "9": [
     {
-      "term": "vade",
+      "term": "vader",
       "answer": "ir"
     },
     {
-      "term": "treno",
+      "term": "traino",
       "answer": "tren"
     },
     {
@@ -995,7 +991,7 @@
       "answer": "paisaje"
     },
     {
-      "term": "montanose",
+      "term": "montaniose",
       "answer": "montañoso"
     },
     {
@@ -1019,15 +1015,15 @@
       "answer": "compañía"
     },
     {
-      "term": "ferrovia",
-      "answer": "ferrocarril"
+      "term": "ferroviari",
+      "answer": "ferroviario/a"
     },
     {
-      "term": "statione",
+      "term": "station",
       "answer": "estación"
     },
     {
-      "term": "organise",
+      "term": "organisar",
       "answer": "organizar"
     },
     {
@@ -1035,7 +1031,7 @@
       "answer": "café"
     },
     {
-      "term": "bottega",
+      "term": "boteca",
       "answer": "tienda, negocio"
     },
     {
@@ -1051,7 +1047,7 @@
       "answer": "viaje"
     },
     {
-      "term": "leje",
+      "term": "leger",
       "answer": "leer"
     },
     {
