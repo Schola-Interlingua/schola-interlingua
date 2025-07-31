@@ -1,6 +1,7 @@
 // Agrega tooltips de traducción a todos los textos de las lecciones
 
 document.addEventListener('DOMContentLoaded', () => {
+  const lang = localStorage.getItem('lang') || 'es';
   // Cargar vocabulario
   fetch('/data/vocab.json')
     .then(res => res.json())
@@ -8,14 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const vocab = {};
       // Unir todas las lecciones en un solo objeto de búsqueda
       Object.values(data).forEach(arr => {
-        arr.forEach(({ term, answer }) => {
-          vocab[term.toLowerCase()] = answer;
-        });
+        if (Array.isArray(arr)) {
+          arr.forEach(item => {
+            const translation = item[lang] || item.es;
+            vocab[item.term.toLowerCase()] = translation;
+          });
+        }
       });
 
-      const paragraphs = document.querySelectorAll('.text-block p');
-      paragraphs.forEach(p => {
-        const tokens = p.textContent.match(/\w+|\s+|[^\s\w]+/g) || [];
+      const elements = document.querySelectorAll('.text-block p, .grammar p, #home-section p, .grammar li');
+      elements.forEach(el => {
+        const tokens = el.textContent.match(/\w+|\s+|[^\s\w]+/g) || [];
         const html = tokens.map(tok => {
           const clean = tok.replace(/[^\wáéíóúüñ]/gi, '').toLowerCase();
           if (vocab[clean]) {
@@ -25,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
           return tok;
         }).join('');
 
-        p.innerHTML = html;
+        el.innerHTML = html;
       });
     })
     .catch(err => console.error('No se pudo cargar el vocabulario:', err));

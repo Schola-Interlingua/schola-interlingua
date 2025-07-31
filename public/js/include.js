@@ -6,14 +6,27 @@ document.addEventListener("DOMContentLoaded", function () {
     ? "../components/"
     : "components/";
 
-  function include(selector, file) {
+  function include(selector, file, cb) {
     fetch(base + file)
       .then(res => res.text())
       .then(html => {
         document.querySelector(selector).innerHTML = html;
+        if (cb) cb();
       });
   }
 
-  include("nav", "navbar.html");
+  function initLang() {
+    const current = localStorage.getItem('lang') || 'es';
+    document.querySelectorAll('.lang-option').forEach(link => {
+      if (link.dataset.lang === current) link.classList.add('active');
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.setItem('lang', link.dataset.lang);
+        location.reload();
+      });
+    });
+  }
+
+  include("nav", "navbar.html", initLang);
   include("footer", "footer.html");
 });
