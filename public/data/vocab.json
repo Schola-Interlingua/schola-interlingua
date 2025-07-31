@@ -677,7 +677,7 @@
       "answer": "ciudad"
     },
     {
-      "term": "barrio",
+      "term": "quartiero",
       "answer": "barrio, vecindario"
     },
     {
@@ -701,7 +701,7 @@
       "answer": "Nacional"
     },
     {
-      "term": "historice",
+      "term": "historic",
       "answer": "historicas"
     },
     {
@@ -713,7 +713,7 @@
       "answer": "simbolo"
     },
     {
-      "term": "transporte",
+      "term": "transporto",
       "answer": "transporte"
     },
     {
@@ -737,7 +737,7 @@
       "answer": "conecta"
     },
     {
-      "term": "calles",
+      "term": "stratas",
       "answer": "calles"
     },
     {
@@ -745,7 +745,7 @@
       "answer": "animado"
     },
     {
-      "term": "turista",
+      "term": "tourista",
       "answer": "turista"
     },
     {
@@ -757,13 +757,13 @@
       "answer": "libreria"
     },
     {
-      "term": "artesanal",
+      "term": "artisanal",
       "answer": "artesanal"
     }
   ],
   "7": [
     {
-      "term": "clima",
+      "term": "climate",
       "answer": "clima"
     },
     {
@@ -823,7 +823,7 @@
       "answer": "frío"
     },
     {
-      "term": "intenso",
+      "term": "intense",
       "answer": "intenso"
     },
     {
@@ -921,7 +921,7 @@
       "answer": "enviar"
     },
     {
-      "term": "recibo",
+      "term": "recepta",
       "answer": "recibo"
     },
     {
@@ -933,7 +933,7 @@
       "answer": "beneficiarse"
     },
     {
-      "term": "desconto",
+      "term": "disconto",
       "answer": "descuento"
     },
     {
