@@ -3797,7 +3797,7 @@
       "ko": "여덟"
     },
     {
-      "term": "nove",
+      "term": "novem",
       "es": "nueve",
       "en": "nine",
       "ru": "девять",
@@ -3937,7 +3937,7 @@
       "ko": "열여덟"
     },
     {
-      "term": "dece-nove",
+      "term": "dece-novem",
       "es": "diecinueve",
       "en": "nineteen",
       "ru": "девятнадцать",
@@ -3965,7 +3965,7 @@
       "ko": "스무"
     },
     {
-      "term": "tresanta",
+      "term": "trenta",
       "es": "treinta",
       "en": "thirty",
       "ru": "тридцать",
@@ -6251,7 +6251,7 @@
       "ko": "작곡하다"
     },
     {
-      "term": "composte",
+      "term": "composite",
       "es": "compuesto",
       "en": "composed",
       "ru": "составленный",
@@ -6321,7 +6321,7 @@
       "ko": "기밀성"
     },
     {
-      "term": "coniuga",
+      "term": "conjuga",
       "es": "conjuga",
       "en": "conjugates",
       "ru": "спрягает",
@@ -6545,7 +6545,7 @@
       "ko": ""
     },
     {
-      "term": "cuyo",
+      "term": "cuje",
       "es": "",
       "en": "",
       "ru": "",
@@ -6727,7 +6727,7 @@
       "ko": ""
     },
     {
-      "term": "dezenas",
+      "term": "decenas",
       "es": "",
       "en": "",
       "ru": "",
@@ -10507,7 +10507,7 @@
       "ko": ""
     },
     {
-      "term": "reguliere",
+      "term": "regular",
       "es": "",
       "en": "",
       "ru": "",
@@ -10760,20 +10760,6 @@
     },
     {
       "term": "scribe",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "scribi",
       "es": "",
       "en": "",
       "ru": "",
@@ -11151,7 +11137,7 @@
       "ko": ""
     },
     {
-      "term": "stresso",
+      "term": "emphase",
       "es": "",
       "en": "",
       "ru": "",
@@ -11305,7 +11291,7 @@
       "ko": ""
     },
     {
-      "term": "syllabe",
+      "term": "syllaba",
       "es": "",
       "en": "",
       "ru": "",
