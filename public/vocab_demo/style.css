@@ -1,0 +1,33 @@
+/* Estilos para tooltips de vocabulario */
+.tooltip {
+  position: relative;
+  border-bottom: 1px dotted #555;
+  cursor: help;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  background-color: #f9f9f9;
+  color: #000;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+@media (max-width: 600px) {
+  .tooltiptext {
+    bottom: auto;
+    top: 125%;
+  }
+}
