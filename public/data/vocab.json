@@ -1390,7 +1390,7 @@
       "ca": "dissabte",
       "ko": "토요일"
     }
-  ]
+  ],
   "4": [
     {
       "term": "levar se",
@@ -3781,7 +3781,7 @@
       "ja": "七",
       "ca": "set",
       "ko": "일곱"
-    }
+    },
     {
       "term": "octo",
       "es": "ocho",
@@ -4019,7 +4019,7 @@
       "ja": "六十",
       "ca": "seixanta",
       "ko": "예순"
-    }
+    },
     {
       "term": "septanta",
       "es": "setenta",
