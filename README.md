@@ -1,2 +1,4 @@
 # schola-interlingua
 Plattaforma digital e open-source pro impulsar le apprension de Interlingua IALA.
+
+Gruppetto dedicate a meliorar iste curso: https://t.me/scholainterlingua
