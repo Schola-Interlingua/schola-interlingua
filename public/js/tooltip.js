@@ -1,6 +1,7 @@
 // Agrega tooltips de traducción a todos los textos de las lecciones
 
 document.addEventListener('DOMContentLoaded', () => {
+  const lang = localStorage.getItem('lang') || 'es';
   // Cargar vocabulario
   fetch('/data/vocab.json')
     .then(res => res.json())
@@ -8,9 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const vocab = {};
       // Unir todas las lecciones en un solo objeto de búsqueda
       Object.values(data).forEach(arr => {
-        arr.forEach(({ term, answer }) => {
-          vocab[term.toLowerCase()] = answer;
-        });
+        if (Array.isArray(arr)) {
+          arr.forEach(item => {
+            const translation = item[lang] || item.es;
+            vocab[item.term.toLowerCase()] = translation;
+          });
+        }
       });
 
       const paragraphs = document.querySelectorAll('.text-block p');

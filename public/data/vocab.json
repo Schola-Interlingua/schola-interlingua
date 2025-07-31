@@ -2,1065 +2,1327 @@
   "1": [
     {
       "term": "io",
-      "answer": "yo"
+      "es": "yo",
+      "en": "I"
     },
     {
       "term": "esser",
-      "answer": "ser / estar"
+      "es": "ser / estar",
+      "en": "to be"
     },
     {
       "term": "habitar",
-      "answer": "habitar, vivir"
+      "es": "habitar, vivir",
+      "en": "to live"
     },
     {
       "term": "appartamento",
-      "answer": "departamento, apartamento"
+      "es": "departamento, apartamento",
+      "en": "apartment"
     },
     {
       "term": "tu",
-      "answer": "tú"
+      "es": "tú",
+      "en": "you"
     },
     {
       "term": "es",
-      "answer": "eres / estás (forma del verbo \"esser\")"
+      "es": "eres / estás (forma del verbo \"esser\")",
+      "en": ""
     },
     {
       "term": "illa",
-      "answer": "ella"
+      "es": "ella",
+      "en": ""
     },
     {
       "term": "amica",
-      "answer": "amiga"
+      "es": "amiga",
+      "en": ""
     },
     {
       "term": "nos",
-      "answer": "nosotros/as"
+      "es": "nosotros/as",
+      "en": ""
     },
     {
       "term": "parlar",
-      "answer": "hablar"
+      "es": "hablar",
+      "en": ""
     },
     {
       "term": "interlingua",
-      "answer": "interlingua (nombre del idioma)"
+      "es": "interlingua (nombre del idioma)",
+      "en": ""
     },
     {
       "term": "con",
-      "answer": "con"
+      "es": "con",
+      "en": ""
     },
     {
       "term": "gratia",
-      "answer": "gracia"
+      "es": "gracia",
+      "en": ""
     },
     {
       "term": "iste",
-      "answer": "este/a"
+      "es": "este/a",
+      "en": ""
     },
     {
       "term": "lingua",
-      "answer": "idioma"
+      "es": "idioma",
+      "en": ""
     },
     {
       "term": "facile",
-      "answer": "fácil"
+      "es": "fácil",
+      "en": ""
     },
     {
       "term": "comprender",
-      "answer": "comprender"
+      "es": "comprender",
+      "en": ""
     },
     {
       "term": "si",
-      "answer": "si (condicional)"
+      "es": "si (condicional)",
+      "en": ""
     },
     {
       "term": "on",
-      "answer": "uno (pronombre impersonal)"
+      "es": "uno (pronombre impersonal)",
+      "en": ""
     },
     {
       "term": "practicar",
-      "answer": "practicar"
+      "es": "practicar",
+      "en": ""
     },
     {
       "term": "cata",
-      "answer": "cada"
+      "es": "cada",
+      "en": ""
     },
     {
       "term": "die",
-      "answer": "día"
+      "es": "día",
+      "en": ""
     },
     {
       "term": "usar",
-      "answer": "usar"
+      "es": "usar",
+      "en": ""
     },
     {
       "term": "curso",
-      "answer": "curso"
+      "es": "curso",
+      "en": ""
     },
     {
       "term": "meliorar",
-      "answer": "mejorar"
+      "es": "mejorar",
+      "en": ""
     },
     {
       "term": "comprension",
-      "answer": "comprensión"
+      "es": "comprensión",
+      "en": ""
     },
     {
       "term": "expression",
-      "answer": "expresión"
+      "es": "expresión",
+      "en": ""
     }
   ],
   "10": [
     {
       "term": "passatempore",
-      "answer": "pasatiempo, hobby"
+      "es": "pasatiempo, hobby",
+      "en": ""
     },
     {
       "term": "principal",
-      "answer": "principal, primordial"
+      "es": "principal, primordial",
+      "en": ""
     },
     {
       "term": "jocar",
-      "answer": "jugar"
+      "es": "jugar",
+      "en": ""
     },
     {
       "term": "football",
-      "answer": "fútbol"
+      "es": "fútbol",
+      "en": ""
     },
     {
       "term": "codificar",
-      "answer": "codificar, programar"
+      "es": "codificar, programar",
+      "en": ""
     },
     {
       "term": "projecto",
-      "answer": "proyecto"
+      "es": "proyecto",
+      "en": ""
     },
     {
       "term": "tempore libere",
-      "answer": "tiempo libre"
+      "es": "tiempo libre",
+      "en": ""
     },
     {
       "term": "amicos",
-      "answer": "amigos"
+      "es": "amigos",
+      "en": ""
     },
     {
       "term": "fin de septimana",
-      "answer": "fin de semana"
+      "es": "fin de semana",
+      "en": ""
     },
     {
       "term": "biber",
-      "answer": "beber (forma “bibe” - yo bebo)"
+      "es": "beber (forma “bibe” - yo bebo)",
+      "en": ""
     },
     {
       "term": "subjecto",
-      "answer": "asunto, tema"
+      "es": "asunto, tema",
+      "en": ""
     },
     {
       "term": "technologia",
-      "answer": "tecnología"
+      "es": "tecnología",
+      "en": ""
     },
     {
       "term": "innovative",
-      "answer": "innovador"
+      "es": "innovador",
+      "en": ""
     },
     {
       "term": "idea",
-      "answer": "idea"
+      "es": "idea",
+      "en": ""
     },
     {
       "term": "Python",
-      "answer": "Python (lenguage de programmation)"
+      "es": "Python (lenguage de programmation)",
+      "en": ""
     },
     {
       "term": "JavaScript",
-      "answer": "JavaScript (lenguage de programmation)"
+      "es": "JavaScript (lenguage de programmation)",
+      "en": ""
     },
     {
       "term": "application web",
-      "answer": "aplicacion web"
+      "es": "aplicacion web",
+      "en": ""
     },
     {
       "term": "automatisation",
-      "answer": "automatización"
+      "es": "automatización",
+      "en": ""
     },
     {
       "term": "facilita",
-      "answer": "facilitar"
+      "es": "facilitar",
+      "en": ""
     },
     {
       "term": "vita quotidian",
-      "answer": "vida cotidiana"
+      "es": "vida cotidiana",
+      "en": ""
     },
     {
       "term": "explorar",
-      "answer": "explorar"
+      "es": "explorar",
+      "en": ""
     },
     {
       "term": "instrumento",
-      "answer": "instrumento"
+      "es": "instrumento",
+      "en": ""
     }
   ],
   "2": [
     {
       "term": "matino",
-      "answer": "mañana"
+      "es": "mañana",
+      "en": ""
     },
     {
       "term": "eveliar se",
-      "answer": "despertarse"
+      "es": "despertarse",
+      "en": ""
     },
     {
       "term": "reguardar",
-      "answer": "mirar, observar"
+      "es": "mirar, observar",
+      "en": ""
     },
     {
       "term": "horologio",
-      "answer": "reloj"
+      "es": "reloj",
+      "en": ""
     },
     {
       "term": "septe",
-      "answer": "siete"
+      "es": "siete",
+      "en": ""
     },
     {
       "term": "poter",
-      "answer": "poder"
+      "es": "poder",
+      "en": ""
     },
     {
       "term": "dormir",
-      "answer": "dormir"
+      "es": "dormir",
+      "en": ""
     },
     {
       "term": "prender",
-      "answer": "tomar, agarrar"
+      "es": "tomar, agarrar",
+      "en": ""
     },
     {
       "term": "leger",
-      "answer": "leer"
+      "es": "leer",
+      "en": ""
     },
     {
       "term": "generes",
-      "answer": "géneros"
+      "es": "géneros",
+      "en": ""
     },
     {
       "term": "rubie",
-      "answer": "rojo"
+      "es": "rojo",
+      "en": ""
     },
     {
       "term": "verde",
-      "answer": "verde"
+      "es": "verde",
+      "en": ""
     },
     {
       "term": "blau",
-      "answer": "azul"
+      "es": "azul",
+      "en": ""
     },
     {
       "term": "jalne",
-      "answer": "amarillo"
+      "es": "amarillo",
+      "en": ""
     },
     {
       "term": "jacer",
-      "answer": "yacer, estar tendido"
+      "es": "yacer, estar tendido",
+      "en": ""
     },
     {
       "term": "lecto",
-      "answer": "cama"
+      "es": "cama",
+      "en": ""
     },
     {
       "term": "audir",
-      "answer": "oír"
+      "es": "oír",
+      "en": ""
     },
     {
       "term": "quando",
-      "answer": "cuando"
+      "es": "cuando",
+      "en": ""
     },
     {
       "term": "seniora",
-      "answer": "señora"
+      "es": "señora",
+      "en": ""
     },
     {
       "term": "aperir",
-      "answer": "abrir"
+      "es": "abrir",
+      "en": ""
     },
     {
       "term": "porta",
-      "answer": "puerta"
+      "es": "puerta",
+      "en": ""
     },
     {
       "term": "matre",
-      "answer": "madre"
+      "es": "madre",
+      "en": ""
     },
     {
       "term": "levar se",
-      "answer": "levantarse"
+      "es": "levantarse",
+      "en": ""
     },
     {
       "term": "vader",
-      "answer": "ir"
+      "es": "ir",
+      "en": ""
     },
     {
       "term": "cocina",
-      "answer": "cocina"
+      "es": "cocina",
+      "en": ""
     }
   ],
   "3": [
     {
       "term": "casa",
-      "answer": "casa"
+      "es": "casa",
+      "en": ""
     },
     {
       "term": "dormitorio",
-      "answer": "dormitorio, habitación"
+      "es": "dormitorio, habitación",
+      "en": ""
     },
     {
       "term": "molle",
-      "answer": "blando"
+      "es": "blando",
+      "en": ""
     },
     {
       "term": "matras",
-      "answer": "colchón"
+      "es": "colchón",
+      "en": ""
     },
     {
       "term": "cossino",
-      "answer": "almohada"
+      "es": "almohada",
+      "en": ""
     },
     {
       "term": "sur",
-      "answer": "sobre, encima de"
+      "es": "sobre, encima de",
+      "en": ""
     },
     {
       "term": "ligno",
-      "answer": "madera"
+      "es": "madera",
+      "en": ""
     },
     {
       "term": "quatro",
-      "answer": "cuatro"
+      "es": "cuatro",
+      "en": ""
     },
     {
       "term": "sedia",
-      "answer": "silla"
+      "es": "silla",
+      "en": ""
     },
     {
       "term": "elegante",
-      "answer": "elegante"
+      "es": "elegante",
+      "en": ""
     },
     {
       "term": "salon",
-      "answer": "sala, salón"
+      "es": "sala, salón",
+      "en": ""
     },
     {
       "term": "luminose",
-      "answer": "luminoso"
+      "es": "luminoso",
+      "en": ""
     },
     {
       "term": "continer",
-      "answer": "contener"
+      "es": "contener",
+      "en": ""
     },
     {
       "term": "sofa",
-      "answer": "sofá"
+      "es": "sofá",
+      "en": ""
     },
     {
       "term": "television",
-      "answer": "televisión"
+      "es": "televisión",
+      "en": ""
     },
     {
       "term": "catto",
-      "answer": "gato"
+      "es": "gato",
+      "en": ""
     },
     {
       "term": "sub",
-      "answer": "debajo de"
+      "es": "debajo de",
+      "en": ""
     },
     {
       "term": "durante",
-      "answer": "durante"
+      "es": "durante",
+      "en": ""
     },
     {
       "term": "vespere",
-      "answer": "tarde, anochecer"
+      "es": "tarde, anochecer",
+      "en": ""
     },
     {
       "term": "invitar",
-      "answer": "invitar"
+      "es": "invitar",
+      "en": ""
     },
     {
       "term": "amico",
-      "answer": "amigo"
+      "es": "amigo",
+      "en": ""
     },
     {
       "term": "parve",
-      "answer": "pequeño"
+      "es": "pequeño",
+      "en": ""
     },
     {
       "term": "reunion",
-      "answer": "reunión"
+      "es": "reunión",
+      "en": ""
     },
     {
       "term": "cata",
-      "answer": "cada (repetido del texto previe, incluse pro completar)"
+      "es": "cada (repetido del texto previe, incluse pro completar)",
+      "en": ""
     },
     {
       "term": "sabbato",
-      "answer": "sábado"
+      "es": "sábado",
+      "en": ""
     }
   ],
   "4": [
     {
       "term": "levar se",
-      "answer": "levantarse"
+      "es": "levantarse",
+      "en": ""
     },
     {
       "term": "septe",
-      "answer": "siete"
+      "es": "siete",
+      "en": ""
     },
     {
       "term": "vestir se",
-      "answer": "vestirse"
+      "es": "vestirse",
+      "en": ""
     },
     {
       "term": "rapidemente",
-      "answer": "rápidamente"
+      "es": "rápidamente",
+      "en": ""
     },
     {
       "term": "camisa",
-      "answer": "camisa"
+      "es": "camisa",
+      "en": ""
     },
     {
       "term": "pantalones",
-      "answer": "pantalones"
+      "es": "pantalones",
+      "en": ""
     },
     {
       "term": "confortabile",
-      "answer": "cómodo"
+      "es": "cómodo",
+      "en": ""
     },
     {
       "term": "mangiar",
-      "answer": "comer"
+      "es": "comer",
+      "en": ""
     },
     {
       "term": "pan",
-      "answer": "pan"
+      "es": "pan",
+      "en": ""
     },
     {
       "term": "lacte",
-      "answer": "leche"
+      "es": "leche",
+      "en": ""
     },
     {
       "term": "parve",
-      "answer": "pequeño"
+      "es": "pequeño",
+      "en": ""
     },
     {
       "term": "fructo",
-      "answer": "fruta"
+      "es": "fruta",
+      "en": ""
     },
     {
       "term": "jentaculo",
-      "answer": "desayuno"
+      "es": "desayuno",
+      "en": ""
     },
     {
       "term": "octo",
-      "answer": "ocho"
+      "es": "ocho",
+      "en": ""
     },
     {
       "term": "officio",
-      "answer": "oficina"
+      "es": "oficina",
+      "en": ""
     },
     {
       "term": "autobus",
-      "answer": "colectivo, autobús"
+      "es": "colectivo, autobús",
+      "en": ""
     },
     {
       "term": "arrivar",
-      "answer": "llegar"
+      "es": "llegar",
+      "en": ""
     },
     {
       "term": "medie",
-      "answer": "y media (hora)"
+      "es": "y media (hora)",
+      "en": ""
     },
     {
       "term": "labor",
-      "answer": "trabajo"
+      "es": "trabajo",
+      "en": ""
     },
     {
       "term": "comenciar",
-      "answer": "comenzar"
+      "es": "comenzar",
+      "en": ""
     },
     {
       "term": "scriber",
-      "answer": "escribir"
+      "es": "escribir",
+      "en": ""
     },
     {
       "term": "reporto",
-      "answer": "informe, reporte"
+      "es": "informe, reporte",
+      "en": ""
     },
     {
       "term": "responder",
-      "answer": "responder"
+      "es": "responder",
+      "en": ""
     },
     {
       "term": "e-mail",
-      "answer": "correo electrónico"
+      "es": "correo electrónico",
+      "en": ""
     },
     {
       "term": "diligentia",
-      "answer": "diligencia, esmero"
+      "es": "diligencia, esmero",
+      "en": ""
     },
     {
       "term": "practicar",
-      "answer": "practicar"
+      "es": "practicar",
+      "en": ""
     },
     {
       "term": "yoga",
-      "answer": "yoga"
+      "es": "yoga",
+      "en": ""
     },
     {
       "term": "studio",
-      "answer": "estudio, sala"
+      "es": "estudio, sala",
+      "en": ""
     },
     {
       "term": "pois",
-      "answer": "luego, después"
+      "es": "luego, después",
+      "en": ""
     },
     {
       "term": "pro",
-      "answer": "para"
+      "es": "para",
+      "en": ""
     },
     {
       "term": "durante",
-      "answer": "durante"
+      "es": "durante",
+      "en": ""
     }
   ],
   "5": [
     {
       "term": "pizza",
-      "answer": "pizza"
+      "es": "pizza",
+      "en": ""
     },
     {
       "term": "caseo",
-      "answer": "queso"
+      "es": "queso",
+      "en": ""
     },
     {
       "term": "tomate",
-      "answer": "tomate"
+      "es": "tomate",
+      "en": ""
     },
     {
       "term": "parve",
-      "answer": "pequeño"
+      "es": "pequeño",
+      "en": ""
     },
     {
       "term": "pizzeria",
-      "answer": "pizzería"
+      "es": "pizzería",
+      "en": ""
     },
     {
       "term": "local",
-      "answer": "local"
+      "es": "local",
+      "en": ""
     },
     {
       "term": "menu",
-      "answer": "menú"
+      "es": "menú",
+      "en": ""
     },
     {
       "term": "offerer",
-      "answer": "ofrecer"
+      "es": "ofrecer",
+      "en": ""
     },
     {
       "term": "diverse",
-      "answer": "diversos/as"
+      "es": "diversos/as",
+      "en": ""
     },
     {
       "term": "specialitate",
-      "answer": "especialidad"
+      "es": "especialidad",
+      "en": ""
     },
     {
       "term": "pasta",
-      "answer": "pasta"
+      "es": "pasta",
+      "en": ""
     },
     {
       "term": "pesto",
-      "answer": "pesto"
+      "es": "pesto",
+      "en": ""
     },
     {
       "term": "gelato",
-      "answer": "helado"
+      "es": "helado",
+      "en": ""
     },
     {
       "term": "artisanal",
-      "answer": "artesanal"
+      "es": "artesanal",
+      "en": ""
     },
     {
       "term": "fin",
-      "answer": "fin"
+      "es": "fin",
+      "en": ""
     },
     {
       "term": "prandio",
-      "answer": "almuerzo, comida"
+      "es": "almuerzo, comida",
+      "en": ""
     },
     {
       "term": "biber",
-      "answer": "beber"
+      "es": "beber",
+      "en": ""
     },
     {
       "term": "sovente",
-      "answer": "a menudo"
+      "es": "a menudo",
+      "en": ""
     },
     {
       "term": "caffe",
-      "answer": "café"
+      "es": "café",
+      "en": ""
     },
     {
       "term": "calide",
-      "answer": "caliente"
+      "es": "caliente",
+      "en": ""
     },
     {
       "term": "cena",
-      "answer": "cena"
+      "es": "cena",
+      "en": ""
     },
     {
       "term": "vices",
-      "answer": "veces"
+      "es": "veces",
+      "en": ""
     },
     {
       "term": "prefere",
-      "answer": "preferir"
+      "es": "preferir",
+      "en": ""
     },
     {
       "term": "aqua",
-      "answer": "agua"
+      "es": "agua",
+      "en": ""
     },
     {
       "term": "frigide",
-      "answer": "fría"
+      "es": "fría",
+      "en": ""
     },
     {
       "term": "refrigerator",
-      "answer": "heladera, refrigerador"
+      "es": "heladera, refrigerador",
+      "en": ""
     },
     {
       "term": "clar",
-      "answer": "clara"
+      "es": "clara",
+      "en": ""
     },
     {
       "term": "restaurante",
-      "answer": "restaurante"
+      "es": "restaurante",
+      "en": ""
     },
     {
       "term": "venerdi",
-      "answer": "viernes"
+      "es": "viernes",
+      "en": ""
     },
     {
       "term": "gauder de",
-      "answer": "disfrutar"
+      "es": "disfrutar",
+      "en": ""
     },
     {
       "term": "ambiente",
-      "answer": "ambiente"
+      "es": "ambiente",
+      "en": ""
     },
     {
       "term": "amical",
-      "answer": "amistoso"
+      "es": "amistoso",
+      "en": ""
     },
     {
       "term": "gastronomia",
-      "answer": "gastronomía"
+      "es": "gastronomía",
+      "en": ""
     },
     {
       "term": "excellente",
-      "answer": "excelente"
+      "es": "excelente",
+      "en": ""
     }
   ],
   "6": [
     {
       "term": "Buenos Aires",
-      "answer": "Buenos Aires"
+      "es": "Buenos Aires",
+      "en": ""
     },
     {
       "term": "citate",
-      "answer": "ciudad"
+      "es": "ciudad",
+      "en": ""
     },
     {
       "term": "quartiero",
-      "answer": "barrio, vecindario"
+      "es": "barrio, vecindario",
+      "en": ""
     },
     {
       "term": "character",
-      "answer": "caracter, personalidad"
+      "es": "caracter, personalidad",
+      "en": ""
     },
     {
       "term": "vibrante",
-      "answer": "vibrante"
+      "es": "vibrante",
+      "en": ""
     },
     {
       "term": "museo",
-      "answer": "museo"
+      "es": "museo",
+      "en": ""
     },
     {
       "term": "famose",
-      "answer": "famoso"
+      "es": "famoso",
+      "en": ""
     },
     {
       "term": "National",
-      "answer": "Nacional"
+      "es": "Nacional",
+      "en": ""
     },
     {
       "term": "historic",
-      "answer": "historicas"
+      "es": "historicas",
+      "en": ""
     },
     {
       "term": "se trova",
-      "answer": "se encuentra"
+      "es": "se encuentra",
+      "en": ""
     },
     {
       "term": "symbolo",
-      "answer": "simbolo"
+      "es": "simbolo",
+      "en": ""
     },
     {
       "term": "transporto",
-      "answer": "transporte"
+      "es": "transporte",
+      "en": ""
     },
     {
       "term": "public",
-      "answer": "publico"
+      "es": "publico",
+      "en": ""
     },
     {
       "term": "comprender",
-      "answer": "comprender, incluir"
+      "es": "comprender, incluir",
+      "en": ""
     },
     {
       "term": "traino",
-      "answer": "tren"
+      "es": "tren",
+      "en": ""
     },
     {
       "term": "rapide",
-      "answer": "rapido"
+      "es": "rapido",
+      "en": ""
     },
     {
       "term": "connecte",
-      "answer": "conecta"
+      "es": "conecta",
+      "en": ""
     },
     {
       "term": "stratas",
-      "answer": "calles"
+      "es": "calles",
+      "en": ""
     },
     {
       "term": "animate",
-      "answer": "animado"
+      "es": "animado",
+      "en": ""
     },
     {
       "term": "tourista",
-      "answer": "turista"
+      "es": "turista",
+      "en": ""
     },
     {
       "term": "Obelisco",
-      "answer": "Obelisco (monumento)"
+      "es": "Obelisco (monumento)",
+      "en": ""
     },
     {
       "term": "libreria",
-      "answer": "libreria"
+      "es": "libreria",
+      "en": ""
     },
     {
       "term": "artisanal",
-      "answer": "artesanal"
+      "es": "artesanal",
+      "en": ""
     }
   ],
   "7": [
     {
       "term": "climate",
-      "answer": "clima"
+      "es": "clima",
+      "en": ""
     },
     {
       "term": "anno",
-      "answer": "año"
+      "es": "año",
+      "en": ""
     },
     {
       "term": "estate",
-      "answer": "verano"
+      "es": "verano",
+      "en": ""
     },
     {
       "term": "grado",
-      "answer": "grado"
+      "es": "grado",
+      "en": ""
     },
     {
       "term": "dies",
-      "answer": "días"
+      "es": "días",
+      "en": ""
     },
     {
       "term": "insolate",
-      "answer": "soleado"
+      "es": "soleado",
+      "en": ""
     },
     {
       "term": "ideal",
-      "answer": "ideal"
+      "es": "ideal",
+      "en": ""
     },
     {
       "term": "promenar",
-      "answer": "pasear"
+      "es": "pasear",
+      "en": ""
     },
     {
       "term": "parco",
-      "answer": "parque"
+      "es": "parque",
+      "en": ""
     },
     {
       "term": "hiberno",
-      "answer": "invierno"
+      "es": "invierno",
+      "en": ""
     },
     {
       "term": "minus",
-      "answer": "menos"
+      "es": "menos",
+      "en": ""
     },
     {
       "term": "pluvia",
-      "answer": "lluvia"
+      "es": "lluvia",
+      "en": ""
     },
     {
       "term": "frequente",
-      "answer": "frecuente"
+      "es": "frecuente",
+      "en": ""
     },
     {
       "term": "vento",
-      "answer": "viento"
+      "es": "viento",
+      "en": ""
     },
     {
       "term": "frigide",
-      "answer": "frío"
+      "es": "frío",
+      "en": ""
     },
     {
       "term": "intense",
-      "answer": "intenso"
+      "es": "intenso",
+      "en": ""
     },
     {
       "term": "celo",
-      "answer": "cielo"
+      "es": "cielo",
+      "en": ""
     },
     {
       "term": "clar",
-      "answer": "claro"
+      "es": "claro",
+      "en": ""
     },
     {
       "term": "suave",
-      "answer": "suave"
+      "es": "suave",
+      "en": ""
     },
     {
       "term": "vices",
-      "answer": "veces"
+      "es": "veces",
+      "en": ""
     },
     {
       "term": "tempesta",
-      "answer": "tormenta"
+      "es": "tormenta",
+      "en": ""
     },
     {
       "term": "rapidemente",
-      "answer": "rápidamente"
+      "es": "rápidamente",
+      "en": ""
     },
     {
       "term": "forte",
-      "answer": "fuerte"
+      "es": "fuerte",
+      "en": ""
     },
     {
       "term": "temperatura",
-      "answer": "temperatura"
+      "es": "temperatura",
+      "en": ""
     },
     {
       "term": "variar",
-      "answer": "variar"
+      "es": "variar",
+      "en": ""
     },
     {
       "term": "bastante",
-      "answer": "bastante"
+      "es": "bastante",
+      "en": ""
     },
     {
       "term": "requirer",
-      "answer": "requerir"
+      "es": "requerir",
+      "en": ""
     },
     {
       "term": "preparar",
-      "answer": "preparar"
+      "es": "preparar",
+      "en": ""
     },
     {
       "term": "vestimento",
-      "answer": "vestimenta, ropa"
+      "es": "vestimenta, ropa",
+      "en": ""
     },
     {
       "term": "situation",
-      "answer": "situación"
+      "es": "situación",
+      "en": ""
     }
   ],
   "8": [
     {
       "term": "comprar",
-      "answer": "comprar"
+      "es": "comprar",
+      "en": ""
     },
     {
       "term": "grammatica",
-      "answer": "gramatica"
+      "es": "gramatica",
+      "en": ""
     },
     {
       "term": "presentation",
-      "answer": "presentacion"
+      "es": "presentacion",
+      "en": ""
     },
     {
       "term": "precio",
-      "answer": "precio, costo"
+      "es": "precio, costo",
+      "en": ""
     },
     {
       "term": "euro",
-      "answer": "euro"
+      "es": "euro",
+      "en": ""
     },
     {
       "term": "systema",
-      "answer": "sistema"
+      "es": "sistema",
+      "en": ""
     },
     {
       "term": "digital",
-      "answer": "digital"
+      "es": "digital",
+      "en": ""
     },
     {
       "term": "mandar",
-      "answer": "enviar"
+      "es": "enviar",
+      "en": ""
     },
     {
       "term": "recepta",
-      "answer": "recibo"
+      "es": "recibo",
+      "en": ""
     },
     {
       "term": "cliente",
-      "answer": "cliente"
+      "es": "cliente",
+      "en": ""
     },
     {
       "term": "beneficiar se",
-      "answer": "beneficiarse"
+      "es": "beneficiarse",
+      "en": ""
     },
     {
       "term": "disconto",
-      "answer": "descuento"
+      "es": "descuento",
+      "en": ""
     },
     {
       "term": "per cento",
-      "answer": "por ciento"
+      "es": "por ciento",
+      "en": ""
     },
     {
       "term": "fidel",
-      "answer": "fiel"
+      "es": "fiel",
+      "en": ""
     },
     {
       "term": "pagar",
-      "answer": "pagar"
+      "es": "pagar",
+      "en": ""
     },
     {
       "term": "carta de credito",
-      "answer": "tarjeta de credito"
+      "es": "tarjeta de credito",
+      "en": ""
     },
     {
       "term": "conservar",
-      "answer": "conservar"
+      "es": "conservar",
+      "en": ""
     },
     {
       "term": "futur",
-      "answer": "futuro/a"
+      "es": "futuro/a",
+      "en": ""
     },
     {
       "term": "referentia",
-      "answer": "referencia"
+      "es": "referencia",
+      "en": ""
     }
   ],
   "9": [
     {
       "term": "vader",
-      "answer": "ir"
+      "es": "ir",
+      "en": ""
     },
     {
       "term": "traino",
-      "answer": "tren"
+      "es": "tren",
+      "en": ""
     },
     {
       "term": "proxime",
-      "answer": "próximo"
+      "es": "próximo",
+      "en": ""
     },
     {
       "term": "venerdi",
-      "answer": "viernes"
+      "es": "viernes",
+      "en": ""
     },
     {
       "term": "trajecto",
-      "answer": "trayecto, recorrido"
+      "es": "trayecto, recorrido",
+      "en": ""
     },
     {
       "term": "circa",
-      "answer": "aproximadamente"
+      "es": "aproximadamente",
+      "en": ""
     },
     {
       "term": "paisage",
-      "answer": "paisaje"
+      "es": "paisaje",
+      "en": ""
     },
     {
       "term": "montaniose",
-      "answer": "montañoso"
+      "es": "montañoso",
+      "en": ""
     },
     {
       "term": "campo",
-      "answer": "campo"
+      "es": "campo",
+      "en": ""
     },
     {
       "term": "sede",
-      "answer": "asiento"
+      "es": "asiento",
+      "en": ""
     },
     {
       "term": "sito web",
-      "answer": "sitio web"
+      "es": "sitio web",
+      "en": ""
     },
     {
       "term": "official",
-      "answer": "oficial"
+      "es": "oficial",
+      "en": ""
     },
     {
       "term": "compania",
-      "answer": "compañía"
+      "es": "compañía",
+      "en": ""
     },
     {
       "term": "ferroviari",
-      "answer": "ferroviario/a"
+      "es": "ferroviario/a",
+      "en": ""
     },
     {
       "term": "station",
-      "answer": "estación"
+      "es": "estación",
+      "en": ""
     },
     {
       "term": "organisar",
-      "answer": "organizar"
+      "es": "organizar",
+      "en": ""
     },
     {
       "term": "cafe",
-      "answer": "café"
+      "es": "café",
+      "en": ""
     },
     {
       "term": "boteca",
-      "answer": "tienda, negocio"
+      "es": "tienda, negocio",
+      "en": ""
     },
     {
       "term": "information",
-      "answer": "información"
+      "es": "información",
+      "en": ""
     },
     {
       "term": "passagero",
-      "answer": "pasajero"
+      "es": "pasajero",
+      "en": ""
     },
     {
       "term": "viage",
-      "answer": "viaje"
+      "es": "viaje",
+      "en": ""
     },
     {
       "term": "leger",
-      "answer": "leer"
+      "es": "leer",
+      "en": ""
     },
     {
       "term": "musica",
-      "answer": "música"
+      "es": "música",
+      "en": ""
     },
     {
       "term": "passar",
-      "answer": "pasar"
+      "es": "pasar",
+      "en": ""
     },
     {
       "term": "tempore",
-      "answer": "tiempo"
+      "es": "tiempo",
+      "en": ""
     }
-  ]
+  ],
+  "extras": []
 }
