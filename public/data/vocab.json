@@ -27,7 +27,7 @@
       "ja": "である / いる",
       "ca": "ser / estar",
       "ko": "이다 / 있다"
-    }
+    },
     {
       "term": "habitar",
       "es": "habitar, vivir",
@@ -69,7 +69,7 @@
       "ja": "あなた",
       "ca": "tu",
       "ko": "너"
-    }
+    },
     {
       "term": "es",
       "es": "eres / estás (forma del verbo \"esser\")",
@@ -167,7 +167,7 @@
       "ja": "と",
       "ca": "amb",
       "ko": "와/과"
-    }
+    },
     {
       "term": "gratia",
       "es": "gracia",
@@ -447,7 +447,7 @@
       "ja": "コーディングする / プログラムする",
       "ca": "codificar / programar",
       "ko": "코딩하다 / 프로그래밍하다"
-    }
+    },
     {
       "term": "projecto",
       "es": "proyecto",
@@ -685,7 +685,8 @@
       "ja": "楽器 / 器具",
       "ca": "instrument",
       "ko": "도구 / 악기"
-    },
+    }
+  ],
     "2": [
     {
       "term": "matino",
@@ -756,7 +757,7 @@
       "ja": "七",
       "ca": "set",
       "ko": "일곱"
-    }
+    },
     {
       "term": "poter",
       "es": "poder",
@@ -910,7 +911,7 @@
       "ja": "ベッド",
       "ca": "llit",
       "ko": "침대"
-    }
+    },
     {
       "term": "audir",
       "es": "oír",
@@ -1389,7 +1390,7 @@
       "ca": "dissabte",
       "ko": "토요일"
     }
-  ]
+  ],
   "4": [
     {
       "term": "levar se",
@@ -3780,7 +3781,7 @@
       "ja": "七",
       "ca": "set",
       "ko": "일곱"
-    }
+    },
     {
       "term": "octo",
       "es": "ocho",
@@ -4018,7 +4019,7 @@
       "ja": "六十",
       "ca": "seixanta",
       "ko": "예순"
-    }
+    },
     {
       "term": "septanta",
       "es": "setenta",
