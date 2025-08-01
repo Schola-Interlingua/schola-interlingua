@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const path = location.pathname;
 
   // Determinar si estamos en una subcarpeta
-  const base = path.includes("/lection/") || path.includes("/appendice/")
+  const base = path.includes("/lection/") ||
+               path.includes("/appendice/") ||
+               path.includes("/lessons/")
     ? "../components/"
     : "components/";
 
