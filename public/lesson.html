@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Schola Interlingua - Lection</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <nav></nav>
+  <main>
+    <div class="card">
+      <h2 id="lesson-title"></h2>
+      <div class="vocab-table">
+        <table>
+          <thead>
+            <tr><th colspan="3">Vocabulario</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div id="exercise-container"></div>
+    </div>
+  </main>
+  <footer></footer>
+
+  <script src="js/include.js"></script>
+  <script src="js/tooltip.js"></script>
+  <script src="js/exercises.js"></script>
+  <script src="js/vocab-table.js"></script>
+  <script>
+    const slug = new URLSearchParams(location.search).get('slug') || '';
+    document.getElementById('exercise-container').dataset.lesson = slug;
+    document.getElementById('lesson-title').textContent = displayName(slug);
+    function displayName(str){
+      return str.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+    }
+  </script>
+</body>
+</html>
