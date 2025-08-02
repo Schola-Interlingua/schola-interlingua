@@ -343,6 +343,44 @@ main {
 .vocab-toggle:hover {
   background: #0a3a63;
 }
+
+/* Quiz */
+.quiz-card {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.quiz-option {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 1.5rem;
+  font-size: 1.1rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.quiz-option:hover {
+  background: #0a3a63;
+}
+
+.quiz-option.correct {
+  background: #198754;
+}
+
+.quiz-option.incorrect {
+  background: #dc3545;
+}
 @media (max-width: 600px) {
   .flex-two {
     flex-direction: column;
