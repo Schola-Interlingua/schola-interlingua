@@ -9219,7 +9219,7 @@
       "ja": "靴",
       "ca": "sabates",
       "ko": "신발"
-    },
+    }
   ],
   "adjectivos-possessive": [
     {
@@ -14927,37 +14927,37 @@
     "ja": "毎週月曜日に",
     "ca": "els dilluns",
     "ko": "월요일마다"
-  }
-{
-  "term": "in tempore de un hora",
-  "es": "en una hora",
-  "en": "in one hour",
-  "ru": "через час",
-  "de": "in einer Stunde",
-  "fr": "dans une heure",
-  "it": "tra un'ora",
-  "pt": "em uma hora",
-  "zh": "一小时后",
-  "ja": "1時間後に",
-  "ca": "en una hora",
-  "ko": "한 시간 후"
-},
-{
-  "term": "usque lunedi",
-  "es": "hasta el lunes",
-  "en": "until Monday",
-  "ru": "до понедельника",
-  "de": "bis Montag",
-  "fr": "jusqu'à lundi",
-  "it": "fino a lunedì",
-  "pt": "até segunda-feira",
-  "zh": "到星期一",
-  "ja": "月曜日まで",
-  "ca": "fins dilluns",
-  "ko": "월요일까지"
-},
-{
-  "term": "il es lunedi",
+  },
+  {
+    "term": "in tempore de un hora",
+    "es": "en una hora",
+    "en": "in one hour",
+    "ru": "через час",
+    "de": "in einer Stunde",
+    "fr": "dans une heure",
+    "it": "tra un'ora",
+    "pt": "em uma hora",
+    "zh": "一小时后",
+    "ja": "1時間後に",
+    "ca": "en una hora",
+    "ko": "한 시간 후"
+  },
+  {
+    "term": "usque lunedi",
+    "es": "hasta el lunes",
+    "en": "until Monday",
+    "ru": "до понедельника",
+    "de": "bis Montag",
+    "fr": "jusqu'à lundi",
+    "it": "fino a lunedì",
+    "pt": "até segunda-feira",
+    "zh": "到星期一",
+    "ja": "月曜日まで",
+    "ca": "fins dilluns",
+    "ko": "월요일까지"
+  },
+  {
+    "term": "il es lunedi",
   "es": "es lunes",
   "en": "it's Monday",
   "ru": "сегодня понедельник",
