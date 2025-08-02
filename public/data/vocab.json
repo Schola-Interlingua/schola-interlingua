@@ -10361,6 +10361,118 @@
       "ko": "그들은 자신의 거북이를 사랑한다"
     },
     {
+      "term": "io cerca mi can",
+      "es": "estoy buscando mi perro; yo busco a mi perro",
+      "en": "I’m looking for my dog",
+      "ru": "я ищу свою собаку",
+      "de": "ich suche meinen Hund",
+      "fr": "je cherche mon chien",
+      "it": "sto cercando il mio cane",
+      "pt": "estou procurando meu cachorro",
+      "zh": "我在找我的狗",
+      "ja": "私は犬を探しています",
+      "ca": "estic buscant el meu gos",
+      "ko": "나는 내 개를 찾고 있어"
+    },
+    {
+      "term": "io ordina mi repasto",
+      "es": "estoy pidiendo mi comida; yo ordeno mi comida",
+      "en": "I’m ordering my meal",
+      "ru": "я заказываю свою еду",
+      "de": "ich bestelle mein Essen",
+      "fr": "je commande mon repas",
+      "it": "sto ordinando il mio pasto",
+      "pt": "estou pedindo minha refeição",
+      "zh": "我在点餐",
+      "ja": "私は食事を注文しています",
+      "ca": "estic demanant el meu menjar",
+      "ko": "나는 식사를 주문하고 있어"
+    },
+    {
+      "term": "nos comprende le jornal",
+      "es": "nosotros estamos entendiendo el diario",
+      "en": "we understand the newspaper",
+      "ru": "мы понимаем газету",
+      "de": "wir verstehen die Zeitung",
+      "fr": "nous comprenons le journal",
+      "it": "comprendiamo il giornale",
+      "pt": "nós entendemos o jornal",
+      "zh": "我们理解这份报纸",
+      "ja": "私たちは新聞を理解しています",
+      "ca": "entenem el diari",
+      "ko": "우리는 신문을 이해해요"
+    },
+    {
+      "term": "io attende mi infantes",
+      "es": "estoy esperando a mis hijos; yo espero a mis hijos",
+      "en": "I’m waiting for my children",
+      "ru": "я жду своих детей",
+      "de": "ich warte auf meine Kinder",
+      "fr": "j’attends mes enfants",
+      "it": "sto aspettando i miei figli",
+      "pt": "estou esperando meus filhos",
+      "zh": "我在等我的孩子们",
+      "ja": "私は子供たちを待っています",
+      "ca": "estic esperant els meus fills",
+      "ko": "나는 내 아이들을 기다리고 있어"
+    },
+    {
+      "term": "io va mangiar",
+      "es": "yo voy a comer",
+      "en": "I’m going to eat",
+      "ru": "я собираюсь поесть",
+      "de": "ich werde essen",
+      "fr": "je vais manger",
+      "it": "sto per mangiare",
+      "pt": "vou comer",
+      "zh": "我要吃饭了",
+      "ja": "私は食べます",
+      "ca": "vaig a menjar",
+      "ko": "나는 먹을 거야"
+    },
+    {
+      "term": "le homines debe attender",
+      "es": "los hombres tienen que esperar",
+      "en": "the men have to wait",
+      "ru": "мужчины должны подождать",
+      "de": "die Männer müssen warten",
+      "fr": "les hommes doivent attendre",
+      "it": "gli uomini devono aspettare",
+      "pt": "os homens têm que esperar",
+      "zh": "男人们得等一等",
+      "ja": "男たちは待たなければならない",
+      "ca": "els homes han d’esperar",
+      "ko": "남자들은 기다려야 해"
+    },
+    {
+      "term": "io cognosce un homine",
+      "es": "yo conozco a un hombre",
+      "en": "I know a man",
+      "ru": "я знаю одного мужчину",
+      "de": "ich kenne einen Mann",
+      "fr": "je connais un homme",
+      "it": "conosco un uomo",
+      "pt": "eu conheço um homem",
+      "zh": "我认识一个男人",
+      "ja": "私は男の人を知っている",
+      "ca": "conec un home",
+      "ko": "나는 한 남자를 알아"
+    },
+    {
+      "term": "io sape parlar interlingua",
+      "es": "yo sé hablar interlingua",
+      "en": "I can speak Interlingua",
+      "ru": "я умею говорить на интерлингва",
+      "de": "ich kann Interlingua sprechen",
+      "fr": "je sais parler interlingua",
+      "it": "so parlare l’interlingua",
+      "pt": "sei falar interlíngua",
+      "zh": "我会说国际语",
+      "ja": "私はインターリングアを話せます",
+      "ca": "sé parlar interlingua",
+      "ko": "나는 인터링구아를 말할 수 있어"
+    },
+    {
       "term": "io pote parlar interlingua",
       "es": "puedo hablar interlingua",
       "en": "I can speak Interlingua",
@@ -11629,6 +11741,244 @@
       "ko": "들어가다"
     },
     {
+      "term": "clauder",
+      "es": "cerrar",
+      "en": "to close",
+      "ru": "закрыть",
+      "de": "schließen",
+      "fr": "fermer",
+      "it": "chiudere",
+      "pt": "fechar",
+      "zh": "关闭",
+      "ja": "閉める",
+      "ca": "tancar",
+      "ko": "닫다"
+    },
+    {
+      "term": "secar",
+      "es": "cortar",
+      "en": "to cut",
+      "ru": "резать",
+      "de": "schneiden",
+      "fr": "couper",
+      "it": "tagliare",
+      "pt": "cortar",
+      "zh": "切",
+      "ja": "切る",
+      "ca": "tallar",
+      "ko": "자르다"
+    },
+    {
+      "term": "mitter",
+      "es": "poner",
+      "en": "to put",
+      "ru": "положить",
+      "de": "legen",
+      "fr": "mettre",
+      "it": "mettere",
+      "pt": "pôr",
+      "zh": "放",
+      "ja": "置く",
+      "ca": "posar",
+      "ko": "놓다"
+    },
+    {
+      "term": "terminar",
+      "es": "terminar",
+      "en": "to finish",
+      "ru": "закончить",
+      "de": "beenden",
+      "fr": "terminer",
+      "it": "terminare",
+      "pt": "terminar",
+      "zh": "结束",
+      "ja": "終える",
+      "ca": "acabar",
+      "ko": "끝내다"
+    },
+    {
+      "term": "poner",
+      "es": "poner",
+      "en": "to put",
+      "ru": "положить",
+      "de": "legen",
+      "fr": "mettre",
+      "it": "mettere",
+      "pt": "pôr",
+      "zh": "放",
+      "ja": "置く",
+      "ca": "posar",
+      "ko": "놓다"
+    },
+        {
+      "term": "tener",
+      "es": "sostener",
+      "en": "to hold",
+      "ru": "держать",
+      "de": "halten",
+      "fr": "tenir",
+      "it": "tenere",
+      "pt": "segurar",
+      "zh": "拿着",
+      "ja": "持つ",
+      "ca": "sostenir",
+      "ko": "들다"
+    },
+    {
+      "term": "portar",
+      "es": "llevar",
+      "en": "to carry",
+      "ru": "нести",
+      "de": "tragen",
+      "fr": "porter",
+      "it": "portare",
+      "pt": "carregar",
+      "zh": "携带",
+      "ja": "運ぶ",
+      "ca": "portar",
+      "ko": "운반하다"
+    },
+    {
+      "term": "concerner",
+      "es": "preocuparse",
+      "en": "to worry",
+      "ru": "беспокоиться",
+      "de": "sich sorgen",
+      "fr": "se préoccuper",
+      "it": "preoccuparsi",
+      "pt": "preocupar-se",
+      "zh": "担心",
+      "ja": "心配する",
+      "ca": "preocupar-se",
+      "ko": "걱정하다"
+    },
+    {
+      "term": "motivar",
+      "es": "motivar",
+      "en": "to motivate",
+      "ru": "мотивировать",
+      "de": "motivieren",
+      "fr": "motiver",
+      "it": "motivare",
+      "pt": "motivar",
+      "zh": "激励",
+      "ja": "動機づける",
+      "ca": "motivar",
+      "ko": "동기를 부여하다"
+    },
+    {
+      "term": "photographar",
+      "es": "fotografiar",
+      "en": "to photograph",
+      "ru": "фотографировать",
+      "de": "fotografieren",
+      "fr": "photographier",
+      "it": "fotografare",
+      "pt": "fotografar",
+      "zh": "拍照",
+      "ja": "写真を撮る",
+      "ca": "fer fotos",
+      "ko": "사진을 찍다"
+    },
+    {
+      "term": "interessar",
+      "es": "interesar",
+      "en": "to interest",
+      "ru": "интересовать",
+      "de": "interessieren",
+      "fr": "intéresser",
+      "it": "interessare",
+      "pt": "interessar",
+      "zh": "感兴趣",
+      "ja": "興味を引く",
+      "ca": "interessar",
+      "ko": "관심을 끌다"
+    },
+    {
+      "term": "lancear",
+      "es": "tirar; lanzar",
+      "en": "to throw",
+      "ru": "бросать",
+      "de": "werfen",
+      "fr": "lancer",
+      "it": "lanciare",
+      "pt": "lançar",
+      "zh": "扔",
+      "ja": "投げる",
+      "ca": "llançar",
+      "ko": "던지다"
+    },
+    {
+      "term": "posseder",
+      "es": "poseer",
+      "en": "to own",
+      "ru": "владеть",
+      "de": "besitzen",
+      "fr": "posséder",
+      "it": "possedere",
+      "pt": "possuir",
+      "zh": "拥有",
+      "ja": "所有する",
+      "ca": "posseir",
+      "ko": "소유하다"
+    },
+    {
+      "term": "ganiar",
+      "es": "ganar",
+      "en": "to win",
+      "ru": "выиграть",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "it": "vincere",
+      "pt": "ganhar",
+      "zh": "赢",
+      "ja": "勝つ",
+      "ca": "guanyar",
+      "ko": "이기다"
+    },
+    {
+      "term": "continer",
+      "es": "contener",
+      "en": "to contain",
+      "ru": "содержать",
+      "de": "enthalten",
+      "fr": "contenir",
+      "it": "contenere",
+      "pt": "conter",
+      "zh": "包含",
+      "ja": "含む",
+      "ca": "contenir",
+      "ko": "포함하다"
+    },
+      {
+      "term": "viver",
+      "es": "vivir",
+      "en": "to live",
+      "ru": "жить",
+      "de": "leben",
+      "fr": "vivre",
+      "it": "vivere",
+      "pt": "viver",
+      "zh": "生活",
+      "ja": "生きる",
+      "ca": "viure",
+      "ko": "살다"
+    },
+    {
+      "term": "offerer",
+      "es": "ofrecer",
+      "en": "to offer",
+      "ru": "предлагать",
+      "de": "anbieten",
+      "fr": "offrir",
+      "it": "offrire",
+      "pt": "oferecer",
+      "zh": "提供",
+      "ja": "提供する",
+      "ca": "oferir",
+      "ko": "제공하다"
+    },
+    {
       "term": "nivar",
       "es": "nevar",
       "en": "snow",
@@ -11767,6 +12117,132 @@
       "ja": "彼は寝る",
       "ca": "ell dorm",
       "ko": "그는 잔다"
+    },
+    {
+      "term": "nos dormi",
+      "es": "dormimos",
+      "en": "we sleep",
+      "ru": "мы спим",
+      "de": "wir schlafen",
+      "fr": "nous dormons",
+      "it": "noi dormiamo",
+      "pt": "nós dormimos",
+      "zh": "我们睡觉",
+      "ja": "私たちは寝る",
+      "ca": "nosaltres dormim",
+      "ko": "우리는 잔다"
+    },
+    {
+      "term": "vos dormi",
+      "es": "ustedes duermen",
+      "en": "you (plural) sleep",
+      "ru": "вы спите",
+      "de": "ihr schlaft",
+      "fr": "vous dormez",
+      "it": "voi dormite",
+      "pt": "vocês dormem",
+      "zh": "你们睡觉",
+      "ja": "あなたたちは寝る",
+      "ca": "vosaltres dormiu",
+      "ko": "여러분은 잔다"
+    },
+    {
+      "term": "illes dormi",
+      "es": "ellos duermen",
+      "en": "they sleep",
+      "ru": "они спят",
+      "de": "sie schlafen",
+      "fr": "ils dorment",
+      "it": "loro dormono",
+      "pt": "eles dormem",
+      "zh": "他们睡觉",
+      "ja": "彼らは寝る",
+      "ca": "ells dormen",
+      "ko": "그들은 잔다"
+    },
+    {
+      "term": "io mori",
+      "es": "me estoy muriendo; yo muero",
+      "en": "I die; I am dying",
+      "ru": "я умираю",
+      "de": "ich sterbe",
+      "fr": "je meurs",
+      "it": "muoio",
+      "pt": "eu morro",
+      "zh": "我死了",
+      "ja": "私は死ぬ",
+      "ca": "jo moro",
+      "ko": "나는 죽는다"
+    },
+    {
+      "term": "tu mori",
+      "es": "tú mueres",
+      "en": "you die",
+      "ru": "ты умираешь",
+      "de": "du stirbst",
+      "fr": "tu meurs",
+      "it": "tu muori",
+      "pt": "tu morres",
+      "zh": "你死了",
+      "ja": "あなたは死ぬ",
+      "ca": "tu mors",
+      "ko": "너는 죽는다"
+    },
+    {
+      "term": "ille mori",
+      "es": "él muere",
+      "en": "he dies",
+      "ru": "он умирает",
+      "de": "er stirbt",
+      "fr": "il meurt",
+      "it": "lui muore",
+      "pt": "ele morre",
+      "zh": "他死了",
+      "ja": "彼は死ぬ",
+      "ca": "ell mor",
+      "ko": "그는 죽는다"
+    },
+    {
+      "term": "nos mori",
+      "es": "morimos",
+      "en": "we die",
+      "ru": "мы умираем",
+      "de": "wir sterben",
+      "fr": "nous mourons",
+      "it": "noi moriamo",
+      "pt": "nós morremos",
+      "zh": "我们死了",
+      "ja": "私たちは死ぬ",
+      "ca": "nosaltres morim",
+      "ko": "우리는 죽는다"
+    },
+      {
+      "term": "vos mori",
+      "es": "ustedes mueren",
+      "en": "you (plural) die",
+      "ru": "вы умираете",
+      "de": "ihr sterbt",
+      "fr": "vous mourez",
+      "it": "voi morite",
+      "pt": "vocês morrem",
+      "zh": "你们死了",
+      "ja": "あなたたちは死ぬ",
+      "ca": "vosaltres moriu",
+      "ko": "여러분은 죽는다"
+    },
+    {
+      "term": "illes mori",
+      "es": "ellos mueren",
+      "en": "they die",
+      "ru": "они умирают",
+      "de": "sie sterben",
+      "fr": "ils meurent",
+      "it": "loro muoiono",
+      "pt": "eles morrem",
+      "zh": "他们死了",
+      "ja": "彼らは死ぬ",
+      "ca": "ells moren",
+      "ko": "그들은 죽는다"
     }
   ],
   "adjectivos2": [
@@ -14148,6 +14624,7 @@
 },
 {
   "term": "invitar alcuno a",
+  "es": "invitar a alguien a",
   "en": "to invite someone to",
   "ru": "пригласить кого-то на",
   "de": "jemanden einladen zu",
@@ -14161,6 +14638,7 @@
 },
 {
   "term": "prender placer in",
+  "es": "tener placer en",
   "en": "to take pleasure in",
   "ru": "получать удовольствие от",
   "de": "Freude an etwas haben",
@@ -14174,6 +14652,7 @@
 },
 {
   "term": "comprar ab",
+  "es": "comprar de",
   "en": "to buy from",
   "ru": "купить у",
   "de": "kaufen von",
@@ -14187,6 +14666,7 @@
 },
 {
   "term": "dicer",
+  "es": "decir",
   "en": "to say / to tell",
   "ru": "сказать",
   "de": "sagen",
@@ -14200,6 +14680,7 @@
 },
 {
   "term": "jocar",
+  "es": "jugar (un deporte)",
   "en": "to play (a sport)",
   "ru": "играть (в спорт)",
   "de": "spielen (Sport)",
@@ -14213,6 +14694,7 @@
 },
 {
   "term": "esser mancate a alcuno",
+  "es": "echar de menos a alguien",
   "en": "to miss someone",
   "ru": "скучать по кому-то",
   "de": "jemanden vermissen",
@@ -14226,6 +14708,7 @@
 },
 {
   "term": "narrar a alcuno",
+  "es": "hablar con alguien",
   "en": "to talk to someone / to tell someone",
   "ru": "рассказать кому-то",
   "de": "jemandem erzählen",
@@ -14239,6 +14722,7 @@
 },
 {
   "term": "similar a",
+  "es": "parecerse a; tener similitudes físicas con",
   "en": "to resemble / to look like",
   "ru": "быть похожим на",
   "de": "ähneln / ähnlich sehen",
@@ -14252,6 +14736,7 @@
 },
 {
   "term": "responder a",
+  "es": "responder a",
   "en": "to answer / to respond to",
   "ru": "ответить на",
   "de": "antworten auf",
@@ -14265,6 +14750,7 @@
 },
 {
   "term": "telephonar a alcuno",
+  "es": "llamar a alguien",
   "en": "to call someone (by phone)",
   "ru": "позвонить кому-то",
   "de": "jemanden anrufen",
@@ -14278,6 +14764,7 @@
 },
 {
   "term": "eliger de",
+  "es": "elegir",
   "en": "to choose from",
   "ru": "выбрать из",
   "de": "auswählen aus",
@@ -14291,6 +14778,7 @@
 },
 {
   "term": "dicer a alcuno de facer alco",
+  "es": "decirle a alguien que haga algo",
   "en": "to tell someone to do something",
   "ru": "сказать кому-то что-то сделать",
   "de": "jemandem sagen etwas zu tun",
@@ -14304,6 +14792,7 @@
 },
 {
   "term": "effortiar se a",
+  "es": "tratar de",
   "en": "to try to",
   "ru": "стараться / пытаться",
   "de": "sich bemühen zu",
@@ -14317,6 +14806,7 @@
 },
 {
   "term": "finir de facer alco",
+  "es": "terminar de hacer algo",
   "en": "to finish doing something",
   "ru": "закончить что-то делать",
   "de": "aufhören etwas zu tun",
@@ -14330,6 +14820,7 @@
 },
 {
   "term": "il es tempore pro dormir",
+  "es": "es hora de dormir",
   "en": "it's time to sleep",
   "ru": "пора спать",
   "de": "es ist Zeit zu schlafen",
@@ -14343,6 +14834,7 @@
 },
 {
   "term": "mancar de",
+  "es": "faltar; descuidar; dejar de",
   "en": "to lack; to neglect; to fail to",
   "ru": "не хватать; пренебрегать; не сделать",
   "de": "mangeln an; vernachlässigen; unterlassen",
@@ -14356,6 +14848,7 @@
 },
 {
   "term": "concepto",
+  "es": "noción; concepto",
   "en": "concept; notion",
   "ru": "понятие; концепт",
   "de": "Begriff; Konzept",
@@ -14369,6 +14862,7 @@
 },
 {
   "term": "io va monstrar vos",
+  "es": "te voy a mostrar",
   "en": "I will show you",
   "ru": "я покажу тебе / вам",
   "de": "ich werde dir / euch zeigen",
@@ -14382,6 +14876,7 @@
 },
 {
   "term": "exir a mangiar",
+  "es": "salir a comer",
   "en": "to go out to eat",
   "ru": "пойти поесть вне дома",
   "de": "essen gehen",
@@ -14395,6 +14890,7 @@
 },
 {
   "term": "io exi",
+  "es": "salgo",
   "en": "I go out",
   "ru": "я выхожу",
   "de": "ich gehe aus",
@@ -14408,6 +14904,7 @@
 },
 {
   "term": "tu exi",
+  "es": "tú sales",
   "en": "you go out",
   "ru": "ты выходишь",
   "de": "du gehst aus",
@@ -14421,6 +14918,7 @@
 },
 {
   "term": "vos exi",
+  "es": "usted sale",
   "en": "you go out (formal or plural)",
   "ru": "вы выходите",
   "de": "Sie gehen aus / ihr geht aus",
@@ -14434,6 +14932,7 @@
 },
 {
   "term": "nos exi",
+  "es": "salimos",
   "en": "we go out",
   "ru": "мы выходим",
   "de": "wir gehen aus",
@@ -14447,6 +14946,7 @@
 },
 {
   "term": "illes exi",
+  "es": "salen",
   "en": "they go out",
   "ru": "они выходят",
   "de": "sie gehen aus",
@@ -14460,6 +14960,7 @@
 },
 {
   "term": "ille exi",
+  "es": "él sale",
   "en": "he goes out",
   "ru": "он выходит",
   "de": "er geht aus",
@@ -14473,6 +14974,7 @@
 },
 {
   "term": "probar alco",
+  "es": "probar algo",
   "en": "to try something",
   "ru": "попробовать что-то",
   "de": "etwas probieren",
@@ -14486,6 +14988,7 @@
 },
 {
   "term": "devenir malade",
+  "es": "enfermarse",
   "en": "to get sick",
   "ru": "заболеть",
   "de": "krank werden",
@@ -14499,6 +15002,7 @@
 },
 {
   "term": "ultra",
+  "es": "más que",
   "en": "more than; beyond",
   "ru": "более чем; за пределами",
   "de": "mehr als; jenseits",
@@ -14512,6 +15016,7 @@
 },
 {
   "term": "querer de facer alco",
+  "es": "pedir hacer algo",
   "en": "to ask to do something",
   "ru": "попросить сделать что-то",
   "de": "bitten etwas zu tun",
@@ -14525,6 +15030,7 @@
 },
 {
   "term": "que facer?",
+  "es": "¿qué hacer?",
   "en": "what to do?",
   "ru": "что делать?",
   "de": "was tun?",
@@ -14538,6 +15044,7 @@
 },
 {
   "term": "nigre",
+  "es": "negro",
   "en": "black",
   "ru": "чёрный",
   "de": "schwarz",
@@ -14551,6 +15058,7 @@
 },
   {
     "term": "como",
+    "es": "cómo",
     "en": "how",
     "ru": "как",
     "de": "wie",
@@ -14564,6 +15072,7 @@
   },
   {
     "term": "le sol",
+    "es": "el único",
     "en": "the only",
     "ru": "единственный",
     "de": "der Einzige",
@@ -14577,6 +15086,7 @@
   },
   {
     "term": "sonar",
+    "es": "jugar",
     "en": "to play (music, instrument)",
     "ru": "играть (музыку)",
     "de": "spielen (Musik)",
@@ -14590,6 +15100,7 @@
   },
   {
     "term": "putar re",
+    "es": "pensar en (opinión)",
     "en": "to think about (opinion)",
     "ru": "думать о (мнение)",
     "de": "denken über",
@@ -14603,6 +15114,7 @@
   },
   {
     "term": "demandar a alcuno de facer alco",
+    "es": "pedirle a alguien que haga algo",
     "en": "to ask someone to do something",
     "ru": "попросить кого-то сделать что-то",
     "de": "jemanden bitten, etwas zu tun",
@@ -14616,6 +15128,7 @@
   },
   {
     "term": "placer",
+    "es": "complacer",
     "en": "to please",
     "ru": "доставлять удовольствие",
     "de": "gefallen",
@@ -14629,6 +15142,7 @@
   },
   {
     "term": "me place",
+    "es": "yo por favor",
     "en": "I like",
     "ru": "мне нравится",
     "de": "mir gefällt",
@@ -14642,6 +15156,7 @@
   },
   {
     "term": "nos mangia pro viver",
+    "es": "comemos para vivir",
     "en": "we eat to live",
     "ru": "мы едим, чтобы жить",
     "de": "wir essen, um zu leben",
@@ -14655,6 +15170,7 @@
   },
   {
     "term": "bon a saper",
+    "es": "bueno saber",
     "en": "good to know",
     "ru": "хорошо знать",
     "de": "gut zu wissen",
@@ -14668,6 +15184,7 @@
   },
   {
     "term": "il es belle amar",
+    "es": "es hermoso amar",
     "en": "it is beautiful to love",
     "ru": "прекрасно любить",
     "de": "es ist schön zu lieben",
@@ -14683,6 +15200,7 @@
   "datas-tempore": [
   {
     "term": "mense",
+    "es": "mes",
     "en": "month",
     "ru": "месяц",
     "de": "Monat",
@@ -14696,6 +15214,7 @@
   },
   {
     "term": "medie-hora",
+    "es": "media hora",
     "en": "half an hour",
     "ru": "полчаса",
     "de": "halbe Stunde",
@@ -14709,6 +15228,7 @@
   },
   {
     "term": "januario",
+    "es": "enero",
     "en": "January",
     "ru": "январь",
     "de": "Januar",
@@ -14722,6 +15242,7 @@
   },
   {
     "term": "februario",
+    "es": "febrero",
     "en": "February",
     "ru": "февраль",
     "de": "Februar",
@@ -14735,6 +15256,7 @@
   },
   {
     "term": "martio",
+    "es": "marzo",
     "en": "March",
     "ru": "март",
     "de": "März",
@@ -14748,6 +15270,7 @@
   },
   {
     "term": "april",
+    "es": "abril",
     "en": "April",
     "ru": "апрель",
     "de": "April",
@@ -14761,6 +15284,7 @@
   },
   {
     "term": "maio",
+    "es": "mayo",
     "en": "May",
     "ru": "май",
     "de": "Mai",
@@ -14774,6 +15298,7 @@
   },
   {
     "term": "junio",
+    "es": "junio",
     "en": "June",
     "ru": "июнь",
     "de": "Juni",
@@ -14787,6 +15312,7 @@
   },
   {
     "term": "julio",
+    "es": "julio",
     "en": "July",
     "ru": "июль",
     "de": "Juli",
@@ -14800,6 +15326,7 @@
   },
   {
     "term": "septembre",
+    "es": "septiembre",
     "en": "September",
     "ru": "сентябрь",
     "de": "September",
@@ -14813,6 +15340,7 @@
   },
   {
     "term": "octobre",
+    "es": "octubre",
     "en": "October",
     "ru": "октябрь",
     "de": "Oktober",
@@ -14826,6 +15354,7 @@
   },
   {
     "term": "augusto",
+    "es": "agosto",
     "en": "August",
     "ru": "август",
     "de": "August",
@@ -14839,6 +15368,7 @@
   },
   {
     "term": "novembre",
+    "es": "noviembre",
     "en": "November",
     "ru": "ноябрь",
     "de": "November",
@@ -14852,6 +15382,7 @@
   },
   {
     "term": "decembre",
+    "es": "diciembre",
     "en": "December",
     "ru": "декабрь",
     "de": "Dezember",
@@ -14865,6 +15396,7 @@
   },
   {
     "term": "periodo",
+    "es": "período",
     "en": "period",
     "ru": "период",
     "de": "Zeitraum",
@@ -14878,6 +15410,7 @@
   },
   {
     "term": "initio",
+    "es": "inicio",
     "en": "beginning",
     "ru": "начало",
     "de": "Anfang",
@@ -14891,6 +15424,7 @@
   },
   {
     "term": "ab lunedi a venerdi",
+    "es": "de lunes a viernes",
     "en": "from Monday to Friday",
     "ru": "с понедельника по пятницу",
     "de": "von Montag bis Freitag",
@@ -14904,6 +15438,7 @@
   },
   {
     "term": "estate",
+    "es": "verano",
     "en": "summer",
     "ru": "лето",
     "de": "Sommer",
@@ -14917,6 +15452,7 @@
   },
   {
     "term": "durante le lunedis",
+    "es": "los lunes",
     "en": "on Mondays",
     "ru": "по понедельникам",
     "de": "montags",
