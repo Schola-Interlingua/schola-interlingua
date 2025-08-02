@@ -4219,20 +4219,6 @@
       "ko": ""
     },
     {
-      "term": "innovative",
-      "es": "innovador",
-      "en": "innovative",
-      "ru": "инновационный",
-      "de": "innovativ",
-      "fr": "innovant",
-      "it": "innovativo",
-      "pt": "inovador",
-      "zh": "创新的",
-      "ja": "革新的な",
-      "ca": "innovador",
-      "ko": "혁신적인"
-    },
-    {
       "term": "instrumentos",
       "es": "",
       "en": "",
@@ -4555,20 +4541,6 @@
       "ko": ""
     },
     {
-      "term": "Python",
-      "es": "Python (lenguage de programmation)",
-      "en": "Python (programming language)",
-      "ru": "Python (язык программирования)",
-      "de": "Python (Programmiersprache)",
-      "fr": "Python (langage de programmation)",
-      "it": "Python (linguaggio di programmazione)",
-      "pt": "Python (linguagem de programação)",
-      "zh": "Python（编程语言）",
-      "ja": "Python（プログラミング言語）",
-      "ca": "Python (llenguatge de programació)",
-      "ko": "Python (프로그래밍 언어)"
-    },
-    {
       "term": "quando",
       "es": "cuando",
       "en": "when",
@@ -4833,20 +4805,6 @@
       "ja": "Python（プログラミング言語）",
       "ca": "Python (llenguatge de programació)",
       "ko": "Python (프로그래밍 언어)"
-    },
-    {
-      "term": "JavaScript",
-      "es": "JavaScript (lenguage de programmation)",
-      "en": "JavaScript (programming language)",
-      "ru": "JavaScript (язык программирования)",
-      "de": "JavaScript (Programmiersprache)",
-      "fr": "JavaScript (langage de programmation)",
-      "it": "JavaScript (linguaggio di programmazione)",
-      "pt": "JavaScript (linguagem de programação)",
-      "zh": "JavaScript（编程语言）",
-      "ja": "JavaScript（プログラミング言語）",
-      "ca": "JavaScript (llenguatge de programació)",
-      "ko": "JavaScript (프로그래밍 언어)"
     },
     {
       "term": "application web",
