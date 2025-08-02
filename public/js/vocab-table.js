@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (!lessonId) return;
   const data = await fetch('/data/vocab.json').then(r => r.json());
   const items = data[lessonId] || [];
+  window.items = items;
   const lang = localStorage.getItem('lang') || 'es';
   items.forEach(item => {
     const tr = document.createElement('tr');
