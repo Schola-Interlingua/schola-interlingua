@@ -85,13 +85,13 @@
 
     const current = progress.streak?.current || 0;
     const best = progress.streak?.best || 0;
-    section.querySelector('#streak-current').textContent = `${current} días seguidos`;
-    section.querySelector('#streak-best').textContent = `Mejor racha: ${best} días`;
+    section.querySelector('#streak-current').textContent = `${current} dies consecutive`;
+    section.querySelector('#streak-best').textContent = `Melior serie: ${best} dies`;
 
     const next = LESSON_ORDER.find(id => !(lessons[id] && lessons[id].completed));
     const nextEl = section.querySelector('#next-lesson');
     if(next){
-      nextEl.textContent = `Seguí con la Lección ${formatLesson(next)}`;
+      nextEl.textContent = `Continua con le Lection ${formatLesson(next)}`;
     }else{
       nextEl.textContent = '';
     }
@@ -148,10 +148,10 @@
       const progress = loadProgress();
       const data = progress.lessons[lessonId];
       if(data && data.completed){
-        btn.textContent = 'Rehacer lección';
-        info.textContent = `Última vez: ${data.last_done}`;
+        btn.textContent = 'Refacer le lection';
+        info.textContent = `Ultime vice: ${data.last_done}`;
       }else{
-        btn.textContent = 'Marcar lección como hecha';
+        btn.textContent = 'Marcar le lection como facte';
         info.textContent = '';
       }
     }
