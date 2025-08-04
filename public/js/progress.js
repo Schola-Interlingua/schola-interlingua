@@ -11,7 +11,7 @@
       localStorage.removeItem(test);
       return true;
     }catch(e){
-      console.log('localStorage no disponible');
+      console.log('localStorage non disponibile');
       return false;
     }
   }
@@ -63,7 +63,7 @@
     const section = document.getElementById('progress-section');
     if(!section) return;
     if(!storageAvailable()){
-      section.textContent = 'Progreso no se puede guardar';
+      section.textContent = 'Le progresso non pote esser salvate';
       return;
     }
     const progress = loadProgress();
@@ -91,7 +91,7 @@
     const next = LESSON_ORDER.find(id => !(lessons[id] && lessons[id].completed));
     const nextEl = section.querySelector('#next-lesson');
     if(next){
-      nextEl.textContent = `Continua con le Lection ${formatLesson(next)}`;
+      nextEl.textContent = `Continua con le lection ${formatLesson(next)}`;
     }else{
       nextEl.textContent = '';
     }
@@ -99,7 +99,7 @@
 
   function exportProgress(){
     const data = localStorage.getItem(STORAGE_KEY);
-    if(!data){ alert('No hay progreso para exportar'); return; }
+    if(!data){ alert('Il non ha progresso pro exportar'); return; }
     const blob = new Blob([data], {type:'application/json'});
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
@@ -109,14 +109,14 @@
   }
 
   function importProgress(){
-    const json = prompt('Pegá tu progreso en JSON:');
+    const json = prompt('Incolla tu progresso in formato JSON:');
     if(!json) return;
     try{
       const parsed = JSON.parse(json);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
       renderIndex();
     }catch(e){
-      alert('JSON inválido');
+      alert('JSON invalide');
     }
   }
 
@@ -130,7 +130,7 @@
     container.insertAdjacentElement('afterend', wrap);
 
     if(!storageAvailable()){
-      wrap.textContent = 'Progreso no se puede guardar';
+      wrap.textContent = 'Le progresso non pote esser salvate';
       return;
     }
 
@@ -176,7 +176,7 @@
   function init(){
     if(!storageAvailable()){
       const section = document.getElementById('progress-section');
-      if(section) section.textContent = 'Progreso no se puede guardar';
+      if(section) section.textContent = 'Le progresso non pote esser salvate';
       return;
     }
     renderIndex();
