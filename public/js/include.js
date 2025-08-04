@@ -31,4 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   include("nav", "navbar.html", initLang);
   include("footer", "footer.html");
+
+  // Cargar script de progreso en todas las páginas
+  const progressScript = document.createElement('script');
+  progressScript.src = "/js/progress.js";
+  document.body.appendChild(progressScript);
 });

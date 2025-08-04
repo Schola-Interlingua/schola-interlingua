@@ -344,6 +344,26 @@ main {
   background: #0a3a63;
 }
 
+/* Progreso */
+#progress-section .progress-bar {
+  background: #ddd;
+  height: 10px;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+#progress-section .progress-bar-fill {
+  background: var(--primary-color);
+  height: 100%;
+  width: 0;
+}
+#streak-fire {
+  cursor: help;
+  margin-right: 0.5rem;
+}
+.lesson-progress-wrapper {
+  margin-top: 1rem;
+}
 /* Quiz */
 .quiz-card {
   max-width: 500px;
