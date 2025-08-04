@@ -21,11 +21,11 @@
         order.forEach((lessonId, idx) => {
           const key = lessonId.startsWith('lection') ? lessonId.replace('lection', '') : lessonId;
           const items = data[key] || [];
-          const title = (lessonId.startsWith('lection')
-            ? `Lection ${lessonId.replace('lection', '')}`
-            : lessonId.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ')
-          ).replace(/,/g, '');
-          const deck = `Schola Interlingua::Lesson ${String(idx + 1).padStart(2, '0')} - ${title}`;
+          const deck = sanitize(
+            lessonId.startsWith('lection')
+              ? `Lection${lessonId.replace('lection', '')}`
+              : lessonId.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('')
+          );
 
           items.forEach(entry => {
             if (!entry.term) return;
