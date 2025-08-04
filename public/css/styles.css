@@ -26,6 +26,39 @@ a {
   color: inherit;
 }
 
+/* Botones reutilizables */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+  color: #fff;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn:hover {
+  filter: brightness(1.1);
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn + .btn {
+  margin-left: 0.5rem;
+}
+.btn-primary {
+  background: var(--primary-color);
+}
+.btn-secondary {
+  background: #6c757d;
+}
+.btn-success {
+  background: #28a745;
+}
+.btn-danger {
+  background: #dc3545;
+}
+
 /* Header y navegación */
 header {
   background: var(--primary-color);
@@ -344,6 +377,26 @@ main {
   background: #0a3a63;
 }
 
+/* Progreso */
+#progress-section .progress-bar {
+  background: #ddd;
+  height: 10px;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+#progress-section .progress-bar-fill {
+  background: var(--primary-color);
+  height: 100%;
+  width: 0;
+}
+#streak-fire {
+  cursor: help;
+  margin-right: 0.5rem;
+}
+.lesson-progress-wrapper {
+  margin-top: 1rem;
+}
 /* Quiz */
 .quiz-card {
   max-width: 500px;
