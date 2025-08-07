@@ -499,3 +499,66 @@ main {
     grid-template-columns: 1fr;
   }
 }
+
+/* Juegos */
+.memory-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.memory-card {
+  background: var(--card-bg);
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.match-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.match-column {
+  flex: 1;
+}
+
+.match-item {
+  display: block;
+  width: 100%;
+  margin: 4px 0;
+}
+
+.match-item.selected {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.wordsearch-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 2px;
+  margin-top: 1rem;
+}
+
+.wordsearch-grid button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.wordsearch-grid button.selected {
+  background: #bbdefb;
+}
+
+.wordsearch-grid button.found {
+  background: #c8e6c9;
+}
