@@ -34,12 +34,11 @@
     const form = document.getElementById('blank-form');
     const feedback = document.getElementById('blank-feedback');
     const nextBtn = document.getElementById('blank-next');
-    const lang = gamesCommon.getLang();
     let answer = '';
 
     async function loadPhrase() {
       const [entry] = await gamesCommon.getRandomEntries(1);
-      const words = (entry[lang] || entry['es']).split(' ');
+      const words = entry.term.split(' ');
       const idx = Math.floor(Math.random()*words.length);
       answer = words[idx];
       phraseEl.innerHTML = '';

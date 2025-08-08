@@ -104,7 +104,9 @@
     }
 
     function clearSelection(){
-      gridEl.querySelectorAll('.selected').forEach(b=>b.classList.remove('selected'));
+      gridEl.querySelectorAll('.selected').forEach(b=>{
+        if(!b.classList.contains('found')) b.classList.remove('selected');
+      });
       start=null;
       window.removeEventListener('pointerup',cancelSelect);
     }
