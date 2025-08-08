@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Unir pares</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <nav></nav>
+  <main class="card">
+    <h1>Unir pares</h1>
+    <a href="index.html" class="btn btn-secondary">Volver a Juegos</a>
+    <div id="match-container" class="match-container" role="group">
+      <div class="match-column" id="terms" aria-label="Términos"></div>
+      <div class="match-column" id="defs" aria-label="Definiciones"></div>
+    </div>
+    <p id="match-feedback" aria-live="polite"></p>
+  </main>
+  <footer></footer>
+  <script src="/js/include.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/games-common.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const lang = gamesCommon.getLang();
+    const termsCol = document.getElementById('terms');
+    const defsCol = document.getElementById('defs');
+    const feedback = document.getElementById('match-feedback');
+    let selected = null;
+
+    const entries = await gamesCommon.getRandomEntries(5);
+    const termButtons = [];
+    const defButtons = [];
+    entries.forEach(e => {
+      const tBtn = document.createElement('button');
+      tBtn.textContent = e.term;
+      tBtn.className = 'match-item';
+      tBtn.dataset.term = e.term;
+      tBtn.addEventListener('click', () => {
+        if (tBtn.disabled) return;
+        if (selected) selected.classList.remove('selected');
+        selected = tBtn;
+        tBtn.classList.add('selected');
+      });
+      termsCol.appendChild(tBtn);
+      termButtons.push(tBtn);
+
+      const dBtn = document.createElement('button');
+      dBtn.textContent = e[lang] || e['es'];
+      dBtn.className = 'match-item';
+      dBtn.dataset.term = e.term;
+      dBtn.addEventListener('click', () => {
+        if (!selected || dBtn.disabled) return;
+        if (dBtn.dataset.term === selected.dataset.term) {
+          dBtn.disabled = true;
+          selected.disabled = true;
+          dBtn.classList.add('matched');
+          selected.classList.remove('selected');
+          selected = null;
+          if (termButtons.every(b => b.disabled)) {
+            feedback.textContent = '¡Bien hecho!';
+          }
+        } else {
+          feedback.textContent = 'Incorrecto';
+        }
+      });
+      defButtons.push(dBtn);
+    });
+
+    gamesCommon.shuffle(defButtons).forEach(btn => defsCol.appendChild(btn));
+  });
+  </script>
+</body>
+</html>

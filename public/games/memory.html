@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Parejas</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <nav></nav>
+  <main class="card">
+    <h1>Parejas</h1>
+    <a href="index.html" class="btn btn-secondary">Volver a Juegos</a>
+    <div id="memory-board" class="memory-board" role="grid"></div>
+    <p id="memory-score" aria-live="polite"></p>
+    <button id="memory-restart" class="btn btn-primary" style="display:none">Reiniciar</button>
+  </main>
+  <footer></footer>
+  <script src="/js/include.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/games-common.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const board = document.getElementById('memory-board');
+    const score = document.getElementById('memory-score');
+    const restart = document.getElementById('memory-restart');
+    const lang = gamesCommon.getLang();
+    let first = null;
+    let lock = false;
+    let moves = 0;
+
+    async function setup() {
+      const entries = await gamesCommon.getRandomEntries(4);
+      const cards = [];
+      entries.forEach(e => {
+        const trans = e[lang] || e['es'];
+        cards.push({ id: e.term, text: e.term });
+        cards.push({ id: e.term, text: trans });
+      });
+      gamesCommon.shuffle(cards);
+      board.innerHTML = '';
+      score.textContent = '';
+      restart.style.display = 'none';
+      first = null; moves = 0; lock = false;
+      cards.forEach(c => {
+        const btn = document.createElement('button');
+        btn.className = 'memory-card';
+        btn.setAttribute('data-id', c.id);
+        btn.setAttribute('aria-label', 'carta');
+        btn.addEventListener('click', () => flip(btn, c.text));
+        board.appendChild(btn);
+      });
+    }
+
+    function flip(card, text) {
+      if (lock || card.classList.contains('matched') || card.textContent) return;
+      card.textContent = text;
+      if (!first) {
+        first = card;
+      } else {
+        moves++;
+        if (first.dataset.id === card.dataset.id && first !== card) {
+          first.classList.add('matched');
+          card.classList.add('matched');
+          first = null;
+          if (board.querySelectorAll('.matched').length === board.children.length) {
+            score.textContent = `Completado en ${moves} movimientos`;
+            restart.style.display = 'inline-block';
+          }
+        } else {
+          lock = true;
+          setTimeout(() => {
+            first.textContent = '';
+            card.textContent = '';
+            first = null;
+            lock = false;
+          }, 800);
+        }
+      }
+    }
+
+    restart.addEventListener('click', setup);
+    setup();
+  });
+  </script>
+</body>
+</html>
