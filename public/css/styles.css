@@ -499,3 +499,100 @@ main {
     grid-template-columns: 1fr;
   }
 }
+
+/* Juegos */
+.memory-board {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(80px, 1fr));
+  gap: 10px;
+  margin: 1rem auto 0;
+  max-width: 240px;
+}
+
+.memory-card {
+  background: var(--card-bg);
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.memory-card.matched {
+  background: #c8e6c9;
+}
+
+.match-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.match-column {
+  flex: 1;
+  min-width: 150px;
+}
+
+.match-item {
+  display: block;
+  width: 100%;
+  margin: 4px 0;
+}
+
+.match-item.selected {
+  filter: brightness(0.85);
+}
+
+.wordsearch-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 2px;
+  margin-top: 1rem;
+  user-select: none;
+  touch-action: none;
+}
+
+.wordsearch-grid button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.wordsearch-grid button.selected {
+  background: #bbdefb;
+}
+
+.blank-form input {
+  border: none;
+  border-bottom: 2px solid var(--primary-color);
+  text-align: center;
+  margin: 0 4px;
+  padding: 0.25rem;
+}
+
+.odd-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.odd-list button {
+  width: 100%;
+}
+
+.match-container {
+  justify-content: center;
+}
+
+.wordsearch-grid button.found {
+  background: #c8e6c9;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Sopa de letras</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <nav></nav>
+  <main class="card">
+    <h1>Sopa de letras</h1>
+    <a href="/index.html" class="btn btn-secondary">Volver a Juegos</a>
+    <div id="wordsearch" class="wordsearch-grid" role="grid"></div>
+    <ul id="wordsearch-list"></ul>
+    <p id="wordsearch-feedback" aria-live="polite"></p>
+  </main>
+  <footer></footer>
+  <script src="/js/include.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/games-common.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const gridEl = document.getElementById('wordsearch');
+    const listEl = document.getElementById('wordsearch-list');
+    const feedback = document.getElementById('wordsearch-feedback');
+    const size = 10;
+    let words = [];
+    let start = null;
+    let cells = [];
+
+    function posToIndex(r,c){ return r*size+c; }
+
+    function renderGrid(matrix){
+      gridEl.innerHTML='';
+      cells = [];
+      for(let r=0;r<size;r++){
+        for(let c=0;c<size;c++){
+          const btn=document.createElement('button');
+          btn.textContent=matrix[r][c];
+          btn.setAttribute('data-r',r);
+          btn.setAttribute('data-c',c);
+          btn.className='ws-cell';
+          btn.addEventListener('pointerdown',startSelect);
+          btn.addEventListener('pointerenter',moveSelect);
+          btn.addEventListener('pointerup',endSelect);
+          btn.addEventListener('pointerleave',()=>{});
+          btn.addEventListener('dragstart',e=>e.preventDefault());
+          gridEl.appendChild(btn);
+          cells.push(btn);
+        }
+      }
+    }
+
+    function startSelect(e){
+      e.preventDefault();
+      clearSelection();
+      start=e.target;
+      start.classList.add('selected');
+      window.addEventListener('pointerup',cancelSelect);
+    }
+
+    function moveSelect(e){
+      if(!start||e.buttons===0)return;
+      clearSelection();
+      const sr=parseInt(start.dataset.r);const sc=parseInt(start.dataset.c);
+      const er=parseInt(e.target.dataset.r);const ec=parseInt(e.target.dataset.c);
+      if(sr===er||sc===ec){
+        const rStep=sr===er?0:(er>sr?1:-1);
+        const cStep=sc===ec?0:(ec>sc?1:-1);
+        let r=sr,c=sc;
+        while(true){
+          const btn=cells[posToIndex(r,c)];
+          btn.classList.add('selected');
+          if(r===er && c===ec) break;
+          r+=rStep;c+=cStep;
+        }
+      }
+    }
+
+    function endSelect(e){
+      if(!start) return;
+      const selected=[...gridEl.querySelectorAll('.selected')];
+      const letters=selected.map(b=>b.textContent).join('');
+      const reversed=selected.map(b=>b.textContent).reverse().join('');
+      const found=words.find(w=>w.word===letters||w.word===reversed);
+      if(found && !found.found){
+        selected.forEach(b=>b.classList.add('found'));
+        found.found=true;
+        updateList();
+        if(words.every(w=>w.found)) feedback.textContent='¡Completado!';
+      }
+      clearSelection();
+    }
+
+    function cancelSelect(){
+      clearSelection();
+    }
+
+    function clearSelection(){
+      gridEl.querySelectorAll('.selected').forEach(b=>b.classList.remove('selected'));
+      start=null;
+      window.removeEventListener('pointerup',cancelSelect);
+    }
+
+    function updateList(){
+      listEl.innerHTML='';
+      words.forEach(w=>{
+        const li=document.createElement('li');
+        li.textContent=w.word.toLowerCase();
+        if(w.found) li.style.textDecoration='line-through';
+        listEl.appendChild(li);
+      });
+    }
+
+    async function init(){
+      const entries=await gamesCommon.getRandomEntries(6);
+      words=entries.map(e=>({word:e.term.toUpperCase(), found:false}));
+      const matrix=Array.from({length:size},()=>Array(size).fill(null));
+      words.forEach(w=>{
+        const len=w.word.length;
+        let placed=false;let attempts=0;
+        while(!placed && attempts<100){
+          attempts++;
+          const dir=Math.random()<0.5?'H':'V';
+          const r=dir==='H'?Math.floor(Math.random()*size):Math.floor(Math.random()*(size-len));
+          const c=dir==='V'?Math.floor(Math.random()*size):Math.floor(Math.random()*(size-len));
+          let fits=true;
+          for(let i=0;i<len;i++){
+            const rr=dir==='H'?r:r+i;
+            const cc=dir==='H'?c+i:c;
+            if(matrix[rr][cc] && matrix[rr][cc]!==w.word[i]){fits=false;break;}
+          }
+          if(fits){
+            for(let i=0;i<len;i++){
+              const rr=dir==='H'?r:r+i;
+              const cc=dir==='H'?c+i:c;
+              matrix[rr][cc]=w.word[i];
+            }
+            placed=true;
+          }
+        }
+      });
+      const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      for(let r=0;r<size;r++){
+        for(let c=0;c<size;c++){
+          if(!matrix[r][c]) matrix[r][c]=letters[Math.floor(Math.random()*letters.length)];
+        }
+      }
+      renderGrid(matrix);
+      updateList();
+    }
+
+    init();
+  });
+  </script>
+</body>
+</html>

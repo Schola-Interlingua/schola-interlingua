@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>El intruso</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <nav></nav>
+  <main class="card">
+    <h1>El intruso</h1>
+    <a href="/index.html" class="btn btn-secondary">Volver a Juegos</a>
+    <ul id="odd-list" class="odd-list"></ul>
+    <p id="odd-feedback" aria-live="polite"></p>
+    <button id="odd-next" class="btn btn-secondary">Próximo</button>
+  </main>
+  <footer></footer>
+  <script src="/js/include.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/games-common.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const list = document.getElementById('odd-list');
+    const feedback = document.getElementById('odd-feedback');
+    const nextBtn = document.getElementById('odd-next');
+    const lang = gamesCommon.getLang();
+    let correct = null;
+    let allEntries = [];
+
+    async function initData() {
+      allEntries = await gamesCommon.loadVocab();
+      newRound();
+    }
+
+    function newRound() {
+      feedback.textContent = '';
+      list.innerHTML = '';
+      const groups = Array.from(new Set(allEntries.map(e => e.group)));
+      const group = groups[Math.floor(Math.random()*groups.length)];
+      const groupWords = allEntries.filter(e => e.group === group);
+      const intruder = gamesCommon.shuffle(allEntries.filter(e => e.group !== group))[0];
+      const options = gamesCommon.shuffle([
+        ...gamesCommon.shuffle(groupWords).slice(0,3),
+        intruder
+      ]);
+      correct = intruder.term;
+      options.forEach(o => {
+        const li = document.createElement('li');
+        const btn = document.createElement('button');
+        btn.textContent = o[lang] || o['es'];
+        btn.className = 'btn btn-primary';
+        btn.dataset.term = o.term;
+        btn.addEventListener('click', () => {
+          list.querySelectorAll('button').forEach(b => b.disabled = true);
+          if (o.term === correct) {
+            btn.classList.add('btn-success');
+            feedback.textContent = '¡Correcto!';
+          } else {
+            btn.classList.add('btn-danger');
+            const correctBtn = list.querySelector(`button[data-term="${correct}"]`);
+            if (correctBtn) correctBtn.classList.add('btn-success');
+            feedback.textContent = 'Intenta de nuevo';
+          }
+        });
+        li.appendChild(btn);
+        list.appendChild(li);
+      });
+    }
+
+    nextBtn.addEventListener('click', newRound);
+    initData();
+  });
+  </script>
+</body>
+</html>

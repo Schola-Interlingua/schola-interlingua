@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Completar huecos</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <nav></nav>
+  <main class="card">
+    <h1>Completar huecos</h1>
+    <a href="/index.html" class="btn btn-secondary">Volver a Juegos</a>
+    <form id="blank-form" class="blank-form" aria-label="Formulario de completar">
+      <p id="blank-phrase"></p>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+    <p id="blank-feedback" aria-live="polite"></p>
+    <button id="blank-next" class="btn btn-secondary" style="display:none">Nueva frase</button>
+  </main>
+  <footer></footer>
+  <script src="/js/include.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/games-common.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const phraseEl = document.getElementById('blank-phrase');
+    const form = document.getElementById('blank-form');
+    const feedback = document.getElementById('blank-feedback');
+    const nextBtn = document.getElementById('blank-next');
+    const lang = gamesCommon.getLang();
+    let answer = '';
+
+    async function loadPhrase() {
+      const [entry] = await gamesCommon.getRandomEntries(1);
+      const words = (entry[lang] || entry['es']).split(' ');
+      const idx = Math.floor(Math.random()*words.length);
+      answer = words[idx];
+      phraseEl.innerHTML = '';
+      words.forEach((w,i) => {
+        if (i === idx) {
+          const inp = document.createElement('input');
+          inp.id = 'blank-input';
+          inp.setAttribute('aria-label','Respuesta');
+          inp.required = true;
+          inp.placeholder = '_'.repeat(answer.length);
+          inp.style.width = `${answer.length + 1}ch`;
+          phraseEl.appendChild(inp);
+          phraseEl.appendChild(document.createTextNode(' '));
+        } else {
+          phraseEl.appendChild(document.createTextNode(w + ' '));
+        }
+      });
+      feedback.textContent = '';
+      nextBtn.style.display = 'none';
+      document.getElementById('blank-input').focus();
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = document.getElementById('blank-input').value.trim();
+      if (val.toLowerCase() === answer.toLowerCase()) {
+        feedback.textContent = 'Correcto';
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = `Incorrecto: ${answer}`;
+        feedback.style.color = 'red';
+      }
+      nextBtn.style.display = 'inline-block';
+    });
+
+    nextBtn.addEventListener('click', loadPhrase);
+    loadPhrase();
+  });
+  </script>
+</body>
+</html>
