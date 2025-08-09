@@ -11,3 +11,6 @@ Un sincere gratias anque a tote illes que contribue a meliorar iste repositorio 
 
 ### Hospite del projecto
 Iste projecto es actualmente hospitate in vercel.com, un platforma moderne pro le distribution de applicationes web.
+
+### Tecnologias
+Le interfacie incorpora componentes rendite con [React](https://reactjs.org) pro adder un tocco moderne al sito sin necessitate de un processo de compilation.
