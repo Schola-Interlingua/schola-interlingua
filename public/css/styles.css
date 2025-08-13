@@ -399,6 +399,7 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: var(--text-color);
 }
 
 h2 {
@@ -1111,6 +1112,16 @@ body.dark-mode h4,
 body.dark-mode h5,
 body.dark-mode h6 {
   color: var(--text-color);
+}
+
+/* Corregir h1 en modo oscuro - sobrescribir el gradiente */
+body.dark-mode h1 {
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  color: #fbbf24;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .card {
