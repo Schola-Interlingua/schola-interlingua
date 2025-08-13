@@ -414,6 +414,44 @@ h2 {
   padding: 1.5rem;
   border-radius: var(--radius);
   border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Hacer que el audio tenga el mismo ancho que el text-block */
+#audio audio {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mejorar la apariencia del reproductor de audio */
+#audio audio::-webkit-media-controls-panel {
+  background-color: var(--card-bg);
+}
+
+#audio audio::-webkit-media-controls-play-button {
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+#audio audio::-webkit-media-controls-play-button:hover {
+  background-color: var(--primary-light);
+}
+
+/* Responsive para el audio */
+@media (max-width: 768px) {
+  #audio {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  #audio audio {
+    width: 100%;
+    min-width: 250px;
+  }
 }
 
 /* Layout mejorado para texto e imagen */
