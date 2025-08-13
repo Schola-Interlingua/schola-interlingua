@@ -6,6 +6,13 @@
   --radius: 8px;
 }
 
+body[data-theme='dark'] {
+  --primary-color: #4dabf7;
+  --bg-color: #1e1e1e;
+  --text-color: #f5f5f5;
+  --card-bg: #2c2c2c;
+}
+
 /* Reset y base */
 * {
   box-sizing: border-box;
@@ -13,9 +20,10 @@
   padding: 0;
 }
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   background: var(--bg-color);
   color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 img {
   max-width: 100%;
@@ -24,6 +32,13 @@ img {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
 }
 
 /* Botones reutilizables */
@@ -61,7 +76,7 @@ a {
 
 /* Header y navegación */
 header {
-  background: var(--primary-color);
+  background: linear-gradient(90deg, var(--primary-color), #4a90e2);
   padding: 1rem;
   border-radius: 0 0 var(--radius) var(--radius);
 }
@@ -131,6 +146,7 @@ main {
   border-radius: var(--radius);
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   margin-bottom: 2rem;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 h2 {
   margin-bottom: 1rem;
