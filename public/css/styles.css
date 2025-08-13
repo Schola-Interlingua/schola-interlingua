@@ -25,6 +25,10 @@ body.dark-mode {
   --text-muted: #94a3b8;
   --card-bg: #1e293b;
   --border-color: #334155;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.6);
 }
 
 /* Importar fuentes modernas */
@@ -79,6 +83,7 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 img {
@@ -1091,4 +1096,187 @@ body.dark-mode .btn-primary:hover {
 /* Efectos de transición para cambios de tema */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Estilos específicos para modo oscuro */
+body.dark-mode {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: var(--text-color);
+}
+
+body.dark-mode .card {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+body.dark-mode .text-block {
+  color: var(--text-color);
+}
+
+body.dark-mode .vocab-table {
+  background: linear-gradient(135deg, #1e3a5f, #2d1b69);
+}
+
+body.dark-mode .vocab-table th,
+body.dark-mode .vocab-table td {
+  color: var(--text-color);
+}
+
+body.dark-mode .vocab-table li {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+}
+
+body.dark-mode .vocab-table li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .exercise-item {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+body.dark-mode .exercise-item:hover {
+  background: var(--card-bg);
+}
+
+body.dark-mode .exercise-item .term {
+  color: #60a5fa;
+}
+
+body.dark-mode .grammar,
+body.dark-mode .exercise {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+body.dark-mode .quiz-option {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .quiz-option:hover {
+  background: var(--bg-secondary);
+  border-color: #60a5fa;
+}
+
+body.dark-mode .tooltiptext {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+body.dark-mode #audio {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .btn-primary {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+}
+
+body.dark-mode .btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+}
+
+body.dark-mode .vocab-toggle {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+}
+
+body.dark-mode .vocab-toggle:hover {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+}
+
+body.dark-mode .curso-btn {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+}
+
+body.dark-mode .curso-btn:hover {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+}
+
+/* Asegurar que los enlaces sean visibles en modo oscuro */
+body.dark-mode a:not(.btn):not(.nav-brand):not(.footer-link) {
+  color: #60a5fa;
+}
+
+body.dark-mode a:not(.btn):not(.nav-brand):not(.footer-link):hover {
+  color: #93c5fd;
+}
+
+/* Mejorar contraste en modo oscuro */
+body.dark-mode .text-muted {
+  color: #cbd5e1;
+}
+
+body.dark-mode .border-color {
+  border-color: #475569;
+}
+
+/* Estilos adicionales para elementos específicos en modo oscuro */
+body.dark-mode p {
+  color: var(--text-color);
+}
+
+body.dark-mode li {
+  color: var(--text-color);
+}
+
+body.dark-mode span {
+  color: var(--text-color);
+}
+
+body.dark-mode div {
+  color: var(--text-color);
+}
+
+/* Mejorar visibilidad de elementos de progreso en modo oscuro */
+body.dark-mode #progress-section .progress-bar {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode #progress-section .progress-bar-fill {
+  background: linear-gradient(90deg, #60a5fa, #3b82f6);
+}
+
+/* Mejorar visibilidad de elementos de audio en modo oscuro */
+body.dark-mode audio {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Asegurar que los iconos sean visibles en modo oscuro */
+body.dark-mode .fas,
+body.dark-mode .far,
+body.dark-mode .fab {
+  color: var(--text-color);
+}
+
+/* Mejorar contraste de elementos de formulario en modo oscuro */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  border-color: #60a5fa;
+  outline-color: #60a5fa;
 }
