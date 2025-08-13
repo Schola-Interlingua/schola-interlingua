@@ -65,11 +65,41 @@ function buildCursoLink() {
   else navLinks.appendChild(li);
 }
 
+function initThemeToggle() {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  const icon = btn.querySelector('i');
+
+  function setTheme(mode) {
+    if (mode === 'dark') {
+      document.body.classList.add('dark-mode');
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+      btn.setAttribute('aria-label', 'Cambiar a modo claro');
+    } else {
+      document.body.classList.remove('dark-mode');
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+      btn.setAttribute('aria-label', 'Cambiar a modo oscuro');
+    }
+  }
+
+  const saved = localStorage.getItem('theme') || 'light';
+  setTheme(saved);
+
+  btn.addEventListener('click', () => {
+    const newMode = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+    localStorage.setItem('theme', newMode);
+    setTheme(newMode);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const timer = setInterval(() => {
     if (document.querySelector('.nav-links')) {
       clearInterval(timer);
       buildCursoLink();
+      initThemeToggle();
     }
   }, 50);
 });
