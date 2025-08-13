@@ -1,0 +1,9 @@
+node_modules
+.dist
+vite.config.js.timestamp
+.DS_Store
+dist
+
+# Legacy site
+public/**
+!public/README.md
