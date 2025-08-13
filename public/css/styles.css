@@ -1184,6 +1184,21 @@ body.dark-mode .quiz-option:hover {
   border-color: #60a5fa;
 }
 
+/* Asegurar que las respuestas correctas e incorrectas sean visibles en modo oscuro */
+body.dark-mode .quiz-option.correct {
+  background: linear-gradient(135deg, #198754, #20c997) !important;
+  color: #fff !important;
+  border-color: #198754 !important;
+  box-shadow: 0 0 0 2px rgba(25, 135, 84, 0.3);
+}
+
+body.dark-mode .quiz-option.incorrect {
+  background: linear-gradient(135deg, #dc3545, #e74c3c) !important;
+  color: #fff !important;
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.3);
+}
+
 body.dark-mode .tooltiptext {
   background: var(--card-bg);
   color: var(--text-color);
