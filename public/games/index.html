@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juegos - Schola Interlingua</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .games-container {
             max-width: 1200px;
@@ -161,6 +162,38 @@
             .features-grid {
                 grid-template-columns: 1fr;
             }
+        }
+        
+        /* Estilos para tooltips en la página de índice */
+        .game-card .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+        
+        .game-card .tooltiptext {
+            visibility: hidden;
+            width: auto;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            border-radius: var(--radius-sm);
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+            font-size: 0.875rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .game-card .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
 </head>

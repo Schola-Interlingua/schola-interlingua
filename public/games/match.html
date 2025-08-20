@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unir pares - Schola Interlingua</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .game-container {
             max-width: 1200px;
@@ -243,6 +244,46 @@
         body.dark-mode .progress-bar {
             background: var(--border-color);
         }
+        
+        /* Estilos para tooltips en el juego */
+        .game-card .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .game-card .tooltiptext {
+            visibility: hidden;
+            width: auto;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            border-radius: var(--radius-sm);
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+            font-size: 0.875rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .game-card .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Modo oscuro para tooltips */
+        body.dark-mode .game-card .tooltiptext {
+            background-color: var(--primary-color);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -311,6 +352,7 @@
     <script src="/js/include.js"></script>
     <script src="/js/games-common.js"></script>
     <script src="/js/nav.js"></script>
+    <script src="/js/tooltip.js"></script>
     <script>
         // Variables del juego
         let gameState = {
@@ -377,11 +419,14 @@
                 });
             });
             
-            // Barajar ambas columnas
+            // Barajar ambas columnas por separado
             const terms = pairs.filter(p => p.type === 'term');
             const glosses = pairs.filter(p => p.type === 'gloss');
             
-            return [...GamesCommon.shuffle(terms), ...GamesCommon.shuffle(glosses)];
+            const shuffledTerms = GamesCommon.shuffle(terms);
+            const shuffledGlosses = GamesCommon.shuffle(glosses);
+            
+            return [...shuffledTerms, ...shuffledGlosses];
         }
         
         // Renderizar la ronda
@@ -395,12 +440,27 @@
             gameState.pairs.forEach(pair => {
                 const card = document.createElement('div');
                 card.className = 'game-card';
-                card.textContent = pair.type === 'term' ? pair.term : pair.gloss;
                 card.dataset.id = pair.id;
                 card.dataset.term = pair.term;
                 card.dataset.gloss = pair.gloss;
                 card.dataset.type = pair.type;
                 card.tabIndex = 0;
+                
+                // Agregar tooltip con traducción
+                const tooltipSpan = document.createElement('span');
+                tooltipSpan.className = 'tooltip';
+                const displayText = pair.type === 'term' ? pair.term : pair.gloss;
+                const tooltipText = pair.type === 'term' ? `Traducción: ${pair.gloss}` : `Término: ${pair.term}`;
+                
+                tooltipSpan.setAttribute('aria-label', tooltipText);
+                tooltipSpan.textContent = displayText;
+                
+                const tooltipTextSpan = document.createElement('span');
+                tooltipTextSpan.className = 'tooltiptext';
+                tooltipTextSpan.textContent = tooltipText;
+                
+                tooltipSpan.appendChild(tooltipTextSpan);
+                card.appendChild(tooltipSpan);
                 
                 // Verificar si ya está resuelto
                 if (gameState.correctPairs.has(pair.term)) {

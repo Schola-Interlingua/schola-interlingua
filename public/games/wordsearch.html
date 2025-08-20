@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sopa de letras - Schola Interlingua</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .game-container {
             max-width: 1200px;
@@ -247,6 +248,44 @@
             background: var(--bg-secondary);
             border-left-color: var(--primary-color);
         }
+        
+        /* Estilos para tooltips en el juego */
+        .word-item .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+        
+        .word-item .tooltiptext {
+            visibility: hidden;
+            width: auto;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            border-radius: var(--radius-sm);
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+            font-size: 0.875rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .word-item .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Modo oscuro para tooltips */
+        body.dark-mode .word-item .tooltiptext {
+            background-color: var(--primary-color);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -304,6 +343,7 @@
     <script src="/js/include.js"></script>
     <script src="/js/games-common.js"></script>
     <script src="/js/nav.js"></script>
+    <script src="/js/tooltip.js"></script>
     <script>
         // Variables del juego
         let gameState = {
@@ -473,17 +513,55 @@
         }
         
         // Renderizar lista de palabras
-        function renderWordsList() {
+        async function renderWordsList() {
             const wordsContainer = document.getElementById('words-list');
             wordsContainer.innerHTML = '';
             
-            gameState.words.forEach(word => {
-                const wordElement = document.createElement('div');
-                wordElement.className = 'word-item';
-                wordElement.textContent = word;
-                wordElement.dataset.word = word;
-                wordsContainer.appendChild(wordElement);
-            });
+            try {
+                const vocab = await GamesCommon.loadVocab();
+                const lang = GamesCommon.getLang();
+                
+                gameState.words.forEach(word => {
+                    const wordElement = document.createElement('div');
+                    wordElement.className = 'word-item';
+                    wordElement.dataset.word = word;
+                    
+                    // Buscar traducción en el vocabulario
+                    let translation = word;
+                    Object.values(vocab).forEach(category => {
+                        category.forEach(item => {
+                            if (item.term === word) {
+                                translation = item[lang] || item.en || word;
+                            }
+                        });
+                    });
+                    
+                    // Agregar tooltip con traducción
+                    const tooltipSpan = document.createElement('span');
+                    tooltipSpan.className = 'tooltip';
+                    tooltipSpan.setAttribute('aria-label', `Traducción: ${translation}`);
+                    tooltipSpan.textContent = word;
+                    
+                    const tooltipText = document.createElement('span');
+                    tooltipText.className = 'tooltiptext';
+                    tooltipText.textContent = `Traducción: ${translation}`;
+                    
+                    tooltipSpan.appendChild(tooltipText);
+                    wordElement.appendChild(tooltipSpan);
+                    
+                    wordsContainer.appendChild(wordElement);
+                });
+            } catch (error) {
+                console.error('Error cargando traducciones:', error);
+                // Fallback sin tooltips
+                gameState.words.forEach(word => {
+                    const wordElement = document.createElement('div');
+                    wordElement.className = 'word-item';
+                    wordElement.textContent = word;
+                    wordElement.dataset.word = word;
+                    wordsContainer.appendChild(wordElement);
+                });
+            }
         }
         
         // Actualizar estadísticas
