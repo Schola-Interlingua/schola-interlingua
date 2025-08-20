@@ -287,43 +287,7 @@
             color: white;
         }
         
-        /* Estilos para tooltips en las instrucciones */
-        .instructions .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: help;
-        }
-        
-        .instructions .tooltiptext {
-            visibility: hidden;
-            width: auto;
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            border-radius: var(--radius-sm);
-            padding: 0.5rem;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            white-space: nowrap;
-            font-size: 0.875rem;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .instructions .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-        
-        /* Modo oscuro para tooltips de instrucciones */
-        body.dark-mode .instructions .tooltiptext {
-            background-color: var(--primary-color);
-            color: white;
-        }
+
     </style>
 </head>
 <body>
@@ -336,27 +300,12 @@
         
         <div class="instructions">
             <h3>Instrucciones</h3>
-            <ul>
-                <li class="tooltip">
-                    Encuentra las palabras ocultas en la grilla
-                    <span class="tooltiptext">Find the hidden words in the grid</span>
-                </li>
-                <li class="tooltip">
-                    Las palabras pueden estar en horizontal, vertical o diagonal
-                    <span class="tooltiptext">Words can be horizontal, vertical or diagonal</span>
-                </li>
-                <li class="tooltip">
-                    <strong>Mouse/Touch:</strong> Haz clic y arrastra para seleccionar letras
-                    <span class="tooltiptext"><strong>Mouse/Touch:</strong> Click and drag to select letters</span>
-                </li>
-                <li class="tooltip">
-                    <strong>Teclado:</strong> Usa Enter/Espacio para iniciar selección, Shift + flechas para extender
-                    <span class="tooltiptext"><strong>Keyboard:</strong> Use Enter/Space to start selection, Shift + arrows to extend</span>
-                </li>
-                <li class="tooltip">
-                    ¡Encuentra todas las palabras para completar la ronda!
-                    <span class="tooltiptext">Find all words to complete the round!</span>
-                </li>
+            <ul class="text-block">
+                <li>Encuentra las palabras ocultas en la grilla</li>
+                <li>Las palabras pueden estar en horizontal, vertical o diagonal</li>
+                <li><strong>Mouse/Touch:</strong> Haz clic y arrastra para seleccionar letras</li>
+                <li><strong>Teclado:</strong> Usa Enter/Espacio para iniciar selección, Shift + flechas para extender</li>
+                <li>¡Encuentra todas las palabras para completar la ronda!</li>
             </ul>
         </div>
         
@@ -589,15 +538,15 @@
                         });
                     });
                     
-                    // Agregar tooltip con traducción
+                    // Agregar tooltip con traducción (como en el resto de la web)
                     const tooltipSpan = document.createElement('span');
                     tooltipSpan.className = 'tooltip';
-                    tooltipSpan.setAttribute('aria-label', `Traducción: ${translation}`);
+                    tooltipSpan.setAttribute('aria-label', translation);
                     tooltipSpan.textContent = word;
                     
                     const tooltipText = document.createElement('span');
                     tooltipText.className = 'tooltiptext';
-                    tooltipText.textContent = `Traducción: ${translation}`;
+                    tooltipText.textContent = translation;
                     
                     tooltipSpan.appendChild(tooltipText);
                     wordElement.appendChild(tooltipSpan);

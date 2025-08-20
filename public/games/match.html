@@ -245,43 +245,7 @@
             background: var(--border-color);
         }
         
-        /* Estilos para tooltips en las instrucciones */
-        .instructions .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: help;
-        }
-        
-        .instructions .tooltiptext {
-            visibility: hidden;
-            width: auto;
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            border-radius: var(--radius-sm);
-            padding: 0.5rem;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            white-space: nowrap;
-            font-size: 0.875rem;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .instructions .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-        
-        /* Modo oscuro para tooltips */
-        body.dark-mode .instructions .tooltiptext {
-            background-color: var(--primary-color);
-            color: white;
-        }
+
         
         
     </style>
@@ -296,23 +260,11 @@
         
         <div class="instructions">
             <h3>Instrucciones</h3>
-            <ul>
-                <li class="tooltip">
-                    Une cada palabra en Interlingua con su traducción
-                    <span class="tooltiptext">Match each word in Interlingua with its translation</span>
-                </li>
-                <li class="tooltip">
-                    Haz clic en una palabra y luego en su traducción
-                    <span class="tooltiptext">Click on a word and then on its translation</span>
-                </li>
-                <li class="tooltip">
-                    Usa Enter para confirmar la selección o Backspace para deseleccionar
-                    <span class="tooltiptext">Use Enter to confirm selection or Backspace to deselect</span>
-                </li>
-                <li class="tooltip">
-                    ¡Une todos los pares para completar la ronda!
-                    <span class="tooltiptext">Match all pairs to complete the round!</span>
-                </li>
+            <ul class="text-block">
+                <li>Une cada palabra en Interlingua con su traducción</li>
+                <li>Haz clic en una palabra y luego en su traducción</li>
+                <li>Usa Enter para confirmar la selección o Backspace para deseleccionar</li>
+                <li>¡Une todos los pares para completar la ronda!</li>
             </ul>
         </div>
         
@@ -392,7 +344,7 @@
                 // Seleccionar ítems aleatorios para esta ronda
                 const selectedItems = GamesCommon.sample(allItems, 6 + Math.floor(Math.random() * 5)); // 6-10 pares
                 gameState.pairs = buildPairs(selectedItems, GamesCommon.getLang());
-                gameState.totalPairs = gameState.pairs.length;
+                gameState.totalPairs = selectedItems.length; // Número de pares únicos, no total de tarjetas
                 
                 renderRound();
                 updateStats();
@@ -601,6 +553,8 @@
             // Actualizar barra de progreso
             const progress = (gameState.correctPairs.size / gameState.totalPairs) * 100;
             document.getElementById('progress-fill').style.width = `${progress}%`;
+            
+            console.log(`Progreso: ${gameState.correctPairs.size}/${gameState.totalPairs} = ${progress}%`);
         }
         
         // Completar ronda
