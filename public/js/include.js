@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Determinar si estamos en una subcarpeta
   const base = path.includes("/lection/") ||
                path.includes("/appendice/") ||
-               path.includes("/lessons/")
+               path.includes("/lessons/") ||
+               path.includes("/games/")
     ? "../components/"
     : "components/";
 
@@ -12,8 +13,18 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(base + file)
       .then(res => res.text())
       .then(html => {
-        document.querySelector(selector).innerHTML = html;
-        if (cb) cb();
+        const elements = document.querySelectorAll(selector);
+        if (elements.length > 0) {
+          elements.forEach(element => {
+            element.innerHTML = html;
+          });
+          if (cb) cb();
+        } else {
+          console.warn(`No se encontraron elementos con el selector: ${selector}`);
+        }
+      })
+      .catch(error => {
+        console.error(`Error cargando ${file}:`, error);
       });
   }
 
@@ -29,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  include("nav", "navbar.html", initLang);
-  include("footer", "footer.html");
+  include("#navbar-placeholder, nav", "navbar.html", initLang);
+  include("#footer-placeholder, footer", "footer.html");
 
   // Cargar script de progreso en todas las páginas
   const progressScript = document.createElement('script');
