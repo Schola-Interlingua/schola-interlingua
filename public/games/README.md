@@ -4,7 +4,7 @@ Esta sección contiene juegos interactivos diseñados para ayudar a los estudian
 
 ## Juegos Disponibles
 
-### 1. Sopa de letras (`wordsearch.html`)
+### Sopa de letras (`wordsearch.html`)
 
 **Descripción**: Juego clásico de sopa de letras donde los jugadores deben encontrar palabras ocultas en una grilla de 10x10.
 
@@ -24,25 +24,6 @@ Esta sección contiene juegos interactivos diseñados para ayudar a los estudian
 4. Si la selección forma una palabra válida, se marca como encontrada
 5. Al encontrar todas las palabras, se inicia una nueva ronda
 
-### 2. Unir pares (`match.html`)
-
-**Descripción**: Juego de memoria donde los jugadores deben unir términos en Interlingua con sus traducciones.
-
-**Características**:
-- **Pares**: 6-10 pares de términos y traducciones por ronda
-- **Idiomas**: Soporte para múltiples idiomas (español, inglés, ruso, etc.)
-- **Interacción**:
-  - Mouse: Clic para seleccionar y unir pares
-  - Teclado: Enter para confirmar, Backspace para deseleccionar
-- **Feedback visual**: Pares correctos se marcan en verde
-- **Barra de progreso**: Muestra el avance del jugador
-
-**Mecánica**:
-1. Se muestran dos columnas: términos en Interlingua y traducciones
-2. Ambas columnas están barajadas aleatoriamente
-3. El jugador selecciona un término y luego su traducción
-4. Si es correcto, se marca como resuelto
-5. Al unir todos los pares, se inicia una nueva ronda
 
 ## Características Comunes
 
@@ -71,9 +52,7 @@ Esta sección contiene juegos interactivos diseñados para ayudar a los estudian
 
 ```
 /games/
-├── index.html          # Página principal de juegos
 ├── wordsearch.html     # Juego de sopa de letras
-├── match.html         # Juego de unir pares
 └── README.md          # Esta documentación
 
 /js/
@@ -105,7 +84,7 @@ Para agregar un nuevo juego:
 1. Crear archivo HTML en `/games/`
 2. Incluir `games-common.js` y `include.js`
 3. Usar las funciones comunes para consistencia
-4. Agregar enlace en el navbar y página de índice
+4. Agregar enlace en el navbar
 
 ### Modificaciones
 - **Estilos**: Los juegos usan las variables CSS del tema principal
