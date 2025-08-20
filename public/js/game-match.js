@@ -1,45 +1,53 @@
-// Matching pairs game implementation
-(function(){
-  function init(){
-    if (!window.VOCAB) return setTimeout(init, 100);
-    start();
-  }
+(async function(){
+  const vocab = await loadVocab();
+  const lang = getLang();
+  const container = document.getElementById('match-game');
+  const playAgain = document.getElementById('play-again');
 
-  function start(){
-    const entries = window.sample(Object.values(window.VOCAB).flat(), 5);
-    const container = document.getElementById('match-game');
+  playAgain.addEventListener('click', () => nextRound(build));
+  playAgain.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      nextRound(build);
+    }
+  });
+
+  function build(){
     container.innerHTML = '';
-    container.style.display = 'flex';
-    container.style.gap = '1rem';
+    playAgain.style.display = 'none';
+    const count = Math.floor(rand()*5) + 6; // 6-10
+    const items = sample(vocab, count).map((it,i)=>{
+      const {term, gloss} = pickTermAndGloss(it, lang);
+      return {id:i, term, gloss};
+    });
+    const terms = shuffle(items.slice());
+    const glosses = shuffle(items.slice());
+    let selected = null;
+    let solved = 0;
+
     const left = document.createElement('div');
     const right = document.createElement('div');
-    left.style.display = right.style.display = 'flex';
-    left.style.flexDirection = right.style.flexDirection = 'column';
-    left.style.gap = right.style.gap = '0.5rem';
-
-    const pairs = entries.map((e,i)=>({id:i, term:e.term, trans:e[window.LANG]}));
-    const terms = window.shuffle(pairs.slice());
-    const trans = window.shuffle(pairs.slice());
-
-    let selectedTerm = null;
+    left.className = right.className = 'match-col';
 
     function selectTerm(btn){
-      if (btn.disabled) return;
-      if (selectedTerm) selectedTerm.classList.remove('active');
-      selectedTerm = btn;
+      if(btn.disabled) return;
+      if(selected) selected.classList.remove('active');
+      selected = btn;
       btn.classList.add('active');
     }
 
-    function selectTrans(btn){
-      if (!selectedTerm || btn.disabled) return;
-      if (btn.dataset.id === selectedTerm.dataset.id){
+    function selectGloss(btn){
+      if(btn.disabled || !selected) return;
+      if(btn.dataset.id === selected.dataset.id){
         btn.disabled = true;
-        selectedTerm.disabled = true;
+        selected.disabled = true;
         btn.classList.add('matched');
-        selectedTerm.classList.add('matched');
+        selected.classList.add('matched');
+        solved++;
+        if(solved === items.length) endRound();
       }
-      selectedTerm.classList.remove('active');
-      selectedTerm = null;
+      selected.classList.remove('active');
+      selected = null;
     }
 
     terms.forEach(p=>{
@@ -47,18 +55,21 @@
       b.className = 'btn btn-primary';
       b.textContent = p.term;
       b.dataset.id = p.id;
-      b.addEventListener('click', ()=>selectTerm(b));
-      b.addEventListener('keydown', e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectTerm(b);}});
+      b.addEventListener('click', () => selectTerm(b));
+      b.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); selectTerm(b);} });
       left.appendChild(b);
     });
 
-    trans.forEach(p=>{
+    glosses.forEach(p=>{
       const b = document.createElement('button');
       b.className = 'btn btn-secondary';
-      b.textContent = p.trans;
+      b.textContent = p.gloss;
       b.dataset.id = p.id;
-      b.addEventListener('click', ()=>selectTrans(b));
-      b.addEventListener('keydown', e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectTrans(b);}});
+      b.addEventListener('click', () => selectGloss(b));
+      b.addEventListener('keydown', e=>{
+        if(e.key==='Enter'||e.key===' '){ e.preventDefault(); selectGloss(b);} 
+        if(e.key==='Backspace'){ if(selected){ selected.classList.remove('active'); selected = null; }}
+      });
       right.appendChild(b);
     });
 
@@ -66,5 +77,11 @@
     container.appendChild(right);
   }
 
-  init();
+  function endRound(){
+    announce('¡Felicitaciones! Nueva ronda…');
+    playAgain.style.display = 'inline-block';
+    setTimeout(()=> nextRound(build), 1200);
+  }
+
+  nextRound(build);
 })();
