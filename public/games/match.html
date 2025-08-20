@@ -225,6 +225,24 @@
                 min-height: 60px;
             }
         }
+        
+        /* Mejorar experiencia touch */
+        @media (hover: none) and (pointer: coarse) {
+            .game-card {
+                min-height: 60px; /* Tamaño mínimo recomendado para touch */
+                padding: 1.25rem;
+            }
+        }
+        
+        /* Mejorar modo oscuro */
+        body.dark-mode .instructions {
+            background: var(--bg-secondary);
+            border-left-color: var(--primary-color);
+        }
+        
+        body.dark-mode .progress-bar {
+            background: var(--border-color);
+        }
     </style>
 </head>
 <body>
@@ -292,6 +310,7 @@
     
     <script src="/js/include.js"></script>
     <script src="/js/games-common.js"></script>
+    <script src="/js/nav.js"></script>
     <script>
         // Variables del juego
         let gameState = {
@@ -390,6 +409,7 @@
                 
                 // Eventos
                 card.addEventListener('click', handleCardClick);
+                card.addEventListener('touchstart', handleTouchStart, { passive: false });
                 card.addEventListener('keydown', handleCardKeydown);
                 card.addEventListener('focus', handleCardFocus);
                 
@@ -443,6 +463,15 @@
                 // Limpiar selección
                 firstCard.classList.remove('selected');
                 gameState.selectedCard = null;
+            }
+        }
+        
+        // Manejar eventos touch para dispositivos móviles
+        function handleTouchStart(e) {
+            e.preventDefault();
+            const card = e.target;
+            if (card.classList.contains('game-card')) {
+                handleCardClick({ target: card });
             }
         }
         

@@ -99,6 +99,7 @@
             transition: var(--transition);
             user-select: none;
             position: relative;
+            touch-action: none; /* Mejorar experiencia touch */
         }
         
         .grid-cell:hover {
@@ -209,6 +210,42 @@
                 max-width: 100%;
                 font-size: 1rem;
             }
+            
+            .grid-cell {
+                font-size: 1rem;
+                min-height: 40px;
+            }
+        }
+        
+        /* Mejorar experiencia touch */
+        @media (hover: none) and (pointer: coarse) {
+            .grid-cell {
+                min-height: 44px; /* Tamaño mínimo recomendado para touch */
+            }
+            
+            .word-item {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        
+        /* Mejorar modo oscuro */
+        body.dark-mode .word-item {
+            background: var(--bg-secondary);
+            border-color: var(--border-color);
+        }
+        
+        body.dark-mode .word-item.found {
+            background: #1e4d2b;
+            border-color: #28a745;
+            color: #75b798;
+        }
+        
+        body.dark-mode .instructions {
+            background: var(--bg-secondary);
+            border-left-color: var(--primary-color);
         }
     </style>
 </head>
@@ -225,7 +262,8 @@
             <ul>
                 <li>Encuentra las palabras ocultas en la grilla</li>
                 <li>Las palabras pueden estar en horizontal, vertical o diagonal</li>
-                <li>Haz clic y arrastra para seleccionar letras, o usa Shift + flechas del teclado</li>
+                <li><strong>Mouse/Touch:</strong> Haz clic y arrastra para seleccionar letras</li>
+                <li><strong>Teclado:</strong> Usa Enter/Espacio para iniciar selección, Shift + flechas para extender</li>
                 <li>¡Encuentra todas las palabras para completar la ronda!</li>
             </ul>
         </div>
@@ -265,6 +303,7 @@
     
     <script src="/js/include.js"></script>
     <script src="/js/games-common.js"></script>
+    <script src="/js/nav.js"></script>
     <script>
         // Variables del juego
         let gameState = {
@@ -419,6 +458,11 @@
                     cell.addEventListener('mouseenter', handleMouseEnter);
                     cell.addEventListener('mouseup', handleMouseUp);
                     
+                    // Eventos touch para dispositivos móviles
+                    cell.addEventListener('touchstart', handleTouchStart, { passive: false });
+                    cell.addEventListener('touchmove', handleTouchMove, { passive: false });
+                    cell.addEventListener('touchend', handleTouchEnd, { passive: false });
+                    
                     // Eventos del teclado
                     cell.addEventListener('keydown', handleKeyDown);
                     cell.addEventListener('focus', handleFocus);
@@ -490,6 +534,35 @@
             checkSelection();
         }
         
+        // Manejar eventos touch para dispositivos móviles
+        function handleTouchStart(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const element = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (element && element.classList.contains('grid-cell')) {
+                handleMouseDown({ target: element, preventDefault: () => {} });
+            }
+        }
+        
+        function handleTouchMove(e) {
+            if (!gameState.isSelecting) return;
+            
+            e.preventDefault();
+            const touch = e.touches[0];
+            const element = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (element && element.classList.contains('grid-cell')) {
+                handleMouseEnter({ target: element });
+            }
+        }
+        
+        function handleTouchEnd(e) {
+            if (!gameState.isSelecting) return;
+            
+            e.preventDefault();
+            gameState.isSelecting = false;
+            checkSelection();
+        }
+        
         // Manejar teclado
         function handleKeyDown(e) {
             const cell = e.target;
@@ -521,7 +594,27 @@
                     const newCell = document.querySelector(`[data-row="${newRow}"][data-col="${newCol}"]`);
                     if (newCell) {
                         newCell.focus();
+                        // Si estamos seleccionando, extender la selección
+                        if (gameState.isSelecting) {
+                            const start = gameState.startCell;
+                            const end = { row: newRow, col: newCol };
+                            gameState.selectedCells = getCellsInLine(start, end);
+                            highlightSelection();
+                        }
                     }
+                }
+            } else if (e.key === 'Enter' || e.key === ' ') {
+                // Iniciar selección con Enter o Espacio
+                e.preventDefault();
+                if (!gameState.isSelecting) {
+                    handleMouseDown({ target: cell, preventDefault: () => {} });
+                }
+            } else if (e.key === 'Escape') {
+                // Cancelar selección con Escape
+                e.preventDefault();
+                if (gameState.isSelecting) {
+                    gameState.isSelecting = false;
+                    clearSelection();
                 }
             }
         }
