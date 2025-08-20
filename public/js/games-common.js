@@ -31,6 +31,20 @@ function getLang() {
     return currentLang;
 }
 
+// Función para actualizar el idioma dinámicamente
+function updateLang(newLang) {
+    if (newLang && newLang !== currentLang) {
+        currentLang = newLang;
+        localStorage.setItem('lang', newLang);
+        
+        // Disparar evento personalizado
+        const langChangeEvent = new CustomEvent('langChanged', { 
+            detail: { newLang, oldLang: currentLang } 
+        });
+        document.dispatchEvent(langChangeEvent);
+    }
+}
+
 // Función para barajar un array
 function shuffle(arr) {
     const array = [...arr];
@@ -111,9 +125,24 @@ function initLang() {
             if (newLang && newLang !== currentLang) {
                 currentLang = newLang;
                 localStorage.setItem('lang', newLang);
-                // Recargar la página para aplicar el nuevo idioma
-                window.location.reload();
+                
+                // Disparar evento personalizado para notificar el cambio de idioma
+                const langChangeEvent = new CustomEvent('langChanged', { 
+                    detail: { newLang, oldLang: currentLang } 
+                });
+                document.dispatchEvent(langChangeEvent);
             }
+        }
+    });
+    
+    // Escuchar cambios en localStorage (para sincronización entre pestañas)
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'lang' && e.newValue && e.newValue !== currentLang) {
+            currentLang = e.newValue;
+            const langChangeEvent = new CustomEvent('langChanged', { 
+                detail: { newLang: e.newValue, oldLang: currentLang } 
+            });
+            document.dispatchEvent(langChangeEvent);
         }
     });
 }
@@ -151,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
 window.GamesCommon = {
     loadVocab,
     getLang,
+    updateLang,
     shuffle,
     sample,
     normalize,

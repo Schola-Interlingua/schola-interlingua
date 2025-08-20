@@ -165,13 +165,15 @@
         }
         
         /* Estilos para tooltips en la página de índice */
-        .game-card .tooltip {
+        .game-card .tooltip,
+        .feature .tooltip {
             position: relative;
             display: inline-block;
             cursor: help;
         }
         
-        .game-card .tooltiptext {
+        .game-card .tooltiptext,
+        .feature .tooltiptext {
             visibility: hidden;
             width: auto;
             background-color: var(--primary-color);
@@ -191,7 +193,8 @@
             box-shadow: var(--shadow-md);
         }
         
-        .game-card .tooltip:hover .tooltiptext {
+        .game-card .tooltip:hover .tooltiptext,
+        .feature .tooltip:hover .tooltiptext {
             visibility: visible;
             opacity: 1;
         }
@@ -209,21 +212,23 @@
         <div class="games-grid">
             <div class="game-card">
                 <div class="game-icon">🔍</div>
-                <h3 class="game-title">Sopa de letras</h3>
-                <p class="game-description">
-                    Encuentra palabras ocultas en una grilla de letras. Las palabras pueden estar en horizontal, 
-                    vertical o diagonal. ¡Perfecto para practicar vocabulario!
-                </p>
+                                 <h3 class="game-title">Sopa de letras</h3>
+                 <p class="game-description tooltip">
+                     Encuentra palabras ocultas en una grilla de letras. Las palabras pueden estar en horizontal, 
+                     vertical o diagonal. ¡Perfecto para practicar vocabulario!
+                     <span class="tooltiptext">Find hidden words in a letter grid. Words can be horizontal, vertical or diagonal. Perfect for practicing vocabulary!</span>
+                 </p>
                 <a href="/games/wordsearch.html" class="game-btn">Jugar ahora</a>
             </div>
             
             <div class="game-card">
                 <div class="game-icon">🔗</div>
-                <h3 class="game-title">Unir pares</h3>
-                <p class="game-description">
-                    Une cada palabra en Interlingua con su traducción correcta. Un juego de memoria 
-                    que te ayudará a recordar el vocabulario de manera efectiva.
-                </p>
+                                 <h3 class="game-title">Unir pares</h3>
+                 <p class="game-description tooltip">
+                     Une cada palabra en Interlingua con su traducción correcta. Un juego de memoria 
+                     que te ayudará a recordar el vocabulario de manera efectiva.
+                     <span class="tooltiptext">Match each word in Interlingua with its correct translation. A memory game that will help you remember vocabulary effectively.</span>
+                 </p>
                 <a href="/games/match.html" class="game-btn">Jugar ahora</a>
             </div>
         </div>
@@ -231,13 +236,14 @@
         <div class="features-section">
             <h2>Características de los juegos</h2>
             <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">🎯</div>
-                    <h4 class="feature-title">Vocabulario real</h4>
-                    <p class="feature-description">
-                        Todos los juegos utilizan vocabulario real del curso de Interlingua
-                    </p>
-                </div>
+                                 <div class="feature">
+                     <div class="feature-icon">🎯</div>
+                     <h4 class="feature-title">Vocabulario real</h4>
+                     <p class="feature-description tooltip">
+                         Todos los juegos utilizan vocabulario real del curso de Interlingua
+                         <span class="tooltiptext">All games use real vocabulary from the Interlingua course</span>
+                     </p>
+                 </div>
                 
                 <div class="feature">
                     <div class="feature-icon">🌍</div>

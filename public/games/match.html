@@ -245,16 +245,14 @@
             background: var(--border-color);
         }
         
-        /* Estilos para tooltips en el juego */
-        .game-card .tooltip {
+        /* Estilos para tooltips en las instrucciones */
+        .instructions .tooltip {
             position: relative;
             display: inline-block;
             cursor: help;
-            width: 100%;
-            text-align: center;
         }
         
-        .game-card .tooltiptext {
+        .instructions .tooltiptext {
             visibility: hidden;
             width: auto;
             background-color: var(--primary-color);
@@ -274,16 +272,18 @@
             box-shadow: var(--shadow-md);
         }
         
-        .game-card .tooltip:hover .tooltiptext {
+        .instructions .tooltip:hover .tooltiptext {
             visibility: visible;
             opacity: 1;
         }
         
         /* Modo oscuro para tooltips */
-        body.dark-mode .game-card .tooltiptext {
+        body.dark-mode .instructions .tooltiptext {
             background-color: var(--primary-color);
             color: white;
         }
+        
+        
     </style>
 </head>
 <body>
@@ -297,10 +297,22 @@
         <div class="instructions">
             <h3>Instrucciones</h3>
             <ul>
-                <li>Une cada palabra en Interlingua con su traducción</li>
-                <li>Haz clic en una palabra y luego en su traducción</li>
-                <li>Usa Enter para confirmar la selección o Backspace para deseleccionar</li>
-                <li>¡Une todos los pares para completar la ronda!</li>
+                <li class="tooltip">
+                    Une cada palabra en Interlingua con su traducción
+                    <span class="tooltiptext">Match each word in Interlingua with its translation</span>
+                </li>
+                <li class="tooltip">
+                    Haz clic en una palabra y luego en su traducción
+                    <span class="tooltiptext">Click on a word and then on its translation</span>
+                </li>
+                <li class="tooltip">
+                    Usa Enter para confirmar la selección o Backspace para deseleccionar
+                    <span class="tooltiptext">Use Enter to confirm selection or Backspace to deselect</span>
+                </li>
+                <li class="tooltip">
+                    ¡Une todos los pares para completar la ronda!
+                    <span class="tooltiptext">Match all pairs to complete the round!</span>
+                </li>
             </ul>
         </div>
         
@@ -446,21 +458,8 @@
                 card.dataset.type = pair.type;
                 card.tabIndex = 0;
                 
-                // Agregar tooltip con traducción
-                const tooltipSpan = document.createElement('span');
-                tooltipSpan.className = 'tooltip';
-                const displayText = pair.type === 'term' ? pair.term : pair.gloss;
-                const tooltipText = pair.type === 'term' ? `Traducción: ${pair.gloss}` : `Término: ${pair.term}`;
-                
-                tooltipSpan.setAttribute('aria-label', tooltipText);
-                tooltipSpan.textContent = displayText;
-                
-                const tooltipTextSpan = document.createElement('span');
-                tooltipTextSpan.className = 'tooltiptext';
-                tooltipTextSpan.textContent = tooltipText;
-                
-                tooltipSpan.appendChild(tooltipTextSpan);
-                card.appendChild(tooltipSpan);
+                                 // Mostrar texto directamente en la tarjeta
+                 card.textContent = pair.type === 'term' ? pair.term : pair.gloss;
                 
                 // Verificar si ya está resuelto
                 if (gameState.correctPairs.has(pair.term)) {
@@ -639,6 +638,16 @@
                 gameState.correctPairs.clear();
                 gameState.selectedCard = null;
                 
+                document.getElementById('new-round-btn').style.display = 'none';
+                initGame();
+            });
+            
+            // Escuchar cambios de idioma
+            document.addEventListener('langChanged', (e) => {
+                console.log('Idioma cambiado a:', e.detail.newLang);
+                // Reiniciar el juego con el nuevo idioma
+                gameState.correctPairs.clear();
+                gameState.selectedCard = null;
                 document.getElementById('new-round-btn').style.display = 'none';
                 initGame();
             });
