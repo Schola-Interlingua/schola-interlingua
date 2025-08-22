@@ -1181,6 +1181,11 @@ body.dark-mode .tooltiptext {
   border-color: var(--border-color);
 }
 
+body.dark-mode .tooltip,
+body.dark-mode .tooltip:hover {
+  border-bottom-color: #fff;
+}
+
 body.dark-mode #audio {
   background: var(--bg-secondary);
   border-color: var(--border-color);
