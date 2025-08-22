@@ -395,16 +395,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 2.5rem;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: var(--text-color);
 }
 
 h2 {
   font-size: 2rem;
-  color: var(--primary-color);
 }
 
 /* Audio player modernizado */
@@ -1105,24 +1099,6 @@ body.dark-mode {
   color: var(--text-color);
 }
 
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode h5,
-body.dark-mode h6 {
-  color: var(--text-color);
-}
-
-/* Corregir h1 en modo oscuro - sobrescribir el gradiente */
-body.dark-mode h1 {
-  background: none;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: unset;
-  background-clip: unset;
-  color: #cbd5e1;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
 
 body.dark-mode .card {
   background: var(--card-bg);
@@ -1306,3 +1282,284 @@ body.dark-mode select:focus {
   border-color: #60a5fa;
   outline-color: #60a5fa;
 }
+
+/* Wordsearch game styles */
+#wordsearch-page .game-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+#wordsearch-page .game-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#wordsearch-page .game-header h1 {
+  margin-bottom: 1rem;
+}
+
+#wordsearch-page .game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#wordsearch-page .words-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 60%;
+}
+
+#wordsearch-page .word-item {
+  padding: 0.5rem 1rem;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+#wordsearch-page .word-item.found {
+  background: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+#wordsearch-page .game-stats {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+#wordsearch-page .stat {
+  text-align: center;
+}
+
+#wordsearch-page .stat-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+#wordsearch-page .stat-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+#wordsearch-page .wordsearch-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 2px;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  background: var(--border-color);
+  padding: 2px;
+  border-radius: var(--radius-sm);
+}
+
+#wordsearch-page .grid-cell {
+  aspect-ratio: 1;
+  background: var(--card-bg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+  position: relative;
+  touch-action: none; /* Mejorar experiencia touch */
+}
+
+#wordsearch-page .grid-cell:hover {
+  background: var(--bg-secondary);
+}
+
+#wordsearch-page .grid-cell.selected {
+  background: var(--primary-color);
+  color: white;
+}
+
+#wordsearch-page .grid-cell.found {
+  background: #28a745;
+  color: white;
+}
+
+#wordsearch-page .grid-cell.found::after {
+  content: '✓';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+#wordsearch-page .game-controls {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+#wordsearch-page .btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  margin: 0 0.5rem;
+}
+
+#wordsearch-page .btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+#wordsearch-page .btn-primary:hover {
+  background: var(--primary-light);
+}
+
+#wordsearch-page .btn-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+#wordsearch-page .btn-secondary:hover {
+  background: var(--border-color);
+}
+
+#wordsearch-page .instructions {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--primary-color);
+}
+
+#wordsearch-page .instructions h3 {
+  margin-bottom: 1rem;
+}
+
+#wordsearch-page .instructions ul {
+  margin-left: 1.5rem;
+}
+
+#wordsearch-page .instructions li {
+  margin-bottom: 0.5rem;
+}
+
+#wordsearch-page .error-message {
+  text-align: center;
+  padding: 2rem;
+  color: #dc3545;
+}
+
+#wordsearch-page .error-message button {
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  #wordsearch-page .game-container {
+    padding: 1rem;
+  }
+  
+  #wordsearch-page .game-info {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  #wordsearch-page .words-list {
+    max-width: 100%;
+    justify-content: center;
+  }
+  
+  #wordsearch-page .wordsearch-grid {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+  
+  #wordsearch-page .grid-cell {
+    font-size: 1rem;
+    min-height: 40px;
+  }
+}
+
+/* Mejorar experiencia touch */
+@media (hover: none) and (pointer: coarse) {
+  #wordsearch-page .grid-cell {
+    min-height: 44px; /* Tamaño mínimo recomendado para touch */
+  }
+  
+  #wordsearch-page .word-item {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Mejorar modo oscuro */
+body#wordsearch-page.dark-mode .word-item {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+body#wordsearch-page.dark-mode .word-item.found {
+  background: #1e4d2b;
+  border-color: #28a745;
+  color: #75b798;
+}
+
+body#wordsearch-page.dark-mode .instructions {
+  background: var(--bg-secondary);
+  border-left-color: var(--primary-color);
+}
+
+/* Estilos para tooltips en el juego */
+#wordsearch-page .word-item .tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+
+#wordsearch-page .word-item .tooltiptext {
+  visibility: hidden;
+  width: auto;
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  box-shadow: var(--shadow-md);
+}
+
+#wordsearch-page .word-item .tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Modo oscuro para tooltips */
+body#wordsearch-page.dark-mode .word-item .tooltiptext {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+
