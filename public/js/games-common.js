@@ -2,7 +2,7 @@
 
 // Configuración global
 let vocabCache = null;
-let currentLang = 'es';
+let currentLang = null;
 
 // Función para cargar y cachear el vocabulario
 async function loadVocab() {
@@ -25,7 +25,7 @@ async function loadVocab() {
 
 // Función para obtener el idioma activo
 function getLang() {
-    if (!currentLang) {
+    if (currentLang == null) {
         currentLang = localStorage.getItem('lang') || 'es';
     }
     return currentLang;
