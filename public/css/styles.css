@@ -395,16 +395,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 2.5rem;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: var(--text-color);
 }
 
 h2 {
   font-size: 2rem;
-  color: var(--primary-color);
 }
 
 /* Audio player modernizado */
@@ -1105,24 +1099,6 @@ body.dark-mode {
   color: var(--text-color);
 }
 
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode h5,
-body.dark-mode h6 {
-  color: var(--text-color);
-}
-
-/* Corregir h1 en modo oscuro - sobrescribir el gradiente */
-body.dark-mode h1 {
-  background: none;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: unset;
-  background-clip: unset;
-  color: #cbd5e1;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
 
 body.dark-mode .card {
   background: var(--card-bg);
@@ -1320,7 +1296,6 @@ body.dark-mode select:focus {
 }
 
 #wordsearch-page .game-header h1 {
-  color: var(--primary-color);
   margin-bottom: 1rem;
 }
 
@@ -1471,7 +1446,6 @@ body.dark-mode select:focus {
 }
 
 #wordsearch-page .instructions h3 {
-  color: var(--primary-color);
   margin-bottom: 1rem;
 }
 
