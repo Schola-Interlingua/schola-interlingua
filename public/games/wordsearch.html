@@ -526,7 +526,7 @@
             
             try {
                 const vocab = await GamesCommon.loadVocab();
-                const lang = GamesCommon.getLang();
+                const lang = localStorage.getItem('lang') || GamesCommon.getLang();
                 
                 gameState.words.forEach(word => {
                     const wordElement = document.createElement('div');
@@ -558,6 +558,8 @@
                     
                     wordsContainer.appendChild(wordElement);
                 });
+
+                await applyTooltips();
             } catch (error) {
                 console.error('Error cargando traducciones:', error);
                 // Fallback sin tooltips
