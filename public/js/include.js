@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const base = path.includes("/lection/") ||
                path.includes("/appendice/") ||
                path.includes("/lessons/") ||
-               path.includes("/games/")
+               path.includes("/games/") ||
+               path.includes("/lecturas/")
     ? "../components/"
     : "components/";
 

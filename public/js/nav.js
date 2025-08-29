@@ -94,12 +94,33 @@ function initThemeToggle() {
   });
 }
 
+function initDropdownAccessibility() {
+  document.querySelectorAll('.dropdown > a').forEach(trigger => {
+    trigger.addEventListener('click', e => e.preventDefault());
+    trigger.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        trigger.blur();
+      }
+    });
+  });
+  document.querySelectorAll('.dropdown-menu a').forEach(item => {
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const parent = item.closest('.dropdown');
+        const link = parent && parent.querySelector('a');
+        if (link) link.focus();
+      }
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const timer = setInterval(() => {
     if (document.querySelector('.nav-links')) {
       clearInterval(timer);
       buildCursoLink();
       initThemeToggle();
+      initDropdownAccessibility();
     }
   }, 50);
 });
