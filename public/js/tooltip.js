@@ -21,6 +21,10 @@ window.Tooltip = {
 
 // Agrega tooltips de traducción a textos existentes del sitio
 document.addEventListener('DOMContentLoaded', () => {
+  // Si la página usa el nuevo sistema de data-tooltips (lecturas),
+  // evitamos reprocesar el contenido para no duplicar o esconder texto.
+  if (document.querySelector('[data-tooltips]')) return;
+
   const lang = localStorage.getItem('lang') || 'es';
   fetch('/data/vocab.json')
     .then(res => res.json())
