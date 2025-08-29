@@ -1,13 +1,35 @@
-// Agrega tooltips de traducción a todos los textos de las lecciones
+// Biblioteca de tooltips reutilizable
+window.Tooltip = {
+  init(selector, vocab, lang) {
+    const current = lang || window.getSelectedLang?.() || localStorage.getItem('lang') || 'es';
+    document.querySelectorAll(selector).forEach(el => {
+      const key = (el.dataset.term || '').replace(/[^\wáéíóúüñ]/gi, '').toLowerCase();
+      const item = vocab[key];
+      if (!item) return;
+      const translation = item[current] || item.es || '';
+      const span = document.createElement('span');
+      span.className = 'tooltip';
+      span.textContent = el.textContent;
+      const tt = document.createElement('span');
+      tt.className = 'tooltiptext';
+      tt.textContent = translation;
+      span.appendChild(tt);
+      el.replaceWith(span);
+    });
+  }
+};
 
+// Agrega tooltips de traducción a textos existentes del sitio
 document.addEventListener('DOMContentLoaded', () => {
+  // Si la página usa el nuevo sistema de data-tooltips (lecturas),
+  // evitamos reprocesar el contenido para no duplicar o esconder texto.
+  if (document.querySelector('[data-tooltips]')) return;
+
   const lang = localStorage.getItem('lang') || 'es';
-  // Cargar vocabulario
   fetch('/data/vocab.json')
     .then(res => res.json())
     .then(data => {
       const vocab = {};
-      // Unir todas las lecciones en un solo objeto de búsqueda
       Object.values(data).forEach(arr => {
         if (Array.isArray(arr)) {
           arr.forEach(item => {
