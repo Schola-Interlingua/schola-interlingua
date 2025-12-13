@@ -51,6 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const CHATINA_JQUERY_SRC = "https://code.jquery.com/jquery-3.7.1.min.js";
   const CHATINA_SCRIPT_SRC = "https://ia.softwcloud.com/app/IA/chat_js/chat.js?type=mini&key=lnyghdrM5s7ixKFYr5q/u5FeWklsm25en5vAt5+fqknFt6Cnx1FYVlU=";
+  const CHATINA_ROOT_ATTR = 'data-chatina-root';
+  const CHATINA_STYLE_ID = 'chatina-dark-overrides';
 
   function loadScriptOnce(src) {
     const existing = document.querySelector(`script[src="${src}"]`);
@@ -108,63 +110,119 @@ document.addEventListener("DOMContentLoaded", function () {
     return signature.includes('chatina') || signature.includes('softwcloud');
   }
 
-  function createDarkThemeStyle(target) {
+  function ensureChatinaStyle() {
+    if (document.getElementById(CHATINA_STYLE_ID)) return;
     const style = document.createElement('style');
-    style.dataset.chatinaTheme = 'true';
+    style.id = CHATINA_STYLE_ID;
     style.textContent = `
-      :host, :host *,
-      .chatina-theme-scope, .chatina-theme-scope * {
-        color: #eaeaea !important;
-        opacity: 1 !important;
+      @media (prefers-color-scheme: dark) {
+        [${CHATINA_ROOT_ATTR}="true"] { color: #eaeaea; background-color: #0f172a; }
+        [${CHATINA_ROOT_ATTR}="true"] a { color: #93c5fd; }
+        [${CHATINA_ROOT_ATTR}="true"] [class*="panel" i],
+        [${CHATINA_ROOT_ATTR}="true"] [class*="container" i],
+        [${CHATINA_ROOT_ATTR}="true"] [class*="content" i] {
+          background-color: #0f172a !important;
+        }
+        [${CHATINA_ROOT_ATTR}="true"] [class*="bubble" i],
+        [${CHATINA_ROOT_ATTR}="true"] [class*="message" i],
+        [${CHATINA_ROOT_ATTR}="true"] [class*="msg" i] {
+          background-color: #1e293b !important;
+        }
       }
 
-      :host, :host *,
-      .chatina-theme-scope, .chatina-theme-scope * {
+      .dark-mode [${CHATINA_ROOT_ATTR}="true"],
+      .dark [${CHATINA_ROOT_ATTR}="true"] {
+        color: #eaeaea;
+        background-color: #0f172a;
+      }
+
+      .dark-mode [${CHATINA_ROOT_ATTR}="true"] a,
+      .dark [${CHATINA_ROOT_ATTR}="true"] a {
+        color: #93c5fd;
+      }
+
+      .dark-mode [${CHATINA_ROOT_ATTR}="true"] [class*="panel" i],
+      .dark [${CHATINA_ROOT_ATTR}="true"] [class*="panel" i],
+      .dark-mode [${CHATINA_ROOT_ATTR}="true"] [class*="container" i],
+      .dark [${CHATINA_ROOT_ATTR}="true"] [class*="container" i],
+      .dark-mode [${CHATINA_ROOT_ATTR}="true"] [class*="content" i],
+      .dark [${CHATINA_ROOT_ATTR}="true"] [class*="content" i] {
+        background-color: #0f172a !important;
+      }
+
+      .dark-mode [${CHATINA_ROOT_ATTR}="true"] [class*="bubble" i],
+      .dark [${CHATINA_ROOT_ATTR}="true"] [class*="bubble" i],
+      .dark-mode [${CHATINA_ROOT_ATTR}="true"] [class*="message" i],
+      .dark [${CHATINA_ROOT_ATTR}="true"] [class*="message" i],
+      .dark-mode [${CHATINA_ROOT_ATTR}="true"] [class*="msg" i],
+      .dark [${CHATINA_ROOT_ATTR}="true"] [class*="msg" i] {
         background-color: #1e293b !important;
       }
-
-      :host a, :host a *,
-      .chatina-theme-scope a {
-        color: #93c5fd !important;
-      }
-
-      :host button, :host .btn,
-      .chatina-theme-scope button,
-      .chatina-theme-scope .btn {
-        background-color: #334155 !important;
-        color: #eaeaea !important;
-      }
     `;
-    (target || document.head).appendChild(style);
-    return style;
+    document.head.appendChild(style);
   }
 
-  function applyChatinaTheme(root) {
+  function parseColor(colorString) {
+    if (!colorString) return null;
+    const match = colorString.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/i);
+    if (!match) return null;
+    const [, r, g, b, a] = match;
+    return { r: Number(r), g: Number(g), b: Number(b), a: a !== undefined ? Number(a) : 1 };
+  }
+
+  function getLuminance({ r, g, b }) {
+    const channel = (value) => {
+      const normalized = value / 255;
+      return normalized <= 0.03928
+        ? normalized / 12.92
+        : Math.pow((normalized + 0.055) / 1.055, 2.4);
+    };
+    const [lr, lg, lb] = [channel(r), channel(g), channel(b)];
+    return 0.2126 * lr + 0.7152 * lg + 0.0722 * lb;
+  }
+
+  function adjustMessageColors(root) {
+    const isDark = isDarkModeActive();
     const target = root.shadowRoot || root;
-    const existingStyle = target.querySelector('style[data-chatina-theme]');
+    const candidates = target.querySelectorAll('[class*="message" i], [class*="msg" i], [class*="bubble" i]');
 
-    if (!isDarkModeActive()) {
-      if (existingStyle) existingStyle.remove();
-      return;
-    }
+    candidates.forEach((el) => {
+      if (!isDark) {
+        if (el.dataset.chatinaAdjusted === 'true') {
+          el.style.color = '';
+          delete el.dataset.chatinaAdjusted;
+        }
+        return;
+      }
 
-    if (!existingStyle) {
-      root.classList.add('chatina-theme-scope');
-      createDarkThemeStyle(target);
-    }
+      const bgColor = parseColor(getComputedStyle(el).backgroundColor);
+      if (!bgColor || bgColor.a === 0) return;
+
+      const luminance = getLuminance(bgColor);
+      const textColor = luminance > 0.7 ? '#111111' : '#eaeaea';
+      el.style.color = textColor;
+      el.dataset.chatinaAdjusted = 'true';
+    });
   }
 
   const trackedChatinaRoots = new Set();
+  const CHATINA_ATTRIBUTES = ['class', 'data-widget', 'id'];
+
+  function applyChatinaTheme(root) {
+    if (!(root instanceof Element)) return;
+    root.setAttribute(CHATINA_ROOT_ATTR, 'true');
+    ensureChatinaStyle();
+    adjustMessageColors(root);
+  }
 
   function observeChatinaRoot(root) {
     if (trackedChatinaRoots.has(root)) return;
     trackedChatinaRoots.add(root);
     applyChatinaTheme(root);
 
-    if (root.shadowRoot) {
-      const shadowObserver = new MutationObserver(() => applyChatinaTheme(root));
-      shadowObserver.observe(root.shadowRoot, { childList: true, subtree: true });
-    }
+    const target = root.shadowRoot || root;
+    const observer = new MutationObserver(() => adjustMessageColors(root));
+    observer.observe(target, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
   }
 
   function scanForChatina(node) {
@@ -176,25 +234,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const themeToggleObserver = new MutationObserver((mutations) => {
     let shouldReapply = false;
     mutations.forEach((mutation) => {
-      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      if (mutation.type === 'attributes' && CHATINA_ATTRIBUTES.includes(mutation.attributeName)) {
         shouldReapply = true;
       }
       mutation.addedNodes.forEach(scanForChatina);
     });
 
     if (shouldReapply) {
-      trackedChatinaRoots.forEach(applyChatinaTheme);
+      trackedChatinaRoots.forEach((root) => applyChatinaTheme(root));
     }
   });
 
   function setupChatinaThemeHook() {
+    ensureChatinaStyle();
     scanForChatina(document.body);
     themeToggleObserver.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
 
     if (window.matchMedia) {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       mediaQuery.addEventListener('change', () => {
-        trackedChatinaRoots.forEach(applyChatinaTheme);
+        trackedChatinaRoots.forEach((root) => applyChatinaTheme(root));
       });
     }
   }
