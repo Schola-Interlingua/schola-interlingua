@@ -88,5 +88,118 @@ document.addEventListener("DOMContentLoaded", function () {
     return chatinaLoader;
   }
 
-  loadChatinaBundle().catch((error) => console.error('No se pudo cargar Chatina:', error));
+  function isDarkModeActive() {
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const body = document.body;
+    return body.classList.contains('dark-mode') || body.classList.contains('dark') || prefersDark;
+  }
+
+  const chatinaCandidatesSelector = [
+    '[id*="chatina" i]',
+    '[class*="chatina" i]',
+    '[data-widget*="chatina" i]',
+    '[class*="softwcloud" i]'
+  ].join(',');
+
+  function isChatinaRoot(node) {
+    if (!(node instanceof Element)) return false;
+    const datasetValue = node.getAttribute('data-widget') || '';
+    const signature = `${node.id || ''} ${node.className || ''} ${datasetValue}`.toLowerCase();
+    return signature.includes('chatina') || signature.includes('softwcloud');
+  }
+
+  function createDarkThemeStyle(target) {
+    const style = document.createElement('style');
+    style.dataset.chatinaTheme = 'true';
+    style.textContent = `
+      :host, :host *,
+      .chatina-theme-scope, .chatina-theme-scope * {
+        color: #eaeaea !important;
+        opacity: 1 !important;
+      }
+
+      :host, :host *,
+      .chatina-theme-scope, .chatina-theme-scope * {
+        background-color: #1e293b !important;
+      }
+
+      :host a, :host a *,
+      .chatina-theme-scope a {
+        color: #93c5fd !important;
+      }
+
+      :host button, :host .btn,
+      .chatina-theme-scope button,
+      .chatina-theme-scope .btn {
+        background-color: #334155 !important;
+        color: #eaeaea !important;
+      }
+    `;
+    (target || document.head).appendChild(style);
+    return style;
+  }
+
+  function applyChatinaTheme(root) {
+    const target = root.shadowRoot || root;
+    const existingStyle = target.querySelector('style[data-chatina-theme]');
+
+    if (!isDarkModeActive()) {
+      if (existingStyle) existingStyle.remove();
+      return;
+    }
+
+    if (!existingStyle) {
+      root.classList.add('chatina-theme-scope');
+      createDarkThemeStyle(target);
+    }
+  }
+
+  const trackedChatinaRoots = new Set();
+
+  function observeChatinaRoot(root) {
+    if (trackedChatinaRoots.has(root)) return;
+    trackedChatinaRoots.add(root);
+    applyChatinaTheme(root);
+
+    if (root.shadowRoot) {
+      const shadowObserver = new MutationObserver(() => applyChatinaTheme(root));
+      shadowObserver.observe(root.shadowRoot, { childList: true, subtree: true });
+    }
+  }
+
+  function scanForChatina(node) {
+    if (!(node instanceof Element)) return;
+    if (isChatinaRoot(node)) observeChatinaRoot(node);
+    node.querySelectorAll(chatinaCandidatesSelector).forEach(observeChatinaRoot);
+  }
+
+  const themeToggleObserver = new MutationObserver((mutations) => {
+    let shouldReapply = false;
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        shouldReapply = true;
+      }
+      mutation.addedNodes.forEach(scanForChatina);
+    });
+
+    if (shouldReapply) {
+      trackedChatinaRoots.forEach(applyChatinaTheme);
+    }
+  });
+
+  function setupChatinaThemeHook() {
+    scanForChatina(document.body);
+    themeToggleObserver.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
+
+    if (window.matchMedia) {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      mediaQuery.addEventListener('change', () => {
+        trackedChatinaRoots.forEach(applyChatinaTheme);
+      });
+    }
+  }
+
+  loadChatinaBundle()
+    .then(setupChatinaThemeHook)
+    .catch((error) => console.error('No se pudo cargar Chatina:', error));
 });
