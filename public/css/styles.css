@@ -1569,4 +1569,10 @@ body#wordsearch-page.dark-mode .word-item .tooltiptext {
   color: white;
 }
 
+/* Asegurar texto oscuro en el widget de Chatina */
+.softwcloud-chat *,
+.softwcloud-container * {
+  color: #0f172a !important;
+}
+
 

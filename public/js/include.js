@@ -58,8 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Cargar el widget de Chatina una sola vez
   const chatinaSrc = "https://ia.softwcloud.com/app/IA/chat_js/chat.js?type=mini&key=lnyghdrM5s7ixKFYr5q/u5FeWklsm25en5vAt5+fqknFt6Cnx1FYVlU=";
-  const existingChatina = document.querySelector(`script[src="${chatinaSrc}"]`);
-  if (!existingChatina) {
+  if (!document.querySelector(`script[src="${chatinaSrc}"]`)) {
     const chatinaScript = document.createElement('script');
     chatinaScript.src = chatinaSrc;
     document.body.appendChild(chatinaScript);
