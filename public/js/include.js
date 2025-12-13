@@ -88,5 +88,5 @@ document.addEventListener("DOMContentLoaded", function () {
     return chatinaLoader;
   }
 
-  loadChatinaBundle().catch((error) => console.error('No se pudo cargar Chatina:', error));
+  loadChatinaBundle().catch((error) => console.error('No habeva possibile cargar Chatina:', error));
 });
