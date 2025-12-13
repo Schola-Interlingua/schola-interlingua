@@ -99,10 +99,10 @@ document.addEventListener("DOMContentLoaded", function () {
       .${CHATINA_SCOPE_CLASS},
       .${CHATINA_SCOPE_CLASS} *,
       .${CHATINA_SCOPE_CLASS} a {
-        color: #0f172a !important;
+        color: #111 !important;
       }
       .${CHATINA_SCOPE_CLASS} ::placeholder {
-        color: #334155 !important;
+        color: rgba(0, 0, 0, 0.5) !important;
       }
       .${CHATINA_SCOPE_CLASS} svg [fill]:not([fill="none"]) {
         fill: currentColor !important;
