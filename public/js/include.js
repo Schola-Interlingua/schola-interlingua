@@ -48,4 +48,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const progressScript = document.createElement('script');
   progressScript.src = "/js/progress.js";
   document.body.appendChild(progressScript);
+
+  // Cargar jQuery solo si no existe
+  if (!window.jQuery) {
+    const jqueryScript = document.createElement('script');
+    jqueryScript.src = "https://code.jquery.com/jquery-3.7.1.min.js";
+    document.body.appendChild(jqueryScript);
+  }
+
+  // Cargar el widget de Chatina una sola vez
+  const chatinaSrc = "https://ia.softwcloud.com/app/IA/chat_js/chat.js?type=mini&key=lnyghdrM5s7ixKFYr5q/u5FeWklsm25en5vAt5+fqknFt6Cnx1FYVlU=";
+  const existingChatina = document.querySelector(`script[src="${chatinaSrc}"]`);
+  if (!existingChatina) {
+    const chatinaScript = document.createElement('script');
+    chatinaScript.src = chatinaSrc;
+    document.body.appendChild(chatinaScript);
+  }
 });
