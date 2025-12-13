@@ -114,27 +114,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.head.appendChild(style);
   }
 
-  function ensureShadowStyle(shadowRoot) {
-    if (!shadowRoot || shadowRoot.getElementById(CHATINA_STYLE_ID)) return;
-    const style = document.createElement('style');
-    style.id = CHATINA_STYLE_ID;
-    style.textContent = `
-      :host, :host *, :host a {
-        color: #0f172a !important;
-      }
-      :host ::placeholder {
-        color: #334155 !important;
-      }
-      :host svg [fill]:not([fill="none"]) {
-        fill: currentColor !important;
-      }
-      :host svg [stroke]:not([stroke="none"]) {
-        stroke: currentColor !important;
-      }
-    `;
-    shadowRoot.appendChild(style);
-  }
-
   const chatinaCandidatesSelector = [
     '[id*="chatina" i]',
     '[class*="chatina" i]',
@@ -156,7 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
     trackedChatinaRoots.add(root);
     root.classList.add(CHATINA_SCOPE_CLASS);
     ensureHeadStyle();
-    ensureShadowStyle(root.shadowRoot);
   }
 
   function scanForChatina(node) {
