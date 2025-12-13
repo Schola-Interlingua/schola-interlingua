@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const CHATINA_JQUERY_SRC = "https://code.jquery.com/jquery-3.7.1.min.js";
   const CHATINA_SCRIPT_SRC = "https://ia.softwcloud.com/app/IA/chat_js/chat.js?type=mini&key=lnyghdrM5s7ixKFYr5q/u5FeWklsm25en5vAt5+fqknFt6Cnx1FYVlU=";
-  const CHATINA_ROOT_ATTR = 'data-chatina-root';
+  const CHATINA_SCOPE_CLASS = 'chatina-theme-scope';
   const CHATINA_STYLE_ID = 'chatina-text-color';
 
   function loadScriptOnce(src) {
@@ -90,30 +90,25 @@ document.addEventListener("DOMContentLoaded", function () {
     return chatinaLoader;
   }
 
-  const chatinaCandidatesSelector = [
-    '[id*="chatina" i]',
-    '[class*="chatina" i]',
-    '[data-widget*="chatina" i]',
-    '[class*="softwcloud" i]'
-  ].join(',');
-
-  function isChatinaRoot(node) {
-    if (!(node instanceof Element)) return false;
-    const datasetValue = node.getAttribute('data-widget') || '';
-    const signature = `${node.id || ''} ${node.className || ''} ${datasetValue}`.toLowerCase();
-    return signature.includes('chatina') || signature.includes('softwcloud');
-  }
-
   // Scoped text-only override so the Chatina widget stays legible without altering its layout.
   function ensureHeadStyle() {
     if (document.getElementById(CHATINA_STYLE_ID)) return;
     const style = document.createElement('style');
     style.id = CHATINA_STYLE_ID;
     style.textContent = `
-      [${CHATINA_ROOT_ATTR}="true"],
-      [${CHATINA_ROOT_ATTR}="true"] *,
-      [${CHATINA_ROOT_ATTR}="true"] a {
-        color: #111 !important;
+      .${CHATINA_SCOPE_CLASS},
+      .${CHATINA_SCOPE_CLASS} *,
+      .${CHATINA_SCOPE_CLASS} a {
+        color: #0f172a !important;
+      }
+      .${CHATINA_SCOPE_CLASS} ::placeholder {
+        color: #334155 !important;
+      }
+      .${CHATINA_SCOPE_CLASS} svg [fill]:not([fill="none"]) {
+        fill: currentColor !important;
+      }
+      .${CHATINA_SCOPE_CLASS} svg [stroke]:not([stroke="none"]) {
+        stroke: currentColor !important;
       }
     `;
     document.head.appendChild(style);
@@ -124,19 +119,42 @@ document.addEventListener("DOMContentLoaded", function () {
     const style = document.createElement('style');
     style.id = CHATINA_STYLE_ID;
     style.textContent = `
-      :host, :host * {
-        color: #111 !important;
+      :host, :host *, :host a {
+        color: #0f172a !important;
+      }
+      :host ::placeholder {
+        color: #334155 !important;
+      }
+      :host svg [fill]:not([fill="none"]) {
+        fill: currentColor !important;
+      }
+      :host svg [stroke]:not([stroke="none"]) {
+        stroke: currentColor !important;
       }
     `;
     shadowRoot.appendChild(style);
   }
 
+  const chatinaCandidatesSelector = [
+    '[id*="chatina" i]',
+    '[class*="chatina" i]',
+    '[data-widget*="chatina" i]',
+    '[class*="softwcloud" i]'
+  ].join(',');
+
   const trackedChatinaRoots = new Set();
+
+  function isChatinaRoot(node) {
+    if (!(node instanceof Element)) return false;
+    const datasetValue = node.getAttribute('data-widget') || '';
+    const signature = `${node.id || ''} ${node.className || ''} ${datasetValue}`.toLowerCase();
+    return signature.includes('chatina') || signature.includes('softwcloud');
+  }
 
   function applyChatinaTextFix(root) {
     if (!(root instanceof Element) || trackedChatinaRoots.has(root)) return;
     trackedChatinaRoots.add(root);
-    root.setAttribute(CHATINA_ROOT_ATTR, 'true');
+    root.classList.add(CHATINA_SCOPE_CLASS);
     ensureHeadStyle();
     ensureShadowStyle(root.shadowRoot);
   }
