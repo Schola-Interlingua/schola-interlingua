@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return chatinaLoader;
   }
 
-  // Scoped text-only override so the Chatina widget stays legible without altering its layout.
+  // Chatina no soporta theming externo: forzamos texto oscuro para legibilidad sin tocar el fondo.
   function ensureHeadStyle() {
     if (document.getElementById(CHATINA_STYLE_ID)) return;
     const style = document.createElement('style');
@@ -134,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!(root instanceof Element) || trackedChatinaRoots.has(root)) return;
     trackedChatinaRoots.add(root);
     root.classList.add(CHATINA_SCOPE_CLASS);
-    ensureHeadStyle();
   }
 
   function scanForChatina(node) {
