@@ -1569,4 +1569,59 @@ body#wordsearch-page.dark-mode .word-item .tooltiptext {
   color: white;
 }
 
+/* Ajustes de modo oscuro para el widget oficial de Chatina */
+@media (prefers-color-scheme: dark) {
+  [id*="chatina"],
+  [class*="chatina"],
+  [data-widget*="chatina"],
+  [class*="softwcloud"] {
+    color: #eaeaea !important;
+  }
+
+  [id*="chatina"] *,
+  [class*="chatina"] *,
+  [data-widget*="chatina"] *,
+  [class*="softwcloud"] * {
+    color: #eaeaea !important;
+  }
+
+  [id*="chatina"],
+  [class*="chatina"],
+  [data-widget*="chatina"],
+  [class*="softwcloud"],
+  [id*="chatina"] *,
+  [class*="chatina"] *,
+  [data-widget*="chatina"] *,
+  [class*="softwcloud"] * {
+    background-color: #1e293b !important;
+    opacity: 1 !important;
+  }
+}
+
+body.dark-mode [id*="chatina"],
+body.dark-mode [class*="chatina"],
+body.dark-mode [data-widget*="chatina"],
+body.dark-mode [class*="softwcloud"],
+body.dark [id*="chatina"],
+body.dark [class*="chatina"],
+body.dark [data-widget*="chatina"],
+body.dark [class*="softwcloud"] {
+  color: #eaeaea !important;
+  background-color: #1e293b !important;
+  opacity: 1 !important;
+}
+
+body.dark-mode [id*="chatina"] *,
+body.dark-mode [class*="chatina"] *,
+body.dark-mode [data-widget*="chatina"] *,
+body.dark-mode [class*="softwcloud"] *,
+body.dark [id*="chatina"] *,
+body.dark [class*="chatina"] *,
+body.dark [data-widget*="chatina"] *,
+body.dark [class*="softwcloud"] * {
+  color: #eaeaea !important;
+  background-color: #1e293b !important;
+  opacity: 1 !important;
+}
+
 
