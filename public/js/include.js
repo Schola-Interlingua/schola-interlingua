@@ -81,17 +81,103 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(jqueryScript);
   }
 
-  // Configuración para activar Chatina manualmente
+  // Cargar el widget de Chatina una sola vez y añadir aviso sobre terceros
   const chatinaSrc = "https://ia.softwcloud.com/app/IA/chat_js/chat.js?type=mini&key=lnyghdrM5s7ixKFYr5q/u5FeWklsm25en5vAt5+fqknFt6Cnx1FYVlU=";
-  const chatinaState = {
-    loading: false,
-    loaded: false,
-    launcher: null
-  };
+  const chatinaNoticeText = "Widget de terceros; puede usar cookies.";
+  let chatinaNotice = null;
+  let chatinaButton = null;
 
-  function loadChatinaScript(launcher) {
-    if (chatinaState.loading || chatinaState.loaded || document.querySelector(`script[src="${chatinaSrc}"]`)) {
-      if (chatinaState.loaded && launcher) launcher.remove();
+  const chatinaSelectors = [
+    'button[id*="chatina" i]',
+    'button[class*="chatina" i]',
+    'button[aria-label*="chat" i]',
+    'button[aria-label*="soporte" i]',
+    'button[aria-label*="support" i]'
+  ];
+
+  function findChatinaButton() {
+    for (const selector of chatinaSelectors) {
+      const found = document.querySelector(selector);
+      if (found) return found;
+    }
+
+    const fixedButtons = Array.from(document.querySelectorAll('button')).filter(btn => {
+      const styles = window.getComputedStyle(btn);
+      return styles.position === 'fixed';
+    });
+
+    return fixedButtons.find(btn => {
+      const rect = btn.getBoundingClientRect();
+      return rect.right >= window.innerWidth - 200 && rect.bottom >= window.innerHeight - 200;
+    }) || null;
+  }
+
+  function createChatinaNotice() {
+    if (chatinaNotice) return chatinaNotice;
+
+    chatinaNotice = document.createElement('span');
+    chatinaNotice.className = 'chatina-privacy-notice';
+    chatinaNotice.textContent = chatinaNoticeText;
+    document.body.appendChild(chatinaNotice);
+    return chatinaNotice;
+  }
+
+  function positionNotice(targetButton) {
+    if (!chatinaNotice || !targetButton) return;
+
+    const rect = targetButton.getBoundingClientRect();
+    const noticeRect = chatinaNotice.getBoundingClientRect();
+    const top = rect.top + window.scrollY - noticeRect.height - 10;
+    const left = rect.left + window.scrollX + rect.width / 2 - noticeRect.width / 2;
+
+    chatinaNotice.style.top = `${Math.max(10, top)}px`;
+    chatinaNotice.style.left = `${Math.max(10, left)}px`;
+  }
+
+  function attachNoticeToButton(targetButton) {
+    if (!targetButton || chatinaButton === targetButton) return;
+
+    chatinaButton = targetButton;
+    createChatinaNotice();
+
+    const showNotice = () => {
+      positionNotice(targetButton);
+      chatinaNotice.classList.add('chatina-privacy-notice--visible');
+    };
+
+    const hideNotice = () => {
+      chatinaNotice.classList.remove('chatina-privacy-notice--visible');
+    };
+
+    ['mouseenter', 'focus'].forEach(evt => targetButton.addEventListener(evt, showNotice));
+    ['mouseleave', 'blur'].forEach(evt => targetButton.addEventListener(evt, hideNotice));
+    window.addEventListener('resize', () => positionNotice(targetButton));
+    window.addEventListener('scroll', () => positionNotice(targetButton), { passive: true });
+
+    positionNotice(targetButton);
+  }
+
+  function waitForChatinaButton() {
+    const existing = findChatinaButton();
+    if (existing) {
+      attachNoticeToButton(existing);
+      return;
+    }
+
+    const observer = new MutationObserver(() => {
+      const found = findChatinaButton();
+      if (found) {
+        attachNoticeToButton(found);
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  function loadChatina() {
+    if (document.querySelector(`script[src="${chatinaSrc}"]`)) {
+      waitForChatinaButton();
       return;
     }
 
@@ -99,61 +185,14 @@ document.addEventListener("DOMContentLoaded", function () {
     chatinaScript.src = chatinaSrc;
     chatinaScript.async = true;
     chatinaScript.defer = true;
-
-    chatinaState.loading = true;
-    if (launcher) {
-      launcher.classList.add("chatina-launcher--loading");
-      launcher.querySelector('.chatina-launcher__bubble-label').textContent = "...";
-      launcher.querySelector('button').setAttribute('aria-busy', 'true');
-      launcher.querySelector('button').disabled = true;
-    }
-
-    chatinaScript.addEventListener('load', () => {
-      chatinaState.loading = false;
-      chatinaState.loaded = true;
-      if (launcher) launcher.remove();
-    });
-
-    chatinaScript.addEventListener('error', () => {
-      chatinaState.loading = false;
-      chatinaState.loaded = false;
-      if (launcher) {
-        launcher.classList.remove("chatina-launcher--loading");
-        launcher.querySelector('.chatina-launcher__bubble-label').textContent = "!";
-        launcher.querySelector('button').removeAttribute('aria-busy');
-        launcher.querySelector('button').disabled = false;
-      }
-    });
-
+    chatinaScript.addEventListener('load', waitForChatinaButton);
     document.body.appendChild(chatinaScript);
-  }
-
-  function createChatinaLauncher() {
-    if (document.querySelector(`script[src="${chatinaSrc}"]`)) {
-      chatinaState.loaded = true;
-      return;
-    }
-
-    const launcher = document.createElement('div');
-    launcher.className = "chatina-launcher";
-    const noticeId = "chatina-privacy-notice";
-    launcher.innerHTML = `
-      <button type="button" class="chatina-launcher__bubble" aria-label="Abrir Chatina" aria-describedby="${noticeId}">
-        <span class="chatina-launcher__bubble-label" aria-hidden="true">C</span>
-      </button>
-      <span class="chatina-launcher__notice" id="${noticeId}">Widget de terceros; puede usar cookies.</span>
-    `;
-
-    const button = launcher.querySelector('button');
-    button.addEventListener('click', () => loadChatinaScript(launcher));
-
-    chatinaState.launcher = launcher;
-    document.body.appendChild(launcher);
+    waitForChatinaButton();
   }
 
   include("#navbar-placeholder, nav", "navbar.html", () => {
     initLang();
-    createChatinaLauncher();
+    loadChatina();
   });
 
   include("#footer-placeholder, footer", "footer.html");
