@@ -358,27 +358,34 @@ header {
   z-index: 1000;
 }
 
-.chatina-launcher__button {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+.chatina-launcher__bubble {
+  background: linear-gradient(135deg, #f9447b, #ff7c36);
   border: none;
   color: #fff;
-  padding: 0.75rem 1.1rem;
-  border-radius: 999px;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
   cursor: pointer;
   transition: var(--transition);
-  font-weight: 700;
-  font-size: 1rem;
-  box-shadow: var(--shadow-lg);
-}
-
-.chatina-launcher__button:hover:not(:disabled) {
-  transform: translateY(-2px);
+  font-weight: 800;
+  font-size: 1.05rem;
   box-shadow: var(--shadow-xl);
+  display: grid;
+  place-items: center;
 }
 
-.chatina-launcher__button:disabled {
-  opacity: 0.75;
+.chatina-launcher__bubble:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 28px rgba(249, 68, 123, 0.35);
+}
+
+.chatina-launcher__bubble:disabled {
+  opacity: 0.7;
   cursor: not-allowed;
+}
+
+.chatina-launcher__bubble-label {
+  letter-spacing: 0.02em;
 }
 
 .chatina-launcher__notice {
@@ -391,7 +398,7 @@ header {
   backdrop-filter: blur(8px);
 }
 
-.chatina-launcher--loading .chatina-launcher__button {
+.chatina-launcher--loading .chatina-launcher__bubble {
   background: var(--bg-secondary);
   color: var(--text-color);
   box-shadow: none;

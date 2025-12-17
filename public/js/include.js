@@ -91,9 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function loadChatinaScript(launcher) {
     if (chatinaState.loading || chatinaState.loaded || document.querySelector(`script[src="${chatinaSrc}"]`)) {
-      if (chatinaState.loaded && launcher) {
-        launcher.remove();
-      }
+      if (chatinaState.loaded && launcher) launcher.remove();
       return;
     }
 
@@ -105,7 +103,8 @@ document.addEventListener("DOMContentLoaded", function () {
     chatinaState.loading = true;
     if (launcher) {
       launcher.classList.add("chatina-launcher--loading");
-      launcher.querySelector('.chatina-launcher__label').textContent = "Activando Chatina...";
+      launcher.querySelector('.chatina-launcher__bubble-label').textContent = "...";
+      launcher.querySelector('button').setAttribute('aria-busy', 'true');
       launcher.querySelector('button').disabled = true;
     }
 
@@ -120,7 +119,8 @@ document.addEventListener("DOMContentLoaded", function () {
       chatinaState.loaded = false;
       if (launcher) {
         launcher.classList.remove("chatina-launcher--loading");
-        launcher.querySelector('.chatina-launcher__label').textContent = "Reintentar Chatina";
+        launcher.querySelector('.chatina-launcher__bubble-label').textContent = "!";
+        launcher.querySelector('button').removeAttribute('aria-busy');
         launcher.querySelector('button').disabled = false;
       }
     });
@@ -137,8 +137,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const launcher = document.createElement('div');
     launcher.className = "chatina-launcher";
     launcher.innerHTML = `
-      <button type="button" class="chatina-launcher__button" aria-label="Abrir Chatina">
-        <span class="chatina-launcher__label">Chatina</span>
+      <button type="button" class="chatina-launcher__bubble" aria-label="Abrir Chatina">
+        <span class="chatina-launcher__bubble-label" aria-hidden="true">C</span>
       </button>
       <span class="chatina-launcher__notice">Widget de terceros; puede usar cookies.</span>
     `;
