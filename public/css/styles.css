@@ -347,51 +347,54 @@ header {
   transform: scale(1.1);
 }
 
-.chatina-opt-in {
+.chatina-launcher {
+  position: fixed;
+  right: 1rem;
+  bottom: 1.25rem;
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-left: 1rem;
-  flex-wrap: wrap;
-  color: #fff;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  z-index: 1000;
 }
 
-.chatina-toggle {
+.chatina-launcher__button {
   background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
   border: none;
   color: #fff;
-  padding: 0.55rem 0.9rem;
-  border-radius: var(--radius-sm);
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
   cursor: pointer;
   transition: var(--transition);
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: var(--shadow-lg);
 }
 
-.chatina-toggle:hover:not(:disabled) {
+.chatina-launcher__button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-xl);
 }
 
-.chatina-toggle:disabled {
-  opacity: 0.7;
+.chatina-launcher__button:disabled {
+  opacity: 0.75;
   cursor: not-allowed;
 }
 
-.chatina-toggle--active {
-  background: var(--bg-secondary);
+.chatina-launcher__notice {
+  font-size: 0.85rem;
   color: var(--text-color);
-  border: 1px solid var(--border-color);
-  box-shadow: none;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.4rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
 }
 
-.chatina-notice {
-  font-size: 0.9rem;
+.chatina-launcher--loading .chatina-launcher__button {
+  background: var(--bg-secondary);
   color: var(--text-color);
-  background: rgba(255, 255, 255, 0.08);
-  padding: 0.35rem 0.6rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
 }
 
 /* Main container modernizado */

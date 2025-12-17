@@ -86,34 +86,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatinaState = {
     loading: false,
     loaded: false,
+    launcher: null
   };
 
-  function updateChatinaToggleState(toggle) {
-    if (!toggle) return;
-
-    const alreadyLoaded = chatinaState.loaded || document.querySelector(`script[src="${chatinaSrc}"]`);
-    if (alreadyLoaded) {
-      chatinaState.loaded = true;
-      chatinaState.loading = false;
-      toggle.textContent = "Chatina activa";
-      toggle.disabled = true;
-      toggle.classList.add("chatina-toggle--active");
-      return;
-    }
-
-    if (chatinaState.loading) {
-      toggle.textContent = "Activando Chatina...";
-      toggle.disabled = true;
-    } else {
-      toggle.textContent = "Activar Chatina";
-      toggle.disabled = false;
-      toggle.classList.remove("chatina-toggle--active");
-    }
-  }
-
-  function loadChatinaScript(toggle) {
+  function loadChatinaScript(launcher) {
     if (chatinaState.loading || chatinaState.loaded || document.querySelector(`script[src="${chatinaSrc}"]`)) {
-      updateChatinaToggleState(toggle);
+      if (chatinaState.loaded && launcher) {
+        launcher.remove();
+      }
       return;
     }
 
@@ -123,40 +103,56 @@ document.addEventListener("DOMContentLoaded", function () {
     chatinaScript.defer = true;
 
     chatinaState.loading = true;
-    updateChatinaToggleState(toggle);
+    if (launcher) {
+      launcher.classList.add("chatina-launcher--loading");
+      launcher.querySelector('.chatina-launcher__label').textContent = "Activando Chatina...";
+      launcher.querySelector('button').disabled = true;
+    }
 
     chatinaScript.addEventListener('load', () => {
       chatinaState.loading = false;
       chatinaState.loaded = true;
-      updateChatinaToggleState(toggle);
+      if (launcher) launcher.remove();
     });
 
     chatinaScript.addEventListener('error', () => {
       chatinaState.loading = false;
       chatinaState.loaded = false;
-      if (toggle) {
-        toggle.textContent = "Error al cargar Chatina";
-        toggle.disabled = false;
+      if (launcher) {
+        launcher.classList.remove("chatina-launcher--loading");
+        launcher.querySelector('.chatina-launcher__label').textContent = "Reintentar Chatina";
+        launcher.querySelector('button').disabled = false;
       }
     });
 
     document.body.appendChild(chatinaScript);
   }
 
-  function initChatinaToggle() {
-    const toggle = document.querySelector('#chatina-toggle');
-    if (!toggle) return;
+  function createChatinaLauncher() {
+    if (document.querySelector(`script[src="${chatinaSrc}"]`)) {
+      chatinaState.loaded = true;
+      return;
+    }
 
-    updateChatinaToggleState(toggle);
+    const launcher = document.createElement('div');
+    launcher.className = "chatina-launcher";
+    launcher.innerHTML = `
+      <button type="button" class="chatina-launcher__button" aria-label="Abrir Chatina">
+        <span class="chatina-launcher__label">Chatina</span>
+      </button>
+      <span class="chatina-launcher__notice">Widget de terceros; puede usar cookies.</span>
+    `;
 
-    toggle.addEventListener('click', () => {
-      loadChatinaScript(toggle);
-    });
+    const button = launcher.querySelector('button');
+    button.addEventListener('click', () => loadChatinaScript(launcher));
+
+    chatinaState.launcher = launcher;
+    document.body.appendChild(launcher);
   }
 
   include("#navbar-placeholder, nav", "navbar.html", () => {
     initLang();
-    initChatinaToggle();
+    createChatinaLauncher();
   });
 
   include("#footer-placeholder, footer", "footer.html");
