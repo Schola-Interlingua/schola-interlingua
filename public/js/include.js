@@ -92,4 +92,11 @@ document.addEventListener("DOMContentLoaded", function () {
     chatinaScript.src = chatinaSrc;
     document.body.appendChild(chatinaScript);
   }
+
+  // Cargar Vercel Web Analytics
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  const analyticsScript = document.createElement('script');
+  analyticsScript.src = "/_vercel/insights/script.js";
+  analyticsScript.defer = true;
+  document.head.appendChild(analyticsScript);
 });
