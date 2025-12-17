@@ -153,10 +153,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         targetButton.setAttribute('aria-busy', 'true');
 
+        // Opt-in: cargar Chatina solo tras la primera interacción explícita
         loadChatina()
-          .then(() => {
+          .then(() => openChatinaIfPossible(targetButton))
+          .then((opened) => {
             targetButton.removeAttribute('aria-busy');
-            targetButton.dispatchEvent(new Event('click', { bubbles: true }));
+            if (!opened) {
+              targetButton.dispatchEvent(new Event('click', { bubbles: true }));
+            }
           })
           .catch(() => {
             targetButton.removeAttribute('aria-busy');
@@ -181,7 +185,38 @@ document.addEventListener("DOMContentLoaded", function () {
     positionNotice(targetButton);
   }
 
-  function waitForChatinaButton() {
+  function openChatinaIfPossible(targetButton) {
+    const maxAttempts = 5;
+    const delay = 200;
+
+    return new Promise((resolve) => {
+      const tryOpen = (remaining) => {
+        if (window.Chatina && typeof window.Chatina.open === 'function') {
+          window.Chatina.open();
+          resolve(true);
+          return;
+        }
+
+        const launcher = findChatinaButton();
+        if (launcher) {
+          launcher.click();
+          resolve(true);
+          return;
+        }
+
+        if (remaining <= 0) {
+          resolve(false);
+          return;
+        }
+
+        setTimeout(() => tryOpen(remaining - 1), delay);
+      };
+
+      tryOpen(maxAttempts);
+    });
+  }
+
+  function setupChatinaOptIn() {
     const existing = findChatinaButton();
     if (existing) {
       attachNoticeToButton(existing);
@@ -217,7 +252,6 @@ document.addEventListener("DOMContentLoaded", function () {
       chatinaScript.addEventListener('load', () => {
         chatinaLoaded = true;
         chatinaLoadingPromise = null;
-        waitForChatinaButton();
         resolve();
       });
       chatinaScript.addEventListener('error', () => {
@@ -225,7 +259,6 @@ document.addEventListener("DOMContentLoaded", function () {
         reject();
       });
       document.body.appendChild(chatinaScript);
-      waitForChatinaButton();
     });
 
     return chatinaLoadingPromise;
@@ -237,5 +270,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   include("#footer-placeholder, footer", "footer.html");
 
-  waitForChatinaButton();
+  setupChatinaOptIn();
 });
