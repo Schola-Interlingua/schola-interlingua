@@ -86,6 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatinaNoticeText = "Widget de terceros; puede usar cookies.";
   let chatinaNotice = null;
   let chatinaButton = null;
+  let chatinaLoaded = false;
+  let chatinaLoadingPromise = null;
 
   const chatinaSelectors = [
     'button[id*="chatina" i]',
@@ -140,6 +142,28 @@ document.addEventListener("DOMContentLoaded", function () {
     chatinaButton = targetButton;
     createChatinaNotice();
 
+    if (!targetButton.dataset.chatinaOptInBound) {
+      targetButton.dataset.chatinaOptInBound = "true";
+
+      targetButton.addEventListener('click', (event) => {
+        if (chatinaLoaded) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        targetButton.setAttribute('aria-busy', 'true');
+
+        loadChatina()
+          .then(() => {
+            targetButton.removeAttribute('aria-busy');
+            targetButton.dispatchEvent(new Event('click', { bubbles: true }));
+          })
+          .catch(() => {
+            targetButton.removeAttribute('aria-busy');
+          });
+      });
+    }
+
     const showNotice = () => {
       positionNotice(targetButton);
       chatinaNotice.classList.add('chatina-privacy-notice--visible');
@@ -176,24 +200,42 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function loadChatina() {
+    if (chatinaLoaded) return Promise.resolve();
+
     if (document.querySelector(`script[src="${chatinaSrc}"]`)) {
-      waitForChatinaButton();
-      return;
+      chatinaLoaded = true;
+      return Promise.resolve();
     }
 
-    const chatinaScript = document.createElement('script');
-    chatinaScript.src = chatinaSrc;
-    chatinaScript.async = true;
-    chatinaScript.defer = true;
-    chatinaScript.addEventListener('load', waitForChatinaButton);
-    document.body.appendChild(chatinaScript);
-    waitForChatinaButton();
+    if (chatinaLoadingPromise) return chatinaLoadingPromise;
+
+    chatinaLoadingPromise = new Promise((resolve, reject) => {
+      const chatinaScript = document.createElement('script');
+      chatinaScript.src = chatinaSrc;
+      chatinaScript.async = true;
+      chatinaScript.defer = true;
+      chatinaScript.addEventListener('load', () => {
+        chatinaLoaded = true;
+        chatinaLoadingPromise = null;
+        waitForChatinaButton();
+        resolve();
+      });
+      chatinaScript.addEventListener('error', () => {
+        chatinaLoadingPromise = null;
+        reject();
+      });
+      document.body.appendChild(chatinaScript);
+      waitForChatinaButton();
+    });
+
+    return chatinaLoadingPromise;
   }
 
   include("#navbar-placeholder, nav", "navbar.html", () => {
     initLang();
-    loadChatina();
   });
 
   include("#footer-placeholder, footer", "footer.html");
+
+  waitForChatinaButton();
 });
