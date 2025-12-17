@@ -396,12 +396,24 @@ header {
   border-radius: var(--radius-sm);
   border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: var(--transition);
+  pointer-events: none;
 }
 
 .chatina-launcher--loading .chatina-launcher__bubble {
   background: var(--bg-secondary);
   color: var(--text-color);
   box-shadow: none;
+}
+
+.chatina-launcher:hover .chatina-launcher__notice,
+.chatina-launcher:focus-within .chatina-launcher__notice {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* Main container modernizado */

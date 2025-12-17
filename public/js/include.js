@@ -136,11 +136,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const launcher = document.createElement('div');
     launcher.className = "chatina-launcher";
+    const noticeId = "chatina-privacy-notice";
     launcher.innerHTML = `
-      <button type="button" class="chatina-launcher__bubble" aria-label="Abrir Chatina">
+      <button type="button" class="chatina-launcher__bubble" aria-label="Abrir Chatina" aria-describedby="${noticeId}">
         <span class="chatina-launcher__bubble-label" aria-hidden="true">C</span>
       </button>
-      <span class="chatina-launcher__notice">Widget de terceros; puede usar cookies.</span>
+      <span class="chatina-launcher__notice" id="${noticeId}">Widget de terceros; puede usar cookies.</span>
     `;
 
     const button = launcher.querySelector('button');
