@@ -69,9 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   ensureMetadata();
 
-  include("#navbar-placeholder, nav", "navbar.html", initLang);
-  include("#footer-placeholder, footer", "footer.html");
-
   // Cargar script de progreso en todas las páginas
   const progressScript = document.createElement('script');
   progressScript.src = "/js/progress.js";
@@ -84,12 +81,83 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(jqueryScript);
   }
 
-  // Cargar el widget de Chatina una sola vez
+  // Configuración para activar Chatina manualmente
   const chatinaSrc = "https://ia.softwcloud.com/app/IA/chat_js/chat.js?type=mini&key=lnyghdrM5s7ixKFYr5q/u5FeWklsm25en5vAt5+fqknFt6Cnx1FYVlU=";
-  const existingChatina = document.querySelector(`script[src="${chatinaSrc}"]`);
-  if (!existingChatina) {
+  const chatinaState = {
+    loading: false,
+    loaded: false,
+  };
+
+  function updateChatinaToggleState(toggle) {
+    if (!toggle) return;
+
+    const alreadyLoaded = chatinaState.loaded || document.querySelector(`script[src="${chatinaSrc}"]`);
+    if (alreadyLoaded) {
+      chatinaState.loaded = true;
+      chatinaState.loading = false;
+      toggle.textContent = "Chatina activa";
+      toggle.disabled = true;
+      toggle.classList.add("chatina-toggle--active");
+      return;
+    }
+
+    if (chatinaState.loading) {
+      toggle.textContent = "Activando Chatina...";
+      toggle.disabled = true;
+    } else {
+      toggle.textContent = "Activar Chatina";
+      toggle.disabled = false;
+      toggle.classList.remove("chatina-toggle--active");
+    }
+  }
+
+  function loadChatinaScript(toggle) {
+    if (chatinaState.loading || chatinaState.loaded || document.querySelector(`script[src="${chatinaSrc}"]`)) {
+      updateChatinaToggleState(toggle);
+      return;
+    }
+
     const chatinaScript = document.createElement('script');
     chatinaScript.src = chatinaSrc;
+    chatinaScript.async = true;
+    chatinaScript.defer = true;
+
+    chatinaState.loading = true;
+    updateChatinaToggleState(toggle);
+
+    chatinaScript.addEventListener('load', () => {
+      chatinaState.loading = false;
+      chatinaState.loaded = true;
+      updateChatinaToggleState(toggle);
+    });
+
+    chatinaScript.addEventListener('error', () => {
+      chatinaState.loading = false;
+      chatinaState.loaded = false;
+      if (toggle) {
+        toggle.textContent = "Error al cargar Chatina";
+        toggle.disabled = false;
+      }
+    });
+
     document.body.appendChild(chatinaScript);
   }
+
+  function initChatinaToggle() {
+    const toggle = document.querySelector('#chatina-toggle');
+    if (!toggle) return;
+
+    updateChatinaToggleState(toggle);
+
+    toggle.addEventListener('click', () => {
+      loadChatinaScript(toggle);
+    });
+  }
+
+  include("#navbar-placeholder, nav", "navbar.html", () => {
+    initLang();
+    initChatinaToggle();
+  });
+
+  include("#footer-placeholder, footer", "footer.html");
 });

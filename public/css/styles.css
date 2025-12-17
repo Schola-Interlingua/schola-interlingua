@@ -347,6 +347,53 @@ header {
   transform: scale(1.1);
 }
 
+.chatina-opt-in {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 1rem;
+  flex-wrap: wrap;
+  color: #fff;
+}
+
+.chatina-toggle {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  border: none;
+  color: #fff;
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.chatina-toggle:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.chatina-toggle:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.chatina-toggle--active {
+  background: var(--bg-secondary);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  box-shadow: none;
+}
+
+.chatina-notice {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 /* Main container modernizado */
 main {
   max-width: 1200px;
