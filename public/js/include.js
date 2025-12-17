@@ -10,6 +10,32 @@ document.addEventListener("DOMContentLoaded", function () {
     ? "../components/"
     : "components/";
 
+  const courseMeta = {
+    title: "Schola Interlingua - Curso gratuito de Interlingua",
+    description: "Curso gratuito de Interlingua con lectiones, vocabulario y exercitios interactivos.",
+    image: `${location.origin}/images/logo.png`,
+    url: location.href
+  };
+
+  function setMeta(tagSelector, attributes) {
+    const existing = document.querySelector(tagSelector);
+    const element = existing || document.createElement("meta");
+    Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+    if (!existing) document.head.appendChild(element);
+  }
+
+  function ensureMetadata() {
+    setMeta('meta[name="description"]', { name: "description", content: courseMeta.description });
+    setMeta('meta[property="og:title"]', { property: "og:title", content: courseMeta.title });
+    setMeta('meta[property="og:description"]', { property: "og:description", content: courseMeta.description });
+    setMeta('meta[property="og:image"]', { property: "og:image", content: courseMeta.image });
+    setMeta('meta[property="og:url"]', { property: "og:url", content: courseMeta.url });
+    setMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
+    setMeta('meta[name="twitter:title"]', { name: "twitter:title", content: courseMeta.title });
+    setMeta('meta[name="twitter:description"]', { name: "twitter:description", content: courseMeta.description });
+    setMeta('meta[name="twitter:image"]', { name: "twitter:image", content: courseMeta.image });
+  }
+
   function include(selector, file, cb) {
     fetch(base + file)
       .then(res => res.text())
@@ -40,6 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  ensureMetadata();
 
   include("#navbar-placeholder, nav", "navbar.html", initLang);
   include("#footer-placeholder, footer", "footer.html");
