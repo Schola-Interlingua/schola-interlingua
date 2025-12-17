@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     : "components/";
 
   const courseMeta = {
-    title: "Schola Interlingua - Curso gratuito de Interlingua",
-    description: "Curso gratuito de Interlingua con lectiones, vocabulario y exercitios interactivos.",
+    title: "Schola Interlingua - Curso gratuite de Interlingua",
+    description: "Curso gratuite de Interlingua con lectiones, vocabulario e exercitios interactive",
     image: `${location.origin}/images/logo.png`,
     url: location.href
   };
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
           });
           if (cb) cb();
         } else {
-          console.warn(`No se encontraron elementos con el selector: ${selector}`);
+          console.warn(`Nulle elementos esseva trovate con le selector: ${selector}`);
         }
       })
       .catch(error => {
