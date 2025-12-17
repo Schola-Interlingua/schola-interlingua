@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatinaSrc = "https://ia.softwcloud.com/app/IA/chat_js/chat.js?type=mini&key=lnyghdrM5s7ixKFYr5q/u5FeWklsm25en5vAt5+fqknFt6Cnx1FYVlU=";
   const chatinaNoticeText = "Widget de terceros; puede usar cookies.";
   let chatinaNotice = null;
-  let chatinaButton = null;
   let chatinaLoaded = false;
   let chatinaLoadingPromise = null;
 
@@ -136,37 +135,10 @@ document.addEventListener("DOMContentLoaded", function () {
     chatinaNotice.style.left = `${Math.max(10, left)}px`;
   }
 
-  function attachNoticeToButton(targetButton) {
-    if (!targetButton || chatinaButton === targetButton) return;
+  function setupChatinaTooltip(targetButton) {
+    if (!targetButton) return;
 
-    chatinaButton = targetButton;
     createChatinaNotice();
-
-    if (!targetButton.dataset.chatinaOptInBound) {
-      targetButton.dataset.chatinaOptInBound = "true";
-
-      targetButton.addEventListener('click', (event) => {
-        if (chatinaLoaded) return;
-
-        event.preventDefault();
-        event.stopPropagation();
-
-        targetButton.setAttribute('aria-busy', 'true');
-
-        // Opt-in: cargar Chatina solo tras la primera interacción explícita
-        loadChatina()
-          .then(() => openChatinaIfPossible(targetButton))
-          .then((opened) => {
-            targetButton.removeAttribute('aria-busy');
-            if (!opened) {
-              targetButton.dispatchEvent(new Event('click', { bubbles: true }));
-            }
-          })
-          .catch(() => {
-            targetButton.removeAttribute('aria-busy');
-          });
-      });
-    }
 
     const showNotice = () => {
       positionNotice(targetButton);
@@ -185,55 +157,6 @@ document.addEventListener("DOMContentLoaded", function () {
     positionNotice(targetButton);
   }
 
-  function openChatinaIfPossible(targetButton) {
-    const maxAttempts = 5;
-    const delay = 200;
-
-    return new Promise((resolve) => {
-      const tryOpen = (remaining) => {
-        if (window.Chatina && typeof window.Chatina.open === 'function') {
-          window.Chatina.open();
-          resolve(true);
-          return;
-        }
-
-        const launcher = findChatinaButton();
-        if (launcher) {
-          launcher.click();
-          resolve(true);
-          return;
-        }
-
-        if (remaining <= 0) {
-          resolve(false);
-          return;
-        }
-
-        setTimeout(() => tryOpen(remaining - 1), delay);
-      };
-
-      tryOpen(maxAttempts);
-    });
-  }
-
-  function setupChatinaOptIn() {
-    const existing = findChatinaButton();
-    if (existing) {
-      attachNoticeToButton(existing);
-      return;
-    }
-
-    const observer = new MutationObserver(() => {
-      const found = findChatinaButton();
-      if (found) {
-        attachNoticeToButton(found);
-        observer.disconnect();
-      }
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-  }
-
   function loadChatina() {
     if (chatinaLoaded) return Promise.resolve();
 
@@ -244,6 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (chatinaLoadingPromise) return chatinaLoadingPromise;
 
+    // Opt-in: inyectar el script únicamente tras interacción explícita
     chatinaLoadingPromise = new Promise((resolve, reject) => {
       const chatinaScript = document.createElement('script');
       chatinaScript.src = chatinaSrc;
@@ -264,11 +188,62 @@ document.addEventListener("DOMContentLoaded", function () {
     return chatinaLoadingPromise;
   }
 
+  function openChatinaIfPossible(targetButton) {
+    const maxAttempts = 10;
+    const delay = 200;
+
+    return new Promise((resolve) => {
+      const tryOpen = (remaining) => {
+        if (window.Chatina && typeof window.Chatina.open === 'function') {
+          window.Chatina.open();
+          resolve(true);
+          return;
+        }
+
+        const launcher = findChatinaButton();
+        if (launcher && launcher !== targetButton) {
+          launcher.click();
+          resolve(true);
+          return;
+        }
+
+        if (remaining <= 0) {
+          resolve(false);
+          return;
+        }
+
+        setTimeout(() => tryOpen(remaining - 1), delay);
+      };
+
+      tryOpen(maxAttempts);
+    });
+  }
+
+  function setupChatinaOptIn() {
+    const launcher = document.getElementById('chatina-launcher');
+    if (!launcher) return;
+
+    setupChatinaTooltip(launcher);
+
+    launcher.addEventListener('click', (event) => {
+      if (!chatinaLoaded) {
+        event.preventDefault();
+        launcher.setAttribute('aria-busy', 'true');
+
+        loadChatina()
+          .then(() => openChatinaIfPossible(launcher))
+          .finally(() => launcher.removeAttribute('aria-busy'));
+        return;
+      }
+
+      openChatinaIfPossible(launcher);
+    });
+  }
+
   include("#navbar-placeholder, nav", "navbar.html", () => {
     initLang();
+    setupChatinaOptIn();
   });
 
   include("#footer-placeholder, footer", "footer.html");
-
-  setupChatinaOptIn();
 });

@@ -347,6 +347,37 @@ header {
   transform: scale(1.1);
 }
 
+.chatina-launcher {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(135deg, #1e90ff, #3b82f6);
+  box-shadow: var(--shadow-xl);
+  color: #fff;
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 1000;
+}
+
+.chatina-launcher:hover,
+.chatina-launcher:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 30px rgba(59, 130, 246, 0.35);
+}
+
+.chatina-launcher:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.4);
+  outline-offset: 2px;
+}
+
 .chatina-privacy-notice {
   position: fixed;
   padding: 0.5rem 0.75rem;
