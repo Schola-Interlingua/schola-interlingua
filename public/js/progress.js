@@ -1,81 +1,82 @@
-(function(){
+(function () {
   const STORAGE_KEY = 'si_progress';
   const TOTAL_LESSONS = 43;
-  const LESSON_ORDER = Array.from({length:10}, (_,i)=>`lection${i+1}`)
+  const LESSON_ORDER = Array.from({ length: 10 }, (_, i) => `lection${i + 1}`)
     .concat(window.cursoSlugs || []);
 
-  function storageAvailable(){
-    try{
-      const test='__test__';
-      localStorage.setItem(test,test);
+  function storageAvailable() {
+    try {
+      const test = '__test__';
+      localStorage.setItem(test, test);
       localStorage.removeItem(test);
       return true;
-    }catch(e){
+    } catch (e) {
       console.log('localStorage non disponibile');
       return false;
     }
   }
 
-  function defaultProgress(){
-    return {lessons:{}, streak:{current:0,best:0,last_study_date:null}};
+  function defaultProgress() {
+    return { lessons: {}, streak: { current: 0, best: 0, last_study_date: null } };
   }
 
-  function loadProgress(){
-    try{
-      const data = localStorage.getItem(STORAGE_KEY);
-      return data ? JSON.parse(data) : defaultProgress();
-    }catch(e){
-      return defaultProgress();
+  function loadProgress() {
+    if (window.getProgress) {
+      return window.getProgress() || defaultProgress();
+    }
+    return defaultProgress();
+  }
+
+  function saveProgress(p) {
+    if (window.saveProgress) {
+      window.saveProgress(p);
     }
   }
 
-  function saveProgress(p){
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
-  }
 
-  function updateStreak(progress, today){
-    const streak = progress.streak || {current:0,best:0,last_study_date:null};
-    if(!streak.last_study_date){
+  function updateStreak(progress, today) {
+    const streak = progress.streak || { current: 0, best: 0, last_study_date: null };
+    if (!streak.last_study_date) {
       streak.current = 1;
-    }else{
+    } else {
       const last = new Date(streak.last_study_date);
       const curr = new Date(today);
-      const diff = Math.floor((curr - last)/86400000);
-      if(diff === 1){
+      const diff = Math.floor((curr - last) / 86400000);
+      if (diff === 1) {
         streak.current += 1;
-      }else if(diff > 1){
+      } else if (diff > 1) {
         streak.current = 1;
       }
       // diff === 0 => no cambio
     }
     streak.last_study_date = today;
-    if(streak.current > (streak.best||0)) streak.best = streak.current;
+    if (streak.current > (streak.best || 0)) streak.best = streak.current;
     progress.streak = streak;
   }
 
-  function formatLesson(id){
-    if(id.startsWith('lection')) return id.replace('lection','');
-    return id.split('-').map(s=>s.charAt(0).toUpperCase()+s.slice(1)).join(' ');
+  function formatLesson(id) {
+    if (id.startsWith('lection')) return id.replace('lection', '');
+    return id.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
   }
 
   // Index rendering
-  function renderIndex(){
+  function renderIndex() {
     const section = document.getElementById('progress-section');
-    if(!section) return;
-    if(!storageAvailable()){
+    if (!section) return;
+    if (!storageAvailable()) {
       section.textContent = 'Le progresso non pote esser salvate';
       return;
     }
     const progress = loadProgress();
     const lessons = progress.lessons || {};
-    const completed = Object.values(lessons).filter(l=>l.completed).length;
-    const percent = TOTAL_LESSONS ? Math.round((completed/TOTAL_LESSONS)*100) : 0;
+    const completed = Object.values(lessons).filter(l => l.completed).length;
+    const percent = TOTAL_LESSONS ? Math.round((completed / TOTAL_LESSONS) * 100) : 0;
 
     const noProgress = section.querySelector('#no-progress-msg');
     const details = section.querySelector('#progress-details');
-    if(completed === 0){
+    if (completed === 0) {
       noProgress.style.display = 'block';
-    }else{
+    } else {
       noProgress.style.display = 'none';
     }
     details.style.display = 'block';
@@ -90,17 +91,17 @@
 
     const next = LESSON_ORDER.find(id => !(lessons[id] && lessons[id].completed));
     const nextEl = section.querySelector('#next-lesson');
-    if(next){
+    if (next) {
       nextEl.textContent = `Continua con le lection ${formatLesson(next)}`;
-    }else{
+    } else {
       nextEl.textContent = '';
     }
   }
 
-  function exportProgress(){
+  function exportProgress() {
     const data = localStorage.getItem(STORAGE_KEY);
-    if(!data){ alert('Il non ha progresso pro exportar'); return; }
-    const blob = new Blob([data], {type:'application/json'});
+    if (!data) { alert('Il non ha progresso pro exportar'); return; }
+    const blob = new Blob([data], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = 'si_progress.json';
@@ -108,33 +109,33 @@
     URL.revokeObjectURL(a.href);
   }
 
-  function importProgress(){
+  function importProgress() {
     const json = prompt('Incolla tu progresso in formato JSON:');
-    if(!json) return;
-    try{
+    if (!json) return;
+    try {
       const parsed = JSON.parse(json);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
       renderIndex();
-    }catch(e){
+    } catch (e) {
       alert('JSON invalide');
     }
   }
 
   // Lesson page button
-  function setupLesson(){
+  function setupLesson() {
     const container = document.getElementById('exercise-container');
-    if(!container) return;
+    if (!container) return;
 
     const wrap = document.createElement('div');
     wrap.className = 'lesson-progress-wrapper';
     container.insertAdjacentElement('afterend', wrap);
 
-    if(!storageAvailable()){
+    if (!storageAvailable()) {
       wrap.textContent = 'Le progresso non pote esser salvate';
       return;
     }
 
-    const lessonId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html','');
+    const lessonId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html', '');
 
     const btn = document.createElement('button');
     btn.id = 'lesson-progress-btn';
@@ -144,13 +145,13 @@
     wrap.appendChild(btn);
     wrap.appendChild(info);
 
-    function refresh(){
+    function refresh() {
       const progress = loadProgress();
       const data = progress.lessons[lessonId];
-      if(data && data.completed){
+      if (data && data.completed) {
         btn.textContent = 'Refacer le lection';
         info.textContent = `Ultime vice: ${data.last_done}`;
-      }else{
+      } else {
         btn.textContent = 'Marcar le lection como facte';
         info.textContent = '';
       }
@@ -158,12 +159,12 @@
 
     btn.addEventListener('click', () => {
       const progress = loadProgress();
-      const today = new Date().toISOString().slice(0,10);
+      const today = new Date().toISOString().slice(0, 10);
       const data = progress.lessons[lessonId];
-      if(data && data.completed){
+      if (data && data.completed) {
         delete progress.lessons[lessonId];
-      }else{
-        progress.lessons[lessonId] = {completed:true, last_done: today};
+      } else {
+        progress.lessons[lessonId] = { completed: true, last_done: today };
         updateStreak(progress, today);
       }
       saveProgress(progress);
@@ -173,27 +174,27 @@
     refresh();
   }
 
-  function init(){
-    if(!storageAvailable()){
+  function init() {
+    if (!storageAvailable()) {
       const section = document.getElementById('progress-section');
-      if(section) section.textContent = 'Le progresso non pote esser salvate';
+      if (section) section.textContent = 'Le progresso non pote esser salvate';
       return;
     }
     renderIndex();
     setupLesson();
     const exportBtn = document.getElementById('export-progress');
     const importBtn = document.getElementById('import-progress');
-    if(exportBtn) exportBtn.addEventListener('click', exportProgress);
-    if(importBtn) importBtn.addEventListener('click', importProgress);
+    if (exportBtn) exportBtn.addEventListener('click', exportProgress);
+    if (importBtn) importBtn.addEventListener('click', importProgress);
   }
 
-  if(document.readyState === 'loading'){
+  if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
-  }else{
+  } else {
     init();
   }
 
   window.addEventListener('storage', (e) => {
-    if(e.key === STORAGE_KEY) renderIndex();
+    if (e.key === STORAGE_KEY) renderIndex();
   });
 })();
