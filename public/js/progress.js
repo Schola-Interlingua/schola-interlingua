@@ -21,10 +21,9 @@
   }
 
   function loadProgress() {
-    if (window.getProgress) {
-      return window.getProgress() || defaultProgress();
-    }
-    return defaultProgress();
+    return window.getProgress
+      ? window.getProgress()
+      : defaultProgress();
   }
 
   function saveProgress(p) {
@@ -32,6 +31,7 @@
       window.saveProgress(p);
     }
   }
+
 
 
   function updateStreak(progress, today) {

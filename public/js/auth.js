@@ -1,17 +1,19 @@
 const SUPABASE_URL = "https://redvymknnxehwveyzmyw.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_Glxb2zj9_JOfqbKu0oVy5Q_oUIl_leI";
+const SUPABASE_ANON_KEY =
+    "sb_publishable_Glxb2zj9_JOfqbKu0oVy5Q_oUIl_leI";
 
 const supabase = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
 );
 
-let authBtn;
+let authBtn = null;
 
-// 3️⃣ UI
+
 function setLoggedOutUI() {
     if (!authBtn) return;
     authBtn.textContent = "Entrar";
+    authBtn.title = "";
     authBtn.onclick = loginWithMagicLink;
 }
 
@@ -22,10 +24,15 @@ function setLoggedInUI(email) {
     authBtn.onclick = logout;
 }
 
-// 4️⃣ LOGIN MAGIC LINK
+
 async function loginWithMagicLink() {
     const email = prompt("Ingresá tu email para recibir el link mágico:");
+
     if (!email) return;
+    if (!email.includes("@")) {
+        alert("Ingresá un email válido");
+        return;
+    }
 
     const { error } = await supabase.auth.signInWithOtp({
         email,
@@ -35,24 +42,24 @@ async function loginWithMagicLink() {
     });
 
     if (error) {
-        alert("Error: " + error.message);
+        console.error(error);
+        alert("Error al enviar el link: " + error.message);
     } else {
         alert("📩 Te enviamos un link a tu email");
     }
 }
 
-// 5️⃣ LOGOUT
+
 async function logout() {
     await supabase.auth.signOut();
     localStorage.removeItem("si_supabase_uid");
     location.reload();
 }
 
-// 6️⃣ SESIÓN
+
 async function checkAuth() {
-    const {
-        data: { session }
-    } = await supabase.auth.getSession();
+    const { data } = await supabase.auth.getSession();
+    const session = data.session;
 
     if (session && session.user) {
         localStorage.setItem("si_supabase_uid", session.user.id);
@@ -65,7 +72,6 @@ async function checkAuth() {
     }
 }
 
-// 7️⃣ LISTENER DE CAMBIOS
 supabase.auth.onAuthStateChange((_event, session) => {
     if (session && session.user) {
         localStorage.setItem("si_supabase_uid", session.user.id);
@@ -78,9 +84,10 @@ supabase.auth.onAuthStateChange((_event, session) => {
     }
 });
 
-// 8️⃣ INIT
+
 document.addEventListener("DOMContentLoaded", async () => {
     authBtn = document.getElementById("auth-btn");
     if (!authBtn) return;
+
     await checkAuth();
 });

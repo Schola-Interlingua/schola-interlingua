@@ -6,17 +6,15 @@
         return data.session;
     }
 
-    // ---------- Local ----------
     function loadLocal() {
         const data = localStorage.getItem(STORAGE_KEY);
-        return data ? JSON.parse(data) : null;
+        return data ? JSON.parse(data) : { lessons: {}, streak: {} };
     }
 
     function saveLocal(progress) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
     }
 
-    // ---------- Supabase ----------
     async function loadRemote(userId) {
         const { data } = await supabase
             .from('progress')
@@ -37,11 +35,9 @@
             });
     }
 
-    // ---------- Sync ----------
     async function syncProgress() {
         const session = await getSession();
 
-        // Invitado
         if (!session) {
             window.getProgress = loadLocal;
             window.saveProgress = saveLocal;
@@ -55,7 +51,6 @@
         let finalProgress;
 
         if (local && remote) {
-            // elegimos el más reciente
             finalProgress =
                 JSON.stringify(local).length > JSON.stringify(remote).length
                     ? local
@@ -75,4 +70,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', syncProgress);
+    window.addEventListener('user-logged-in', syncProgress);
+    window.addEventListener('user-logged-out', syncProgress);
 })();
