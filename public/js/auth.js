@@ -7,32 +7,20 @@ const supabase = window.supabase.createClient(
     SUPABASE_ANON_KEY
 );
 
-let authBtn = null;
+// ---------- LOGIN FORM ----------
+async function handleLogin(e) {
+    e.preventDefault();
 
+    const emailInput = document.getElementById("email");
+    const msg = document.getElementById("login-msg");
+    const email = emailInput.value.trim();
 
-function setLoggedOutUI() {
-    if (!authBtn) return;
-    authBtn.textContent = "Entrar";
-    authBtn.title = "";
-    authBtn.onclick = loginWithMagicLink;
-}
-
-function setLoggedInUI(email) {
-    if (!authBtn) return;
-    authBtn.textContent = "Salir";
-    authBtn.title = email;
-    authBtn.onclick = logout;
-}
-
-
-async function loginWithMagicLink() {
-    const email = prompt("Ingresá tu email para recibir el link mágico:");
-
-    if (!email) return;
-    if (!email.includes("@")) {
-        alert("Ingresá un email válido");
+    if (!email || !email.includes("@")) {
+        msg.textContent = "Ingresá un email válido";
         return;
     }
+
+    msg.textContent = "Enviando link mágico…";
 
     const { error } = await supabase.auth.signInWithOtp({
         email,
@@ -43,51 +31,26 @@ async function loginWithMagicLink() {
 
     if (error) {
         console.error(error);
-        alert("Error al enviar el link: " + error.message);
+        msg.textContent = "❌ Error: " + error.message;
     } else {
-        alert("📩 Te enviamos un link a tu email");
+        msg.textContent = "📩 Revisá tu email (spam también)";
     }
 }
 
-
-async function logout() {
-    await supabase.auth.signOut();
-    localStorage.removeItem("si_supabase_uid");
-    location.reload();
-}
-
-
+// ---------- SESSION CHECK ----------
 async function checkAuth() {
     const { data } = await supabase.auth.getSession();
-    const session = data.session;
-
-    if (session && session.user) {
-        localStorage.setItem("si_supabase_uid", session.user.id);
-        setLoggedInUI(session.user.email);
-        window.dispatchEvent(new Event("user-logged-in"));
-    } else {
-        localStorage.removeItem("si_supabase_uid");
-        setLoggedOutUI();
-        window.dispatchEvent(new Event("user-logged-out"));
+    if (data.session) {
+        window.location.href = "/";
     }
 }
 
-supabase.auth.onAuthStateChange((_event, session) => {
-    if (session && session.user) {
-        localStorage.setItem("si_supabase_uid", session.user.id);
-        setLoggedInUI(session.user.email);
-        window.dispatchEvent(new Event("user-logged-in"));
-    } else {
-        localStorage.removeItem("si_supabase_uid");
-        setLoggedOutUI();
-        window.dispatchEvent(new Event("user-logged-out"));
+// ---------- INIT ----------
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("login-form");
+    if (form) {
+        form.addEventListener("submit", handleLogin);
     }
-});
 
-
-document.addEventListener("DOMContentLoaded", async () => {
-    authBtn = document.getElementById("auth-btn");
-    if (!authBtn) return;
-
-    await checkAuth();
+    checkAuth();
 });
