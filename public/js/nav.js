@@ -1,12 +1,14 @@
+import { supabase } from "./supabase.js";
+
 const cursoSlugs = [
-  "basico1","basico2","phrases-quotidian","alimentos","animales",
-  "adjectivos1","plurales","esser-haber","vestimentos",
-  "adjectivos-possessive","colores","presente1","demonstrativos1",
-  "conjunctiones","questiones","verbos2","adjectivos2",
-  "prepositiones","numeros","familia","possessives2","verbos3",
-  "datas-tempore","verbos4","adverbios1","verbos5","adverbios2",
-  "occupationes","verbos6","negativos","adverbios3",
-  "prender-casa","technologia"
+  "basico1", "basico2", "phrases-quotidian", "alimentos", "animales",
+  "adjectivos1", "plurales", "esser-haber", "vestimentos",
+  "adjectivos-possessive", "colores", "presente1", "demonstrativos1",
+  "conjunctiones", "questiones", "verbos2", "adjectivos2",
+  "prepositiones", "numeros", "familia", "possessives2", "verbos3",
+  "datas-tempore", "verbos4", "adverbios1", "verbos5", "adverbios2",
+  "occupationes", "verbos6", "negativos", "adverbios3",
+  "prender-casa", "technologia"
 ];
 
 const iconMap = {
@@ -51,6 +53,69 @@ window.iconMap = iconMap;
 function toTitle(str) {
   return str.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
 }
+
+
+let authBtn = null;
+
+/* ---------- FUNCIONES DE UI ---------- */
+
+function setLoggedOutUI() {
+  if (!authBtn) return;
+  authBtn.classList.remove("logged-in");
+  authBtn.innerHTML = 'Login';
+  authBtn.title = "";
+  authBtn.onclick = () => { window.location.href = "/login/login.html"; };
+}
+
+function setLoggedInUI(user) {
+  if (!authBtn) return;
+  authBtn.classList.add("logged-in");
+  authBtn.innerHTML = '<i class="fas fa-user"></i>';
+  authBtn.title = user.email;
+  authBtn.onclick = async () => {
+    if (confirm("¿Cerrar sesión?")) {
+      await supabase.auth.signOut();
+      location.reload();
+    }
+  };
+}
+
+/* ---------- LÓGICA DE AUTH ---------- */
+
+async function checkAuth() {
+  const { data } = await supabase.auth.getSession();
+  if (data.session?.user) {
+    setLoggedInUI(data.session.user);
+  } else {
+    setLoggedOutUI();
+  }
+}
+
+supabase.auth.onAuthStateChange((_event, session) => {
+  if (session?.user) {
+    setLoggedInUI(session.user);
+  } else {
+    setLoggedOutUI();
+  }
+});
+
+/* ---------- INICIALIZACIÓN ---------- */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const timer = setInterval(() => {
+    authBtn = document.getElementById("auth-btn");
+
+    if (document.querySelector('.nav-links') && authBtn) {
+      clearInterval(timer);
+
+      buildCursoLink();
+      initThemeToggle();
+      initDropdownAccessibility();
+
+      checkAuth();
+    }
+  }, 50);
+});
 
 function buildCursoLink() {
   const navLinks = document.querySelector('.nav-links');
