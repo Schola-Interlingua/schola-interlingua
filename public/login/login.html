@@ -6,8 +6,9 @@
     <title>Entrar – Schola Interlingua</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-    <script defer src="/js/auth.js"></script>
+    <!-- Supabase -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type="module" src="/js/auth.js"></script>
 
     <style>
         body {
@@ -19,8 +20,9 @@
         }
 
         form {
-            max-width: 320px;
             width: 100%;
+            max-width: 320px;
+            text-align: center;
         }
 
         input,
@@ -33,17 +35,22 @@
 </head>
 
 <body>
+    <nav></nav>
 
     <form id="login-form">
-        <h2>Entrar</h2>
-        <p>Te enviaremos un link por email</p>
+        <h2>Ingresar</h2>
+        <p>Te enviaremos un link mágico por email</p>
 
         <input type="email" id="email" placeholder="tu@email.com" required />
+
         <button type="submit">Enviar link</button>
 
         <p id="login-msg"></p>
     </form>
 
+    <footer></footer>
+    <script src="/js/include.js"></script>
+    <script src="/js/nav.js"></script>
 </body>
 
 </html>
