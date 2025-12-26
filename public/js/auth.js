@@ -1,37 +1,65 @@
 import { supabase } from "./supabase.js";
 
-const form = document.getElementById("login-form");
-const emailInput = document.getElementById("email");
-const msg = document.getElementById("login-msg");
+let authBtn = null;
 
-async function signInWithEmail(email) {
-    msg.textContent = "Enviando link…";
+/* ---------- UI ---------- */
 
-    const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-            // vuelve a la misma página
-            emailRedirectTo: window.location.origin
-        }
-    });
+function setLoggedOutUI() {
+    if (!authBtn) return;
 
-    if (error) {
-        console.error(error);
-        msg.textContent = "❌ Error al enviar el email";
+    authBtn.classList.remove("logged-in");
+    authBtn.textContent = "Login";
+    authBtn.title = "";
+
+    authBtn.onclick = () => {
+        window.location.href = "/login/login.html";
+    };
+}
+
+function setLoggedInUI(user) {
+    if (!authBtn) return;
+
+    authBtn.classList.add("logged-in");
+    authBtn.innerHTML = '<i class="fa fa-user-o"></i>';
+    authBtn.title = user.email;
+
+    authBtn.onclick = async () => {
+        const ok = confirm("Cerrar sesión?");
+        if (!ok) return;
+
+        await supabase.auth.signOut();
+        location.reload();
+    };
+}
+
+/* ---------- Auth state ---------- */
+
+async function checkAuth() {
+    const { data } = await supabase.auth.getSession();
+    const session = data.session;
+
+    if (session?.user) {
+        setLoggedInUI(session.user);
+        window.dispatchEvent(new Event("user-logged-in"));
     } else {
-        msg.textContent = "📩 Te enviamos un link a tu email";
+        setLoggedOutUI();
+        window.dispatchEvent(new Event("user-logged-out"));
     }
 }
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const email = emailInput.value.trim();
-
-    if (!email || !email.includes("@")) {
-        msg.textContent = "Ingresá un email válido";
-        return;
+supabase.auth.onAuthStateChange((_event, session) => {
+    if (session?.user) {
+        setLoggedInUI(session.user);
+        window.dispatchEvent(new Event("user-logged-in"));
+    } else {
+        setLoggedOutUI();
+        window.dispatchEvent(new Event("user-logged-out"));
     }
+});
 
-    signInWithEmail(email);
+/* ---------- Init ---------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+    authBtn = document.getElementById("auth-btn");
+    checkAuth();
 });
