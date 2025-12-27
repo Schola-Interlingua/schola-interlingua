@@ -62,9 +62,11 @@ let authBtn = null;
 function setLoggedOutUI() {
   if (!authBtn) return;
   authBtn.classList.remove("logged-in");
-  authBtn.innerHTML = 'Login';
+  authBtn.innerHTML = "Login";
   authBtn.title = "";
-  authBtn.onclick = () => { window.location.href = "/login/login.html"; };
+  authBtn.onclick = () => {
+    window.location.href = "/login/login.html";
+  };
 }
 
 function setLoggedInUI(user) {
@@ -82,39 +84,38 @@ function setLoggedInUI(user) {
 
 /* ---------- LÓGICA DE AUTH ---------- */
 
-async function checkAuth() {
+async function initAuth() {
   const { data } = await supabase.auth.getSession();
+
   if (data.session?.user) {
     setLoggedInUI(data.session.user);
   } else {
     setLoggedOutUI();
   }
-}
 
-supabase.auth.onAuthStateChange((_event, session) => {
-  if (session?.user) {
-    setLoggedInUI(session.user);
-  } else {
-    setLoggedOutUI();
-  }
-});
+  supabase.auth.onAuthStateChange((_event, session) => {
+    if (session?.user) {
+      setLoggedInUI(session.user);
+    } else {
+      setLoggedOutUI();
+    }
+  });
+}
 
 /* ---------- INICIALIZACIÓN ---------- */
 
-document.addEventListener('DOMContentLoaded', () => {
-  const timer = setInterval(() => {
-    authBtn = document.getElementById("auth-btn");
+document.addEventListener("DOMContentLoaded", () => {
+  authBtn = document.getElementById("auth-btn");
 
-    if (document.querySelector('.nav-links') && authBtn) {
-      clearInterval(timer);
+  if (!authBtn) {
+    console.warn("auth-btn no encontrado");
+    return;
+  }
 
-      buildCursoLink();
-      initThemeToggle();
-      initDropdownAccessibility();
-
-      checkAuth();
-    }
-  }, 50);
+  buildCursoLink();
+  initThemeToggle();
+  initDropdownAccessibility();
+  initAuth();
 });
 
 function buildCursoLink() {
@@ -179,13 +180,3 @@ function initDropdownAccessibility() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const timer = setInterval(() => {
-    if (document.querySelector('.nav-links')) {
-      clearInterval(timer);
-      buildCursoLink();
-      initThemeToggle();
-      initDropdownAccessibility();
-    }
-  }, 50);
-});
