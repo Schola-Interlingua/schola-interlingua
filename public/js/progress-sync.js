@@ -36,7 +36,7 @@ import { supabase } from "./supabase.js";
         await supabase.from("progress").upsert({
             user_id: userId,
             data: progress,
-            updated_at: new Date().toISOString()
+            create_at: new Date().toISOString()
         });
     }
 
