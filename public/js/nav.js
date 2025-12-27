@@ -106,23 +106,6 @@ supabase.auth.onAuthStateChange((_event, session) => {
   }
 });
 
-/* ---------- INICIALIZACIÓN ---------- */
-
-document.addEventListener('DOMContentLoaded', () => {
-  const timer = setInterval(() => {
-    authBtn = document.getElementById("auth-btn");
-
-    if (document.querySelector('.nav-links') && authBtn) {
-      clearInterval(timer);
-
-      buildCursoLink();
-      initThemeToggle();
-      initDropdownAccessibility();
-
-      checkAuth();
-    }
-  }, 50);
-});
 
 window.cursoSlugs = cursoSlugs;
 window.iconMap = iconMap;
@@ -194,13 +177,19 @@ function initDropdownAccessibility() {
   });
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const timer = setInterval(() => {
-    if (document.querySelector('.nav-links')) {
+    authBtn = document.getElementById("auth-btn");
+
+    if (document.querySelector('.nav-links') && authBtn) {
       clearInterval(timer);
+
       buildCursoLink();
       initThemeToggle();
       initDropdownAccessibility();
+
+      checkAuth();
     }
   }, 50);
 });
