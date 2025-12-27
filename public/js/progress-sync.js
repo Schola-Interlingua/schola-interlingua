@@ -81,14 +81,30 @@ import { supabase } from "./supabase.js";
             saveLocal(p);
             await saveRemote(userId, p);
         };
+
+        // Ocultar botones de exportar/importar para usuarios logueados
+        const exportBtn = document.getElementById('export-progress');
+        const importBtn = document.getElementById('import-progress');
+        if (exportBtn) exportBtn.style.display = 'none';
+        if (importBtn) importBtn.style.display = 'none';
     }
 
     document.addEventListener("DOMContentLoaded", setupProgressSync);
 
     // re-sync cuando el usuario se loguea
-    supabase.auth.onAuthStateChange((event) => {
+    supabase.auth.onAuthStateChange(async (event) => {
         if (event === "SIGNED_IN" || event === "SIGNED_OUT") {
-            setupProgressSync();
+            await setupProgressSync();
+            // Mostrar/ocultar botones de exportar/importar
+            const exportBtn = document.getElementById('export-progress');
+            const importBtn = document.getElementById('import-progress');
+            if (event === "SIGNED_IN") {
+                if (exportBtn) exportBtn.style.display = 'none';
+                if (importBtn) importBtn.style.display = 'none';
+            } else if (event === "SIGNED_OUT") {
+                if (exportBtn) exportBtn.style.display = '';
+                if (importBtn) importBtn.style.display = '';
+            }
         }
     });
 })();
