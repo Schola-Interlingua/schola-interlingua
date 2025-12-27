@@ -1,3 +1,10 @@
+let syncReady = false;
+
+window.addEventListener("progress-sync-ready", () => {
+  syncReady = true;
+  renderIndex();
+});
+
 (function () {
   const STORAGE_KEY = 'si_progress';
   const TOTAL_LESSONS = 43;
@@ -27,10 +34,17 @@
   }
 
   function saveProgress(p) {
+    if (!syncReady) {
+      // fallback local (invitado o sync aún no listo)
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+      return;
+    }
+
     if (window.saveProgress) {
       window.saveProgress(p);
     }
   }
+
 
 
 

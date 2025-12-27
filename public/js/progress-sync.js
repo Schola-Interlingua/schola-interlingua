@@ -82,6 +82,9 @@ import { supabase } from "./supabase.js";
             await saveRemote(userId, p);
         };
 
+        window.dispatchEvent(new Event("progress-sync-ready"));
+
+
         // Ocultar botones de exportar/importar para usuarios logueados
         const exportBtn = document.getElementById('export-progress');
         const importBtn = document.getElementById('import-progress');
