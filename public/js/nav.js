@@ -61,61 +61,75 @@ let authBtn = null;
 
 function setLoggedOutUI() {
   if (!authBtn) return;
-  authBtn.classList.remove("logged-in");
-  authBtn.innerHTML = "Login";
+  const li = authBtn.parentElement;
+  li.classList.remove("dropdown");
+  authBtn.innerHTML = 'Login';
   authBtn.title = "";
-  authBtn.onclick = () => {
-    window.location.href = "/login/login.html";
-  };
+  authBtn.href = "/login/login.html";
+  authBtn.onclick = null;
+  const menu = li.querySelector('.dropdown-menu');
+  if (menu) menu.remove();
 }
 
 function setLoggedInUI(user) {
   if (!authBtn) return;
-  authBtn.classList.add("logged-in");
-  authBtn.innerHTML = '<i class="fas fa-user"></i>';
+  const li = authBtn.parentElement;
+  li.classList.add("dropdown");
+  authBtn.innerHTML = '<i class="fas fa-user"></i> ▼';
   authBtn.title = user.email;
-  authBtn.onclick = async () => {
+  authBtn.href = "#";
+  authBtn.onclick = null;
+  let menu = li.querySelector('.dropdown-menu');
+  if (!menu) {
+    menu = document.createElement('ul');
+    menu.className = 'dropdown-menu';
+    li.appendChild(menu);
+  }
+  menu.innerHTML = '<li><a href="#" id="logout-link">Salir</a></li>';
+  document.getElementById('logout-link').addEventListener('click', async (e) => {
+    e.preventDefault();
     if (confirm("¿Cerrar sesión?")) {
       await supabase.auth.signOut();
       location.reload();
     }
-  };
+  });
 }
 
 /* ---------- LÓGICA DE AUTH ---------- */
 
-async function initAuth() {
+async function checkAuth() {
   const { data } = await supabase.auth.getSession();
-
   if (data.session?.user) {
     setLoggedInUI(data.session.user);
   } else {
     setLoggedOutUI();
   }
-
-  supabase.auth.onAuthStateChange((_event, session) => {
-    if (session?.user) {
-      setLoggedInUI(session.user);
-    } else {
-      setLoggedOutUI();
-    }
-  });
 }
+
+supabase.auth.onAuthStateChange((_event, session) => {
+  if (session?.user) {
+    setLoggedInUI(session.user);
+  } else {
+    setLoggedOutUI();
+  }
+});
 
 /* ---------- INICIALIZACIÓN ---------- */
 
-document.addEventListener("DOMContentLoaded", () => {
-  authBtn = document.getElementById("auth-btn");
+document.addEventListener('DOMContentLoaded', () => {
+  const timer = setInterval(() => {
+    authBtn = document.getElementById("auth-btn");
 
-  if (!authBtn) {
-    console.warn("auth-btn no encontrado");
-    return;
-  }
+    if (document.querySelector('.nav-links') && authBtn) {
+      clearInterval(timer);
 
-  buildCursoLink();
-  initThemeToggle();
-  initDropdownAccessibility();
-  initAuth();
+      buildCursoLink();
+      initThemeToggle();
+      initDropdownAccessibility();
+
+      checkAuth();
+    }
+  }, 50);
 });
 
 function buildCursoLink() {
@@ -180,3 +194,13 @@ function initDropdownAccessibility() {
   });
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const timer = setInterval(() => {
+    if (document.querySelector('.nav-links')) {
+      clearInterval(timer);
+      buildCursoLink();
+      initThemeToggle();
+      initDropdownAccessibility();
+    }
+  }, 50);
+});
