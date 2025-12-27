@@ -47,14 +47,6 @@ const iconMap = {
   technologia: 'fas fa-microchip'
 };
 
-window.cursoSlugs = cursoSlugs;
-window.iconMap = iconMap;
-
-function toTitle(str) {
-  return str.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
-}
-
-
 let authBtn = null;
 
 /* ---------- FUNCIONES DE UI ---------- */
@@ -132,7 +124,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 50);
 });
 
+window.cursoSlugs = cursoSlugs;
+window.iconMap = iconMap;
+
+function toTitle(str) {
+  return str.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+}
+
 function buildCursoLink() {
+  if (location.pathname === '/curso.html') return;
   const navLinks = document.querySelector('.nav-links');
   if (!navLinks) return;
   const li = document.createElement('li');
