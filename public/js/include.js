@@ -3,10 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Determinar si estamos en una subcarpeta
   const base = path.includes("/lection/") ||
-               path.includes("/appendice/") ||
-               path.includes("/lessons/") ||
-               path.includes("/games/") ||
-               path.includes("/lecturas/")
+    path.includes("/appendice/") ||
+    path.includes("/lessons/") ||
+    path.includes("/login/") ||
+    path.includes("/games/") ||
+    path.includes("/lecturas/")
     ? "../components/"
     : "components/";
 
