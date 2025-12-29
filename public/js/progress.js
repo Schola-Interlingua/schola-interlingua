@@ -1,10 +1,3 @@
-let syncReady = false;
-
-window.addEventListener("progress-sync-ready", () => {
-  syncReady = true;
-  renderIndex();
-});
-
 (function () {
   const STORAGE_KEY = 'si_progress';
   const TOTAL_LESSONS = 43;
@@ -28,25 +21,17 @@ window.addEventListener("progress-sync-ready", () => {
   }
 
   function loadProgress() {
-    return window.getProgress
-      ? window.getProgress()
-      : defaultProgress();
+    try {
+      const data = localStorage.getItem(STORAGE_KEY);
+      return data ? JSON.parse(data) : defaultProgress();
+    } catch (e) {
+      return defaultProgress();
+    }
   }
 
   function saveProgress(p) {
-    if (!syncReady) {
-      // fallback local (invitado o sync aún no listo)
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
-      return;
-    }
-
-    if (window.saveProgress) {
-      window.saveProgress(p);
-    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
   }
-
-
-
 
   function updateStreak(progress, today) {
     const streak = progress.streak || { current: 0, best: 0, last_study_date: null };
