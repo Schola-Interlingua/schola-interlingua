@@ -87,7 +87,7 @@ function setLoggedInUI(user) {
   });
 }
 
-/* ---------- LÓGICA DE AUTH ---------- */
+/* ---------- LÓGICA DE AUTH ---------- 
 
 async function checkAuth() {
   const { data } = await supabase.auth.getSession();
@@ -96,7 +96,7 @@ async function checkAuth() {
   } else {
     setLoggedOutUI();
   }
-}
+
 
 supabase.auth.onAuthStateChange((_event, session) => {
   if (session?.user) {
@@ -104,8 +104,17 @@ supabase.auth.onAuthStateChange((_event, session) => {
   } else {
     setLoggedOutUI();
   }
-});
+});} */
 
+supabase.auth.onAuthStateChange((_event, session) => {
+  if (!authBtn) return;
+
+  if (session?.user) {
+    setLoggedInUI(session.user);
+  } else {
+    setLoggedOutUI();
+  }
+});
 
 window.cursoSlugs = cursoSlugs;
 window.iconMap = iconMap;
@@ -186,11 +195,11 @@ async function waitForNav() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   await waitForNav();
-
   authBtn = document.getElementById("auth-btn");
 
   buildCursoLink();
   initThemeToggle();
   initDropdownAccessibility();
-  checkAuth();
+
+  // NO checkAuth()
 });
