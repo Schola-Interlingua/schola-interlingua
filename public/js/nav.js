@@ -201,5 +201,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   initThemeToggle();
   initDropdownAccessibility();
 
-  // NO checkAuth()
+  checkAuth();
 });

@@ -72,9 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   include("#navbar-placeholder, nav", "navbar.html", async () => {
     initLang();
-
-    const nav = await import("/js/nav.js");
-    // nav se auto-inicializa con DOMContentLoaded interno
+    document.dispatchEvent(new Event('navbar-loaded'));
   });
   include("#footer-placeholder, footer", "footer.html");
 
