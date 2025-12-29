@@ -1,4 +1,7 @@
-const supabase = window.supabaseInstance;
+import { supabase } from "./supabase.js";
+
+if (window.__navInitialized) return;
+window.__navInitialized = true;
 
 const cursoSlugs = [
   "basico1", "basico2", "phrases-quotidian", "alimentos", "animales",

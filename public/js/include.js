@@ -70,7 +70,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   ensureMetadata();
 
-  include("#navbar-placeholder, nav", "navbar.html", initLang);
+  include("#navbar-placeholder, nav", "navbar.html", async () => {
+    initLang();
+
+    const nav = await import("/js/nav.js");
+    // nav se auto-inicializa con DOMContentLoaded interno
+  });
   include("#footer-placeholder, footer", "footer.html");
 
   // Cargar script de progreso en todas las páginas
