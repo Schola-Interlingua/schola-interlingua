@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
   supabaseScript.src = "/js/supabase.js";
   document.body.appendChild(supabaseScript);
 
+
   const syncScript = document.createElement('script');
   syncScript.type = "module";
   syncScript.src = "/js/progress-sync.js";

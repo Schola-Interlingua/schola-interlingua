@@ -1,4 +1,4 @@
-const supabase = window.supabaseInstance;
+import { supabase } from "./supabase.js";
 
 (function () {
     const STORAGE_KEY = "si_progress";
