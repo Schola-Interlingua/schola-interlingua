@@ -74,6 +74,16 @@ document.addEventListener("DOMContentLoaded", function () {
   include("#footer-placeholder, footer", "footer.html");
 
   // Cargar script de progreso en todas las páginas
+  const supabaseScript = document.createElement('script');
+  supabaseScript.type = "module";
+  supabaseScript.src = "/js/supabase.js";
+  document.body.appendChild(supabaseScript);
+
+  const syncScript = document.createElement('script');
+  syncScript.type = "module";
+  syncScript.src = "/js/progress-sync.js";
+  document.body.appendChild(syncScript);
+
   const progressScript = document.createElement('script');
   progressScript.src = "/js/progress.js";
   document.body.appendChild(progressScript);
