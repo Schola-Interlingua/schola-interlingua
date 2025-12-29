@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js";
+const supabase = window.supabaseInstance;
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("login-form");

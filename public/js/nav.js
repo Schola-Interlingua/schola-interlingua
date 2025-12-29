@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js";
+const supabase = window.supabaseInstance;
 
 const cursoSlugs = [
   "basico1", "basico2", "phrases-quotidian", "alimentos", "animales",
