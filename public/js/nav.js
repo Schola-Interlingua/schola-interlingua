@@ -1,8 +1,5 @@
 import { supabase } from "./supabase.js";
 
-if (window.__navInitialized) return;
-window.__navInitialized = true;
-
 const cursoSlugs = [
   "basico1", "basico2", "phrases-quotidian", "alimentos", "animales",
   "adjectivos1", "plurales", "esser-haber", "vestimentos",
@@ -181,18 +178,19 @@ function initDropdownAccessibility() {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const timer = setInterval(() => {
-    authBtn = document.getElementById("auth-btn");
+async function waitForNav() {
+  while (!document.querySelector('.nav-links') || !document.getElementById('auth-btn')) {
+    await new Promise(r => setTimeout(r, 50));
+  }
+}
 
-    if (document.querySelector('.nav-links') && authBtn) {
-      clearInterval(timer);
+document.addEventListener('DOMContentLoaded', async () => {
+  await waitForNav();
 
-      buildCursoLink();
-      initThemeToggle();
-      initDropdownAccessibility();
+  authBtn = document.getElementById("auth-btn");
 
-      checkAuth();
-    }
-  }, 50);
+  buildCursoLink();
+  initThemeToggle();
+  initDropdownAccessibility();
+  checkAuth();
 });
