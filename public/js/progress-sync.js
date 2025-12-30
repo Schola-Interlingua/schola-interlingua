@@ -60,37 +60,11 @@ import { supabase } from "./supabase.js";
         const userId = session.user.id;
 
         const remote = await loadRemote(userId);
-        const progressData = remote || defaultProgress();
+        const progress = remote || defaultProgress();
 
-        // --- Auto-saving proxy ---
-        let debounceTimeout;
-        function debouncedSave() {
-            clearTimeout(debounceTimeout);
-            debounceTimeout = setTimeout(() => {
-                saveRemote(userId, progressData);
-            }, 1000);
-        }
-
-        const handler = {
-            set(target, property, value) {
-                target[property] = value;
-                debouncedSave();
-                return true;
-            },
-            get(target, property) {
-                const item = target[property];
-                if (item && typeof item === 'object' && item !== null) {
-                    return new Proxy(item, handler);
-                }
-                return item;
-            }
-        };
-        const progressProxy = new Proxy(progressData, handler);
-
-        window.getProgress = () => progressProxy;
+        window.getProgress = () => progress;
 
         window.saveProgress = async (p) => {
-            clearTimeout(debounceTimeout);
             await saveRemote(userId, p);
         };
 
