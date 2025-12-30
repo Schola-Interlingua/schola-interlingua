@@ -70,9 +70,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   ensureMetadata();
 
-  include("#navbar-placeholder, nav", "navbar.html", async () => {
+  include("#navbar-placeholder, nav", "navbar.html", () => {
     initLang();
-    document.dispatchEvent(new Event('navbar-loaded'));
+    const navScript = document.createElement('script');
+    navScript.type = "module";
+    navScript.src = "/js/nav.js";
+    navScript.onload = () => {
+      document.dispatchEvent(new Event('navbar-loaded'));
+    };
+    document.body.appendChild(navScript);
   });
   include("#footer-placeholder, footer", "footer.html");
 

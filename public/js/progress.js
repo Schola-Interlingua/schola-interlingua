@@ -1,37 +1,10 @@
 (function () {
-  const STORAGE_KEY = 'si_progress';
   const TOTAL_LESSONS = 43;
   const LESSON_ORDER = Array.from({ length: 10 }, (_, i) => `lection${i + 1}`)
     .concat(window.cursoSlugs || []);
 
-  function storageAvailable() {
-    try {
-      const test = '__test__';
-      localStorage.setItem(test, test);
-      localStorage.removeItem(test);
-      return true;
-    } catch (e) {
-      console.log('localStorage non disponibile');
-      return false;
-    }
-  }
-
-  function defaultProgress() {
-    return { lessons: {}, streak: { current: 0, best: 0, last_study_date: null } };
-  }
-
-  function loadProgress() {
-    try {
-      const data = localStorage.getItem(STORAGE_KEY);
-      return data ? JSON.parse(data) : defaultProgress();
-    } catch (e) {
-      return defaultProgress();
-    }
-  }
-
-  function saveProgress(p) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
-  }
+  // getProgress y saveProgress son definidos en progress-sync.js
+  // y se encargan de la sincronización con Supabase.
 
   function updateStreak(progress, today) {
     const streak = progress.streak || { current: 0, best: 0, last_study_date: null };
@@ -62,11 +35,8 @@
   function renderIndex() {
     const section = document.getElementById('progress-section');
     if (!section) return;
-    if (!storageAvailable()) {
-      section.textContent = 'Le progresso non pote esser salvate';
-      return;
-    }
-    const progress = loadProgress();
+
+    const progress = getProgress();
     const lessons = progress.lessons || {};
     const completed = Object.values(lessons).filter(l => l.completed).length;
     const percent = TOTAL_LESSONS ? Math.round((completed / TOTAL_LESSONS) * 100) : 0;
@@ -98,7 +68,8 @@
   }
 
   function exportProgress() {
-    const data = localStorage.getItem(STORAGE_KEY);
+    const progress = getProgress();
+    const data = JSON.stringify(progress);
     if (!data) { alert('Il non ha progresso pro exportar'); return; }
     const blob = new Blob([data], { type: 'application/json' });
     const a = document.createElement('a');
@@ -113,7 +84,7 @@
     if (!json) return;
     try {
       const parsed = JSON.parse(json);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+      saveProgress(parsed);
       renderIndex();
     } catch (e) {
       alert('JSON invalide');
@@ -129,11 +100,6 @@
     wrap.className = 'lesson-progress-wrapper';
     container.insertAdjacentElement('afterend', wrap);
 
-    if (!storageAvailable()) {
-      wrap.textContent = 'Le progresso non pote esser salvate';
-      return;
-    }
-
     const lessonId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html', '');
 
     const btn = document.createElement('button');
@@ -145,7 +111,7 @@
     wrap.appendChild(info);
 
     function refresh() {
-      const progress = loadProgress();
+      const progress = getProgress();
       const data = progress.lessons[lessonId];
       if (data && data.completed) {
         btn.textContent = 'Refacer le lection';
@@ -157,16 +123,17 @@
     }
 
     btn.addEventListener('click', () => {
-      const progress = loadProgress();
+      const progress = getProgress();
       const today = new Date().toISOString().slice(0, 10);
-      const data = progress.lessons[lessonId];
-      if (data && data.completed) {
+      const lessonData = progress.lessons[lessonId];
+
+      if (lessonData && lessonData.completed) {
         delete progress.lessons[lessonId];
       } else {
         progress.lessons[lessonId] = { completed: true, last_done: today };
         updateStreak(progress, today);
       }
-      saveProgress(progress);
+      // No se necesita saveProgress(), el Proxy se encarga.
       refresh();
     });
 
@@ -174,13 +141,17 @@
   }
 
   function init() {
-    if (!storageAvailable()) {
-      const section = document.getElementById('progress-section');
-      if (section) section.textContent = 'Le progresso non pote esser salvate';
-      return;
+    // Esperar a que el sistema de sync esté listo
+    if (window.getProgress) {
+      renderIndex();
+      setupLesson();
+    } else {
+      window.addEventListener('progress-sync-ready', () => {
+        renderIndex();
+        setupLesson();
+      });
     }
-    renderIndex();
-    setupLesson();
+
     const exportBtn = document.getElementById('export-progress');
     const importBtn = document.getElementById('import-progress');
     if (exportBtn) exportBtn.addEventListener('click', exportProgress);
@@ -192,8 +163,4 @@
   } else {
     init();
   }
-
-  window.addEventListener('storage', (e) => {
-    if (e.key === STORAGE_KEY) renderIndex();
-  });
 })();

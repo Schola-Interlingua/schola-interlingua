@@ -177,19 +177,11 @@ function initDropdownAccessibility() {
 }
 
 
-async function waitForNav() {
-  while (!document.querySelector('.nav-links') || !document.getElementById('auth-btn')) {
-    await new Promise(r => setTimeout(r, 50));
-  }
-}
-
-document.addEventListener('DOMContentLoaded', async () => {
-  await waitForNav();
+document.addEventListener('navbar-loaded', () => {
   authBtn = document.getElementById("auth-btn");
 
   buildCursoLink();
   initThemeToggle();
   initDropdownAccessibility();
-
   checkAuth();
 });
