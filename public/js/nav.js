@@ -87,7 +87,7 @@ function setLoggedInUI(user) {
   });
 }
 
-/* ---------- LÓGICA DE AUTH ---------- 
+/* ---------- LÓGICA DE AUTH ---------- */
 
 async function checkAuth() {
   const { data } = await supabase.auth.getSession();
@@ -96,25 +96,16 @@ async function checkAuth() {
   } else {
     setLoggedOutUI();
   }
-
-
-supabase.auth.onAuthStateChange((_event, session) => {
-  if (session?.user) {
-    setLoggedInUI(session.user);
-  } else {
-    setLoggedOutUI();
-  }
-});} */
+}
 
 supabase.auth.onAuthStateChange((_event, session) => {
-  if (!authBtn) return;
-
   if (session?.user) {
     setLoggedInUI(session.user);
   } else {
     setLoggedOutUI();
   }
 });
+
 
 window.cursoSlugs = cursoSlugs;
 window.iconMap = iconMap;
@@ -187,19 +178,18 @@ function initDropdownAccessibility() {
 }
 
 
-async function waitForNav() {
-  while (!document.querySelector('.nav-links') || !document.getElementById('auth-btn')) {
-    await new Promise(r => setTimeout(r, 50));
-  }
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const timer = setInterval(() => {
+    authBtn = document.getElementById("auth-btn");
 
-document.addEventListener('DOMContentLoaded', async () => {
-  await waitForNav();
-  authBtn = document.getElementById("auth-btn");
+    if (document.querySelector('.nav-links') && authBtn) {
+      clearInterval(timer);
 
-  buildCursoLink();
-  initThemeToggle();
-  initDropdownAccessibility();
+      buildCursoLink();
+      initThemeToggle();
+      initDropdownAccessibility();
 
-  checkAuth();
+      checkAuth();
+    }
+  }, 50);
 });
