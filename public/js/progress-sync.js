@@ -33,21 +33,29 @@ import { supabase } from "./supabase.js";
     }
 
     async function saveRemote(userId, progress) {
+        console.log("🚀 Intentando subir progreso a Supabase...", { userId, progress });
+
         try {
-            const { error } = await supabase
+            const { data, error } = await supabase
                 .from("progress")
                 .upsert({
                     user_id: userId,
                     data: progress
-                }, { onConflict: 'user_id' }); // Muy importante
+                }, { onConflict: 'user_id' })
+                .select(); // Pedimos que nos devuelva lo que insertó para confirmar
 
             if (error) {
-                console.error("Error de Supabase:", error.message);
+                console.error("❌ Error de Supabase al guardar:", error.message);
+                console.error("Detalles del error:", error);
+
+                if (error.code === "42501") {
+                    console.error("👉 CAUSA: Error de Políticas RLS. Tienes que habilitar los permisos en el panel de Supabase.");
+                }
             } else {
-                console.log("✅ Progreso guardado en la nube");
+                console.log("✅ ¡ÉXITO! Datos guardados en la base de datos:", data);
             }
         } catch (err) {
-            console.error("Error de conexión:", err);
+            console.error("💥 Error crítico de red o código:", err);
         }
     }
 

@@ -11,29 +11,53 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
   <link rel="manifest" href="/icons/site.webmanifest">
   <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
-  <title>Curso</title>
+  <title>Curso - Schola Interlingua</title>
 </head>
 
 <body>
   <nav></nav>
   <main>
-    <section class="curso-grid" id="curso-grid"></section>
+    <section class="curso-grid" id="curso-grid">
+    </section>
   </main>
   <footer></footer>
 
   <script src="/js/include.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script type="module" src="/js/login.js"></script>
+
   <script type="module">
-    const grid = document.getElementById('curso-grid');
-    window.cursoSlugs.forEach(slug => {
-      const icon = window.iconMap[slug] || 'fas fa-book';
-      const a = document.createElement('a');
-      a.href = `/lessons/${slug}.html`;
-      a.className = 'curso-btn';
-      const title = slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
-      a.innerHTML = `<i class="${icon}"></i><span>${title}</span>`;
-      grid.appendChild(a);
+    // Escuchamos el evento personalizado que indica que nav.js y cursoSlugs ya existen
+    document.addEventListener('navbar-loaded', () => {
+      const grid = document.getElementById('curso-grid');
+
+      // Verificamos que las variables existan para evitar el error de "undefined"
+      const slugs = window.cursoSlugs || [];
+      const icons = window.iconMap || {};
+
+      if (slugs.length === 0) {
+        grid.innerHTML = "<p>Cargando lecciones...</p>";
+        return;
+      }
+
+      grid.innerHTML = ""; // Limpiamos el grid por si acaso
+
+      slugs.forEach(slug => {
+        const icon = icons[slug] || 'fas fa-book';
+        const a = document.createElement('a');
+        a.href = `/lessons/${slug}.html`;
+        a.className = 'curso-btn';
+
+        // Formatear el título (ej: "phrases-quotidian" -> "Phrases Quotidian")
+        const title = slug.replace(/-/g, ' ')
+          .split(' ')
+          .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+          .join(' ');
+
+        a.innerHTML = `
+          <div class="icon-wrapper"><i class="${icon}"></i></div>
+          <span>${title}</span>
+        `;
+        grid.appendChild(a);
+      });
     });
   </script>
 </body>

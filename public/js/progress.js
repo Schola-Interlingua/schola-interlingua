@@ -31,13 +31,15 @@
 
   // Busca esto en progress.js y cámbialo:
   function saveProgress(p) {
-    // 1. Guardar en el navegador (como siempre)
+    // 1. Guarda en el navegador (local)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+    console.log("💾 Guardado en LocalStorage");
 
-    // 2. ENVIAR A LA BASE DE DATOS (si el usuario está logueado)
-    // window.saveProgress es la función que crea progress-sync.js
-    if (typeof window.saveProgress === 'function') {
+    // 2. Llama a la sincronización de progress-sync.js
+    if (window.saveProgress) {
       window.saveProgress(p);
+    } else {
+      console.warn("⚠️ window.saveProgress no está definida aún. ¿Está cargado progress-sync.js?");
     }
   }
 
