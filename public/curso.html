@@ -11,25 +11,25 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
   <link rel="manifest" href="/icons/site.webmanifest">
   <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
-  <title>Curso - Schola Interlingua</title>
+  <title>Curso</title>
 </head>
 
 <body>
   <nav></nav>
   <main>
-    <section class="curso-grid" id="curso-grid">
-    </section>
+    <section class="curso-grid" id="curso-grid"></section>
   </main>
   <footer></footer>
 
   <script src="/js/include.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module" src="/js/login.js"></script>
   <script type="module">
-    // Escuchamos el evento personalizado que indica que nav.js y cursoSlugs ya existen
-    document.addEventListener('navbar-loaded', () => {
+    // Función para dibujar las lecciones
+    function renderCurso() {
       const grid = document.getElementById('curso-grid');
+      if (!grid) return;
 
-      // Verificamos que las variables existan para evitar el error de "undefined"
       const slugs = window.cursoSlugs || [];
       const icons = window.iconMap || {};
 
@@ -38,27 +38,30 @@
         return;
       }
 
-      grid.innerHTML = ""; // Limpiamos el grid por si acaso
-
+      grid.innerHTML = ""; // Limpiar
       slugs.forEach(slug => {
         const icon = icons[slug] || 'fas fa-book';
         const a = document.createElement('a');
         a.href = `/lessons/${slug}.html`;
         a.className = 'curso-btn';
 
-        // Formatear el título (ej: "phrases-quotidian" -> "Phrases Quotidian")
+        // Formatear título: "alimentos" -> "Alimentos"
         const title = slug.replace(/-/g, ' ')
           .split(' ')
           .map(s => s.charAt(0).toUpperCase() + s.slice(1))
           .join(' ');
 
-        a.innerHTML = `
-          <div class="icon-wrapper"><i class="${icon}"></i></div>
-          <span>${title}</span>
-        `;
+        a.innerHTML = `<i class="${icon}"></i><span>${title}</span>`;
         grid.appendChild(a);
       });
-    });
+    }
+
+    // SI el navbar ya cargó, ejecutamos. SI NO, esperamos el evento.
+    if (window.cursoSlugs) {
+      renderCurso();
+    } else {
+      window.addEventListener('navbar-loaded', renderCurso);
+    }
   </script>
 </body>
 

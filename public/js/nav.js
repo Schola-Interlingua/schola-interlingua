@@ -220,3 +220,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, 50);
 });
+
+// Al final de nav.js, después de cargar todo
+window.dispatchEvent(new Event('navbar-loaded'));

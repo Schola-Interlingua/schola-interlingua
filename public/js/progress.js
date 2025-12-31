@@ -29,17 +29,15 @@
     }
   }
 
-  // Busca esto en progress.js y cámbialo:
   function saveProgress(p) {
-    // 1. Guarda en el navegador (local)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
     console.log("💾 Guardado en LocalStorage");
 
-    // 2. Llama a la sincronización de progress-sync.js
-    if (window.saveProgress) {
+    // Intenta llamar a la función que debería haber creado progress-sync.js
+    if (typeof window.saveProgress === 'function') {
       window.saveProgress(p);
     } else {
-      console.warn("⚠️ window.saveProgress no está definida aún. ¿Está cargado progress-sync.js?");
+      console.warn("⚠️ window.saveProgress no está definida aún.");
     }
   }
 

@@ -77,9 +77,21 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   include("#footer-placeholder, footer", "footer.html");
 
-  const progressScript = document.createElement('script');
-  progressScript.src = "/js/progress.js";
-  document.body.appendChild(progressScript);
+  const supabaseScript = document.createElement('script');
+  supabaseScript.type = "module";
+  supabaseScript.src = "/js/supabase.js";
+  document.body.appendChild(supabaseScript);
+
+  const syncScript = document.createElement('script');
+  syncScript.type = "module";
+  syncScript.src = "/js/progress-sync.js";
+  document.body.appendChild(syncScript);
+
+  syncScript.onload = () => {
+    const progressScript = document.createElement('script');
+    progressScript.src = "/js/progress.js";
+    document.body.appendChild(progressScript);
+  };
 
   // Cargar jQuery solo si no existe
   if (!window.jQuery) {
