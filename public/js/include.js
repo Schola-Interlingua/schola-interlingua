@@ -8,8 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
     path.includes("/login/") ||
     path.includes("/games/") ||
     path.includes("/lecturas/")
-    ? "../components/"
+    ? "/components/"
     : "components/";
+
 
   const courseMeta = {
     title: "Schola Interlingua - Curso gratuite de Interlingua",

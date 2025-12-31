@@ -29,13 +29,16 @@
     }
   }
 
-  async function saveProgress(p) {
-    // Si existe la función global de sincronización (de progress-sync.js), úsala
-    if (window.saveProgress) {
-      await window.saveProgress(p);
-    }
-    // Siempre guarda en local como respaldo
+  // Busca esto en progress.js y cámbialo:
+  function saveProgress(p) {
+    // 1. Guardar en el navegador (como siempre)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+
+    // 2. ENVIAR A LA BASE DE DATOS (si el usuario está logueado)
+    // window.saveProgress es la función que crea progress-sync.js
+    if (typeof window.saveProgress === 'function') {
+      window.saveProgress(p);
+    }
   }
 
   function updateStreak(progress, today) {

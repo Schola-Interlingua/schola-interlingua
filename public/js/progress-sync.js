@@ -33,17 +33,21 @@ import { supabase } from "./supabase.js";
     }
 
     async function saveRemote(userId, progress) {
-        const { error } = await supabase
-            .from("progress")
-            .upsert({
-                user_id: userId,
-                data: progress
-            }, { onConflict: 'user_id' });
+        try {
+            const { error } = await supabase
+                .from("progress")
+                .upsert({
+                    user_id: userId,
+                    data: progress
+                }, { onConflict: 'user_id' }); // Muy importante
 
-        if (error) {
-            console.error("Error guardando en DB:", error.message);
-        } else {
-            console.log("Progreso guardado correctamente");
+            if (error) {
+                console.error("Error de Supabase:", error.message);
+            } else {
+                console.log("✅ Progreso guardado en la nube");
+            }
+        } catch (err) {
+            console.error("Error de conexión:", err);
         }
     }
 
