@@ -37,11 +37,14 @@ import { supabase } from "./supabase.js";
             .from("progress")
             .upsert({
                 user_id: userId,
-                data: progress,
-                updated_at: new Date() // Ayuda a trackear cambios
-            }, { onConflict: 'user_id' }); // Esto asegura que actualice si ya existe
+                data: progress
+            }, { onConflict: 'user_id' });
 
-        if (error) console.error("Error guardando en DB:", error);
+        if (error) {
+            console.error("Error guardando en DB:", error.message);
+        } else {
+            console.log("Progreso guardado correctamente");
+        }
     }
 
     /* ---------- Sync ---------- */
