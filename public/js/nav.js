@@ -1,5 +1,6 @@
 import { supabase } from "./supabase.js";
 
+
 const cursoSlugs = [
   "basico1", "basico2", "phrases-quotidian", "alimentos", "animales",
   "adjectivos1", "plurales", "esser-haber", "vestimentos",
@@ -49,45 +50,63 @@ const iconMap = {
 
 let authBtn = null;
 
-/* ---------- FUNCIONES DE UI ---------- */
+/* ---------- FUNCIONES DE UI (UNIFICADAS) ---------- */
 
 function setLoggedOutUI() {
+  // Buscamos el botón por cualquiera de sus IDs posibles
+  const authBtn = document.getElementById("auth-btn") || document.getElementById("logout-btn");
   if (!authBtn) return;
+
   const li = authBtn.parentElement;
-  li.classList.remove("dropdown");
+  li.classList.remove("dropdown"); // Quitamos la flechita si existe
+
   authBtn.innerHTML = 'Login';
-  authBtn.title = "";
+  authBtn.id = "auth-btn";
   authBtn.href = "/login/login.html";
-  authBtn.onclick = null;
+
+  // Borramos el menú desplegable si existía
   const menu = li.querySelector('.dropdown-menu');
   if (menu) menu.remove();
 }
 
 function setLoggedInUI(user) {
+  const authBtn = document.getElementById("auth-btn") || document.getElementById("logout-btn");
   if (!authBtn) return;
+
   const li = authBtn.parentElement;
-  li.classList.add("dropdown");
-  authBtn.innerHTML = '<i class="fas fa-user"></i> ▼';
-  authBtn.title = user.email;
+  li.classList.add("dropdown"); // Agregamos clase para que se vea el menú
+
+  authBtn.id = "logout-btn";
+  // Mostramos el icono de usuario y un pedacito del email
+  authBtn.innerHTML = `<i class="fas fa-user"></i> ${user.email.split('@')[0]} ▼`;
   authBtn.href = "#";
-  authBtn.onclick = null;
+
+  // Creamos el menú desplegable para el botón "Surtir" (Salir)
   let menu = li.querySelector('.dropdown-menu');
   if (!menu) {
     menu = document.createElement('ul');
     menu.className = 'dropdown-menu';
     li.appendChild(menu);
   }
-  menu.innerHTML = '<li><a href="#" id="logout-link">Salir</a></li>';
-  document.getElementById('logout-link').addEventListener('click', async (e) => {
-    e.preventDefault();
-    if (confirm("¿Cerrar sesión?")) {
-      await supabase.auth.signOut();
-      location.reload();
-    }
-  });
+
+  menu.innerHTML = '<li><a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Surtir (Salir)</a></li>';
+
+  // EVENTO DE LOGOUT (Esto es lo que te fallaba)
+  const logoutLink = document.getElementById('logout-link');
+  if (logoutLink) {
+    logoutLink.onclick = async (e) => {
+      e.preventDefault();
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        console.error("Error al salir:", error.message);
+      } else {
+        window.location.href = "/index.html"; // Redirigir al inicio al salir
+      }
+    };
+  }
 }
 
-/* ---------- LÓGICA DE AUTH ---------- */
+/* ---------- LÓGICA DE INICIALIZACIÓN ---------- */
 
 async function checkAuth() {
   const { data } = await supabase.auth.getSession();
@@ -98,12 +117,20 @@ async function checkAuth() {
   }
 }
 
-supabase.auth.onAuthStateChange((_event, session) => {
+// Escuchar cambios de sesión en tiempo real
+supabase.auth.onAuthStateChange((event, session) => {
   if (session?.user) {
     setLoggedInUI(session.user);
   } else {
     setLoggedOutUI();
   }
+});
+
+// ESPERAR A QUE EL NAVBAR CARGUE PARA ACTIVAR TODO
+document.addEventListener('navbar-loaded', () => {
+  checkAuth();
+  initThemeToggle();
+  initDropdownAccessibility();
 });
 
 

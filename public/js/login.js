@@ -23,15 +23,14 @@ async function signInWithEmail(email) {
     }
 }
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const email = emailInput.value.trim();
-
-    if (!email || !email.includes("@")) {
-        msg.textContent = "Ingresá un email válido";
-        return;
-    }
-
-    signInWithEmail(email);
-});
+if (form) {
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = emailInput.value.trim();
+        if (!email || !email.includes("@")) {
+            msg.textContent = "Ingresá un email válido";
+            return;
+        }
+        signInWithEmail(email);
+    });
+}
