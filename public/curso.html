@@ -25,43 +25,16 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script type="module" src="/js/login.js"></script>
   <script type="module">
-    // Función para dibujar las lecciones
-    function renderCurso() {
-      const grid = document.getElementById('curso-grid');
-      if (!grid) return;
-
-      const slugs = window.cursoSlugs || [];
-      const icons = window.iconMap || {};
-
-      if (slugs.length === 0) {
-        grid.innerHTML = "<p>Cargando lecciones...</p>";
-        return;
-      }
-
-      grid.innerHTML = ""; // Limpiar
-      slugs.forEach(slug => {
-        const icon = icons[slug] || 'fas fa-book';
-        const a = document.createElement('a');
-        a.href = `/lessons/${slug}.html`;
-        a.className = 'curso-btn';
-
-        // Formatear título: "alimentos" -> "Alimentos"
-        const title = slug.replace(/-/g, ' ')
-          .split(' ')
-          .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-          .join(' ');
-
-        a.innerHTML = `<i class="${icon}"></i><span>${title}</span>`;
-        grid.appendChild(a);
-      });
-    }
-
-    // SI el navbar ya cargó, ejecutamos. SI NO, esperamos el evento.
-    if (window.cursoSlugs) {
-      renderCurso();
-    } else {
-      window.addEventListener('navbar-loaded', renderCurso);
-    }
+    const grid = document.getElementById('curso-grid');
+    window.cursoSlugs.forEach(slug => {
+      const icon = window.iconMap[slug] || 'fas fa-book';
+      const a = document.createElement('a');
+      a.href = `/lessons/${slug}.html`;
+      a.className = 'curso-btn';
+      const title = slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+      a.innerHTML = `<i class="${icon}"></i><span>${title}</span>`;
+      grid.appendChild(a);
+    });
   </script>
 </body>
 
