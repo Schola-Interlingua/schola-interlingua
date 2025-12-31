@@ -29,7 +29,12 @@
     }
   }
 
-  function saveProgress(p) {
+  async function saveProgress(p) {
+    // Si existe la función global de sincronización (de progress-sync.js), úsala
+    if (window.saveProgress) {
+      await window.saveProgress(p);
+    }
+    // Siempre guarda en local como respaldo
     localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
   }
 
@@ -156,17 +161,19 @@
       }
     }
 
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => { // <--- agregar async
       const progress = loadProgress();
       const today = new Date().toISOString().slice(0, 10);
       const data = progress.lessons[lessonId];
+
       if (data && data.completed) {
         delete progress.lessons[lessonId];
       } else {
         progress.lessons[lessonId] = { completed: true, last_done: today };
         updateStreak(progress, today);
       }
-      saveProgress(progress);
+
+      await saveProgress(progress); // <--- ahora espera a la DB
       refresh();
     });
 

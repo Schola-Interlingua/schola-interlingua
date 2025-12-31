@@ -33,10 +33,15 @@ import { supabase } from "./supabase.js";
     }
 
     async function saveRemote(userId, progress) {
-        await supabase.from("progress").upsert({
-            user_id: userId,
-            data: progress
-        });
+        const { error } = await supabase
+            .from("progress")
+            .upsert({
+                user_id: userId,
+                data: progress,
+                updated_at: new Date() // Ayuda a trackear cambios
+            }, { onConflict: 'user_id' }); // Esto asegura que actualice si ya existe
+
+        if (error) console.error("Error guardando en DB:", error);
     }
 
     /* ---------- Sync ---------- */
