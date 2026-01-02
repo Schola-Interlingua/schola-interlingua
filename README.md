@@ -35,3 +35,4 @@ Pro illes qui vole saper como le projecto es construite:
 * Gratias special a Carmelo Serraino pro le contento fornite pro le curso.
 * Multe gratias etiam a Martijn Dekker pro le audios del dece lectiones e pro su contributiones via pull requests.
 * Un sincere gratias a tote illes qui contribue a meliorar iste repositorio con lor suggestiones e aportes.
+* Un regratiamento special a Jacinto Jay Bowks, creator de Chatina, pro su valorose collaboration e supporto al projecto.
