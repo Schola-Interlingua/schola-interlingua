@@ -3,12 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Determinar si estamos en una subcarpeta
   const base = path.includes("/lection/") ||
-               path.includes("/appendice/") ||
-               path.includes("/lessons/") ||
-               path.includes("/games/") ||
-               path.includes("/lecturas/")
-    ? "../components/"
+    path.includes("/appendice/") ||
+    path.includes("/lessons/") ||
+    path.includes("/login/") ||
+    path.includes("/games/") ||
+    path.includes("/lecturas/")
+    ? "/components/"
     : "components/";
+
 
   const courseMeta = {
     title: "Schola Interlingua - Curso gratuite de Interlingua",
@@ -69,13 +71,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   ensureMetadata();
 
-  include("#navbar-placeholder, nav", "navbar.html", initLang);
+  include("#navbar-placeholder, nav", "navbar.html", async () => {
+    initLang();
+    document.dispatchEvent(new Event('navbar-loaded'));
+  });
   include("#footer-placeholder, footer", "footer.html");
 
-  // Cargar script de progreso en todas las páginas
-  const progressScript = document.createElement('script');
-  progressScript.src = "/js/progress.js";
-  document.body.appendChild(progressScript);
+  const supabaseScript = document.createElement('script');
+  supabaseScript.type = "module";
+  supabaseScript.src = "/js/supabase.js";
+  document.body.appendChild(supabaseScript);
+
+  const syncScript = document.createElement('script');
+  syncScript.type = "module";
+  syncScript.src = "/js/progress-sync.js";
+  document.body.appendChild(syncScript);
+
+  syncScript.onload = () => {
+    const progressScript = document.createElement('script');
+    progressScript.src = "/js/progress.js";
+    document.body.appendChild(progressScript);
+  };
 
   // Cargar jQuery solo si no existe
   if (!window.jQuery) {

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/icons/site.webmanifest">
+    <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+    <title>Login</title>
+
+    <script type="module" src="/js/supabase.js"></script>
+    <script type="module" src="/js/login.js"></script>
+
+    <style>
+        main {
+            justify-items: center;
+            min-height: auto;
+        }
+
+        form {
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <form id="login-form">
+            <h2>Ingresar</h2>
+            <p>Te enviaremos un link mágico por email</p>
+
+            <input type="email" id="email" placeholder="tu@email.com" required />
+
+            <button type="submit">Enviar link</button>
+
+            <p id="login-msg"></p>
+        </form>
+    </main>
+    <script src="/js/include.js"></script>
+
+</body>
+
+</html>
