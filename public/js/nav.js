@@ -1,12 +1,14 @@
+import { supabase } from "./supabase.js";
+
 const cursoSlugs = [
-  "basico1","basico2","phrases-quotidian","alimentos","animales",
-  "adjectivos1","plurales","esser-haber","vestimentos",
-  "adjectivos-possessive","colores","presente1","demonstrativos1",
-  "conjunctiones","questiones","verbos2","adjectivos2",
-  "prepositiones","numeros","familia","possessives2","verbos3",
-  "datas-tempore","verbos4","adverbios1","verbos5","adverbios2",
-  "occupationes","verbos6","negativos","adverbios3",
-  "prender-casa","technologia"
+  "basico1", "basico2", "phrases-quotidian", "alimentos", "animales",
+  "adjectivos1", "plurales", "esser-haber", "vestimentos",
+  "adjectivos-possessive", "colores", "presente1", "demonstrativos1",
+  "conjunctiones", "questiones", "verbos2", "adjectivos2",
+  "prepositiones", "numeros", "familia", "possessives2", "verbos3",
+  "datas-tempore", "verbos4", "adverbios1", "verbos5", "adverbios2",
+  "occupationes", "verbos6", "negativos", "adverbios3",
+  "prender-casa", "technologia"
 ];
 
 const iconMap = {
@@ -45,24 +47,90 @@ const iconMap = {
   technologia: 'fas fa-microchip'
 };
 
+let authBtn = null;
+
+/* ---------- FUNCIONES DE UI ---------- */
+
+function buildCursoLink() {
+  // Check if the link already exists to prevent duplicates
+  if (document.querySelector('.nav-links #curso-link-li')) return;
+
+  const navLinks = document.querySelector('.nav-links');
+  if (!navLinks) return;
+
+  const li = document.createElement('li');
+  li.id = 'curso-link-li'; // Add an ID to the <li> for easy removal
+
+  const a = document.createElement('a');
+  a.href = '/curso.html';
+  a.textContent = 'Curso';
+  li.appendChild(a);
+
+  // Insert "Curso" as the first link
+  const firstLink = navLinks.firstElementChild;
+  if (firstLink) {
+    navLinks.insertBefore(li, firstLink);
+  } else {
+    navLinks.appendChild(li);
+  }
+}
+
+function removeCursoLink() {
+  const cursoLi = document.getElementById('curso-link-li');
+  if (cursoLi) cursoLi.remove();
+}
+
+function setLoggedOutUI() {
+  if (!authBtn) return;
+  const li = authBtn.parentElement;
+  li.classList.remove("dropdown");
+  authBtn.innerHTML = 'Login';
+  authBtn.title = "";
+  authBtn.href = "/login/login.html";
+  authBtn.onclick = null;
+  const menu = li.querySelector('.dropdown-menu');
+  if (menu) menu.remove();
+
+  removeCursoLink();
+}
+
+function setLoggedInUI(user) {
+  if (!authBtn) return;
+  buildCursoLink();
+
+  const li = authBtn.parentElement;
+  li.classList.add("dropdown");
+  authBtn.innerHTML = '<i class="fas fa-user"></i> ▼';
+  authBtn.title = user.email;
+  authBtn.href = "#";
+  authBtn.onclick = null;
+  let menu = li.querySelector('.dropdown-menu');
+  if (!menu) {
+    menu = document.createElement('ul');
+    menu.className = 'dropdown-menu';
+    li.appendChild(menu);
+  }
+  menu.innerHTML = '<li><a href="#" id="logout-link">Salir</a></li>';
+
+  const logoutLink = document.getElementById('logout-link');
+  if (logoutLink) {
+    logoutLink.addEventListener('click', async (e) => {
+      e.preventDefault();
+      if (confirm("¿Cerrar sesión?")) {
+        await supabase.auth.signOut();
+      }
+    });
+  }
+}
+
+
+/* ---------- LÓGICA DE AUTH ---------- */
+
 window.cursoSlugs = cursoSlugs;
 window.iconMap = iconMap;
 
 function toTitle(str) {
   return str.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
-}
-
-function buildCursoLink() {
-  const navLinks = document.querySelector('.nav-links');
-  if (!navLinks) return;
-  const li = document.createElement('li');
-  const a = document.createElement('a');
-  a.href = '/curso.html';
-  a.textContent = 'Curso';
-  li.appendChild(a);
-  const first = navLinks.firstElementChild;
-  if (first) navLinks.insertBefore(li, first);
-  else navLinks.appendChild(li);
 }
 
 function initThemeToggle() {
@@ -114,13 +182,19 @@ function initDropdownAccessibility() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const timer = setInterval(() => {
-    if (document.querySelector('.nav-links')) {
-      clearInterval(timer);
-      buildCursoLink();
-      initThemeToggle();
-      initDropdownAccessibility();
+
+document.addEventListener('navbar-loaded', () => {
+  authBtn = document.getElementById("auth-btn");
+
+  // Auth state listener is the single source of truth
+  supabase.auth.onAuthStateChange((_event, session) => {
+    if (session?.user) {
+      setLoggedInUI(session.user);
+    } else {
+      setLoggedOutUI();
     }
-  }, 50);
+  });
+
+  initThemeToggle();
+  initDropdownAccessibility();
 });

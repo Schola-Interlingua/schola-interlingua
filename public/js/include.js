@@ -3,10 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Determinar si estamos en una subcarpeta
   const base = path.includes("/lection/") ||
-               path.includes("/appendice/") ||
-               path.includes("/lessons/") ||
-               path.includes("/games/") ||
-               path.includes("/lecturas/")
+    path.includes("/appendice/") ||
+    path.includes("/lessons/") ||
+    path.includes("/login/") ||
+    path.includes("/games/") ||
+    path.includes("/lecturas/")
     ? "../components/"
     : "components/";
 
@@ -69,13 +70,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
   ensureMetadata();
 
-  include("#navbar-placeholder, nav", "navbar.html", initLang);
+  include("#navbar-placeholder, nav", "navbar.html", () => {
+    initLang();
+    const navScript = document.createElement('script');
+    navScript.type = "module";
+    navScript.src = "/js/nav.js";
+    navScript.onload = () => {
+      document.dispatchEvent(new Event('navbar-loaded'));
+    };
+    document.body.appendChild(navScript);
+  });
   include("#footer-placeholder, footer", "footer.html");
 
-  // Cargar script de progreso en todas las páginas
-  const progressScript = document.createElement('script');
-  progressScript.src = "/js/progress.js";
-  document.body.appendChild(progressScript);
+  // Cargar scripts en orden para asegurar dependencias
+  const supabaseScript = document.createElement('script');
+  supabaseScript.type = "module";
+  supabaseScript.src = "/js/supabase.js";
+
+  supabaseScript.onload = () => {
+    // Cargar progress.js solo después de que supabase.js esté listo
+    const progressScript = document.createElement('script');
+    progressScript.type = "module";
+    progressScript.src = "/js/progress.js";
+    document.body.appendChild(progressScript);
+  };
+
+  document.body.appendChild(supabaseScript);
 
   // Cargar jQuery solo si no existe
   if (!window.jQuery) {
