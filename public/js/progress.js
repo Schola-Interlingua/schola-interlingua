@@ -137,6 +137,13 @@
     wrap.className = 'lesson-progress-wrapper';
     container.insertAdjacentElement('afterend', wrap);
 
+    // Add completion banner
+    const banner = document.createElement('div');
+    banner.id = 'completion-banner';
+    banner.textContent = 'Ya has completado esta lección';
+    banner.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; background: #28a745; color: white; text-align: center; padding: 10px; font-size: 18px; z-index: 1000; display: none;';
+    document.body.insertBefore(banner, document.body.firstChild);
+
     if (!storageAvailable()) {
       wrap.textContent = 'Le progresso non pote esser salvate';
       return;
@@ -158,9 +165,11 @@
       if (data && data.completed) {
         btn.textContent = 'Refacer le lection';
         info.textContent = `Ultime vice: ${data.last_done}`;
+        banner.style.display = 'block';
       } else {
         btn.textContent = 'Marcar le lection como facte';
         info.textContent = '';
+        banner.style.display = 'none';
       }
     }
 
