@@ -82,21 +82,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   include("#footer-placeholder, footer", "footer.html");
 
-  // Cargar script de progreso en todas las páginas
+  // Cargar scripts en orden para asegurar dependencias
   const supabaseScript = document.createElement('script');
   supabaseScript.type = "module";
   supabaseScript.src = "/js/supabase.js";
+
+  supabaseScript.onload = () => {
+    // Cargar progress.js solo después de que supabase.js esté listo
+    const progressScript = document.createElement('script');
+    progressScript.type = "module";
+    progressScript.src = "/js/progress.js";
+    document.body.appendChild(progressScript);
+  };
+
   document.body.appendChild(supabaseScript);
-
-
-  const syncScript = document.createElement('script');
-  syncScript.type = "module";
-  syncScript.src = "/js/progress-sync.js";
-  document.body.appendChild(syncScript);
-
-  const progressScript = document.createElement('script');
-  progressScript.src = "/js/progress.js";
-  document.body.appendChild(progressScript);
 
   // Cargar jQuery solo si no existe
   if (!window.jQuery) {
