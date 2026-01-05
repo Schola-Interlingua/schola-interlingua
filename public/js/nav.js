@@ -92,6 +92,54 @@ function setLoggedInUI(user) {
   }
 }
 
+function initThemeToggle() {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+
+  const icon = btn.querySelector('i');
+
+  function setTheme(mode) {
+    if (mode === 'dark') {
+      document.body.classList.add('dark-mode');
+      icon?.classList.replace('fa-moon', 'fa-sun');
+      btn.setAttribute('aria-label', 'Cambiar a modo claro');
+    } else {
+      document.body.classList.remove('dark-mode');
+      icon?.classList.replace('fa-sun', 'fa-moon');
+      btn.setAttribute('aria-label', 'Cambiar a modo oscuro');
+    }
+  }
+
+  const saved = localStorage.getItem('theme') || 'light';
+  setTheme(saved);
+
+  btn.addEventListener('click', () => {
+    const next = document.body.classList.contains('dark-mode')
+      ? 'light'
+      : 'dark';
+    localStorage.setItem('theme', next);
+    setTheme(next);
+  });
+}
+
+function initDropdownAccessibility() {
+  document.querySelectorAll('.dropdown > a').forEach(trigger => {
+    trigger.addEventListener('click', e => e.preventDefault());
+    trigger.addEventListener('keydown', e => {
+      if (e.key === 'Escape') trigger.blur();
+    });
+  });
+
+  document.querySelectorAll('.dropdown-menu a').forEach(item => {
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const parent = item.closest('.dropdown');
+        parent?.querySelector('a')?.focus();
+      }
+    });
+  });
+}
+
 function initNav() {
   const timer = setInterval(() => {
     if (document.querySelector('.nav-links')) {
@@ -117,3 +165,6 @@ if (document.readyState === 'loading') {
 } else {
   initNav();
 }
+
+window.cursoSlugs = cursoSlugs;
+window.iconMap = iconMap;
