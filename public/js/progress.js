@@ -31,10 +31,16 @@ import { supabase } from './supabase.js';
 
     if (error && error.code !== 'PGRST116') {
       console.error('❌ Error cargando progreso:', error);
-      return { lessons: {}, streak: {} };
+      return {
+        lessons: {},
+        streak: { current: 0, best: 0, last_study_date: null }
+      };
     }
 
-    return data?.data || { lessons: {}, streak: {} };
+    return data?.data || {
+      lessons: {},
+      streak: { current: 0, best: 0, last_study_date: null }
+    };
   }
 
   async function saveProgressToDB() {
@@ -52,6 +58,8 @@ import { supabase } from './supabase.js';
 
     if (error) {
       console.error('❌ Error guardando progreso:', error);
+    } else {
+      console.log('✅ Progreso guardado en Supabase');
     }
   }
 
@@ -102,7 +110,9 @@ import { supabase } from './supabase.js';
     if (!currentUser) {
       section.innerHTML = `
         <h2>Tu progresso</h2>
-        <p class="no-tooltip">Ingresar para desbloquear la función de progreso</p>
+        <p class="no-tooltip">
+          Ingresar para guardar y visualizar tu progreso
+        </p>
       `;
       return;
     }
@@ -182,6 +192,7 @@ import { supabase } from './supabase.js';
 
       await saveProgressToDB();
       refresh();
+      renderIndexUI();
     });
 
     refresh();
@@ -197,7 +208,10 @@ import { supabase } from './supabase.js';
         userProgress = await loadProgressFromDB(currentUser.id);
         setupLessonButton();
       } else {
-        userProgress = { lessons: {}, streak: {} };
+        userProgress = {
+          lessons: {},
+          streak: { current: 0, best: 0, last_study_date: null }
+        };
       }
 
       renderIndexUI();
