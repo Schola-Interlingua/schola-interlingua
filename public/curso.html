@@ -22,31 +22,18 @@
   <footer></footer>
 
   <script src="/js/include.js"></script>
-  <script>
-    (function waitForCursoData() {
-      if (!window.cursoSlugs || !window.iconMap) {
-        setTimeout(waitForCursoData, 50);
-        return;
-      }
-
-      const grid = document.getElementById('curso-grid');
-
-      window.cursoSlugs.forEach(slug => {
-        const icon = window.iconMap[slug] || 'fas fa-book';
-
-        const a = document.createElement('a');
-        a.href = `/lessons/${slug}.html`;
-        a.className = 'curso-btn';
-
-        const title = slug
-          .split('-')
-          .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-          .join(' ');
-
-        a.innerHTML = `<i class="${icon}"></i><span>${title}</span>`;
-        grid.appendChild(a);
-      });
-    })();
+  <script src="/js/nav.js"></script>
+  <script type="module">
+    const grid = document.getElementById('curso-grid');
+    window.cursoSlugs.forEach(slug => {
+      const icon = window.iconMap[slug] || 'fas fa-book';
+      const a = document.createElement('a');
+      a.href = `/lessons/${slug}.html`;
+      a.className = 'curso-btn';
+      const title = slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+      a.innerHTML = `<i class="${icon}"></i><span>${title}</span>`;
+      grid.appendChild(a);
+    });
   </script>
 </body>
 

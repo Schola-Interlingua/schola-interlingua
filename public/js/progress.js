@@ -6,8 +6,10 @@ import { supabase } from './supabase.js';
 
   const TOTAL_LESSONS = 43;
 
-  const LESSON_ORDER = Array.from({ length: 10 }, (_, i) => `lection${i + 1}`)
-    .concat(window.cursoSlugs || []);
+  const LESSON_ORDER = [
+    ...Array.from({ length: 10 }, (_, i) => `lection${i + 1}`),
+    ...(window.cursoSlugs ?? [])
+  ];
 
   let currentUser = null;
 
@@ -31,16 +33,10 @@ import { supabase } from './supabase.js';
 
     if (error && error.code !== 'PGRST116') {
       console.error('❌ Error cargando progreso:', error);
-      return {
-        lessons: {},
-        streak: { current: 0, best: 0, last_study_date: null }
-      };
+      return emptyProgress();
     }
 
-    return data?.data || {
-      lessons: {},
-      streak: { current: 0, best: 0, last_study_date: null }
-    };
+    return data?.data ?? emptyProgress();
   }
 
   async function saveProgressToDB() {
@@ -58,15 +54,20 @@ import { supabase } from './supabase.js';
 
     if (error) {
       console.error('❌ Error guardando progreso:', error);
-    } else {
-      console.log('✅ Progreso guardado en Supabase');
     }
+  }
+
+  function emptyProgress() {
+    return {
+      lessons: {},
+      streak: { current: 0, best: 0, last_study_date: null }
+    };
   }
 
   /* ---------------- STREAK ---------------- */
 
   function updateStreak(today) {
-    const streak = userProgress.streak || {
+    const streak = userProgress.streak ?? {
       current: 0,
       best: 0,
       last_study_date: null
@@ -84,14 +85,15 @@ import { supabase } from './supabase.js';
     }
 
     streak.last_study_date = today;
-    streak.best = Math.max(streak.best || 0, streak.current);
+    streak.best = Math.max(streak.best, streak.current);
 
     userProgress.streak = streak;
   }
 
-  /* ---------------- UI HELPERS ---------------- */
+  /* ---------------- HELPERS ---------------- */
 
   function formatLesson(id) {
+    if (!id) return '';
     if (id.startsWith('lection')) return id.replace('lection', '');
     return id
       .split('-')
@@ -105,39 +107,48 @@ import { supabase } from './supabase.js';
     const section = document.getElementById('progress-section');
     if (!section) return;
 
-    section.style.visibility = 'visible';
-
     if (!currentUser) {
       section.innerHTML = `
         <h2>Tu progresso</h2>
         <p class="no-tooltip">
-          Ingresar para guardar y visualizar tu progreso
+          Ingresar para guardar y visualizar tu progresso
         </p>
       `;
       return;
     }
 
-    const lessons = userProgress.lessons || {};
+    const lessons = userProgress.lessons ?? {};
     const completed = Object.values(lessons).filter(l => l.completed).length;
     const percent = Math.round((completed / TOTAL_LESSONS) * 100);
 
-    section.querySelector('#completion-text')?.textContent =
-      `${percent}% (${completed}/${TOTAL_LESSONS})`;
+    const completionText = section.querySelector('#completion-text');
+    const completionBar = section.querySelector('#completion-bar');
+    const streakCurrent = section.querySelector('#streak-current');
+    const streakBest = section.querySelector('#streak-best');
+    const nextLesson = section.querySelector('#next-lesson');
 
-    section.querySelector('#completion-bar')?.style.setProperty(
-      'width',
-      percent + '%'
-    );
+    if (completionText) {
+      completionText.textContent = `${percent}% (${completed}/${TOTAL_LESSONS})`;
+    }
 
-    section.querySelector('#streak-current')?.textContent =
-      `${userProgress.streak.current || 0} dies consecutive`;
+    if (completionBar) {
+      completionBar.style.width = percent + '%';
+    }
 
-    section.querySelector('#streak-best')?.textContent =
-      `Melior serie: ${userProgress.streak.best || 0} dies`;
+    if (streakCurrent) {
+      streakCurrent.textContent = `${userProgress.streak.current} dies consecutive`;
+    }
 
-    const next = LESSON_ORDER.find(id => !lessons[id]?.completed);
-    section.querySelector('#next-lesson')?.textContent =
-      next ? `Continua con le lection ${formatLesson(next)}` : '';
+    if (streakBest) {
+      streakBest.textContent = `Melior serie: ${userProgress.streak.best} dies`;
+    }
+
+    if (nextLesson) {
+      const next = LESSON_ORDER.find(id => !lessons[id]?.completed);
+      nextLesson.textContent = next
+        ? `Continua con le lection ${formatLesson(next)}`
+        : '';
+    }
   }
 
   /* ---------------- LESSON PAGE ---------------- */
@@ -147,7 +158,7 @@ import { supabase } from './supabase.js';
     if (!container || !currentUser) return;
 
     const lessonId =
-      container.dataset.lesson ||
+      container.dataset.lesson ??
       location.pathname.split('/').pop().replace('.html', '');
 
     if (document.getElementById('lesson-progress-btn')) return;
@@ -163,8 +174,7 @@ import { supabase } from './supabase.js';
     const info = document.createElement('div');
     info.id = 'lesson-progress-info';
 
-    wrap.appendChild(btn);
-    wrap.appendChild(info);
+    wrap.append(btn, info);
 
     function refresh() {
       const data = userProgress.lessons[lessonId];
@@ -202,26 +212,21 @@ import { supabase } from './supabase.js';
 
   function init() {
     supabase.auth.onAuthStateChange(async (_event, session) => {
-      currentUser = session?.user || null;
+      currentUser = session?.user ?? null;
 
       if (currentUser) {
         userProgress = await loadProgressFromDB(currentUser.id);
         setupLessonButton();
       } else {
-        userProgress = {
-          lessons: {},
-          streak: { current: 0, best: 0, last_study_date: null }
-        };
+        userProgress = emptyProgress();
       }
 
       renderIndexUI();
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', init)
+    : init();
 
 })();
