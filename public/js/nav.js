@@ -1,19 +1,5 @@
 import { supabase } from "./supabase.js";
 
-/* ---------- ESPERA ROBUSTA DEL NAVBAR ---------- */
-function waitForNavbar(callback) {
-  const timer = setInterval(() => {
-    const navLinks = document.querySelector('.nav-links');
-    const auth = document.getElementById('auth-btn');
-
-    if (navLinks && auth) {
-      clearInterval(timer);
-      callback();
-    }
-  }, 50);
-}
-
-/* ---------- DATOS DEL CURSO ---------- */
 
 const cursoSlugs = [
   "basico1", "basico2", "phrases-quotidian", "alimentos", "animales",
@@ -62,35 +48,8 @@ const iconMap = {
   technologia: 'fas fa-microchip'
 };
 
-window.cursoSlugs = cursoSlugs;
-window.iconMap = iconMap;
 
 let authBtn = null;
-
-/* ---------- UI AUTH ---------- */
-
-function buildCursoLink() {
-  if (document.querySelector('#curso-link-li')) return;
-
-  const navLinks = document.querySelector('.nav-links');
-  if (!navLinks) return;
-
-  const li = document.createElement('li');
-  li.id = 'curso-link-li';
-
-  const a = document.createElement('a');
-  a.href = '/curso.html';
-  a.textContent = 'Curso';
-
-  li.appendChild(a);
-  navLinks.insertBefore(li, navLinks.firstElementChild);
-}
-
-function removeCursoLink() {
-  const li = document.getElementById('curso-link-li');
-  if (li) li.remove();
-}
-
 function setLoggedOutUI() {
   if (!authBtn) return;
 
@@ -104,13 +63,10 @@ function setLoggedOutUI() {
   const menu = li.querySelector('.dropdown-menu');
   if (menu) menu.remove();
 
-  removeCursoLink();
 }
 
 function setLoggedInUI(user) {
   if (!authBtn) return;
-
-  buildCursoLink();
 
   const li = authBtn.parentElement;
   li.classList.add("dropdown");
@@ -153,52 +109,83 @@ function setLoggedInUI(user) {
   };
 }
 
-/* ---------- EXTRAS ---------- */
+
+window.cursoSlugs = cursoSlugs;
+window.iconMap = iconMap;
+
+function toTitle(str) {
+  return str.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+}
+
+function buildCursoLink() {
+  const navLinks = document.querySelector('.nav-links');
+  if (!navLinks) return;
+  const li = document.createElement('li');
+  const a = document.createElement('a');
+  a.href = '/curso.html';
+  a.textContent = 'Curso';
+  li.appendChild(a);
+  const first = navLinks.firstElementChild;
+  if (first) navLinks.insertBefore(li, first);
+  else navLinks.appendChild(li);
+}
 
 function initThemeToggle() {
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
-
   const icon = btn.querySelector('i');
 
   function setTheme(mode) {
-    document.body.classList.toggle('dark-mode', mode === 'dark');
-    icon.className = mode === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    if (mode === 'dark') {
+      document.body.classList.add('dark-mode');
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+      btn.setAttribute('aria-label', 'Cambiar a modo claro');
+    } else {
+      document.body.classList.remove('dark-mode');
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+      btn.setAttribute('aria-label', 'Cambiar a modo oscuro');
+    }
   }
 
   const saved = localStorage.getItem('theme') || 'light';
   setTheme(saved);
 
   btn.addEventListener('click', () => {
-    const next = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
-    localStorage.setItem('theme', next);
-    setTheme(next);
+    const newMode = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+    localStorage.setItem('theme', newMode);
+    setTheme(newMode);
   });
 }
 
 function initDropdownAccessibility() {
   document.querySelectorAll('.dropdown > a').forEach(trigger => {
     trigger.addEventListener('click', e => e.preventDefault());
+    trigger.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        trigger.blur();
+      }
+    });
+  });
+  document.querySelectorAll('.dropdown-menu a').forEach(item => {
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const parent = item.closest('.dropdown');
+        const link = parent && parent.querySelector('a');
+        if (link) link.focus();
+      }
+    });
   });
 }
 
-/* ---------- INIT FINAL ---------- */
-
-waitForNavbar(() => {
-  authBtn = document.getElementById("auth-btn");
-
-  supabase.auth.getSession().then(({ data }) => {
-    data?.session?.user
-      ? setLoggedInUI(data.session.user)
-      : setLoggedOutUI();
-  });
-
-  supabase.auth.onAuthStateChange((_e, session) => {
-    session?.user
-      ? setLoggedInUI(session.user)
-      : setLoggedOutUI();
-  });
-
-  initThemeToggle();
-  initDropdownAccessibility();
+document.addEventListener('DOMContentLoaded', () => {
+  const timer = setInterval(() => {
+    if (document.querySelector('.nav-links')) {
+      clearInterval(timer);
+      buildCursoLink();
+      initThemeToggle();
+      initDropdownAccessibility();
+    }
+  }, 50);
 });
