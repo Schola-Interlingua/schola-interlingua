@@ -1,28 +1,28 @@
 import { supabase } from './supabase.js';
 
 (function () {
-
-  /* ---------------- CONFIG ---------------- */
-
+  const STORAGE_KEY = 'si_progress';
   const TOTAL_LESSONS = 43;
-
-  const LESSON_ORDER = [
-    ...Array.from({ length: 10 }, (_, i) => `lection${i + 1}`),
-    ...(window.cursoSlugs ?? [])
-  ];
+  const LESSON_ORDER = Array.from({ length: 10 }, (_, i) => `lection${i + 1}`)
+    .concat(window.cursoSlugs || []);
 
   let currentUser = null;
 
-  let userProgress = {
-    lessons: {},
-    streak: {
-      current: 0,
-      best: 0,
-      last_study_date: null
+  function storageAvailable() {
+    try {
+      const test = '__test__';
+      localStorage.setItem(test, test);
+      localStorage.removeItem(test);
+      return true;
+    } catch (e) {
+      console.log('localStorage non disponibile');
+      return false;
     }
-  };
+  }
 
-  /* ---------------- DB ---------------- */
+  function defaultProgress() {
+    return { lessons: {}, streak: { current: 0, best: 0, last_study_date: null } };
+  }
 
   async function loadProgressFromDB(userId) {
     const { data, error } = await supabase
@@ -33,200 +33,258 @@ import { supabase } from './supabase.js';
 
     if (error && error.code !== 'PGRST116') {
       console.error('❌ Error cargando progreso:', error);
-      return emptyProgress();
+      return defaultProgress();
     }
 
-    return data?.data ?? emptyProgress();
+    return data?.data ?? defaultProgress();
   }
 
-  async function saveProgressToDB() {
+  async function saveProgressToDB(progress) {
     if (!currentUser) return;
+
+    console.log('Guardando progreso:', progress);
 
     const { error } = await supabase
       .from('progress')
       .upsert(
         {
           user_id: currentUser.id,
-          data: userProgress
+          data: progress
         },
         { onConflict: 'user_id' }
       );
 
     if (error) {
-      console.error('❌ Error guardando progreso:', error);
+      console.error('Error guardando:', error);
+    } else {
+      console.log('Progreso guardado exitosamente');
     }
   }
 
-  function emptyProgress() {
-    return {
-      lessons: {},
-      streak: { current: 0, best: 0, last_study_date: null }
-    };
+  async function loadProgress() {
+    if (currentUser) {
+      return await loadProgressFromDB(currentUser.id);
+    }
+    try {
+      const data = localStorage.getItem(STORAGE_KEY);
+      return data ? JSON.parse(data) : defaultProgress();
+    } catch (e) {
+      return defaultProgress();
+    }
   }
 
-  /* ---------------- STREAK ---------------- */
+  async function saveProgress(p) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+    if (currentUser) {
+      await saveProgressToDB(p);
+    }
+  }
 
-  function updateStreak(today) {
-    const streak = userProgress.streak ?? {
-      current: 0,
-      best: 0,
-      last_study_date: null
-    };
-
+  function updateStreak(progress, today) {
+    const streak = progress.streak || { current: 0, best: 0, last_study_date: null };
     if (!streak.last_study_date) {
       streak.current = 1;
     } else {
       const last = new Date(streak.last_study_date);
       const curr = new Date(today);
       const diff = Math.floor((curr - last) / 86400000);
-
-      if (diff === 1) streak.current++;
-      else if (diff > 1) streak.current = 1;
+      if (diff === 1) {
+        streak.current += 1;
+      } else if (diff > 1) {
+        streak.current = 1;
+      }
+      // diff === 0 => no cambio
     }
-
     streak.last_study_date = today;
-    streak.best = Math.max(streak.best, streak.current);
-
-    userProgress.streak = streak;
+    if (streak.current > (streak.best || 0)) streak.best = streak.current;
+    progress.streak = streak;
   }
-
-  /* ---------------- HELPERS ---------------- */
 
   function formatLesson(id) {
-    if (!id) return '';
     if (id.startsWith('lection')) return id.replace('lection', '');
-    return id
-      .split('-')
-      .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-      .join(' ');
+    return id.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
   }
 
-  /* ---------------- INDEX UI ---------------- */
-
-  function renderIndexUI() {
+  // Index rendering
+  async function renderIndex() {
     const section = document.getElementById('progress-section');
     if (!section) return;
-
-    if (!currentUser) {
-      section.innerHTML = `
-        <h2>Tu progresso</h2>
-        <p class="no-tooltip">
-          Ingresar para guardar y visualizar tu progresso
-        </p>
-      `;
+    if (!storageAvailable()) {
+      section.textContent = 'Le progresso non pote esser salvate';
       return;
     }
-
-    const lessons = userProgress.lessons ?? {};
+    const progress = await loadProgress();
+    const lessons = progress.lessons || {};
     const completed = Object.values(lessons).filter(l => l.completed).length;
-    const percent = Math.round((completed / TOTAL_LESSONS) * 100);
+    const percent = TOTAL_LESSONS ? Math.round((completed / TOTAL_LESSONS) * 100) : 0;
 
-    const completionText = section.querySelector('#completion-text');
-    const completionBar = section.querySelector('#completion-bar');
-    const streakCurrent = section.querySelector('#streak-current');
-    const streakBest = section.querySelector('#streak-best');
-    const nextLesson = section.querySelector('#next-lesson');
-
-    if (completionText) {
-      completionText.textContent = `${percent}% (${completed}/${TOTAL_LESSONS})`;
+    const noProgress = section.querySelector('#no-progress-msg');
+    const details = section.querySelector('#progress-details');
+    if (completed === 0) {
+      noProgress.style.display = 'block';
+    } else {
+      noProgress.style.display = 'none';
     }
+    details.style.display = 'block';
 
-    if (completionBar) {
-      completionBar.style.width = percent + '%';
-    }
+    section.querySelector('#completion-text').textContent = `${percent}% (${completed}/${TOTAL_LESSONS})`;
+    section.querySelector('#completion-bar').style.width = percent + '%';
 
-    if (streakCurrent) {
-      streakCurrent.textContent = `${userProgress.streak.current} dies consecutive`;
-    }
+    const current = progress.streak?.current || 0;
+    const best = progress.streak?.best || 0;
+    section.querySelector('#streak-current').textContent = `${current} dies consecutive`;
+    section.querySelector('#streak-best').textContent = `Melior serie: ${best} dies`;
 
-    if (streakBest) {
-      streakBest.textContent = `Melior serie: ${userProgress.streak.best} dies`;
-    }
-
-    if (nextLesson) {
-      const next = LESSON_ORDER.find(id => !lessons[id]?.completed);
-      nextLesson.textContent = next
-        ? `Continua con le lection ${formatLesson(next)}`
-        : '';
+    const next = LESSON_ORDER.find(id => !(lessons[id] && lessons[id].completed));
+    const nextEl = section.querySelector('#next-lesson');
+    if (next) {
+      nextEl.textContent = `Continua con le lection ${formatLesson(next)}`;
+    } else {
+      nextEl.textContent = '';
     }
   }
 
-  /* ---------------- LESSON PAGE ---------------- */
+  function exportProgress() {
+    const data = localStorage.getItem(STORAGE_KEY);
+    if (!data) { alert('Il non ha progresso pro exportar'); return; }
+    const blob = new Blob([data], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'si_progress.json';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
 
-  function setupLessonButton() {
+  function importProgress() {
+    const json = prompt('Incolla tu progresso in formato JSON:');
+    if (!json) return;
+    try {
+      const parsed = JSON.parse(json);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+      if (currentUser) {
+        saveProgressToDB(parsed);
+      }
+      renderIndex();
+    } catch (e) {
+      alert('JSON invalide');
+    }
+  }
+
+  // Lesson page button
+  function setupLesson() {
     const container = document.getElementById('exercise-container');
-    if (!container || !currentUser) return;
-
-    const lessonId =
-      container.dataset.lesson ??
-      location.pathname.split('/').pop().replace('.html', '');
-
-    if (document.getElementById('lesson-progress-btn')) return;
+    if (!container) return;
 
     const wrap = document.createElement('div');
     wrap.className = 'lesson-progress-wrapper';
     container.insertAdjacentElement('afterend', wrap);
 
+    if (!storageAvailable()) {
+      wrap.textContent = 'Le progresso non pote esser salvate';
+      return;
+    }
+
+    const lessonId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html', '');
+
     const btn = document.createElement('button');
     btn.id = 'lesson-progress-btn';
     btn.className = 'btn btn-primary';
-
     const info = document.createElement('div');
     info.id = 'lesson-progress-info';
-
-    wrap.append(btn, info);
+    wrap.appendChild(btn);
+    wrap.appendChild(info);
 
     function refresh() {
-      const data = userProgress.lessons[lessonId];
-      if (data?.completed) {
-        btn.textContent = 'Refacer le lection';
-        info.textContent = `Ultime vice: ${data.last_done}`;
-      } else {
-        btn.textContent = 'Marcar le lection como facte';
-        info.textContent = '';
-      }
+      loadProgress().then(progress => {
+        const data = progress.lessons[lessonId];
+        if (data && data.completed) {
+          btn.textContent = 'Refacer le lection';
+          info.textContent = `Ultime vice: ${data.last_done}`;
+        } else {
+          btn.textContent = 'Marcar le lection como facte';
+          info.textContent = '';
+        }
+      });
     }
 
     btn.addEventListener('click', async () => {
+      const progress = await loadProgress();
       const today = new Date().toISOString().slice(0, 10);
-
-      if (userProgress.lessons[lessonId]?.completed) {
-        delete userProgress.lessons[lessonId];
+      const data = progress.lessons[lessonId];
+      if (data && data.completed) {
+        delete progress.lessons[lessonId];
       } else {
-        userProgress.lessons[lessonId] = {
-          completed: true,
-          last_done: today
-        };
-        updateStreak(today);
+        progress.lessons[lessonId] = { completed: true, last_done: today };
+        updateStreak(progress, today);
       }
-
-      await saveProgressToDB();
+      await saveProgress(progress);
       refresh();
-      renderIndexUI();
     });
 
     refresh();
   }
 
-  /* ---------------- AUTH ---------------- */
+  // Setup for curso page
+  function setupCurso() {
+    const grid = document.getElementById('curso-grid');
+    if (!grid) return;
 
-  function init() {
-    supabase.auth.onAuthStateChange(async (_event, session) => {
-      currentUser = session?.user ?? null;
+    const wrap = document.createElement('div');
+    wrap.className = 'lesson-progress-wrapper';
+    grid.insertAdjacentElement('afterend', wrap);
 
-      if (currentUser) {
-        userProgress = await loadProgressFromDB(currentUser.id);
-        setupLessonButton();
-      } else {
-        userProgress = emptyProgress();
-      }
+    if (!storageAvailable()) {
+      wrap.textContent = 'Le progresso non pote esser salvate';
+      return;
+    }
 
-      renderIndexUI();
+    const btn = document.createElement('button');
+    btn.id = 'save-progress-btn';
+    btn.className = 'btn btn-secondary';
+    btn.textContent = 'Guardar progresso';
+    wrap.appendChild(btn);
+
+    btn.addEventListener('click', async () => {
+      const progress = await loadProgress();
+      await saveProgress(progress);
+      alert('Progreso guardado');
     });
   }
 
-  document.readyState === 'loading'
-    ? document.addEventListener('DOMContentLoaded', init)
-    : init();
+  async function init() {
+    if (!storageAvailable()) {
+      const section = document.getElementById('progress-section');
+      if (section) section.textContent = 'Le progresso non pote esser salvate';
+      return;
+    }
+    await renderIndex();
+    setupLesson();
+    setupCurso();
+    const exportBtn = document.getElementById('export-progress');
+    const importBtn = document.getElementById('import-progress');
+    if (exportBtn) exportBtn.addEventListener('click', exportProgress);
+    if (importBtn) importBtn.addEventListener('click', importProgress);
 
+    // Auth listener
+    supabase.auth.onAuthStateChange(async (_event, session) => {
+      currentUser = session?.user ?? null;
+      if (currentUser) {
+        const dbProgress = await loadProgressFromDB(currentUser.id);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(dbProgress));
+        await renderIndex();
+      } else {
+        await renderIndex();
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  window.addEventListener('storage', (e) => {
+    if (e.key === STORAGE_KEY) renderIndex();
+  });
 })();

@@ -1,14 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const path = location.pathname;
 
-  // Determinar si estamos en una subcarpeta
-  const base = path.includes("/lection/") ||
-    path.includes("/appendice/") ||
-    path.includes("/lessons/") ||
-    path.includes("/games/") ||
-    path.includes("/lecturas/")
-    ? "../components/"
-    : "components/";
+  // Usar paths absolutos para consistencia
+  const base = "/components/";
 
   const courseMeta = {
     title: "Schola Interlingua - Curso gratuite de Interlingua",
@@ -76,10 +70,24 @@ document.addEventListener("DOMContentLoaded", function () {
   include("#navbar-placeholder, nav", "navbar.html", initLang);
   include("#footer-placeholder, footer", "footer.html");
 
-  // Cargar script de progreso en todas las páginas
+  // Cargar supabase
+  const supabaseScript = document.createElement('script');
+  supabaseScript.type = "module";
+  supabaseScript.src = "/js/supabase.js";
+  document.body.appendChild(supabaseScript);
+
+  // Cargar nav.js
+  const navScript = document.createElement('script');
+  navScript.type = "module";
+  navScript.src = "/js/nav.js";
+  document.body.appendChild(navScript);
+
+  // Cargar script de progreso
   const progressScript = document.createElement('script');
+  progressScript.type = "module";
   progressScript.src = "/js/progress.js";
   document.body.appendChild(progressScript);
+
 
   // Cargar jQuery solo si no existe
   if (!window.jQuery) {
