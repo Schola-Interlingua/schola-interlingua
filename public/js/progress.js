@@ -1,110 +1,102 @@
 import { supabase } from './supabase.js';
 
 (function () {
+
+  /* ---------------- CONFIG ---------------- */
+
   const TOTAL_LESSONS = 43;
+
   const LESSON_ORDER = Array.from({ length: 10 }, (_, i) => `lection${i + 1}`)
     .concat(window.cursoSlugs || []);
 
-  let userProgress = { lessons: {}, streak: { current: 0, best: 0, last_study_date: null } };
   let currentUser = null;
-  let isSaving = false;
-  let saveTimeout = null;
+
+  let userProgress = {
+    lessons: {},
+    streak: {
+      current: 0,
+      best: 0,
+      last_study_date: null
+    }
+  };
+
+  /* ---------------- DB ---------------- */
 
   async function loadProgressFromDB(userId) {
-    try {
-      const { data, error } = await supabase
-        .from('progress')
-        .select('data')
-        .eq('user_id', userId)
-        .single();
+    const { data, error } = await supabase
+      .from('progress')
+      .select('data')
+      .eq('user_id', userId)
+      .single();
 
-      if (error && error.code !== 'PGRST116') { // PGRST116 = no rows found
-        console.error('Error cargando el progreso:', error);
-        return { lessons: {}, streak: {} };
-      }
-      return data ? data.data : { lessons: {}, streak: {} };
-    } catch (e) {
-      console.error('Error al obtener el progreso de la base de datos', e);
+    if (error && error.code !== 'PGRST116') {
+      console.error('❌ Error cargando progreso:', error);
       return { lessons: {}, streak: {} };
     }
+
+    return data?.data || { lessons: {}, streak: {} };
   }
 
-  function saveProgressToDB() {
-    if (!currentUser || isSaving) return;
+  async function saveProgressToDB() {
+    if (!currentUser) return;
 
-    // Debounce saving to avoid rapid writes
-    if (saveTimeout) clearTimeout(saveTimeout);
+    const { error } = await supabase
+      .from('progress')
+      .upsert(
+        {
+          user_id: currentUser.id,
+          data: userProgress
+        },
+        { onConflict: 'user_id' }
+      );
 
-    saveTimeout = setTimeout(async () => {
-      isSaving = true;
-      try {
-        const { error } = await supabase
-          .from('progress')
-          .upsert({ user_id: currentUser.id, data: userProgress }, { onConflict: 'user_id' });
-
-        if (error) {
-          console.error('Error guardando el progreso:', error);
-        }
-      } catch (e) {
-        console.error('Error al guardar el progreso en la base de datos', e);
-      } finally {
-        isSaving = false;
-        saveTimeout = null;
-      }
-    }, 1000); // Wait 1 second after the last change to save
-  }
-
-  function loadProgress() {
-    try {
-      const data = localStorage.getItem(STORAGE_KEY);
-      return data ? JSON.parse(data) : defaultProgress();
-    } catch (e) {
-      return defaultProgress();
+    if (error) {
+      console.error('❌ Error guardando progreso:', error);
     }
   }
 
-  function saveProgress(p) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
-    console.log("💾 Guardado en LocalStorage");
+  /* ---------------- STREAK ---------------- */
 
-    // Intenta llamar a la función que debería haber creado progress-sync.js
-    if (typeof window.saveProgress === 'function') {
-      window.saveProgress(p);
-    } else {
-      console.warn("⚠️ window.saveProgress no está definida aún.");
-    }
-  }
+  function updateStreak(today) {
+    const streak = userProgress.streak || {
+      current: 0,
+      best: 0,
+      last_study_date: null
+    };
 
-  function updateStreak(progress, today) {
-    const streak = progress.streak || { current: 0, best: 0, last_study_date: null };
     if (!streak.last_study_date) {
       streak.current = 1;
     } else {
       const last = new Date(streak.last_study_date);
       const curr = new Date(today);
       const diff = Math.floor((curr - last) / 86400000);
-      if (diff === 1) {
-        streak.current += 1;
-      } else if (diff > 1) {
-        streak.current = 1;
-      }
+
+      if (diff === 1) streak.current++;
+      else if (diff > 1) streak.current = 1;
     }
+
     streak.last_study_date = today;
-    if (streak.current > (streak.best || 0)) streak.best = streak.current;
+    streak.best = Math.max(streak.best || 0, streak.current);
+
     userProgress.streak = streak;
-    saveProgressToDB();
   }
+
+  /* ---------------- UI HELPERS ---------------- */
 
   function formatLesson(id) {
     if (id.startsWith('lection')) return id.replace('lection', '');
-    return id.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+    return id
+      .split('-')
+      .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+      .join(' ');
   }
+
+  /* ---------------- INDEX UI ---------------- */
 
   function renderIndexUI() {
     const section = document.getElementById('progress-section');
     if (!section) return;
 
-    // Make the section visible now that we're ready to render
     section.style.visibility = 'visible';
 
     if (!currentUser) {
@@ -115,120 +107,100 @@ import { supabase } from './supabase.js';
       return;
     }
 
-    // Ensure buttons are hidden for logged-in users
-    const backupDiv = section.querySelector('.backup');
-    if (backupDiv) backupDiv.style.display = 'none';
-
     const lessons = userProgress.lessons || {};
     const completed = Object.values(lessons).filter(l => l.completed).length;
-    const percent = TOTAL_LESSONS ? Math.round((completed / TOTAL_LESSONS) * 100) : 0;
+    const percent = Math.round((completed / TOTAL_LESSONS) * 100);
 
-    const noProgress = section.querySelector('#no-progress-msg');
-    const details = section.querySelector('#progress-details');
+    section.querySelector('#completion-text')?.textContent =
+      `${percent}% (${completed}/${TOTAL_LESSONS})`;
 
-    if (noProgress) noProgress.style.display = completed === 0 ? 'block' : 'none';
-    if (details) details.style.display = completed > 0 ? 'block' : 'none';
+    section.querySelector('#completion-bar')?.style.setProperty(
+      'width',
+      percent + '%'
+    );
 
-    const completionText = section.querySelector('#completion-text');
-    if (completionText) completionText.textContent = `${percent}% (${completed}/${TOTAL_LESSONS})`;
+    section.querySelector('#streak-current')?.textContent =
+      `${userProgress.streak.current || 0} dies consecutive`;
 
-    const completionBar = section.querySelector('#completion-bar');
-    if (completionBar) completionBar.style.width = percent + '%';
+    section.querySelector('#streak-best')?.textContent =
+      `Melior serie: ${userProgress.streak.best || 0} dies`;
 
-    const currentStreak = userProgress.streak?.current || 0;
-    const bestStreak = userProgress.streak?.best || 0;
-
-    const streakCurrentEl = section.querySelector('#streak-current');
-    if (streakCurrentEl) streakCurrentEl.textContent = `${currentStreak} dies consecutive`;
-
-    const streakBestEl = section.querySelector('#streak-best');
-    if (streakBestEl) streakBestEl.textContent = `Melior serie: ${bestStreak} dies`;
-
-    const next = LESSON_ORDER.find(id => !(lessons[id] && lessons[id].completed));
-    const nextEl = section.querySelector('#next-lesson');
-    if (nextEl) {
-      nextEl.textContent = next ? `Continua con le lection ${formatLesson(next)}` : '';
-    }
+    const next = LESSON_ORDER.find(id => !lessons[id]?.completed);
+    section.querySelector('#next-lesson')?.textContent =
+      next ? `Continua con le lection ${formatLesson(next)}` : '';
   }
+
+  /* ---------------- LESSON PAGE ---------------- */
 
   function setupLessonButton() {
     const container = document.getElementById('exercise-container');
-    if (!container) return;
+    if (!container || !currentUser) return;
+
+    const lessonId =
+      container.dataset.lesson ||
+      location.pathname.split('/').pop().replace('.html', '');
+
+    if (document.getElementById('lesson-progress-btn')) return;
 
     const wrap = document.createElement('div');
     wrap.className = 'lesson-progress-wrapper';
     container.insertAdjacentElement('afterend', wrap);
 
-    // Add completion banner
-    const banner = document.createElement('div');
-    banner.id = 'completion-banner';
-    banner.textContent = 'Ya has completado esta lección';
-    banner.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; background: #28a745; color: white; text-align: center; padding: 10px; font-size: 18px; z-index: 1000; display: none;';
-    document.body.insertBefore(banner, document.body.firstChild);
-
-    if (!storageAvailable()) {
-      wrap.textContent = 'Le progresso non pote esser salvate';
-      return;
-    }
-
-    const lessonId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html', '');
-
     const btn = document.createElement('button');
     btn.id = 'lesson-progress-btn';
     btn.className = 'btn btn-primary';
+
     const info = document.createElement('div');
     info.id = 'lesson-progress-info';
+
     wrap.appendChild(btn);
     wrap.appendChild(info);
 
-    function refreshButton() {
+    function refresh() {
       const data = userProgress.lessons[lessonId];
-      if (data && data.completed) {
+      if (data?.completed) {
         btn.textContent = 'Refacer le lection';
         info.textContent = `Ultime vice: ${data.last_done}`;
-        banner.style.display = 'block';
       } else {
         btn.textContent = 'Marcar le lection como facte';
         info.textContent = '';
-        banner.style.display = 'none';
       }
     }
 
-    btn.addEventListener('click', async () => { // <--- agregar async
-      const progress = loadProgress();
+    btn.addEventListener('click', async () => {
       const today = new Date().toISOString().slice(0, 10);
-      const data = progress.lessons[lessonId];
 
-      if (data && data.completed) {
-        delete progress.lessons[lessonId];
+      if (userProgress.lessons[lessonId]?.completed) {
+        delete userProgress.lessons[lessonId];
       } else {
-        userProgress.lessons[lessonId] = { completed: true, last_done: today };
+        userProgress.lessons[lessonId] = {
+          completed: true,
+          last_done: today
+        };
         updateStreak(today);
       }
 
-      await saveProgress(progress); // <--- ahora espera a la DB
+      await saveProgressToDB();
       refresh();
     });
 
-    refreshButton();
+    refresh();
   }
 
-  async function handleAuthStateChange(user) {
-    currentUser = user;
-    if (user) {
-      userProgress = await loadProgressFromDB(user.id);
-    } else {
-      userProgress = { lessons: {}, streak: {} }; // Reset progress on logout
-    }
-    renderIndexUI();
-    if (currentUser) {
-      setupLessonButton();
-    }
-  }
+  /* ---------------- AUTH ---------------- */
 
   function init() {
-    supabase.auth.onAuthStateChange((_event, session) => {
-      handleAuthStateChange(session?.user || null);
+    supabase.auth.onAuthStateChange(async (_event, session) => {
+      currentUser = session?.user || null;
+
+      if (currentUser) {
+        userProgress = await loadProgressFromDB(currentUser.id);
+        setupLessonButton();
+      } else {
+        userProgress = { lessons: {}, streak: {} };
+      }
+
+      renderIndexUI();
     });
   }
 
@@ -237,4 +209,5 @@ import { supabase } from './supabase.js';
   } else {
     init();
   }
+
 })();

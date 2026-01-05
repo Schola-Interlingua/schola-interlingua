@@ -82,17 +82,20 @@ function removeCursoLink() {
 
 function setLoggedOutUI() {
   if (!authBtn) return;
+
   const li = authBtn.parentElement;
-  li.classList.remove("dropdown");
-  authBtn.innerHTML = 'Login';
-  authBtn.title = "";
+  li.classList.remove("dropdown", "open");
+
+  authBtn.innerHTML = "Login";
   authBtn.href = "/login/login.html";
   authBtn.onclick = null;
+
   const menu = li.querySelector('.dropdown-menu');
   if (menu) menu.remove();
 
   removeCursoLink();
 }
+
 
 function setLoggedInUI(user) {
   if (!authBtn) return;
@@ -100,27 +103,46 @@ function setLoggedInUI(user) {
 
   const li = authBtn.parentElement;
   li.classList.add("dropdown");
-  authBtn.innerHTML = '<i class="fas fa-user"></i> ▼';
-  authBtn.title = user.email;
-  authBtn.href = "#";
-  authBtn.onclick = null;
+
+  authBtn.innerHTML = `
+    <i class="fas fa-user"></i>
+    <span class="user-email">${user.email}</span>
+    <i class="fas fa-caret-down"></i>
+  `;
+
+  authBtn.removeAttribute("href");
+  authBtn.setAttribute("role", "button");
+  authBtn.setAttribute("aria-haspopup", "true");
+  authBtn.setAttribute("aria-expanded", "false");
+
   let menu = li.querySelector('.dropdown-menu');
   if (!menu) {
     menu = document.createElement('ul');
     menu.className = 'dropdown-menu';
     li.appendChild(menu);
   }
-  menu.innerHTML = '<li><a href="#" id="logout-link">Salir</a></li>';
+
+  menu.innerHTML = `
+    <li><a href="#" id="logout-link">Salir</a></li>
+  `;
+
+  authBtn.onclick = (e) => {
+    e.stopPropagation();
+    const expanded = authBtn.getAttribute("aria-expanded") === "true";
+    authBtn.setAttribute("aria-expanded", String(!expanded));
+    li.classList.toggle("open", !expanded);
+  };
+
+  document.addEventListener("click", () => {
+    authBtn.setAttribute("aria-expanded", "false");
+    li.classList.remove("open");
+  });
 
   const logoutLink = document.getElementById('logout-link');
-  if (logoutLink) {
-    logoutLink.addEventListener('click', async (e) => {
-      e.preventDefault();
-      if (confirm("¿Cerrar sesión?")) {
-        await supabase.auth.signOut();
-      }
-    });
-  }
+  logoutLink.onclick = async (e) => {
+    e.preventDefault();
+    await supabase.auth.signOut();
+  };
 }
 
 

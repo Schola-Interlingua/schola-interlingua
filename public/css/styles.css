@@ -1592,3 +1592,11 @@ body#wordsearch-page.dark-mode .word-item .tooltiptext {
 .auth-btn.logged-in {
   font-size: 1.2rem;
 }
+
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+}
