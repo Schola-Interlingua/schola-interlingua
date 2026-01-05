@@ -92,12 +92,11 @@ function setLoggedInUI(user) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function initNav() {
   const timer = setInterval(() => {
     if (document.querySelector('.nav-links')) {
       clearInterval(timer);
       authBtn = document.getElementById("auth-btn");
-      buildCursoLink();
       initThemeToggle();
       initDropdownAccessibility();
 
@@ -111,4 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }, 50);
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initNav);
+} else {
+  initNav();
+}

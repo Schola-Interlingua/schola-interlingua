@@ -113,6 +113,13 @@ import { supabase } from './supabase.js';
       section.textContent = 'Le progresso non pote esser salvate';
       return;
     }
+    if (!currentUser) {
+      section.innerHTML = `
+        <h2>Tu progresso</h2>
+        <p>Inicia sesión para guardar y ver tu progreso.</p>
+      `;
+      return;
+    }
     const progress = await loadProgress();
     const lessons = progress.lessons || {};
     const completed = Object.values(lessons).filter(l => l.completed).length;
@@ -172,6 +179,7 @@ import { supabase } from './supabase.js';
 
   // Lesson page button
   function setupLesson() {
+    if (!currentUser) return;
     const container = document.getElementById('exercise-container');
     if (!container) return;
 
@@ -226,6 +234,7 @@ import { supabase } from './supabase.js';
 
   // Setup for curso page
   function setupCurso() {
+    if (!currentUser) return;
     const grid = document.getElementById('curso-grid');
     if (!grid) return;
 
@@ -257,9 +266,6 @@ import { supabase } from './supabase.js';
       if (section) section.textContent = 'Le progresso non pote esser salvate';
       return;
     }
-    await renderIndex();
-    setupLesson();
-    setupCurso();
     const exportBtn = document.getElementById('export-progress');
     const importBtn = document.getElementById('import-progress');
     if (exportBtn) exportBtn.addEventListener('click', exportProgress);
@@ -271,10 +277,10 @@ import { supabase } from './supabase.js';
       if (currentUser) {
         const dbProgress = await loadProgressFromDB(currentUser.id);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(dbProgress));
-        await renderIndex();
-      } else {
-        await renderIndex();
       }
+      await renderIndex();
+      setupLesson();
+      setupCurso();
     });
   }
 
