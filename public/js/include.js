@@ -71,15 +71,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   ensureMetadata();
 
-  include("#navbar-placeholder, nav", "navbar.html", async () => {
+  include("#navbar-placeholder, nav", "navbar.html", () => {
     initLang();
-    document.dispatchEvent(new Event('navbar-loaded'));
+    const navScript = document.createElement('script');
+    navScript.type = "module";
+    navScript.src = "/js/nav.js";
+    navScript.onload = () => {
+      document.dispatchEvent(new Event('navbar-loaded'));
+    };
+    document.body.appendChild(navScript);
   });
   include("#footer-placeholder, footer", "footer.html");
 
   const supabaseScript = document.createElement('script');
   supabaseScript.type = "module";
   supabaseScript.src = "/js/supabase.js";
+
+  supabaseScript.onload = () => {
+    // Cargar progress.js solo después de que supabase.js esté listo
+    const progressScript = document.createElement('script');
+    progressScript.type = "module";
+    progressScript.src = "/js/progress.js";
+    document.body.appendChild(progressScript);
+  };
+
   document.body.appendChild(supabaseScript);
 
   const syncScript = document.createElement('script');

@@ -1,6 +1,5 @@
 import { supabase } from "./supabase.js";
 
-
 const cursoSlugs = [
   "basico1", "basico2", "phrases-quotidian", "alimentos", "animales",
   "adjectivos1", "plurales", "esser-haber", "vestimentos",
@@ -50,109 +49,88 @@ const iconMap = {
 
 let authBtn = null;
 
-/* ---------- FUNCIONES DE UI (UNIFICADAS) ---------- */
+/* ---------- FUNCIONES DE UI ---------- */
+
+function buildCursoLink() {
+  // Check if the link already exists to prevent duplicates
+  if (document.querySelector('.nav-links #curso-link-li')) return;
+
+  const navLinks = document.querySelector('.nav-links');
+  if (!navLinks) return;
+
+  const li = document.createElement('li');
+  li.id = 'curso-link-li'; // Add an ID to the <li> for easy removal
+
+  const a = document.createElement('a');
+  a.href = '/curso.html';
+  a.textContent = 'Curso';
+  li.appendChild(a);
+
+  // Insert "Curso" as the first link
+  const firstLink = navLinks.firstElementChild;
+  if (firstLink) {
+    navLinks.insertBefore(li, firstLink);
+  } else {
+    navLinks.appendChild(li);
+  }
+}
+
+function removeCursoLink() {
+  const cursoLi = document.getElementById('curso-link-li');
+  if (cursoLi) cursoLi.remove();
+}
 
 function setLoggedOutUI() {
-  // Buscamos el botón por cualquiera de sus IDs posibles
-  const authBtn = document.getElementById("auth-btn") || document.getElementById("logout-btn");
   if (!authBtn) return;
-
   const li = authBtn.parentElement;
-  li.classList.remove("dropdown"); // Quitamos la flechita si existe
-
+  li.classList.remove("dropdown");
   authBtn.innerHTML = 'Login';
-  authBtn.id = "auth-btn";
+  authBtn.title = "";
   authBtn.href = "/login/login.html";
-
-  // Borramos el menú desplegable si existía
+  authBtn.onclick = null;
   const menu = li.querySelector('.dropdown-menu');
   if (menu) menu.remove();
+
+  removeCursoLink();
 }
 
 function setLoggedInUI(user) {
-  const authBtn = document.getElementById("auth-btn") || document.getElementById("logout-btn");
   if (!authBtn) return;
+  buildCursoLink();
 
   const li = authBtn.parentElement;
-  li.classList.add("dropdown"); // Agregamos clase para que se vea el menú
-
-  authBtn.id = "logout-btn";
-  // Mostramos el icono de usuario y un pedacito del email
-  authBtn.innerHTML = `<i class="fas fa-user"></i> ${user.email.split('@')[0]} ▼`;
+  li.classList.add("dropdown");
+  authBtn.innerHTML = '<i class="fas fa-user"></i> ▼';
+  authBtn.title = user.email;
   authBtn.href = "#";
-
-  // Creamos el menú desplegable para el botón "Surtir" (Salir)
+  authBtn.onclick = null;
   let menu = li.querySelector('.dropdown-menu');
   if (!menu) {
     menu = document.createElement('ul');
     menu.className = 'dropdown-menu';
     li.appendChild(menu);
   }
+  menu.innerHTML = '<li><a href="#" id="logout-link">Salir</a></li>';
 
-  menu.innerHTML = '<li><a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Surtir (Salir)</a></li>';
-
-  // EVENTO DE LOGOUT (Esto es lo que te fallaba)
   const logoutLink = document.getElementById('logout-link');
   if (logoutLink) {
-    logoutLink.onclick = async (e) => {
+    logoutLink.addEventListener('click', async (e) => {
       e.preventDefault();
-      const { error } = await supabase.auth.signOut();
-      if (error) {
-        console.error("Error al salir:", error.message);
-      } else {
-        window.location.href = "/index.html"; // Redirigir al inicio al salir
+      if (confirm("¿Cerrar sesión?")) {
+        await supabase.auth.signOut();
       }
-    };
+    });
   }
 }
 
-/* ---------- LÓGICA DE INICIALIZACIÓN ---------- */
 
-async function checkAuth() {
-  const { data } = await supabase.auth.getSession();
-  if (data.session?.user) {
-    setLoggedInUI(data.session.user);
-  } else {
-    setLoggedOutUI();
-  }
-}
-
-// Escuchar cambios de sesión en tiempo real
-supabase.auth.onAuthStateChange((event, session) => {
-  if (session?.user) {
-    setLoggedInUI(session.user);
-  } else {
-    setLoggedOutUI();
-  }
-});
-
-// ESPERAR A QUE EL NAVBAR CARGUE PARA ACTIVAR TODO
-document.addEventListener('navbar-loaded', () => {
-  checkAuth();
-  initThemeToggle();
-  initDropdownAccessibility();
-});
-
+/* ---------- LÓGICA DE AUTH ---------- */
 
 window.cursoSlugs = cursoSlugs;
 window.iconMap = iconMap;
 
 function toTitle(str) {
   return str.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
-}
-
-function buildCursoLink() {
-  if (location.pathname === '/curso.html') return;
-  const navLinks = document.querySelector('.nav-links');
-  if (!navLinks) return;
-  const li = document.createElement('li');
-  const a = document.createElement('a');
-  a.href = '/curso.html';
-  a.textContent = 'Curso';
-  li.appendChild(a);
-  const first = navLinks.firstElementChild;
-  if (first) navLinks.insertBefore(li, first);
-  else navLinks.appendChild(li);
 }
 
 function initThemeToggle() {
@@ -205,21 +183,18 @@ function initDropdownAccessibility() {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const timer = setInterval(() => {
-    authBtn = document.getElementById("auth-btn");
+document.addEventListener('navbar-loaded', () => {
+  authBtn = document.getElementById("auth-btn");
 
-    if (document.querySelector('.nav-links') && authBtn) {
-      clearInterval(timer);
-
-      buildCursoLink();
-      initThemeToggle();
-      initDropdownAccessibility();
-
-      checkAuth();
+  // Auth state listener is the single source of truth
+  supabase.auth.onAuthStateChange((_event, session) => {
+    if (session?.user) {
+      setLoggedInUI(session.user);
+    } else {
+      setLoggedOutUI();
     }
-  }, 50);
-});
+  });
 
-// Al final de nav.js, después de cargar todo
-window.dispatchEvent(new Event('navbar-loaded'));
+  initThemeToggle();
+  initDropdownAccessibility();
+});
