@@ -145,9 +145,16 @@ function initThemeToggle() {
 
 function initDropdownAccessibility() {
   document.querySelectorAll('.dropdown > a').forEach(trigger => {
-    trigger.addEventListener('click', e => e.preventDefault());
+    trigger.addEventListener('click', e => {
+      e.preventDefault();
+      const li = trigger.parentElement;
+      li.classList.toggle('open');
+    });
     trigger.addEventListener('keydown', e => {
-      if (e.key === 'Escape') trigger.blur();
+      if (e.key === 'Escape') {
+        trigger.parentElement.classList.remove('open');
+        trigger.blur();
+      }
     });
   });
 
@@ -155,9 +162,19 @@ function initDropdownAccessibility() {
     item.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         const parent = item.closest('.dropdown');
+        parent?.classList.remove('open');
         parent?.querySelector('a')?.focus();
       }
     });
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown.open').forEach(dropdown => {
+        dropdown.classList.remove('open');
+      });
+    }
   });
 }
 
