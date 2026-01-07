@@ -63,6 +63,25 @@ function setLoggedOutUI() {
   if (menu) menu.remove();
 }
 
+function buildCursoLink() {
+  const nav = document.querySelector(".nav-links");
+  if (!nav) return;
+
+  // Evitar duplicarlo
+  if (document.getElementById("curso-link")) return;
+
+  const li = document.createElement("li");
+  li.id = "curso-link";
+
+  const a = document.createElement("a");
+  a.href = "/curso.html";
+  a.textContent = "Curso";
+
+  li.appendChild(a);
+  nav.appendChild(li);
+}
+
+
 function setLoggedInUI(user) {
   if (!authBtn) return;
   buildCursoLink();
