@@ -78,7 +78,9 @@ function buildCursoLink() {
   a.textContent = "Curso";
 
   li.appendChild(a);
-  nav.appendChild(li);
+  const first = nav.firstElementChild;
+  if (first) nav.insertBefore(li, first);
+  else nav.appendChild(li);
 }
 
 
