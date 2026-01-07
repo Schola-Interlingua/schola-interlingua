@@ -164,6 +164,7 @@ function initNav() {
     if (document.querySelector('.nav-links')) {
       clearInterval(timer);
       authBtn = document.getElementById("auth-btn");
+      buildCursoLink();
       initThemeToggle();
       initDropdownAccessibility();
 
