@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      const elements = document.querySelectorAll('.text-block p, .text-block li, .grammar p, #home-section p, .grammar li, .card p, .vocab-table li');
+      const elements = document.querySelectorAll('.text-block p:not(.no-tooltip), .text-block li:not(.no-tooltip), .grammar p:not(.no-tooltip), #home-section p:not(.no-tooltip), .grammar li:not(.no-tooltip), .card p:not(.no-tooltip), .vocab-table li:not(.no-tooltip)');
       elements.forEach(el => {
         const tokens = el.textContent.match(/\w+|\s+|[^\s\w]+/g) || [];
         const html = tokens.map(tok => {
