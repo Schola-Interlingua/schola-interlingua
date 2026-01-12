@@ -61,41 +61,6 @@ import { supabase } from './supabase.js';
     }
   }
 
-  function showImportChoice() {
-    const root = document.getElementById('onboarding-modal-root');
-    if (!root) return;
-
-    root.innerHTML = `
-    <div class="onboarding-banner">
-      <h2>👋 Bienvenida</h2>
-      <p>
-        Detectamos que es tu primera vez.<br>
-        ¿Querés importar un progreso previo?
-      </p>
-
-      <div class="onboarding-actions">
-        <button id="onboarding-import" class="btn btn-primary">
-          Importar progreso
-        </button>
-
-        <button id="onboarding-skip" class="btn btn-secondary">
-          Empezar desde cero
-        </button>
-      </div>
-    </div>
-  `;
-
-    document.getElementById('onboarding-import').onclick = async () => {
-      importProgress();
-      await finishOnboarding();
-    };
-
-    document.getElementById('onboarding-skip').onclick = async () => {
-      await finishOnboarding();
-    };
-  }
-
-
   async function loadProgress() {
     if (currentUser) {
       return await loadProgressFromDB(currentUser.id);
@@ -114,28 +79,6 @@ import { supabase } from './supabase.js';
       await saveProgressToDB(p);
     }
   }
-  async function finishOnboarding() {
-    const progress = await loadProgress();
-
-    await supabase
-      .from('progress')
-      .upsert({
-        user_id: currentUser.id,
-        data: progress,
-        onboarding_completed: true
-      });
-
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-
-    // cerrar modal
-    const root = document.getElementById('onboarding-modal-root');
-    if (root) root.innerHTML = '';
-
-    await renderIndex();
-    setupLesson();
-    setupCurso();
-  }
-
 
   function updateStreak(progress, today) {
     const streak = progress.streak || { current: 0, best: 0, last_study_date: null };
@@ -240,6 +183,24 @@ import { supabase } from './supabase.js';
     const container = document.getElementById('exercise-container');
     if (!container) return;
 
+    // Create completion banner
+    const banner = document.createElement('div');
+    banner.id = 'completion-banner';
+    banner.textContent = '¡Lección completada!';
+    banner.style.display = 'none';
+    banner.style.position = 'fixed';
+    banner.style.top = '60px'; // Below navbar
+    banner.style.left = '0';
+    banner.style.right = '0';
+    banner.style.backgroundColor = '#28a745';
+    banner.style.color = 'white';
+    banner.style.textAlign = 'center';
+    banner.style.padding = '10px';
+    banner.style.zIndex = '999';
+    banner.style.fontSize = '18px';
+    banner.style.fontWeight = 'bold';
+    document.body.insertBefore(banner, document.body.firstChild);
+
     const wrap = document.createElement('div');
     wrap.className = 'lesson-progress-wrapper';
     container.insertAdjacentElement('afterend', wrap);
@@ -262,12 +223,15 @@ import { supabase } from './supabase.js';
     function refresh() {
       loadProgress().then(progress => {
         const data = progress.lessons[lessonId];
+        const banner = document.getElementById('completion-banner');
         if (data && data.completed) {
           btn.textContent = 'Refacer le lection';
           info.textContent = `Ultime vice: ${data.last_done}`;
+          if (banner) banner.style.display = 'block';
         } else {
           btn.textContent = 'Marcar le lection como facte';
           info.textContent = '';
+          if (banner) banner.style.display = 'none';
         }
       });
     }
@@ -331,26 +295,10 @@ import { supabase } from './supabase.js';
     // Auth listener
     supabase.auth.onAuthStateChange(async (_event, session) => {
       currentUser = session?.user ?? null;
-
-      if (!currentUser) return;
-
-      const isFirstLogin =
-        currentUser.created_at === currentUser.last_sign_in_at;
-
-      const { data } = await supabase
-        .from('progress')
-        .select('data, onboarding_completed')
-        .eq('user_id', currentUser.id)
-        .single();
-
-      // Si es primer login y no completó onboarding
-      if (isFirstLogin && !data?.onboarding_completed) {
-        showImportChoice();
-        return; // ⛔ frena el flujo normal
+      if (currentUser) {
+        const dbProgress = await loadProgressFromDB(currentUser.id);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(dbProgress));
       }
-
-      // flujo normal
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data?.data ?? defaultProgress()));
       await renderIndex();
       setupLesson();
       setupCurso();
