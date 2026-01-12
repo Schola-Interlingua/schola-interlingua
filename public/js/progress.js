@@ -61,6 +61,43 @@ import { supabase } from './supabase.js';
     }
   }
 
+  function showImportChoice() {
+    const root = document.getElementById('onboarding-modal-root');
+    if (!root) return;
+
+    root.innerHTML = `
+    <div class="onboarding-backdrop">
+      <div class="onboarding-modal">
+        <h2>👋 Bienvenida</h2>
+        <p>
+          Detectamos que es tu primera vez.<br>
+          ¿Querés importar un progreso previo?
+        </p>
+
+        <div class="onboarding-actions">
+          <button id="onboarding-import" class="btn btn-primary">
+            Importar progreso
+          </button>
+
+          <button id="onboarding-skip" class="btn btn-secondary">
+            Empezar desde cero
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+    document.getElementById('onboarding-import').onclick = async () => {
+      importProgress();
+      await finishOnboarding();
+    };
+
+    document.getElementById('onboarding-skip').onclick = async () => {
+      await finishOnboarding();
+    };
+  }
+
+
   async function loadProgress() {
     if (currentUser) {
       return await loadProgressFromDB(currentUser.id);
@@ -79,6 +116,28 @@ import { supabase } from './supabase.js';
       await saveProgressToDB(p);
     }
   }
+  async function finishOnboarding() {
+    const progress = await loadProgress();
+
+    await supabase
+      .from('progress')
+      .upsert({
+        user_id: currentUser.id,
+        data: progress,
+        onboarding_completed: true
+      });
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+
+    // cerrar modal
+    const root = document.getElementById('onboarding-modal-root');
+    if (root) root.innerHTML = '';
+
+    await renderIndex();
+    setupLesson();
+    setupCurso();
+  }
+
 
   function updateStreak(progress, today) {
     const streak = progress.streak || { current: 0, best: 0, last_study_date: null };
@@ -274,10 +333,26 @@ import { supabase } from './supabase.js';
     // Auth listener
     supabase.auth.onAuthStateChange(async (_event, session) => {
       currentUser = session?.user ?? null;
-      if (currentUser) {
-        const dbProgress = await loadProgressFromDB(currentUser.id);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(dbProgress));
+
+      if (!currentUser) return;
+
+      const isFirstLogin =
+        currentUser.created_at === currentUser.last_sign_in_at;
+
+      const { data } = await supabase
+        .from('progress')
+        .select('data, onboarding_completed')
+        .eq('user_id', currentUser.id)
+        .single();
+
+      // Si es primer login y no completó onboarding
+      if (isFirstLogin && !data?.onboarding_completed) {
+        showImportChoice();
+        return; // ⛔ frena el flujo normal
       }
+
+      // flujo normal
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data?.data ?? defaultProgress()));
       await renderIndex();
       setupLesson();
       setupCurso();

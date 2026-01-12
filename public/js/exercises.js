@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   const template = await fetch('/components/exercise.html').then(r => r.text());
   container.innerHTML = template;
 
+  const completedBanner = document.createElement('div');
+  completedBanner.id = 'completed-banner';
+  completedBanner.style.display = 'none';
+  completedBanner.innerHTML = '✅ Ejercicio completado';
+  container.prepend(completedBanner);
+
   const form = container.querySelector('#exercise-form');
   items.forEach(vocab => {
     const answer = vocab[lang] || vocab.es;
