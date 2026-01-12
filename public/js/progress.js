@@ -66,23 +66,21 @@ import { supabase } from './supabase.js';
     if (!root) return;
 
     root.innerHTML = `
-    <div class="onboarding-backdrop">
-      <div class="onboarding-modal">
-        <h2>👋 Bienvenida</h2>
-        <p>
-          Detectamos que es tu primera vez.<br>
-          ¿Querés importar un progreso previo?
-        </p>
+    <div class="onboarding-banner">
+      <h2>👋 Bienvenida</h2>
+      <p>
+        Detectamos que es tu primera vez.<br>
+        ¿Querés importar un progreso previo?
+      </p>
 
-        <div class="onboarding-actions">
-          <button id="onboarding-import" class="btn btn-primary">
-            Importar progreso
-          </button>
+      <div class="onboarding-actions">
+        <button id="onboarding-import" class="btn btn-primary">
+          Importar progreso
+        </button>
 
-          <button id="onboarding-skip" class="btn btn-secondary">
-            Empezar desde cero
-          </button>
-        </div>
+        <button id="onboarding-skip" class="btn btn-secondary">
+          Empezar desde cero
+        </button>
       </div>
     </div>
   `;

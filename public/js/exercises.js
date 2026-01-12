@@ -56,6 +56,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     });
     feedback.textContent = `✔️ ${correct}/${inputs.length}`;
+    if (correct === inputs.length) {
+      completedBanner.style.display = 'block';
+    } else {
+      completedBanner.style.display = 'none';
+    }
   });
 
   btnClear.addEventListener('click', (e) => {
@@ -68,5 +73,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (icon) icon.innerHTML = '';
     });
     feedback.textContent = '';
+    completedBanner.style.display = 'none';
   });
 });
