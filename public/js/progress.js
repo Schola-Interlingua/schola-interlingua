@@ -151,37 +151,14 @@ import { supabase } from './supabase.js';
     }
   }
 
-  function exportProgress() {
-    const data = localStorage.getItem(STORAGE_KEY);
-    if (!data) { alert('Il non ha progresso pro exportar'); return; }
-    const blob = new Blob([data], { type: 'application/json' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'si_progress.json';
-    a.click();
-    URL.revokeObjectURL(a.href);
-  }
-
-  function importProgress() {
-    const json = prompt('Incolla tu progresso in formato JSON:');
-    if (!json) return;
-    try {
-      const parsed = JSON.parse(json);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
-      if (currentUser) {
-        saveProgressToDB(parsed);
-      }
-      renderIndex();
-    } catch (e) {
-      alert('JSON invalide');
-    }
-  }
-
   // Lesson page button
   function setupLesson() {
     if (!currentUser) return;
     const container = document.getElementById('exercise-container');
     if (!container) return;
+
+    // Prevent duplicate buttons
+    if (document.getElementById('lesson-progress-btn')) return;
 
     // Ensure completion message div exists
     let completionMessage = document.getElementById('completion-message');
@@ -190,7 +167,10 @@ import { supabase } from './supabase.js';
       completionMessage.id = 'completion-message';
       completionMessage.style.cssText = 'display:none; background-color: #d4edda; color: #155724; padding: 10px; text-align: center; font-weight: bold;';
       completionMessage.textContent = 'Le lection es complete!';
-      document.body.insertBefore(completionMessage, document.body.firstChild.nextSibling);
+      const main = document.querySelector('main');
+      if (main) {
+        main.insertBefore(completionMessage, main.firstChild);
+      }
     }
 
     const wrap = document.createElement('div');
@@ -279,11 +259,6 @@ import { supabase } from './supabase.js';
       if (section) section.textContent = 'Le progresso non pote esser salvate';
       return;
     }
-
-    const exportBtn = document.getElementById('export-progress');
-    const importBtn = document.getElementById('import-progress');
-    if (exportBtn) exportBtn.addEventListener('click', exportProgress);
-    if (importBtn) importBtn.addEventListener('click', importProgress);
 
     // 👇 1. Obtener sesión actual al cargar
     const { data: { session } } = await supabase.auth.getSession();
