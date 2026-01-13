@@ -8,15 +8,12 @@ import { supabase } from './supabase.js';
 
   let currentUser = null;
 
-  function storageAvailable() {
-    try {
-      const test = '__test__';
-      localStorage.setItem(test, test);
-      localStorage.removeItem(test);
-      return true;
-    } catch (e) {
-      console.log('localStorage non disponibile');
-      return false;
+  let storageEnabled = false;
+
+  function checkStorage() {
+    storageEnabled = storageAvailable();
+    if (!storageEnabled) {
+      console.log('Storage not available');
     }
   }
 
@@ -109,7 +106,7 @@ import { supabase } from './supabase.js';
   async function renderIndex() {
     const section = document.getElementById('progress-section');
     if (!section) return;
-    if (!storageAvailable()) {
+    if (!storageEnabled) {
       section.textContent = 'Le progresso non pote esser salvate';
       return;
     }
@@ -183,29 +180,32 @@ import { supabase } from './supabase.js';
     const container = document.getElementById('exercise-container');
     if (!container) return;
 
-    // Create completion banner
-    const banner = document.createElement('div');
-    banner.id = 'completion-banner';
-    banner.textContent = '¡Lección completada!';
-    banner.style.display = 'none';
-    banner.style.position = 'fixed';
-    banner.style.top = '60px'; // Below navbar
-    banner.style.left = '0';
-    banner.style.right = '0';
-    banner.style.backgroundColor = '#28a745';
-    banner.style.color = 'white';
-    banner.style.textAlign = 'center';
-    banner.style.padding = '10px';
-    banner.style.zIndex = '999';
-    banner.style.fontSize = '18px';
-    banner.style.fontWeight = 'bold';
-    document.body.insertBefore(banner, document.body.firstChild);
+    // Create completion banner only if it doesn't exist
+    let banner = document.getElementById('completion-banner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'completion-banner';
+      banner.textContent = '¡Lección completada!';
+      banner.style.display = 'none';
+      banner.style.position = 'fixed';
+      banner.style.top = '60px'; // Below navbar
+      banner.style.left = '0';
+      banner.style.right = '0';
+      banner.style.backgroundColor = '#28a745';
+      banner.style.color = 'white';
+      banner.style.textAlign = 'center';
+      banner.style.padding = '10px';
+      banner.style.zIndex = '999';
+      banner.style.fontSize = '18px';
+      banner.style.fontWeight = 'bold';
+      document.body.insertBefore(banner, document.body.firstChild);
+    }
 
     const wrap = document.createElement('div');
     wrap.className = 'lesson-progress-wrapper';
     container.insertAdjacentElement('afterend', wrap);
 
-    if (!storageAvailable()) {
+    if (!storageEnabled) {
       wrap.textContent = 'Le progresso non pote esser salvate';
       return;
     }
@@ -263,7 +263,7 @@ import { supabase } from './supabase.js';
     wrap.className = 'lesson-progress-wrapper';
     grid.insertAdjacentElement('afterend', wrap);
 
-    if (!storageAvailable()) {
+    if (!storageEnabled) {
       wrap.textContent = 'Le progresso non pote esser salvate';
       return;
     }
@@ -282,7 +282,8 @@ import { supabase } from './supabase.js';
   }
 
   async function init() {
-    if (!storageAvailable()) {
+    checkStorage();
+    if (!storageEnabled) {
       const section = document.getElementById('progress-section');
       if (section) section.textContent = 'Le progresso non pote esser salvate';
       return;
