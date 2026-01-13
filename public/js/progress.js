@@ -8,12 +8,15 @@ import { supabase } from './supabase.js';
 
   let currentUser = null;
 
-  let storageEnabled = false;
-
-  function checkStorage() {
-    storageEnabled = storageAvailable();
-    if (!storageEnabled) {
-      console.log('Storage not available');
+  function storageAvailable() {
+    try {
+      const test = '__test__';
+      localStorage.setItem(test, test);
+      localStorage.removeItem(test);
+      return true;
+    } catch (e) {
+      console.log('localStorage non disponibile');
+      return false;
     }
   }
 
@@ -106,7 +109,7 @@ import { supabase } from './supabase.js';
   async function renderIndex() {
     const section = document.getElementById('progress-section');
     if (!section) return;
-    if (!storageEnabled) {
+    if (!storageAvailable()) {
       section.textContent = 'Le progresso non pote esser salvate';
       return;
     }
@@ -180,32 +183,21 @@ import { supabase } from './supabase.js';
     const container = document.getElementById('exercise-container');
     if (!container) return;
 
-    // Create completion banner only if it doesn't exist
-    let banner = document.getElementById('completion-banner');
-    if (!banner) {
-      banner = document.createElement('div');
-      banner.id = 'completion-banner';
-      banner.textContent = '¡Lección completada!';
-      banner.style.display = 'none';
-      banner.style.position = 'fixed';
-      banner.style.top = '60px'; // Below navbar
-      banner.style.left = '0';
-      banner.style.right = '0';
-      banner.style.backgroundColor = '#28a745';
-      banner.style.color = 'white';
-      banner.style.textAlign = 'center';
-      banner.style.padding = '10px';
-      banner.style.zIndex = '999';
-      banner.style.fontSize = '18px';
-      banner.style.fontWeight = 'bold';
-      document.body.insertBefore(banner, document.body.firstChild);
+    // Ensure completion message div exists
+    let completionMessage = document.getElementById('completion-message');
+    if (!completionMessage) {
+      completionMessage = document.createElement('div');
+      completionMessage.id = 'completion-message';
+      completionMessage.style.cssText = 'display:none; background-color: #d4edda; color: #155724; padding: 10px; text-align: center; font-weight: bold;';
+      completionMessage.textContent = 'Le lection es complete!';
+      document.body.insertBefore(completionMessage, document.body.firstChild.nextSibling);
     }
 
     const wrap = document.createElement('div');
     wrap.className = 'lesson-progress-wrapper';
     container.insertAdjacentElement('afterend', wrap);
 
-    if (!storageEnabled) {
+    if (!storageAvailable()) {
       wrap.textContent = 'Le progresso non pote esser salvate';
       return;
     }
@@ -223,15 +215,15 @@ import { supabase } from './supabase.js';
     function refresh() {
       loadProgress().then(progress => {
         const data = progress.lessons[lessonId];
-        const banner = document.getElementById('completion-banner');
+        const completionMessage = document.getElementById('completion-message');
         if (data && data.completed) {
           btn.textContent = 'Refacer le lection';
           info.textContent = `Ultime vice: ${data.last_done}`;
-          if (banner) banner.style.display = 'block';
+          if (completionMessage) completionMessage.style.display = 'block';
         } else {
           btn.textContent = 'Marcar le lection como facte';
           info.textContent = '';
-          if (banner) banner.style.display = 'none';
+          if (completionMessage) completionMessage.style.display = 'none';
         }
       });
     }
@@ -263,7 +255,7 @@ import { supabase } from './supabase.js';
     wrap.className = 'lesson-progress-wrapper';
     grid.insertAdjacentElement('afterend', wrap);
 
-    if (!storageEnabled) {
+    if (!storageAvailable()) {
       wrap.textContent = 'Le progresso non pote esser salvate';
       return;
     }
@@ -282,8 +274,7 @@ import { supabase } from './supabase.js';
   }
 
   async function init() {
-    checkStorage();
-    if (!storageEnabled) {
+    if (!storageAvailable()) {
       const section = document.getElementById('progress-section');
       if (section) section.textContent = 'Le progresso non pote esser salvate';
       return;
