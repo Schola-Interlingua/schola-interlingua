@@ -279,23 +279,41 @@ import { supabase } from './supabase.js';
       if (section) section.textContent = 'Le progresso non pote esser salvate';
       return;
     }
+
     const exportBtn = document.getElementById('export-progress');
     const importBtn = document.getElementById('import-progress');
     if (exportBtn) exportBtn.addEventListener('click', exportProgress);
     if (importBtn) importBtn.addEventListener('click', importProgress);
 
-    // Auth listener
+    // 👇 1. Obtener sesión actual al cargar
+    const { data: { session } } = await supabase.auth.getSession();
+    currentUser = session?.user ?? null;
+
+    if (currentUser) {
+      const dbProgress = await loadProgressFromDB(currentUser.id);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(dbProgress));
+    }
+
+    // 👇 2. Ejecutar SIEMPRE
+    await renderIndex();
+    setupLesson();
+    setupCurso();
+
+    // 👇 3. Listener solo para cambios futuros
     supabase.auth.onAuthStateChange(async (_event, session) => {
       currentUser = session?.user ?? null;
+
       if (currentUser) {
         const dbProgress = await loadProgressFromDB(currentUser.id);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(dbProgress));
       }
+
       await renderIndex();
       setupLesson();
       setupCurso();
     });
   }
+
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
