@@ -167,7 +167,7 @@ import { supabase } from './supabase.js';
       completionMessage.id = 'completion-message';
       completionMessage.style.cssText = 'display:none; background-color: #d4edda; color: #155724; padding: 10px; text-align: center; font-weight: bold;';
       completionMessage.textContent = 'Le lection es complete!';
-      const navbar = document.querySelector('nav');
+      const navbar = document.querySelector('header');
       if (navbar) {
         navbar.insertAdjacentElement('afterend', completionMessage);
       }
