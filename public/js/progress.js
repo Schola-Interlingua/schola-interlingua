@@ -1,5 +1,7 @@
 import { supabase } from './supabase.js';
 
+let lessonInitialized = false;
+
 (function () {
   const STORAGE_KEY = 'si_progress';
   const TOTAL_LESSONS = 43;
@@ -154,11 +156,11 @@ import { supabase } from './supabase.js';
   // Lesson page button
   function setupLesson() {
     if (!currentUser) return;
+    if (lessonInitialized) return; // 👈 CLAVE
+    lessonInitialized = true;
+
     const container = document.getElementById('exercise-container');
     if (!container) return;
-
-    // Prevent duplicate buttons
-    if (document.getElementById('lesson-progress-btn')) return;
 
     // Ensure completion message div exists
     let completionMessage = document.getElementById('completion-message');
@@ -167,9 +169,9 @@ import { supabase } from './supabase.js';
       completionMessage.id = 'completion-message';
       completionMessage.style.cssText = 'display:none; background-color: #d4edda; color: #155724; padding: 10px; text-align: center; font-weight: bold;';
       completionMessage.textContent = 'Le lection es complete!';
-      const main = document.querySelector('main');
-      if (main) {
-        main.insertBefore(completionMessage, main.firstChild);
+      const navbar = document.querySelector('nav');
+      if (navbar) {
+        navbar.insertBefore('afterend', completionMessage);
       }
     }
 
