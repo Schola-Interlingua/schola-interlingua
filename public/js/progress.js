@@ -162,6 +162,8 @@ let lessonInitialized = false;
     const container = document.getElementById('exercise-container');
     if (!container) return;
 
+    if (document.getElementById('lesson-progress-btn')) return;
+
     // Ensure completion message div exists
     let completionMessage = document.getElementById('completion-message');
     if (!completionMessage) {
@@ -171,7 +173,7 @@ let lessonInitialized = false;
       completionMessage.textContent = 'Le lection es complete!';
       const navbar = document.querySelector('nav');
       if (navbar) {
-        navbar.insertBefore('afterend', completionMessage);
+        navbar.insertAdjacentElement('afterend', completionMessage);
       }
     }
 
@@ -274,7 +276,7 @@ let lessonInitialized = false;
     // 👇 2. Ejecutar SIEMPRE
     await renderIndex();
     setupLesson();
-    setupCurso();
+    // setupCurso();
 
     // 👇 3. Listener solo para cambios futuros
     supabase.auth.onAuthStateChange(async (_event, session) => {
@@ -287,7 +289,7 @@ let lessonInitialized = false;
 
       await renderIndex();
       setupLesson();
-      setupCurso();
+      // setupCurso();
     });
   }
 
