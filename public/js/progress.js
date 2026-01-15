@@ -153,24 +153,26 @@ import { supabase } from './supabase.js';
 
   // Lesson page button
   function setupLesson() {
-    if (!currentUser) return;
     const container = document.getElementById('exercise-container');
     if (!container) return;
 
-    // Prevent duplicate buttons
-    if (document.getElementById('lesson-progress-btn')) return;
+    // Clean up previous elements to prevent duplicates from multiple calls
+    const existingWrapper = document.querySelector('.lesson-progress-wrapper');
+    if (existingWrapper) existingWrapper.remove();
+    const existingMessage = document.getElementById('completion-message');
+    if (existingMessage) existingMessage.remove();
 
-    // Ensure completion message div exists
-    let completionMessage = document.getElementById('completion-message');
-    if (!completionMessage) {
-      completionMessage = document.createElement('div');
-      completionMessage.id = 'completion-message';
-      completionMessage.style.cssText = 'display:none; background-color: #d4edda; color: #155724; padding: 10px; text-align: center; font-weight: bold;';
-      completionMessage.textContent = 'Le lection es complete!';
-      const navbar = document.querySelector('header');
-      if (navbar) {
-        navbar.insertAdjacentElement('afterend', completionMessage);
-      }
+    // Don't show button if logged out
+    if (!currentUser) return;
+
+    // Create completion message div and add it to the top of main content
+    const completionMessage = document.createElement('div');
+    completionMessage.id = 'completion-message';
+    completionMessage.style.cssText = 'display:none; background-color: #d4edda; color: #155724; padding: 10px; text-align: center; font-weight: bold; margin-bottom: 1em;';
+    completionMessage.textContent = 'Le lection es complete!';
+    const main = document.querySelector('main');
+    if (main) {
+      main.prepend(completionMessage);
     }
 
     const wrap = document.createElement('div');
@@ -195,15 +197,16 @@ import { supabase } from './supabase.js';
     function refresh() {
       loadProgress().then(progress => {
         const data = progress.lessons[lessonId];
-        const completionMessage = document.getElementById('completion-message');
+        // Message is always recreated, so we just need to find it
+        const msg = document.getElementById('completion-message');
         if (data && data.completed) {
           btn.textContent = 'Refacer le lection';
           info.textContent = `Ultime vice: ${data.last_done}`;
-          if (completionMessage) completionMessage.style.display = 'block';
+          if (msg) msg.style.display = 'block';
         } else {
           btn.textContent = 'Marcar le lection como facte';
           info.textContent = '';
-          if (completionMessage) completionMessage.style.display = 'none';
+          if (msg) msg.style.display = 'none';
         }
       });
     }
