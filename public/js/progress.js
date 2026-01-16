@@ -80,17 +80,22 @@ import { supabase } from './supabase.js';
   }
 
   async function loadProgress() {
+    let progress;
+
     if (currentUser) {
-      return await loadProgressFromDB(currentUser.id);
+      progress = await loadProgressFromDB(currentUser.id);
+    } else {
+      try {
+        const data = localStorage.getItem(STORAGE_KEY);
+        progress = data ? JSON.parse(data) : defaultProgress();
+      } catch {
+        progress = defaultProgress();
+      }
     }
-    try {
-      const data = localStorage.getItem(STORAGE_KEY);
-      const progress = data ? JSON.parse(data) : defaultProgress();
-      return migrateProgress(progress);
-    } catch (e) {
-      return defaultProgress();
-    }
+
+    return migrateProgress(progress);
   }
+
 
   async function saveProgress(p) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
