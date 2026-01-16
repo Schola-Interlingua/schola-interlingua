@@ -55,9 +55,9 @@ function setLoggedOutUI() {
   if (!authBtn) return;
   const li = authBtn.parentElement;
   li.classList.remove("dropdown");
-  authBtn.innerHTML = 'Login';
+  authBtn.innerHTML = 'Entrar';
   authBtn.title = "";
-  authBtn.href = "/login/login.html";
+  authBtn.href = "/entrar/entrar.html";
   authBtn.onclick = null;
   const menu = li.querySelector('.dropdown-menu');
   if (menu) menu.remove();
