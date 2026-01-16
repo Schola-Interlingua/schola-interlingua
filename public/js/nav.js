@@ -100,13 +100,13 @@ function setLoggedInUI(user) {
     menu.className = 'dropdown-menu';
     li.appendChild(menu);
   }
-  menu.innerHTML = '<li><a href="#" id="logout-link">Salir</a></li>';
+  menu.innerHTML = '<li><a href="#" id="logout-link">Exir</a></li>';
 
   const logoutLink = document.getElementById('logout-link');
   if (logoutLink) {
     logoutLink.addEventListener('click', async (e) => {
       e.preventDefault();
-      if (confirm("¿Cerrar sesión?")) {
+      if (confirm("¿Clauder session?")) {
         await supabase.auth.signOut();
       }
     });
