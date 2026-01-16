@@ -63,6 +63,7 @@ import { supabase } from './supabase.js';
 
   function migrateProgress(progress) {
     // Migrar datos viejos de números a lectionN
+    let migrated = false;
     if (progress.lessons) {
       const migratedLessons = {};
       for (const [key, value] of Object.entries(progress.lessons)) {
@@ -70,12 +71,14 @@ import { supabase } from './supabase.js';
         if (/^\d+$/.test(key)) {
           const newKey = `lection${key}`;
           migratedLessons[newKey] = value;
+          migrated = true;
         } else {
           migratedLessons[key] = value;
         }
       }
       progress.lessons = migratedLessons;
     }
+    progress._migrated = migrated;
     return progress;
   }
 
@@ -93,7 +96,13 @@ import { supabase } from './supabase.js';
       }
     }
 
-    return migrateProgress(progress);
+    progress = migrateProgress(progress);
+    // Si se migró, guardar los cambios
+    if (progress._migrated) {
+      delete progress._migrated;
+      await saveProgress(progress);
+    }
+    return progress;
   }
 
 
