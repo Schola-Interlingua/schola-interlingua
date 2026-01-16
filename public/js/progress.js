@@ -61,13 +61,32 @@ import { supabase } from './supabase.js';
     }
   }
 
+  function migrateProgress(progress) {
+    // Migrar datos viejos de números a lectionN
+    if (progress.lessons) {
+      const migratedLessons = {};
+      for (const [key, value] of Object.entries(progress.lessons)) {
+        // Si la clave es un número simple, convertir a lectionN
+        if (/^\d+$/.test(key)) {
+          const newKey = `lection${key}`;
+          migratedLessons[newKey] = value;
+        } else {
+          migratedLessons[key] = value;
+        }
+      }
+      progress.lessons = migratedLessons;
+    }
+    return progress;
+  }
+
   async function loadProgress() {
     if (currentUser) {
       return await loadProgressFromDB(currentUser.id);
     }
     try {
       const data = localStorage.getItem(STORAGE_KEY);
-      return data ? JSON.parse(data) : defaultProgress();
+      const progress = data ? JSON.parse(data) : defaultProgress();
+      return migrateProgress(progress);
     } catch (e) {
       return defaultProgress();
     }
