@@ -166,7 +166,14 @@ import { supabase } from './supabase.js';
     section.querySelector('#streak-current').textContent = `${current} dies consecutive`;
     section.querySelector('#streak-best').textContent = `Melior serie: ${best} dies`;
 
-    const next = LESSON_ORDER.find(id => !(lessons[id] && lessons[id].completed));
+    const next = LESSON_ORDER.find(id => {
+      const num = id.replace('lection', '');
+      return !(
+        (lessons[id] && lessons[id].completed) ||
+        (lessons[num] && lessons[num].completed)
+      );
+    });
+
     const nextEl = section.querySelector('#next-lesson');
     if (next) {
       nextEl.textContent = `Continua con le lection ${formatLesson(next)}`;
