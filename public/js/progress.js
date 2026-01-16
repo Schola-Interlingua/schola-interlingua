@@ -222,6 +222,7 @@ import { supabase } from './supabase.js';
       }
       await saveProgress(progress);
       refresh();
+      renderIndex();
     });
 
     refresh();
