@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Curso gratuite de Interlingua con lectiones, vocabulario e exercitios interactive.">
   <meta property="og:title" content="Schola Interlingua - Curso gratuite de Interlingua">
-  <meta property="og:description" content="Curso gratuite de Interlingua con lectiones, vocabulario e exercitios interactive.">
+  <meta property="og:description"
+    content="Curso gratuite de Interlingua con lectiones, vocabulario e exercitios interactive.">
   <meta property="og:image" content="/images/logo.png">
   <meta property="og:url" content="https://scholainterlingua.com/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Schola Interlingua - Curso gratuite de Interlingua">
-  <meta name="twitter:description" content="Curso gratuite de Interlingua con lectiones, vocabulario e exercitios interactive.">
+  <meta name="twitter:description"
+    content="Curso gratuite de Interlingua con lectiones, vocabulario e exercitios interactive.">
   <meta name="twitter:image" content="/images/logo.png">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
   <title>Schola Interlingua</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
@@ -21,9 +26,9 @@
   <link rel="manifest" href="/icons/site.webmanifest">
   <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
   <nav></nav>
-
   <main>
     <section id="progress-section" class="card">
       <h2>Tu progresso</h2>
@@ -31,31 +36,40 @@
       <div id="progress-details" style="display:none;">
         <div class="completion">
           <span id="completion-text"></span>
-          <div class="progress-bar"><div id="completion-bar" class="progress-bar-fill"></div></div>
+          <div class="progress-bar">
+            <div id="completion-bar" class="progress-bar-fill"></div>
+          </div>
         </div>
         <div class="streak">
-          <span id="streak-fire" title="Si tu borra le cache del navigatore, tu perde le serie (la racha), quia illo es salvate localmente.">🔥</span>
+          <span id="streak-fire"
+            title="Si tu borra le cache del navigatore, tu perde le serie (la racha), quia illo es salvate localmente.">🔥</span>
           <span id="streak-current"></span>
           <div id="streak-best"></div>
         </div>
-        <p id="next-lesson"></p>
-      </div>
-      <div class="backup">
-        <button id="export-progress" class="btn btn-secondary">Exportar le progresso</button>
-        <button id="import-progress" class="btn btn-secondary">Importar le progresso</button>
       </div>
     </section>
-      <div class="card">
-        <button id="download-anki-all" class="btn btn-primary" aria-label="Discarga Anki pro tote le curso" title="Un file con etichettas per cata lection es discargate">Discarga Anki pro tote le curso</button>
+    <div class="card" style="    display: flex;
+    justify-content: space-between;">
+      <button id="download-anki-all" class="btn btn-primary" aria-label="Discarga Anki pro tote le curso"
+        title="Un file con etichettas per cata lection es discargate">Discarga Anki pro tote le curso</button>
+      <div style="display: flex;"><a href="https://apps.ankiweb.net/"> AnkiWeb</a>
+        <img src="\images\logo_anki.png" target="_blank" alt="Anki Logo" style="width: 26px; height: 26px;
+    margin: 2px;">
       </div>
+
+    </div>
     <!-- Sección Home / Prefacio -->
     <section id="home-section" class="card">
       <h1>Benvenite a Schola Interlingua!</h1>
       <p>
-        Schola Interlingua es un platteforma digital disveloppate con le scopo de impulsar le apprension de Interlingua IALA.
-        Con un stilo clar e moderne, nos offere lectiones structurate, vocabulario, explicationes del grammatica, e exercitios que te permitte apprender passo a passo e con confidentia.
-        Nos crede in le fortia del saper collaborative, proque tote le material de Schola Interlingua es software libere e open source.
-        Tu pote explorar, adaptar e compartir iste ressource sin restrictiones, e etiam contribuer al melioration continuate del sito.
+        Schola Interlingua es un platteforma digital disveloppate con le scopo de impulsar le apprension de Interlingua
+        IALA.
+        Con un stilo clar e moderne, nos offere lectiones structurate, vocabulario, explicationes del grammatica, e
+        exercitios que te permitte apprender passo a passo e con confidentia.
+        Nos crede in le fortia del saper collaborative, proque tote le material de Schola Interlingua es software libere
+        e open source.
+        Tu pote explorar, adaptar e compartir iste ressource sin restrictiones, e etiam contribuer al melioration
+        continuate del sito.
       </p>
     </section>
 
@@ -73,8 +87,6 @@
   <footer></footer>
 
   <!-- Scripts -->
-  <script src="js/include.js"></script>
-  <script src="js/nav.js"></script>
   <script src="js/tooltip.js"></script>
   <script src="js/anki-all.js"></script>
   <script>
@@ -107,8 +119,8 @@
       }
     });
   </script>
+  <script src="/js/include.js"></script>
+  <script type="module" src="/js/nav.js"></script>
 </body>
+
 </html>
-
-
-

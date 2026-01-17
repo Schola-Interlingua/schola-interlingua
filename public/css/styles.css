@@ -142,7 +142,7 @@ a {
   transform: translateY(0);
 }
 
-.btn + .btn {
+.btn+.btn {
   margin-left: 0.75rem;
 }
 
@@ -299,6 +299,7 @@ header {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -388,7 +389,12 @@ main {
   box-shadow: var(--shadow-lg);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-bottom: 1.25rem;
   font-weight: 600;
   line-height: 1.3;
@@ -661,6 +667,7 @@ h2 {
     opacity: 0;
     transform: translateX(-50%) translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
@@ -825,43 +832,43 @@ h2 {
   .nav-container {
     padding: 0 1rem;
   }
-  
+
   main {
     padding: 0 1rem;
     margin: 2rem auto;
   }
-  
+
   .card {
     padding: 1.5rem;
   }
-  
+
   h1 {
     font-size: 2rem;
   }
-  
+
   h2 {
     font-size: 1.75rem;
   }
-  
+
   .flex-two {
     flex-direction: column;
     gap: 2rem;
   }
-  
+
   .image-block img {
     width: 100%;
   }
-  
+
   .curso-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
-  
+
   .curso-btn {
     padding: 1rem;
     font-size: 0.9rem;
   }
-  
+
   .curso-btn i {
     font-size: 1.5rem;
   }
@@ -873,32 +880,32 @@ h2 {
     align-items: flex-start;
     gap: 1rem;
   }
-  
+
   .nav-links {
     flex-direction: column;
     width: 100%;
     gap: 0.5rem;
   }
-  
+
   .dropdown-menu {
     position: static;
     box-shadow: none;
     border: none;
     background: transparent;
   }
-  
+
   .exercise-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .exercise-item .term {
     text-align: left;
   }
-  
+
   .curso-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .tooltiptext {
     bottom: auto;
     top: 125%;
@@ -909,7 +916,7 @@ h2 {
   .curso-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .btn {
     padding: 0.625rem 1.25rem;
     font-size: 0.9rem;
@@ -937,6 +944,7 @@ h2 {
   0% {
     left: -100%;
   }
+
   100% {
     left: 100%;
   }
@@ -979,6 +987,7 @@ body.dark-mode .exercise-item:hover {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1000,13 +1009,13 @@ a:not(.btn):not(.nav-brand):not(.footer-link):hover {
     align-items: flex-start;
     gap: 1rem;
   }
-  
+
   .nav-links {
     flex-direction: column;
     width: 100%;
     gap: 0.5rem;
   }
-  
+
   .dropdown-menu {
     position: static;
     box-shadow: none;
@@ -1014,7 +1023,7 @@ a:not(.btn):not(.nav-brand):not(.footer-link):hover {
     background: transparent;
     animation: none;
   }
-  
+
   .dropdown-menu li a {
     padding: 0.5rem 1rem;
     border-bottom: none;
@@ -1022,24 +1031,24 @@ a:not(.btn):not(.nav-brand):not(.footer-link):hover {
     margin-bottom: 0.25rem;
     border-radius: var(--radius-sm);
   }
-  
+
   .dropdown-menu li a:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: none;
   }
-  
+
   .exercise-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .exercise-item .term {
     text-align: left;
   }
-  
+
   .curso-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .tooltiptext {
     bottom: auto;
     top: 125%;
@@ -1051,20 +1060,20 @@ a:not(.btn):not(.nav-brand):not(.footer-link):hover {
   .nav-container {
     padding: 0 1.5rem;
   }
-  
+
   main {
     padding: 0 1.5rem;
   }
-  
+
   .curso-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
   }
-  
+
   .flex-two {
     gap: 2rem;
   }
-  
+
   .image-block img {
     width: 350px;
   }
@@ -1383,7 +1392,8 @@ body.dark-mode select:focus {
   transition: var(--transition);
   user-select: none;
   position: relative;
-  touch-action: none; /* Mejorar experiencia touch */
+  touch-action: none;
+  /* Mejorar experiencia touch */
 }
 
 #wordsearch-page .grid-cell:hover {
@@ -1478,22 +1488,22 @@ body.dark-mode select:focus {
   #wordsearch-page .game-container {
     padding: 1rem;
   }
-  
+
   #wordsearch-page .game-info {
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   #wordsearch-page .words-list {
     max-width: 100%;
     justify-content: center;
   }
-  
+
   #wordsearch-page .wordsearch-grid {
     max-width: 100%;
     font-size: 1rem;
   }
-  
+
   #wordsearch-page .grid-cell {
     font-size: 1rem;
     min-height: 40px;
@@ -1503,9 +1513,10 @@ body.dark-mode select:focus {
 /* Mejorar experiencia touch */
 @media (hover: none) and (pointer: coarse) {
   #wordsearch-page .grid-cell {
-    min-height: 44px; /* Tamaño mínimo recomendado para touch */
+    min-height: 44px;
+    /* Tamaño mínimo recomendado para touch */
   }
-  
+
   #wordsearch-page .word-item {
     min-height: 44px;
     display: flex;
@@ -1570,3 +1581,22 @@ body#wordsearch-page.dark-mode .word-item .tooltiptext {
 }
 
 
+.auth-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: inherit;
+}
+
+.auth-btn.logged-in {
+  font-size: 1.2rem;
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/icons/site.webmanifest">
+    <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+    <title>Login</title>
+
+    <script type="module" src="/js/supabase.js"></script>
+    <script type="module" src="/js/login.js"></script>
+
+    <style>
+        main {
+            justify-items: center;
+            min-height: auto;
+        }
+
+        form {
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .theme-toggle-container {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+        }
+
+        .theme-toggle {
+            background: linear-gradient(135deg, #0d3a5f, #082743);
+            width: 47px;
+            margin-right: 5%;
+        }
+
+        .theme-toggle:hover {
+            background: linear-gradient(135deg, #082743, #0d3a5f);
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align: right;">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar a modo oscuro">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <main>
+        <form id="login-form" class="card">
+            <h2>Entrar</h2>
+            <p>Nos te inviara un ligamine per e-mail con el qual tu accedera.</p>
+
+            <input type="email" id="email" placeholder="exemplo@email.com" required />
+
+            <button class="btn btn-primary" type="submit"> Inviar ligamine</button>
+
+            <p id="login-msg"></p>
+        </form>
+    </main>
+
+    <script>
+        // Inicializar toggle de tema
+        function initThemeToggle() {
+            const btn = document.getElementById('theme-toggle');
+            if (!btn) return;
+
+            const icon = btn.querySelector('i');
+
+            function setTheme(mode) {
+                if (mode === 'dark') {
+                    document.body.classList.add('dark-mode');
+                    icon?.classList.replace('fa-moon', 'fa-sun');
+                    btn.setAttribute('aria-label', 'Cambiar a modo claro');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    icon?.classList.replace('fa-sun', 'fa-moon');
+                    btn.setAttribute('aria-label', 'Cambiar a modo oscuro');
+                }
+            }
+
+            const saved = localStorage.getItem('theme') || 'light';
+            setTheme(saved);
+
+            btn.addEventListener('click', () => {
+                const next = document.body.classList.contains('dark-mode')
+                    ? 'light'
+                    : 'dark';
+                localStorage.setItem('theme', next);
+                setTheme(next);
+            });
+        }
+
+        // Inicializar cuando el DOM esté listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initThemeToggle);
+        } else {
+            initThemeToggle();
+        }
+    </script>
+</body>
+
+</html>

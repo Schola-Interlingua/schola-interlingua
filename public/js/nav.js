@@ -1,12 +1,15 @@
+import { supabase } from "./supabase.js";
+
+
 const cursoSlugs = [
-  "basico1","basico2","phrases-quotidian","alimentos","animales",
-  "adjectivos1","plurales","esser-haber","vestimentos",
-  "adjectivos-possessive","colores","presente1","demonstrativos1",
-  "conjunctiones","questiones","verbos2","adjectivos2",
-  "prepositiones","numeros","familia","possessives2","verbos3",
-  "datas-tempore","verbos4","adverbios1","verbos5","adverbios2",
-  "occupationes","verbos6","negativos","adverbios3",
-  "prender-casa","technologia"
+  "basico1", "basico2", "phrases-quotidian", "alimentos", "animales",
+  "adjectivos1", "plurales", "esser-haber", "vestimentos",
+  "adjectivos-possessive", "colores", "presente1", "demonstrativos1",
+  "conjunctiones", "questiones", "verbos2", "adjectivos2",
+  "prepositiones", "numeros", "familia", "possessives2", "verbos3",
+  "datas-tempore", "verbos4", "adverbios1", "verbos5", "adverbios2",
+  "occupationes", "verbos6", "negativos", "adverbios3",
+  "prender-casa", "technologia"
 ];
 
 const iconMap = {
@@ -45,41 +48,85 @@ const iconMap = {
   technologia: 'fas fa-microchip'
 };
 
-window.cursoSlugs = cursoSlugs;
-window.iconMap = iconMap;
 
-function toTitle(str) {
-  return str.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+let authBtn = null;
+
+function setLoggedOutUI() {
+  if (!authBtn) return;
+  const li = authBtn.parentElement;
+  li.classList.remove("dropdown");
+  authBtn.innerHTML = 'Entrar';
+  authBtn.title = "";
+  authBtn.href = "/entrar/entrar.html";
+  authBtn.onclick = null;
+  const menu = li.querySelector('.dropdown-menu');
+  if (menu) menu.remove();
 }
 
 function buildCursoLink() {
-  const navLinks = document.querySelector('.nav-links');
-  if (!navLinks) return;
-  const li = document.createElement('li');
-  const a = document.createElement('a');
-  a.href = '/curso.html';
-  a.textContent = 'Curso';
+  const nav = document.querySelector(".nav-links");
+  if (!nav) return;
+
+  // Evitar duplicarlo
+  if (document.getElementById("curso-link")) return;
+
+  const li = document.createElement("li");
+  li.id = "curso-link";
+
+  const a = document.createElement("a");
+  a.href = "/curso.html";
+  a.textContent = "Curso";
+
   li.appendChild(a);
-  const first = navLinks.firstElementChild;
-  if (first) navLinks.insertBefore(li, first);
-  else navLinks.appendChild(li);
+  const first = nav.firstElementChild;
+  if (first) nav.insertBefore(li, first);
+  else nav.appendChild(li);
+}
+
+
+function setLoggedInUI(user) {
+  if (!authBtn) return;
+  buildCursoLink();
+
+  const li = authBtn.parentElement;
+  li.classList.add("dropdown");
+  authBtn.innerHTML = '<i class="fas fa-user"></i> ▼';
+  authBtn.title = user.email;
+  authBtn.href = "#";
+  authBtn.onclick = null;
+  let menu = li.querySelector('.dropdown-menu');
+  if (!menu) {
+    menu = document.createElement('ul');
+    menu.className = 'dropdown-menu';
+    li.appendChild(menu);
+  }
+  menu.innerHTML = '<li><a href="#" id="logout-link">Exir</a></li>';
+
+  const logoutLink = document.getElementById('logout-link');
+  if (logoutLink) {
+    logoutLink.addEventListener('click', async (e) => {
+      e.preventDefault();
+      if (confirm("¿Clauder session?")) {
+        await supabase.auth.signOut();
+      }
+    });
+  }
 }
 
 function initThemeToggle() {
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
+
   const icon = btn.querySelector('i');
 
   function setTheme(mode) {
     if (mode === 'dark') {
       document.body.classList.add('dark-mode');
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
+      icon?.classList.replace('fa-moon', 'fa-sun');
       btn.setAttribute('aria-label', 'Cambiar a modo claro');
     } else {
       document.body.classList.remove('dark-mode');
-      icon.classList.remove('fa-sun');
-      icon.classList.add('fa-moon');
+      icon?.classList.replace('fa-sun', 'fa-moon');
       btn.setAttribute('aria-label', 'Cambiar a modo oscuro');
     }
   }
@@ -88,39 +135,75 @@ function initThemeToggle() {
   setTheme(saved);
 
   btn.addEventListener('click', () => {
-    const newMode = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
-    localStorage.setItem('theme', newMode);
-    setTheme(newMode);
+    const next = document.body.classList.contains('dark-mode')
+      ? 'light'
+      : 'dark';
+    localStorage.setItem('theme', next);
+    setTheme(next);
   });
 }
 
 function initDropdownAccessibility() {
   document.querySelectorAll('.dropdown > a').forEach(trigger => {
-    trigger.addEventListener('click', e => e.preventDefault());
+    trigger.addEventListener('click', e => {
+      e.preventDefault();
+      const li = trigger.parentElement;
+      li.classList.toggle('open');
+    });
     trigger.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
+        trigger.parentElement.classList.remove('open');
         trigger.blur();
       }
     });
   });
+
   document.querySelectorAll('.dropdown-menu a').forEach(item => {
     item.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         const parent = item.closest('.dropdown');
-        const link = parent && parent.querySelector('a');
-        if (link) link.focus();
+        parent?.classList.remove('open');
+        parent?.querySelector('a')?.focus();
       }
     });
   });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown.open').forEach(dropdown => {
+        dropdown.classList.remove('open');
+      });
+    }
+  });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function initNav() {
   const timer = setInterval(() => {
     if (document.querySelector('.nav-links')) {
       clearInterval(timer);
+      authBtn = document.getElementById("auth-btn");
       buildCursoLink();
       initThemeToggle();
       initDropdownAccessibility();
+
+      // Auth state listener
+      supabase.auth.onAuthStateChange((_event, session) => {
+        if (session?.user) {
+          setLoggedInUI(session.user);
+        } else {
+          setLoggedOutUI();
+        }
+      });
     }
   }, 50);
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initNav);
+} else {
+  initNav();
+}
+
+window.cursoSlugs = cursoSlugs;
+window.iconMap = iconMap;
