@@ -6,8 +6,6 @@ import { supabase } from './supabase.js';
   const LESSON_ORDER = Array.from({ length: 10 }, (_, i) => `lection${i + 1}`)
     .concat(window.cursoSlugs || []);
 
-  let currentUser = null;
-
   function storageAvailable() {
     try {
       const test = '__test__';
@@ -190,7 +188,15 @@ import { supabase } from './supabase.js';
       return;
     }
 
-    const lessonId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html', '');
+    let lessonId =
+      container.dataset.lesson ||
+      location.pathname.split('/').pop().replace('.html', '');
+
+    // Si no empieza con "leccion", lo forzamos
+    if (!lessonId.startsWith('leccion')) {
+      lessonId = `leccion${lessonId}`;
+    }
+
 
     const btn = document.createElement('button');
     btn.id = 'lesson-progress-btn';
