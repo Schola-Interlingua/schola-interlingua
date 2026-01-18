@@ -190,13 +190,7 @@ import { supabase } from './supabase.js';
       return;
     }
 
-    let rawId =
-      container.dataset.lesson ||
-      location.pathname.split('/').pop().replace('.html', '');
-
-    const lessonId = rawId.startsWith('lection')
-      ? rawId
-      : `lection${rawId.replace(/\D/g, '')}`;
+    const lessonId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html', '');
 
     const btn = document.createElement('button');
     btn.id = 'lesson-progress-btn';
