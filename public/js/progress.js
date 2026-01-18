@@ -61,17 +61,50 @@ import { supabase } from './supabase.js';
     }
   }
 
-  async function loadProgress() {
-    if (currentUser) {
-      return await loadProgressFromDB(currentUser.id);
+  function migrateProgress(progress) {
+    // Migrar datos viejos de números a lectionN
+    let migrated = false;
+    if (progress.lessons) {
+      const migratedLessons = {};
+      for (const [key, value] of Object.entries(progress.lessons)) {
+        // Si la clave es un número simple, convertir a lectionN
+        if (/^\d+$/.test(key)) {
+          const newKey = `lection${key}`;
+          migratedLessons[newKey] = value;
+          migrated = true;
+        } else {
+          migratedLessons[key] = value;
+        }
+      }
+      progress.lessons = migratedLessons;
     }
-    try {
-      const data = localStorage.getItem(STORAGE_KEY);
-      return data ? JSON.parse(data) : defaultProgress();
-    } catch (e) {
-      return defaultProgress();
-    }
+    progress._migrated = migrated;
+    return progress;
   }
+
+  async function loadProgress() {
+    let progress;
+
+    if (currentUser) {
+      progress = await loadProgressFromDB(currentUser.id);
+    } else {
+      try {
+        const data = localStorage.getItem(STORAGE_KEY);
+        progress = data ? JSON.parse(data) : defaultProgress();
+      } catch {
+        progress = defaultProgress();
+      }
+    }
+
+    progress = migrateProgress(progress);
+    // Si se migró, guardar los cambios
+    if (progress._migrated) {
+      delete progress._migrated;
+      await saveProgress(progress);
+    }
+    return progress;
+  }
+
 
   async function saveProgress(p) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
@@ -142,7 +175,14 @@ import { supabase } from './supabase.js';
     section.querySelector('#streak-current').textContent = `${current} dies consecutive`;
     section.querySelector('#streak-best').textContent = `Melior serie: ${best} dies`;
 
-    const next = LESSON_ORDER.find(id => !(lessons[id] && lessons[id].completed));
+    const next = LESSON_ORDER.find(id => {
+      const num = id.replace('lection', '');
+      return !(
+        (lessons[id] && lessons[id].completed) ||
+        (lessons[num] && lessons[num].completed)
+      );
+    });
+
     const nextEl = section.querySelector('#next-lesson');
     if (next) {
       nextEl.textContent = `Continua con le lection ${formatLesson(next)}`;
@@ -184,7 +224,13 @@ import { supabase } from './supabase.js';
       return;
     }
 
-    const lessonId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html', '');
+    let rawId =
+      container.dataset.lesson ||
+      location.pathname.split('/').pop().replace('.html', '');
+
+    const lessonId = rawId.startsWith('lection')
+      ? rawId
+      : `lection${rawId.replace(/\D/g, '')}`;
 
     const btn = document.createElement('button');
     btn.id = 'lesson-progress-btn';
@@ -222,6 +268,7 @@ import { supabase } from './supabase.js';
       }
       await saveProgress(progress);
       refresh();
+      renderIndex();
     });
 
     refresh();
