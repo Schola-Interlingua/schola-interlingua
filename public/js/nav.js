@@ -143,6 +143,34 @@ function initThemeToggle() {
   });
 }
 
+function syncThemeTogglePlacement() {
+  const navRight = document.querySelector('.nav-right');
+  const nav = document.querySelector('.nav-links');
+  const themeToggle = document.getElementById('theme-toggle');
+  if (!navRight || !nav || !themeToggle) return;
+
+  const isMobile = window.matchMedia('(max-width: 600px)').matches;
+  let themeItem = nav.querySelector('.nav-theme-item');
+
+  if (isMobile) {
+    if (!themeItem) {
+      themeItem = document.createElement('li');
+      themeItem.className = 'nav-theme-item';
+    }
+    if (!themeItem.contains(themeToggle)) {
+      themeItem.appendChild(themeToggle);
+    }
+    if (!nav.contains(themeItem)) {
+      nav.appendChild(themeItem);
+    }
+  } else {
+    if (themeItem && themeItem.contains(themeToggle)) {
+      navRight.appendChild(themeToggle);
+    }
+    themeItem?.remove();
+  }
+}
+
 function initDropdownAccessibility() {
   document.querySelectorAll('.dropdown > a').forEach(trigger => {
     trigger.addEventListener('click', e => {
@@ -227,6 +255,8 @@ function initNav() {
       authBtn = document.getElementById("auth-btn");
       buildCursoLink();
       initThemeToggle();
+      syncThemeTogglePlacement();
+      window.addEventListener('resize', syncThemeTogglePlacement);
       initDropdownAccessibility();
       initMobileNav();
 

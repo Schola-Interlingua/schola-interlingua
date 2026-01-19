@@ -277,6 +277,10 @@ header {
   gap: 1.5rem;
 }
 
+.nav-theme-item {
+  display: none;
+}
+
 .nav-links li {
   position: relative;
 }
@@ -942,6 +946,17 @@ h2 {
 
   .nav-links.open {
     display: flex;
+  }
+
+  .nav-theme-item {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.25rem 0;
+  }
+
+  .nav-theme-item .theme-toggle {
+    width: 42px;
+    height: 42px;
   }
 
   .dropdown-menu {
