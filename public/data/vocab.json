@@ -1,5 +1,5 @@
 {
-  "1": [
+  "lection1": [
     {
       "term": "io",
       "es": "yo",
@@ -379,7 +379,7 @@
       "ko": "표현"
     }
   ],
-  "2": [
+  "lection2": [
     {
       "term": "matino",
       "es": "mañana",
@@ -731,7 +731,7 @@
       "ko": "부엌"
     }
   ],
-  "3": [
+  "lection3": [
     {
       "term": "casa",
       "es": "casa",
@@ -1083,7 +1083,7 @@
       "ko": "토요일"
     }
   ],
-  "4": [
+  "lection4": [
     {
       "term": "levar se",
       "es": "levantarse",
@@ -1519,7 +1519,7 @@
       "ko": "동안"
     }
   ],
-  "5": [
+  "lection5": [
     {
       "term": "pizza",
       "es": "pizza",
@@ -1997,7 +1997,7 @@
       "ko": "훌륭한"
     }
   ],
-  "6": [
+  "lection6": [
     {
       "term": "Buenos Aires",
       "es": "Buenos Aires",
@@ -2321,7 +2321,7 @@
       "ko": "수제의"
     }
   ],
-  "7": [
+  "lection7": [
     {
       "term": "climate",
       "es": "clima",
@@ -2743,7 +2743,7 @@
       "ko": "상황"
     }
   ],
-  "8": [
+  "lection8": [
     {
       "term": "comprar",
       "es": "comprar",
@@ -3011,7 +3011,7 @@
       "ko": "참조"
     }
   ],
-  "9": [
+  "lection9": [
     {
       "term": "vader",
       "es": "ir",
@@ -3363,7 +3363,7 @@
       "ko": "시간"
     }
   ],
-  "10": [
+  "lection10": [
     {
       "term": "al",
       "es": "",
