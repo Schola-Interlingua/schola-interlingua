@@ -160,7 +160,12 @@ function syncThemeTogglePlacement() {
     if (!themeItem.contains(themeToggle)) {
       themeItem.appendChild(themeToggle);
     }
-    if (!nav.contains(themeItem)) {
+    const authItem = document.getElementById('auth-btn')?.parentElement;
+    if (authItem && authItem.parentElement === nav) {
+      if (authItem.nextSibling !== themeItem) {
+        authItem.after(themeItem);
+      }
+    } else if (!nav.contains(themeItem)) {
       nav.appendChild(themeItem);
     }
   } else {
