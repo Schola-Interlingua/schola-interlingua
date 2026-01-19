@@ -120,6 +120,26 @@ import { supabase } from './supabase.js';
       `;
       return;
     }
+    section.innerHTML = `
+      <h2>Tu progresso</h2>
+      <p id="no-progress-msg">Tu non ha ancora comenciate</p>
+      <div id="progress-details" style="display:none;">
+        <div class="completion">
+          <span id="completion-text"></span>
+          <div class="progress-bar">
+            <div id="completion-bar" class="progress-bar-fill"></div>
+          </div>
+        </div>
+        <div class="streak">
+          <span
+            id="streak-fire"
+            title="Si tu borra le cache del navigatore, tu perde le serie (la racha), quia illo es salvate localmente."
+          >🔥</span>
+          <span id="streak-current"></span>
+          <div id="streak-best"></div>
+        </div>
+      </div>
+    `;
     const progress = await loadProgress();
     const lessons = progress.lessons || {};
     const completed = Object.values(lessons).filter(l => l.completed).length;
