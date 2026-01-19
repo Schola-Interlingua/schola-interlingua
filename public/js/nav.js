@@ -241,7 +241,7 @@ function initMobileNav() {
 
   document.addEventListener('click', e => {
     if (window.matchMedia('(max-width: 600px)').matches) {
-      if (!e.target.closest('.nav-right')) {
+      if (!e.target.closest('.nav-right') && !e.target.closest('#nav-toggle')) {
         closeMenu();
       }
     }
