@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ia">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +13,15 @@
     <link rel="manifest" href="/icons/site.webmanifest">
     <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
 </head>
+
 <body id="wordsearch-page">
     <div id="navbar-placeholder"></div>
-    
+
     <main class="game-container">
         <div class="game-header">
             <h1>Cerca de parolas</h1>
         </div>
-        
+
         <div class="instructions">
             <h3>Instructiones</h3>
             <ul class="text-block">
@@ -30,12 +32,12 @@
                 <li>Trova tote le parolas pro completar le ronda!</li>
             </ul>
         </div>
-        
+
         <div class="game-info">
             <div class="words-list" id="words-list">
                 <!-- Las palabras se cargarán aquí -->
             </div>
-            
+
             <div class="game-stats">
                 <div class="stat">
                     <div class="stat-value" id="found-count">0</div>
@@ -47,11 +49,11 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="wordsearch-grid" id="wordsearch-grid">
             <!-- La grilla se generará aquí -->
         </div>
-        
+
         <div class="game-controls">
             <button class="btn btn-primary" id="new-round-btn" style="display: none;">
                 Jocar un altere
@@ -61,12 +63,13 @@
             </button>
         </div>
     </main>
-    
+
     <div id="footer-placeholder"></div>
-    
+
     <script src="/js/include.js"></script>
     <script src="/js/games-common.js"></script>
-    <script src="/js/nav.js"></script>
+    <script type="module" src="/js/nav.js"></script>
+    <script type="module" src="/js/login.js"></script>
     <script src="/js/tooltip.js"></script>
     <script>
         // Variables del juego
@@ -78,13 +81,13 @@
             isSelecting: false,
             startCell: null
         };
-        
+
         // Inicializar el juego
         async function initGame() {
             try {
                 const vocab = await GamesCommon.loadVocab();
                 const allTerms = [];
-                
+
                 // Extraer todos los términos del vocabulario
                 Object.values(vocab).forEach(category => {
                     category.forEach(item => {
@@ -93,44 +96,44 @@
                         }
                     });
                 });
-                
+
                 // Seleccionar palabras aleatorias para esta ronda
                 const selectedWords = GamesCommon.sample(allTerms, 6 + Math.floor(Math.random() * 3)); // 6-8 palabras
                 gameState.words = selectedWords;
-                
+
                 buildGrid();
                 renderWordsList();
                 updateStats();
-                
+
                 // Restaurar foco al primer elemento interactivo
                 const firstCell = document.querySelector('.grid-cell');
                 if (firstCell) {
                     firstCell.focus();
                 }
-                
+
             } catch (error) {
                 console.error('Error inicializando el juego:', error);
                 GamesCommon.handleLoadError(document.querySelector('.game-container'));
             }
         }
-        
+
         // Construir la grilla
         function buildGrid() {
             const grid = Array(10).fill().map(() => Array(10).fill(''));
             const words = [...gameState.words];
-            
+
             // Colocar palabras en la grilla
             words.forEach(word => {
                 placeWord(grid, word);
             });
-            
+
             // Llenar espacios vacíos con letras aleatorias
             fillRandom(grid);
-            
+
             gameState.grid = grid;
             renderGrid();
         }
-        
+
         // Colocar una palabra en la grilla
         function placeWord(grid, word) {
             const directions = [
@@ -139,61 +142,61 @@
                 [1, 1],   // diagonal derecha
                 [1, -1]   // diagonal izquierda
             ];
-            
+
             const normalizedWord = GamesCommon.normalize(word);
             let placed = false;
             let attempts = 0;
-            
+
             while (!placed && attempts < 100) {
                 const direction = directions[Math.floor(Math.random() * directions.length)];
                 const startRow = Math.floor(Math.random() * 10);
                 const startCol = Math.floor(Math.random() * 10);
-                
+
                 if (canPlaceWord(grid, normalizedWord, startRow, startCol, direction)) {
                     placeWordInGrid(grid, normalizedWord, startRow, startCol, direction);
                     placed = true;
                 }
-                
+
                 attempts++;
             }
         }
-        
+
         // Verificar si se puede colocar una palabra
         function canPlaceWord(grid, word, startRow, startCol, direction) {
             const [dRow, dCol] = direction;
-            
+
             for (let i = 0; i < word.length; i++) {
                 const row = startRow + i * dRow;
                 const col = startCol + i * dCol;
-                
+
                 if (row < 0 || row >= 10 || col < 0 || col >= 10) {
                     return false;
                 }
-                
+
                 const currentCell = grid[row][col];
                 if (currentCell !== '' && currentCell !== word[i]) {
                     return false;
                 }
             }
-            
+
             return true;
         }
-        
+
         // Colocar palabra en la grilla
         function placeWordInGrid(grid, word, startRow, startCol, direction) {
             const [dRow, dCol] = direction;
-            
+
             for (let i = 0; i < word.length; i++) {
                 const row = startRow + i * dRow;
                 const col = startCol + i * dCol;
                 grid[row][col] = word[i];
             }
         }
-        
+
         // Llenar espacios vacíos con letras aleatorias
         function fillRandom(grid) {
             const letters = 'abcdefghijklmnopqrstuvwxyz';
-            
+
             for (let row = 0; row < 10; row++) {
                 for (let col = 0; col < 10; col++) {
                     if (grid[row][col] === '') {
@@ -202,12 +205,12 @@
                 }
             }
         }
-        
+
         // Renderizar la grilla
         function renderGrid() {
             const gridContainer = document.getElementById('wordsearch-grid');
             gridContainer.innerHTML = '';
-            
+
             for (let row = 0; row < 10; row++) {
                 for (let col = 0; col < 10; col++) {
                     const cell = document.createElement('div');
@@ -216,40 +219,40 @@
                     cell.dataset.row = row;
                     cell.dataset.col = col;
                     cell.tabIndex = 0;
-                    
+
                     // Eventos del mouse
                     cell.addEventListener('mousedown', handleMouseDown);
                     cell.addEventListener('mouseenter', handleMouseEnter);
                     cell.addEventListener('mouseup', handleMouseUp);
-                    
+
                     // Eventos touch para dispositivos móviles
                     cell.addEventListener('touchstart', handleTouchStart, { passive: false });
                     cell.addEventListener('touchmove', handleTouchMove, { passive: false });
                     cell.addEventListener('touchend', handleTouchEnd, { passive: false });
-                    
+
                     // Eventos del teclado
                     cell.addEventListener('keydown', handleKeyDown);
                     cell.addEventListener('focus', handleFocus);
-                    
+
                     gridContainer.appendChild(cell);
                 }
             }
         }
-        
+
         // Renderizar lista de palabras
         async function renderWordsList() {
             const wordsContainer = document.getElementById('words-list');
             wordsContainer.innerHTML = '';
-            
+
             try {
                 const vocab = await GamesCommon.loadVocab();
                 const lang = GamesCommon.getLang();
-                
+
                 gameState.words.forEach(word => {
                     const wordElement = document.createElement('div');
                     wordElement.className = 'word-item';
                     wordElement.dataset.word = word;
-                    
+
                     // Buscar traducción en el vocabulario
                     let translation = word;
                     Object.values(vocab).forEach(category => {
@@ -259,20 +262,20 @@
                             }
                         });
                     });
-                    
+
                     // Agregar tooltip con traducción (como en el resto de la web)
                     const tooltipSpan = document.createElement('span');
                     tooltipSpan.className = 'tooltip';
                     tooltipSpan.setAttribute('aria-label', translation);
                     tooltipSpan.textContent = word;
-                    
+
                     const tooltipText = document.createElement('span');
                     tooltipText.className = 'tooltiptext';
                     tooltipText.textContent = translation;
-                    
+
                     tooltipSpan.appendChild(tooltipText);
                     wordElement.appendChild(tooltipSpan);
-                    
+
                     wordsContainer.appendChild(wordElement);
                 });
             } catch (error) {
@@ -287,68 +290,68 @@
                 });
             }
         }
-        
+
         // Actualizar estadísticas
         function updateStats() {
             document.getElementById('found-count').textContent = gameState.foundWords.size;
             document.getElementById('total-count').textContent = gameState.words.length;
         }
-        
+
         // Manejar clic del mouse
         function handleMouseDown(e) {
             e.preventDefault();
             const cell = e.target;
             const row = parseInt(cell.dataset.row);
             const col = parseInt(cell.dataset.col);
-            
+
             gameState.isSelecting = true;
             gameState.startCell = { row, col };
             gameState.selectedCells = [{ row, col }];
-            
+
             cell.classList.add('selected');
             cell.focus();
         }
-        
+
         // Manejar movimiento del mouse
         function handleMouseEnter(e) {
             if (!gameState.isSelecting) return;
-            
+
             const cell = e.target;
             const row = parseInt(cell.dataset.row);
             const col = parseInt(cell.dataset.col);
-            
+
             // Limpiar selección anterior
             clearSelection();
-            
+
             // Crear nueva selección
             const start = gameState.startCell;
             const end = { row, col };
-            
+
             gameState.selectedCells = getCellsInLine(start, end);
             highlightSelection();
         }
-        
+
         // Manejar fin del clic del mouse
         function handleMouseUp(e) {
             if (!gameState.isSelecting) return;
-            
+
             gameState.isSelecting = false;
             checkSelection();
         }
-        
+
         // Manejar eventos touch para dispositivos móviles
         function handleTouchStart(e) {
             e.preventDefault();
             const touch = e.touches[0];
             const element = document.elementFromPoint(touch.clientX, touch.clientY);
             if (element && element.classList.contains('grid-cell')) {
-                handleMouseDown({ target: element, preventDefault: () => {} });
+                handleMouseDown({ target: element, preventDefault: () => { } });
             }
         }
-        
+
         function handleTouchMove(e) {
             if (!gameState.isSelecting) return;
-            
+
             e.preventDefault();
             const touch = e.touches[0];
             const element = document.elementFromPoint(touch.clientX, touch.clientY);
@@ -356,27 +359,27 @@
                 handleMouseEnter({ target: element });
             }
         }
-        
+
         function handleTouchEnd(e) {
             if (!gameState.isSelecting) return;
-            
+
             e.preventDefault();
             gameState.isSelecting = false;
             checkSelection();
         }
-        
+
         // Manejar teclado
         function handleKeyDown(e) {
             const cell = e.target;
             const row = parseInt(cell.dataset.row);
             const col = parseInt(cell.dataset.col);
-            
+
             if (e.shiftKey) {
                 e.preventDefault();
-                
+
                 let newRow = row;
                 let newCol = col;
-                
+
                 switch (e.key) {
                     case 'ArrowUp':
                         newRow = Math.max(0, row - 1);
@@ -391,7 +394,7 @@
                         newCol = Math.min(9, col + 1);
                         break;
                 }
-                
+
                 if (newRow !== row || newCol !== col) {
                     const newCell = document.querySelector(`[data-row="${newRow}"][data-col="${newCol}"]`);
                     if (newCell) {
@@ -409,7 +412,7 @@
                 // Iniciar selección con Enter o Espacio
                 e.preventDefault();
                 if (!gameState.isSelecting) {
-                    handleMouseDown({ target: cell, preventDefault: () => {} });
+                    handleMouseDown({ target: cell, preventDefault: () => { } });
                 }
             } else if (e.key === 'Escape') {
                 // Cancelar selección con Escape
@@ -420,13 +423,13 @@
                 }
             }
         }
-        
+
         // Manejar foco
         function handleFocus(e) {
             // Remover selección anterior
             clearSelection();
         }
-        
+
         // Limpiar selección
         function clearSelection() {
             gameState.selectedCells.forEach(({ row, col }) => {
@@ -437,7 +440,7 @@
             });
             gameState.selectedCells = [];
         }
-        
+
         // Resaltar selección
         function highlightSelection() {
             gameState.selectedCells.forEach(({ row, col }) => {
@@ -447,13 +450,13 @@
                 }
             });
         }
-        
+
         // Obtener celdas en línea
         function getCellsInLine(start, end) {
             const cells = [];
             const dRow = end.row - start.row;
             const dCol = end.col - start.col;
-            
+
             if (dRow === 0) {
                 // Horizontal
                 const minCol = Math.min(start.col, end.col);
@@ -473,7 +476,7 @@
                 const steps = Math.abs(dRow);
                 const dRowStep = dRow > 0 ? 1 : -1;
                 const dColStep = dCol > 0 ? 1 : -1;
-                
+
                 for (let i = 0; i <= steps; i++) {
                     cells.push({
                         row: start.row + i * dRowStep,
@@ -481,25 +484,25 @@
                     });
                 }
             }
-            
+
             return cells;
         }
-        
+
         // Verificar selección
         function checkSelection() {
             if (gameState.selectedCells.length < 3) return;
-            
+
             const selectedText = gameState.selectedCells
                 .map(({ row, col }) => gameState.grid[row][col])
                 .join('');
-            
+
             const normalizedText = GamesCommon.normalize(selectedText);
             const reversedText = normalizedText.split('').reverse().join('');
-            
+
             // Buscar palabras en ambas direcciones
             let foundWord = null;
             let foundDirection = '';
-            
+
             gameState.words.forEach(word => {
                 const normalizedWord = GamesCommon.normalize(word);
                 if (normalizedText === normalizedWord) {
@@ -510,11 +513,11 @@
                     foundDirection = 'reverse';
                 }
             });
-            
+
             if (foundWord && !gameState.foundWords.has(foundWord)) {
                 // Marcar palabra como encontrada
                 gameState.foundWords.add(foundWord);
-                
+
                 // Marcar celdas como encontradas
                 gameState.selectedCells.forEach(({ row, col }) => {
                     const cell = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
@@ -523,38 +526,38 @@
                         cell.classList.add('found');
                     }
                 });
-                
+
                 // Actualizar lista de palabras
                 const wordElement = document.querySelector(`[data-word="${foundWord}"]`);
                 if (wordElement) {
                     wordElement.classList.add('found');
                 }
-                
+
                 // Actualizar estadísticas
                 updateStats();
-                
+
                 // Verificar si se completó la ronda
                 if (gameState.foundWords.size === gameState.words.length) {
                     completeRound();
                 }
             }
-            
+
             // Limpiar selección
             clearSelection();
         }
-        
+
         // Completar ronda
         function completeRound() {
             const newRoundBtn = document.getElementById('new-round-btn');
             newRoundBtn.style.display = 'inline-block';
             newRoundBtn.focus();
-            
+
             // Usar la función helper para la siguiente ronda
             GamesCommon.nextRound(() => {
                 newRound();
             });
         }
-        
+
         // Nueva ronda
         function newRound() {
             // Limpiar estado
@@ -562,30 +565,30 @@
             gameState.selectedCells = [];
             gameState.isSelecting = false;
             gameState.startCell = null;
-            
+
             // Ocultar botón de nueva ronda
             document.getElementById('new-round-btn').style.display = 'none';
-            
+
             // Reiniciar juego
             initGame();
         }
-        
+
         // Event listeners
         document.addEventListener('DOMContentLoaded', () => {
             // Botón de nueva ronda
             document.getElementById('new-round-btn').addEventListener('click', newRound);
-            
+
             // Botón de reiniciar
             document.getElementById('reset-btn').addEventListener('click', () => {
                 gameState.foundWords.clear();
                 gameState.selectedCells = [];
                 gameState.isSelecting = false;
                 gameState.startCell = null;
-                
+
                 document.getElementById('new-round-btn').style.display = 'none';
                 initGame();
             });
-            
+
             // Escuchar cambios de idioma
             document.addEventListener('langChanged', (e) => {
                 console.log('Idioma cambiado a:', e.detail.newLang);
@@ -597,10 +600,11 @@
                 document.getElementById('new-round-btn').style.display = 'none';
                 initGame();
             });
-            
+
             // Inicializar juego
             initGame();
         });
     </script>
 </body>
+
 </html>
