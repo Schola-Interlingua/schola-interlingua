@@ -5,7 +5,17 @@
       <span class="brand-text">Schola Interlingua</span>
     </a>
     <div class="nav-right">
-      <ul class="nav-links">
+      <div class="nav-actions">
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir navegación" aria-expanded="false" aria-controls="nav-links">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar a modo oscuro">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+      <ul class="nav-links" id="nav-links">
         <li class="dropdown">
           <a href="#">Lectiones ▼</a>
           <ul class="dropdown-menu">
@@ -70,9 +80,6 @@
             Login
           </a></li>
       </ul>
-      <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar a modo oscuro">
-        <i class="fas fa-moon"></i>
-      </button>
 
     </div>
   </div>

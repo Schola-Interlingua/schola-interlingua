@@ -178,6 +178,48 @@ function initDropdownAccessibility() {
   });
 }
 
+function initMobileNav() {
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.querySelector('.nav-links');
+  if (!toggle || !nav) return;
+
+  const closeMenu = () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir navegación');
+  };
+
+  const openMenu = () => {
+    nav.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Cerrar navegación');
+  };
+
+  toggle.addEventListener('click', () => {
+    if (nav.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.matchMedia('(max-width: 600px)').matches) {
+        closeMenu();
+      }
+    });
+  });
+
+  document.addEventListener('click', e => {
+    if (window.matchMedia('(max-width: 600px)').matches) {
+      if (!e.target.closest('.nav-right')) {
+        closeMenu();
+      }
+    }
+  });
+}
+
 function initNav() {
   const timer = setInterval(() => {
     if (document.querySelector('.nav-links')) {
@@ -186,6 +228,7 @@ function initNav() {
       buildCursoLink();
       initThemeToggle();
       initDropdownAccessibility();
+      initMobileNav();
 
       // Auth state listener
       supabase.auth.onAuthStateChange((_event, session) => {
