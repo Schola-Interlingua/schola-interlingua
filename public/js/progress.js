@@ -6,6 +6,8 @@ import { supabase } from './supabase.js';
   const LESSON_ORDER = Array.from({ length: 10 }, (_, i) => `lection${i + 1}`)
     .concat(window.cursoSlugs || []);
 
+  let currentUser = null;
+
   function storageAvailable() {
     try {
       const test = '__test__';
@@ -59,23 +61,17 @@ import { supabase } from './supabase.js';
     }
   }
 
-
   async function loadProgress() {
-    let progress;
-
     if (currentUser) {
-      progress = await loadProgressFromDB(currentUser.id);
-    } else {
-      try {
-        const data = localStorage.getItem(STORAGE_KEY);
-        progress = data ? JSON.parse(data) : defaultProgress();
-      } catch {
-        progress = defaultProgress();
-      }
+      return await loadProgressFromDB(currentUser.id);
     }
-
+    try {
+      const data = localStorage.getItem(STORAGE_KEY);
+      return data ? JSON.parse(data) : defaultProgress();
+    } catch (e) {
+      return defaultProgress();
+    }
   }
-
 
   async function saveProgress(p) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
@@ -120,7 +116,7 @@ import { supabase } from './supabase.js';
     if (!currentUser) {
       section.innerHTML = `
         <h2>Tu progresso</h2>
-        <p>Aperi session pro salvar e vider tu progresso.</p>
+        <p>Inicia sesión para guardar y ver tu progreso.</p>
       `;
       return;
     }
@@ -188,15 +184,7 @@ import { supabase } from './supabase.js';
       return;
     }
 
-    let lessonId =
-      container.dataset.lesson ||
-      location.pathname.split('/').pop().replace('.html', '');
-
-    // Si no empieza con "leccion", lo forzamos
-    if (!lessonId.startsWith('leccion')) {
-      lessonId = `leccion${lessonId}`;
-    }
-
+    const lessonId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html', '');
 
     const btn = document.createElement('button');
     btn.id = 'lesson-progress-btn';
@@ -209,6 +197,7 @@ import { supabase } from './supabase.js';
     function refresh() {
       loadProgress().then(progress => {
         const data = progress.lessons[lessonId];
+        // Message is always recreated, so we just need to find it
         const msg = document.getElementById('completion-message');
         if (data && data.completed) {
           btn.textContent = 'Refacer le lection';
@@ -234,12 +223,12 @@ import { supabase } from './supabase.js';
       }
       await saveProgress(progress);
       refresh();
-      renderIndex();
     });
 
     refresh();
   }
 
+  // Setup for curso page
   function setupCurso() {
     if (!currentUser) return;
     const grid = document.getElementById('curso-grid');
@@ -274,6 +263,7 @@ import { supabase } from './supabase.js';
       return;
     }
 
+    // Auth listener
     supabase.auth.onAuthStateChange(async (_event, session) => {
       currentUser = session?.user ?? null;
       await renderIndex();
