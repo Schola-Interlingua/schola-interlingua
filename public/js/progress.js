@@ -116,7 +116,7 @@ import { supabase } from './supabase.js';
     if (!currentUser) {
       section.innerHTML = `
         <h2>Tu progresso</h2>
-        <p>Inicia sesión para guardar y ver tu progreso.</p>
+        <p>Aperi session pro salvar e vider tu progresso.</p>
       `;
       return;
     }
@@ -197,7 +197,6 @@ import { supabase } from './supabase.js';
     function refresh() {
       loadProgress().then(progress => {
         const data = progress.lessons[lessonId];
-        // Message is always recreated, so we just need to find it
         const msg = document.getElementById('completion-message');
         if (data && data.completed) {
           btn.textContent = 'Refacer le lection';
@@ -228,7 +227,6 @@ import { supabase } from './supabase.js';
     refresh();
   }
 
-  // Setup for curso page
   function setupCurso() {
     if (!currentUser) return;
     const grid = document.getElementById('curso-grid');
@@ -263,7 +261,6 @@ import { supabase } from './supabase.js';
       return;
     }
 
-    // Auth listener
     supabase.auth.onAuthStateChange(async (_event, session) => {
       currentUser = session?.user ?? null;
       await renderIndex();
