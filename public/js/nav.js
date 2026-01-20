@@ -143,6 +143,39 @@ function initThemeToggle() {
   });
 }
 
+function syncThemeTogglePlacement() {
+  const navRight = document.querySelector('.nav-right');
+  const nav = document.querySelector('.nav-links');
+  const themeToggle = document.getElementById('theme-toggle');
+  if (!navRight || !nav || !themeToggle) return;
+
+  const isMobile = window.matchMedia('(max-width: 600px)').matches;
+  let themeItem = nav.querySelector('.nav-theme-item');
+
+  if (isMobile) {
+    if (!themeItem) {
+      themeItem = document.createElement('li');
+      themeItem.className = 'nav-theme-item';
+    }
+    if (!themeItem.contains(themeToggle)) {
+      themeItem.appendChild(themeToggle);
+    }
+    const authItem = document.getElementById('auth-btn')?.parentElement;
+    if (authItem && authItem.parentElement === nav) {
+      if (authItem.nextSibling !== themeItem) {
+        authItem.after(themeItem);
+      }
+    } else if (!nav.contains(themeItem)) {
+      nav.appendChild(themeItem);
+    }
+  } else {
+    if (themeItem && themeItem.contains(themeToggle)) {
+      navRight.appendChild(themeToggle);
+    }
+    themeItem?.remove();
+  }
+}
+
 function initDropdownAccessibility() {
   document.querySelectorAll('.dropdown > a').forEach(trigger => {
     trigger.addEventListener('click', e => {
@@ -178,6 +211,48 @@ function initDropdownAccessibility() {
   });
 }
 
+function initMobileNav() {
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.querySelector('.nav-links');
+  if (!toggle || !nav) return;
+
+  const closeMenu = () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir navegación');
+  };
+
+  const openMenu = () => {
+    nav.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Cerrar navegación');
+  };
+
+  toggle.addEventListener('click', () => {
+    if (nav.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.matchMedia('(max-width: 600px)').matches) {
+        closeMenu();
+      }
+    });
+  });
+
+  document.addEventListener('click', e => {
+    if (window.matchMedia('(max-width: 600px)').matches) {
+      if (!e.target.closest('.nav-right') && !e.target.closest('#nav-toggle')) {
+        closeMenu();
+      }
+    }
+  });
+}
+
 function initNav() {
   const timer = setInterval(() => {
     if (document.querySelector('.nav-links')) {
@@ -185,7 +260,10 @@ function initNav() {
       authBtn = document.getElementById("auth-btn");
       buildCursoLink();
       initThemeToggle();
+      syncThemeTogglePlacement();
+      window.addEventListener('resize', syncThemeTogglePlacement);
       initDropdownAccessibility();
+      initMobileNav();
 
       // Auth state listener
       supabase.auth.onAuthStateChange((_event, session) => {
