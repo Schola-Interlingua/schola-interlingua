@@ -939,6 +939,8 @@ h2 {
 
   .nav-toggle {
     display: inline-flex;
+    width: 47px;
+    height: 47px;
   }
 
   .nav-links {
@@ -963,8 +965,8 @@ h2 {
   }
 
   .nav-theme-item .theme-toggle {
-    width: 42px;
-    height: 42px;
+    width: 47px;
+    height: 47px;
     font-size: 1rem;
   }
 
