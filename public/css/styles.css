@@ -956,7 +956,8 @@ h2 {
 
   .nav-theme-item {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     padding: 0.5rem 0 0;
     width: 100%;
   }
@@ -964,6 +965,7 @@ h2 {
   .nav-theme-item .theme-toggle {
     width: 42px;
     height: 42px;
+    font-size: 1rem;
   }
 
   .dropdown-menu {
