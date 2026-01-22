@@ -423,6 +423,28 @@ main {
   box-shadow: var(--shadow-lg);
 }
 
+.anki-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.anki-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.anki-link img {
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  border-radius: 0;
+}
+
 h1,
 h2,
 h3,
@@ -905,6 +927,22 @@ h2 {
 
   .curso-btn i {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .anki-card {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .anki-card .btn {
+    width: 100%;
+  }
+
+  .anki-link {
+    justify-content: center;
   }
 }
 
