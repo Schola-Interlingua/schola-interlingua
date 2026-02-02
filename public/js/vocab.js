@@ -14,6 +14,7 @@
           }
         });
         window.VOCAB = vocab;
+        window.VOCAB_DATA = data;
         document.dispatchEvent(new Event('vocab-loaded'));
       })
       .catch(err => console.error('No se pudo cargar el vocabulario:', err));

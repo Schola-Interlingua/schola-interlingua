@@ -41,13 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return vocab;
   };
 
-  const loadVocab = window.VOCAB
+  const loadVocab = window.VOCAB && window.VOCAB_DATA
     ? Promise.resolve(window.VOCAB)
     : fetch('/data/vocab.json')
         .then(res => res.json())
         .then(data => {
           const vocab = buildVocab(data);
           window.VOCAB = vocab;
+          window.VOCAB_DATA = data;
           document.dispatchEvent(new Event('vocab-loaded'));
           return vocab;
         });
