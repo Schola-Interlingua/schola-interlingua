@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+  window.getSelectedLang = function () {
+    return localStorage.getItem('lang') || 'es';
+  };
+
   const path = location.pathname;
 
   // Usar paths absolutos para consistencia
