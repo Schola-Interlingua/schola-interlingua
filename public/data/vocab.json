@@ -446,7 +446,9 @@
       "zh": "早上",
       "ja": "朝",
       "ca": "matí",
-      "ko": "아침"
+      "ko": "아침",
+      "la": "mane",
+      "eo": "mateno"
     },
     {
       "term": "eveliar se",
@@ -460,7 +462,9 @@
       "zh": "醒来",
       "ja": "目を覚ます",
       "ca": "despertar-se",
-      "ko": "잠에서 깨다"
+      "ko": "잠에서 깨다",
+      "la": "expergisci",
+      "eo": "vekiĝi"
     },
     {
       "term": "reguardar",
@@ -474,7 +478,9 @@
       "zh": "看 / 观察",
       "ja": "見る / 観察する",
       "ca": "mirar / observar",
-      "ko": "보다 / 관찰하다"
+      "ko": "보다 / 관찰하다",
+      "la": "spectare",
+      "eo": "rigardi"
     },
     {
       "term": "horologio",
@@ -488,7 +494,9 @@
       "zh": "钟 / 手表",
       "ja": "時計",
       "ca": "rellotge",
-      "ko": "시계"
+      "ko": "시계",
+      "la": "horologium",
+      "eo": "horloĝo"
     },
     {
       "term": "septe",
@@ -502,7 +510,9 @@
       "zh": "七",
       "ja": "七",
       "ca": "set",
-      "ko": "일곱"
+      "ko": "일곱",
+      "la": "septem",
+      "eo": "sep"
     },
     {
       "term": "poter",
@@ -516,7 +526,9 @@
       "zh": "能够",
       "ja": "できる",
       "ca": "poder",
-      "ko": "할 수 있다"
+      "ko": "할 수 있다",
+      "la": "posse",
+      "eo": "povi"
     },
     {
       "term": "dormir",
@@ -530,7 +542,9 @@
       "zh": "睡觉",
       "ja": "眠る",
       "ca": "dormir",
-      "ko": "자다"
+      "ko": "자다",
+      "la": "dormire",
+      "eo": "dormi"
     },
     {
       "term": "prender",
@@ -544,7 +558,9 @@
       "zh": "拿 / 抓住",
       "ja": "取る",
       "ca": "agafar",
-      "ko": "잡다"
+      "ko": "잡다",
+      "la": "capere",
+      "eo": "preni"
     },
     {
       "term": "leger",
@@ -558,7 +574,9 @@
       "zh": "读",
       "ja": "読む",
       "ca": "llegir",
-      "ko": "읽다"
+      "ko": "읽다",
+      "la": "legere",
+      "eo": "legi"
     },
     {
       "term": "generes",
@@ -572,7 +590,9 @@
       "zh": "类型",
       "ja": "ジャンル",
       "ca": "gèneres",
-      "ko": "장르"
+      "ko": "장르",
+      "la": "genera",
+      "eo": "ĝenroj"
     },
     {
       "term": "rubie",
@@ -586,7 +606,9 @@
       "zh": "红色",
       "ja": "赤",
       "ca": "vermell",
-      "ko": "빨간색"
+      "ko": "빨간색",
+      "la": "ruber",
+      "eo": "ruĝa"
     },
     {
       "term": "verde",
@@ -600,7 +622,9 @@
       "zh": "绿色",
       "ja": "緑",
       "ca": "verd",
-      "ko": "초록색"
+      "ko": "초록색",
+      "la": "viridis",
+      "eo": "verda"
     },
     {
       "term": "blau",
@@ -614,7 +638,9 @@
       "zh": "蓝色",
       "ja": "青",
       "ca": "blau",
-      "ko": "파란색"
+      "ko": "파란색",
+      "la": "caeruleus",
+      "eo": "blua"
     },
     {
       "term": "jalne",
@@ -628,7 +654,9 @@
       "zh": "黄色",
       "ja": "黄色",
       "ca": "groc",
-      "ko": "노란색"
+      "ko": "노란색",
+      "la": "flavus",
+      "eo": "flava"
     },
     {
       "term": "jacer",
@@ -642,7 +670,9 @@
       "zh": "躺着",
       "ja": "横たわる",
       "ca": "jazer",
-      "ko": "눕다"
+      "ko": "눕다",
+      "la": "iacere",
+      "eo": "kuŝi"
     },
     {
       "term": "lecto",
@@ -656,7 +686,9 @@
       "zh": "床",
       "ja": "ベッド",
       "ca": "llit",
-      "ko": "침대"
+      "ko": "침대",
+      "la": "lectus",
+      "eo": "lito"
     },
     {
       "term": "audir",
@@ -670,7 +702,9 @@
       "zh": "听见",
       "ja": "聞く",
       "ca": "sentir / escoltar",
-      "ko": "듣다"
+      "ko": "듣다",
+      "la": "audire",
+      "eo": "aŭdi"
     },
     {
       "term": "quando",
@@ -684,7 +718,9 @@
       "zh": "当…时候",
       "ja": "いつ",
       "ca": "quan",
-      "ko": "언제"
+      "ko": "언제",
+      "la": "quando",
+      "eo": "kiam"
     },
     {
       "term": "seniora",
@@ -698,7 +734,9 @@
       "zh": "女士",
       "ja": "女性 / 奥様",
       "ca": "senyora",
-      "ko": "여자분 / 부인"
+      "ko": "여자분 / 부인",
+      "la": "domina",
+      "eo": "sinjorino"
     },
     {
       "term": "aperir",
@@ -712,7 +750,9 @@
       "zh": "打开",
       "ja": "開ける",
       "ca": "obrir",
-      "ko": "열다"
+      "ko": "열다",
+      "la": "aperire",
+      "eo": "malfermi"
     },
     {
       "term": "porta",
@@ -726,7 +766,9 @@
       "zh": "门",
       "ja": "ドア",
       "ca": "porta",
-      "ko": "문"
+      "ko": "문",
+      "la": "porta",
+      "eo": "pordo"
     },
     {
       "term": "matre",
@@ -740,7 +782,9 @@
       "zh": "母亲",
       "ja": "母",
       "ca": "mare",
-      "ko": "어머니"
+      "ko": "어머니",
+      "la": "mater",
+      "eo": "patrino"
     },
     {
       "term": "levar se",
@@ -754,7 +798,9 @@
       "zh": "起床",
       "ja": "起きる",
       "ca": "llevar-se / aixecar-se",
-      "ko": "일어나다"
+      "ko": "일어나다",
+      "la": "surgere",
+      "eo": "leviĝi"
     },
     {
       "term": "vader",
@@ -768,7 +814,9 @@
       "zh": "去",
       "ja": "行く",
       "ca": "anar",
-      "ko": "가다"
+      "ko": "가다",
+      "la": "ire",
+      "eo": "iri"
     },
     {
       "term": "cocina",
@@ -782,7 +830,9 @@
       "zh": "厨房",
       "ja": "台所",
       "ca": "cuina",
-      "ko": "부엌"
+      "ko": "부엌",
+      "la": "culina",
+      "eo": "kuirejo"
     }
   ],
   "lection3": [
@@ -798,7 +848,9 @@
       "zh": "家",
       "ja": "家",
       "ca": "casa",
-      "ko": "집"
+      "ko": "집",
+      "la": "domus",
+      "eo": "domo"
     },
     {
       "term": "dormitorio",
@@ -812,7 +864,9 @@
       "zh": "卧室",
       "ja": "寝室",
       "ca": "dormitori",
-      "ko": "침실"
+      "ko": "침실",
+      "la": "cubiculum",
+      "eo": "dormoĉambro"
     },
     {
       "term": "molle",
@@ -826,7 +880,9 @@
       "zh": "柔软",
       "ja": "柔らかい",
       "ca": "suau",
-      "ko": "부드러운"
+      "ko": "부드러운",
+      "la": "mollis",
+      "eo": "mola"
     },
     {
       "term": "matras",
@@ -840,7 +896,9 @@
       "zh": "床垫",
       "ja": "マットレス",
       "ca": "matalàs",
-      "ko": "매트리스"
+      "ko": "매트리스",
+      "la": "culcita",
+      "eo": "matraco"
     },
     {
       "term": "cossino",
@@ -854,7 +912,9 @@
       "zh": "枕头",
       "ja": "枕",
       "ca": "coixí",
-      "ko": "베개"
+      "ko": "베개",
+      "la": "pulvinus",
+      "eo": "kuseno"
     },
     {
       "term": "sur",
@@ -868,7 +928,9 @@
       "zh": "在…上面",
       "ja": "上に",
       "ca": "sobre",
-      "ko": "위에"
+      "ko": "위에",
+      "la": "super",
+      "eo": "sur"
     },
     {
       "term": "ligno",
@@ -882,7 +944,9 @@
       "zh": "木头",
       "ja": "木材",
       "ca": "fusta",
-      "ko": "나무"
+      "ko": "나무",
+      "la": "lignum",
+      "eo": "ligno"
     },
     {
       "term": "quatro",
@@ -896,7 +960,9 @@
       "zh": "四",
       "ja": "四",
       "ca": "quatre",
-      "ko": "넷"
+      "ko": "넷",
+      "la": "quattuor",
+      "eo": "kvar"
     },
     {
       "term": "sedia",
@@ -910,7 +976,9 @@
       "zh": "椅子",
       "ja": "椅子",
       "ca": "cadira",
-      "ko": "의자"
+      "ko": "의자",
+      "la": "sella",
+      "eo": "seĝo"
     },
     {
       "term": "elegante",
@@ -924,7 +992,9 @@
       "zh": "优雅的",
       "ja": "エレガントな",
       "ca": "elegant",
-      "ko": "우아한"
+      "ko": "우아한",
+      "la": "elegans",
+      "eo": "eleganta"
     },
     {
       "term": "salon",
@@ -938,7 +1008,9 @@
       "zh": "客厅",
       "ja": "居間",
       "ca": "saló",
-      "ko": "거실"
+      "ko": "거실",
+      "la": "atrium",
+      "eo": "salono"
     },
     {
       "term": "luminose",
@@ -952,7 +1024,9 @@
       "zh": "明亮的",
       "ja": "明るい",
       "ca": "lluminos",
-      "ko": "밝은"
+      "ko": "밝은",
+      "la": "lucidus",
+      "eo": "hela"
     },
     {
       "term": "continer",
@@ -966,7 +1040,9 @@
       "zh": "包含",
       "ja": "含む",
       "ca": "contenir",
-      "ko": "포함하다"
+      "ko": "포함하다",
+      "la": "continere",
+      "eo": "enhavi"
     },
     {
       "term": "sofa",
@@ -980,7 +1056,9 @@
       "zh": "沙发",
       "ja": "ソファ",
       "ca": "sofà",
-      "ko": "소파"
+      "ko": "소파",
+      "la": "sopha",
+      "eo": "sofo"
     },
     {
       "term": "television",
@@ -994,7 +1072,9 @@
       "zh": "电视",
       "ja": "テレビ",
       "ca": "televisió",
-      "ko": "텔레비전"
+      "ko": "텔레비전",
+      "la": "televisio",
+      "eo": "televido"
     },
     {
       "term": "catto",
@@ -1008,7 +1088,9 @@
       "zh": "猫",
       "ja": "猫",
       "ca": "gat",
-      "ko": "고양이"
+      "ko": "고양이",
+      "la": "felis",
+      "eo": "kato"
     },
     {
       "term": "sub",
@@ -1022,7 +1104,9 @@
       "zh": "在…下面",
       "ja": "下に",
       "ca": "sota",
-      "ko": "아래에"
+      "ko": "아래에",
+      "la": "sub",
+      "eo": "sub"
     },
     {
       "term": "durante",
@@ -1036,7 +1120,9 @@
       "zh": "在…期间",
       "ja": "〜の間に",
       "ca": "durant",
-      "ko": "동안"
+      "ko": "동안",
+      "la": "durante",
+      "eo": "dum"
     },
     {
       "term": "vespere",
@@ -1050,7 +1136,9 @@
       "zh": "傍晚",
       "ja": "夕方",
       "ca": "vespre",
-      "ko": "저녁"
+      "ko": "저녁",
+      "la": "vesper",
+      "eo": "vespere"
     },
     {
       "term": "invitar",
@@ -1064,7 +1152,9 @@
       "zh": "邀请",
       "ja": "招待する",
       "ca": "invitar",
-      "ko": "초대하다"
+      "ko": "초대하다",
+      "la": "invitare",
+      "eo": "inviti"
     },
     {
       "term": "amico",
@@ -1078,7 +1168,9 @@
       "zh": "朋友",
       "ja": "友達",
       "ca": "amic",
-      "ko": "친구"
+      "ko": "친구",
+      "la": "amicus",
+      "eo": "amiko"
     },
     {
       "term": "parve",
@@ -1092,7 +1184,9 @@
       "zh": "小的",
       "ja": "小さい",
       "ca": "petit",
-      "ko": "작은"
+      "ko": "작은",
+      "la": "parvus",
+      "eo": "eta"
     },
     {
       "term": "reunion",
@@ -1106,7 +1200,9 @@
       "zh": "会议",
       "ja": "集まり / 会議",
       "ca": "reunió",
-      "ko": "모임"
+      "ko": "모임",
+      "la": "conventus",
+      "eo": "kunveno"
     },
     {
       "term": "cata",
@@ -1120,7 +1216,9 @@
       "zh": "每个",
       "ja": "毎",
       "ca": "cada",
-      "ko": "각"
+      "ko": "각",
+      "la": "singulus",
+      "eo": "ĉiu"
     },
     {
       "term": "sabbato",
@@ -1134,7 +1232,9 @@
       "zh": "星期六",
       "ja": "土曜日",
       "ca": "dissabte",
-      "ko": "토요일"
+      "ko": "토요일",
+      "la": "dies Saturni",
+      "eo": "sabato"
     }
   ],
   "lection4": [
@@ -1150,7 +1250,9 @@
       "zh": "起床",
       "ja": "起きる",
       "ca": "llevar-se / aixecar-se",
-      "ko": "일어나다"
+      "ko": "일어나다",
+      "la": "surgere",
+      "eo": "leviĝi"
     },
     {
       "term": "septe",
@@ -1164,7 +1266,9 @@
       "zh": "七",
       "ja": "七",
       "ca": "set",
-      "ko": "일곱"
+      "ko": "일곱",
+      "la": "septem",
+      "eo": "sep"
     },
     {
       "term": "vestir se",
@@ -1178,7 +1282,9 @@
       "zh": "穿衣服",
       "ja": "服を着る",
       "ca": "vestir-se",
-      "ko": "옷을 입다"
+      "ko": "옷을 입다",
+      "la": "vestire",
+      "eo": "vestiĝi"
     },
     {
       "term": "rapidemente",
@@ -1192,7 +1298,9 @@
       "zh": "快速地",
       "ja": "速く",
       "ca": "ràpidament",
-      "ko": "빠르게"
+      "ko": "빠르게",
+      "la": "celeriter",
+      "eo": "rapide"
     },
     {
       "term": "camisa",
@@ -1206,7 +1314,9 @@
       "zh": "衬衫",
       "ja": "シャツ",
       "ca": "samarreta / camisa",
-      "ko": "셔츠"
+      "ko": "셔츠",
+      "la": "tunica",
+      "eo": "ĉemizo"
     },
     {
       "term": "pantalones",
@@ -1220,7 +1330,9 @@
       "zh": "裤子",
       "ja": "ズボン",
       "ca": "pantalons",
-      "ko": "바지"
+      "ko": "바지",
+      "la": "bracae",
+      "eo": "pantalono"
     },
     {
       "term": "confortabile",
@@ -1234,7 +1346,9 @@
       "zh": "舒服的",
       "ja": "快適な",
       "ca": "confortable",
-      "ko": "편안한"
+      "ko": "편안한",
+      "la": "commodus",
+      "eo": "komforta"
     },
     {
       "term": "mangiar",
@@ -1248,7 +1362,9 @@
       "zh": "吃",
       "ja": "食べる",
       "ca": "menjar",
-      "ko": "먹다"
+      "ko": "먹다",
+      "la": "edere",
+      "eo": "manĝi"
     },
     {
       "term": "pan",
@@ -1262,7 +1378,9 @@
       "zh": "面包",
       "ja": "パン",
       "ca": "pa",
-      "ko": "빵"
+      "ko": "빵",
+      "la": "panis",
+      "eo": "pano"
     },
     {
       "term": "lacte",
@@ -1276,7 +1394,9 @@
       "zh": "牛奶",
       "ja": "ミルク",
       "ca": "llet",
-      "ko": "우유"
+      "ko": "우유",
+      "la": "lac",
+      "eo": "lakto"
     },
     {
       "term": "parve",
@@ -1290,7 +1410,9 @@
       "zh": "小的",
       "ja": "小さい",
       "ca": "petit",
-      "ko": "작은"
+      "ko": "작은",
+      "la": "parvus",
+      "eo": "eta"
     },
     {
       "term": "fructo",
@@ -1304,7 +1426,9 @@
       "zh": "水果",
       "ja": "果物",
       "ca": "fruita",
-      "ko": "과일"
+      "ko": "과일",
+      "la": "fructus",
+      "eo": "frukto"
     },
     {
       "term": "jentaculo",
@@ -1318,7 +1442,9 @@
       "zh": "早餐",
       "ja": "朝食",
       "ca": "esmorzar",
-      "ko": "아침 식사"
+      "ko": "아침 식사",
+      "la": "ientaculum",
+      "eo": "matenmanĝo"
     },
     {
       "term": "octo",
@@ -1332,7 +1458,9 @@
       "zh": "八",
       "ja": "八",
       "ca": "vuit",
-      "ko": "여덟"
+      "ko": "여덟",
+      "la": "octo",
+      "eo": "ok"
     },
     {
       "term": "officio",
@@ -1346,7 +1474,9 @@
       "zh": "办公室",
       "ja": "オフィス",
       "ca": "oficina",
-      "ko": "사무실"
+      "ko": "사무실",
+      "la": "officium",
+      "eo": "oficejo"
     },
     {
       "term": "autobus",
@@ -1360,7 +1490,9 @@
       "zh": "公交车",
       "ja": "バス",
       "ca": "autobús",
-      "ko": "버스"
+      "ko": "버스",
+      "la": "autobus",
+      "eo": "aŭtobuso"
     },
     {
       "term": "arrivar",
@@ -1374,7 +1506,9 @@
       "zh": "到达",
       "ja": "到着する",
       "ca": "arribar",
-      "ko": "도착하다"
+      "ko": "도착하다",
+      "la": "advenire",
+      "eo": "alveni"
     },
     {
       "term": "e medie",
@@ -1388,7 +1522,9 @@
       "zh": "半",
       "ja": "半",
       "ca": "i mitja",
-      "ko": "30분"
+      "ko": "30분",
+      "la": "et dimidia",
+      "eo": "kaj duono"
     },
     {
       "term": "labor",
@@ -1402,7 +1538,9 @@
       "zh": "工作",
       "ja": "仕事",
       "ca": "treball",
-      "ko": "일"
+      "ko": "일",
+      "la": "labor",
+      "eo": "laboro"
     },
     {
       "term": "comenciar",
@@ -1416,7 +1554,9 @@
       "zh": "开始",
       "ja": "始める",
       "ca": "començar",
-      "ko": "시작하다"
+      "ko": "시작하다",
+      "la": "incipere",
+      "eo": "komenci"
     },
     {
       "term": "scriber",
@@ -1430,7 +1570,9 @@
       "zh": "写",
       "ja": "書く",
       "ca": "escriure",
-      "ko": "쓰다"
+      "ko": "쓰다",
+      "la": "scribere",
+      "eo": "skribi"
     },
     {
       "term": "reporto",
@@ -1444,7 +1586,9 @@
       "zh": "报告",
       "ja": "報告",
       "ca": "informe",
-      "ko": "보고서"
+      "ko": "보고서",
+      "la": "relatio",
+      "eo": "raporto"
     },
     {
       "term": "responder",
@@ -1458,7 +1602,9 @@
       "zh": "回应 / 回答",
       "ja": "答える",
       "ca": "respondre",
-      "ko": "응답하다"
+      "ko": "응답하다",
+      "la": "respondere",
+      "eo": "respondi"
     },
     {
       "term": "e-mail",
@@ -1472,7 +1618,9 @@
       "zh": "电子邮件",
       "ja": "メール",
       "ca": "correu electrònic",
-      "ko": "이메일"
+      "ko": "이메일",
+      "la": "epistula electronica",
+      "eo": "retpoŝto"
     },
     {
       "term": "diligentia",
@@ -1486,7 +1634,9 @@
       "zh": "勤勉 / 细心",
       "ja": "勤勉 / 注意深さ",
       "ca": "diligència",
-      "ko": "성실 / 주의"
+      "ko": "성실 / 주의",
+      "la": "diligentia",
+      "eo": "diligento"
     },
     {
       "term": "practicar",
@@ -1500,7 +1650,9 @@
       "zh": "练习",
       "ja": "練習する",
       "ca": "practicar",
-      "ko": "연습하다"
+      "ko": "연습하다",
+      "la": "exercere",
+      "eo": "praktiki"
     },
     {
       "term": "yoga",
@@ -1514,7 +1666,9 @@
       "zh": "瑜伽",
       "ja": "ヨガ",
       "ca": "ioga",
-      "ko": "요가"
+      "ko": "요가",
+      "la": "yoga",
+      "eo": "jogo"
     },
     {
       "term": "studio",
@@ -1528,7 +1682,9 @@
       "zh": "工作室 / 房间",
       "ja": "スタジオ / 部屋",
       "ca": "estudi / sala",
-      "ko": "스튜디오 / 방"
+      "ko": "스튜디오 / 방",
+      "la": "studium",
+      "eo": "studejo"
     },
     {
       "term": "pois",
@@ -1542,7 +1698,9 @@
       "zh": "然后",
       "ja": "その後",
       "ca": "després",
-      "ko": "그런 다음"
+      "ko": "그런 다음",
+      "la": "deinde",
+      "eo": "poste"
     },
     {
       "term": "pro",
@@ -1556,7 +1714,9 @@
       "zh": "为了",
       "ja": "〜のために",
       "ca": "per",
-      "ko": "위해"
+      "ko": "위해",
+      "la": "pro",
+      "eo": "por"
     },
     {
       "term": "durante",
@@ -1570,7 +1730,9 @@
       "zh": "在…期间",
       "ja": "〜の間に",
       "ca": "durant",
-      "ko": "동안"
+      "ko": "동안",
+      "la": "durante",
+      "eo": "dum"
     }
   ],
   "lection5": [
