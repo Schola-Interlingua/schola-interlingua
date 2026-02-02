@@ -1,12 +1,36 @@
 // Biblioteca de tooltips reutilizable
+function getCurrentLang() {
+  return window.getSelectedLang?.() || localStorage.getItem('lang') || 'es';
+}
+
+function loadVocab() {
+  if (window.VOCAB) return Promise.resolve(window.VOCAB);
+
+  return fetch('/data/vocab.json')
+    .then(res => res.json())
+    .then(data => {
+      const vocab = {};
+      Object.values(data).forEach(arr => {
+        if (Array.isArray(arr)) {
+          arr.forEach(item => {
+            vocab[item.term.toLowerCase()] = item;
+          });
+        }
+      });
+      window.VOCAB = vocab;
+      document.dispatchEvent(new Event('vocab-loaded'));
+      return vocab;
+    });
+}
+
 window.Tooltip = {
   init(selector, vocab, lang) {
-    const current = lang || window.getSelectedLang?.() || localStorage.getItem('lang') || 'es';
+    const current = lang || getCurrentLang();
     document.querySelectorAll(selector).forEach(el => {
       const key = (el.dataset.term || '').replace(/[^\wáéíóúüñ]/gi, '').toLowerCase();
       const item = vocab[key];
-      if (!item) return;
-      const translation = item[current] || item.es || '';
+      const translation = item?.[current];
+      if (!translation) return;
       const span = document.createElement('span');
       span.className = 'tooltip';
       span.textContent = el.textContent;
@@ -25,27 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // evitamos reprocesar el contenido para no duplicar o esconder texto.
   if (document.querySelector('[data-tooltips]')) return;
 
-  const lang = localStorage.getItem('lang') || 'es';
-  fetch('/data/vocab.json')
-    .then(res => res.json())
-    .then(data => {
-      const vocab = {};
-      Object.values(data).forEach(arr => {
-        if (Array.isArray(arr)) {
-          arr.forEach(item => {
-            const translation = item[lang] || item.es;
-            vocab[item.term.toLowerCase()] = translation;
-          });
-        }
-      });
-
+  const current = getCurrentLang();
+  loadVocab()
+    .then(vocab => {
       const elements = document.querySelectorAll('.text-block p:not(.no-tooltip), .text-block li:not(.no-tooltip), .grammar p:not(.no-tooltip), #home-section p:not(.no-tooltip), .grammar li:not(.no-tooltip), .card p:not(.no-tooltip), .vocab-table li:not(.no-tooltip)');
       elements.forEach(el => {
         const tokens = el.textContent.match(/\w+|\s+|[^\s\w]+/g) || [];
         const html = tokens.map(tok => {
           const clean = tok.replace(/[^\wáéíóúüñ]/gi, '').toLowerCase();
-          if (vocab[clean]) {
-            const translation = vocab[clean];
+          const translation = vocab[clean]?.[current];
+          if (translation) {
             return `<span class="tooltip" aria-label="${translation}">${tok}<span class="tooltiptext">${translation}</span></span>`;
           }
           return tok;
