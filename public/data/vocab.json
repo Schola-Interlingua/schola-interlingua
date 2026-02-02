@@ -1748,7 +1748,9 @@
       "zh": "披萨",
       "ja": "ピザ",
       "ca": "pizza",
-      "ko": "피자"
+      "ko": "피자",
+      "la": "pizza",
+      "eo": "pico"
     },
     {
       "term": "caseo",
@@ -1762,7 +1764,9 @@
       "zh": "奶酪",
       "ja": "チーズ",
       "ca": "formatge",
-      "ko": "치즈"
+      "ko": "치즈",
+      "la": "caseus",
+      "eo": "fromaĝo"
     },
     {
       "term": "tomate",
@@ -1776,7 +1780,9 @@
       "zh": "番茄",
       "ja": "トマト",
       "ca": "tomàquet",
-      "ko": "토마토"
+      "ko": "토마토",
+      "la": "tomatum",
+      "eo": "tomato"
     },
     {
       "term": "parve",
@@ -1790,7 +1796,9 @@
       "zh": "小的",
       "ja": "小さい",
       "ca": "petit",
-      "ko": "작은"
+      "ko": "작은",
+      "la": "parvus",
+      "eo": "malgranda"
     },
     {
       "term": "pizzeria",
@@ -1804,7 +1812,9 @@
       "zh": "披萨店",
       "ja": "ピッツェリア",
       "ca": "pizzeria",
-      "ko": "피제리아"
+      "ko": "피제리아",
+      "la": "pizzeria",
+      "eo": "picejo"
     },
     {
       "term": "local",
@@ -1818,7 +1828,9 @@
       "zh": "地点 / 场所",
       "ja": "店舗 / 場所",
       "ca": "local",
-      "ko": "장소 / 가게"
+      "ko": "장소 / 가게",
+      "la": "locus",
+      "eo": "loko"
     },
     {
       "term": "menu",
@@ -1832,7 +1844,9 @@
       "zh": "菜单",
       "ja": "メニュー",
       "ca": "menú",
-      "ko": "메뉴"
+      "ko": "메뉴",
+      "la": "menu",
+      "eo": "menuo"
     },
     {
       "term": "offerer",
@@ -1846,7 +1860,9 @@
       "zh": "提供",
       "ja": "提供する",
       "ca": "oferir",
-      "ko": "제공하다"
+      "ko": "제공하다",
+      "la": "offerre",
+      "eo": "oferti"
     },
     {
       "term": "diverse",
@@ -1860,7 +1876,9 @@
       "zh": "各种各样的",
       "ja": "多様な",
       "ca": "diversos",
-      "ko": "다양한"
+      "ko": "다양한",
+      "la": "diversus",
+      "eo": "diversa"
     },
     {
       "term": "specialitate",
@@ -1874,7 +1892,9 @@
       "zh": "特色 / 特色菜",
       "ja": "名物 / 専門料理",
       "ca": "especialitat",
-      "ko": "특산품 / 전문"
+      "ko": "특산품 / 전문",
+      "la": "specialitas",
+      "eo": "specialaĵo"
     },
     {
       "term": "pasta",
@@ -1888,7 +1908,9 @@
       "zh": "意大利面",
       "ja": "パスタ",
       "ca": "pasta",
-      "ko": "파스타"
+      "ko": "파스타",
+      "la": "pasta",
+      "eo": "pasto"
     },
     {
       "term": "pesto",
@@ -1902,7 +1924,9 @@
       "zh": "青酱",
       "ja": "ペスト",
       "ca": "pesto",
-      "ko": "페스토"
+      "ko": "페스토",
+      "la": "pesto",
+      "eo": "pesto"
     },
     {
       "term": "gelato",
@@ -1916,7 +1940,9 @@
       "zh": "冰淇淋",
       "ja": "ジェラート",
       "ca": "gelat",
-      "ko": "아이스크림"
+      "ko": "아이스크림",
+      "la": "gelatum",
+      "eo": "glaciaĵo"
     },
     {
       "term": "artisanal",
@@ -1930,7 +1956,9 @@
       "zh": "手工的",
       "ja": "職人の / 手作りの",
       "ca": "artesanal",
-      "ko": "수제의"
+      "ko": "수제의",
+      "la": "artisanalis",
+      "eo": "artisana"
     },
     {
       "term": "fin",
@@ -1944,7 +1972,9 @@
       "zh": "结束",
       "ja": "終わり",
       "ca": "fi",
-      "ko": "끝"
+      "ko": "끝",
+      "la": "finis",
+      "eo": "fino"
     },
     {
       "term": "prandio",
@@ -1958,7 +1988,9 @@
       "zh": "午餐",
       "ja": "昼食",
       "ca": "dinar",
-      "ko": "점심"
+      "ko": "점심",
+      "la": "prandium",
+      "eo": "tagmanĝo"
     },
     {
       "term": "biber",
@@ -1972,7 +2004,9 @@
       "zh": "喝",
       "ja": "飲む",
       "ca": "beure",
-      "ko": "마시다"
+      "ko": "마시다",
+      "la": "bibere",
+      "eo": "trinki"
     },
     {
       "term": "sovente",
@@ -1986,7 +2020,9 @@
       "zh": "经常",
       "ja": "しばしば",
       "ca": "sovint",
-      "ko": "자주"
+      "ko": "자주",
+      "la": "saepe",
+      "eo": "ofte"
     },
     {
       "term": "caffe",
@@ -2000,7 +2036,9 @@
       "zh": "咖啡",
       "ja": "コーヒー",
       "ca": "cafè",
-      "ko": "커피"
+      "ko": "커피",
+      "la": "cafe",
+      "eo": "kafo"
     },
     {
       "term": "calide",
@@ -2014,7 +2052,9 @@
       "zh": "热的",
       "ja": "熱い",
       "ca": "calent",
-      "ko": "뜨거운"
+      "ko": "뜨거운",
+      "la": "calidus",
+      "eo": "varma"
     },
     {
       "term": "cena",
@@ -2028,7 +2068,9 @@
       "zh": "晚餐",
       "ja": "夕食",
       "ca": "sopar",
-      "ko": "저녁식사"
+      "ko": "저녁식사",
+      "la": "cena",
+      "eo": "vespermanĝo"
     },
     {
       "term": "vices",
@@ -2042,7 +2084,9 @@
       "zh": "次",
       "ja": "回数",
       "ca": "vegades",
-      "ko": "번"
+      "ko": "번",
+      "la": "interdum",
+      "eo": "kelkfoje"
     },
     {
       "term": "prefere",
@@ -2056,7 +2100,9 @@
       "zh": "更喜欢",
       "ja": "好む",
       "ca": "preferir",
-      "ko": "선호하다"
+      "ko": "선호하다",
+      "la": "praeferre",
+      "eo": "preferi"
     },
     {
       "term": "aqua",
@@ -2070,7 +2116,9 @@
       "zh": "水",
       "ja": "水",
       "ca": "aigua",
-      "ko": "물"
+      "ko": "물",
+      "la": "aqua",
+      "eo": "akvo"
     },
     {
       "term": "frigide",
@@ -2084,7 +2132,9 @@
       "zh": "冷的",
       "ja": "冷たい",
       "ca": "fred",
-      "ko": "차가운"
+      "ko": "차가운",
+      "la": "frigidus",
+      "eo": "malvarma"
     },
     {
       "term": "refrigerator",
@@ -2098,7 +2148,9 @@
       "zh": "冰箱",
       "ja": "冷蔵庫",
       "ca": "nevera",
-      "ko": "냉장고"
+      "ko": "냉장고",
+      "la": "refrigeratorium",
+      "eo": "fridujo"
     },
     {
       "term": "clar",
@@ -2112,7 +2164,9 @@
       "zh": "清晰 / 亮",
       "ja": "明るい / はっきりした",
       "ca": "clar",
-      "ko": "명확한 / 밝은"
+      "ko": "명확한 / 밝은",
+      "la": "clarus",
+      "eo": "klara"
     },
     {
       "term": "restaurante",
@@ -2126,7 +2180,9 @@
       "zh": "餐厅",
       "ja": "レストラン",
       "ca": "restaurant",
-      "ko": "레스토랑"
+      "ko": "레스토랑",
+      "la": "restauratorium",
+      "eo": "restoracio"
     },
     {
       "term": "venerdi",
@@ -2140,7 +2196,9 @@
       "zh": "星期五",
       "ja": "金曜日",
       "ca": "divendres",
-      "ko": "금요일"
+      "ko": "금요일",
+      "la": "dies Veneris",
+      "eo": "vendredo"
     },
     {
       "term": "gauder de",
@@ -2154,7 +2212,9 @@
       "zh": "享受",
       "ja": "楽しむ",
       "ca": "gaudir de",
-      "ko": "즐기다"
+      "ko": "즐기다",
+      "la": "frui",
+      "eo": "ĝui"
     },
     {
       "term": "ambiente",
@@ -2168,7 +2228,9 @@
       "zh": "氛围 / 环境",
       "ja": "雰囲気 / 環境",
       "ca": "ambient",
-      "ko": "분위기 / 환경"
+      "ko": "분위기 / 환경",
+      "la": "ambitus",
+      "eo": "etoso"
     },
     {
       "term": "amical",
@@ -2182,7 +2244,9 @@
       "zh": "友好的",
       "ja": "友好的な",
       "ca": "amical",
-      "ko": "친근한"
+      "ko": "친근한",
+      "la": "amicalis",
+      "eo": "amika"
     },
     {
       "term": "gastronomia",
@@ -2196,7 +2260,9 @@
       "zh": "美食学",
       "ja": "美食学",
       "ca": "gastronomia",
-      "ko": "미식학"
+      "ko": "미식학",
+      "la": "gastronomia",
+      "eo": "gastronomio"
     },
     {
       "term": "excellente",
@@ -2210,7 +2276,9 @@
       "zh": "优秀的",
       "ja": "素晴らしい",
       "ca": "excel·lent",
-      "ko": "훌륭한"
+      "ko": "훌륭한",
+      "la": "excellens",
+      "eo": "bonega"
     }
   ],
   "lection6": [
@@ -2226,7 +2294,9 @@
       "zh": "布宜诺斯艾利斯",
       "ja": "ブエノスアイレス",
       "ca": "Buenos Aires",
-      "ko": "부에노스아이레스"
+      "ko": "부에노스아이레스",
+      "la": "Buenos Aires",
+      "eo": "Bonaero"
     },
     {
       "term": "citate",
@@ -2240,7 +2310,9 @@
       "zh": "城市",
       "ja": "都市",
       "ca": "ciutat",
-      "ko": "도시"
+      "ko": "도시",
+      "la": "civitas",
+      "eo": "urbo"
     },
     {
       "term": "quartiero",
@@ -2254,7 +2326,9 @@
       "zh": "街区",
       "ja": "地区",
       "ca": "barri",
-      "ko": "동네"
+      "ko": "동네",
+      "la": "vicinia",
+      "eo": "kvartalo"
     },
     {
       "term": "character",
@@ -2268,7 +2342,9 @@
       "zh": "性格",
       "ja": "性格",
       "ca": "caràcter",
-      "ko": "성격"
+      "ko": "성격",
+      "la": "indoles",
+      "eo": "karaktero"
     },
     {
       "term": "vibrante",
@@ -2282,7 +2358,9 @@
       "zh": "充满活力的",
       "ja": "活気のある",
       "ca": "vibrant",
-      "ko": "활기찬"
+      "ko": "활기찬",
+      "la": "vibrans",
+      "eo": "vigla"
     },
     {
       "term": "museo",
@@ -2296,7 +2374,9 @@
       "zh": "博物馆",
       "ja": "博物館",
       "ca": "museu",
-      "ko": "박물관"
+      "ko": "박물관",
+      "la": "museum",
+      "eo": "muzeo"
     },
     {
       "term": "famose",
@@ -2310,7 +2390,9 @@
       "zh": "著名的",
       "ja": "有名な",
       "ca": "famos",
-      "ko": "유명한"
+      "ko": "유명한",
+      "la": "famosus",
+      "eo": "fama"
     },
     {
       "term": "National",
@@ -2324,7 +2406,9 @@
       "zh": "国家的",
       "ja": "ナショナル",
       "ca": "Nacional",
-      "ko": "국립의"
+      "ko": "국립의",
+      "la": "nationalis",
+      "eo": "nacia"
     },
     {
       "term": "historic",
@@ -2338,7 +2422,9 @@
       "zh": "历史的",
       "ja": "歴史的な",
       "ca": "històric",
-      "ko": "역사의"
+      "ko": "역사의",
+      "la": "historicus",
+      "eo": "historia"
     },
     {
       "term": "se trova",
@@ -2352,7 +2438,9 @@
       "zh": "位于",
       "ja": "位置している",
       "ca": "es troba",
-      "ko": "위치해 있다"
+      "ko": "위치해 있다",
+      "la": "situs est",
+      "eo": "situas"
     },
     {
       "term": "symbolo",
@@ -2366,7 +2454,9 @@
       "zh": "符号",
       "ja": "シンボル",
       "ca": "símbol",
-      "ko": "상징"
+      "ko": "상징",
+      "la": "symbolum",
+      "eo": "simbolo"
     },
     {
       "term": "transporto",
@@ -2380,7 +2470,9 @@
       "zh": "交通",
       "ja": "交通",
       "ca": "transport",
-      "ko": "교통"
+      "ko": "교통",
+      "la": "transportus",
+      "eo": "transporto"
     },
     {
       "term": "public",
@@ -2394,7 +2486,9 @@
       "zh": "公共的",
       "ja": "公共の",
       "ca": "públic",
-      "ko": "공공의"
+      "ko": "공공의",
+      "la": "publicus",
+      "eo": "publika"
     },
     {
       "term": "comprender",
@@ -2408,7 +2502,9 @@
       "zh": "包括 / 理解",
       "ja": "含む / 理解する",
       "ca": "comprendre",
-      "ko": "포함하다"
+      "ko": "포함하다",
+      "la": "comprehendere",
+      "eo": "enhavi"
     },
     {
       "term": "traino",
@@ -2422,7 +2518,9 @@
       "zh": "火车",
       "ja": "電車 / 列車",
       "ca": "tren",
-      "ko": "기차"
+      "ko": "기차",
+      "la": "tramen",
+      "eo": "trajno"
     },
     {
       "term": "rapide",
@@ -2436,7 +2534,9 @@
       "zh": "快速的",
       "ja": "速い",
       "ca": "ràpid",
-      "ko": "빠른"
+      "ko": "빠른",
+      "la": "celeriter",
+      "eo": "rapide"
     },
     {
       "term": "connecte",
@@ -2450,7 +2550,9 @@
       "zh": "连接",
       "ja": "つながる",
       "ca": "connecta",
-      "ko": "연결한다"
+      "ko": "연결한다",
+      "la": "coniunctus",
+      "eo": "konektita"
     },
     {
       "term": "stratas",
@@ -2464,7 +2566,9 @@
       "zh": "街道",
       "ja": "通り",
       "ca": "carrers",
-      "ko": "거리"
+      "ko": "거리",
+      "la": "viae",
+      "eo": "stratoj"
     },
     {
       "term": "animate",
@@ -2478,7 +2582,9 @@
       "zh": "热闹的",
       "ja": "活気のある",
       "ca": "animat",
-      "ko": "활기찬"
+      "ko": "활기찬",
+      "la": "animatus",
+      "eo": "vigla"
     },
     {
       "term": "tourista",
@@ -2492,7 +2598,9 @@
       "zh": "游客",
       "ja": "観光客",
       "ca": "turista",
-      "ko": "관광객"
+      "ko": "관광객",
+      "la": "tourista",
+      "eo": "turisto"
     },
     {
       "term": "Obelisco",
@@ -2506,7 +2614,9 @@
       "zh": "方尖碑",
       "ja": "オベリスク",
       "ca": "Obelisc",
-      "ko": "오벨리스크"
+      "ko": "오벨리스크",
+      "la": "obeliscus",
+      "eo": "obelisko"
     },
     {
       "term": "libreria",
@@ -2520,7 +2630,9 @@
       "zh": "书店 / 图书馆",
       "ja": "書店 / 図書館",
       "ca": "llibreria",
-      "ko": "서점 / 도서관"
+      "ko": "서점 / 도서관",
+      "la": "libraria",
+      "eo": "librejo"
     },
     {
       "term": "artisanal",
@@ -2534,7 +2646,9 @@
       "zh": "手工的",
       "ja": "職人の",
       "ca": "artesanal",
-      "ko": "수제의"
+      "ko": "수제의",
+      "la": "artisanalis",
+      "eo": "artisana"
     }
   ],
   "lection7": [
@@ -2550,7 +2664,9 @@
       "zh": "气候",
       "ja": "気候",
       "ca": "clima",
-      "ko": "기후"
+      "ko": "기후",
+      "la": "clima",
+      "eo": "klimato"
     },
     {
       "term": "anno",
@@ -2564,7 +2680,9 @@
       "zh": "年",
       "ja": "年",
       "ca": "any",
-      "ko": "해"
+      "ko": "해",
+      "la": "annus",
+      "eo": "jaro"
     },
     {
       "term": "estate",
@@ -2578,7 +2696,9 @@
       "zh": "夏天",
       "ja": "夏",
       "ca": "estiu",
-      "ko": "여름"
+      "ko": "여름",
+      "la": "aestas",
+      "eo": "somero"
     },
     {
       "term": "grado",
@@ -2592,7 +2712,9 @@
       "zh": "度",
       "ja": "度",
       "ca": "grau",
-      "ko": "도"
+      "ko": "도",
+      "la": "gradus",
+      "eo": "grado"
     },
     {
       "term": "dies",
@@ -2606,7 +2728,9 @@
       "zh": "天",
       "ja": "日々",
       "ca": "dies",
-      "ko": "날들"
+      "ko": "날들",
+      "la": "dies",
+      "eo": "tagoj"
     },
     {
       "term": "insolate",
@@ -2620,7 +2744,9 @@
       "zh": "晴朗的",
       "ja": "晴れた",
       "ca": "asolellat",
-      "ko": "화창한"
+      "ko": "화창한",
+      "la": "solaris",
+      "eo": "suna"
     },
     {
       "term": "ideal",
@@ -2634,7 +2760,9 @@
       "zh": "理想的",
       "ja": "理想的な",
       "ca": "ideal",
-      "ko": "이상적인"
+      "ko": "이상적인",
+      "la": "idealis",
+      "eo": "ideala"
     },
     {
       "term": "promenar",
@@ -2648,7 +2776,9 @@
       "zh": "散步",
       "ja": "散歩する",
       "ca": "passejar",
-      "ko": "산책하다"
+      "ko": "산책하다",
+      "la": "deambulare",
+      "eo": "promeni"
     },
     {
       "term": "parco",
@@ -2662,7 +2792,9 @@
       "zh": "公园",
       "ja": "公園",
       "ca": "parc",
-      "ko": "공원"
+      "ko": "공원",
+      "la": "parcus",
+      "eo": "parko"
     },
     {
       "term": "hiberno",
@@ -2676,7 +2808,9 @@
       "zh": "冬天",
       "ja": "冬",
       "ca": "hivern",
-      "ko": "겨울"
+      "ko": "겨울",
+      "la": "hiems",
+      "eo": "vintro"
     },
     {
       "term": "minus",
@@ -2690,7 +2824,9 @@
       "zh": "减少",
       "ja": "マイナス",
       "ca": "menys",
-      "ko": "마이너스"
+      "ko": "마이너스",
+      "la": "minus",
+      "eo": "malpli"
     },
     {
       "term": "pluvia",
@@ -2704,7 +2840,9 @@
       "zh": "雨",
       "ja": "雨",
       "ca": "pluja",
-      "ko": "비"
+      "ko": "비",
+      "la": "pluvia",
+      "eo": "pluvo"
     },
     {
       "term": "frequente",
@@ -2718,7 +2856,9 @@
       "zh": "频繁的",
       "ja": "頻繁な",
       "ca": "freqüent",
-      "ko": "자주 있는"
+      "ko": "자주 있는",
+      "la": "frequens",
+      "eo": "ofta"
     },
     {
       "term": "vento",
@@ -2732,7 +2872,9 @@
       "zh": "风",
       "ja": "風",
       "ca": "vent",
-      "ko": "바람"
+      "ko": "바람",
+      "la": "ventus",
+      "eo": "vento"
     },
     {
       "term": "frigide",
@@ -2746,7 +2888,9 @@
       "zh": "寒冷的",
       "ja": "寒い",
       "ca": "fred",
-      "ko": "추운"
+      "ko": "추운",
+      "la": "frigidus",
+      "eo": "malvarma"
     },
     {
       "term": "intense",
@@ -2760,7 +2904,9 @@
       "zh": "强烈的",
       "ja": "激しい",
       "ca": "intens",
-      "ko": "강렬한"
+      "ko": "강렬한",
+      "la": "intensus",
+      "eo": "intensa"
     },
     {
       "term": "celo",
@@ -2774,7 +2920,9 @@
       "zh": "天空",
       "ja": "空",
       "ca": "cel",
-      "ko": "하늘"
+      "ko": "하늘",
+      "la": "caelum",
+      "eo": "ĉielo"
     },
     {
       "term": "clar",
@@ -2788,7 +2936,9 @@
       "zh": "晴朗的 / 清楚的",
       "ja": "明るい / はっきりした",
       "ca": "clar",
-      "ko": "맑은"
+      "ko": "맑은",
+      "la": "clarus",
+      "eo": "klara"
     },
     {
       "term": "suave",
@@ -2802,7 +2952,9 @@
       "zh": "柔和的",
       "ja": "やわらかい",
       "ca": "suau",
-      "ko": "부드러운"
+      "ko": "부드러운",
+      "la": "suavis",
+      "eo": "milda"
     },
     {
       "term": "vices",
@@ -2816,7 +2968,9 @@
       "zh": "次",
       "ja": "回",
       "ca": "vegades",
-      "ko": "번"
+      "ko": "번",
+      "la": "interdum",
+      "eo": "kelkfoje"
     },
     {
       "term": "tempesta",
@@ -2830,7 +2984,9 @@
       "zh": "暴风雨",
       "ja": "嵐",
       "ca": "tempesta",
-      "ko": "폭풍"
+      "ko": "폭풍",
+      "la": "tempestas",
+      "eo": "ŝtormo"
     },
     {
       "term": "rapidemente",
@@ -2844,7 +3000,9 @@
       "zh": "快速地",
       "ja": "速く",
       "ca": "ràpidament",
-      "ko": "빠르게"
+      "ko": "빠르게",
+      "la": "celeriter",
+      "eo": "rapide"
     },
     {
       "term": "forte",
@@ -2858,7 +3016,9 @@
       "zh": "强壮的",
       "ja": "強い",
       "ca": "fort",
-      "ko": "강한"
+      "ko": "강한",
+      "la": "fortis",
+      "eo": "forta"
     },
     {
       "term": "temperatura",
@@ -2872,7 +3032,9 @@
       "zh": "温度",
       "ja": "気温",
       "ca": "temperatura",
-      "ko": "온도"
+      "ko": "온도",
+      "la": "temperatura",
+      "eo": "temperaturo"
     },
     {
       "term": "variar",
@@ -2886,7 +3048,9 @@
       "zh": "变化",
       "ja": "変化する",
       "ca": "variar",
-      "ko": "변하다"
+      "ko": "변하다",
+      "la": "variare",
+      "eo": "variiĝi"
     },
     {
       "term": "bastante",
@@ -2900,7 +3064,9 @@
       "zh": "相当 / 够",
       "ja": "かなり / 十分",
       "ca": "bastant",
-      "ko": "꽤 / 충분히"
+      "ko": "꽤 / 충분히",
+      "la": "satis",
+      "eo": "sufiĉe"
     },
     {
       "term": "requirer",
@@ -2914,7 +3080,9 @@
       "zh": "需要",
       "ja": "必要とする",
       "ca": "requerir",
-      "ko": "요구하다"
+      "ko": "요구하다",
+      "la": "requirere",
+      "eo": "postuli"
     },
     {
       "term": "preparar",
@@ -2928,7 +3096,9 @@
       "zh": "准备",
       "ja": "準備する",
       "ca": "preparar",
-      "ko": "준비하다"
+      "ko": "준비하다",
+      "la": "parare",
+      "eo": "prepari"
     },
     {
       "term": "vestimento",
@@ -2942,7 +3112,9 @@
       "zh": "衣服",
       "ja": "衣服",
       "ca": "vestiment",
-      "ko": "의복"
+      "ko": "의복",
+      "la": "vestimentum",
+      "eo": "vesto"
     },
     {
       "term": "situation",
@@ -2956,7 +3128,9 @@
       "zh": "情况",
       "ja": "状況",
       "ca": "situació",
-      "ko": "상황"
+      "ko": "상황",
+      "la": "situatio",
+      "eo": "situacio"
     }
   ],
   "lection8": [
