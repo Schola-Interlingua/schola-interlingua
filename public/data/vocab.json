@@ -12,7 +12,9 @@
       "zh": "我",
       "ja": "私",
       "ca": "Jo",
-      "ko": "나"
+      "ko": "나",
+      "la": "ego",
+      "eo": "mi"
     },
     {
       "term": "esser",
@@ -26,7 +28,9 @@
       "zh": "是",
       "ja": "である / いる",
       "ca": "ser / estar",
-      "ko": "이다 / 있다"
+      "ko": "이다 / 있다",
+      "la": "esse",
+      "eo": "esti"
     },
     {
       "term": "habitar",
@@ -40,7 +44,9 @@
       "zh": "住",
       "ja": "住む",
       "ca": "viure",
-      "ko": "살다"
+      "ko": "살다",
+      "la": "habitare",
+      "eo": "loĝi"
     },
     {
       "term": "appartamento",
@@ -54,7 +60,9 @@
       "zh": "公寓",
       "ja": "アパート",
       "ca": "apartament",
-      "ko": "아파트"
+      "ko": "아파트",
+      "la": "apartamentum",
+      "eo": "apartamento"
     },
     {
       "term": "tu",
@@ -68,7 +76,9 @@
       "zh": "你",
       "ja": "あなた",
       "ca": "tu",
-      "ko": "너"
+      "ko": "너",
+      "la": "tu",
+      "eo": "vi"
     },
     {
       "term": "es",
@@ -82,7 +92,9 @@
       "zh": "是",
       "ja": "です",
       "ca": "és",
-      "ko": "이다"
+      "ko": "이다",
+      "la": "est / es",
+      "eo": "estas"
     },
     {
       "term": "illa",
@@ -96,7 +108,9 @@
       "zh": "她",
       "ja": "彼女",
       "ca": "ella",
-      "ko": "그녀"
+      "ko": "그녀",
+      "la": "illa",
+      "eo": "ŝi"
     },
     {
       "term": "amica",
@@ -110,7 +124,9 @@
       "zh": "女性朋友",
       "ja": "女性の友達",
       "ca": "amiga",
-      "ko": "여성 친구"
+      "ko": "여성 친구",
+      "la": "amica",
+      "eo": "amikino"
     },
     {
       "term": "nos",
@@ -124,7 +140,9 @@
       "zh": "我们",
       "ja": "私たち",
       "ca": "nosaltres",
-      "ko": "우리"
+      "ko": "우리",
+      "la": "nos",
+      "eo": "ni"
     },
     {
       "term": "parlar",
@@ -138,7 +156,9 @@
       "zh": "说话",
       "ja": "話す",
       "ca": "parlar",
-      "ko": "말하다"
+      "ko": "말하다",
+      "la": "loqui",
+      "eo": "paroli"
     },
     {
       "term": "interlingua",
@@ -152,7 +172,9 @@
       "zh": "国际语",
       "ja": "インテルリングア",
       "ca": "Interlingua",
-      "ko": "인터링구아"
+      "ko": "인터링구아",
+      "la": "Interlingua",
+      "eo": "Interlingvo"
     },
     {
       "term": "con",
@@ -166,7 +188,9 @@
       "zh": "和",
       "ja": "と",
       "ca": "amb",
-      "ko": "와/과"
+      "ko": "와/과",
+      "la": "cum",
+      "eo": "kun"
     },
     {
       "term": "gratia",
@@ -180,7 +204,9 @@
       "zh": "恩典",
       "ja": "恩寵",
       "ca": "gràcia",
-      "ko": "은혜"
+      "ko": "은혜",
+      "la": "gratia",
+      "eo": "dankon"
     },
     {
       "term": "iste",
@@ -194,7 +220,9 @@
       "zh": "这个",
       "ja": "この",
       "ca": "aquest / aquesta",
-      "ko": "이"
+      "ko": "이",
+      "la": "iste",
+      "eo": "ĉi tiu"
     },
     {
       "term": "lingua",
@@ -208,7 +236,9 @@
       "zh": "语言",
       "ja": "言語",
       "ca": "llengua",
-      "ko": "언어"
+      "ko": "언어",
+      "la": "lingua",
+      "eo": "lingvo"
     },
     {
       "term": "facile",
@@ -222,7 +252,9 @@
       "zh": "容易",
       "ja": "簡単",
       "ca": "fàcil",
-      "ko": "쉬운"
+      "ko": "쉬운",
+      "la": "facilis",
+      "eo": "facila"
     },
     {
       "term": "comprender",
@@ -236,7 +268,9 @@
       "zh": "理解",
       "ja": "理解する",
       "ca": "comprendre",
-      "ko": "이해하다"
+      "ko": "이해하다",
+      "la": "intellegere",
+      "eo": "kompreni"
     },
     {
       "term": "si",
@@ -250,7 +284,9 @@
       "zh": "如果",
       "ja": "もし",
       "ca": "si",
-      "ko": "만약"
+      "ko": "만약",
+      "la": "si",
+      "eo": "se"
     },
     {
       "term": "on",
@@ -264,7 +300,9 @@
       "zh": "人们",
       "ja": "人は",
       "ca": "un / la gent",
-      "ko": "사람들"
+      "ko": "사람들",
+      "la": "homo",
+      "eo": "oni"
     },
     {
       "term": "practicar",
@@ -278,7 +316,9 @@
       "zh": "练习",
       "ja": "練習する",
       "ca": "practicar",
-      "ko": "연습하다"
+      "ko": "연습하다",
+      "la": "exercere",
+      "eo": "praktiki"
     },
     {
       "term": "cata",
@@ -292,7 +332,9 @@
       "zh": "每个",
       "ja": "毎",
       "ca": "cada",
-      "ko": "각"
+      "ko": "각",
+      "la": "quisque",
+      "eo": "ĉiu"
     },
     {
       "term": "die",
@@ -306,7 +348,9 @@
       "zh": "日",
       "ja": "日",
       "ca": "dia",
-      "ko": "날"
+      "ko": "날",
+      "la": "dies",
+      "eo": "tago"
     },
     {
       "term": "usar",
@@ -320,7 +364,9 @@
       "zh": "使用",
       "ja": "使う",
       "ca": "usar",
-      "ko": "사용하다"
+      "ko": "사용하다",
+      "la": "uti",
+      "eo": "uzi"
     },
     {
       "term": "curso",
@@ -334,7 +380,9 @@
       "zh": "课程",
       "ja": "コース",
       "ca": "curs",
-      "ko": "과정"
+      "ko": "과정",
+      "la": "cursus",
+      "eo": "kurso"
     },
     {
       "term": "meliorar",
@@ -348,7 +396,9 @@
       "zh": "改善",
       "ja": "改善する",
       "ca": "millorar",
-      "ko": "개선하다"
+      "ko": "개선하다",
+      "la": "meliorare",
+      "eo": "plibonigi"
     },
     {
       "term": "comprension",
@@ -362,7 +412,9 @@
       "zh": "理解",
       "ja": "理解",
       "ca": "comprensió",
-      "ko": "이해"
+      "ko": "이해",
+      "la": "comprehensio",
+      "eo": "kompreno"
     },
     {
       "term": "expression",
@@ -376,7 +428,9 @@
       "zh": "表达",
       "ja": "表現",
       "ca": "expressió",
-      "ko": "표현"
+      "ko": "표현",
+      "la": "expressio",
+      "eo": "esprimo"
     }
   ],
   "lection2": [
