@@ -3146,7 +3146,9 @@
       "zh": "购买",
       "ja": "買う",
       "ca": "comprar",
-      "ko": "구매하다"
+      "ko": "구매하다",
+      "la": "emere",
+      "eo": "aĉeti"
     },
     {
       "term": "grammatica",
@@ -3160,7 +3162,9 @@
       "zh": "语法",
       "ja": "文法",
       "ca": "gramàtica",
-      "ko": "문법"
+      "ko": "문법",
+      "la": "grammatica",
+      "eo": "gramatiko"
     },
     {
       "term": "presentation",
@@ -3174,7 +3178,9 @@
       "zh": "演示",
       "ja": "プレゼンテーション",
       "ca": "presentació",
-      "ko": "발표"
+      "ko": "발표",
+      "la": "praesentatio",
+      "eo": "prezento"
     },
     {
       "term": "precio",
@@ -3188,7 +3194,9 @@
       "zh": "价格 / 成本",
       "ja": "価格 / 費用",
       "ca": "preu / cost",
-      "ko": "가격 / 비용"
+      "ko": "가격 / 비용",
+      "la": "pretium",
+      "eo": "prezo"
     },
     {
       "term": "euro",
@@ -3202,7 +3210,9 @@
       "zh": "欧元",
       "ja": "ユーロ",
       "ca": "euro",
-      "ko": "유로"
+      "ko": "유로",
+      "la": "euro",
+      "eo": "eŭro"
     },
     {
       "term": "systema",
@@ -3216,7 +3226,9 @@
       "zh": "系统",
       "ja": "システム",
       "ca": "sistema",
-      "ko": "시스템"
+      "ko": "시스템",
+      "la": "systema",
+      "eo": "sistemo"
     },
     {
       "term": "digital",
@@ -3230,7 +3242,9 @@
       "zh": "数字的",
       "ja": "デジタル",
       "ca": "digital",
-      "ko": "디지털"
+      "ko": "디지털",
+      "la": "digitalis",
+      "eo": "cifereca"
     },
     {
       "term": "mandar",
@@ -3244,7 +3258,9 @@
       "zh": "发送",
       "ja": "送る",
       "ca": "enviar",
-      "ko": "보내다"
+      "ko": "보내다",
+      "la": "mittere",
+      "eo": "sendi"
     },
     {
       "term": "recepta",
@@ -3258,7 +3274,9 @@
       "zh": "收据",
       "ja": "領収書",
       "ca": "rebut",
-      "ko": "영수증"
+      "ko": "영수증",
+      "la": "receptum",
+      "eo": "kvitanco"
     },
     {
       "term": "cliente",
@@ -3272,7 +3290,9 @@
       "zh": "客户",
       "ja": "顧客",
       "ca": "client",
-      "ko": "고객"
+      "ko": "고객",
+      "la": "cliens",
+      "eo": "kliento"
     },
     {
       "term": "beneficiar se",
@@ -3286,7 +3306,9 @@
       "zh": "受益",
       "ja": "恩恵を受ける",
       "ca": "beneficiar-se",
-      "ko": "이익을 얻다"
+      "ko": "이익을 얻다",
+      "la": "prodesse",
+      "eo": "profiti"
     },
     {
       "term": "disconto",
@@ -3300,7 +3322,9 @@
       "zh": "折扣",
       "ja": "割引",
       "ca": "descompte",
-      "ko": "할인"
+      "ko": "할인",
+      "la": "remissio",
+      "eo": "rabato"
     },
     {
       "term": "per cento",
@@ -3314,7 +3338,9 @@
       "zh": "百分比",
       "ja": "パーセント",
       "ca": "per cent",
-      "ko": "퍼센트"
+      "ko": "퍼센트",
+      "la": "per centum",
+      "eo": "procento"
     },
     {
       "term": "fidel",
@@ -3328,7 +3354,9 @@
       "zh": "忠实的",
       "ja": "忠実な",
       "ca": "fidel",
-      "ko": "충실한"
+      "ko": "충실한",
+      "la": "fidelis",
+      "eo": "fidela"
     },
     {
       "term": "pagar",
@@ -3342,7 +3370,9 @@
       "zh": "支付",
       "ja": "支払う",
       "ca": "pagar",
-      "ko": "지불하다"
+      "ko": "지불하다",
+      "la": "solvere",
+      "eo": "pagi"
     },
     {
       "term": "carta de credito",
@@ -3356,7 +3386,9 @@
       "zh": "信用卡",
       "ja": "クレジットカード",
       "ca": "targeta de crèdit",
-      "ko": "신용카드"
+      "ko": "신용카드",
+      "la": "charta crediti",
+      "eo": "kreditkarto"
     },
     {
       "term": "conservar",
@@ -3370,7 +3402,9 @@
       "zh": "保存",
       "ja": "保存する",
       "ca": "conservar",
-      "ko": "보존하다"
+      "ko": "보존하다",
+      "la": "conservare",
+      "eo": "konservi"
     },
     {
       "term": "futur",
@@ -3384,7 +3418,9 @@
       "zh": "未来",
       "ja": "未来",
       "ca": "futur",
-      "ko": "미래"
+      "ko": "미래",
+      "la": "futurum",
+      "eo": "estonteco"
     },
     {
       "term": "referentia",
@@ -3398,7 +3434,9 @@
       "zh": "参考 / 参考资料",
       "ja": "参照 / リファレンス",
       "ca": "referència",
-      "ko": "참조"
+      "ko": "참조",
+      "la": "referentia",
+      "eo": "referenco"
     }
   ],
   "lection9": [
@@ -3414,7 +3452,9 @@
       "zh": "去",
       "ja": "行く",
       "ca": "anar",
-      "ko": "가다"
+      "ko": "가다",
+      "la": "ire",
+      "eo": "iri"
     },
     {
       "term": "traino",
@@ -3428,7 +3468,9 @@
       "zh": "火车",
       "ja": "電車",
       "ca": "tren",
-      "ko": "기차"
+      "ko": "기차",
+      "la": "tramen",
+      "eo": "trajno"
     },
     {
       "term": "proxime",
@@ -3442,7 +3484,9 @@
       "zh": "下一个 / 附近的",
       "ja": "次の / 近くの",
       "ca": "proper",
-      "ko": "다음의 / 가까운"
+      "ko": "다음의 / 가까운",
+      "la": "proximus",
+      "eo": "proksima"
     },
     {
       "term": "venerdi",
@@ -3456,7 +3500,9 @@
       "zh": "星期五",
       "ja": "金曜日",
       "ca": "divendres",
-      "ko": "금요일"
+      "ko": "금요일",
+      "la": "dies Veneris",
+      "eo": "vendredo"
     },
     {
       "term": "trajecto",
@@ -3470,7 +3516,9 @@
       "zh": "路线",
       "ja": "経路",
       "ca": "trajecte",
-      "ko": "경로"
+      "ko": "경로",
+      "la": "iter",
+      "eo": "itinero"
     },
     {
       "term": "circa",
@@ -3484,7 +3532,9 @@
       "zh": "大约",
       "ja": "だいたい",
       "ca": "aproximadament",
-      "ko": "대략"
+      "ko": "대략",
+      "la": "circiter",
+      "eo": "proksimume"
     },
     {
       "term": "paisage",
@@ -3498,7 +3548,9 @@
       "zh": "风景",
       "ja": "風景",
       "ca": "paisatge",
-      "ko": "풍경"
+      "ko": "풍경",
+      "la": "prospectus",
+      "eo": "pejzaĝo"
     },
     {
       "term": "montaniose",
@@ -3512,7 +3564,9 @@
       "zh": "多山的",
       "ja": "山岳の",
       "ca": "muntanyós",
-      "ko": "산악의"
+      "ko": "산악의",
+      "la": "montuosus",
+      "eo": "montara"
     },
     {
       "term": "campo",
@@ -3526,7 +3580,9 @@
       "zh": "田野 / 乡村",
       "ja": "野原 / 田舎",
       "ca": "camp",
-      "ko": "들판 / 시골"
+      "ko": "들판 / 시골",
+      "la": "campus",
+      "eo": "kampo"
     },
     {
       "term": "sede",
@@ -3540,7 +3596,9 @@
       "zh": "座位",
       "ja": "席",
       "ca": "seient",
-      "ko": "좌석"
+      "ko": "좌석",
+      "la": "sedes",
+      "eo": "sidloko"
     },
     {
       "term": "sito web",
@@ -3554,7 +3612,9 @@
       "zh": "网站",
       "ja": "ウェブサイト",
       "ca": "lloc web",
-      "ko": "웹사이트"
+      "ko": "웹사이트",
+      "la": "situs interretialis",
+      "eo": "retejo"
     },
     {
       "term": "official",
@@ -3568,7 +3628,9 @@
       "zh": "官方的",
       "ja": "公式の",
       "ca": "oficial",
-      "ko": "공식의"
+      "ko": "공식의",
+      "la": "officialis",
+      "eo": "oficiala"
     },
     {
       "term": "compania",
@@ -3582,7 +3644,9 @@
       "zh": "公司",
       "ja": "会社",
       "ca": "companyia",
-      "ko": "회사"
+      "ko": "회사",
+      "la": "societas",
+      "eo": "kompanio"
     },
     {
       "term": "ferroviari",
@@ -3596,7 +3660,9 @@
       "zh": "铁路的",
       "ja": "鉄道の",
       "ca": "ferroviari",
-      "ko": "철도의"
+      "ko": "철도의",
+      "la": "ferriviarius",
+      "eo": "fervoja"
     },
     {
       "term": "station",
@@ -3610,7 +3676,9 @@
       "zh": "车站",
       "ja": "駅",
       "ca": "estació",
-      "ko": "역"
+      "ko": "역",
+      "la": "statio",
+      "eo": "stacidomo"
     },
     {
       "term": "organisar",
@@ -3624,7 +3692,9 @@
       "zh": "组织",
       "ja": "整理する",
       "ca": "organitzar",
-      "ko": "조직하다"
+      "ko": "조직하다",
+      "la": "organizare",
+      "eo": "organizi"
     },
     {
       "term": "cafe",
@@ -3638,7 +3708,9 @@
       "zh": "咖啡馆 / 咖啡",
       "ja": "カフェ / コーヒー",
       "ca": "cafe",
-      "ko": "카페 / 커피"
+      "ko": "카페 / 커피",
+      "la": "cafe",
+      "eo": "kafejo"
     },
     {
       "term": "boteca",
@@ -3652,7 +3724,9 @@
       "zh": "商店",
       "ja": "店",
       "ca": "botiga",
-      "ko": "가게"
+      "ko": "가게",
+      "la": "taberna",
+      "eo": "butiko"
     },
     {
       "term": "information",
@@ -3666,7 +3740,9 @@
       "zh": "信息",
       "ja": "情報",
       "ca": "informació",
-      "ko": "정보"
+      "ko": "정보",
+      "la": "informatio",
+      "eo": "informo"
     },
     {
       "term": "passagero",
@@ -3680,7 +3756,9 @@
       "zh": "乘客",
       "ja": "乗客",
       "ca": "passatger",
-      "ko": "승객"
+      "ko": "승객",
+      "la": "viator",
+      "eo": "pasaĝero"
     },
     {
       "term": "viage",
@@ -3694,7 +3772,9 @@
       "zh": "旅行",
       "ja": "旅行",
       "ca": "viatge",
-      "ko": "여행"
+      "ko": "여행",
+      "la": "iter",
+      "eo": "vojaĝo"
     },
     {
       "term": "leger",
@@ -3708,7 +3788,9 @@
       "zh": "阅读",
       "ja": "読む",
       "ca": "llegir",
-      "ko": "읽다"
+      "ko": "읽다",
+      "la": "legere",
+      "eo": "legi"
     },
     {
       "term": "musica",
@@ -3722,7 +3804,9 @@
       "zh": "音乐",
       "ja": "音楽",
       "ca": "música",
-      "ko": "음악"
+      "ko": "음악",
+      "la": "musica",
+      "eo": "muziko"
     },
     {
       "term": "passar",
@@ -3736,7 +3820,9 @@
       "zh": "经过 / 发生",
       "ja": "過ごす / 起こる",
       "ca": "passar",
-      "ko": "지나가다 / 일어나다"
+      "ko": "지나가다 / 일어나다",
+      "la": "transire",
+      "eo": "pasi"
     },
     {
       "term": "tempore",
@@ -3750,7 +3836,9 @@
       "zh": "时间",
       "ja": "時間",
       "ca": "temps",
-      "ko": "시간"
+      "ko": "시간",
+      "la": "tempus",
+      "eo": "tempo"
     }
   ],
   "lection10": [
@@ -3766,7 +3854,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "ad",
+      "eo": "al"
     },
     {
       "term": "fin de septimana",
@@ -3780,7 +3870,9 @@
       "zh": "周末",
       "ja": "週末",
       "ca": "cap de setmana",
-      "ko": "주말"
+      "ko": "주말",
+      "la": "finis septimanae",
+      "eo": "semajnfino"
     },
     {
       "term": "amicos",
@@ -3794,7 +3886,9 @@
       "zh": "朋友",
       "ja": "友達",
       "ca": "amics",
-      "ko": "친구들"
+      "ko": "친구들",
+      "la": "amici",
+      "eo": "amikoj"
     },
     {
       "term": "applicationes",
@@ -3808,7 +3902,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "applicationes",
+      "eo": "aplikaĵoj"
     },
     {
       "term": "automatisationes",
@@ -3822,7 +3918,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "automatisationes",
+      "eo": "aŭtomatigoj"
     },
     {
       "term": "tempore libere",
@@ -3836,7 +3934,9 @@
       "zh": "空闲时间",
       "ja": "自由時間",
       "ca": "temps lliure",
-      "ko": "자유 시간"
+      "ko": "자유 시간",
+      "la": "tempus liberum",
+      "eo": "libera tempo"
     },
     {
       "term": "bibe",
@@ -3850,7 +3950,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "bibe",
+      "eo": "trinku"
     },
     {
       "term": "caffe",
@@ -3864,7 +3966,9 @@
       "zh": "咖啡",
       "ja": "コーヒー",
       "ca": "cafè",
-      "ko": "커피"
+      "ko": "커피",
+      "la": "cafea",
+      "eo": "kafo"
     },
     {
       "term": "codifica",
@@ -3878,7 +3982,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "codificatio",
+      "eo": "kodado"
     },
     {
       "term": "codificar",
@@ -3892,7 +3998,9 @@
       "zh": "编码 / 编程",
       "ja": "コーディングする / プログラムする",
       "ca": "codificar / programar",
-      "ko": "코딩하다 / 프로그래밍하다"
+      "ko": "코딩하다 / 프로그래밍하다",
+      "la": "codificare",
+      "eo": "kodi"
     },
     {
       "term": "con",
@@ -3906,7 +4014,9 @@
       "zh": "和",
       "ja": "と",
       "ca": "amb",
-      "ko": "와/과"
+      "ko": "와/과",
+      "la": "cum",
+      "eo": "kun"
     },
     {
       "term": "construente",
@@ -3920,7 +4030,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "aedificans",
+      "eo": "konstruanta"
     },
     {
       "term": "de",
@@ -3934,7 +4046,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "de",
+      "eo": "de"
     },
     {
       "term": "del",
@@ -3948,7 +4062,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "de",
+      "eo": "de la"
     },
     {
       "term": "discute",
@@ -3962,7 +4078,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "discutere",
+      "eo": "diskuti"
     },
     {
       "term": "durante",
@@ -3976,7 +4094,9 @@
       "zh": "在…期间",
       "ja": "〜の間に",
       "ca": "durant",
-      "ko": "동안"
+      "ko": "동안",
+      "la": "per",
+      "eo": "dum"
     },
     {
       "term": "e",
@@ -3990,7 +4110,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "et",
+      "eo": "kaj"
     },
     {
       "term": "es",
@@ -4004,7 +4126,9 @@
       "zh": "是",
       "ja": "です",
       "ca": "és",
-      "ko": "이다"
+      "ko": "이다",
+      "la": "est",
+      "eo": "estas"
     },
     {
       "term": "explora",
@@ -4018,7 +4142,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "explora",
+      "eo": "esploru"
     },
     {
       "term": "facilita",
@@ -4032,7 +4158,9 @@
       "zh": "促进 / 使更容易",
       "ja": "容易にする",
       "ca": "facilitar",
-      "ko": "용이하게 하다"
+      "ko": "용이하게 하다",
+      "la": "facilitare",
+      "eo": "faciligi"
     },
     {
       "term": "fin",
@@ -4046,7 +4174,9 @@
       "zh": "结束",
       "ja": "終わり",
       "ca": "fi",
-      "ko": "끝"
+      "ko": "끝",
+      "la": "finis",
+      "eo": "fino"
     },
     {
       "term": "football",
@@ -4060,7 +4190,9 @@
       "zh": "足球",
       "ja": "サッカー",
       "ca": "futbol",
-      "ko": "축구"
+      "ko": "축구",
+      "la": "pedifollis",
+      "eo": "futbalo"
     },
     {
       "term": "ha",
@@ -4074,7 +4206,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "habet",
+      "eo": "havas"
     },
     {
       "term": "ideas",
@@ -4088,7 +4222,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "ideae",
+      "eo": "ideoj"
     },
     {
       "term": "in",
@@ -4102,7 +4238,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "in",
+      "eo": "en"
     },
     {
       "term": "instrumentos",
@@ -4116,7 +4254,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "instrumenta",
+      "eo": "instrumentoj"
     },
     {
       "term": "io",
@@ -4130,7 +4270,9 @@
       "zh": "我",
       "ja": "私",
       "ca": "Jo",
-      "ko": "나"
+      "ko": "나",
+      "la": "ego",
+      "eo": "mi"
     },
     {
       "term": "JavaScript",
@@ -4144,7 +4286,9 @@
       "zh": "JavaScript（编程语言）",
       "ja": "JavaScript（プログラミング言語）",
       "ca": "JavaScript (llenguatge de programació)",
-      "ko": "JavaScript (프로그래밍 언어)"
+      "ko": "JavaScript (프로그래밍 언어)",
+      "la": "JavaScript",
+      "eo": "JavaScript"
     },
     {
       "term": "joca",
@@ -4158,7 +4302,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "ludit",
+      "eo": "ludas"
     },
     {
       "term": "jocar",
@@ -4172,7 +4318,9 @@
       "zh": "玩",
       "ja": "遊ぶ",
       "ca": "jugar",
-      "ko": "놀다"
+      "ko": "놀다",
+      "la": "ludere",
+      "eo": "ludi"
     },
     {
       "term": "joco",
@@ -4186,7 +4334,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "ludus",
+      "eo": "ludo"
     },
     {
       "term": "le",
@@ -4200,7 +4350,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "ille",
+      "eo": "la"
     },
     {
       "term": "leger",
@@ -4214,7 +4366,9 @@
       "zh": "阅读",
       "ja": "読む",
       "ca": "llegir",
-      "ko": "읽다"
+      "ko": "읽다",
+      "la": "legere",
+      "eo": "legi"
     },
     {
       "term": "libere",
@@ -4228,7 +4382,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "liber",
+      "eo": "libera"
     },
     {
       "term": "libros",
@@ -4242,7 +4398,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "libri",
+      "eo": "libroj"
     },
     {
       "term": "local",
@@ -4256,7 +4414,9 @@
       "zh": "地点 / 场所",
       "ja": "店舗 / 場所",
       "ca": "local",
-      "ko": "장소 / 가게"
+      "ko": "장소 / 가게",
+      "la": "locus",
+      "eo": "loko"
     },
     {
       "term": "matino",
@@ -4270,7 +4430,9 @@
       "zh": "早上",
       "ja": "朝",
       "ca": "matí",
-      "ko": "아침"
+      "ko": "아침",
+      "la": "mane",
+      "eo": "mateno"
     },
     {
       "term": "mi",
@@ -4284,7 +4446,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "me",
+      "eo": "min"
     },
     {
       "term": "musica",
@@ -4298,7 +4462,9 @@
       "zh": "音乐",
       "ja": "音楽",
       "ca": "música",
-      "ko": "음악"
+      "ko": "음악",
+      "la": "musica",
+      "eo": "muziko"
     },
     {
       "term": "nos",
@@ -4312,7 +4478,9 @@
       "zh": "我们",
       "ja": "私たち",
       "ca": "nosaltres",
-      "ko": "우리"
+      "ko": "우리",
+      "la": "nos",
+      "eo": "ni"
     },
     {
       "term": "nove",
@@ -4326,7 +4494,9 @@
       "zh": "九",
       "ja": "九",
       "ca": "nou",
-      "ko": "아홉"
+      "ko": "아홉",
+      "la": "novem",
+      "eo": "naŭ"
     },
     {
       "term": "parco",
@@ -4340,7 +4510,9 @@
       "zh": "公园",
       "ja": "公園",
       "ca": "parc",
-      "ko": "공원"
+      "ko": "공원",
+      "la": "parcus",
+      "eo": "parko"
     },
     {
       "term": "passatempore",
@@ -4354,7 +4526,9 @@
       "zh": "爱好",
       "ja": "趣味",
       "ca": "passatemps",
-      "ko": "취미"
+      "ko": "취미",
+      "la": "otium",
+      "eo": "ŝatokupo"
     },
     {
       "term": "plus",
@@ -4368,7 +4542,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "plus",
+      "eo": "pli"
     },
     {
       "term": "post",
@@ -4382,7 +4558,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "post",
+      "eo": "post"
     },
     {
       "term": "practica",
@@ -4396,7 +4574,9 @@
       "zh": "练习",
       "ja": "練習",
       "ca": "pràctica",
-      "ko": "연습"
+      "ko": "연습",
+      "la": "exercitatio",
+      "eo": "praktiko"
     },
     {
       "term": "principal",
@@ -4410,7 +4590,9 @@
       "zh": "主要的",
       "ja": "主な",
       "ca": "principal",
-      "ko": "주요한"
+      "ko": "주요한",
+      "la": "principalis",
+      "eo": "ĉefa"
     },
     {
       "term": "projectos",
@@ -4424,7 +4606,9 @@
       "zh": "",
       "ja": "",
       "ca": "",
-      "ko": ""
+      "ko": "",
+      "la": "projecta",
+      "eo": "projektoj"
     },
     {
       "term": "quando",
@@ -4438,7 +4622,9 @@
       "zh": "当…时候",
       "ja": "いつ",
       "ca": "quan",
-      "ko": "언제"
+      "ko": "언제",
+      "la": "quando",
+      "eo": "kiam"
     },
     {
       "term": "que",
@@ -4452,7 +4638,9 @@
       "zh": "那 / 哪个",
       "ja": "それ / どの",
       "ca": "que",
-      "ko": "그 / 어떤"
+      "ko": "그 / 어떤",
+      "la": "quod",
+      "eo": "ke"
     },
     {
       "term": "quotidian",
@@ -4466,7 +4654,9 @@
       "zh": "日常的",
       "ja": "日常の",
       "ca": "quotidià",
-      "ko": "일상의"
+      "ko": "일상의",
+      "la": "cotidianus",
+      "eo": "ĉiutaga"
     },
     {
       "term": "septimana",
@@ -4480,7 +4670,9 @@
       "zh": "星期 / 周",
       "ja": "週",
       "ca": "setmana",
-      "ko": "주"
+      "ko": "주",
+      "la": "septimana",
+      "eo": "semajno"
     },
     {
       "term": "studio",
@@ -4494,7 +4686,9 @@
       "zh": "工作室 / 房间",
       "ja": "スタジオ / 部屋",
       "ca": "estudi / sala",
-      "ko": "스튜디오 / 방"
+      "ko": "스튜디오 / 방",
+      "la": "studium",
+      "eo": "studio"
     },
     {
       "term": "subjectos",
@@ -4508,7 +4702,9 @@
       "zh": "主题，科目",
       "ja": "主題、科目",
       "ca": "temes, matèries",
-      "ko": "주제, 과목"
+      "ko": "주제, 과목",
+      "la": "argumenta",
+      "eo": "temoj"
     },
     {
       "term": "technologia",
@@ -4522,7 +4718,9 @@
       "zh": "技术",
       "ja": "技術",
       "ca": "tecnologia",
-      "ko": "기술"
+      "ko": "기술",
+      "la": "technologia",
+      "eo": "teknologio"
     },
     {
       "term": "tempore",
@@ -4536,7 +4734,9 @@
       "zh": "时间",
       "ja": "時間",
       "ca": "temps",
-      "ko": "시간"
+      "ko": "시간",
+      "la": "tempus",
+      "eo": "tempo"
     },
     {
       "term": "un",
@@ -4550,7 +4750,9 @@
       "zh": "一",
       "ja": "一",
       "ca": "un",
-      "ko": "하나"
+      "ko": "하나",
+      "la": "unus",
+      "eo": "unu"
     },
     {
       "term": "vita",
@@ -4564,7 +4766,9 @@
       "zh": "生活",
       "ja": "生活",
       "ca": "vida",
-      "ko": "삶"
+      "ko": "삶",
+      "la": "vita",
+      "eo": "vivo"
     },
     {
       "term": "web",
@@ -4578,7 +4782,9 @@
       "zh": "网络",
       "ja": "ウェブ",
       "ca": "web",
-      "ko": "웹"
+      "ko": "웹",
+      "la": "rete",
+      "eo": "reto"
     },
     {
       "term": "projecto",
@@ -4592,7 +4798,9 @@
       "zh": "项目",
       "ja": "プロジェクト",
       "ca": "projecte",
-      "ko": "프로젝트"
+      "ko": "프로젝트",
+      "la": "projectum",
+      "eo": "projekto"
     },
     {
       "term": "amicos",
@@ -4606,7 +4814,9 @@
       "zh": "朋友",
       "ja": "友達",
       "ca": "amics",
-      "ko": "친구들"
+      "ko": "친구들",
+      "la": "amici",
+      "eo": "amikoj"
     },
     {
       "term": "biber",
@@ -4620,7 +4830,9 @@
       "zh": "喝",
       "ja": "飲む",
       "ca": "beure",
-      "ko": "마시다"
+      "ko": "마시다",
+      "la": "bibere",
+      "eo": "trinki"
     },
     {
       "term": "subjecto",
@@ -4634,7 +4846,9 @@
       "zh": "主题",
       "ja": "主題",
       "ca": "subjecte",
-      "ko": "주제"
+      "ko": "주제",
+      "la": "argumentum",
+      "eo": "temo"
     },
     {
       "term": "technologia",
@@ -4648,7 +4862,9 @@
       "zh": "技术",
       "ja": "技術",
       "ca": "tecnologia",
-      "ko": "기술"
+      "ko": "기술",
+      "la": "technologia",
+      "eo": "teknologio"
     },
     {
       "term": "innovative",
@@ -4662,7 +4878,9 @@
       "zh": "创新的",
       "ja": "革新的な",
       "ca": "innovador",
-      "ko": "혁신적인"
+      "ko": "혁신적인",
+      "la": "innovativus",
+      "eo": "noviga"
     },
     {
       "term": "idea",
@@ -4676,7 +4894,9 @@
       "zh": "想法",
       "ja": "アイデア",
       "ca": "idea",
-      "ko": "아이디어"
+      "ko": "아이디어",
+      "la": "idea",
+      "eo": "ideo"
     },
     {
       "term": "Python",
@@ -4690,7 +4910,9 @@
       "zh": "Python（编程语言）",
       "ja": "Python（プログラミング言語）",
       "ca": "Python (llenguatge de programació)",
-      "ko": "Python (프로그래밍 언어)"
+      "ko": "Python (프로그래밍 언어)",
+      "la": "Python",
+      "eo": "Python"
     },
     {
       "term": "application web",
@@ -4704,7 +4926,9 @@
       "zh": "网络应用",
       "ja": "ウェブアプリケーション",
       "ca": "aplicació web",
-      "ko": "웹 애플리케이션"
+      "ko": "웹 애플리케이션",
+      "la": "applicatio interretialis",
+      "eo": "reta aplikaĵo"
     },
     {
       "term": "automatisation",
@@ -4718,7 +4942,9 @@
       "zh": "自动化",
       "ja": "自動化",
       "ca": "automatització",
-      "ko": "자동화"
+      "ko": "자동화",
+      "la": "automatio",
+      "eo": "aŭtomatigo"
     },
     {
       "term": "facilita",
@@ -4732,7 +4958,9 @@
       "zh": "促进 / 使更容易",
       "ja": "容易にする",
       "ca": "facilitar",
-      "ko": "용이하게 하다"
+      "ko": "용이하게 하다",
+      "la": "facilitare",
+      "eo": "faciligi"
     },
     {
       "term": "vita quotidian",
@@ -4746,7 +4974,9 @@
       "zh": "日常生活",
       "ja": "日常生活",
       "ca": "vida quotidiana",
-      "ko": "일상 생활"
+      "ko": "일상 생활",
+      "la": "vita cotidiana",
+      "eo": "ĉiutaga vivo"
     },
     {
       "term": "explorar",
@@ -4760,7 +4990,9 @@
       "zh": "探索",
       "ja": "探検する",
       "ca": "explorar",
-      "ko": "탐험하다"
+      "ko": "탐험하다",
+      "la": "explorare",
+      "eo": "esplori"
     },
     {
       "term": "instrumento",
@@ -4774,7 +5006,9 @@
       "zh": "乐器 / 工具",
       "ja": "楽器 / 器具",
       "ca": "instrument",
-      "ko": "도구 / 악기"
+      "ko": "도구 / 악기",
+      "la": "instrumentum",
+      "eo": "instrumento"
     }
   ],
   "basico1": [
