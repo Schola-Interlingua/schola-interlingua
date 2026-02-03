@@ -1010,9 +1010,15 @@ h2 {
 
   .dropdown-menu {
     position: static;
-    box-shadow: none;
-    border: none;
-    background: transparent;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block !important;
   }
 
   .exercise-grid {
@@ -1139,23 +1145,34 @@ a:not(.btn):not(.nav-brand):not(.footer-link):hover {
 
   .dropdown-menu {
     position: static;
-    box-shadow: none;
-    border: none;
-    background: transparent;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
     animation: none;
   }
 
+  .dropdown.open .dropdown-menu {
+    display: block !important;
+  }
+
   .dropdown-menu li a {
-    padding: 0.5rem 1rem;
-    border-bottom: none;
-    background: rgba(255, 255, 255, 0.1);
-    margin-bottom: 0.25rem;
-    border-radius: var(--radius-sm);
+    padding: 0.8rem 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+    background: transparent;
+    margin-bottom: 0;
+    border-radius: 0;
+    color: var(--text-color);
   }
 
   .dropdown-menu li a:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.05);
     transform: none;
+  }
+
+  .dropdown-menu li:last-child a {
+    border-bottom: none;
   }
 
   .exercise-grid {
