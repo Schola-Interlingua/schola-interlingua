@@ -179,7 +179,10 @@ function syncThemeTogglePlacement() {
 function initDropdownAccessibility() {
   document.querySelectorAll('.dropdown > a').forEach(trigger => {
     trigger.addEventListener('click', e => {
-      e.preventDefault();
+      const isMobile = window.matchMedia('(max-width: 600px)').matches;
+      if (isMobile || trigger.getAttribute('href') === '#') {
+        e.preventDefault();
+      }
       const li = trigger.parentElement;
       li.classList.toggle('open');
     });
@@ -238,9 +241,15 @@ function initMobileNav() {
 
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      if (window.matchMedia('(max-width: 600px)').matches) {
-        closeMenu();
+      if (!window.matchMedia('(max-width: 600px)').matches) {
+        return;
       }
+      const dropdown = link.closest('.dropdown');
+      const isTrigger = dropdown && dropdown.querySelector(':scope > a') === link;
+      if (isTrigger) {
+        return;
+      }
+      closeMenu();
     });
   });
 
