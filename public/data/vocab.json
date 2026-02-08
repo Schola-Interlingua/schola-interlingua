@@ -18336,7 +18336,9 @@
       "zh": "虽然",
       "ja": "〜だけれども",
       "ca": "encara que",
-      "ko": "비록 ~일지라도"
+      "ko": "비록 ~일지라도",
+      "la": "quamquam",
+      "eo": "kvankam"
     },
     {
       "term": "ancora",
@@ -18350,7 +18352,9 @@
       "zh": "仍然",
       "ja": "まだ",
       "ca": "encara",
-      "ko": "아직"
+      "ko": "아직",
+      "la": "adhuc",
+      "eo": "ankoraŭ"
     },
     {
       "term": "al summitate",
@@ -18364,7 +18368,9 @@
       "zh": "在顶部",
       "ja": "頂上で",
       "ca": "al cim",
-      "ko": "정상에서"
+      "ko": "정상에서",
+      "la": "in summo",
+      "eo": "supre"
     },
     {
       "term": "basso",
@@ -18378,7 +18384,9 @@
       "zh": "低的",
       "ja": "低い",
       "ca": "baix",
-      "ko": "낮은"
+      "ko": "낮은",
+      "la": "deorsum",
+      "eo": "malsupre"
     },
     {
       "term": "aliquando",
@@ -18392,7 +18400,9 @@
       "zh": "有时",
       "ja": "時々",
       "ca": "de vegades",
-      "ko": "가끔"
+      "ko": "가끔",
+      "la": "interdum",
+      "eo": "foje"
     },
     {
       "term": "circum",
@@ -18406,7 +18416,9 @@
       "zh": "周围",
       "ja": "〜の周りに",
       "ca": "al voltant de",
-      "ko": "~주위에"
+      "ko": "~주위에",
+      "la": "circum",
+      "eo": "ĉirkaŭ"
     },
     {
       "term": "melio",
@@ -18420,7 +18432,9 @@
       "zh": "更好",
       "ja": "より良い",
       "ca": "millor",
-      "ko": "더 나은"
+      "ko": "더 나은",
+      "la": "melius",
+      "eo": "pli bone"
     },
     {
       "term": "supra toto",
@@ -18434,7 +18448,9 @@
       "zh": "特别是",
       "ja": "特に",
       "ca": "especialment",
-      "ko": "특히"
+      "ko": "특히",
+      "la": "praesertim",
+      "eo": "precipe"
     },
     {
       "term": "tanto",
@@ -18448,7 +18464,9 @@
       "zh": "这么多",
       "ja": "そんなに",
       "ca": "tant",
-      "ko": "그렇게 많이"
+      "ko": "그렇게 많이",
+      "la": "tantum",
+      "eo": "tiom"
     },
     {
       "term": "assi",
@@ -18462,7 +18480,9 @@
       "zh": "所以",
       "ja": "だから",
       "ca": "així que",
-      "ko": "그래서"
+      "ko": "그래서",
+      "la": "ita",
+      "eo": "do"
     },
     {
       "term": "finalmente",
@@ -18476,7 +18496,9 @@
       "zh": "终于",
       "ja": "ついに",
       "ca": "finalment",
-      "ko": "마침내"
+      "ko": "마침내",
+      "la": "denique",
+      "eo": "fine"
     },
     {
       "term": "minus",
@@ -18490,7 +18512,9 @@
       "zh": "更少",
       "ja": "より少ない",
       "ca": "menys",
-      "ko": "덜"
+      "ko": "덜",
+      "la": "minus",
+      "eo": "malpli"
     },
     {
       "term": "jamais",
@@ -18504,7 +18528,9 @@
       "zh": "从不",
       "ja": "決して〜ない",
       "ca": "mai",
-      "ko": "절대"
+      "ko": "절대",
+      "la": "numquam",
+      "eo": "neniam"
     },
     {
       "term": "solo",
@@ -18518,7 +18544,9 @@
       "zh": "只",
       "ja": "〜だけ",
       "ca": "només",
-      "ko": "오직"
+      "ko": "오직",
+      "la": "solum",
+      "eo": "nur"
     },
     {
       "term": "mal",
@@ -18532,7 +18560,9 @@
       "zh": "差地",
       "ja": "悪く",
       "ca": "malament",
-      "ko": "나쁘게"
+      "ko": "나쁘게",
+      "la": "male",
+      "eo": "malbone"
     },
     {
       "term": "totevia",
@@ -18546,7 +18576,9 @@
       "zh": "无论如何",
       "ja": "とにかく",
       "ca": "de tota manera",
-      "ko": "어쨌든"
+      "ko": "어쨌든",
+      "la": "tamen",
+      "eo": "tamen"
     },
     {
       "term": "intertanto",
@@ -18560,7 +18592,9 @@
       "zh": "与此同时",
       "ja": "その間に",
       "ca": "mentrestant",
-      "ko": "그동안에"
+      "ko": "그동안에",
+      "la": "interim",
+      "eo": "dume"
     },
     {
       "term": "plus tosto",
@@ -18574,7 +18608,9 @@
       "zh": "宁愿",
       "ja": "むしろ",
       "ca": "més aviat",
-      "ko": "오히려"
+      "ko": "오히려",
+      "la": "potius",
+      "eo": "prefere"
     },
     {
       "term": "vermente",
@@ -18588,7 +18624,9 @@
       "zh": "真的",
       "ja": "本当に",
       "ca": "realment",
-      "ko": "정말로"
+      "ko": "정말로",
+      "la": "vere",
+      "eo": "vere"
     },
     {
       "term": "justo",
@@ -18602,7 +18640,9 @@
       "zh": "只是",
       "ja": "ただ",
       "ca": "només",
-      "ko": "단지"
+      "ko": "단지",
+      "la": "iuste",
+      "eo": "ĝuste"
     },
     {
       "term": "falso",
@@ -18616,7 +18656,9 @@
       "zh": "假的",
       "ja": "偽の",
       "ca": "fals",
-      "ko": "거짓된"
+      "ko": "거짓된",
+      "la": "false",
+      "eo": "false"
     },
     {
       "term": "tam ben",
@@ -18630,7 +18672,9 @@
       "zh": "也一样好",
       "ja": "同様にうまく",
       "ca": "igual de bé",
-      "ko": "마찬가지로 잘"
+      "ko": "마찬가지로 잘",
+      "la": "etiam",
+      "eo": "ankaŭ"
     },
     {
       "term": "nec me",
@@ -18644,7 +18688,9 @@
       "zh": "我也不",
       "ja": "私も〜ない",
       "ca": "jo tampoc",
-      "ko": "나도 아니야"
+      "ko": "나도 아니야",
+      "la": "nec",
+      "eo": "nek"
     },
     {
       "term": "ultra",
@@ -18658,7 +18704,9 @@
       "zh": "超出；更多",
       "ja": "さらに；超えて",
       "ca": "més enllà; més",
-      "ko": "더; 넘어서"
+      "ko": "더; 넘어서",
+      "la": "ultra",
+      "eo": "krome"
     },
     {
       "term": "notorimente",
@@ -18672,7 +18720,9 @@
       "zh": "众所周知地",
       "ja": "悪名高く",
       "ca": "notòriament",
-      "ko": "악명 높게"
+      "ko": "악명 높게",
+      "la": "notorie",
+      "eo": "evidente"
     },
     {
       "term": "particularmente",
@@ -18686,7 +18736,9 @@
       "zh": "特别地",
       "ja": "特に",
       "ca": "particularment",
-      "ko": "특히"
+      "ko": "특히",
+      "la": "particulariter",
+      "eo": "aparte"
     },
     {
       "term": "ecce",
@@ -18700,7 +18752,9 @@
       "zh": "看这",
       "ja": "ほら",
       "ca": "vet aquí",
-      "ko": "여기 있다"
+      "ko": "여기 있다",
+      "la": "ecce",
+      "eo": "jen"
     },
     {
       "term": "quando",
@@ -18714,7 +18768,9 @@
       "zh": "当…的时候",
       "ja": "〜の時に；〜している間に",
       "ca": "quan; mentre",
-      "ko": "언제; 동안에"
+      "ko": "언제; 동안에",
+      "la": "quando",
+      "eo": "kiam"
     },
     {
       "term": "magis",
@@ -18728,7 +18784,9 @@
       "zh": "更多",
       "ja": "もっと",
       "ca": "més",
-      "ko": "더"
+      "ko": "더",
+      "la": "magis",
+      "eo": "pli"
     }
   ],
   "verbos5": [
@@ -18744,7 +18802,9 @@
       "zh": "重要；进口",
       "ja": "重要である；輸入する",
       "ca": "importar",
-      "ko": "중요하다; 수입하다"
+      "ko": "중요하다; 수입하다",
+      "la": "importare",
+      "eo": "gravi; importi"
     },
     {
       "term": "effortiar se",
@@ -18758,7 +18818,9 @@
       "zh": "努力；尝试",
       "ja": "努力する；試みる",
       "ca": "esforçar-se; intentar",
-      "ko": "노력하다; 시도하다"
+      "ko": "노력하다; 시도하다",
+      "la": "conari",
+      "eo": "klopodi"
     },
     {
       "term": "jocar",
@@ -18772,7 +18834,9 @@
       "zh": "玩（游戏、运动、角色）",
       "ja": "遊ぶ；演じる",
       "ca": "jugar (joc, esport, paper)",
-      "ko": "놀다; 연기하다"
+      "ko": "놀다; 연기하다",
+      "la": "ludere",
+      "eo": "ludi"
     },
     {
       "term": "quitar",
@@ -18786,7 +18850,9 @@
       "zh": "离开；放弃",
       "ja": "去る；やめる",
       "ca": "deixar; marxar",
-      "ko": "떠나다; 그만두다"
+      "ko": "떠나다; 그만두다",
+      "la": "relinquere",
+      "eo": "forlasi; ĉesi"
     },
     {
       "term": "depender",
@@ -18800,7 +18866,9 @@
       "zh": "依赖",
       "ja": "依存する",
       "ca": "dependre",
-      "ko": "의존하다"
+      "ko": "의존하다",
+      "la": "pendere ab",
+      "eo": "dependi"
     },
     {
       "term": "laborar",
@@ -18814,7 +18882,9 @@
       "zh": "工作",
       "ja": "働く",
       "ca": "treballar",
-      "ko": "일하다"
+      "ko": "일하다",
+      "la": "laborare",
+      "eo": "labori"
     },
     {
       "term": "usar",
@@ -18828,7 +18898,9 @@
       "zh": "使用",
       "ja": "使う",
       "ca": "usar",
-      "ko": "사용하다"
+      "ko": "사용하다",
+      "la": "uti",
+      "eo": "uzi"
     },
     {
       "term": "ascoltar",
@@ -18842,7 +18914,9 @@
       "zh": "听",
       "ja": "聞く",
       "ca": "escoltar",
-      "ko": "듣다"
+      "ko": "듣다",
+      "la": "audire",
+      "eo": "aŭskulti"
     },
     {
       "term": "ducer",
@@ -18856,7 +18930,9 @@
       "zh": "驾驶；引导",
       "ja": "運転する；導く",
       "ca": "conduir; portar",
-      "ko": "운전하다; 이끌다"
+      "ko": "운전하다; 이끌다",
+      "la": "ducere",
+      "eo": "konduki"
     },
     {
       "term": "descender",
@@ -18870,7 +18946,9 @@
       "zh": "下降",
       "ja": "降りる",
       "ca": "baixar",
-      "ko": "내려가다"
+      "ko": "내려가다",
+      "la": "descendere",
+      "eo": "malsupreniri"
     },
     {
       "term": "durar",
@@ -18884,7 +18962,9 @@
       "zh": "持续",
       "ja": "続く",
       "ca": "durar",
-      "ko": "지속되다"
+      "ko": "지속되다",
+      "la": "durare",
+      "eo": "daŭri"
     },
     {
       "term": "dubitar",
@@ -18898,7 +18978,9 @@
       "zh": "怀疑",
       "ja": "疑う",
       "ca": "dubtar",
-      "ko": "의심하다"
+      "ko": "의심하다",
+      "la": "dubitare",
+      "eo": "dubi"
     },
     {
       "term": "exambiar",
@@ -18912,7 +18994,9 @@
       "zh": "交换",
       "ja": "交換する",
       "ca": "intercanviar",
-      "ko": "교환하다"
+      "ko": "교환하다",
+      "la": "commutare",
+      "eo": "interŝanĝi"
     },
     {
       "term": "costar",
@@ -18926,7 +19010,9 @@
       "zh": "花费",
       "ja": "かかる",
       "ca": "costar",
-      "ko": "비용이 들다"
+      "ko": "비용이 들다",
+      "la": "constare",
+      "eo": "kosti"
     },
     {
       "term": "luctar",
@@ -18940,7 +19026,9 @@
       "zh": "斗争",
       "ja": "戦う; もがく",
       "ca": "lluitar",
-      "ko": "싸우다; 투쟁하다"
+      "ko": "싸우다; 투쟁하다",
+      "la": "pugnare",
+      "eo": "lukti"
     },
     {
       "term": "demandar",
@@ -18954,7 +19042,9 @@
       "zh": "询问；请求",
       "ja": "尋ねる；頼む",
       "ca": "demanar; preguntar",
-      "ko": "묻다; 요청하다"
+      "ko": "묻다; 요청하다",
+      "la": "rogare",
+      "eo": "peti"
     },
     {
       "term": "consister",
@@ -18968,7 +19058,9 @@
       "zh": "由…组成",
       "ja": "〜で構成される",
       "ca": "consistir",
-      "ko": "구성되다"
+      "ko": "구성되다",
+      "la": "consistere",
+      "eo": "konsisti"
     },
     {
       "term": "demonstrar",
@@ -18982,7 +19074,9 @@
       "zh": "展示；证明",
       "ja": "示す；証明する",
       "ca": "demostrar; provar",
-      "ko": "증명하다; 보여주다"
+      "ko": "증명하다; 보여주다",
+      "la": "demonstrare",
+      "eo": "montri"
     },
     {
       "term": "corresponder",
@@ -18996,7 +19090,9 @@
       "zh": "对应",
       "ja": "一致する",
       "ca": "correspondre",
-      "ko": "일치하다"
+      "ko": "일치하다",
+      "la": "correspondere",
+      "eo": "korespondi"
     },
     {
       "term": "affirmar",
@@ -19010,7 +19106,9 @@
       "zh": "断言",
       "ja": "断言する",
       "ca": "afirmar",
-      "ko": "단언하다"
+      "ko": "단언하다",
+      "la": "affirmare",
+      "eo": "aserti"
     },
     {
       "term": "prender sol",
@@ -19024,7 +19122,9 @@
       "zh": "晒太阳",
       "ja": "日光浴をする",
       "ca": "prendre el sol",
-      "ko": "일광욕하다"
+      "ko": "일광욕하다",
+      "la": "solem capere",
+      "eo": "sunumi"
     },
     {
       "term": "connecter",
@@ -19038,7 +19138,9 @@
       "zh": "连接",
       "ja": "接続する",
       "ca": "connectar",
-      "ko": "연결하다"
+      "ko": "연결하다",
+      "la": "connectere",
+      "eo": "konekti"
     },
     {
       "term": "accender",
@@ -19052,7 +19154,9 @@
       "zh": "打开（电源）",
       "ja": "電源を入れる",
       "ca": "encendre",
-      "ko": "켜다"
+      "ko": "켜다",
+      "la": "accendere",
+      "eo": "ŝalti"
     },
     {
       "term": "pertiner",
@@ -19066,7 +19170,9 @@
       "zh": "属于",
       "ja": "属する",
       "ca": "pertànyer",
-      "ko": "속하다"
+      "ko": "속하다",
+      "la": "pertinere",
+      "eo": "aparteni"
     },
     {
       "term": "arrivar",
@@ -19080,7 +19186,9 @@
       "zh": "获得",
       "ja": "手に入れる",
       "ca": "obtenir",
-      "ko": "얻다"
+      "ko": "얻다",
+      "la": "advenire",
+      "eo": "alveni"
     },
     {
       "term": "cargar",
@@ -19094,7 +19202,9 @@
       "zh": "装载；充电",
       "ja": "充電する；読み込む",
       "ca": "carregar",
-      "ko": "충전하다; 적재하다"
+      "ko": "충전하다; 적재하다",
+      "la": "onerare",
+      "eo": "ŝargi"
     },
     {
       "term": "representar",
@@ -19108,7 +19218,9 @@
       "zh": "代表",
       "ja": "代表する",
       "ca": "representar",
-      "ko": "대표하다"
+      "ko": "대표하다",
+      "la": "repraesentare",
+      "eo": "reprezenti"
     },
     {
       "term": "reportar",
@@ -19122,7 +19234,9 @@
       "zh": "带回来；归还",
       "ja": "持ち帰る；返す",
       "ca": "retornar; portar de tornada",
-      "ko": "돌려주다; 가져오다"
+      "ko": "돌려주다; 가져오다",
+      "la": "referre",
+      "eo": "raporti"
     },
     {
       "term": "reimbursar",
@@ -19136,7 +19250,9 @@
       "zh": "退款",
       "ja": "払い戻す",
       "ca": "reemborsar",
-      "ko": "환불하다"
+      "ko": "환불하다",
+      "la": "pecuniam restituere",
+      "eo": "repagi"
     },
     {
       "term": "restituer",
@@ -19150,7 +19266,9 @@
       "zh": "归还",
       "ja": "返す",
       "ca": "restituir",
-      "ko": "반환하다"
+      "ko": "반환하다",
+      "la": "restituere",
+      "eo": "redoni"
     },
     {
       "term": "io prefere",
@@ -19164,7 +19282,9 @@
       "zh": "我更喜欢",
       "ja": "私は〜を好む",
       "ca": "jo prefereixo",
-      "ko": "나는 선호한다"
+      "ko": "나는 선호한다",
+      "la": "ego malo",
+      "eo": "mi preferas"
     },
     {
       "term": "tu prefere",
@@ -19178,7 +19298,9 @@
       "zh": "你更喜欢",
       "ja": "あなたは好む",
       "ca": "tu prefereixes",
-      "ko": "너는 선호한다"
+      "ko": "너는 선호한다",
+      "la": "tu mavis",
+      "eo": "vi preferas"
     },
     {
       "term": "ille prefere",
@@ -19192,7 +19314,9 @@
       "zh": "他更喜欢",
       "ja": "彼は好む",
       "ca": "ell prefereix",
-      "ko": "그는 선호한다"
+      "ko": "그는 선호한다",
+      "la": "ille mavult",
+      "eo": "li preferas"
     },
     {
       "term": "nos prefere",
@@ -19206,7 +19330,9 @@
       "zh": "我们更喜欢",
       "ja": "私たちは好む",
       "ca": "nosaltres preferim",
-      "ko": "우리는 선호한다"
+      "ko": "우리는 선호한다",
+      "la": "nos malumus",
+      "eo": "ni preferas"
     },
     {
       "term": "vos prefere",
@@ -19220,7 +19346,9 @@
       "zh": "你们更喜欢",
       "ja": "あなたたちは好む",
       "ca": "vosaltres preferiu",
-      "ko": "여러분은 선호한다"
+      "ko": "여러분은 선호한다",
+      "la": "vos mavultis",
+      "eo": "vi preferas"
     },
     {
       "term": "illes prefere",
@@ -19234,7 +19362,9 @@
       "zh": "他们更喜欢",
       "ja": "彼らは好む",
       "ca": "ells prefereixen",
-      "ko": "그들은 선호한다"
+      "ko": "그들은 선호한다",
+      "la": "illi malunt",
+      "eo": "ili preferas"
     },
     {
       "term": "effortiar se a dormir",
@@ -19248,7 +19378,9 @@
       "zh": "试着睡觉",
       "ja": "寝ようとする",
       "ca": "intentar dormir",
-      "ko": "잠들려고 노력하다"
+      "ko": "잠들려고 노력하다",
+      "la": "conari dormire",
+      "eo": "klopodi dormi"
     },
     {
       "term": "io veni",
@@ -19262,7 +19394,9 @@
       "zh": "我来",
       "ja": "私は来る",
       "ca": "jo vinc",
-      "ko": "나는 온다"
+      "ko": "나는 온다",
+      "la": "ego venio",
+      "eo": "mi venas"
     },
     {
       "term": "tu veni",
@@ -19276,7 +19410,9 @@
       "zh": "你来",
       "ja": "あなたは来る",
       "ca": "tu véns",
-      "ko": "너는 온다"
+      "ko": "너는 온다",
+      "la": "tu venis",
+      "eo": "vi venas"
     },
     {
       "term": "ille veni",
@@ -19290,7 +19426,9 @@
       "zh": "他来",
       "ja": "彼は来る",
       "ca": "ell ve",
-      "ko": "그는 온다"
+      "ko": "그는 온다",
+      "la": "ille venit",
+      "eo": "li venas"
     },
     {
       "term": "nos veni",
@@ -19304,7 +19442,9 @@
       "zh": "我们来",
       "ja": "私たちは来る",
       "ca": "nosaltres venim",
-      "ko": "우리는 온다"
+      "ko": "우리는 온다",
+      "la": "nos venimus",
+      "eo": "ni venas"
     },
     {
       "term": "vos veni",
@@ -19318,7 +19458,9 @@
       "zh": "你们来",
       "ja": "あなたたちは来る",
       "ca": "vosaltres veniu",
-      "ko": "여러분은 온다"
+      "ko": "여러분은 온다",
+      "la": "vos venitis",
+      "eo": "vi venas"
     },
     {
       "term": "illes veni",
@@ -19332,7 +19474,9 @@
       "zh": "他们来",
       "ja": "彼らは来る",
       "ca": "ells vénen",
-      "ko": "그들은 온다"
+      "ko": "그들은 온다",
+      "la": "illi veniunt",
+      "eo": "ili venas"
     },
     {
       "term": "illo eveni",
@@ -19346,7 +19490,9 @@
       "zh": "这发生了",
       "ja": "それが起こる",
       "ca": "això passa",
-      "ko": "그 일이 일어난다"
+      "ko": "그 일이 일어난다",
+      "la": "id accidit",
+      "eo": "tio okazas"
     }
   ],
   "adverbios2": [
@@ -19362,7 +19508,9 @@
       "zh": "高",
       "ja": "高く",
       "ca": "alt",
-      "ko": "높이"
+      "ko": "높이",
+      "la": "alte",
+      "eo": "alte"
     },
     {
       "term": "basso",
@@ -19376,7 +19524,9 @@
       "zh": "低",
       "ja": "低く",
       "ca": "baix",
-      "ko": "낮게"
+      "ko": "낮게",
+      "la": "deorsum",
+      "eo": "malsupre"
     },
     {
       "term": "aliquando",
@@ -19390,7 +19540,9 @@
       "zh": "有时",
       "ja": "時々",
       "ca": "a vegades",
-      "ko": "때때로"
+      "ko": "때때로",
+      "la": "interdum",
+      "eo": "foje"
     },
     {
       "term": "circum",
@@ -19404,7 +19556,9 @@
       "zh": "周围",
       "ja": "周りに",
       "ca": "al voltant de",
-      "ko": "주위에"
+      "ko": "주위에",
+      "la": "circum",
+      "eo": "ĉirkaŭ"
     },
     {
       "term": "melio",
@@ -19418,7 +19572,9 @@
       "zh": "更好",
       "ja": "より良い",
       "ca": "millor",
-      "ko": "더 나은"
+      "ko": "더 나은",
+      "la": "melius",
+      "eo": "pli bone"
     },
     {
       "term": "super toto",
@@ -19432,7 +19588,9 @@
       "zh": "尤其",
       "ja": "特に",
       "ca": "especialment",
-      "ko": "특히"
+      "ko": "특히",
+      "la": "praesertim",
+      "eo": "precipe"
     },
     {
       "term": "tanto",
@@ -19446,7 +19604,9 @@
       "zh": "那么多",
       "ja": "とても",
       "ca": "tant",
-      "ko": "그렇게 많이"
+      "ko": "그렇게 많이",
+      "la": "tantum",
+      "eo": "tiom"
     },
     {
       "term": "assi",
@@ -19460,7 +19620,9 @@
       "zh": "所以",
       "ja": "だから",
       "ca": "així que",
-      "ko": "그래서"
+      "ko": "그래서",
+      "la": "ita",
+      "eo": "do"
     },
     {
       "term": "finalmente",
@@ -19474,7 +19636,9 @@
       "zh": "终于",
       "ja": "ついに",
       "ca": "finalment",
-      "ko": "마침내"
+      "ko": "마침내",
+      "la": "denique",
+      "eo": "fine"
     },
     {
       "term": "minus",
@@ -19488,7 +19652,9 @@
       "zh": "更少",
       "ja": "より少ない",
       "ca": "menys",
-      "ko": "덜"
+      "ko": "덜",
+      "la": "minus",
+      "eo": "malpli"
     },
     {
       "term": "jamais",
@@ -19502,7 +19668,9 @@
       "zh": "从不",
       "ja": "決して",
       "ca": "mai",
-      "ko": "절대"
+      "ko": "절대",
+      "la": "numquam",
+      "eo": "neniam"
     },
     {
       "term": "solo",
@@ -19516,7 +19684,9 @@
       "zh": "只是",
       "ja": "ただ",
       "ca": "només",
-      "ko": "오직"
+      "ko": "오직",
+      "la": "solum",
+      "eo": "nur"
     },
     {
       "term": "mal",
@@ -19530,7 +19700,9 @@
       "zh": "差地",
       "ja": "悪く",
       "ca": "malament",
-      "ko": "나쁘게"
+      "ko": "나쁘게",
+      "la": "male",
+      "eo": "malbone"
     },
     {
       "term": "comocunque",
@@ -19544,7 +19716,9 @@
       "zh": "无论如何",
       "ja": "とにかく",
       "ca": "de tota manera",
-      "ko": "어쨌든"
+      "ko": "어쨌든",
+      "la": "quocumque modo",
+      "eo": "ĉiuokaze"
     },
     {
       "term": "intertanto",
@@ -19558,7 +19732,9 @@
       "zh": "同时",
       "ja": "その間に",
       "ca": "mentrestant",
-      "ko": "그동안"
+      "ko": "그동안",
+      "la": "interim",
+      "eo": "dume"
     },
     {
       "term": "in vice",
@@ -19572,7 +19748,9 @@
       "zh": "代替",
       "ja": "代わりに",
       "ca": "en lloc d'això",
-      "ko": "대신에"
+      "ko": "대신에",
+      "la": "pro eo",
+      "eo": "anstataŭe"
     },
     {
       "term": "plus tosto",
@@ -19586,7 +19764,9 @@
       "zh": "宁可",
       "ja": "むしろ",
       "ca": "més aviat",
-      "ko": "오히려"
+      "ko": "오히려",
+      "la": "potius",
+      "eo": "prefere"
     },
     {
       "term": "in veritate",
@@ -19600,7 +19780,9 @@
       "zh": "事实上",
       "ja": "実は",
       "ca": "en veritat",
-      "ko": "사실은"
+      "ko": "사실은",
+      "la": "re vera",
+      "eo": "fakte"
     },
     {
       "term": "simplemente",
@@ -19614,7 +19796,9 @@
       "zh": "只是",
       "ja": "単に",
       "ca": "simplement",
-      "ko": "그냥"
+      "ko": "그냥",
+      "la": "simpliciter",
+      "eo": "simple"
     },
     {
       "term": "justo",
@@ -19628,7 +19812,9 @@
       "zh": "正好",
       "ja": "ちょうど",
       "ca": "exactament",
-      "ko": "정확히"
+      "ko": "정확히",
+      "la": "iuste",
+      "eo": "ĝuste"
     },
     {
       "term": "equalmente",
@@ -19642,7 +19828,9 @@
       "zh": "同样地",
       "ja": "同様に",
       "ca": "igualment",
-      "ko": "동등하게"
+      "ko": "동등하게",
+      "la": "aeque",
+      "eo": "egale"
     },
     {
       "term": "specialmente",
@@ -19656,7 +19844,9 @@
       "zh": "特别地",
       "ja": "特に",
       "ca": "especialment",
-      "ko": "특별히"
+      "ko": "특별히",
+      "la": "specialiter",
+      "eo": "speciale"
     },
     {
       "term": "circa",
@@ -19670,7 +19860,9 @@
       "zh": "大约",
       "ja": "約",
       "ca": "aproximadament",
-      "ko": "약"
+      "ko": "약",
+      "la": "circiter",
+      "eo": "ĉirkaŭ"
     },
     {
       "term": "in particular",
@@ -19684,7 +19876,9 @@
       "zh": "特别是",
       "ja": "特に",
       "ca": "en particular",
-      "ko": "특히"
+      "ko": "특히",
+      "la": "in particulari",
+      "eo": "aparte"
     },
     {
       "term": "magis",
@@ -19698,7 +19892,9 @@
       "zh": "更多",
       "ja": "もっと",
       "ca": "més",
-      "ko": "더"
+      "ko": "더",
+      "la": "magis",
+      "eo": "pli"
     },
     {
       "term": "al minus",
@@ -19712,7 +19908,9 @@
       "zh": "至少",
       "ja": "少なくとも",
       "ca": "com a mínim",
-      "ko": "적어도"
+      "ko": "적어도",
+      "la": "saltem",
+      "eo": "almenaŭ"
     },
     {
       "term": "ab ora in pois",
@@ -19726,7 +19924,9 @@
       "zh": "从现在起",
       "ja": "これからは",
       "ca": "a partir d'ara",
-      "ko": "지금부터"
+      "ko": "지금부터",
+      "la": "ex nunc",
+      "eo": "ekde nun"
     },
     {
       "term": "rapidamente",
@@ -19740,7 +19940,9 @@
       "zh": "快速地",
       "ja": "速く",
       "ca": "ràpidament",
-      "ko": "빠르게"
+      "ko": "빠르게",
+      "la": "celeriter",
+      "eo": "rapide"
     },
     {
       "term": "obviamente",
@@ -19754,7 +19956,9 @@
       "zh": "显然",
       "ja": "明らかに",
       "ca": "òbviament",
-      "ko": "분명히"
+      "ko": "분명히",
+      "la": "evidenter",
+      "eo": "evidente"
     },
     {
       "term": "exactamente",
@@ -19768,7 +19972,9 @@
       "zh": "正是",
       "ja": "まさに",
       "ca": "exactament",
-      "ko": "정확히"
+      "ko": "정확히",
+      "la": "exacte",
+      "eo": "ekzakte"
     },
     {
       "term": "naturalmente non",
@@ -19782,7 +19988,9 @@
       "zh": "当然不是",
       "ja": "もちろん違う",
       "ca": "és clar que no",
-      "ko": "물론 아니지"
+      "ko": "물론 아니지",
+      "la": "certe non",
+      "eo": "kompreneble ne"
     }
   ],
   "occupationes": [
