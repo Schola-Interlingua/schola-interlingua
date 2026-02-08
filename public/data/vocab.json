@@ -21676,7 +21676,9 @@
       "zh": "完美地",
       "ja": "完璧に",
       "ca": "perfectament",
-      "ko": "완벽하게"
+      "ko": "완벽하게",
+      "la": "perfecte",
+      "eo": "perfekte"
     },
     {
       "term": "totevia",
@@ -21690,7 +21692,9 @@
       "zh": "然而",
       "ja": "しかし",
       "ca": "tanmateix",
-      "ko": "그러나"
+      "ko": "그러나",
+      "la": "tamen",
+      "eo": "tamen"
     },
     {
       "term": "infra",
@@ -21704,7 +21708,9 @@
       "zh": "下面",
       "ja": "下に",
       "ca": "a sota",
-      "ko": "아래에"
+      "ko": "아래에",
+      "la": "infra",
+      "eo": "sube"
     },
     {
       "term": "directemente",
@@ -21718,7 +21724,9 @@
       "zh": "直接地",
       "ja": "直接に",
       "ca": "directament",
-      "ko": "직접적으로"
+      "ko": "직접적으로",
+      "la": "directe",
+      "eo": "rekte"
     },
     {
       "term": "completemente",
@@ -21732,7 +21740,9 @@
       "zh": "完全地",
       "ja": "完全に",
       "ca": "completament",
-      "ko": "완전히"
+      "ko": "완전히",
+      "la": "complete",
+      "eo": "komplete"
     },
     {
       "term": "normalmente",
@@ -21746,7 +21756,9 @@
       "zh": "通常",
       "ja": "普通は",
       "ca": "normalment",
-      "ko": "보통은"
+      "ko": "보통은",
+      "la": "normaliter",
+      "eo": "normale"
     },
     {
       "term": "justo",
@@ -21760,7 +21772,9 @@
       "zh": "正好；准确地；正确地",
       "ja": "ちょうど；正確に；正しく",
       "ca": "just; precisament; correctament",
-      "ko": "바로; 정확히; 올바르게"
+      "ko": "바로; 정확히; 올바르게",
+      "la": "iuste",
+      "eo": "juste"
     },
     {
       "term": "finalmente",
@@ -21774,7 +21788,9 @@
       "zh": "最终；毕竟",
       "ja": "ついに；結局",
       "ca": "finalment; al cap i a la fi",
-      "ko": "결국; 마침내"
+      "ko": "결국; 마침내",
+      "la": "finaliter",
+      "eo": "fine"
     },
     {
       "term": "actualmente",
@@ -21788,7 +21804,9 @@
       "zh": "目前",
       "ja": "現在",
       "ca": "actualment",
-      "ko": "현재"
+      "ko": "현재",
+      "la": "nunc",
+      "eo": "nuntempe"
     },
     {
       "term": "sinon",
@@ -21802,7 +21820,9 @@
       "zh": "否则",
       "ja": "そうでなければ",
       "ca": "si no",
-      "ko": "그렇지 않으면"
+      "ko": "그렇지 않으면",
+      "la": "aliter",
+      "eo": "alie"
     },
     {
       "term": "certo",
@@ -21816,7 +21836,9 @@
       "zh": "当然",
       "ja": "確かに",
       "ca": "certament",
-      "ko": "확실히"
+      "ko": "확실히",
+      "la": "certe",
+      "eo": "certe"
     },
     {
       "term": "absolutamente",
@@ -21830,7 +21852,9 @@
       "zh": "绝对地",
       "ja": "絶対に",
       "ca": "absolutament",
-      "ko": "절대적으로"
+      "ko": "절대적으로",
+      "la": "absolute",
+      "eo": "absolute"
     },
     {
       "term": "un legenda!",
@@ -21844,7 +21868,9 @@
       "zh": "必读之作！",
       "ja": "必読！",
       "ca": "una lectura imprescindible!",
-      "ko": "꼭 읽어야 할 책!"
+      "ko": "꼭 읽어야 할 책!",
+      "la": "legenda!",
+      "eo": "legendo!"
     },
     {
       "term": "relativamente",
@@ -21858,7 +21884,9 @@
       "zh": "相对地",
       "ja": "比較的に",
       "ca": "relativament",
-      "ko": "상대적으로"
+      "ko": "상대적으로",
+      "la": "relative",
+      "eo": "relative"
     },
     {
       "term": "inconsideradamente",
@@ -21872,7 +21900,9 @@
       "zh": "轻率地",
       "ja": "思慮なく",
       "ca": "irreflexivament",
-      "ko": "경솔하게"
+      "ko": "경솔하게",
+      "la": "inconsiderate",
+      "eo": "senpripense"
     },
     {
       "term": "intra",
@@ -21886,7 +21916,9 @@
       "zh": "在…之内",
       "ja": "内に",
       "ca": "dins de",
-      "ko": "내부에"
+      "ko": "내부에",
+      "la": "intra",
+      "eo": "interne"
     },
     {
       "term": "immediatelymente",
@@ -21900,7 +21932,9 @@
       "zh": "立刻",
       "ja": "すぐに",
       "ca": "immediatament",
-      "ko": "즉시"
+      "ko": "즉시",
+      "la": "statim",
+      "eo": "tuj"
     },
     {
       "term": "exactemente",
@@ -21914,7 +21948,9 @@
       "zh": "确切地",
       "ja": "正確に",
       "ca": "exactament",
-      "ko": "정확히"
+      "ko": "정확히",
+      "la": "exacte",
+      "eo": "ekzakte"
     },
     {
       "term": "essentialmente",
@@ -21928,7 +21964,9 @@
       "zh": "基本上",
       "ja": "本質的に",
       "ca": "essencialment",
-      "ko": "본질적으로"
+      "ko": "본질적으로",
+      "la": "essentialiter",
+      "eo": "esence"
     },
     {
       "term": "lentamente",
@@ -21942,7 +21980,9 @@
       "zh": "慢慢地",
       "ja": "ゆっくりと",
       "ca": "lentament",
-      "ko": "천천히"
+      "ko": "천천히",
+      "la": "lente",
+      "eo": "malrapide"
     },
     {
       "term": "probabilmente",
@@ -21956,7 +21996,9 @@
       "zh": "很可能",
       "ja": "おそらく",
       "ca": "probablement",
-      "ko": "아마도"
+      "ko": "아마도",
+      "la": "probabiliter",
+      "eo": "verŝajne"
     },
     {
       "term": "securmente",
@@ -21970,7 +22012,9 @@
       "zh": "确定地",
       "ja": "確実に",
       "ca": "segurament",
-      "ko": "확실히"
+      "ko": "확실히",
+      "la": "secure",
+      "eo": "sekure"
     },
     {
       "term": "extrememente",
@@ -21984,7 +22028,9 @@
       "zh": "极其",
       "ja": "非常に",
       "ca": "extremadament",
-      "ko": "극도로"
+      "ko": "극도로",
+      "la": "extreme",
+      "eo": "ekstreme"
     },
     {
       "term": "rarmente",
@@ -21998,7 +22044,9 @@
       "zh": "很少",
       "ja": "めったに〜ない",
       "ca": "rarament",
-      "ko": "드물게"
+      "ko": "드물게",
+      "la": "rare",
+      "eo": "malofte"
     },
     {
       "term": "facilmente",
@@ -22012,7 +22060,9 @@
       "zh": "容易地",
       "ja": "簡単に",
       "ca": "fàcilment",
-      "ko": "쉽게"
+      "ko": "쉽게",
+      "la": "facile",
+      "eo": "facile"
     },
     {
       "term": "fortunatamente",
@@ -22026,7 +22076,9 @@
       "zh": "幸运地",
       "ja": "幸運にも",
       "ca": "afortunadament",
-      "ko": "운 좋게도"
+      "ko": "운 좋게도",
+      "la": "fortunate",
+      "eo": "bonŝance"
     },
     {
       "term": "largemente",
@@ -22040,7 +22092,9 @@
       "zh": "很大程度上",
       "ja": "大いに",
       "ca": "àmpliament",
-      "ko": "대체로"
+      "ko": "대체로",
+      "la": "late",
+      "eo": "vaste"
     },
     {
       "term": "clarmente",
@@ -22054,7 +22108,9 @@
       "zh": "清楚地",
       "ja": "はっきりと",
       "ca": "clarament",
-      "ko": "명확히"
+      "ko": "명확히",
+      "la": "clare",
+      "eo": "klare"
     },
     {
       "term": "totalmente",
@@ -22068,7 +22124,9 @@
       "zh": "完全地",
       "ja": "完全に",
       "ca": "totalment",
-      "ko": "완전히"
+      "ko": "완전히",
+      "la": "totaliter",
+      "eo": "tute"
     },
     {
       "term": "solo",
@@ -22082,7 +22140,9 @@
       "zh": "仅仅",
       "ja": "〜だけ",
       "ca": "només",
-      "ko": "오직"
+      "ko": "오직",
+      "la": "solum",
+      "eo": "nur"
     },
     {
       "term": "fortemente",
@@ -22096,7 +22156,9 @@
       "zh": "强烈地",
       "ja": "強く",
       "ca": "fortament",
-      "ko": "강하게"
+      "ko": "강하게",
+      "la": "fortiter",
+      "eo": "forte"
     },
     {
       "term": "assatis",
@@ -22110,7 +22172,9 @@
       "zh": "足够",
       "ja": "十分に",
       "ca": "prou",
-      "ko": "충분히"
+      "ko": "충분히",
+      "la": "satis",
+      "eo": "sufiĉe"
     },
     {
       "term": "in veritate",
@@ -22124,7 +22188,9 @@
       "zh": "事实上",
       "ja": "実際には",
       "ca": "en veritat",
-      "ko": "실제로"
+      "ko": "실제로",
+      "la": "vere",
+      "eo": "vere"
     },
     {
       "term": "definitivamente",
@@ -22138,7 +22204,9 @@
       "zh": "确实",
       "ja": "確実に",
       "ca": "definitivament",
-      "ko": "확실히"
+      "ko": "확실히",
+      "la": "definitive",
+      "eo": "definitive"
     },
     {
       "term": "de facto",
@@ -22152,7 +22220,9 @@
       "zh": "事实上",
       "ja": "事実上",
       "ca": "de facto",
-      "ko": "사실상"
+      "ko": "사실상",
+      "la": "de facto",
+      "eo": "fakte"
     },
     {
       "term": "apparentemente",
@@ -22166,7 +22236,9 @@
       "zh": "显然",
       "ja": "どうやら",
       "ca": "aparentment",
-      "ko": "겉보기에"
+      "ko": "겉보기에",
+      "la": "apparenter",
+      "eo": "ŝajne"
     },
     {
       "term": "principalmente",
@@ -22180,7 +22252,9 @@
       "zh": "主要地",
       "ja": "主に",
       "ca": "principalment",
-      "ko": "주로"
+      "ko": "주로",
+      "la": "principaliter",
+      "eo": "ĉefe"
     },
     {
       "term": "normalmente",
@@ -22194,7 +22268,9 @@
       "zh": "通常",
       "ja": "通常は",
       "ca": "normalment",
-      "ko": "보통"
+      "ko": "보통",
+      "la": "normaliter",
+      "eo": "normale"
     },
     {
       "term": "frequentemente",
@@ -22208,7 +22284,9 @@
       "zh": "经常",
       "ja": "頻繁に",
       "ca": "freqüentment",
-      "ko": "자주"
+      "ko": "자주",
+      "la": "frequenter",
+      "eo": "ofte"
     },
     {
       "term": "recentemente",
@@ -22222,7 +22300,9 @@
       "zh": "最近",
       "ja": "最近",
       "ca": "recentment",
-      "ko": "최근에"
+      "ko": "최근에",
+      "la": "nuper",
+      "eo": "lastatempe"
     },
     {
       "term": "infortunatamente",
@@ -22236,7 +22316,9 @@
       "zh": "不幸地",
       "ja": "残念ながら",
       "ca": "malauradament",
-      "ko": "불행히도"
+      "ko": "불행히도",
+      "la": "infeliciter",
+      "eo": "bedaŭrinde"
     }
   ],
   "prender-casa": [
@@ -22252,7 +22334,9 @@
       "zh": "椅子",
       "ja": "椅子",
       "ca": "cadira",
-      "ko": "의자"
+      "ko": "의자",
+      "la": "sella",
+      "eo": "seĝo"
     },
     {
       "term": "lecto",
@@ -22266,7 +22350,9 @@
       "zh": "床",
       "ja": "ベッド",
       "ca": "llit",
-      "ko": "침대"
+      "ko": "침대",
+      "la": "lectus",
+      "eo": "lito"
     },
     {
       "term": "ir a lecto",
@@ -22280,7 +22366,9 @@
       "zh": "上床睡觉",
       "ja": "寝る",
       "ca": "anar al llit",
-      "ko": "잠자리에 들다"
+      "ko": "잠자리에 들다",
+      "la": "ire ad lectum",
+      "eo": "iri al lito"
     },
     {
       "term": "calice",
@@ -22294,7 +22382,9 @@
       "zh": "圣杯",
       "ja": "聖杯",
       "ca": "calze",
-      "ko": "성배"
+      "ko": "성배",
+      "la": "calix",
+      "eo": "kaliko"
     },
     {
       "term": "cuna",
@@ -22308,7 +22398,9 @@
       "zh": "摇篮",
       "ja": "ゆりかご",
       "ca": "bressol",
-      "ko": "요람"
+      "ko": "요람",
+      "la": "cunae",
+      "eo": "lulilo"
     },
     {
       "term": "io servi",
@@ -22322,7 +22414,9 @@
       "zh": "我服务",
       "ja": "私は仕える",
       "ca": "jo serveixo",
-      "ko": "나는 봉사한다"
+      "ko": "나는 봉사한다",
+      "la": "ego servio",
+      "eo": "mi servas"
     },
     {
       "term": "on servi",
@@ -22336,7 +22430,9 @@
       "zh": "需要",
       "ja": "必要だ",
       "ca": "es necessita",
-      "ko": "필요하다"
+      "ko": "필요하다",
+      "la": "opus est",
+      "eo": "oni bezonas"
     },
     {
       "term": "vos servi",
@@ -22350,7 +22446,9 @@
       "zh": "你们服务",
       "ja": "あなたたちは仕える",
       "ca": "vosaltres serviu",
-      "ko": "너희는 봉사한다"
+      "ko": "너희는 봉사한다",
+      "la": "vos servitis",
+      "eo": "vi servas"
     },
     {
       "term": "nos servi",
@@ -22364,7 +22462,9 @@
       "zh": "我们服务",
       "ja": "私たちは仕える",
       "ca": "nosaltres servim",
-      "ko": "우리는 봉사한다"
+      "ko": "우리는 봉사한다",
+      "la": "nos servimus",
+      "eo": "ni servas"
     },
     {
       "term": "ille servi",
@@ -22378,7 +22478,9 @@
       "zh": "他/她服务",
       "ja": "彼/彼女は仕える",
       "ca": "ell/ella serveix",
-      "ko": "그/그녀는 봉사한다"
+      "ko": "그/그녀는 봉사한다",
+      "la": "ille servit",
+      "eo": "li/ŝi servas"
     },
     {
       "term": "illes servi",
@@ -22392,7 +22494,9 @@
       "zh": "他们服务",
       "ja": "彼らは仕える",
       "ca": "ells/elles serveixen",
-      "ko": "그들은 봉사한다"
+      "ko": "그들은 봉사한다",
+      "la": "illes serviunt",
+      "eo": "ili servas"
     },
     {
       "term": "servir pro",
@@ -22406,7 +22510,9 @@
       "zh": "用于",
       "ja": "〜のために役立つ",
       "ca": "servir per",
-      "ko": "〜에 사용되다"
+      "ko": "〜에 사용되다",
+      "la": "servire ad",
+      "eo": "servi por"
     },
     {
       "term": "servir como",
@@ -22420,7 +22526,9 @@
       "zh": "作为…使用",
       "ja": "〜として使われる",
       "ca": "servir com a",
-      "ko": "로서 사용되다"
+      "ko": "로서 사용되다",
+      "la": "servire ut",
+      "eo": "servi kiel"
     },
     {
       "term": "parlar al telephono",
@@ -22434,7 +22542,9 @@
       "zh": "打电话",
       "ja": "電話で話す",
       "ca": "parlar per telèfon",
-      "ko": "전화로 이야기하다"
+      "ko": "전화로 이야기하다",
+      "la": "loqui per telephonum",
+      "eo": "paroli telefone"
     },
     {
       "term": "cuje",
@@ -22448,7 +22558,9 @@
       "zh": "其",
       "ja": "〜の",
       "ca": "el qual",
-      "ko": "그의/그녀의"
+      "ko": "그의/그녀의",
+      "la": "cuius",
+      "eo": "kies"
     },
     {
       "term": "spongia",
@@ -22462,7 +22574,9 @@
       "zh": "海绵",
       "ja": "スポンジ",
       "ca": "esponja",
-      "ko": "스펀지"
+      "ko": "스펀지",
+      "la": "spongia",
+      "eo": "spongo"
     },
     {
       "term": "sofa",
@@ -22476,7 +22590,9 @@
       "zh": "沙发",
       "ja": "ソファ",
       "ca": "sofà",
-      "ko": "소파"
+      "ko": "소파",
+      "la": "sopha",
+      "eo": "sofo"
     },
     {
       "term": "esser componite de",
@@ -22490,7 +22606,9 @@
       "zh": "由...组成",
       "ja": "〜で構成されている",
       "ca": "està compost de",
-      "ko": "~로 구성되어 있다"
+      "ko": "~로 구성되어 있다",
+      "la": "esse compositum ex",
+      "eo": "esti farita el"
     },
     {
       "term": "guardar ab le fenestra",
@@ -22504,7 +22622,9 @@
       "zh": "从窗户看出去",
       "ja": "窓の外を見る",
       "ca": "mirar per la finestra",
-      "ko": "창밖을 보다"
+      "ko": "창밖을 보다",
+      "la": "spectare per fenestram",
+      "eo": "rigardi tra la fenestro"
     }
   ],
   "technologia": [
@@ -22520,7 +22640,9 @@
       "zh": "物体",
       "ja": "物体",
       "ca": "objecte",
-      "ko": "물체"
+      "ko": "물체",
+      "la": "obiectum",
+      "eo": "objekto"
     },
     {
       "term": "cassa",
@@ -22534,7 +22656,9 @@
       "zh": "盒子",
       "ja": "箱",
       "ca": "caixa",
-      "ko": "상자"
+      "ko": "상자",
+      "la": "arca",
+      "eo": "skatolo"
     },
     {
       "term": "machina",
@@ -22548,7 +22672,9 @@
       "zh": "机器",
       "ja": "機械",
       "ca": "màquina",
-      "ko": "기계"
+      "ko": "기계",
+      "la": "machina",
+      "eo": "maŝino"
     },
     {
       "term": "pecia",
@@ -22562,7 +22688,9 @@
       "zh": "碎片；硬币",
       "ja": "ピース；コイン",
       "ca": "peça; moneda",
-      "ko": "조각; 동전"
+      "ko": "조각; 동전",
+      "la": "pars",
+      "eo": "peco"
     },
     {
       "term": "arma",
@@ -22576,7 +22704,9 @@
       "zh": "武器",
       "ja": "武器",
       "ca": "arma",
-      "ko": "무기"
+      "ko": "무기",
+      "la": "arma",
+      "eo": "armilo"
     },
     {
       "term": "filo",
@@ -22590,7 +22720,9 @@
       "zh": "电线",
       "ja": "ワイヤー",
       "ca": "filferro",
-      "ko": "철사"
+      "ko": "철사",
+      "la": "filum",
+      "eo": "drato"
     },
     {
       "term": "cosa",
@@ -22604,7 +22736,9 @@
       "zh": "什么",
       "ja": "何",
       "ca": "què",
-      "ko": "무엇"
+      "ko": "무엇",
+      "la": "quid",
+      "eo": "kio"
     },
     {
       "term": "technicos",
@@ -22618,7 +22752,9 @@
       "zh": "技术",
       "ja": "技術",
       "ca": "tècniques",
-      "ko": "기술"
+      "ko": "기술",
+      "la": "technica",
+      "eo": "teknikoj"
     },
     {
       "term": "radio",
@@ -22632,7 +22768,9 @@
       "zh": "收音机",
       "ja": "ラジオ",
       "ca": "ràdio",
-      "ko": "라디오"
+      "ko": "라디오",
+      "la": "radio",
+      "eo": "radio"
     },
     {
       "term": "apparato",
@@ -22646,7 +22784,9 @@
       "zh": "设备",
       "ja": "装置",
       "ca": "aparell",
-      "ko": "장치"
+      "ko": "장치",
+      "la": "apparatus",
+      "eo": "aparato"
     },
     {
       "term": "dispositivo",
@@ -22660,7 +22800,9 @@
       "zh": "装置",
       "ja": "デバイス",
       "ca": "dispositiu",
-      "ko": "디바이스"
+      "ko": "디바이스",
+      "la": "dispositivum",
+      "eo": "dispozitivo"
     },
     {
       "term": "sede",
@@ -22674,7 +22816,9 @@
       "zh": "座位",
       "ja": "席",
       "ca": "seient",
-      "ko": "좌석"
+      "ko": "좌석",
+      "la": "sedes",
+      "eo": "sidloko"
     },
     {
       "term": "catena",
@@ -22688,7 +22832,9 @@
       "zh": "链条；电视频道",
       "ja": "チェーン；テレビチャンネル",
       "ca": "cadena; canal de televisió",
-      "ko": "체인; TV 채널"
+      "ko": "체인; TV 채널",
+      "la": "catena",
+      "eo": "ĉeno"
     },
     {
       "term": "pagina",
@@ -22702,7 +22848,9 @@
       "zh": "页面",
       "ja": "ページ",
       "ca": "pàgina",
-      "ko": "페이지"
+      "ko": "페이지",
+      "la": "pagina",
+      "eo": "paĝo"
     },
     {
       "term": "cruce",
@@ -22716,7 +22864,9 @@
       "zh": "十字路口",
       "ja": "交差点",
       "ca": "encreuament",
-      "ko": "교차로"
+      "ko": "교차로",
+      "la": "crux",
+      "eo": "kruco"
     },
     {
       "term": "pacchetto",
@@ -22730,7 +22880,9 @@
       "zh": "包裹",
       "ja": "パッケージ",
       "ca": "paquet",
-      "ko": "소포"
+      "ko": "소포",
+      "la": "fasciculus",
+      "eo": "pakaĵo"
     },
     {
       "term": "documento",
@@ -22744,7 +22896,9 @@
       "zh": "文件",
       "ja": "書類",
       "ca": "document",
-      "ko": "문서"
+      "ko": "문서",
+      "la": "documentum",
+      "eo": "dokumento"
     },
     {
       "term": "banda",
@@ -22758,7 +22912,9 @@
       "zh": "乐队；团体",
       "ja": "バンド；グループ",
       "ca": "banda; grup",
-      "ko": "밴드; 그룹"
+      "ko": "밴드; 그룹",
+      "la": "fascia",
+      "eo": "bendo"
     },
     {
       "term": "equipamento",
@@ -22772,7 +22928,9 @@
       "zh": "设备",
       "ja": "装備",
       "ca": "equipament",
-      "ko": "장비"
+      "ko": "장비",
+      "la": "instrumentarium",
+      "eo": "ekipaĵo"
     },
     {
       "term": "quadro",
@@ -22786,7 +22944,9 @@
       "zh": "框架；高管",
       "ja": "枠組み；幹部",
       "ca": "marc; executiu",
-      "ko": "틀; 임원"
+      "ko": "틀; 임원",
+      "la": "tabula",
+      "eo": "kadro"
     },
     {
       "term": "photo",
@@ -22800,7 +22960,9 @@
       "zh": "照片",
       "ja": "写真",
       "ca": "foto; fotografia",
-      "ko": "사진"
+      "ko": "사진",
+      "la": "photographia",
+      "eo": "foto"
     },
     {
       "term": "un banda de pueros",
@@ -22814,7 +22976,9 @@
       "zh": "一群男孩",
       "ja": "少年の集団",
       "ca": "una colla de nois",
-      "ko": "소년들 무리"
+      "ko": "소년들 무리",
+      "la": "grex puerorum",
+      "eo": "bando de knaboj"
     },
     {
       "term": "disco dur",
@@ -22828,7 +22992,9 @@
       "zh": "硬盘",
       "ja": "ハードディスク",
       "ca": "disc dur",
-      "ko": "하드 드라이브"
+      "ko": "하드 드라이브",
+      "la": "discus durus",
+      "eo": "malmola disko"
     },
     {
       "term": "mechanismo",
@@ -22842,7 +23008,9 @@
       "zh": "机制",
       "ja": "仕組み",
       "ca": "mecanisme",
-      "ko": "메커니즘"
+      "ko": "메커니즘",
+      "la": "mechanismus",
+      "eo": "mekanismo"
     },
     {
       "term": "photocamera",
@@ -22856,7 +23024,9 @@
       "zh": "照相机",
       "ja": "カメラ",
       "ca": "càmera fotogràfica",
-      "ko": "카메라"
+      "ko": "카메라",
+      "la": "camera photographica",
+      "eo": "fotilo"
     },
     {
       "term": "plica",
@@ -22870,7 +23040,9 @@
       "zh": "文件夹；文件",
       "ja": "フォルダー；ファイル",
       "ca": "carpeta; fitxer",
-      "ko": "폴더; 파일"
+      "ko": "폴더; 파일",
+      "la": "plica",
+      "eo": "dosierujo"
     },
     {
       "term": "file",
@@ -22884,7 +23056,9 @@
       "zh": "文件",
       "ja": "ファイル",
       "ca": "fitxer",
-      "ko": "파일"
+      "ko": "파일",
+      "la": "fasciculus",
+      "eo": "dosiero"
     }
   ],
   "extra": [
