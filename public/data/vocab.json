@@ -11416,7 +11416,9 @@
       "zh": "这本书",
       "ja": "この本",
       "ca": "aquest llibre",
-      "ko": "이 책"
+      "ko": "이 책",
+      "la": "hic liber",
+      "eo": "ĉi tiu libro"
     },
     {
       "term": "ille littera",
@@ -11430,7 +11432,9 @@
       "zh": "那封信",
       "ja": "あの手紙",
       "ca": "aquella carta",
-      "ko": "저 편지"
+      "ko": "저 편지",
+      "la": "illa epistula",
+      "eo": "tiu letero"
     },
     {
       "term": "iste feminas",
@@ -11444,7 +11448,9 @@
       "zh": "这些女人",
       "ja": "これらの女性",
       "ca": "aquestes dones",
-      "ko": "이 여자들"
+      "ko": "이 여자들",
+      "la": "hae feminae",
+      "eo": "ĉi tiuj virinoj"
     },
     {
       "term": "ille amicas",
@@ -11458,7 +11464,9 @@
       "zh": "那些女朋友",
       "ja": "あの彼女たち",
       "ca": "aquelles amigues",
-      "ko": "저 여자친구들"
+      "ko": "저 여자친구들",
+      "la": "illae amicae",
+      "eo": "tiuj amikinoj"
     },
     {
       "term": "iste",
@@ -11472,7 +11480,9 @@
       "zh": "这个",
       "ja": "この",
       "ca": "aquest",
-      "ko": "이"
+      "ko": "이",
+      "la": "hic",
+      "eo": "ĉi tiu"
     },
     {
       "term": "ille",
@@ -11486,7 +11496,9 @@
       "zh": "那个",
       "ja": "あの",
       "ca": "aquell",
-      "ko": "저"
+      "ko": "저",
+      "la": "ille",
+      "eo": "tiu"
     },
     {
       "term": "istes",
@@ -11500,7 +11512,9 @@
       "zh": "这些",
       "ja": "これらの",
       "ca": "aquests",
-      "ko": "이들"
+      "ko": "이들",
+      "la": "hi",
+      "eo": "ĉi tiuj"
     },
     {
       "term": "illes",
@@ -11514,7 +11528,9 @@
       "zh": "那些",
       "ja": "あれらの",
       "ca": "aquells",
-      "ko": "저들"
+      "ko": "저들",
+      "la": "illi",
+      "eo": "tiuj"
     },
     {
       "term": "isto",
@@ -11528,7 +11544,9 @@
       "zh": "这个",
       "ja": "これ",
       "ca": "això",
-      "ko": "이것"
+      "ko": "이것",
+      "la": "hoc",
+      "eo": "ĉi tio"
     },
     {
       "term": "illo",
@@ -11542,7 +11560,9 @@
       "zh": "那个",
       "ja": "あれ",
       "ca": "allò",
-      "ko": "저것"
+      "ko": "저것",
+      "la": "illud",
+      "eo": "tio"
     },
     {
       "term": "iste littera e illo",
@@ -11556,7 +11576,9 @@
       "zh": "这封信和那封",
       "ja": "この手紙とあれ",
       "ca": "aquesta carta i aquella",
-      "ko": "이 편지와 저것"
+      "ko": "이 편지와 저것",
+      "la": "haec epistula et illud",
+      "eo": "ĉi tiu letero kaj tio"
     },
     {
       "term": "iste feminas e illas",
@@ -11570,7 +11592,9 @@
       "zh": "这些女人和那些",
       "ja": "これらの女性とあれら",
       "ca": "aquestes dones i aquelles",
-      "ko": "이 여자들과 저 여자들"
+      "ko": "이 여자들과 저 여자들",
+      "la": "hae feminae et illae",
+      "eo": "ĉi tiuj virinoj kaj tiuj"
     },
     {
       "term": "iste catto es nigre",
@@ -11584,7 +11608,9 @@
       "zh": "这只猫是黑的",
       "ja": "この猫は黒いです",
       "ca": "aquest gat és negre",
-      "ko": "이 고양이는 검은색이다"
+      "ko": "이 고양이는 검은색이다",
+      "la": "hic cattus niger est",
+      "eo": "ĉi tiu kato estas nigra"
     },
     {
       "term": "iste scarpas es blanc",
@@ -11598,7 +11624,9 @@
       "zh": "这些鞋是白的",
       "ja": "この靴は白いです",
       "ca": "aquestes sabates són blanques",
-      "ko": "이 신발들은 흰색이다"
+      "ko": "이 신발들은 흰색이다",
+      "la": "haec calceamenta alba sunt",
+      "eo": "ĉi tiuj ŝuoj estas blankaj"
     },
     {
       "term": "ille homine es juvene",
@@ -11612,7 +11640,9 @@
       "zh": "那个人很年轻",
       "ja": "あの男の人は若い",
       "ca": "aquell home és jove",
-      "ko": "저 남자는 젊다"
+      "ko": "저 남자는 젊다",
+      "la": "ille homo iuvenis est",
+      "eo": "tiu viro estas juna"
     },
     {
       "term": "iste roba es blau",
@@ -11626,7 +11656,9 @@
       "zh": "这件裙子是蓝色的",
       "ja": "このドレスは青いです",
       "ca": "aquest vestit és blau",
-      "ko": "이 드레스는 파란색이다"
+      "ko": "이 드레스는 파란색이다",
+      "la": "haec vestis caerulea est",
+      "eo": "ĉi tiu robo estas blua"
     },
     {
       "term": "iste roba es belle, ma illo es fede",
@@ -11640,7 +11672,9 @@
       "zh": "这件衣服很漂亮，但那件很丑",
       "ja": "このドレスはきれいですが、それは醜いです",
       "ca": "aquest vestit és bonic, però aquell és lleig",
-      "ko": "이 드레스는 예쁘지만, 저것은 못생겼다"
+      "ko": "이 드레스는 예쁘지만, 저것은 못생겼다",
+      "la": "haec vestis pulchra est, sed illud foedum est",
+      "eo": "ĉi tiu robo estas bela, sed tio estas malbela"
     },
     {
       "term": "ille pueros lege le libros e istes joca",
@@ -11654,7 +11688,9 @@
       "zh": "那些男孩在看书，这些在玩",
       "ja": "あの子たちは本を読んでいて、こっちの子たちは遊んでいる",
       "ca": "aquells nois llegeixen els llibres i aquests juguen",
-      "ko": "저 소년들은 책을 읽고, 이들은 놀고 있다"
+      "ko": "저 소년들은 책을 읽고, 이들은 놀고 있다",
+      "la": "illi pueri libros legunt et hi ludunt",
+      "eo": "tiuj knaboj legas la librojn kaj ĉi tiuj ludas"
     },
     {
       "term": "io mangia isto",
@@ -11668,7 +11704,9 @@
       "zh": "我在吃这个",
       "ja": "私はこれを食べている",
       "ca": "estic menjant això",
-      "ko": "나는 이것을 먹고 있다"
+      "ko": "나는 이것을 먹고 있다",
+      "la": "ego hoc edo",
+      "eo": "mi manĝas ĉi tion"
     },
     {
       "term": "ille lege illo",
@@ -11682,7 +11720,9 @@
       "zh": "他在读那个",
       "ja": "彼はそれを読んでいる",
       "ca": "ell està llegint allò",
-      "ko": "그는 저것을 읽고 있다"
+      "ko": "그는 저것을 읽고 있다",
+      "la": "ille illud legit",
+      "eo": "li legas tion"
     },
     {
       "term": "isto es un animal",
@@ -11696,7 +11736,9 @@
       "zh": "这是一只动物",
       "ja": "これは動物です",
       "ca": "això és un animal",
-      "ko": "이것은 동물이다"
+      "ko": "이것은 동물이다",
+      "la": "hoc est animal",
+      "eo": "ĉi tio estas besto"
     },
     {
       "term": "ille libros es illos de mi cosino",
@@ -11710,7 +11752,9 @@
       "zh": "那些书是我表哥的",
       "ja": "あれらの本は私のいとこのものです",
       "ca": "aquells llibres són del meu cosí",
-      "ko": "저 책들은 내 사촌의 것이다"
+      "ko": "저 책들은 내 사촌의 것이다",
+      "la": "illi libri sunt illi mei consobrini",
+      "eo": "tiuj libroj estas tiuj de mia kuzo"
     },
     {
       "term": "iste scarpas es illos de mi bebe",
@@ -11724,7 +11768,9 @@
       "zh": "这些鞋子是我宝宝的",
       "ja": "これらの靴は私の赤ちゃんのものです",
       "ca": "aquestes sabates són del meu nadó",
-      "ko": "이 신발들은 내 아기의 것이다"
+      "ko": "이 신발들은 내 아기의 것이다",
+      "la": "haec calceamenta sunt illi mei infantis",
+      "eo": "ĉi tiuj ŝuoj estas tiuj de mia bebo"
     },
     {
       "term": "ille mangia illo",
@@ -11738,7 +11784,9 @@
       "zh": "他在吃那个",
       "ja": "彼はそれを食べている",
       "ca": "ell està menjant allò",
-      "ko": "그는 저것을 먹고 있다"
+      "ko": "그는 저것을 먹고 있다",
+      "la": "ille illud edit",
+      "eo": "li manĝas tion"
     },
     {
       "term": "isto es lacte",
@@ -11752,7 +11800,9 @@
       "zh": "这是牛奶",
       "ja": "これはミルクです",
       "ca": "això és llet",
-      "ko": "이것은 우유다"
+      "ko": "이것은 우유다",
+      "la": "hoc est lac",
+      "eo": "ĉi tio estas lakto"
     },
     {
       "term": "como isto, vos vide?",
@@ -11766,7 +11816,9 @@
       "zh": "这样，你看到了吗？",
       "ja": "こうやって、見える？",
       "ca": "així, ho veus?",
-      "ko": "이렇게, 보이니?"
+      "ko": "이렇게, 보이니?",
+      "la": "sic, videtis?",
+      "eo": "tiel, ĉu vi vidas?"
     },
     {
       "term": "io comprende isto",
@@ -11780,7 +11832,9 @@
       "zh": "我明白这个",
       "ja": "私はこれを理解します",
       "ca": "entenc això",
-      "ko": "나는 이것을 이해한다"
+      "ko": "나는 이것을 이해한다",
+      "la": "ego hoc intellego",
+      "eo": "mi komprenas ĉi tion"
     },
     {
       "term": "illo es un tomate",
@@ -11794,7 +11848,9 @@
       "zh": "那是一个番茄",
       "ja": "それはトマトです",
       "ca": "allò és un tomàquet",
-      "ko": "저것은 토마토다"
+      "ko": "저것은 토마토다",
+      "la": "illud est lycopersicum",
+      "eo": "tio estas tomato"
     },
     {
       "term": "istes es belle",
@@ -11808,7 +11864,9 @@
       "zh": "这些人很漂亮",
       "ja": "これらは美しい（人々）です",
       "ca": "aquests són bonics (persones)",
-      "ko": "이 사람들은 아름답다"
+      "ko": "이 사람들은 아름답다",
+      "la": "hi pulchri sunt",
+      "eo": "ĉi tiuj estas belaj"
     },
     {
       "term": "illes non es belle",
@@ -11822,7 +11880,9 @@
       "zh": "那些人不漂亮",
       "ja": "あれらは美しくない（人々）",
       "ca": "aquells no són bonics (gent)",
-      "ko": "저 사람들은 아름답지 않다"
+      "ko": "저 사람들은 아름답지 않다",
+      "la": "illi non sunt pulchri",
+      "eo": "tiuj ne estas belaj"
     },
     {
       "term": "nos prefere istes a illes",
@@ -11836,7 +11896,9 @@
       "zh": "我们更喜欢这些而不是那些（人）",
       "ja": "私たちはこれらをあれら（人）より好む",
       "ca": "preferim aquests a aquells (persones)",
-      "ko": "우리는 이 사람들을 저 사람들보다 선호한다"
+      "ko": "우리는 이 사람들을 저 사람들보다 선호한다",
+      "la": "nos hos illis praeferimus",
+      "eo": "ni preferas ĉi tiujn al tiuj"
     },
     {
       "term": "nos prefere istos a illos",
@@ -11850,7 +11912,9 @@
       "zh": "我们更喜欢这些而不是那些（中性）",
       "ja": "私たちはこれ（ら）をそれ（ら）より好む（中性）",
       "ca": "preferim això a allò (neutre)",
-      "ko": "우리는 이것들을 저것들보다 선호한다 (중성)"
+      "ko": "우리는 이것들을 저것들보다 선호한다 (중성)",
+      "la": "nos haec illis praeferimus",
+      "eo": "ni preferas ĉi tiujn al tiuj"
     },
     {
       "term": "nos prefere istas a illas",
@@ -11864,7 +11928,9 @@
       "zh": "我们更喜欢这些而不是那些（女人）",
       "ja": "私たちはこれらをあれら（女性）より好む",
       "ca": "preferim aquestes a aquelles (dones)",
-      "ko": "우리는 이 여자들을 저 여자들보다 선호한다"
+      "ko": "우리는 이 여자들을 저 여자들보다 선호한다",
+      "la": "nos has illis praeferimus",
+      "eo": "ni preferas ĉi tiujn al tiuj"
     },
     {
       "term": "isto es un can",
@@ -11878,7 +11944,9 @@
       "zh": "这是一只狗",
       "ja": "これは犬です",
       "ca": "això és un gos",
-      "ko": "이것은 개다"
+      "ko": "이것은 개다",
+      "la": "hoc est canis",
+      "eo": "ĉi tio estas hundo"
     },
     {
       "term": "isto es mi can",
@@ -11892,7 +11960,9 @@
       "zh": "这是我的狗",
       "ja": "これは私の犬です",
       "ca": "això és el meu gos",
-      "ko": "이것은 내 개다"
+      "ko": "이것은 내 개다",
+      "la": "hoc est canis meus",
+      "eo": "ĉi tio estas mia hundo"
     },
     {
       "term": "io prefere illo",
@@ -11906,7 +11976,9 @@
       "zh": "我更喜欢那个",
       "ja": "私はそれを好む",
       "ca": "prefereixo allò",
-      "ko": "나는 저것을 선호한다"
+      "ko": "나는 저것을 선호한다",
+      "la": "ego illud praefero",
+      "eo": "mi preferas tion"
     }
   ],
   "conjunctiones": [
@@ -11922,7 +11994,9 @@
       "zh": "和",
       "ja": "と",
       "ca": "i",
-      "ko": "그리고"
+      "ko": "그리고",
+      "la": "et",
+      "eo": "kaj"
     },
     {
       "term": "o",
@@ -11936,7 +12010,9 @@
       "zh": "或",
       "ja": "または",
       "ca": "o",
-      "ko": "또는"
+      "ko": "또는",
+      "la": "vel",
+      "eo": "aŭ"
     },
     {
       "term": "ma",
@@ -11950,7 +12026,9 @@
       "zh": "但",
       "ja": "しかし",
       "ca": "però",
-      "ko": "하지만"
+      "ko": "하지만",
+      "la": "sed",
+      "eo": "sed"
     },
     {
       "term": "dunque",
@@ -11964,7 +12042,9 @@
       "zh": "所以",
       "ja": "それで",
       "ca": "doncs",
-      "ko": "그러므로"
+      "ko": "그러므로",
+      "la": "ergo",
+      "eo": "do"
     },
     {
       "term": "perque",
@@ -11978,7 +12058,9 @@
       "zh": "因为",
       "ja": "なぜなら",
       "ca": "perquè",
-      "ko": "왜냐하면"
+      "ko": "왜냐하면",
+      "la": "quia",
+      "eo": "ĉar"
     },
     {
       "term": "nam",
@@ -11992,7 +12074,9 @@
       "zh": "因为（强调）",
       "ja": "というのも",
       "ca": "car",
-      "ko": "왜냐하면"
+      "ko": "왜냐하면",
+      "la": "nam",
+      "eo": "ĉar"
     },
     {
       "term": "si",
@@ -12006,7 +12090,9 @@
       "zh": "是的",
       "ja": "はい",
       "ca": "sí",
-      "ko": "예"
+      "ko": "예",
+      "la": "ita",
+      "eo": "jes"
     },
     {
       "term": "ben que",
@@ -12020,7 +12106,9 @@
       "zh": "虽然",
       "ja": "～けれども",
       "ca": "encara que",
-      "ko": "비록 ~일지라도"
+      "ko": "비록 ~일지라도",
+      "la": "quamquam",
+      "eo": "kvankam"
     },
     {
       "term": "malgrado",
@@ -12034,7 +12122,9 @@
       "zh": "尽管",
       "ja": "にもかかわらず",
       "ca": "malgrat",
-      "ko": "~에도 불구하고"
+      "ko": "~에도 불구하고",
+      "la": "non obstante",
+      "eo": "malgraŭ"
     },
     {
       "term": "durante que",
@@ -12048,7 +12138,9 @@
       "zh": "当…时候",
       "ja": "～している間に",
       "ca": "mentre",
-      "ko": "~하는 동안"
+      "ko": "~하는 동안",
+      "la": "dum",
+      "eo": "dum"
     },
     {
       "term": "quando",
@@ -12062,7 +12154,9 @@
       "zh": "什么时候",
       "ja": "いつ",
       "ca": "quan",
-      "ko": "언제"
+      "ko": "언제",
+      "la": "quando",
+      "eo": "kiam"
     },
     {
       "term": "si o no?",
@@ -12076,7 +12170,9 @@
       "zh": "是还是不是？",
       "ja": "はいかいいえ？",
       "ca": "sí o no?",
-      "ko": "예 아니오?"
+      "ko": "예 아니오?",
+      "la": "ita an non?",
+      "eo": "jes aŭ ne?"
     },
     {
       "term": "io es parve perque io es un infante",
@@ -12090,7 +12186,9 @@
       "zh": "我很小因为我是个孩子",
       "ja": "私は子供なので小さいです",
       "ca": "soc petit perquè soc un nen",
-      "ko": "나는 아이이기 때문에 작다"
+      "ko": "나는 아이이기 때문에 작다",
+      "la": "ego parvus sum quia infans sum",
+      "eo": "mi estas malgranda ĉar mi estas infano"
     },
     {
       "term": "io lege durante que illa dormi",
@@ -12104,7 +12202,9 @@
       "zh": "她睡觉时我在看书",
       "ja": "彼女が寝ている間に私は読む",
       "ca": "llegeixo mentre ella dorm",
-      "ko": "그녀가 자는 동안 나는 읽는다"
+      "ko": "그녀가 자는 동안 나는 읽는다",
+      "la": "ego lego dum illa dormit",
+      "eo": "mi legas dum ŝi dormas"
     },
     {
       "term": "si illa bibe, io bibe",
@@ -12118,7 +12218,9 @@
       "zh": "如果她喝，我也喝",
       "ja": "彼女が飲めば、私も飲む",
       "ca": "si ella beu, jo bec",
-      "ko": "그녀가 마시면 나도 마신다"
+      "ko": "그녀가 마시면 나도 마신다",
+      "la": "si illa bibit, ego bibo",
+      "eo": "se ŝi trinkas, mi trinkas"
     },
     {
       "term": "illa bibe, tunc io bibe",
@@ -12132,7 +12234,9 @@
       "zh": "她喝，然后我喝",
       "ja": "彼女が飲んだら、私も飲む",
       "ca": "ella beu, aleshores jo bec",
-      "ko": "그녀가 마시니까 나도 마신다"
+      "ko": "그녀가 마시니까 나도 마신다",
+      "la": "illa bibit, tum ego bibo",
+      "eo": "ŝi trinkas, do mi trinkas"
     },
     {
       "term": "io bibe perque illa bibe",
@@ -12146,7 +12250,9 @@
       "zh": "我喝是因为她喝",
       "ja": "彼女が飲むので私も飲む",
       "ca": "bec perquè ella beu",
-      "ko": "그녀가 마시니까 나도 마신다"
+      "ko": "그녀가 마시니까 나도 마신다",
+      "la": "ego bibo quia illa bibit",
+      "eo": "mi trinkas ĉar ŝi trinkas"
     },
     {
       "term": "si, si tu can es parve",
@@ -12160,7 +12266,9 @@
       "zh": "是的，如果你的狗很小",
       "ja": "はい、もしあなたの犬が小さいなら",
       "ca": "sí, si el teu gos és petit",
-      "ko": "그래, 네 개가 작다면"
+      "ko": "그래, 네 개가 작다면",
+      "la": "ita, si canis tuus parvus est",
+      "eo": "jes, se via hundo estas malgranda"
     },
     {
       "term": "io ama quando mi filia lege",
@@ -12174,7 +12282,9 @@
       "zh": "我喜欢我女儿读书的时候",
       "ja": "娘が読むときが好きです",
       "ca": "m'encanta quan la meva filla llegeix",
-      "ko": "나는 내 딸이 책 읽을 때가 좋다"
+      "ko": "나는 내 딸이 책 읽을 때가 좋다",
+      "la": "ego amo quando filia mea legit",
+      "eo": "mi amas kiam mia filino legas"
     },
     {
       "term": "io lege malgrado le nocte",
@@ -12188,7 +12298,9 @@
       "zh": "尽管是夜晚我还是读书",
       "ja": "夜にもかかわらず読みます",
       "ca": "llegeixo tot i que és de nit",
-      "ko": "밤인데도 나는 책을 읽는다"
+      "ko": "밤인데도 나는 책을 읽는다",
+      "la": "ego lego non obstante nocte",
+      "eo": "mi legas malgraŭ la nokto"
     },
     {
       "term": "il me place le the, ma io ama le caffe",
@@ -12202,7 +12314,9 @@
       "zh": "我喜欢茶，但我爱咖啡",
       "ja": "お茶は好きですが、コーヒーが大好きです",
       "ca": "m'agrada el te, però estimo el cafè",
-      "ko": "나는 차를 좋아하지만 커피를 사랑한다"
+      "ko": "나는 차를 좋아하지만 커피를 사랑한다",
+      "la": "mihi placet thea, sed ego caffeam amo",
+      "eo": "mi ŝatas teon, sed mi amas kafon"
     },
     {
       "term": "si tosto que",
@@ -12216,7 +12330,9 @@
       "zh": "一…就…",
       "ja": "〜するとすぐに",
       "ca": "tan bon punt",
-      "ko": "~하자마자"
+      "ko": "~하자마자",
+      "la": "simul ac",
+      "eo": "tuj kiam"
     },
     {
       "term": "alteremente",
@@ -12230,7 +12346,9 @@
       "zh": "否则；另一方面",
       "ja": "別の方法で；一方で",
       "ca": "altrament; per altra banda",
-      "ko": "다르게; 또는"
+      "ko": "다르게; 또는",
+      "la": "aliter",
+      "eo": "alie"
     },
     {
       "term": "desde",
@@ -12244,7 +12362,9 @@
       "zh": "自从；从",
       "ja": "〜から",
       "ca": "des de",
-      "ko": "~부터"
+      "ko": "~부터",
+      "la": "ab; ex quo",
+      "eo": "ekde; de kiam"
     },
     {
       "term": "totevia",
@@ -12258,7 +12378,9 @@
       "zh": "然而；不过",
       "ja": "しかしながら",
       "ca": "tanmateix",
-      "ko": "그럼에도 불구하고"
+      "ko": "그럼에도 불구하고",
+      "la": "tamen",
+      "eo": "tamen"
     },
     {
       "term": "a causa de",
@@ -12272,7 +12394,9 @@
       "zh": "由于",
       "ja": "〜のせいで",
       "ca": "a causa de",
-      "ko": "~때문에"
+      "ko": "~때문에",
+      "la": "propter",
+      "eo": "pro"
     }
   ],
   "questiones": [
@@ -12288,7 +12412,9 @@
       "zh": "什么；那",
       "ja": "何；〜ということ",
       "ca": "què; que",
-      "ko": "무엇; ~라는 것"
+      "ko": "무엇; ~라는 것",
+      "la": "quid; quod",
+      "eo": "kio; ke"
     },
     {
       "term": "ubi",
@@ -12302,7 +12428,9 @@
       "zh": "哪里",
       "ja": "どこ",
       "ca": "on",
-      "ko": "어디"
+      "ko": "어디",
+      "la": "ubi",
+      "eo": "kie"
     },
     {
       "term": "quando",
@@ -12316,7 +12444,9 @@
       "zh": "什么时候",
       "ja": "いつ",
       "ca": "quan",
-      "ko": "언제"
+      "ko": "언제",
+      "la": "quando",
+      "eo": "kiam"
     },
     {
       "term": "perque",
@@ -12330,7 +12460,9 @@
       "zh": "为什么；因为",
       "ja": "なぜ；なぜなら",
       "ca": "per què; perquè",
-      "ko": "왜; 왜냐하면"
+      "ko": "왜; 왜냐하면",
+      "la": "cur; quia",
+      "eo": "kial; ĉar"
     },
     {
       "term": "como",
@@ -12344,7 +12476,9 @@
       "zh": "怎么",
       "ja": "どうやって",
       "ca": "com",
-      "ko": "어떻게"
+      "ko": "어떻게",
+      "la": "quomodo",
+      "eo": "kiel"
     },
     {
       "term": "quante",
@@ -12358,7 +12492,9 @@
       "zh": "多少（可数）",
       "ja": "いくつ",
       "ca": "quants/es",
-      "ko": "얼마나 많은"
+      "ko": "얼마나 많은",
+      "la": "quot",
+      "eo": "kiom da"
     },
     {
       "term": "quanto",
@@ -12372,7 +12508,9 @@
       "zh": "多少（不可数）；什么",
       "ja": "いくら；何",
       "ca": "quant; el que",
-      "ko": "얼마; 무엇"
+      "ko": "얼마; 무엇",
+      "la": "quantum",
+      "eo": "kiom"
     },
     {
       "term": "qual",
@@ -12386,7 +12524,9 @@
       "zh": "哪个",
       "ja": "どれ",
       "ca": "quin",
-      "ko": "어느"
+      "ko": "어느",
+      "la": "qualis",
+      "eo": "kia; kiu"
     },
     {
       "term": "qui",
@@ -12400,7 +12540,9 @@
       "zh": "谁",
       "ja": "誰",
       "ca": "qui",
-      "ko": "누구"
+      "ko": "누구",
+      "la": "quis; qui",
+      "eo": "kiu"
     }
   ],
   "verbos2": [
