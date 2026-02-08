@@ -9842,7 +9842,9 @@
       "zh": "我的",
       "ja": "私の",
       "ca": "el meu; la meva; els meus",
-      "ko": "내; 나의"
+      "ko": "내; 나의",
+      "la": "meus; mea; mei",
+      "eo": "mia"
     },
     {
       "term": "tu",
@@ -9856,7 +9858,9 @@
       "zh": "你的",
       "ja": "あなたの",
       "ca": "el teu; la teva; els teus",
-      "ko": "너의"
+      "ko": "너의",
+      "la": "tuus; tua; tui",
+      "eo": "via"
     },
     {
       "term": "su",
@@ -9870,7 +9874,9 @@
       "zh": "他的；她的；它的；您的",
       "ja": "彼の; 彼女の; あなたの",
       "ca": "el seu; la seva; els seus",
-      "ko": "그의; 그녀의; 당신의"
+      "ko": "그의; 그녀의; 당신의",
+      "la": "suus; sua; sui",
+      "eo": "lia; sxia; gxia; via (formala)"
     },
     {
       "term": "nostre",
@@ -9884,7 +9890,9 @@
       "zh": "我们的",
       "ja": "私たちの",
       "ca": "el nostre; la nostra; els nostres",
-      "ko": "우리의"
+      "ko": "우리의",
+      "la": "noster; nostra; nostri",
+      "eo": "nia"
     },
     {
       "term": "vostre",
@@ -9898,7 +9906,9 @@
       "zh": "你们的",
       "ja": "あなたたちの",
       "ca": "el vostre; la vostra; els vostres",
-      "ko": "너희들의"
+      "ko": "너희들의",
+      "la": "vester; vestra; vestri",
+      "eo": "via (plurala)"
     },
     {
       "term": "lor",
@@ -9912,7 +9922,9 @@
       "zh": "他们的",
       "ja": "彼らの",
       "ca": "el seu; la seva; els seus",
-      "ko": "그들의"
+      "ko": "그들의",
+      "la": "eorum; earum",
+      "eo": "ilia"
     },
     {
       "term": "tu pantalon",
@@ -9926,7 +9938,9 @@
       "zh": "你的裤子",
       "ja": "あなたのズボン",
       "ca": "els teus pantalons",
-      "ko": "너의 바지"
+      "ko": "너의 바지",
+      "la": "bracae tuae",
+      "eo": "viaj pantalonoj"
     },
     {
       "term": "illo es su gonna",
@@ -9940,7 +9954,9 @@
       "zh": "这是她的裙子",
       "ja": "それは彼女のスカートです",
       "ca": "és la seva faldilla",
-      "ko": "그녀의 치마이다"
+      "ko": "그녀의 치마이다",
+      "la": "ea est eius vestis",
+      "eo": "gxi estas sxia jupo"
     },
     {
       "term": "nostre bira es frigide",
@@ -9954,7 +9970,9 @@
       "zh": "我们的啤酒是冷的",
       "ja": "私たちのビールは冷たいです",
       "ca": "la nostra cervesa és freda",
-      "ko": "우리 맥주는 차갑다"
+      "ko": "우리 맥주는 차갑다",
+      "la": "cerevisia nostra frigida est",
+      "eo": "nia biero estas malvarma"
     },
     {
       "term": "lor cappello es calide",
@@ -9968,7 +9986,9 @@
       "zh": "他们的帽子很暖和",
       "ja": "彼らの帽子は暖かいです",
       "ca": "el seu barret és càlid",
-      "ko": "그들의 모자는 따뜻하다"
+      "ko": "그들의 모자는 따뜻하다",
+      "la": "pileus eorum calidus est",
+      "eo": "ilia cxapelo estas varma"
     },
     {
       "term": "tu mangia tu suppa",
@@ -9982,7 +10002,9 @@
       "zh": "你吃你的汤",
       "ja": "あなたは自分のスープを食べる",
       "ca": "menges la teva sopa",
-      "ko": "너는 너의 수프를 먹는다"
+      "ko": "너는 너의 수프를 먹는다",
+      "la": "tu ius tuum comedis",
+      "eo": "vi mangxas vian supon"
     },
     {
       "term": "su infantes es parve",
@@ -9996,7 +10018,9 @@
       "zh": "他们的孩子很小",
       "ja": "彼らの子供たちは小さいです",
       "ca": "els seus fills són petits",
-      "ko": "그들의 아이들은 작다"
+      "ko": "그들의 아이들은 작다",
+      "la": "liberi eorum parvi sunt",
+      "eo": "iliaj infanoj estas malgrandaj"
     },
     {
       "term": "lor infantes lege",
@@ -10010,7 +10034,9 @@
       "zh": "他们的孩子在读书",
       "ja": "彼らの子供たちは読書している",
       "ca": "els seus fills llegeixen",
-      "ko": "그들의 아이들이 읽고 있다"
+      "ko": "그들의 아이들이 읽고 있다",
+      "la": "liberi eorum legunt",
+      "eo": "iliaj infanoj legas"
     },
     {
       "term": "tu camisa",
@@ -10024,7 +10050,9 @@
       "zh": "你的衬衫",
       "ja": "あなたのシャツ",
       "ca": "la teva camisa",
-      "ko": "너의 셔츠"
+      "ko": "너의 셔츠",
+      "la": "camisia tua",
+      "eo": "via cxemizo"
     },
     {
       "term": "su roba es rubie",
@@ -10038,7 +10066,9 @@
       "zh": "他的/她的衣服是红色的",
       "ja": "彼/彼女の服は赤い",
       "ca": "la seva roba és vermella",
-      "ko": "그의/그녀의 옷은 빨갛다"
+      "ko": "그의/그녀의 옷은 빨갛다",
+      "la": "vestis eius rubra est",
+      "eo": "liaj/sxiaj vestoj estas rugxaj"
     },
     {
       "term": "tu can",
@@ -10052,7 +10082,9 @@
       "zh": "你的狗",
       "ja": "あなたの犬",
       "ca": "el teu gos",
-      "ko": "너의 개"
+      "ko": "너의 개",
+      "la": "canis tuus",
+      "eo": "via hundo"
     },
     {
       "term": "tu sposa es belle",
@@ -10066,7 +10098,9 @@
       "zh": "你的妻子很漂亮",
       "ja": "あなたの妻は美しいです",
       "ca": "la teva esposa és bonica",
-      "ko": "너의 아내는 아름답다"
+      "ko": "너의 아내는 아름답다",
+      "la": "uxor tua pulchra est",
+      "eo": "via edzino estas bela"
     },
     {
       "term": "su habito es nigre",
@@ -10080,7 +10114,9 @@
       "zh": "他的/她的西装是黑色的",
       "ja": "彼/彼女の服は黒いです",
       "ca": "el seu vestit és negre",
-      "ko": "그의/그녀의 옷은 검정이다"
+      "ko": "그의/그녀의 옷은 검정이다",
+      "la": "vestis eius nigra est",
+      "eo": "lia/sxia kostumo estas nigra"
     },
     {
       "term": "illes es nostre parentes",
@@ -10094,7 +10130,9 @@
       "zh": "他们是我们的父母",
       "ja": "彼らは私たちの両親です",
       "ca": "ells són els nostres pares",
-      "ko": "그들은 우리의 부모이다"
+      "ko": "그들은 우리의 부모이다",
+      "la": "illi sunt parentes nostri",
+      "eo": "ili estas niaj gepatroj"
     },
     {
       "term": "mi libros es vetule",
@@ -10108,7 +10146,9 @@
       "zh": "我的书很旧",
       "ja": "私の本は古いです",
       "ca": "els meus llibres són vells",
-      "ko": "내 책들은 오래되었다"
+      "ko": "내 책들은 오래되었다",
+      "la": "libri mei veteres sunt",
+      "eo": "miaj libroj estas malnovaj"
     },
     {
       "term": "vostre cappello es munde",
@@ -10122,7 +10162,9 @@
       "zh": "你们的帽子很干净",
       "ja": "あなたたちの帽子はきれいです",
       "ca": "el vostre barret és net",
-      "ko": "너희들의 모자는 깨끗하다"
+      "ko": "너희들의 모자는 깨끗하다",
+      "la": "pileus vester mundus est",
+      "eo": "via cxapelo estas pura"
     }
   ],
   "colores": [
@@ -10138,7 +10180,9 @@
       "zh": "红色",
       "ja": "赤",
       "ca": "vermell",
-      "ko": "빨간색"
+      "ko": "빨간색",
+      "la": "ruber",
+      "eo": "rugxa"
     },
     {
       "term": "blanc",
@@ -10152,7 +10196,9 @@
       "zh": "白色",
       "ja": "白",
       "ca": "blanc",
-      "ko": "하얀색"
+      "ko": "하얀색",
+      "la": "albus",
+      "eo": "blanka"
     },
     {
       "term": "color",
@@ -10166,7 +10212,9 @@
       "zh": "颜色",
       "ja": "色",
       "ca": "color",
-      "ko": "색깔"
+      "ko": "색깔",
+      "la": "color",
+      "eo": "koloro"
     },
     {
       "term": "blau",
@@ -10180,7 +10228,9 @@
       "zh": "蓝色",
       "ja": "青",
       "ca": "blau",
-      "ko": "파란색"
+      "ko": "파란색",
+      "la": "caeruleus",
+      "eo": "blua"
     },
     {
       "term": "verde",
@@ -10194,7 +10244,9 @@
       "zh": "绿色",
       "ja": "緑",
       "ca": "verd",
-      "ko": "초록색"
+      "ko": "초록색",
+      "la": "viridis",
+      "eo": "verda"
     },
     {
       "term": "jalne",
@@ -10208,7 +10260,9 @@
       "zh": "黄色",
       "ja": "黄色",
       "ca": "groc",
-      "ko": "노란색"
+      "ko": "노란색",
+      "la": "flavus",
+      "eo": "flava"
     },
     {
       "term": "rosate",
@@ -10222,7 +10276,9 @@
       "zh": "粉红色",
       "ja": "ピンク",
       "ca": "rosa",
-      "ko": "분홍색"
+      "ko": "분홍색",
+      "la": "roseus",
+      "eo": "rozkolora"
     },
     {
       "term": "gris",
@@ -10236,7 +10292,9 @@
       "zh": "灰色",
       "ja": "灰色",
       "ca": "gris",
-      "ko": "회색"
+      "ko": "회색",
+      "la": "griseus",
+      "eo": "griza"
     },
     {
       "term": "orange",
@@ -10250,7 +10308,9 @@
       "zh": "橙色",
       "ja": "オレンジ",
       "ca": "taronja",
-      "ko": "주황색"
+      "ko": "주황색",
+      "la": "aurantiacus",
+      "eo": "orangxa"
     },
     {
       "term": "brun",
@@ -10264,7 +10324,9 @@
       "zh": "棕色",
       "ja": "茶色",
       "ca": "marró",
-      "ko": "갈색"
+      "ko": "갈색",
+      "la": "fuscus",
+      "eo": "bruna"
     },
     {
       "term": "violette",
@@ -10278,7 +10340,9 @@
       "zh": "紫色",
       "ja": "紫",
       "ca": "lila",
-      "ko": "보라색"
+      "ko": "보라색",
+      "la": "violaceus",
+      "eo": "viola"
     },
     {
       "term": "le cappello es violette",
@@ -10292,7 +10356,9 @@
       "zh": "帽子是紫色的",
       "ja": "帽子は紫です",
       "ca": "el barret és lila",
-      "ko": "모자는 보라색이다"
+      "ko": "모자는 보라색이다",
+      "la": "pileus violaceus est",
+      "eo": "la cxapelo estas viola"
     },
     {
       "term": "le urso es brun",
@@ -10306,7 +10372,9 @@
       "zh": "熊是棕色的",
       "ja": "クマは茶色です",
       "ca": "l’ós és marró",
-      "ko": "곰은 갈색이다"
+      "ko": "곰은 갈색이다",
+      "la": "ursus fuscus est",
+      "eo": "la urso estas bruna"
     },
     {
       "term": "illa ha le vestimentos blanc",
@@ -10320,7 +10388,9 @@
       "zh": "她有白色的衣服",
       "ja": "彼女は白い服を持っている",
       "ca": "ella té roba blanca",
-      "ko": "그녀는 하얀 옷을 가지고 있다"
+      "ko": "그녀는 하얀 옷을 가지고 있다",
+      "la": "illa vestes albas habet",
+      "eo": "sxi havas blankajn vestojn"
     },
     {
       "term": "un anate jalne",
@@ -10334,7 +10404,9 @@
       "zh": "一只黄色的鸭子",
       "ja": "黄色いアヒル",
       "ca": "un ànec groc",
-      "ko": "노란 오리"
+      "ko": "노란 오리",
+      "la": "anas flava",
+      "eo": "flava anaso"
     },
     {
       "term": "le pisce es blau",
@@ -10348,7 +10420,9 @@
       "zh": "鱼是蓝色的",
       "ja": "魚は青いです",
       "ca": "el peix és blau",
-      "ko": "물고기는 파란색이다"
+      "ko": "물고기는 파란색이다",
+      "la": "piscis caeruleus est",
+      "eo": "la fisxo estas blua"
     },
     {
       "term": "le tortuca es verde",
@@ -10362,7 +10436,9 @@
       "zh": "乌龟是绿色的",
       "ja": "カメは緑色です",
       "ca": "la tortuga és verda",
-      "ko": "거북이는 초록색이다"
+      "ko": "거북이는 초록색이다",
+      "la": "testudo viridis est",
+      "eo": "la testudo estas verda"
     },
     {
       "term": "le sucro es blanc",
@@ -10376,7 +10452,9 @@
       "zh": "糖是白色的",
       "ja": "砂糖は白いです",
       "ca": "el sucre és blanc",
-      "ko": "설탕은 하얗다"
+      "ko": "설탕은 하얗다",
+      "la": "saccharum album est",
+      "eo": "la sukero estas blanka"
     }
   ],
   "presente1": [
@@ -10392,7 +10470,9 @@
       "zh": "买",
       "ja": "買う",
       "ca": "comprar",
-      "ko": "사다"
+      "ko": "사다",
+      "la": "emere",
+      "eo": "acxeti"
     },
     {
       "term": "apportar",
@@ -10406,7 +10486,9 @@
       "zh": "带来",
       "ja": "持ってくる",
       "ca": "portar",
-      "ko": "가져오다"
+      "ko": "가져오다",
+      "la": "afferre",
+      "eo": "alporti"
     },
     {
       "term": "apprendre",
@@ -10420,7 +10502,9 @@
       "zh": "学习",
       "ja": "学ぶ",
       "ca": "aprendre",
-      "ko": "배우다"
+      "ko": "배우다",
+      "la": "discere",
+      "eo": "lerni"
     },
     {
       "term": "respectar",
@@ -10434,7 +10518,9 @@
       "zh": "尊重",
       "ja": "尊敬する",
       "ca": "respectar",
-      "ko": "존중하다"
+      "ko": "존중하다",
+      "la": "observare",
+      "eo": "respekti"
     },
     {
       "term": "celar",
@@ -10448,7 +10534,9 @@
       "zh": "藏起来",
       "ja": "隠す",
       "ca": "amagar",
-      "ko": "숨기다"
+      "ko": "숨기다",
+      "la": "celare",
+      "eo": "kasxi"
     },
     {
       "term": "appellar",
@@ -10462,7 +10550,9 @@
       "zh": "叫",
       "ja": "呼ぶ",
       "ca": "anomenar",
-      "ko": "부르다"
+      "ko": "부르다",
+      "la": "appellare",
+      "eo": "nomi"
     },
     {
       "term": "vocar",
@@ -10476,7 +10566,9 @@
       "zh": "叫来",
       "ja": "呼び寄せる",
       "ca": "cridar",
-      "ko": "부르다 (오라고)"
+      "ko": "부르다 (오라고)",
+      "la": "vocare",
+      "eo": "alvoki"
     },
     {
       "term": "adjutar",
@@ -10490,7 +10582,9 @@
       "zh": "帮助",
       "ja": "助ける",
       "ca": "ajudar",
-      "ko": "돕다"
+      "ko": "돕다",
+      "la": "adiuvare",
+      "eo": "helpi"
     },
     {
       "term": "saper",
@@ -10504,7 +10598,9 @@
       "zh": "知道",
       "ja": "知る",
       "ca": "saber",
-      "ko": "알다"
+      "ko": "알다",
+      "la": "scire",
+      "eo": "scii"
     },
     {
       "term": "voler",
@@ -10518,7 +10614,9 @@
       "zh": "想要",
       "ja": "欲しい・〜したい",
       "ca": "voler",
-      "ko": "원하다"
+      "ko": "원하다",
+      "la": "velle",
+      "eo": "voli"
     },
     {
       "term": "cercar",
@@ -10532,7 +10630,9 @@
       "zh": "寻找",
       "ja": "探す",
       "ca": "cercar",
-      "ko": "찾다"
+      "ko": "찾다",
+      "la": "quaerere",
+      "eo": "sercxi"
     },
     {
       "term": "cognoscer",
@@ -10546,7 +10646,9 @@
       "zh": "认识",
       "ja": "知っている",
       "ca": "conèixer",
-      "ko": "알고 있다"
+      "ko": "알고 있다",
+      "la": "cognoscere",
+      "eo": "koni"
     },
     {
       "term": "comenciar",
@@ -10560,7 +10662,9 @@
       "zh": "开始",
       "ja": "始める",
       "ca": "començar",
-      "ko": "시작하다"
+      "ko": "시작하다",
+      "la": "incipere",
+      "eo": "komenci"
     },
     {
       "term": "nos face",
@@ -10574,7 +10678,9 @@
       "zh": "我们做",
       "ja": "私たちはする",
       "ca": "fem",
-      "ko": "우리는 한다"
+      "ko": "우리는 한다",
+      "la": "nos facimus",
+      "eo": "ni faras"
     },
     {
       "term": "illes face",
@@ -10588,7 +10694,9 @@
       "zh": "他们做",
       "ja": "彼らはする",
       "ca": "fan",
-      "ko": "그들은 한다"
+      "ko": "그들은 한다",
+      "la": "illi faciunt",
+      "eo": "ili faras"
     },
     {
       "term": "nos vide",
@@ -10602,7 +10710,9 @@
       "zh": "我们看到",
       "ja": "私たちは見る",
       "ca": "veiem",
-      "ko": "우리는 본다"
+      "ko": "우리는 본다",
+      "la": "nos videmus",
+      "eo": "ni vidas"
     },
     {
       "term": "leger",
@@ -10616,7 +10726,9 @@
       "zh": "读",
       "ja": "読む",
       "ca": "llegir",
-      "ko": "읽다"
+      "ko": "읽다",
+      "la": "legere",
+      "eo": "legi"
     },
     {
       "term": "scriber",
@@ -10630,7 +10742,9 @@
       "zh": "写",
       "ja": "書く",
       "ca": "escriure",
-      "ko": "쓰다"
+      "ko": "쓰다",
+      "la": "scribere",
+      "eo": "skribi"
     },
     {
       "term": "parlar",
@@ -10644,7 +10758,9 @@
       "zh": "说话",
       "ja": "話す",
       "ca": "parlar",
-      "ko": "말하다"
+      "ko": "말하다",
+      "la": "loqui",
+      "eo": "paroli"
     },
     {
       "term": "amar",
@@ -10658,7 +10774,9 @@
       "zh": "爱",
       "ja": "愛する",
       "ca": "estimar",
-      "ko": "사랑하다"
+      "ko": "사랑하다",
+      "la": "amare",
+      "eo": "ami"
     },
     {
       "term": "biber",
@@ -10672,7 +10790,9 @@
       "zh": "喝",
       "ja": "飲む",
       "ca": "beure",
-      "ko": "마시다"
+      "ko": "마시다",
+      "la": "bibere",
+      "eo": "trinki"
     },
     {
       "term": "comprender",
@@ -10686,7 +10806,9 @@
       "zh": "理解",
       "ja": "理解する",
       "ca": "entendre",
-      "ko": "이해하다"
+      "ko": "이해하다",
+      "la": "intellegere",
+      "eo": "kompreni"
     },
     {
       "term": "poter",
@@ -10700,7 +10822,9 @@
       "zh": "能够",
       "ja": "〜できる",
       "ca": "poder",
-      "ko": "할 수 있다"
+      "ko": "할 수 있다",
+      "la": "posse",
+      "eo": "povi"
     },
     {
       "term": "deber",
@@ -10714,7 +10838,9 @@
       "zh": "必须",
       "ja": "〜しなければならない",
       "ca": "haver de",
-      "ko": "해야 한다"
+      "ko": "해야 한다",
+      "la": "debere",
+      "eo": "devi"
     },
     {
       "term": "soler",
@@ -10728,7 +10854,9 @@
       "zh": "通常",
       "ja": "よく〜する",
       "ca": "soler",
-      "ko": "자주 하다"
+      "ko": "자주 하다",
+      "la": "solere",
+      "eo": "kutimi"
     },
     {
       "term": "saper",
@@ -10742,7 +10870,9 @@
       "zh": "知道",
       "ja": "知る",
       "ca": "saber",
-      "ko": "알다"
+      "ko": "알다",
+      "la": "noscere",
+      "eo": "koni"
     },
     {
       "term": "facer",
@@ -10756,7 +10886,9 @@
       "zh": "做",
       "ja": "する",
       "ca": "fer",
-      "ko": "하다"
+      "ko": "하다",
+      "la": "facere",
+      "eo": "fari"
     },
     {
       "term": "ir",
@@ -10770,7 +10902,9 @@
       "zh": "去",
       "ja": "行く",
       "ca": "anar",
-      "ko": "가다"
+      "ko": "가다",
+      "la": "ire",
+      "eo": "iri"
     },
     {
       "term": "attender",
@@ -10784,7 +10918,9 @@
       "zh": "等待",
       "ja": "待つ",
       "ca": "esperar",
-      "ko": "기다리다"
+      "ko": "기다리다",
+      "la": "exspectare",
+      "eo": "atendi"
     },
     {
       "term": "sperar",
@@ -10798,7 +10934,9 @@
       "zh": "希望",
       "ja": "望む",
       "ca": "esperar",
-      "ko": "희망하다"
+      "ko": "희망하다",
+      "la": "sperare",
+      "eo": "esperi"
     },
     {
       "term": "ordinar",
@@ -10812,7 +10950,9 @@
       "zh": "点（菜）",
       "ja": "注文する",
       "ca": "comanar",
-      "ko": "주문하다"
+      "ko": "주문하다",
+      "la": "ordinare",
+      "eo": "mendi"
     },
     {
       "term": "nos compra le pomos verde",
@@ -10826,7 +10966,9 @@
       "zh": "我们买绿苹果",
       "ja": "私たちは青りんごを買っています",
       "ca": "comprem les pomes verdes",
-      "ko": "우리는 초록 사과를 산다"
+      "ko": "우리는 초록 사과를 산다",
+      "la": "nos poma viridia emimus",
+      "eo": "ni acxetas la verdajn pomojn"
     },
     {
       "term": "io spera que vos place le suppa",
@@ -10840,7 +10982,9 @@
       "zh": "我希望你喜欢这汤",
       "ja": "あなたがスープを気に入ってくれることを願います",
       "ca": "espero que t'agradi la sopa",
-      "ko": "수프가 마음에 들길 바랍니다"
+      "ko": "수프가 마음에 들길 바랍니다",
+      "la": "spero ut tibi ius placeat",
+      "eo": "mi esperas ke vi sxatas la supon"
     },
     {
       "term": "io debe ir",
@@ -10854,7 +10998,9 @@
       "zh": "我得走了",
       "ja": "行かなければならない",
       "ca": "he de marxar",
-      "ko": "가야 해"
+      "ko": "가야 해",
+      "la": "ego ire debeo",
+      "eo": "mi devas iri"
     },
     {
       "term": "io sape leger",
@@ -10868,7 +11014,9 @@
       "zh": "我会读书",
       "ja": "私は読むことができます",
       "ca": "sé llegir",
-      "ko": "나는 읽을 수 있어"
+      "ko": "나는 읽을 수 있어",
+      "la": "ego legere scio",
+      "eo": "mi scias legi"
     },
     {
       "term": "io cognosce un puera blonde",
@@ -10882,7 +11030,9 @@
       "zh": "我认识一个金发女孩",
       "ja": "私は金髪の女の子を知っています",
       "ca": "conec una noia rossa",
-      "ko": "나는 금발 소녀를 알아"
+      "ko": "나는 금발 소녀를 알아",
+      "la": "ego puellam flavam cognosco",
+      "eo": "mi konas blondan knabinon"
     },
     {
       "term": "io sole biber lacte",
@@ -10896,7 +11046,9 @@
       "zh": "我通常喝牛奶",
       "ja": "私は普段牛乳を飲みます",
       "ca": "sóc acostumat a beure llet",
-      "ko": "나는 보통 우유를 마신다"
+      "ko": "나는 보통 우유를 마신다",
+      "la": "ego lac bibere soleo",
+      "eo": "mi kutime trinkas lakton"
     },
     {
       "term": "tu parla",
@@ -10910,7 +11062,9 @@
       "zh": "你在说话",
       "ja": "あなたは話している",
       "ca": "tu parles",
-      "ko": "너는 말하고 있어"
+      "ko": "너는 말하고 있어",
+      "la": "tu loqueris",
+      "eo": "vi parolas"
     },
     {
       "term": "nos bibe the calide",
@@ -10924,7 +11078,9 @@
       "zh": "我们喝热茶",
       "ja": "私たちは熱いお茶を飲みます",
       "ca": "bevem te calent",
-      "ko": "우리는 뜨거운 차를 마신다"
+      "ko": "우리는 뜨거운 차를 마신다",
+      "la": "nos theam calidam bibimus",
+      "eo": "ni trinkas varman teon"
     },
     {
       "term": "illa bibe succo de limon",
@@ -10938,7 +11094,9 @@
       "zh": "她喝柠檬汁",
       "ja": "彼女はレモンジュースを飲みます",
       "ca": "ella beu suc de llimona",
-      "ko": "그녀는 레몬 주스를 마신다"
+      "ko": "그녀는 레몬 주스를 마신다",
+      "la": "illa sucum limonis bibit",
+      "eo": "sxi trinkas citronan sukon"
     },
     {
       "term": "ille vole un pomo",
@@ -10952,7 +11110,9 @@
       "zh": "他想要一个苹果",
       "ja": "彼はリンゴが欲しい",
       "ca": "ell vol una poma",
-      "ko": "그는 사과를 원한다"
+      "ko": "그는 사과를 원한다",
+      "la": "ille malum vult",
+      "eo": "li volas pomon"
     },
     {
       "term": "illes ama lor tortuca",
@@ -10966,7 +11126,9 @@
       "zh": "他们爱他们的乌龟",
       "ja": "彼らは自分たちのカメを愛している",
       "ca": "ells estimen la seva tortuga",
-      "ko": "그들은 자신의 거북이를 사랑한다"
+      "ko": "그들은 자신의 거북이를 사랑한다",
+      "la": "illi testudinem suam amant",
+      "eo": "ili amas sian testudon"
     },
     {
       "term": "io cerca mi can",
@@ -10980,7 +11142,9 @@
       "zh": "我在找我的狗",
       "ja": "私は犬を探しています",
       "ca": "estic buscant el meu gos",
-      "ko": "나는 내 개를 찾고 있어"
+      "ko": "나는 내 개를 찾고 있어",
+      "la": "ego canem meum quaero",
+      "eo": "mi sercxas mian hundon"
     },
     {
       "term": "io ordina mi repasto",
@@ -10994,7 +11158,9 @@
       "zh": "我在点餐",
       "ja": "私は食事を注文しています",
       "ca": "estic demanant el meu menjar",
-      "ko": "나는 식사를 주문하고 있어"
+      "ko": "나는 식사를 주문하고 있어",
+      "la": "ego cibum meum ordino",
+      "eo": "mi mendas mian mangxon"
     },
     {
       "term": "nos comprende le jornal",
@@ -11008,7 +11174,9 @@
       "zh": "我们理解这份报纸",
       "ja": "私たちは新聞を理解しています",
       "ca": "entenem el diari",
-      "ko": "우리는 신문을 이해해요"
+      "ko": "우리는 신문을 이해해요",
+      "la": "nos diurnum intellegimus",
+      "eo": "ni komprenas la jxurnalon"
     },
     {
       "term": "io attende mi infantes",
@@ -11022,7 +11190,9 @@
       "zh": "我在等我的孩子们",
       "ja": "私は子供たちを待っています",
       "ca": "estic esperant els meus fills",
-      "ko": "나는 내 아이들을 기다리고 있어"
+      "ko": "나는 내 아이들을 기다리고 있어",
+      "la": "ego liberos meos exspecto",
+      "eo": "mi atendas miajn infanojn"
     },
     {
       "term": "io va mangiar",
@@ -11036,7 +11206,9 @@
       "zh": "我要吃饭了",
       "ja": "私は食べます",
       "ca": "vaig a menjar",
-      "ko": "나는 먹을 거야"
+      "ko": "나는 먹을 거야",
+      "la": "ego eo ad manducandum",
+      "eo": "mi iros mangxi"
     },
     {
       "term": "le homines debe attender",
@@ -11050,7 +11222,9 @@
       "zh": "男人们得等一等",
       "ja": "男たちは待たなければならない",
       "ca": "els homes han d’esperar",
-      "ko": "남자들은 기다려야 해"
+      "ko": "남자들은 기다려야 해",
+      "la": "homines exspectare debent",
+      "eo": "la viroj devas atendi"
     },
     {
       "term": "io cognosce un homine",
@@ -11064,7 +11238,9 @@
       "zh": "我认识一个男人",
       "ja": "私は男の人を知っている",
       "ca": "conec un home",
-      "ko": "나는 한 남자를 알아"
+      "ko": "나는 한 남자를 알아",
+      "la": "ego virum cognosco",
+      "eo": "mi konas viron"
     },
     {
       "term": "io sape parlar interlingua",
@@ -11078,7 +11254,9 @@
       "zh": "我会说国际语",
       "ja": "私はインターリングアを話せます",
       "ca": "sé parlar interlingua",
-      "ko": "나는 인터링구아를 말할 수 있어"
+      "ko": "나는 인터링구아를 말할 수 있어",
+      "la": "ego interlinguam loqui scio",
+      "eo": "mi scias paroli interlingvon"
     },
     {
       "term": "io pote parlar interlingua",
@@ -11092,7 +11270,9 @@
       "zh": "我会说国际语",
       "ja": "私はインターリングuaを話せます",
       "ca": "puc parlar interlingua",
-      "ko": "나는 인터링구아를 말할 수 있어"
+      "ko": "나는 인터링구아를 말할 수 있어",
+      "la": "ego interlinguam loqui possum",
+      "eo": "mi povas paroli interlingvon"
     },
     {
       "term": "io sole parlar interlingua",
@@ -11106,7 +11286,9 @@
       "zh": "我通常说国际语",
       "ja": "私はたいていインターリングuaを話します",
       "ca": "acostumo a parlar interlingua",
-      "ko": "나는 보통 인터링구아로 말해"
+      "ko": "나는 보통 인터링구아로 말해",
+      "la": "ego interlinguam loqui soleo",
+      "eo": "mi kutime parolas interlingvon"
     },
     {
       "term": "io debe parlar interlingua",
@@ -11120,7 +11302,9 @@
       "zh": "我必须说国际语",
       "ja": "私はインターリングuaを話さなければならない",
       "ca": "he de parlar interlingua",
-      "ko": "나는 인터링구아를 말해야 해"
+      "ko": "나는 인터링구아를 말해야 해",
+      "la": "ego interlinguam loqui debeo",
+      "eo": "mi devas paroli interlingvon"
     },
     {
       "term": "io vole parlar interlingua",
@@ -11134,7 +11318,9 @@
       "zh": "我想说国际语",
       "ja": "私はインターリングuaを話したい",
       "ca": "vull parlar interlingua",
-      "ko": "나는 인터링구아를 말하고 싶어"
+      "ko": "나는 인터링구아를 말하고 싶어",
+      "la": "ego interlinguam loqui volo",
+      "eo": "mi volas paroli interlingvon"
     },
     {
       "term": "io ama un juvene femina",
@@ -11148,7 +11334,9 @@
       "zh": "我爱一个年轻的女人",
       "ja": "私は若い女性を愛している",
       "ca": "estic enamorat d'una dona jove",
-      "ko": "나는 젊은 여자를 사랑한다"
+      "ko": "나는 젊은 여자를 사랑한다",
+      "la": "ego feminam iuvenem amo",
+      "eo": "mi amas junan virinon"
     },
     {
       "term": "nos face nostre vestimentos",
@@ -11162,7 +11350,9 @@
       "zh": "我们做我们的衣服",
       "ja": "私たちは自分たちの服を作ります",
       "ca": "fem la nostra roba",
-      "ko": "우리는 우리 옷을 만든다"
+      "ko": "우리는 우리 옷을 만든다",
+      "la": "nos vestimenta nostra facimus",
+      "eo": "ni faras niajn vestojn"
     },
     {
       "term": "ille adjuta su patre",
@@ -11176,7 +11366,9 @@
       "zh": "他帮助他的父亲",
       "ja": "彼は父親を助けます",
       "ca": "ajuda el seu pare",
-      "ko": "그는 아버지를 도와준다"
+      "ko": "그는 아버지를 도와준다",
+      "la": "ille patri suo adiuvat",
+      "eo": "li helpas sian patron"
     },
     {
       "term": "le homine apporta vino",
@@ -11190,7 +11382,9 @@
       "zh": "那位男子带来了酒",
       "ja": "その男はワインを持ってきます",
       "ca": "l'home porta vi",
-      "ko": "그 남자는 와인을 가져온다"
+      "ko": "그 남자는 와인을 가져온다",
+      "la": "homo vinum affert",
+      "eo": "la viro alportas vinon"
     },
     {
       "term": "le homine voca su sposa",
@@ -11204,7 +11398,9 @@
       "zh": "那个男人叫他的妻子",
       "ja": "男は妻を呼びます",
       "ca": "l'home crida la seva dona",
-      "ko": "그 남자는 아내를 부른다"
+      "ko": "그 남자는 아내를 부른다",
+      "la": "homo uxorem suam vocat",
+      "eo": "la viro alvokas sian edzinon"
     }
   ],
   "demonstrativos1": [
