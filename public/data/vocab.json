@@ -5024,7 +5024,9 @@
       "zh": "一个女孩",
       "ja": "女の子",
       "ca": "una nena / noia / xiqueta",
-      "ko": "여자아이 / 소녀"
+      "ko": "여자아이 / 소녀",
+      "la": "una puella",
+      "eo": "knabino"
     },
     {
       "term": "un puero",
@@ -5038,7 +5040,9 @@
       "zh": "一个男孩",
       "ja": "男の子",
       "ca": "un nen / noi / xiquet",
-      "ko": "남자아이 / 소년"
+      "ko": "남자아이 / 소년",
+      "la": "puer",
+      "eo": "knabo"
     },
     {
       "term": "un",
@@ -5052,7 +5056,9 @@
       "zh": "一个",
       "ja": "一つ / 一人 / 一",
       "ca": "un / una / u",
-      "ko": "하나 / 한"
+      "ko": "하나 / 한",
+      "la": "unus; una; unum",
+      "eo": "unu"
     },
     {
       "term": "le femina",
@@ -5066,7 +5072,9 @@
       "zh": "女人",
       "ja": "女性 / 女の人",
       "ca": "la dona",
-      "ko": "여자 / 여성"
+      "ko": "여자 / 여성",
+      "la": "femina",
+      "eo": "la virino"
     },
     {
       "term": "le homine",
@@ -5080,7 +5088,9 @@
       "zh": "男人",
       "ja": "男性 / 男の人",
       "ca": "l'home",
-      "ko": "남자 / 남성"
+      "ko": "남자 / 남성",
+      "la": "homo",
+      "eo": "la viro"
     },
     {
       "term": "le",
@@ -5094,7 +5104,9 @@
       "zh": "（无直接对应）",
       "ja": "（訳されない）",
       "ca": "el; la; els; les",
-      "ko": "(번역 없음)"
+      "ko": "(번역 없음)",
+      "la": "— (nullus articulus)",
+      "eo": "la"
     },
     {
       "term": "le puera es un femina",
@@ -5108,7 +5120,9 @@
       "zh": "这个女孩是一个女人",
       "ja": "女の子は女性です",
       "ca": "la nena és una dona",
-      "ko": "그 여자아이는 여성입니다"
+      "ko": "그 여자아이는 여성입니다",
+      "la": "puella femina est",
+      "eo": "la knabino estas virino"
     },
     {
       "term": "le puera es belle",
@@ -5122,7 +5136,9 @@
       "zh": "这个女孩很漂亮",
       "ja": "女の子はかわいいです",
       "ca": "la nena és bonica",
-      "ko": "그 여자아이는 예쁩니다"
+      "ko": "그 여자아이는 예쁩니다",
+      "la": "puella pulchra est",
+      "eo": "la knabino estas bela"
     },
     {
       "term": "illa es un puera",
@@ -5136,7 +5152,9 @@
       "zh": "她是一个女孩",
       "ja": "彼女は女の子です",
       "ca": "ella és una nena",
-      "ko": "그녀는 여자아이입니다"
+      "ko": "그녀는 여자아이입니다",
+      "la": "illa puella est",
+      "eo": "ŝi estas knabino"
     },
     {
       "term": "le puero es belle",
@@ -5150,7 +5168,9 @@
       "zh": "这个男孩很帅",
       "ja": "男の子はハンサムです",
       "ca": "el nen és guapo",
-      "ko": "그 남자아이는 잘생겼습니다"
+      "ko": "그 남자아이는 잘생겼습니다",
+      "la": "puer pulcher est",
+      "eo": "la knabo estas bela"
     },
     {
       "term": "ille es un homine",
@@ -5164,7 +5184,9 @@
       "zh": "他是一个男人",
       "ja": "彼は男の人です",
       "ca": "ell és un home",
-      "ko": "그는 남자입니다"
+      "ko": "그는 남자입니다",
+      "la": "ille homo est",
+      "eo": "li estas viro"
     },
     {
       "term": "ille",
@@ -5178,7 +5200,9 @@
       "zh": "他",
       "ja": "彼",
       "ca": "ell",
-      "ko": "그"
+      "ko": "그",
+      "la": "ille",
+      "eo": "li"
     },
     {
       "term": "illa",
@@ -5192,7 +5216,9 @@
       "zh": "她",
       "ja": "彼女",
       "ca": "ella",
-      "ko": "그녀"
+      "ko": "그녀",
+      "la": "illa",
+      "eo": "ŝi"
     },
     {
       "term": "es",
@@ -5206,7 +5232,9 @@
       "zh": "是",
       "ja": "です / だ",
       "ca": "sóc / ets / és / som / sou / són",
-      "ko": "이다 / 입니다"
+      "ko": "이다 / 입니다",
+      "la": "sum / es / est / sumus / estis / sunt",
+      "eo": "estas"
     },
     {
       "term": "belle",
@@ -5220,7 +5248,9 @@
       "zh": "美丽的 / 漂亮的",
       "ja": "美しい / きれいな",
       "ca": "bonic(a); bell(a)",
-      "ko": "아름다운 / 예쁜"
+      "ko": "아름다운 / 예쁜",
+      "la": "pulcher; pulchra",
+      "eo": "bela"
     },
     {
       "term": "tu es ric",
@@ -5234,7 +5264,9 @@
       "zh": "你很有钱",
       "ja": "あなたは裕福です",
       "ca": "ets ric",
-      "ko": "너는 부자야"
+      "ko": "너는 부자야",
+      "la": "tu dives es",
+      "eo": "vi estas riĉa"
     },
     {
       "term": "ric",
@@ -5248,7 +5280,9 @@
       "zh": "富有的",
       "ja": "裕福な",
       "ca": "ric; rica",
-      "ko": "부유한"
+      "ko": "부유한",
+      "la": "dives",
+      "eo": "riĉa"
     },
     {
       "term": "pomo",
@@ -5262,7 +5296,9 @@
       "zh": "苹果",
       "ja": "りんご",
       "ca": "poma",
-      "ko": "사과"
+      "ko": "사과",
+      "la": "malum",
+      "eo": "pomo"
     },
     {
       "term": "rubie",
@@ -5276,7 +5312,9 @@
       "zh": "红色的",
       "ja": "赤い",
       "ca": "vermell; vermella",
-      "ko": "빨간 / 붉은"
+      "ko": "빨간 / 붉은",
+      "la": "ruber; rubra",
+      "eo": "ruĝa"
     },
     {
       "term": "le pomo es rubie",
@@ -5290,7 +5328,9 @@
       "zh": "苹果是红的",
       "ja": "りんごは赤いです",
       "ca": "la poma és vermella",
-      "ko": "사과는 빨갛습니다"
+      "ko": "사과는 빨갛습니다",
+      "la": "malum rubrum est",
+      "eo": "la pomo estas ruĝa"
     },
     {
       "term": "orange",
@@ -5304,7 +5344,9 @@
       "zh": "橙子",
       "ja": "オレンジ",
       "ca": "taronja",
-      "ko": "오렌지"
+      "ko": "오렌지",
+      "la": "aurantium",
+      "eo": "oranĝo"
     },
     {
       "term": "tu mangia un orange",
@@ -5318,7 +5360,9 @@
       "zh": "你在吃一个橙子",
       "ja": "あなたはオレンジを食べています",
       "ca": "estàs menjant una taronja",
-      "ko": "너는 오렌지를 먹고 있어"
+      "ko": "너는 오렌지를 먹고 있어",
+      "la": "tu aurantium edis",
+      "eo": "vi manĝas oranĝon"
     },
     {
       "term": "illa es calme",
@@ -5332,7 +5376,9 @@
       "zh": "她很冷静",
       "ja": "彼女は落ち着いています",
       "ca": "ella està tranquil·la",
-      "ko": "그녀는 차분해요"
+      "ko": "그녀는 차분해요",
+      "la": "illa tranquilla est",
+      "eo": "ŝi estas trankvila"
     },
     {
       "term": "io es un puero",
@@ -5346,7 +5392,9 @@
       "zh": "我是一个男孩",
       "ja": "私は男の子です",
       "ca": "soc un nen",
-      "ko": "나는 남자아이야"
+      "ko": "나는 남자아이야",
+      "la": "ego puer sum",
+      "eo": "mi estas knabo"
     },
     {
       "term": "io es",
@@ -5360,7 +5408,9 @@
       "zh": "我是",
       "ja": "私は～です",
       "ca": "jo soc / estic",
-      "ko": "나는 ~이다"
+      "ko": "나는 ~이다",
+      "la": "ego sum",
+      "eo": "mi estas"
     },
     {
       "term": "le orange e le pomo",
@@ -5374,7 +5424,9 @@
       "zh": "橙子和苹果",
       "ja": "オレンジとリンゴ",
       "ca": "la taronja i la poma",
-      "ko": "오렌지와 사과"
+      "ko": "오렌지와 사과",
+      "la": "aurantium et malum",
+      "eo": "la oranĝo kaj la pomo"
     },
     {
       "term": "e",
@@ -5388,7 +5440,9 @@
       "zh": "和",
       "ja": "と / そして",
       "ca": "i / e",
-      "ko": "그리고"
+      "ko": "그리고",
+      "la": "et",
+      "eo": "kaj"
     }
   ],
   "basico2": [
@@ -5404,7 +5458,9 @@
       "zh": "它是一个橙子",
       "ja": "それはオレンジです",
       "ca": "és una taronja",
-      "ko": "그것은 오렌지입니다"
+      "ko": "그것은 오렌지입니다",
+      "la": "illud aurantium est",
+      "eo": "ĝi estas oranĝo"
     },
     {
       "term": "illo es un catto",
@@ -5418,7 +5474,9 @@
       "zh": "它是一只猫",
       "ja": "それは猫です",
       "ca": "és un gat",
-      "ko": "그것은 고양이입니다"
+      "ko": "그것은 고양이입니다",
+      "la": "illud feles est",
+      "eo": "ĝi estas kato"
     },
     {
       "term": "illo es un bon libro",
@@ -5432,7 +5490,9 @@
       "zh": "这是一本好书",
       "ja": "それは良い本です",
       "ca": "és un bon llibre",
-      "ko": "그것은 좋은 책입니다"
+      "ko": "그것은 좋은 책입니다",
+      "la": "illud liber bonus est",
+      "eo": "ĝi estas bona libro"
     },
     {
       "term": "le littera? illo es longe",
@@ -5446,7 +5506,9 @@
       "zh": "信？它很长",
       "ja": "手紙？長いです",
       "ca": "la carta? és llarga",
-      "ko": "편지요? 그것은 깁니다"
+      "ko": "편지요? 그것은 깁니다",
+      "la": "littera? longa est",
+      "eo": "la letero? ĝi estas longa"
     },
     {
       "term": "illo",
@@ -5460,7 +5522,9 @@
       "zh": "它 / 他 / 她（指物或抽象）",
       "ja": "それ / 彼 / 彼女（物や抽象的なもの）",
       "ca": "ell; ella; això (per coses o idees)",
-      "ko": "그 / 그녀 / 그것 (사물이나 추상적 대상)"
+      "ko": "그 / 그녀 / 그것 (사물이나 추상적 대상)",
+      "la": "ille; illa; illud",
+      "eo": "li; ŝi; ĝi"
     },
     {
       "term": "nos es un homine e un femina",
@@ -5474,7 +5538,9 @@
       "zh": "我们是一个男人和一个女人",
       "ja": "私たちは男と女です",
       "ca": "som un home i una dona",
-      "ko": "우리는 남자와 여자입니다"
+      "ko": "우리는 남자와 여자입니다",
+      "la": "nos vir et femina sumus",
+      "eo": "ni estas viro kaj virino"
     },
     {
       "term": "nos",
@@ -5488,7 +5554,9 @@
       "zh": "我们",
       "ja": "私たち",
       "ca": "nosaltres",
-      "ko": "우리"
+      "ko": "우리",
+      "la": "nos",
+      "eo": "ni"
     },
     {
       "term": "tu es un bon homine",
@@ -5502,7 +5570,9 @@
       "zh": "你是一个好人",
       "ja": "あなたは良い男です",
       "ca": "ets un bon home",
-      "ko": "너는 좋은 남자야"
+      "ko": "너는 좋은 남자야",
+      "la": "tu vir bonus es",
+      "eo": "vi estas bona viro"
     },
     {
       "term": "vos es un bon homine",
@@ -5516,7 +5586,9 @@
       "zh": "您是一个好人",
       "ja": "あなた（敬語）は良い男です",
       "ca": "vostè és un bon home",
-      "ko": "당신은 좋은 남자입니다"
+      "ko": "당신은 좋은 남자입니다",
+      "la": "vos vir bonus estis",
+      "eo": "vi estas bona viro"
     },
     {
       "term": "vos es bon homines",
@@ -5530,7 +5602,9 @@
       "zh": "你们是好人",
       "ja": "あなたたちは良い男たちです",
       "ca": "vostès són bons homes",
-      "ko": "여러분은 좋은 남자들입니다"
+      "ko": "여러분은 좋은 남자들입니다",
+      "la": "vos viri boni estis",
+      "eo": "vi estas bonaj viroj"
     },
     {
       "term": "tu",
@@ -5544,7 +5618,9 @@
       "zh": "你",
       "ja": "あなた",
       "ca": "tu",
-      "ko": "너"
+      "ko": "너",
+      "la": "tu",
+      "eo": "vi"
     },
     {
       "term": "vos",
@@ -5558,7 +5634,9 @@
       "zh": "您 / 你们",
       "ja": "あなた（敬語）/ あなたたち",
       "ca": "vostè; vosaltres",
-      "ko": "당신; 여러분"
+      "ko": "당신; 여러분",
+      "la": "vos",
+      "eo": "vi"
     },
     {
       "term": "illes lege le jornal",
@@ -5572,7 +5650,9 @@
       "zh": "他们在看报纸",
       "ja": "彼らは新聞を読みます",
       "ca": "ells llegeixen el diari",
-      "ko": "그들은 신문을 읽어요"
+      "ko": "그들은 신문을 읽어요",
+      "la": "illi diarium legunt",
+      "eo": "ili legas la ĵurnalon"
     },
     {
       "term": "illas lege le menu",
@@ -5586,7 +5666,9 @@
       "zh": "她们在看菜单",
       "ja": "彼女たちはメニューを読みます",
       "ca": "elles llegeixen el menú",
-      "ko": "그녀들은 메뉴를 읽어요"
+      "ko": "그녀들은 메뉴를 읽어요",
+      "la": "illae menu legunt",
+      "eo": "ili legas la menuon"
     },
     {
       "term": "le pomos? illos es rubie",
@@ -5600,7 +5682,9 @@
       "zh": "苹果？它们是红的",
       "ja": "りんご？赤いです",
       "ca": "les pomes? són vermelles",
-      "ko": "사과들? 빨갛습니다"
+      "ko": "사과들? 빨갛습니다",
+      "la": "mala? illa rubra sunt",
+      "eo": "la pomoj? ili estas ruĝaj"
     },
     {
       "term": "le pueros? illes es parve homines",
@@ -5614,7 +5698,9 @@
       "zh": "男孩们？他们是小男人",
       "ja": "男の子たち？小さな男の人です",
       "ca": "els nens? són petits homes",
-      "ko": "소년들? 그들은 작은 남자들입니다"
+      "ko": "소년들? 그들은 작은 남자들입니다",
+      "la": "pueri? illi parvi viri sunt",
+      "eo": "la knaboj? ili estas malgrandaj viroj"
     },
     {
       "term": "illes",
@@ -5628,7 +5714,9 @@
       "zh": "他们",
       "ja": "彼ら",
       "ca": "ells",
-      "ko": "그들"
+      "ko": "그들",
+      "la": "illi",
+      "eo": "ili"
     },
     {
       "term": "illas",
@@ -5642,7 +5730,9 @@
       "zh": "她们",
       "ja": "彼女たち",
       "ca": "elles",
-      "ko": "그녀들"
+      "ko": "그녀들",
+      "la": "illae",
+      "eo": "ili"
     },
     {
       "term": "illos",
@@ -5656,7 +5746,9 @@
       "zh": "它们",
       "ja": "それら",
       "ca": "ells / elles (coses/animals)",
-      "ko": "그것들"
+      "ko": "그것들",
+      "la": "illa",
+      "eo": "ili"
     },
     {
       "term": "io scribe",
@@ -5670,7 +5762,9 @@
       "zh": "我写",
       "ja": "私は書きます",
       "ca": "jo escric",
-      "ko": "나는 씁니다"
+      "ko": "나는 씁니다",
+      "la": "ego scribo",
+      "eo": "mi skribas"
     },
     {
       "term": "tu scribe",
@@ -5684,7 +5778,9 @@
       "zh": "你写",
       "ja": "あなたは書きます",
       "ca": "tu escrius",
-      "ko": "너는 씁니다"
+      "ko": "너는 씁니다",
+      "la": "tu scribis",
+      "eo": "vi skribas"
     },
     {
       "term": "libro",
@@ -5698,7 +5794,9 @@
       "zh": "书",
       "ja": "本",
       "ca": "llibre",
-      "ko": "책"
+      "ko": "책",
+      "la": "liber",
+      "eo": "libro"
     },
     {
       "term": "littera",
@@ -5712,7 +5810,9 @@
       "zh": "字母；信",
       "ja": "文字；手紙",
       "ca": "lletra; carta",
-      "ko": "글자; 편지"
+      "ko": "글자; 편지",
+      "la": "littera",
+      "eo": "letero"
     },
     {
       "term": "illa lege",
@@ -5726,7 +5826,9 @@
       "zh": "她在读",
       "ja": "彼女は読みます",
       "ca": "ella llegeix",
-      "ko": "그녀는 읽어요"
+      "ko": "그녀는 읽어요",
+      "la": "illa legit",
+      "eo": "ŝi legas"
     },
     {
       "term": "nos lege",
@@ -5740,7 +5842,9 @@
       "zh": "我们在读",
       "ja": "私たちは読みます",
       "ca": "nosaltres llegim",
-      "ko": "우리는 읽어요"
+      "ko": "우리는 읽어요",
+      "la": "nos legimus",
+      "eo": "ni legas"
     },
     {
       "term": "jornal",
@@ -5754,7 +5858,9 @@
       "zh": "报纸",
       "ja": "新聞",
       "ca": "diari",
-      "ko": "신문"
+      "ko": "신문",
+      "la": "diarium",
+      "eo": "ĵurnalo"
     },
     {
       "term": "menu",
@@ -5768,7 +5874,9 @@
       "zh": "菜单",
       "ja": "メニュー",
       "ca": "menú",
-      "ko": "메뉴"
+      "ko": "메뉴",
+      "la": "menu",
+      "eo": "menuo"
     },
     {
       "term": "illas scribe",
@@ -5782,7 +5890,9 @@
       "zh": "她们写",
       "ja": "彼女たちは書きます",
       "ca": "elles escriuen",
-      "ko": "그녀들은 씁니다"
+      "ko": "그녀들은 씁니다",
+      "la": "illae scribunt",
+      "eo": "ili skribas"
     },
     {
       "term": "illes lege",
@@ -5796,7 +5906,9 @@
       "zh": "他们在读",
       "ja": "彼らは読みます",
       "ca": "ells llegeixen",
-      "ko": "그들은 읽어요"
+      "ko": "그들은 읽어요",
+      "la": "illi legunt",
+      "eo": "ili legas"
     },
     {
       "term": "nos scribe un littera",
@@ -5810,7 +5922,9 @@
       "zh": "我们写一封信",
       "ja": "私たちは手紙を書きます",
       "ca": "escrivim una carta",
-      "ko": "우리는 편지를 씁니다"
+      "ko": "우리는 편지를 씁니다",
+      "la": "nos litteram scribimus",
+      "eo": "ni skribas leteron"
     },
     {
       "term": "infante",
@@ -5824,7 +5938,9 @@
       "zh": "孩子",
       "ja": "子ども",
       "ca": "infant",
-      "ko": "아이"
+      "ko": "아이",
+      "la": "infans",
+      "eo": "infano"
     }
   ],
   "phrases-quotidian": [
