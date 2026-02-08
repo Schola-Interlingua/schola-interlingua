@@ -5956,7 +5956,9 @@
       "zh": "谢谢",
       "ja": "ありがとう",
       "ca": "gràcies",
-      "ko": "감사합니다"
+      "ko": "감사합니다",
+      "la": "gratias tibi",
+      "eo": "dankon"
     },
     {
       "term": "de nihil",
@@ -5970,7 +5972,9 @@
       "zh": "不客气",
       "ja": "どういたしまして",
       "ca": "de res",
-      "ko": "천만에요"
+      "ko": "천만에요",
+      "la": "libenter",
+      "eo": "nedankinde"
     },
     {
       "term": "si",
@@ -5984,7 +5988,9 @@
       "zh": "是",
       "ja": "はい",
       "ca": "sí",
-      "ko": "네"
+      "ko": "네",
+      "la": "ita",
+      "eo": "jes"
     },
     {
       "term": "no",
@@ -5998,7 +6004,9 @@
       "zh": "不是",
       "ja": "いいえ",
       "ca": "no",
-      "ko": "아니요"
+      "ko": "아니요",
+      "la": "non",
+      "eo": "ne"
     },
     {
       "term": "como va tu?",
@@ -6012,7 +6020,9 @@
       "zh": "你好吗？",
       "ja": "元気ですか？",
       "ca": "com estàs?",
-      "ko": "잘 지냈어?"
+      "ko": "잘 지냈어?",
+      "la": "quomodo vales?",
+      "eo": "kiel vi fartas?"
     },
     {
       "term": "io va ben, gratias",
@@ -6026,7 +6036,9 @@
       "zh": "我很好，谢谢",
       "ja": "元気です、ありがとう",
       "ca": "estic bé, gràcies",
-      "ko": "잘 지냈어요, 감사합니다"
+      "ko": "잘 지냈어요, 감사합니다",
+      "la": "bene valeo, gratias",
+      "eo": "mi fartas bone, dankon"
     },
     {
       "term": "salute!",
@@ -6040,7 +6052,9 @@
       "zh": "你好！",
       "ja": "こんにちは！",
       "ca": "hola!",
-      "ko": "안녕하세요!"
+      "ko": "안녕하세요!",
+      "la": "salve!",
+      "eo": "saluton!"
     },
     {
       "term": "pardono",
@@ -6054,7 +6068,9 @@
       "zh": "对不起",
       "ja": "ごめんなさい",
       "ca": "perdó",
-      "ko": "미안해요 / 죄송합니다"
+      "ko": "미안해요 / 죄송합니다",
+      "la": "ignosce",
+      "eo": "pardonu"
     },
     {
       "term": "adeo",
@@ -6068,7 +6084,9 @@
       "zh": "再见",
       "ja": "さようなら",
       "ca": "adéu",
-      "ko": "안녕히 가세요 / 잘 가요"
+      "ko": "안녕히 가세요 / 잘 가요",
+      "la": "vale",
+      "eo": "adiaŭ"
     },
     {
       "term": "per favor",
@@ -6082,7 +6100,9 @@
       "zh": "请",
       "ja": "お願いします",
       "ca": "si us plau",
-      "ko": "제발 / 부탁해요"
+      "ko": "제발 / 부탁해요",
+      "la": "quaeso",
+      "eo": "bonvolu"
     },
     {
       "term": "si il vos place",
@@ -6096,7 +6116,9 @@
       "zh": "请 [正式]",
       "ja": "お願いいたします",
       "ca": "si us plau [formal]",
-      "ko": "부탁드립니다"
+      "ko": "부탁드립니다",
+      "la": "si vobis placet",
+      "eo": "se vi bonvolas"
     },
     {
       "term": "de accordo",
@@ -6110,7 +6132,9 @@
       "zh": "同意 / 好的",
       "ja": "了解です / はい",
       "ca": "d'acord",
-      "ko": "동의해요 / 좋아요"
+      "ko": "동의해요 / 좋아요",
+      "la": "consentio",
+      "eo": "konsentite"
     },
     {
       "term": "a revider",
@@ -6124,7 +6148,9 @@
       "zh": "再见",
       "ja": "また会いましょう",
       "ca": "a reveure",
-      "ko": "다시 봐요"
+      "ko": "다시 봐요",
+      "la": "ad iterum",
+      "eo": "ĝis revido"
     },
     {
       "term": "a plus tarde",
@@ -6138,7 +6164,9 @@
       "zh": "待会见",
       "ja": "また後で",
       "ca": "fins després",
-      "ko": "나중에 봐요"
+      "ko": "나중에 봐요",
+      "la": "postea videbimus",
+      "eo": "ĝis poste"
     },
     {
       "term": "a deman",
@@ -6152,7 +6180,9 @@
       "zh": "明天见",
       "ja": "また明日",
       "ca": "fins demà",
-      "ko": "내일 봐요"
+      "ko": "내일 봐요",
+      "la": "cras videbimus",
+      "eo": "ĝis morgaŭ"
     },
     {
       "term": "io regretta",
@@ -6166,7 +6196,9 @@
       "zh": "对不起 / 很抱歉",
       "ja": "申し訳ありません",
       "ca": "ho sento / perdó",
-      "ko": "죄송합니다 / 미안합니다"
+      "ko": "죄송합니다 / 미안합니다",
+      "la": "me paenitet, ignosce",
+      "eo": "mi pardonpetas"
     },
     {
       "term": "multe gratias",
@@ -6180,7 +6212,9 @@
       "zh": "非常感谢",
       "ja": "どうもありがとう",
       "ca": "moltes gràcies",
-      "ko": "정말 감사합니다"
+      "ko": "정말 감사합니다",
+      "la": "gratias maximas",
+      "eo": "multan dankon"
     },
     {
       "term": "bon die",
@@ -6194,7 +6228,9 @@
       "zh": "早上好",
       "ja": "おはようございます",
       "ca": "bon dia",
-      "ko": "좋은 아침입니다"
+      "ko": "좋은 아침입니다",
+      "la": "bonum mane",
+      "eo": "bonan matenon"
     },
     {
       "term": "bon postmeridie",
@@ -6208,7 +6244,9 @@
       "zh": "下午好",
       "ja": "こんにちは",
       "ca": "bona tarda",
-      "ko": "좋은 오후입니다"
+      "ko": "좋은 오후입니다",
+      "la": "bonum post meridiem",
+      "eo": "bonan posttagmezon"
     },
     {
       "term": "bon vespere",
@@ -6222,7 +6260,9 @@
       "zh": "晚上好",
       "ja": "こんばんは",
       "ca": "bona nit (salutació)",
-      "ko": "좋은 저녁입니다"
+      "ko": "좋은 저녁입니다",
+      "la": "bonam vesperam",
+      "eo": "bonan vesperon"
     },
     {
       "term": "bon nocte",
@@ -6236,7 +6276,9 @@
       "zh": "晚安",
       "ja": "おやすみなさい",
       "ca": "bona nit (comiat)",
-      "ko": "안녕히 주무세요 / 잘 자요"
+      "ko": "안녕히 주무세요 / 잘 자요",
+      "la": "bonam noctem",
+      "eo": "bonan nokton"
     }
   ],
   "alimentos": [
@@ -6252,7 +6294,9 @@
       "zh": "食物",
       "ja": "食べ物",
       "ca": "menjar",
-      "ko": "음식"
+      "ko": "음식",
+      "la": "cibus",
+      "eo": "manĝaĵo"
     },
     {
       "term": "pasta",
@@ -6266,7 +6310,9 @@
       "zh": "意大利面",
       "ja": "パスタ",
       "ca": "pasta",
-      "ko": "파스타"
+      "ko": "파스타",
+      "la": "pasta",
+      "eo": "pasto"
     },
     {
       "term": "sauce",
@@ -6280,7 +6326,9 @@
       "zh": "酱汁",
       "ja": "ソース",
       "ca": "salsa",
-      "ko": "소스"
+      "ko": "소스",
+      "la": "salsa",
+      "eo": "saŭco"
     },
     {
       "term": "confecto",
@@ -6294,7 +6342,9 @@
       "zh": "糖果",
       "ja": "お菓子 / キャンディ",
       "ca": "caramel; llaminadura",
-      "ko": "사탕; 단것"
+      "ko": "사탕; 단것",
+      "la": "dulce",
+      "eo": "dolĉaĵo"
     },
     {
       "term": "cibolla",
@@ -6308,7 +6358,9 @@
       "zh": "洋葱",
       "ja": "たまねぎ",
       "ca": "ceba",
-      "ko": "양파"
+      "ko": "양파",
+      "la": "cepa",
+      "eo": "cepo"
     },
     {
       "term": "carota",
@@ -6322,7 +6374,9 @@
       "zh": "胡萝卜",
       "ja": "にんじん",
       "ca": "pastanaga",
-      "ko": "당근"
+      "ko": "당근",
+      "la": "carota",
+      "eo": "karoto"
     },
     {
       "term": "uva",
@@ -6336,7 +6390,9 @@
       "zh": "葡萄",
       "ja": "ぶどう",
       "ca": "raïm",
-      "ko": "포도"
+      "ko": "포도",
+      "la": "uva",
+      "eo": "vinbero"
     },
     {
       "term": "confectura",
@@ -6350,7 +6406,9 @@
       "zh": "果酱",
       "ja": "ジャム",
       "ca": "melmelada",
-      "ko": "잼"
+      "ko": "잼",
+      "la": "confectura",
+      "eo": "konfitaĵo"
     },
     {
       "term": "oleo",
@@ -6364,7 +6422,9 @@
       "zh": "油",
       "ja": "油",
       "ca": "oli",
-      "ko": "기름"
+      "ko": "기름",
+      "la": "oleum",
+      "eo": "oleo"
     },
     {
       "term": "phaseolo",
@@ -6378,7 +6438,9 @@
       "zh": "豆子",
       "ja": "豆",
       "ca": "fesol",
-      "ko": "콩"
+      "ko": "콩",
+      "la": "phaseolus",
+      "eo": "fabo"
     },
     {
       "term": "carne",
@@ -6392,7 +6454,9 @@
       "zh": "肉",
       "ja": "肉",
       "ca": "carn",
-      "ko": "고기"
+      "ko": "고기",
+      "la": "caro",
+      "eo": "viando"
     },
     {
       "term": "tomate",
@@ -6406,7 +6470,9 @@
       "zh": "番茄",
       "ja": "トマト",
       "ca": "tomàquet",
-      "ko": "토마토"
+      "ko": "토마토",
+      "la": "tomatum",
+      "eo": "tomato"
     },
     {
       "term": "sandwich",
@@ -6420,7 +6486,9 @@
       "zh": "三明治",
       "ja": "サンドイッチ",
       "ca": "entrepà",
-      "ko": "샌드위치"
+      "ko": "샌드위치",
+      "la": "sandvicium",
+      "eo": "sandviĉo"
     },
     {
       "term": "baguette",
@@ -6434,7 +6502,9 @@
       "zh": "法棍",
       "ja": "バゲット",
       "ca": "baguet",
-      "ko": "바게트"
+      "ko": "바게트",
+      "la": "baguetta",
+      "eo": "bageto"
     },
     {
       "term": "suppa",
@@ -6448,7 +6518,9 @@
       "zh": "汤",
       "ja": "スープ",
       "ca": "sopa",
-      "ko": "수프 / 국"
+      "ko": "수프 / 국",
+      "la": "supa",
+      "eo": "supo"
     },
     {
       "term": "tu bibe",
@@ -6462,7 +6534,9 @@
       "zh": "你在喝",
       "ja": "あなたは飲んでいます",
       "ca": "beus",
-      "ko": "너는 마셔요"
+      "ko": "너는 마셔요",
+      "la": "tu bibis",
+      "eo": "vi trinkas"
     },
     {
       "term": "aqua",
@@ -6476,7 +6550,9 @@
       "zh": "水",
       "ja": "水",
       "ca": "aigua",
-      "ko": "물"
+      "ko": "물",
+      "la": "aqua",
+      "eo": "akvo"
     },
     {
       "term": "alcohol",
@@ -6490,7 +6566,9 @@
       "zh": "酒精",
       "ja": "アルコール",
       "ca": "alcohol",
-      "ko": "알코올"
+      "ko": "알코올",
+      "la": "alcohol",
+      "eo": "alkoholo"
     },
     {
       "term": "ovo",
@@ -6504,7 +6582,9 @@
       "zh": "鸡蛋",
       "ja": "卵",
       "ca": "ou",
-      "ko": "계란"
+      "ko": "계란",
+      "la": "ovum",
+      "eo": "ovo"
     },
     {
       "term": "salata",
@@ -6518,7 +6598,9 @@
       "zh": "沙拉",
       "ja": "サラダ",
       "ca": "amanida",
-      "ko": "샐러드"
+      "ko": "샐러드",
+      "la": "acetaria",
+      "eo": "salato"
     },
     {
       "term": "illes bibe",
@@ -6532,7 +6614,9 @@
       "zh": "他们在喝",
       "ja": "彼らは飲みます",
       "ca": "ells beuen",
-      "ko": "그들은 마셔요"
+      "ko": "그들은 마셔요",
+      "la": "illi bibunt",
+      "eo": "ili trinkas"
     },
     {
       "term": "ris",
@@ -6546,7 +6630,9 @@
       "zh": "米饭",
       "ja": "ご飯 / 米",
       "ca": "arròs",
-      "ko": "쌀 / 밥"
+      "ko": "쌀 / 밥",
+      "la": "oryza",
+      "eo": "rizo"
     },
     {
       "term": "pan",
@@ -6560,7 +6646,9 @@
       "zh": "面包",
       "ja": "パン",
       "ca": "pa",
-      "ko": "빵"
+      "ko": "빵",
+      "la": "panis",
+      "eo": "pano"
     },
     {
       "term": "vino",
@@ -6574,7 +6662,9 @@
       "zh": "葡萄酒",
       "ja": "ワイン",
       "ca": "vi",
-      "ko": "와인"
+      "ko": "와인",
+      "la": "vinum",
+      "eo": "vino"
     },
     {
       "term": "lacte",
@@ -6588,7 +6678,9 @@
       "zh": "牛奶",
       "ja": "牛乳",
       "ca": "llet",
-      "ko": "우유"
+      "ko": "우유",
+      "la": "lac",
+      "eo": "lakto"
     },
     {
       "term": "bira",
@@ -6602,7 +6694,9 @@
       "zh": "啤酒",
       "ja": "ビール",
       "ca": "cervesa",
-      "ko": "맥주"
+      "ko": "맥주",
+      "la": "cerevisia",
+      "eo": "biero"
     },
     {
       "term": "cocina",
@@ -6616,7 +6710,9 @@
       "zh": "厨房",
       "ja": "キッチン / 台所",
       "ca": "cuina",
-      "ko": "부엌"
+      "ko": "부엌",
+      "la": "culina",
+      "eo": "kuirejo"
     },
     {
       "term": "bibita",
@@ -6630,7 +6726,9 @@
       "zh": "饮料",
       "ja": "飲み物",
       "ca": "beguda",
-      "ko": "음료"
+      "ko": "음료",
+      "la": "potio",
+      "eo": "trinkaĵo"
     },
     {
       "term": "caffe",
@@ -6644,7 +6742,9 @@
       "zh": "咖啡",
       "ja": "コーヒー",
       "ca": "cafè",
-      "ko": "커피"
+      "ko": "커피",
+      "la": "cafea",
+      "eo": "kafo"
     },
     {
       "term": "the",
@@ -6658,7 +6758,9 @@
       "zh": "茶",
       "ja": "お茶 / ティー",
       "ca": "te",
-      "ko": "차"
+      "ko": "차",
+      "la": "thea",
+      "eo": "teo"
     },
     {
       "term": "crepe",
@@ -6672,7 +6774,9 @@
       "zh": "可丽饼",
       "ja": "クレープ",
       "ca": "crep",
-      "ko": "크레페"
+      "ko": "크레페",
+      "la": "crepa",
+      "eo": "krepo"
     },
     {
       "term": "repasto",
@@ -6686,7 +6790,9 @@
       "zh": "餐 / 饭",
       "ja": "食事",
       "ca": "àpat",
-      "ko": "식사"
+      "ko": "식사",
+      "la": "prandium",
+      "eo": "manĝo"
     },
     {
       "term": "butyro",
@@ -6700,7 +6806,9 @@
       "zh": "黄油",
       "ja": "バター",
       "ca": "mantega",
-      "ko": "버터"
+      "ko": "버터",
+      "la": "butyrum",
+      "eo": "butero"
     },
     {
       "term": "biber",
@@ -6714,7 +6822,9 @@
       "zh": "喝",
       "ja": "飲む",
       "ca": "beure",
-      "ko": "마시다"
+      "ko": "마시다",
+      "la": "bibere",
+      "eo": "trinki"
     },
     {
       "term": "mangiar",
@@ -6728,7 +6838,9 @@
       "zh": "吃",
       "ja": "食べる",
       "ca": "menjar",
-      "ko": "먹다"
+      "ko": "먹다",
+      "la": "edere",
+      "eo": "manĝi"
     },
     {
       "term": "banana",
@@ -6742,7 +6854,9 @@
       "zh": "香蕉",
       "ja": "バナナ",
       "ca": "plàtan",
-      "ko": "바나나"
+      "ko": "바나나",
+      "la": "banana",
+      "eo": "banano"
     },
     {
       "term": "caseo",
@@ -6756,7 +6870,9 @@
       "zh": "奶酪",
       "ja": "チーズ",
       "ca": "formatge",
-      "ko": "치즈"
+      "ko": "치즈",
+      "la": "caseus",
+      "eo": "fromaĝo"
     },
     {
       "term": "pisce",
@@ -6770,7 +6886,9 @@
       "zh": "鱼",
       "ja": "魚",
       "ca": "peix",
-      "ko": "생선"
+      "ko": "생선",
+      "la": "piscis",
+      "eo": "fiŝo"
     },
     {
       "term": "con",
@@ -6784,7 +6902,9 @@
       "zh": "和 / 与",
       "ja": "～と",
       "ca": "amb",
-      "ko": "~와 함께"
+      "ko": "~와 함께",
+      "la": "cum",
+      "eo": "kun"
     },
     {
       "term": "sal",
@@ -6798,7 +6918,9 @@
       "zh": "盐",
       "ja": "塩",
       "ca": "sal",
-      "ko": "소금"
+      "ko": "소금",
+      "la": "sal",
+      "eo": "salo"
     },
     {
       "term": "sucro",
@@ -6812,7 +6934,9 @@
       "zh": "糖",
       "ja": "砂糖",
       "ca": "sucre",
-      "ko": "설탕"
+      "ko": "설탕",
+      "la": "saccharum",
+      "eo": "sukero"
     },
     {
       "term": "pipere",
@@ -6826,7 +6950,9 @@
       "zh": "胡椒",
       "ja": "こしょう",
       "ca": "pebre",
-      "ko": "후추"
+      "ko": "후추",
+      "la": "piper",
+      "eo": "pipro"
     },
     {
       "term": "gallina",
@@ -6840,7 +6966,9 @@
       "zh": "鸡 / 鸡肉",
       "ja": "にわとり / チキン",
       "ca": "gallina / pollastre",
-      "ko": "닭 / 닭고기"
+      "ko": "닭 / 닭고기",
+      "la": "gallina",
+      "eo": "kokino"
     },
     {
       "term": "porco",
@@ -6854,7 +6982,9 @@
       "zh": "猪 / 猪肉",
       "ja": "豚 / 豚肉",
       "ca": "porc / carn de porc",
-      "ko": "돼지 / 돼지고기"
+      "ko": "돼지 / 돼지고기",
+      "la": "porcus",
+      "eo": "porko"
     },
     {
       "term": "torta",
@@ -6868,7 +6998,9 @@
       "zh": "蛋糕",
       "ja": "ケーキ",
       "ca": "pastís",
-      "ko": "케이크"
+      "ko": "케이크",
+      "la": "torta",
+      "eo": "kuko"
     },
     {
       "term": "limon",
@@ -6882,7 +7014,9 @@
       "zh": "柠檬",
       "ja": "レモン",
       "ca": "llimona",
-      "ko": "레몬"
+      "ko": "레몬",
+      "la": "limon",
+      "eo": "citrono"
     },
     {
       "term": "chocolate",
@@ -6896,7 +7030,9 @@
       "zh": "巧克力",
       "ja": "チョコレート",
       "ca": "xocolata",
-      "ko": "초콜릿"
+      "ko": "초콜릿",
+      "la": "chocolatum",
+      "eo": "ĉokolado"
     },
     {
       "term": "bove",
@@ -6910,7 +7046,9 @@
       "zh": "牛肉",
       "ja": "牛肉 / 雄牛",
       "ca": "bou; vedella",
-      "ko": "소고기; 황소"
+      "ko": "소고기; 황소",
+      "la": "bos",
+      "eo": "bovo"
     },
     {
       "term": "fraga",
@@ -6924,7 +7062,9 @@
       "zh": "草莓",
       "ja": "いちご",
       "ca": "maduixa",
-      "ko": "딸기"
+      "ko": "딸기",
+      "la": "fragum",
+      "eo": "frago"
     },
     {
       "term": "succo",
@@ -6938,7 +7078,9 @@
       "zh": "果汁",
       "ja": "ジュース",
       "ca": "suc",
-      "ko": "주스"
+      "ko": "주스",
+      "la": "succus",
+      "eo": "suko"
     },
     {
       "term": "illas bibe lacte",
@@ -6952,7 +7094,9 @@
       "zh": "她们在喝牛奶",
       "ja": "彼女たちは牛乳を飲みます",
       "ca": "elles beuen llet",
-      "ko": "그녀들은 우유를 마셔요"
+      "ko": "그녀들은 우유를 마셔요",
+      "la": "illae lac bibunt",
+      "eo": "ili trinkas lakton"
     },
     {
       "term": "tu mangia bove",
@@ -6966,7 +7110,9 @@
       "zh": "你在吃牛肉",
       "ja": "あなたは牛肉を食べています",
       "ca": "estàs menjant vedella",
-      "ko": "너는 소고기를 먹고 있어"
+      "ko": "너는 소고기를 먹고 있어",
+      "la": "tu bovem edis",
+      "eo": "vi manĝas bovaĵon"
     },
     {
       "term": "io mangia",
@@ -6980,7 +7126,9 @@
       "zh": "我在吃",
       "ja": "私は食べています",
       "ca": "jo menjo",
-      "ko": "나는 먹어요"
+      "ko": "나는 먹어요",
+      "la": "ego edo",
+      "eo": "mi manĝas"
     },
     {
       "term": "illa mangia",
@@ -6994,7 +7142,9 @@
       "zh": "她在吃",
       "ja": "彼女は食べています",
       "ca": "ella menja",
-      "ko": "그녀는 먹어요"
+      "ko": "그녀는 먹어요",
+      "la": "illa edit",
+      "eo": "ŝi manĝas"
     },
     {
       "term": "illas mangia",
@@ -7008,7 +7158,9 @@
       "zh": "她们在吃",
       "ja": "彼女たちは食べています",
       "ca": "elles mengen",
-      "ko": "그녀들은 먹어요"
+      "ko": "그녀들은 먹어요",
+      "la": "illae edunt",
+      "eo": "ili manĝas"
     },
     {
       "term": "nos ha",
@@ -7022,7 +7174,9 @@
       "zh": "我们有",
       "ja": "私たちは持っています",
       "ca": "nosaltres tenim",
-      "ko": "우리는 가지고 있어요"
+      "ko": "우리는 가지고 있어요",
+      "la": "nos habemus",
+      "eo": "ni havas"
     },
     {
       "term": "nos mangia",
@@ -7036,7 +7190,9 @@
       "zh": "我们在吃",
       "ja": "私たちは食べます",
       "ca": "nosaltres mengem",
-      "ko": "우리는 먹어요"
+      "ko": "우리는 먹어요",
+      "la": "nos edimus",
+      "eo": "ni manĝas"
     },
     {
       "term": "le infante mangia un orange",
@@ -7050,7 +7206,9 @@
       "zh": "孩子在吃橙子",
       "ja": "子どもがオレンジを食べています",
       "ca": "l’infant menja una taronja",
-      "ko": "아이가 오렌지를 먹어요"
+      "ko": "아이가 오렌지를 먹어요",
+      "la": "infans aurantium edit",
+      "eo": "la infano manĝas oranĝon"
     },
     {
       "term": "faba",
@@ -7064,7 +7222,9 @@
       "zh": "豆子",
       "ja": "そら豆",
       "ca": "fava",
-      "ko": "콩"
+      "ko": "콩",
+      "la": "faba",
+      "eo": "fabo"
     },
     {
       "term": "cacahuete",
@@ -7078,7 +7238,9 @@
       "zh": "花生",
       "ja": "ピーナッツ",
       "ca": "cacauet",
-      "ko": "땅콩"
+      "ko": "땅콩",
+      "la": "arachis",
+      "eo": "arakido"
     },
     {
       "term": "baca",
@@ -7092,7 +7254,9 @@
       "zh": "浆果",
       "ja": "ベリー / 木の実",
       "ca": "baia",
-      "ko": "베리 / 열매"
+      "ko": "베리 / 열매",
+      "la": "bacca",
+      "eo": "bero"
     },
     {
       "term": "frambese",
@@ -7106,7 +7270,9 @@
       "zh": "覆盆子",
       "ja": "ラズベリー",
       "ca": "grosella / gerd",
-      "ko": "산딸기"
+      "ko": "산딸기",
+      "la": "rubus idaeus",
+      "eo": "frambo"
     },
     {
       "term": "mora",
@@ -7120,7 +7286,9 @@
       "zh": "黑莓",
       "ja": "ブラックベリー",
       "ca": "móra",
-      "ko": "블랙베리"
+      "ko": "블랙베리",
+      "la": "morum",
+      "eo": "rubuso"
     },
     {
       "term": "myrtillo",
@@ -7134,7 +7302,9 @@
       "zh": "蓝莓",
       "ja": "ブルーベリー",
       "ca": "nabiu",
-      "ko": "블루베리"
+      "ko": "블루베리",
+      "la": "myrtillus",
+      "eo": "mirtelo"
     },
     {
       "term": "ceresia",
@@ -7148,7 +7318,9 @@
       "zh": "樱桃",
       "ja": "さくらんぼ",
       "ca": "cirera",
-      "ko": "체리"
+      "ko": "체리",
+      "la": "cerasum",
+      "eo": "ĉerizo"
     },
     {
       "term": "fico",
@@ -7162,7 +7334,9 @@
       "zh": "懦夫",
       "ja": "臆病者",
       "ca": "covard",
-      "ko": "겁쟁이"
+      "ko": "겁쟁이",
+      "la": "ignavus",
+      "eo": "malkuraĝulo"
     },
     {
       "term": "albricoc",
@@ -7176,7 +7350,9 @@
       "zh": "杏",
       "ja": "あんず",
       "ca": "albercoc",
-      "ko": "살구"
+      "ko": "살구",
+      "la": "armeniacum",
+      "eo": "abrikoto"
     },
     {
       "term": "persica",
@@ -7190,7 +7366,9 @@
       "zh": "桃子",
       "ja": "もも",
       "ca": "préssec",
-      "ko": "복숭아"
+      "ko": "복숭아",
+      "la": "persicum",
+      "eo": "persiko"
     },
     {
       "term": "alberengina",
@@ -7204,7 +7382,9 @@
       "zh": "茄子",
       "ja": "なす",
       "ca": "albergínia",
-      "ko": "가지"
+      "ko": "가지",
+      "la": "melongena",
+      "eo": "melongeno"
     },
     {
       "term": "piso",
@@ -7218,7 +7398,9 @@
       "zh": "豌豆",
       "ja": "えんどう豆",
       "ca": "pèsol",
-      "ko": "완두콩"
+      "ko": "완두콩",
+      "la": "pisum",
+      "eo": "pizo"
     },
     {
       "term": "pistacio",
@@ -7232,7 +7414,9 @@
       "zh": "开心果",
       "ja": "ピスタチオ",
       "ca": "festuc",
-      "ko": "피스타치오"
+      "ko": "피스타치오",
+      "la": "pistacium",
+      "eo": "pistako"
     }
   ],
   "animales": [
