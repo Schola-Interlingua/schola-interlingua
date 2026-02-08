@@ -15818,7 +15818,9 @@
       "zh": "生活",
       "ja": "生きる",
       "ca": "viure",
-      "ko": "살다"
+      "ko": "살다",
+      "la": "vivere",
+      "eo": "vivi"
     },
     {
       "term": "io vive",
@@ -15832,7 +15834,9 @@
       "zh": "我住 / 我生活",
       "ja": "私は生きている",
       "ca": "jo visc",
-      "ko": "나는 살아"
+      "ko": "나는 살아",
+      "la": "ego vivo",
+      "eo": "mi vivas"
     },
     {
       "term": "tu vive",
@@ -15846,7 +15850,9 @@
       "zh": "你住 / 你生活",
       "ja": "あなたは生きている",
       "ca": "tu vius",
-      "ko": "너는 살아"
+      "ko": "너는 살아",
+      "la": "tu vivis",
+      "eo": "vi vivas"
     },
     {
       "term": "ille vive",
@@ -15860,7 +15866,9 @@
       "zh": "他住 / 他生活",
       "ja": "彼は生きている",
       "ca": "ell viu",
-      "ko": "그는 살아"
+      "ko": "그는 살아",
+      "la": "ille vivit",
+      "eo": "li vivas"
     },
     {
       "term": "nos vive",
@@ -15874,7 +15882,9 @@
       "zh": "我们生活",
       "ja": "私たちは生きている",
       "ca": "nosaltres vivim",
-      "ko": "우리는 살아"
+      "ko": "우리는 살아",
+      "la": "nos vivimus",
+      "eo": "ni vivas"
     },
     {
       "term": "vos vive",
@@ -15888,7 +15898,9 @@
       "zh": "你们生活",
       "ja": "あなたたちは生きている",
       "ca": "vosaltres viviu",
-      "ko": "너희들은 살아"
+      "ko": "너희들은 살아",
+      "la": "vos vivitis",
+      "eo": "vi vivas"
     },
     {
       "term": "salvar",
@@ -15902,7 +15914,9 @@
       "zh": "拯救 / 节省",
       "ja": "救う / 節約する",
       "ca": "salvar / estalviar",
-      "ko": "구하다 / 절약하다"
+      "ko": "구하다 / 절약하다",
+      "la": "salvare",
+      "eo": "savi"
     },
     {
       "term": "illes vive",
@@ -15916,7 +15930,9 @@
       "zh": "他们生活",
       "ja": "彼らは生きている",
       "ca": "ells viuen",
-      "ko": "그들은 살아"
+      "ko": "그들은 살아",
+      "la": "illi vivunt",
+      "eo": "ili vivas"
     },
     {
       "term": "adjutar alcuno a",
@@ -15930,7 +15946,9 @@
       "zh": "帮助某人去...",
       "ja": "誰かが…するのを助ける",
       "ca": "ajudar algú a",
-      "ko": "누군가가 ~하도록 돕다"
+      "ko": "누군가가 ~하도록 돕다",
+      "la": "aliquem adiuvare ad",
+      "eo": "helpi iun por"
     },
     {
       "term": "aprender a",
@@ -15944,7 +15962,9 @@
       "zh": "学习做...",
       "ja": "…を学ぶ",
       "ca": "aprendre a",
-      "ko": "~하는 것을 배우다"
+      "ko": "~하는 것을 배우다",
+      "la": "discere",
+      "eo": "lerni"
     },
     {
       "term": "enseniar a alcuno",
@@ -15958,7 +15978,9 @@
       "zh": "教某人",
       "ja": "誰かに教える",
       "ca": "ensenyar a algú",
-      "ko": "누군가를 가르치다"
+      "ko": "누군가를 가르치다",
+      "la": "aliquem docere",
+      "eo": "instrui iun"
     },
     {
       "term": "gerer",
@@ -15972,7 +15994,9 @@
       "zh": "管理",
       "ja": "管理する",
       "ca": "gestionar",
-      "ko": "관리하다"
+      "ko": "관리하다",
+      "la": "gerere",
+      "eo": "administri"
     },
     {
       "term": "haber successo a",
@@ -15986,7 +16010,9 @@
       "zh": "在…中成功",
       "ja": "…に成功する",
       "ca": "tenir èxit en",
-      "ko": "~에 성공하다"
+      "ko": "~에 성공하다",
+      "la": "successum habere in",
+      "eo": "sukcesi en"
     },
     {
       "term": "expectar alco",
@@ -16000,7 +16026,9 @@
       "zh": "期望某事",
       "ja": "何かを期待する",
       "ca": "esperar alguna cosa",
-      "ko": "무언가를 기대하다"
+      "ko": "무언가를 기대하다",
+      "la": "aliquid exspectare",
+      "eo": "atendi ion"
     },
     {
       "term": "comenciar a",
@@ -16014,7 +16042,9 @@
       "zh": "开始做...",
       "ja": "…を始める",
       "ca": "començar a",
-      "ko": "~하기 시작하다"
+      "ko": "~하기 시작하다",
+      "la": "incipere",
+      "eo": "komenci"
     },
     {
       "term": "creder in",
@@ -16028,7 +16058,9 @@
       "zh": "相信",
       "ja": "信じる",
       "ca": "creure en",
-      "ko": "~을 믿다"
+      "ko": "~을 믿다",
+      "la": "credere in",
+      "eo": "kredi je"
     },
     {
       "term": "cader foras de",
@@ -16042,7 +16074,9 @@
       "zh": "掉出…之外",
       "ja": "…から落ちる / 外れる",
       "ca": "caure fora de",
-      "ko": "~에서 떨어지다"
+      "ko": "~에서 떨어지다",
+      "la": "extra cadere",
+      "eo": "elfali el"
     },
     {
       "term": "esser interessate in alco",
@@ -16056,7 +16090,9 @@
       "zh": "对某事感兴趣",
       "ja": "何かに興味がある",
       "ca": "estar interessat en alguna cosa",
-      "ko": "~에 관심이 있다"
+      "ko": "~에 관심이 있다",
+      "la": "de aliquo interesse",
+      "eo": "interesiĝi pri io"
     },
     {
       "term": "invitar alcuno a",
@@ -16070,7 +16106,9 @@
       "zh": "邀请某人参加",
       "ja": "誰かを…に招待する",
       "ca": "convidar algú a",
-      "ko": "~에게 ~하도록 초대하다"
+      "ko": "~에게 ~하도록 초대하다",
+      "la": "aliquem invitare ad",
+      "eo": "inviti iun al"
     },
     {
       "term": "prender placer in",
@@ -16084,7 +16122,9 @@
       "zh": "享受…",
       "ja": "…を楽しむ",
       "ca": "gaudir de",
-      "ko": "~을 즐기다"
+      "ko": "~을 즐기다",
+      "la": "delectari in",
+      "eo": "ĝui"
     },
     {
       "term": "comprar ab",
@@ -16098,7 +16138,9 @@
       "zh": "从…购买",
       "ja": "…から買う",
       "ca": "comprar a",
-      "ko": "~에게서 사다"
+      "ko": "~에게서 사다",
+      "la": "emere ab",
+      "eo": "aĉeti de"
     },
     {
       "term": "dicer",
@@ -16112,7 +16154,9 @@
       "zh": "说",
       "ja": "言う",
       "ca": "dir",
-      "ko": "말하다"
+      "ko": "말하다",
+      "la": "dicere",
+      "eo": "diri"
     },
     {
       "term": "jocar",
@@ -16126,7 +16170,9 @@
       "zh": "玩（运动）",
       "ja": "（スポーツを）する",
       "ca": "jugar (un esport)",
-      "ko": "(스포츠를) 하다"
+      "ko": "(스포츠를) 하다",
+      "la": "ludere",
+      "eo": "ludi"
     },
     {
       "term": "esser mancate a alcuno",
@@ -16140,7 +16186,9 @@
       "zh": "想念某人",
       "ja": "誰かが恋しい",
       "ca": "trobar a faltar algú",
-      "ko": "~를 그리워하다"
+      "ko": "~를 그리워하다",
+      "la": "alicui deesse",
+      "eo": "malhavi iun"
     },
     {
       "term": "narrar a alcuno",
@@ -16154,7 +16202,9 @@
       "zh": "告诉某人",
       "ja": "誰かに話す",
       "ca": "explicar a algú",
-      "ko": "~에게 이야기하다"
+      "ko": "~에게 이야기하다",
+      "la": "alicui narrare",
+      "eo": "rakonti al iu"
     },
     {
       "term": "similar a",
@@ -16168,7 +16218,9 @@
       "zh": "像…",
       "ja": "…に似ている",
       "ca": "assemblar-se a",
-      "ko": "~와 닮다"
+      "ko": "~와 닮다",
+      "la": "similis alicui",
+      "eo": "simili al"
     },
     {
       "term": "responder a",
@@ -16182,7 +16234,9 @@
       "zh": "回答",
       "ja": "…に答える",
       "ca": "respondre a",
-      "ko": "~에 응답하다"
+      "ko": "~에 응답하다",
+      "la": "respondere ad",
+      "eo": "respondi al"
     },
     {
       "term": "telephonar a alcuno",
@@ -16196,7 +16250,9 @@
       "zh": "打电话给某人",
       "ja": "誰かに電話する",
       "ca": "trucar a algú",
-      "ko": "~에게 전화하다"
+      "ko": "~에게 전화하다",
+      "la": "alicui telephonare",
+      "eo": "telefoni al iu"
     },
     {
       "term": "eliger de",
@@ -16210,7 +16266,9 @@
       "zh": "从…中选择",
       "ja": "…から選ぶ",
       "ca": "escollir de",
-      "ko": "~에서 고르다"
+      "ko": "~에서 고르다",
+      "la": "eligere de",
+      "eo": "elekti el"
     },
     {
       "term": "dicer a alcuno de facer alco",
@@ -16224,7 +16282,9 @@
       "zh": "叫某人做某事",
       "ja": "誰かに何かをするように言う",
       "ca": "dir a algú que faci alguna cosa",
-      "ko": "~에게 ~하라고 말하다"
+      "ko": "~에게 ~하라고 말하다",
+      "la": "alicui dicere ut aliquid faciat",
+      "eo": "diri al iu fari ion"
     },
     {
       "term": "effortiar se a",
@@ -16238,7 +16298,9 @@
       "zh": "努力去…",
       "ja": "努力して…する",
       "ca": "esforçar-se a",
-      "ko": "~하려고 애쓰다"
+      "ko": "~하려고 애쓰다",
+      "la": "conari",
+      "eo": "strebi"
     },
     {
       "term": "finir de facer alco",
@@ -16252,7 +16314,9 @@
       "zh": "做完某事",
       "ja": "何かを終える",
       "ca": "acabar de fer alguna cosa",
-      "ko": "~하는 것을 끝내다"
+      "ko": "~하는 것을 끝내다",
+      "la": "aliquid facere finire",
+      "eo": "fini fari ion"
     },
     {
       "term": "il es tempore pro dormir",
@@ -16266,7 +16330,9 @@
       "zh": "该睡觉了",
       "ja": "寝る時間です",
       "ca": "és hora de dormir",
-      "ko": "잘 시간이다"
+      "ko": "잘 시간이다",
+      "la": "tempus est dormire",
+      "eo": "estas tempo dormi"
     },
     {
       "term": "mancar de",
@@ -16280,7 +16346,9 @@
       "zh": "缺乏；忽视；没有做",
       "ja": "欠ける；怠る；しない",
       "ca": "faltar; descuidar; deixar de",
-      "ko": "~이 부족하다; 소홀히 하다; 하지 않다"
+      "ko": "~이 부족하다; 소홀히 하다; 하지 않다",
+      "la": "carere",
+      "eo": "manki"
     },
     {
       "term": "concepto",
@@ -16294,7 +16362,9 @@
       "zh": "概念",
       "ja": "概念",
       "ca": "concept; noció",
-      "ko": "개념; 관념"
+      "ko": "개념; 관념",
+      "la": "conceptus",
+      "eo": "koncepto"
     },
     {
       "term": "io va monstrar vos",
@@ -16308,7 +16378,9 @@
       "zh": "我会给你看",
       "ja": "見せてあげるよ",
       "ca": "et mostraré",
-      "ko": "내가 보여줄게"
+      "ko": "내가 보여줄게",
+      "la": "vobis monstrabo",
+      "eo": "mi montros al vi"
     },
     {
       "term": "exir a mangiar",
@@ -16322,7 +16394,9 @@
       "zh": "出去吃饭",
       "ja": "食事に出かける",
       "ca": "sortir a menjar",
-      "ko": "외식하다"
+      "ko": "외식하다",
+      "la": "exire ad edendum",
+      "eo": "eliri por manĝi"
     },
     {
       "term": "io exi",
@@ -16336,7 +16410,9 @@
       "zh": "我出去",
       "ja": "出かける",
       "ca": "jo surto",
-      "ko": "나는 나간다"
+      "ko": "나는 나간다",
+      "la": "ego exeo",
+      "eo": "mi eliras"
     },
     {
       "term": "tu exi",
@@ -16350,7 +16426,9 @@
       "zh": "你出去",
       "ja": "君は出かける",
       "ca": "tu surts",
-      "ko": "너는 나간다"
+      "ko": "너는 나간다",
+      "la": "tu exis",
+      "eo": "vi eliras"
     },
     {
       "term": "vos exi",
@@ -16364,7 +16442,9 @@
       "zh": "你们出去",
       "ja": "あなたたちは出かける",
       "ca": "vosaltres sortiu",
-      "ko": "당신(들)은 나간다"
+      "ko": "당신(들)은 나간다",
+      "la": "vos exitis",
+      "eo": "vi eliras"
     },
     {
       "term": "nos exi",
@@ -16378,7 +16458,9 @@
       "zh": "我们出去",
       "ja": "私たちは出かける",
       "ca": "nosaltres sortim",
-      "ko": "우리는 나간다"
+      "ko": "우리는 나간다",
+      "la": "nos eximus",
+      "eo": "ni eliras"
     },
     {
       "term": "illes exi",
@@ -16392,7 +16474,9 @@
       "zh": "他们/她们出去",
       "ja": "彼ら/彼女らは出かける",
       "ca": "ells/elles surten",
-      "ko": "그들은 나간다"
+      "ko": "그들은 나간다",
+      "la": "illi exeunt",
+      "eo": "ili eliras"
     },
     {
       "term": "ille exi",
@@ -16406,7 +16490,9 @@
       "zh": "他出去",
       "ja": "彼は出かける",
       "ca": "ell surt",
-      "ko": "그는 나간다"
+      "ko": "그는 나간다",
+      "la": "ille exit",
+      "eo": "li eliras"
     },
     {
       "term": "probar alco",
@@ -16420,7 +16506,9 @@
       "zh": "尝试某事",
       "ja": "何かを試す",
       "ca": "provar alguna cosa",
-      "ko": "무언가를 시도하다"
+      "ko": "무언가를 시도하다",
+      "la": "aliquid probare",
+      "eo": "provi ion"
     },
     {
       "term": "devenir malade",
@@ -16434,7 +16522,9 @@
       "zh": "生病",
       "ja": "病気になる",
       "ca": "posar-se malalt",
-      "ko": "아프게 되다"
+      "ko": "아프게 되다",
+      "la": "aeger fieri",
+      "eo": "malsaniĝi"
     },
     {
       "term": "ultra",
@@ -16448,7 +16538,9 @@
       "zh": "超过；超越",
       "ja": "〜よりも多く；〜を超えて",
       "ca": "més que; més enllà de",
-      "ko": "~보다 더; ~을 넘어서"
+      "ko": "~보다 더; ~을 넘어서",
+      "la": "ultra",
+      "eo": "preter"
     },
     {
       "term": "querer de facer alco",
@@ -16462,7 +16554,9 @@
       "zh": "请求做某事",
       "ja": "何かをするよう頼む",
       "ca": "demanar fer alguna cosa",
-      "ko": "~하길 요청하다"
+      "ko": "~하길 요청하다",
+      "la": "petere aliquid facere",
+      "eo": "peti fari ion"
     },
     {
       "term": "que facer?",
@@ -16476,7 +16570,9 @@
       "zh": "怎么办？",
       "ja": "どうする？",
       "ca": "què fer?",
-      "ko": "어쩌지?"
+      "ko": "어쩌지?",
+      "la": "quid faciendum?",
+      "eo": "kion fari?"
     },
     {
       "term": "nigre",
@@ -16490,7 +16586,9 @@
       "zh": "黑色",
       "ja": "黒",
       "ca": "negre",
-      "ko": "검정색"
+      "ko": "검정색",
+      "la": "niger",
+      "eo": "nigra"
     },
     {
       "term": "como",
@@ -16504,7 +16602,9 @@
       "zh": "怎么",
       "ja": "どうやって",
       "ca": "com",
-      "ko": "어떻게"
+      "ko": "어떻게",
+      "la": "quomodo",
+      "eo": "kiel"
     },
     {
       "term": "le sol",
@@ -16518,7 +16618,9 @@
       "zh": "唯一的",
       "ja": "唯一の",
       "ca": "l'únic",
-      "ko": "유일한"
+      "ko": "유일한",
+      "la": "solus",
+      "eo": "la sola"
     },
     {
       "term": "sonar",
@@ -16532,7 +16634,9 @@
       "zh": "演奏",
       "ja": "演奏する",
       "ca": "tocar (música)",
-      "ko": "연주하다"
+      "ko": "연주하다",
+      "la": "canere",
+      "eo": "ludi muzikon"
     },
     {
       "term": "putar re",
@@ -16546,7 +16650,9 @@
       "zh": "思考；认为",
       "ja": "〜について考える",
       "ca": "pensar sobre (opinió)",
-      "ko": "~에 대해 생각하다"
+      "ko": "~에 대해 생각하다",
+      "la": "de re putare",
+      "eo": "pensi pri"
     },
     {
       "term": "demandar a alcuno de facer alco",
@@ -16560,7 +16666,9 @@
       "zh": "请求某人做某事",
       "ja": "誰かに何かをするよう頼む",
       "ca": "demanar a algú que faci alguna cosa",
-      "ko": "~에게 ~하라고 요청하다"
+      "ko": "~에게 ~하라고 요청하다",
+      "la": "aliquem rogare ut aliquid faciat",
+      "eo": "peti iun fari ion"
     },
     {
       "term": "placer",
@@ -16574,7 +16682,9 @@
       "zh": "使愉快",
       "ja": "喜ばせる",
       "ca": "complaure",
-      "ko": "기쁘게 하다"
+      "ko": "기쁘게 하다",
+      "la": "placere",
+      "eo": "plaĉi"
     },
     {
       "term": "me place",
@@ -16588,7 +16698,9 @@
       "zh": "我喜欢",
       "ja": "好きです",
       "ca": "m'agrada",
-      "ko": "나는 좋아해"
+      "ko": "나는 좋아해",
+      "la": "mihi placet",
+      "eo": "mi ŝatas"
     },
     {
       "term": "nos mangia pro viver",
@@ -16602,7 +16714,9 @@
       "zh": "我们吃是为了活着",
       "ja": "私たちは生きるために食べる",
       "ca": "mengen per viure",
-      "ko": "우리는 살기 위해 먹는다"
+      "ko": "우리는 살기 위해 먹는다",
+      "la": "edimus ut vivamus",
+      "eo": "ni manĝas por vivi"
     },
     {
       "term": "bon a saper",
@@ -16616,7 +16730,9 @@
       "zh": "值得知道",
       "ja": "知っておいてよかった",
       "ca": "bo de saber",
-      "ko": "알아두면 좋은"
+      "ko": "알아두면 좋은",
+      "la": "bonum scire",
+      "eo": "bone scii"
     },
     {
       "term": "il es belle amar",
@@ -16630,7 +16746,9 @@
       "zh": "去爱是美丽的",
       "ja": "愛することは美しい",
       "ca": "és bonic estimar",
-      "ko": "사랑하는 것은 아름답다"
+      "ko": "사랑하는 것은 아름답다",
+      "la": "pulchrum est amare",
+      "eo": "bele estas ami"
     }
   ],
   "datas-tempore": [
@@ -16646,7 +16764,9 @@
       "zh": "月",
       "ja": "月",
       "ca": "mes",
-      "ko": "월"
+      "ko": "월",
+      "la": "mensis",
+      "eo": "monato"
     },
     {
       "term": "medie-hora",
@@ -16660,7 +16780,9 @@
       "zh": "半小时",
       "ja": "30分",
       "ca": "mitja hora",
-      "ko": "30분"
+      "ko": "30분",
+      "la": "dimidia hora",
+      "eo": "duonhoro"
     },
     {
       "term": "januario",
@@ -16674,7 +16796,9 @@
       "zh": "一月",
       "ja": "1月",
       "ca": "gener",
-      "ko": "1월"
+      "ko": "1월",
+      "la": "Ianuarius",
+      "eo": "januaro"
     },
     {
       "term": "februario",
@@ -16688,7 +16812,9 @@
       "zh": "二月",
       "ja": "2月",
       "ca": "febrer",
-      "ko": "2월"
+      "ko": "2월",
+      "la": "Februarius",
+      "eo": "februaro"
     },
     {
       "term": "martio",
@@ -16702,7 +16828,9 @@
       "zh": "三月",
       "ja": "3月",
       "ca": "març",
-      "ko": "3월"
+      "ko": "3월",
+      "la": "Martius",
+      "eo": "marto"
     },
     {
       "term": "april",
@@ -16716,7 +16844,9 @@
       "zh": "四月",
       "ja": "4月",
       "ca": "abril",
-      "ko": "4월"
+      "ko": "4월",
+      "la": "Aprilis",
+      "eo": "aprilo"
     },
     {
       "term": "maio",
@@ -16730,7 +16860,9 @@
       "zh": "五月",
       "ja": "5月",
       "ca": "maig",
-      "ko": "5월"
+      "ko": "5월",
+      "la": "Maius",
+      "eo": "majo"
     },
     {
       "term": "junio",
@@ -16744,7 +16876,9 @@
       "zh": "六月",
       "ja": "6月",
       "ca": "juny",
-      "ko": "6월"
+      "ko": "6월",
+      "la": "Iunius",
+      "eo": "junio"
     },
     {
       "term": "julio",
@@ -16758,7 +16892,9 @@
       "zh": "七月",
       "ja": "7月",
       "ca": "juliol",
-      "ko": "7월"
+      "ko": "7월",
+      "la": "Iulius",
+      "eo": "julio"
     },
     {
       "term": "septembre",
@@ -16772,7 +16908,9 @@
       "zh": "九月",
       "ja": "9月",
       "ca": "setembre",
-      "ko": "9월"
+      "ko": "9월",
+      "la": "September",
+      "eo": "septembro"
     },
     {
       "term": "octobre",
@@ -16786,7 +16924,9 @@
       "zh": "十月",
       "ja": "10月",
       "ca": "octubre",
-      "ko": "10월"
+      "ko": "10월",
+      "la": "October",
+      "eo": "oktobro"
     },
     {
       "term": "augusto",
@@ -16800,7 +16940,9 @@
       "zh": "八月",
       "ja": "8月",
       "ca": "agost",
-      "ko": "8월"
+      "ko": "8월",
+      "la": "Augustus",
+      "eo": "aŭgusto"
     },
     {
       "term": "novembre",
@@ -16814,7 +16956,9 @@
       "zh": "十一月",
       "ja": "11月",
       "ca": "novembre",
-      "ko": "11월"
+      "ko": "11월",
+      "la": "November",
+      "eo": "novembro"
     },
     {
       "term": "decembre",
@@ -16828,7 +16972,9 @@
       "zh": "十二月",
       "ja": "12月",
       "ca": "desembre",
-      "ko": "12월"
+      "ko": "12월",
+      "la": "December",
+      "eo": "decembro"
     },
     {
       "term": "periodo",
@@ -16842,7 +16988,9 @@
       "zh": "时期",
       "ja": "期間",
       "ca": "període",
-      "ko": "기간"
+      "ko": "기간",
+      "la": "periodus",
+      "eo": "periodo"
     },
     {
       "term": "initio",
@@ -16856,7 +17004,9 @@
       "zh": "开始",
       "ja": "始まり",
       "ca": "inici",
-      "ko": "시작"
+      "ko": "시작",
+      "la": "initium",
+      "eo": "komenco"
     },
     {
       "term": "ab lunedi a venerdi",
@@ -16870,7 +17020,9 @@
       "zh": "从星期一到星期五",
       "ja": "月曜から金曜まで",
       "ca": "de dilluns a divendres",
-      "ko": "월요일부터 금요일까지"
+      "ko": "월요일부터 금요일까지",
+      "la": "a die Lunae ad diem Veneris",
+      "eo": "de lundo ĝis vendredo"
     },
     {
       "term": "estate",
@@ -16884,7 +17036,9 @@
       "zh": "夏天",
       "ja": "夏",
       "ca": "estiu",
-      "ko": "여름"
+      "ko": "여름",
+      "la": "aestas",
+      "eo": "somero"
     },
     {
       "term": "durante le lunedis",
@@ -16898,7 +17052,9 @@
       "zh": "每周一",
       "ja": "毎週月曜日に",
       "ca": "els dilluns",
-      "ko": "월요일마다"
+      "ko": "월요일마다",
+      "la": "diebus Lunae",
+      "eo": "lundon"
     },
     {
       "term": "in tempore de un hora",
@@ -16912,7 +17068,9 @@
       "zh": "一小时后",
       "ja": "1時間後に",
       "ca": "en una hora",
-      "ko": "한 시간 후"
+      "ko": "한 시간 후",
+      "la": "in una hora",
+      "eo": "post unu horo"
     },
     {
       "term": "usque lunedi",
@@ -16926,7 +17084,9 @@
       "zh": "到星期一",
       "ja": "月曜日まで",
       "ca": "fins dilluns",
-      "ko": "월요일까지"
+      "ko": "월요일까지",
+      "la": "usque ad diem Lunae",
+      "eo": "ĝis lundo"
     },
     {
       "term": "il es lunedi",
@@ -16940,7 +17100,9 @@
       "zh": "今天是星期一",
       "ja": "月曜日です",
       "ca": "és dilluns",
-      "ko": "월요일이에요"
+      "ko": "월요일이에요",
+      "la": "dies Lunae est",
+      "eo": "estas lundo"
     },
     {
       "term": "cata septimana, ab lunedi a venerdi",
@@ -16954,7 +17116,9 @@
       "zh": "每周从星期一到星期五",
       "ja": "毎週月曜日から金曜日まで",
       "ca": "cada setmana de dilluns a divendres",
-      "ko": "매주 월요일부터 금요일까지"
+      "ko": "매주 월요일부터 금요일까지",
+      "la": "omni septimana a die Lunae ad diem Veneris",
+      "eo": "ĉiusemajne de lundo ĝis vendredo"
     },
     {
       "term": "juventute",
@@ -16968,7 +17132,9 @@
       "zh": "青年",
       "ja": "若者",
       "ca": "joventut",
-      "ko": "청년"
+      "ko": "청년",
+      "la": "iuventus",
+      "eo": "junularo"
     },
     {
       "term": "horologio",
@@ -16982,7 +17148,9 @@
       "zh": "钟表",
       "ja": "時計",
       "ca": "el rellotge",
-      "ko": "시계"
+      "ko": "시계",
+      "la": "horologium",
+      "eo": "horloĝo"
     },
     {
       "term": "die natal",
@@ -16996,7 +17164,9 @@
       "zh": "生日",
       "ja": "誕生日",
       "ca": "aniversari",
-      "ko": "생일"
+      "ko": "생일",
+      "la": "dies natalis",
+      "eo": "naskiĝtago"
     },
     {
       "term": "medienocte",
@@ -17010,7 +17180,9 @@
       "zh": "午夜",
       "ja": "真夜中",
       "ca": "mitjanit",
-      "ko": "자정"
+      "ko": "자정",
+      "la": "media nox",
+      "eo": "noktomezo"
     },
     {
       "term": "un periodo difficile",
@@ -17024,7 +17196,9 @@
       "zh": "困难时期",
       "ja": "困難な時期",
       "ca": "un període difícil",
-      "ko": "어려운 시기"
+      "ko": "어려운 시기",
+      "la": "periodus difficilis",
+      "eo": "malfacila periodo"
     },
     {
       "term": "ab le initio",
@@ -17038,7 +17212,9 @@
       "zh": "从一开始",
       "ja": "最初から",
       "ca": "des del principi",
-      "ko": "처음부터"
+      "ko": "처음부터",
+      "la": "ab initio",
+      "eo": "de la komenco"
     },
     {
       "term": "appunctamento",
@@ -17052,7 +17228,9 @@
       "zh": "约会",
       "ja": "約束",
       "ca": "cita",
-      "ko": "약속"
+      "ko": "약속",
+      "la": "constitutum",
+      "eo": "rendevuo"
     },
     {
       "term": "hiberno",
@@ -17066,7 +17244,9 @@
       "zh": "冬天",
       "ja": "冬",
       "ca": "hivern",
-      "ko": "겨울"
+      "ko": "겨울",
+      "la": "hiems",
+      "eo": "vintro"
     },
     {
       "term": "autumno",
@@ -17080,7 +17260,9 @@
       "zh": "秋天",
       "ja": "秋",
       "ca": "tardor",
-      "ko": "가을"
+      "ko": "가을",
+      "la": "autumnus",
+      "eo": "aŭtuno"
     },
     {
       "term": "saison",
@@ -17094,7 +17276,9 @@
       "zh": "季节",
       "ja": "季節",
       "ca": "temporada",
-      "ko": "계절"
+      "ko": "계절",
+      "la": "tempus anni",
+      "eo": "sezono"
     },
     {
       "term": "data",
@@ -17108,7 +17292,9 @@
       "zh": "日期",
       "ja": "日付",
       "ca": "data",
-      "ko": "날짜"
+      "ko": "날짜",
+      "la": "dies",
+      "eo": "dato"
     },
     {
       "term": "ancora",
@@ -17122,7 +17308,9 @@
       "zh": "仍然",
       "ja": "まだ",
       "ca": "encara",
-      "ko": "아직"
+      "ko": "아직",
+      "la": "adhuc",
+      "eo": "ankoraŭ"
     },
     {
       "term": "party",
@@ -17136,7 +17324,9 @@
       "zh": "派对",
       "ja": "パーティー",
       "ca": "festa",
-      "ko": "파티"
+      "ko": "파티",
+      "la": "convivium",
+      "eo": "festo"
     },
     {
       "term": "epocha, era",
@@ -17150,7 +17340,9 @@
       "zh": "时代",
       "ja": "時代",
       "ca": "era",
-      "ko": "시대"
+      "ko": "시대",
+      "la": "aetas, era",
+      "eo": "epoko, erao"
     },
     {
       "term": "felice anno nove",
@@ -17164,7 +17356,9 @@
       "zh": "新年快乐",
       "ja": "明けましておめでとう",
       "ca": "bon any nou",
-      "ko": "새해 복 많이 받으세요"
+      "ko": "새해 복 많이 받으세요",
+      "la": "felix annus novus",
+      "eo": "feliĉan novan jaron"
     },
     {
       "term": "isto dura pro horas",
@@ -17178,7 +17372,9 @@
       "zh": "持续好几个小时",
       "ja": "何時間も続く",
       "ca": "dura hores",
-      "ko": "몇 시간 동안 지속돼요"
+      "ko": "몇 시간 동안 지속돼요",
+      "la": "hoc per horas durat",
+      "eo": "tio daŭras horojn"
     },
     {
       "term": "tu seque",
@@ -17192,7 +17388,9 @@
       "zh": "你跟随",
       "ja": "あなたは従う",
       "ca": "tu segueixes",
-      "ko": "너는 따라간다"
+      "ko": "너는 따라간다",
+      "la": "tu sequeris",
+      "eo": "vi sekvas"
     },
     {
       "term": "vos seque",
@@ -17206,7 +17404,9 @@
       "zh": "你们跟随",
       "ja": "あなたたちは従う",
       "ca": "vosaltres seguiu",
-      "ko": "여러분은 따라간다"
+      "ko": "여러분은 따라간다",
+      "la": "vos sequimini",
+      "eo": "vi sekvas"
     },
     {
       "term": "ille seque",
@@ -17220,7 +17420,9 @@
       "zh": "他跟随",
       "ja": "彼は従う",
       "ca": "ell segueix",
-      "ko": "그는 따라간다"
+      "ko": "그는 따라간다",
+      "la": "ille sequitur",
+      "eo": "li sekvas"
     },
     {
       "term": "nos seque",
@@ -17234,7 +17436,9 @@
       "zh": "我们跟随",
       "ja": "私たちは従う",
       "ca": "nosaltres seguim",
-      "ko": "우리는 따라간다"
+      "ko": "우리는 따라간다",
+      "la": "nos sequimur",
+      "eo": "ni sekvas"
     },
     {
       "term": "illes seque",
@@ -17248,7 +17452,9 @@
       "zh": "他们跟随",
       "ja": "彼らは従う",
       "ca": "ells segueixen",
-      "ko": "그들은 따라간다"
+      "ko": "그들은 따라간다",
+      "la": "illi sequuntur",
+      "eo": "ili sekvas"
     },
     {
       "term": "septimana",
@@ -17262,7 +17468,9 @@
       "zh": "星期",
       "ja": "週",
       "ca": "setmana",
-      "ko": "주"
+      "ko": "주",
+      "la": "septimana",
+      "eo": "semajno"
     },
     {
       "term": "calendario",
@@ -17276,7 +17484,9 @@
       "zh": "日历",
       "ja": "カレンダー",
       "ca": "calendari",
-      "ko": "달력"
+      "ko": "달력",
+      "la": "calendarium",
+      "eo": "kalendaro"
     },
     {
       "term": "a revider in octobre",
@@ -17290,7 +17500,9 @@
       "zh": "十月见",
       "ja": "10月に会いましょう",
       "ca": "ens veiem a l'octubre",
-      "ko": "10월에 봐요"
+      "ko": "10월에 봐요",
+      "la": "iterum videbimus in Octobri",
+      "eo": "ĝis revido en oktobro"
     },
     {
       "term": "martedi nocte",
@@ -17304,7 +17516,9 @@
       "zh": "星期二晚上",
       "ja": "火曜日の夜",
       "ca": "dimarts a la nit",
-      "ko": "화요일 밤"
+      "ko": "화요일 밤",
+      "la": "nocte diei Martis",
+      "eo": "marde vespere"
     },
     {
       "term": "data de nascentia",
@@ -17318,7 +17532,9 @@
       "zh": "出生日期",
       "ja": "生年月日",
       "ca": "data de naixement",
-      "ko": "생년월일"
+      "ko": "생년월일",
+      "la": "dies natalis",
+      "eo": "naskiĝdato"
     },
     {
       "term": "nos es al initio de decembre.",
@@ -17332,7 +17548,9 @@
       "zh": "我们在十二月初",
       "ja": "私たちは12月の初めにいます",
       "ca": "som a principis de desembre",
-      "ko": "우리는 12월 초에 있습니다"
+      "ko": "우리는 12월 초에 있습니다",
+      "la": "ad initium Decembris sumus",
+      "eo": "ni estas komence de decembro"
     },
     {
       "term": "nos es in februario.",
@@ -17346,7 +17564,9 @@
       "zh": "我们在二月",
       "ja": "私たちは2月にいます",
       "ca": "som al febrer",
-      "ko": "우리는 2월에 있습니다"
+      "ko": "우리는 2월에 있습니다",
+      "la": "in Februario sumus",
+      "eo": "ni estas en februaro"
     },
     {
       "term": "lunedi",
@@ -17360,7 +17580,9 @@
       "zh": "星期一",
       "ja": "月曜日",
       "ca": "dilluns",
-      "ko": "월요일"
+      "ko": "월요일",
+      "la": "dies Lunae",
+      "eo": "lundo"
     },
     {
       "term": "in le initio, il es difficile.",
@@ -17374,7 +17596,9 @@
       "zh": "一开始很难",
       "ja": "最初は難しいです",
       "ca": "al principi és difícil",
-      "ko": "처음에는 어렵습니다"
+      "ko": "처음에는 어렵습니다",
+      "la": "in initio difficile est",
+      "eo": "en la komenco estas malfacile"
     },
     {
       "term": "martedi",
@@ -17388,7 +17612,9 @@
       "zh": "星期二",
       "ja": "火曜日",
       "ca": "dimarts",
-      "ko": "화요일"
+      "ko": "화요일",
+      "la": "dies Martis",
+      "eo": "mardo"
     },
     {
       "term": "mercuridi",
@@ -17402,7 +17628,9 @@
       "zh": "星期三",
       "ja": "水曜日",
       "ca": "dimecres",
-      "ko": "수요일"
+      "ko": "수요일",
+      "la": "dies Mercurii",
+      "eo": "merkredo"
     },
     {
       "term": "jovedi",
@@ -17416,7 +17644,9 @@
       "zh": "星期四",
       "ja": "木曜日",
       "ca": "dijous",
-      "ko": "목요일"
+      "ko": "목요일",
+      "la": "dies Iovis",
+      "eo": "ĵaŭdo"
     },
     {
       "term": "venerdi",
@@ -17430,7 +17660,9 @@
       "zh": "星期五",
       "ja": "金曜日",
       "ca": "divendres",
-      "ko": "금요일"
+      "ko": "금요일",
+      "la": "dies Veneris",
+      "eo": "vendredo"
     },
     {
       "term": "sabbato",
@@ -17444,7 +17676,9 @@
       "zh": "星期六",
       "ja": "土曜日",
       "ca": "dissabte",
-      "ko": "토요일"
+      "ko": "토요일",
+      "la": "dies Saturni",
+      "eo": "sabato"
     },
     {
       "term": "dominica",
@@ -17458,7 +17692,9 @@
       "zh": "星期日",
       "ja": "日曜日",
       "ca": "diumenge",
-      "ko": "일요일"
+      "ko": "일요일",
+      "la": "dies Solis",
+      "eo": "dimanĉo"
     }
   ],
   "verbos4": [
@@ -17474,7 +17710,9 @@
       "zh": "来",
       "ja": "来る",
       "ca": "venir",
-      "ko": "오다"
+      "ko": "오다",
+      "la": "venire",
+      "eo": "veni"
     },
     {
       "term": "valer",
@@ -17488,7 +17726,9 @@
       "zh": "值",
       "ja": "価値がある",
       "ca": "valer",
-      "ko": "가치가 있다"
+      "ko": "가치가 있다",
+      "la": "valere",
+      "eo": "valori"
     },
     {
       "term": "rasar",
@@ -17502,7 +17742,9 @@
       "zh": "刮胡子",
       "ja": "ひげを剃る",
       "ca": "afaitar-se",
-      "ko": "면도하다"
+      "ko": "면도하다",
+      "la": "radere",
+      "eo": "razi"
     },
     {
       "term": "volver",
@@ -17516,7 +17758,9 @@
       "zh": "滚动",
       "ja": "転がる",
       "ca": "rodar",
-      "ko": "굴러가다"
+      "ko": "굴러가다",
+      "la": "volvere",
+      "eo": "ruliĝi"
     },
     {
       "term": "levar se",
@@ -17530,7 +17774,9 @@
       "zh": "起飞",
       "ja": "離陸する",
       "ca": "enlairar-se",
-      "ko": "이륙하다"
+      "ko": "이륙하다",
+      "la": "surgere",
+      "eo": "leviĝi"
     },
     {
       "term": "escappar",
@@ -17544,7 +17790,9 @@
       "zh": "逃跑",
       "ja": "逃げる",
       "ca": "escapar",
-      "ko": "탈출하다"
+      "ko": "탈출하다",
+      "la": "effugere",
+      "eo": "eskapi"
     },
     {
       "term": "supponer",
@@ -17558,7 +17806,9 @@
       "zh": "假设",
       "ja": "仮定する",
       "ca": "suposar",
-      "ko": "가정하다"
+      "ko": "가정하다",
+      "la": "supponere",
+      "eo": "supozi"
     },
     {
       "term": "cader",
@@ -17572,7 +17822,9 @@
       "zh": "跌倒",
       "ja": "落ちる",
       "ca": "caure",
-      "ko": "넘어지다"
+      "ko": "넘어지다",
+      "la": "cadere",
+      "eo": "fali"
     },
     {
       "term": "servir",
@@ -17586,7 +17838,9 @@
       "zh": "服务",
       "ja": "仕える",
       "ca": "servir",
-      "ko": "봉사하다"
+      "ko": "봉사하다",
+      "la": "servire",
+      "eo": "servi"
     },
     {
       "term": "exir",
@@ -17600,7 +17854,9 @@
       "zh": "出去",
       "ja": "出る",
       "ca": "sortir",
-      "ko": "나가다"
+      "ko": "나가다",
+      "la": "exire",
+      "eo": "eliri"
     },
     {
       "term": "sentir",
@@ -17614,7 +17870,9 @@
       "zh": "感觉",
       "ja": "感じる",
       "ca": "sentir",
-      "ko": "느끼다"
+      "ko": "느끼다",
+      "la": "sentire",
+      "eo": "senti"
     },
     {
       "term": "significar",
@@ -17628,7 +17886,9 @@
       "zh": "意味着",
       "ja": "意味する",
       "ca": "significar",
-      "ko": "의미하다"
+      "ko": "의미하다",
+      "la": "significare",
+      "eo": "signifi"
     },
     {
       "term": "reservar",
@@ -17642,7 +17902,9 @@
       "zh": "预订",
       "ja": "予約する",
       "ca": "reservar",
-      "ko": "예약하다"
+      "ko": "예약하다",
+      "la": "reservare",
+      "eo": "rezervi"
     },
     {
       "term": "retornar",
@@ -17656,7 +17918,9 @@
       "zh": "返回",
       "ja": "戻る",
       "ca": "retornar",
-      "ko": "돌아가다"
+      "ko": "돌아가다",
+      "la": "reverti",
+      "eo": "reveni"
     },
     {
       "term": "soniar",
@@ -17670,7 +17934,9 @@
       "zh": "做梦",
       "ja": "夢を見る",
       "ca": "somiar",
-      "ko": "꿈꾸다"
+      "ko": "꿈꾸다",
+      "la": "somniare",
+      "eo": "sonĝi"
     },
     {
       "term": "retroceder",
@@ -17684,7 +17950,9 @@
       "zh": "后退",
       "ja": "後退する",
       "ca": "retrocedir",
-      "ko": "뒤로 가다"
+      "ko": "뒤로 가다",
+      "la": "recedere",
+      "eo": "retropaŝi"
     },
     {
       "term": "semblar",
@@ -17698,7 +17966,9 @@
       "zh": "似乎",
       "ja": "〜のように見える",
       "ca": "semblar",
-      "ko": "인 것 같다"
+      "ko": "인 것 같다",
+      "la": "videri",
+      "eo": "ŝajni"
     },
     {
       "term": "star",
@@ -17712,7 +17982,9 @@
       "zh": "停留",
       "ja": "とどまる",
       "ca": "estar / quedar-se",
-      "ko": "머무르다"
+      "ko": "머무르다",
+      "la": "manere",
+      "eo": "resti"
     },
     {
       "term": "reponer",
@@ -17726,7 +17998,9 @@
       "zh": "放回去；替换",
       "ja": "元に戻す；補充する",
       "ca": "reposar; substituir",
-      "ko": "되돌려놓다; 보충하다"
+      "ko": "되돌려놓다; 보충하다",
+      "la": "reponere",
+      "eo": "remeti"
     },
     {
       "term": "render",
@@ -17740,7 +18014,9 @@
       "zh": "归还；屈服",
       "ja": "返す；降伏する",
       "ca": "rendir",
-      "ko": "돌려주다; 항복하다"
+      "ko": "돌려주다; 항복하다",
+      "la": "reddere",
+      "eo": "redoni"
     },
     {
       "term": "responder",
@@ -17754,7 +18030,9 @@
       "zh": "回答",
       "ja": "答える",
       "ca": "respondre",
-      "ko": "대답하다"
+      "ko": "대답하다",
+      "la": "respondere",
+      "eo": "respondi"
     },
     {
       "term": "retornar a casa",
@@ -17768,7 +18046,9 @@
       "zh": "回家",
       "ja": "家に帰る",
       "ca": "tornar a casa",
-      "ko": "집에 돌아가다"
+      "ko": "집에 돌아가다",
+      "la": "domum redire",
+      "eo": "reveni hejmen"
     },
     {
       "term": "refusar",
@@ -17782,7 +18062,9 @@
       "zh": "拒绝",
       "ja": "拒否する",
       "ca": "refusar",
-      "ko": "거절하다"
+      "ko": "거절하다",
+      "la": "recusare",
+      "eo": "rifuzi"
     },
     {
       "term": "remarcar",
@@ -17796,7 +18078,9 @@
       "zh": "观察；指出",
       "ja": "観察する；指摘する",
       "ca": "observar; remarcar",
-      "ko": "관찰하다; 지적하다"
+      "ko": "관찰하다; 지적하다",
+      "la": "animadvertere",
+      "eo": "rimarki"
     },
     {
       "term": "programmar",
@@ -17810,7 +18094,9 @@
       "zh": "编程",
       "ja": "プログラムする",
       "ca": "programar",
-      "ko": "프로그래밍하다"
+      "ko": "프로그래밍하다",
+      "la": "programmare",
+      "eo": "programi"
     },
     {
       "term": "ambular",
@@ -17824,7 +18110,9 @@
       "zh": "散步",
       "ja": "散歩する",
       "ca": "passejar",
-      "ko": "산책하다"
+      "ko": "산책하다",
+      "la": "ambulare",
+      "eo": "promeni"
     },
     {
       "term": "presentar",
@@ -17838,7 +18126,9 @@
       "zh": "介绍",
       "ja": "紹介する",
       "ca": "presentar",
-      "ko": "소개하다"
+      "ko": "소개하다",
+      "la": "praesentare",
+      "eo": "prezenti"
     },
     {
       "term": "reciper",
@@ -17852,7 +18142,9 @@
       "zh": "收到",
       "ja": "受け取る",
       "ca": "rebre",
-      "ko": "받다"
+      "ko": "받다",
+      "la": "recipere",
+      "eo": "ricevi"
     },
     {
       "term": "preferer",
@@ -17866,7 +18158,9 @@
       "zh": "更喜欢",
       "ja": "好む",
       "ca": "preferir",
-      "ko": "선호하다"
+      "ko": "선호하다",
+      "la": "praeferre",
+      "eo": "preferi"
     },
     {
       "term": "plantar",
@@ -17880,7 +18174,9 @@
       "zh": "种植",
       "ja": "植える",
       "ca": "plantar",
-      "ko": "심다"
+      "ko": "심다",
+      "la": "plantare",
+      "eo": "planti"
     },
     {
       "term": "pensar",
@@ -17894,7 +18190,9 @@
       "zh": "思考",
       "ja": "考える",
       "ca": "pensar",
-      "ko": "생각하다"
+      "ko": "생각하다",
+      "la": "putare",
+      "eo": "pensi"
     },
     {
       "term": "perder",
@@ -17908,7 +18206,9 @@
       "zh": "失去",
       "ja": "失う",
       "ca": "perdre",
-      "ko": "잃다"
+      "ko": "잃다",
+      "la": "perdere",
+      "eo": "perdi"
     },
     {
       "term": "aumentar",
@@ -17922,7 +18222,9 @@
       "zh": "增加",
       "ja": "増やす",
       "ca": "augmentar",
-      "ko": "증가하다"
+      "ko": "증가하다",
+      "la": "augere",
+      "eo": "pliigi"
     },
     {
       "term": "pesar",
@@ -17936,7 +18238,9 @@
       "zh": "称重",
       "ja": "重さを量る",
       "ca": "pesar",
-      "ko": "무게를 재다"
+      "ko": "무게를 재다",
+      "la": "ponderare",
+      "eo": "pezi"
     },
     {
       "term": "passar",
@@ -17950,7 +18254,9 @@
       "zh": "经过",
       "ja": "通る",
       "ca": "passar",
-      "ko": "지나가다"
+      "ko": "지나가다",
+      "la": "transire",
+      "eo": "pasi"
     },
     {
       "term": "mentir",
@@ -17964,7 +18270,9 @@
       "zh": "撒谎",
       "ja": "嘘をつく",
       "ca": "mentir",
-      "ko": "거짓말하다"
+      "ko": "거짓말하다",
+      "la": "mentiri",
+      "eo": "mensogi"
     },
     {
       "term": "habitar in",
@@ -17978,7 +18286,9 @@
       "zh": "居住在",
       "ja": "〜に住む",
       "ca": "habitar a",
-      "ko": "거주하다"
+      "ko": "거주하다",
+      "la": "habitare in",
+      "eo": "loĝi en"
     },
     {
       "term": "exister",
@@ -17992,7 +18302,9 @@
       "zh": "存在",
       "ja": "存在する",
       "ca": "existir",
-      "ko": "존재하다"
+      "ko": "존재하다",
+      "la": "existere",
+      "eo": "ekzisti"
     },
     {
       "term": "explicar",
@@ -18006,7 +18318,9 @@
       "zh": "解释",
       "ja": "説明する",
       "ca": "explicar",
-      "ko": "설명하다"
+      "ko": "설명하다",
+      "la": "explicare",
+      "eo": "klarigi"
     }
   ],
   "adverbios1": [
