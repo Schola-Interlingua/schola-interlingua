@@ -7432,7 +7432,9 @@
       "zh": "蜜蜂",
       "ja": "ハチ",
       "ca": "abella",
-      "ko": "벌"
+      "ko": "벌",
+      "la": "apis",
+      "eo": "abelo"
     },
     {
       "term": "serpente",
@@ -7446,7 +7448,9 @@
       "zh": "蛇",
       "ja": "ヘビ",
       "ca": "serp",
-      "ko": "뱀"
+      "ko": "뱀",
+      "la": "serpens",
+      "eo": "serpento"
     },
     {
       "term": "papilion",
@@ -7460,7 +7464,9 @@
       "zh": "蝴蝶",
       "ja": "チョウ",
       "ca": "papallona",
-      "ko": "나비"
+      "ko": "나비",
+      "la": "papilio",
+      "eo": "papilio"
     },
     {
       "term": "balena",
@@ -7474,7 +7480,9 @@
       "zh": "鲸鱼",
       "ja": "クジラ",
       "ca": "balena",
-      "ko": "고래"
+      "ko": "고래",
+      "la": "balaena",
+      "eo": "baleno"
     },
     {
       "term": "zoo",
@@ -7488,7 +7496,9 @@
       "zh": "动物园",
       "ja": "動物園",
       "ca": "zoo",
-      "ko": "동물원"
+      "ko": "동물원",
+      "la": "zoologicum",
+      "eo": "zoo"
     },
     {
       "term": "lupo",
@@ -7502,7 +7512,9 @@
       "zh": "狼",
       "ja": "オオカミ",
       "ca": "llop",
-      "ko": "늑대"
+      "ko": "늑대",
+      "la": "lupus",
+      "eo": "lupo"
     },
     {
       "term": "cavallo",
@@ -7516,7 +7528,9 @@
       "zh": "马",
       "ja": "馬",
       "ca": "cavall",
-      "ko": "말"
+      "ko": "말",
+      "la": "equus",
+      "eo": "ĉevalo"
     },
     {
       "term": "can",
@@ -7530,7 +7544,9 @@
       "zh": "狗",
       "ja": "犬",
       "ca": "gos",
-      "ko": "개"
+      "ko": "개",
+      "la": "canis",
+      "eo": "hundo"
     },
     {
       "term": "animal",
@@ -7544,7 +7560,9 @@
       "zh": "动物",
       "ja": "動物",
       "ca": "animal",
-      "ko": "동물"
+      "ko": "동물",
+      "la": "animal",
+      "eo": "besto"
     },
     {
       "term": "ave",
@@ -7558,7 +7576,9 @@
       "zh": "鸟",
       "ja": "鳥",
       "ca": "ocell",
-      "ko": "새"
+      "ko": "새",
+      "la": "avis",
+      "eo": "birdo"
     },
     {
       "term": "anate",
@@ -7572,7 +7592,9 @@
       "zh": "鸭子",
       "ja": "アヒル",
       "ca": "ànec",
-      "ko": "오리"
+      "ko": "오리",
+      "la": "anas",
+      "eo": "anaso"
     },
     {
       "term": "catta",
@@ -7586,7 +7608,9 @@
       "zh": "母猫",
       "ja": "メス猫",
       "ca": "gata",
-      "ko": "암컷 고양이"
+      "ko": "암컷 고양이",
+      "la": "feles",
+      "eo": "katino"
     },
     {
       "term": "elephante",
@@ -7600,7 +7624,9 @@
       "zh": "大象",
       "ja": "象",
       "ca": "elefant",
-      "ko": "코끼리"
+      "ko": "코끼리",
+      "la": "elephas",
+      "eo": "elefanto"
     },
     {
       "term": "urso",
@@ -7614,7 +7640,9 @@
       "zh": "熊",
       "ja": "くま",
       "ca": "ós",
-      "ko": "곰"
+      "ko": "곰",
+      "la": "ursus",
+      "eo": "urso"
     },
     {
       "term": "tortuca",
@@ -7628,7 +7656,9 @@
       "zh": "乌龟",
       "ja": "カメ",
       "ca": "tortuga",
-      "ko": "거북이"
+      "ko": "거북이",
+      "la": "testudo",
+      "eo": "testudo"
     },
     {
       "term": "leon",
@@ -7642,7 +7672,9 @@
       "zh": "狮子",
       "ja": "ライオン",
       "ca": "lleó",
-      "ko": "사자"
+      "ko": "사자",
+      "la": "leo",
+      "eo": "leono"
     },
     {
       "term": "vacca",
@@ -7656,7 +7688,9 @@
       "zh": "牛",
       "ja": "牛",
       "ca": "vaca",
-      "ko": "소"
+      "ko": "소",
+      "la": "vacca",
+      "eo": "bovino"
     },
     {
       "term": "insecto",
@@ -7670,7 +7704,9 @@
       "zh": "昆虫",
       "ja": "昆虫",
       "ca": "insecte",
-      "ko": "곤충"
+      "ko": "곤충",
+      "la": "insectum",
+      "eo": "insekto"
     },
     {
       "term": "formica",
@@ -7684,7 +7720,9 @@
       "zh": "蚂蚁",
       "ja": "アリ",
       "ca": "formiga",
-      "ko": "개미"
+      "ko": "개미",
+      "la": "formica",
+      "eo": "formiko"
     },
     {
       "term": "mus",
@@ -7698,7 +7736,9 @@
       "zh": "老鼠",
       "ja": "ネズミ",
       "ca": "ratolí",
-      "ko": "쥐"
+      "ko": "쥐",
+      "la": "mus",
+      "eo": "muso"
     },
     {
       "term": "conilio",
@@ -7712,7 +7752,9 @@
       "zh": "兔子",
       "ja": "ウサギ",
       "ca": "conill",
-      "ko": "토끼"
+      "ko": "토끼",
+      "la": "cuniculus",
+      "eo": "kuniklo"
     },
     {
       "term": "catto",
@@ -7726,7 +7768,9 @@
       "zh": "猫",
       "ja": "オス猫",
       "ca": "gat",
-      "ko": "수컷 고양이"
+      "ko": "수컷 고양이",
+      "la": "cattus",
+      "eo": "virkato"
     },
     {
       "term": "musca",
@@ -7740,7 +7784,9 @@
       "zh": "苍蝇",
       "ja": "ハエ",
       "ca": "mosca",
-      "ko": "파리"
+      "ko": "파리",
+      "la": "musca",
+      "eo": "muŝo"
     },
     {
       "term": "aranea",
@@ -7754,7 +7800,9 @@
       "zh": "蜘蛛",
       "ja": "クモ",
       "ca": "aranya",
-      "ko": "거미"
+      "ko": "거미",
+      "la": "aranea",
+      "eo": "araneo"
     },
     {
       "term": "delphino",
@@ -7768,7 +7816,9 @@
       "zh": "海豚",
       "ja": "イルカ",
       "ca": "dofí",
-      "ko": "돌고래"
+      "ko": "돌고래",
+      "la": "delphinus",
+      "eo": "delfeno"
     },
     {
       "term": "squalo",
@@ -7782,7 +7832,9 @@
       "zh": "鲨鱼",
       "ja": "サメ",
       "ca": "tiburon",
-      "ko": "상어"
+      "ko": "상어",
+      "la": "squalus",
+      "eo": "ŝarko"
     },
     {
       "term": "simia",
@@ -7796,7 +7848,9 @@
       "zh": "猴子",
       "ja": "サル",
       "ca": "mico",
-      "ko": "원숭이"
+      "ko": "원숭이",
+      "la": "simia",
+      "eo": "simio"
     },
     {
       "term": "tigre",
@@ -7810,7 +7864,9 @@
       "zh": "老虎",
       "ja": "トラ",
       "ca": "tigre",
-      "ko": "호랑이"
+      "ko": "호랑이",
+      "la": "tigris",
+      "eo": "tigro"
     },
     {
       "term": "lepore",
@@ -7824,7 +7880,9 @@
       "zh": "野兔",
       "ja": "ノウサギ",
       "ca": "llebre",
-      "ko": "산토끼"
+      "ko": "산토끼",
+      "la": "lepus",
+      "eo": "leporo"
     },
     {
       "term": "rana",
@@ -7838,7 +7896,9 @@
       "zh": "青蛙",
       "ja": "カエル",
       "ca": "granota",
-      "ko": "개구리"
+      "ko": "개구리",
+      "la": "rana",
+      "eo": "rano"
     },
     {
       "term": "serpente",
@@ -7852,7 +7912,9 @@
       "zh": "蛇",
       "ja": "ヘビ",
       "ca": "serp",
-      "ko": "뱀"
+      "ko": "뱀",
+      "la": "serpens",
+      "eo": "serpento"
     },
     {
       "term": "sciuro",
@@ -7866,7 +7928,9 @@
       "zh": "松鼠",
       "ja": "リス",
       "ca": "esquirol",
-      "ko": "다람쥐"
+      "ko": "다람쥐",
+      "la": "sciurus",
+      "eo": "sciuro"
     },
     {
       "term": "struthio",
@@ -7880,7 +7944,9 @@
       "zh": "鸵鸟",
       "ja": "ダチョウ",
       "ca": "estruç",
-      "ko": "타조"
+      "ko": "타조",
+      "la": "struthio",
+      "eo": "struto"
     },
     {
       "term": "lynce",
@@ -7894,7 +7960,9 @@
       "zh": "猞猁",
       "ja": "オオヤマネコ",
       "ca": "linx",
-      "ko": "스라소니"
+      "ko": "스라소니",
+      "la": "lynx",
+      "eo": "linko"
     },
     {
       "term": "strige",
@@ -7908,7 +7976,9 @@
       "zh": "猫头鹰",
       "ja": "フクロウ",
       "ca": "mussol",
-      "ko": "부엉이"
+      "ko": "부엉이",
+      "la": "strix",
+      "eo": "strigo"
     },
     {
       "term": "bubo",
@@ -7922,7 +7992,9 @@
       "zh": "雕鸮",
       "ja": "ワシミミズク",
       "ca": "duc",
-      "ko": "수리부엉이"
+      "ko": "수리부엉이",
+      "la": "bubo",
+      "eo": "gufo"
     },
     {
       "term": "marmotta",
@@ -7936,7 +8008,9 @@
       "zh": "旱獭",
       "ja": "マーモット",
       "ca": "marmota",
-      "ko": "마멋"
+      "ko": "마멋",
+      "la": "marmota",
+      "eo": "marmoto"
     },
     {
       "term": "porcospino",
@@ -7950,7 +8024,9 @@
       "zh": "豪猪",
       "ja": "ヤマアラシ",
       "ca": "porc espí",
-      "ko": "호저"
+      "ko": "호저",
+      "la": "hystrix",
+      "eo": "histrikso"
     },
     {
       "term": "chameleon",
@@ -7964,7 +8040,9 @@
       "zh": "变色龙",
       "ja": "カメレオン",
       "ca": "camaleó",
-      "ko": "카멜레온"
+      "ko": "카멜레온",
+      "la": "chamaeleon",
+      "eo": "kameleono"
     },
     {
       "term": "lacerta",
@@ -7978,7 +8056,9 @@
       "zh": "蜥蜴",
       "ja": "トカゲ",
       "ca": "llangardaix",
-      "ko": "도마뱀"
+      "ko": "도마뱀",
+      "la": "lacerta",
+      "eo": "lacerto"
     },
     {
       "term": "capra",
@@ -7992,7 +8072,9 @@
       "zh": "山羊",
       "ja": "ヤギ",
       "ca": "cabra",
-      "ko": "염소"
+      "ko": "염소",
+      "la": "capra",
+      "eo": "kapro"
     }
   ],
   "adjectivos1": [
@@ -8008,7 +8090,9 @@
       "zh": "独自的；仅",
       "ja": "一人で；ただ～だけ",
       "ca": "sol; sola",
-      "ko": "혼자; 단지"
+      "ko": "혼자; 단지",
+      "la": "solus; tantum",
+      "eo": "sola; nur"
     },
     {
       "term": "forte",
@@ -8022,7 +8106,9 @@
       "zh": "强壮的",
       "ja": "強い",
       "ca": "fort; forta",
-      "ko": "강한"
+      "ko": "강한",
+      "la": "fortis",
+      "eo": "forta"
     },
     {
       "term": "frigide",
@@ -8036,7 +8122,9 @@
       "zh": "冷的",
       "ja": "冷たい",
       "ca": "fred",
-      "ko": "차가운"
+      "ko": "차가운",
+      "la": "frigidus",
+      "eo": "malvarma"
     },
     {
       "term": "calide",
@@ -8050,7 +8138,9 @@
       "zh": "温暖的；热的",
       "ja": "温かい；熱い",
       "ca": "càlid; calent",
-      "ko": "따뜻한; 뜨거운"
+      "ko": "따뜻한; 뜨거운",
+      "la": "calidus",
+      "eo": "varma"
     },
     {
       "term": "bon",
@@ -8064,7 +8154,9 @@
       "zh": "好的",
       "ja": "良い",
       "ca": "bo; bona",
-      "ko": "좋은"
+      "ko": "좋은",
+      "la": "bonus",
+      "eo": "bona"
     },
     {
       "term": "parve",
@@ -8078,7 +8170,9 @@
       "zh": "小的",
       "ja": "小さい",
       "ca": "petit; petita",
-      "ko": "작은"
+      "ko": "작은",
+      "la": "parvus",
+      "eo": "malgranda"
     },
     {
       "term": "juvene",
@@ -8092,7 +8186,9 @@
       "zh": "年轻的",
       "ja": "若い",
       "ca": "jove",
-      "ko": "젊은"
+      "ko": "젊은",
+      "la": "iuvenis",
+      "eo": "juna"
     },
     {
       "term": "facile",
@@ -8106,7 +8202,9 @@
       "zh": "容易的",
       "ja": "簡単な",
       "ca": "fàcil",
-      "ko": "쉬운"
+      "ko": "쉬운",
+      "la": "facilis",
+      "eo": "facila"
     },
     {
       "term": "munde",
@@ -8120,7 +8218,9 @@
       "zh": "干净的",
       "ja": "きれいな",
       "ca": "net; neta",
-      "ko": "깨끗한"
+      "ko": "깨끗한",
+      "la": "mundus",
+      "eo": "pura"
     },
     {
       "term": "immunde",
@@ -8134,7 +8234,9 @@
       "zh": "脏的",
       "ja": "汚い",
       "ca": "brut; bruta",
-      "ko": "더러운"
+      "ko": "더러운",
+      "la": "immundus",
+      "eo": "malpura"
     },
     {
       "term": "nove",
@@ -8148,7 +8250,9 @@
       "zh": "新的",
       "ja": "新しい",
       "ca": "nou; nova",
-      "ko": "새로운"
+      "ko": "새로운",
+      "la": "novus",
+      "eo": "nova"
     },
     {
       "term": "alte",
@@ -8162,7 +8266,9 @@
       "zh": "高的",
       "ja": "高い",
       "ca": "alt; alta",
-      "ko": "높은"
+      "ko": "높은",
+      "la": "altus",
+      "eo": "alta"
     },
     {
       "term": "basse",
@@ -8176,7 +8282,9 @@
       "zh": "低的",
       "ja": "低い",
       "ca": "baix; baixa",
-      "ko": "낮은"
+      "ko": "낮은",
+      "la": "bassus",
+      "eo": "malalta"
     },
     {
       "term": "grande",
@@ -8190,7 +8298,9 @@
       "zh": "大的",
       "ja": "大きい",
       "ca": "gran; gran",
-      "ko": "큰"
+      "ko": "큰",
+      "la": "magnus",
+      "eo": "granda"
     },
     {
       "term": "grasse",
@@ -8204,7 +8314,9 @@
       "zh": "胖的",
       "ja": "太った",
       "ca": "gras; grassa",
-      "ko": "뚱뚱한"
+      "ko": "뚱뚱한",
+      "la": "pinguis",
+      "eo": "dika"
     },
     {
       "term": "mal",
@@ -8218,7 +8330,9 @@
       "zh": "坏的",
       "ja": "悪い",
       "ca": "dolent; dolenta",
-      "ko": "나쁜"
+      "ko": "나쁜",
+      "la": "malus",
+      "eo": "malbona"
     },
     {
       "term": "legier",
@@ -8232,7 +8346,9 @@
       "zh": "轻的",
       "ja": "軽い",
       "ca": "lleuger; lleugera",
-      "ko": "가벼운"
+      "ko": "가벼운",
+      "la": "levis",
+      "eo": "malpeza"
     },
     {
       "term": "leve",
@@ -8246,7 +8362,9 @@
       "zh": "轻微的",
       "ja": "軽い；わずかな",
       "ca": "lleu; lleugera",
-      "ko": "가벼운; 약한"
+      "ko": "가벼운; 약한",
+      "la": "levis; tenuis",
+      "eo": "malpeza; eta"
     },
     {
       "term": "pesante",
@@ -8260,7 +8378,9 @@
       "zh": "重的",
       "ja": "重い",
       "ca": "pesat; pesada",
-      "ko": "무거운"
+      "ko": "무거운",
+      "la": "gravis",
+      "eo": "peza"
     },
     {
       "term": "liquide",
@@ -8274,7 +8394,9 @@
       "zh": "液体的",
       "ja": "液体の",
       "ca": "líquid",
-      "ko": "액체의"
+      "ko": "액체의",
+      "la": "liquidus",
+      "eo": "likva"
     },
     {
       "term": "perfecte",
@@ -8288,7 +8410,9 @@
       "zh": "完美的",
       "ja": "完璧な",
       "ca": "perfecte",
-      "ko": "완벽한"
+      "ko": "완벽한",
+      "la": "perfectus",
+      "eo": "perfekta"
     },
     {
       "term": "ronde",
@@ -8302,7 +8426,9 @@
       "zh": "圆的",
       "ja": "丸い",
       "ca": "rodó; rodona",
-      "ko": "둥근"
+      "ko": "둥근",
+      "la": "rotundus",
+      "eo": "ronda"
     },
     {
       "term": "blonde",
@@ -8316,7 +8442,9 @@
       "zh": "金发的",
       "ja": "金髪の",
       "ca": "ros; rossa",
-      "ko": "금발의"
+      "ko": "금발의",
+      "la": "flavus",
+      "eo": "blonda"
     },
     {
       "term": "le confectura es nove",
@@ -8330,7 +8458,9 @@
       "zh": "果酱是新的",
       "ja": "ジャムは新しい",
       "ca": "la melmelada és nova",
-      "ko": "잼이 새 것이다"
+      "ko": "잼이 새 것이다",
+      "la": "confectura nova est",
+      "eo": "la konfitaĵo estas nova"
     },
     {
       "term": "le pueras es belle",
@@ -8344,7 +8474,9 @@
       "zh": "女孩们很漂亮",
       "ja": "女の子たちはきれいです",
       "ca": "les noies són maques",
-      "ko": "소녀들은 예뻐요"
+      "ko": "소녀들은 예뻐요",
+      "la": "puellae pulchrae sunt",
+      "eo": "la knabinoj estas belaj"
     },
     {
       "term": "le terra es ronde",
@@ -8358,7 +8490,9 @@
       "zh": "地球是圆的",
       "ja": "地球は丸い",
       "ca": "la Terra és rodona",
-      "ko": "지구는 둥글다"
+      "ko": "지구는 둥글다",
+      "la": "terra rotunda est",
+      "eo": "la Tero estas ronda"
     },
     {
       "term": "calme",
@@ -8372,7 +8506,9 @@
       "zh": "平静的",
       "ja": "穏やかな",
       "ca": "calmat; calmada",
-      "ko": "차분한"
+      "ko": "차분한",
+      "la": "tranquillus",
+      "eo": "trankvila"
     },
     {
       "term": "nigre",
@@ -8386,7 +8522,9 @@
       "zh": "黑色的",
       "ja": "黒い",
       "ca": "negre",
-      "ko": "검은"
+      "ko": "검은",
+      "la": "niger",
+      "eo": "nigra"
     },
     {
       "term": "multe",
@@ -8400,7 +8538,9 @@
       "zh": "许多",
       "ja": "たくさんの",
       "ca": "molts; moltes",
-      "ko": "많은"
+      "ko": "많은",
+      "la": "multi; multa",
+      "eo": "multaj; multa"
     },
     {
       "term": "multo",
@@ -8414,7 +8554,9 @@
       "zh": "非常",
       "ja": "とても",
       "ca": "molt",
-      "ko": "매우"
+      "ko": "매우",
+      "la": "valde",
+      "eo": "tre"
     },
     {
       "term": "il ha multe personas",
@@ -8428,7 +8570,9 @@
       "zh": "有很多人",
       "ja": "たくさんの人がいる",
       "ca": "hi ha molta gent",
-      "ko": "사람이 많다"
+      "ko": "사람이 많다",
+      "la": "sunt multae personae",
+      "eo": "estas multaj homoj"
     },
     {
       "term": "il ha personas multo bon",
@@ -8442,7 +8586,9 @@
       "zh": "有非常好的人",
       "ja": "とても良い人たちがいる",
       "ca": "hi ha gent molt bona",
-      "ko": "아주 좋은 사람들이 있다"
+      "ko": "아주 좋은 사람들이 있다",
+      "la": "sunt personae valde bonae",
+      "eo": "estas tre bonaj homoj"
     },
     {
       "term": "poc",
@@ -8456,7 +8602,9 @@
       "zh": "少的",
       "ja": "少しの",
       "ca": "poc; poca",
-      "ko": "적은"
+      "ko": "적은",
+      "la": "pauci; parum",
+      "eo": "malmultaj; malmulta"
     },
     {
       "term": "troppo",
@@ -8470,7 +8618,9 @@
       "zh": "太多",
       "ja": "多すぎる",
       "ca": "massa",
-      "ko": "너무"
+      "ko": "너무",
+      "la": "nimis",
+      "eo": "tro"
     },
     {
       "term": "il es troppo tarde",
@@ -8484,7 +8634,9 @@
       "zh": "太晚了",
       "ja": "もう遅い",
       "ca": "és massa tard",
-      "ko": "너무 늦었어"
+      "ko": "너무 늦었어",
+      "la": "nimis sero est",
+      "eo": "estas tro malfrue"
     }
   ],
   "plurales": [
