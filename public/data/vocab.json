@@ -20006,7 +20006,9 @@
       "zh": "官方的",
       "ja": "公式の",
       "ca": "oficial",
-      "ko": "공식적인"
+      "ko": "공식적인",
+      "la": "officialis",
+      "eo": "oficiala"
     },
     {
       "term": "functionario",
@@ -20020,7 +20022,9 @@
       "zh": "公务员",
       "ja": "公務員",
       "ca": "funcionari",
-      "ko": "공무원"
+      "ko": "공무원",
+      "la": "functionarius",
+      "eo": "funkciulo"
     },
     {
       "term": "jornalista",
@@ -20034,7 +20038,9 @@
       "zh": "记者",
       "ja": "ジャーナリスト",
       "ca": "periodista",
-      "ko": "기자"
+      "ko": "기자",
+      "la": "diurnarius",
+      "eo": "ĵurnalisto"
     },
     {
       "term": "consiliero",
@@ -20048,7 +20054,9 @@
       "zh": "顾问",
       "ja": "アドバイザー",
       "ca": "assessor",
-      "ko": "고문"
+      "ko": "고문",
+      "la": "consiliarius",
+      "eo": "konsilisto"
     },
     {
       "term": "personal",
@@ -20062,7 +20070,9 @@
       "zh": "员工",
       "ja": "スタッフ",
       "ca": "personal",
-      "ko": "직원"
+      "ko": "직원",
+      "la": "personale",
+      "eo": "personaro"
     },
     {
       "term": "inseniante",
@@ -20076,7 +20086,9 @@
       "zh": "老师",
       "ja": "教師",
       "ca": "professor",
-      "ko": "교사"
+      "ko": "교사",
+      "la": "magister",
+      "eo": "instruisto"
     },
     {
       "term": "chef",
@@ -20090,7 +20102,9 @@
       "zh": "首领",
       "ja": "上司",
       "ca": "cap",
-      "ko": "상사"
+      "ko": "상사",
+      "la": "dux",
+      "eo": "ĉefo"
     },
     {
       "term": "technico",
@@ -20104,7 +20118,9 @@
       "zh": "技师",
       "ja": "技術者",
       "ca": "tècnic",
-      "ko": "기술자"
+      "ko": "기술자",
+      "la": "technicus",
+      "eo": "teknikisto"
     },
     {
       "term": "venditor",
@@ -20118,7 +20134,9 @@
       "zh": "销售员",
       "ja": "販売員",
       "ca": "venedor",
-      "ko": "판매원"
+      "ko": "판매원",
+      "la": "venditor",
+      "eo": "vendisto"
     },
     {
       "term": "advocato",
@@ -20132,7 +20150,9 @@
       "zh": "律师",
       "ja": "弁護士",
       "ca": "advocat",
-      "ko": "변호사"
+      "ko": "변호사",
+      "la": "advocatus",
+      "eo": "advokato"
     },
     {
       "term": "carriera",
@@ -20146,7 +20166,9 @@
       "zh": "职业生涯",
       "ja": "キャリア",
       "ca": "carrera",
-      "ko": "경력"
+      "ko": "경력",
+      "la": "cursus",
+      "eo": "kariero"
     },
     {
       "term": "ingeniero",
@@ -20160,7 +20182,9 @@
       "zh": "工程师",
       "ja": "エンジニア",
       "ca": "enginyer",
-      "ko": "엔지니어"
+      "ko": "엔지니어",
+      "la": "ingeniarius",
+      "eo": "inĝeniero"
     },
     {
       "term": "secretario",
@@ -20174,7 +20198,9 @@
       "zh": "秘书",
       "ja": "秘書",
       "ca": "secretari",
-      "ko": "비서"
+      "ko": "비서",
+      "la": "secretarius",
+      "eo": "sekretario"
     },
     {
       "term": "agente",
@@ -20188,7 +20214,9 @@
       "zh": "代理人",
       "ja": "エージェント",
       "ca": "agent",
-      "ko": "요원"
+      "ko": "요원",
+      "la": "agens",
+      "eo": "agento"
     },
     {
       "term": "colonnello",
@@ -20202,7 +20230,9 @@
       "zh": "上校",
       "ja": "大佐",
       "ca": "coronel",
-      "ko": "대령"
+      "ko": "대령",
+      "la": "colonellus",
+      "eo": "kolonelo"
     },
     {
       "term": "retiro",
@@ -20216,7 +20246,9 @@
       "zh": "退休",
       "ja": "退職",
       "ca": "jubilació",
-      "ko": "은퇴"
+      "ko": "은퇴",
+      "la": "otium",
+      "eo": "emeritiĝo"
     },
     {
       "term": "doctor",
@@ -20230,7 +20262,9 @@
       "zh": "医生",
       "ja": "医者",
       "ca": "doctor",
-      "ko": "의사"
+      "ko": "의사",
+      "la": "medicus",
+      "eo": "kuracisto"
     },
     {
       "term": "posto",
@@ -20244,7 +20278,9 @@
       "zh": "职位",
       "ja": "職位",
       "ca": "lloc",
-      "ko": "직위"
+      "ko": "직위",
+      "la": "munus",
+      "eo": "posteno"
     },
     {
       "term": "capitano",
@@ -20258,7 +20294,9 @@
       "zh": "队长",
       "ja": "キャプテン",
       "ca": "capità",
-      "ko": "대장"
+      "ko": "대장",
+      "la": "capitaneus",
+      "eo": "kapitano"
     },
     {
       "term": "soldato",
@@ -20272,7 +20310,9 @@
       "zh": "士兵",
       "ja": "兵士",
       "ca": "soldat",
-      "ko": "군인"
+      "ko": "군인",
+      "la": "miles",
+      "eo": "soldato"
     },
     {
       "term": "prince",
@@ -20286,7 +20326,9 @@
       "zh": "王子",
       "ja": "王子",
       "ca": "príncep",
-      "ko": "왕자"
+      "ko": "왕자",
+      "la": "princeps",
+      "eo": "princo"
     },
     {
       "term": "judice",
@@ -20300,7 +20342,9 @@
       "zh": "法官",
       "ja": "裁判官",
       "ca": "jutge",
-      "ko": "판사"
+      "ko": "판사",
+      "la": "iudex",
+      "eo": "juĝisto"
     },
     {
       "term": "empleo",
@@ -20314,7 +20358,9 @@
       "zh": "就业",
       "ja": "雇用",
       "ca": "ocupació",
-      "ko": "고용"
+      "ko": "고용",
+      "la": "occupatio",
+      "eo": "dungo"
     },
     {
       "term": "education",
@@ -20328,7 +20374,9 @@
       "zh": "教育",
       "ja": "教育",
       "ca": "educació",
-      "ko": "교육"
+      "ko": "교육",
+      "la": "educatio",
+      "eo": "edukado"
     },
     {
       "term": "le policia",
@@ -20342,7 +20390,9 @@
       "zh": "警察",
       "ja": "警察",
       "ca": "policia",
-      "ko": "경찰"
+      "ko": "경찰",
+      "la": "politia",
+      "eo": "polico"
     },
     {
       "term": "commercio",
@@ -20356,7 +20406,9 @@
       "zh": "商业",
       "ja": "商業",
       "ca": "comerç",
-      "ko": "상업"
+      "ko": "상업",
+      "la": "commercium",
+      "eo": "komerco"
     },
     {
       "term": "occupation",
@@ -20370,7 +20422,9 @@
       "zh": "职业",
       "ja": "職業",
       "ca": "ocupació",
-      "ko": "직업"
+      "ko": "직업",
+      "la": "occupatio",
+      "eo": "okupo"
     },
     {
       "term": "autor",
@@ -20384,7 +20438,9 @@
       "zh": "作者",
       "ja": "著者",
       "ca": "autor",
-      "ko": "작가"
+      "ko": "작가",
+      "la": "auctor",
+      "eo": "aŭtoro"
     },
     {
       "term": "labor",
@@ -20398,7 +20454,9 @@
       "zh": "劳动",
       "ja": "労働",
       "ca": "feina",
-      "ko": "노동"
+      "ko": "노동",
+      "la": "labor",
+      "eo": "laboro"
     },
     {
       "term": "rege",
@@ -20412,7 +20470,9 @@
       "zh": "国王",
       "ja": "王",
       "ca": "rei",
-      "ko": "왕"
+      "ko": "왕",
+      "la": "rex",
+      "eo": "reĝo"
     },
     {
       "term": "regina",
@@ -20426,7 +20486,9 @@
       "zh": "王后",
       "ja": "女王",
       "ca": "reina",
-      "ko": "여왕"
+      "ko": "여왕",
+      "la": "regina",
+      "eo": "reĝino"
     },
     {
       "term": "le labores",
@@ -20440,7 +20502,9 @@
       "zh": "工作",
       "ja": "仕事",
       "ca": "feines",
-      "ko": "작업들"
+      "ko": "작업들",
+      "la": "opera",
+      "eo": "laboroj"
     },
     {
       "term": "princessa",
@@ -20454,7 +20518,9 @@
       "zh": "公主",
       "ja": "王女",
       "ca": "princesa",
-      "ko": "공주"
+      "ko": "공주",
+      "la": "principissa",
+      "eo": "princino"
     },
     {
       "term": "un posto de inseniante",
@@ -20468,7 +20534,9 @@
       "zh": "教师职位",
       "ja": "教師の職",
       "ca": "una plaça de professor",
-      "ko": "교직 자리"
+      "ko": "교직 자리",
+      "la": "munus magistri",
+      "eo": "instruista posteno"
     },
     {
       "term": "retirar se",
@@ -20482,7 +20550,9 @@
       "zh": "退休",
       "ja": "退職する",
       "ca": "retirar-se",
-      "ko": "은퇴하다"
+      "ko": "은퇴하다",
+      "la": "in otium se recipere",
+      "eo": "emeritiĝi"
     },
     {
       "term": "disoccupato",
@@ -20496,7 +20566,9 @@
       "zh": "失业者",
       "ja": "失業者",
       "ca": "aturat",
-      "ko": "실업자"
+      "ko": "실업자",
+      "la": "inoccupatus",
+      "eo": "senlaborulo"
     },
     {
       "term": "perque preoccupar se?",
@@ -20510,7 +20582,9 @@
       "zh": "何必麻烦？",
       "ja": "わざわざ何のために？",
       "ca": "per què molestar-se?",
-      "ko": "왜 신경 써?"
+      "ko": "왜 신경 써?",
+      "la": "cur te sollicitas?",
+      "eo": "kial zorgi?"
     },
     {
       "term": "coco",
@@ -20524,7 +20598,9 @@
       "zh": "厨师",
       "ja": "料理人",
       "ca": "cuiner",
-      "ko": "요리사"
+      "ko": "요리사",
+      "la": "coquus",
+      "eo": "kuiristo"
     },
     {
       "term": "guidator",
@@ -20538,7 +20614,9 @@
       "zh": "司机",
       "ja": "運転手",
       "ca": "conductor",
-      "ko": "운전사"
+      "ko": "운전사",
+      "la": "auriga",
+      "eo": "ŝoforo"
     },
     {
       "term": "perrucchero",
@@ -20552,7 +20630,9 @@
       "zh": "理发师",
       "ja": "美容師",
       "ca": "perruquer",
-      "ko": "미용사"
+      "ko": "미용사",
+      "la": "tonsor",
+      "eo": "frizisto"
     },
     {
       "term": "policiero",
@@ -20566,7 +20646,9 @@
       "zh": "警察",
       "ja": "警官",
       "ca": "policia",
-      "ko": "경찰관"
+      "ko": "경찰관",
+      "la": "vigil",
+      "eo": "policano"
     },
     {
       "term": "furnero",
@@ -20580,7 +20662,9 @@
       "zh": "面包师",
       "ja": "パン職人",
       "ca": "forner",
-      "ko": "제빵사"
+      "ko": "제빵사",
+      "la": "pistor",
+      "eo": "bakisto"
     },
     {
       "term": "agricultor",
@@ -20594,7 +20678,9 @@
       "zh": "农民",
       "ja": "農家",
       "ca": "agricultor",
-      "ko": "농부"
+      "ko": "농부",
+      "la": "agricola",
+      "eo": "farmisto"
     }
   ],
   "verbos6": [
@@ -20610,7 +20696,9 @@
       "zh": "思考；想起",
       "ja": "〜について考える",
       "ca": "pensar en",
-      "ko": "~에 대해 생각하다"
+      "ko": "~에 대해 생각하다",
+      "la": "de ... cogitare",
+      "eo": "pensi pri"
     },
     {
       "term": "tornar",
@@ -20624,7 +20712,9 @@
       "zh": "转动；旋转",
       "ja": "回す；回転する",
       "ca": "girar; rotar",
-      "ko": "돌리다; 회전하다"
+      "ko": "돌리다; 회전하다",
+      "la": "vertere",
+      "eo": "turni"
     },
     {
       "term": "levar se",
@@ -20638,7 +20728,9 @@
       "zh": "起身；起床",
       "ja": "起きる；立ち上がる",
       "ca": "aixecar-se",
-      "ko": "일어나다"
+      "ko": "일어나다",
+      "la": "surgere",
+      "eo": "leviĝi"
     },
     {
       "term": "io eleva",
@@ -20652,7 +20744,9 @@
       "zh": "我举起",
       "ja": "私は持ち上げる",
       "ca": "jo alço",
-      "ko": "나는 들어 올린다"
+      "ko": "나는 들어 올린다",
+      "la": "ego elevo",
+      "eo": "mi levas"
     },
     {
       "term": "il face calor",
@@ -20666,7 +20760,9 @@
       "zh": "天气很热",
       "ja": "暑いです",
       "ca": "fa calor",
-      "ko": "덥다"
+      "ko": "덥다",
+      "la": "calor est",
+      "eo": "estas varme"
     },
     {
       "term": "tu eleva",
@@ -20680,7 +20776,9 @@
       "zh": "你举起",
       "ja": "あなたは持ち上げる",
       "ca": "tu alces",
-      "ko": "너는 들어 올린다"
+      "ko": "너는 들어 올린다",
+      "la": "tu elevas",
+      "eo": "vi levas"
     },
     {
       "term": "ille eleva",
@@ -20694,7 +20792,9 @@
       "zh": "他/她 举起",
       "ja": "彼/彼女 が持ち上げる",
       "ca": "ell/a alça",
-      "ko": "그/그녀는 들어 올린다"
+      "ko": "그/그녀는 들어 올린다",
+      "la": "ille elevat",
+      "eo": "li/ŝi levas"
     },
     {
       "term": "nos eleva",
@@ -20708,7 +20808,9 @@
       "zh": "我们举起",
       "ja": "私たちは持ち上げる",
       "ca": "nosaltres alcem",
-      "ko": "우리는 들어 올린다"
+      "ko": "우리는 들어 올린다",
+      "la": "nos elevamus",
+      "eo": "ni levas"
     },
     {
       "term": "vos eleva",
@@ -20722,7 +20824,9 @@
       "zh": "你们举起",
       "ja": "あなたたちは持ち上げる",
       "ca": "vosaltres alceu",
-      "ko": "너희는 들어 올린다"
+      "ko": "너희는 들어 올린다",
+      "la": "vos elevatis",
+      "eo": "vi levas"
     },
     {
       "term": "illes eleva",
@@ -20736,7 +20840,9 @@
       "zh": "他们举起",
       "ja": "彼らは持ち上げる",
       "ca": "ells/elles alcen",
-      "ko": "그들은 들어 올린다"
+      "ko": "그들은 들어 올린다",
+      "la": "illi elevant",
+      "eo": "ili levas"
     },
     {
       "term": "promenar",
@@ -20750,7 +20856,9 @@
       "zh": "散步",
       "ja": "散歩する",
       "ca": "passejar",
-      "ko": "산책하다"
+      "ko": "산책하다",
+      "la": "ambulare",
+      "eo": "promeni"
     },
     {
       "term": "io recipe",
@@ -20764,7 +20872,9 @@
       "zh": "我收到",
       "ja": "私は受け取る",
       "ca": "jo rebo",
-      "ko": "나는 받는다"
+      "ko": "나는 받는다",
+      "la": "ego recipio",
+      "eo": "mi ricevas"
     },
     {
       "term": "tu recipe",
@@ -20778,7 +20888,9 @@
       "zh": "你收到",
       "ja": "あなたは受け取る",
       "ca": "tu reps",
-      "ko": "너는 받는다"
+      "ko": "너는 받는다",
+      "la": "tu recipis",
+      "eo": "vi ricevas"
     },
     {
       "term": "nos recipe",
@@ -20792,7 +20904,9 @@
       "zh": "我们收到",
       "ja": "私たちは受け取る",
       "ca": "nosaltres rebem",
-      "ko": "우리는 받는다"
+      "ko": "우리는 받는다",
+      "la": "nos recipimus",
+      "eo": "ni ricevas"
     },
     {
       "term": "ille recipe",
@@ -20806,7 +20920,9 @@
       "zh": "他收到",
       "ja": "彼は受け取る",
       "ca": "ell rep",
-      "ko": "그는 받는다"
+      "ko": "그는 받는다",
+      "la": "ille recipit",
+      "eo": "li/ŝi ricevas"
     },
     {
       "term": "vos recipe",
@@ -20820,7 +20936,9 @@
       "zh": "你们收到",
       "ja": "あなたたちは受け取る",
       "ca": "vosaltres rebeu",
-      "ko": "너희는 받는다"
+      "ko": "너희는 받는다",
+      "la": "vos recipitis",
+      "eo": "vi ricevas"
     },
     {
       "term": "illes recipe",
@@ -20834,7 +20952,9 @@
       "zh": "他们收到",
       "ja": "彼らは受け取る",
       "ca": "ells/elles reben",
-      "ko": "그들은 받는다"
+      "ko": "그들은 받는다",
+      "la": "illi recipiunt",
+      "eo": "ili ricevas"
     },
     {
       "term": "luce",
@@ -20848,7 +20968,9 @@
       "zh": "光",
       "ja": "光",
       "ca": "llum",
-      "ko": "빛"
+      "ko": "빛",
+      "la": "lux",
+      "eo": "lumo"
     },
     {
       "term": "io vale",
@@ -20862,7 +20984,9 @@
       "zh": "我值得",
       "ja": "私はそれに値する",
       "ca": "jo ho valc",
-      "ko": "나는 그럴 자격이 있다"
+      "ko": "나는 그럴 자격이 있다",
+      "la": "ego valeo",
+      "eo": "mi valoras"
     },
     {
       "term": "tu vale",
@@ -20876,7 +21000,9 @@
       "zh": "你值得",
       "ja": "あなたはそれに値する",
       "ca": "tu ho vals",
-      "ko": "너는 그럴 가치가 있다"
+      "ko": "너는 그럴 가치가 있다",
+      "la": "tu vales",
+      "eo": "vi valoras"
     },
     {
       "term": "ille vale",
@@ -20890,7 +21016,9 @@
       "zh": "他/她值得",
       "ja": "彼/彼女はそれに値する",
       "ca": "ell/a ho val",
-      "ko": "그/그녀는 그럴 가치가 있다"
+      "ko": "그/그녀는 그럴 가치가 있다",
+      "la": "ille valet",
+      "eo": "li/ŝi valoras"
     },
     {
       "term": "nos vale",
@@ -20904,7 +21032,9 @@
       "zh": "我们值得",
       "ja": "私たちはそれに値する",
       "ca": "nosaltres ho valem",
-      "ko": "우리는 그럴 가치가 있다"
+      "ko": "우리는 그럴 가치가 있다",
+      "la": "nos valemus",
+      "eo": "ni valoras"
     },
     {
       "term": "vos vale",
@@ -20918,7 +21048,9 @@
       "zh": "你们值得",
       "ja": "あなたたちはそれに値する",
       "ca": "vosaltres ho valeu",
-      "ko": "너희는 그럴 가치가 있다"
+      "ko": "너희는 그럴 가치가 있다",
+      "la": "vos valetis",
+      "eo": "vi valoras"
     },
     {
       "term": "illes vale",
@@ -20932,7 +21064,9 @@
       "zh": "他们值得",
       "ja": "彼らはそれに値する",
       "ca": "ells/elles ho valen",
-      "ko": "그들은 그럴 가치가 있다"
+      "ko": "그들은 그럴 가치가 있다",
+      "la": "illi valent",
+      "eo": "ili valoras"
     },
     {
       "term": "rasar se",
@@ -20946,7 +21080,9 @@
       "zh": "刮胡子",
       "ja": "ひげを剃る",
       "ca": "afaitar-se",
-      "ko": "면도하다"
+      "ko": "면도하다",
+      "la": "radere se",
+      "eo": "razi sin"
     },
     {
       "term": "io pesa",
@@ -20960,7 +21096,9 @@
       "zh": "我体重是",
       "ja": "私は重さがある",
       "ca": "jo peso",
-      "ko": "나는 무게가 있다"
+      "ko": "나는 무게가 있다",
+      "la": "ego pendo",
+      "eo": "mi pezas"
     },
     {
       "term": "tu pesa",
@@ -20974,7 +21112,9 @@
       "zh": "你体重是",
       "ja": "あなたは重さがある",
       "ca": "tu peses",
-      "ko": "너는 무게가 있다"
+      "ko": "너는 무게가 있다",
+      "la": "tu pendes",
+      "eo": "vi pezas"
     },
     {
       "term": "ille pesa",
@@ -20988,7 +21128,9 @@
       "zh": "他/她体重是",
       "ja": "彼/彼女は重さがある",
       "ca": "ell/a pesa",
-      "ko": "그/그녀는 무게가 있다"
+      "ko": "그/그녀는 무게가 있다",
+      "la": "ille pendet",
+      "eo": "li/ŝi pezas"
     },
     {
       "term": "vos pesa",
@@ -21002,7 +21144,9 @@
       "zh": "你们体重是",
       "ja": "あなたたちは重さがある",
       "ca": "vosaltres peseu",
-      "ko": "너희는 무게가 있다"
+      "ko": "너희는 무게가 있다",
+      "la": "vos penditis",
+      "eo": "vi pezas"
     },
     {
       "term": "nos pesa",
@@ -21016,7 +21160,9 @@
       "zh": "我们体重是",
       "ja": "私たちは重さがある",
       "ca": "nosaltres pesem",
-      "ko": "우리는 무게가 있다"
+      "ko": "우리는 무게가 있다",
+      "la": "nos pendimus",
+      "eo": "ni pezas"
     },
     {
       "term": "illes pesa",
@@ -21030,7 +21176,9 @@
       "zh": "他们体重是",
       "ja": "彼らは重さがある",
       "ca": "ells/elles pesen",
-      "ko": "그들은 무게가 있다"
+      "ko": "그들은 무게가 있다",
+      "la": "illi pendunt",
+      "eo": "ili pezas"
     },
     {
       "term": "adaptar a",
@@ -21044,7 +21192,9 @@
       "zh": "适应",
       "ja": "〜に適応する",
       "ca": "adaptar-se a",
-      "ko": "적응하다"
+      "ko": "적응하다",
+      "la": "aptare se ad",
+      "eo": "adaptiĝi al"
     },
     {
       "term": "reposar",
@@ -21058,7 +21208,9 @@
       "zh": "休息",
       "ja": "休む",
       "ca": "descansar",
-      "ko": "쉬다"
+      "ko": "쉬다",
+      "la": "requiescere",
+      "eo": "ripozi"
     },
     {
       "term": "ille pertine",
@@ -21072,7 +21224,9 @@
       "zh": "他/她属于",
       "ja": "彼/彼女は属する",
       "ca": "ell/a pertany",
-      "ko": "그/그녀는 속한다"
+      "ko": "그/그녀는 속한다",
+      "la": "ille pertinet",
+      "eo": "li/ŝi apartenas"
     },
     {
       "term": "io pertine",
@@ -21086,7 +21240,9 @@
       "zh": "我属于",
       "ja": "私は属する",
       "ca": "jo pertanyo",
-      "ko": "나는 속한다"
+      "ko": "나는 속한다",
+      "la": "ego pertineo",
+      "eo": "mi apartenas"
     },
     {
       "term": "nos pertine",
@@ -21100,7 +21256,9 @@
       "zh": "我们属于",
       "ja": "私たちは属する",
       "ca": "nosaltres pertanyem",
-      "ko": "우리는 속한다"
+      "ko": "우리는 속한다",
+      "la": "nos pertinemus",
+      "eo": "ni apartenas"
     },
     {
       "term": "vos pertine",
@@ -21114,7 +21272,9 @@
       "zh": "你们属于",
       "ja": "あなたたちは属する",
       "ca": "vosaltres pertanyeu",
-      "ko": "너희는 속한다"
+      "ko": "너희는 속한다",
+      "la": "vos pertinetis",
+      "eo": "vi apartenas"
     },
     {
       "term": "illes pertine",
@@ -21128,7 +21288,9 @@
       "zh": "他们属于",
       "ja": "彼らは属する",
       "ca": "ells/elles pertanyen",
-      "ko": "그들은 속한다"
+      "ko": "그들은 속한다",
+      "la": "illi pertinent",
+      "eo": "ili apartenas"
     },
     {
       "term": "tu pertine",
@@ -21142,7 +21304,9 @@
       "zh": "你属于",
       "ja": "あなたは属する",
       "ca": "tu pertanys",
-      "ko": "너는 속한다"
+      "ko": "너는 속한다",
+      "la": "tu pertines",
+      "eo": "vi apartenas"
     },
     {
       "term": "soniar re",
@@ -21156,7 +21320,9 @@
       "zh": "梦见",
       "ja": "〜について夢を見る",
       "ca": "somiar amb",
-      "ko": "~에 대해 꿈꾸다"
+      "ko": "~에 대해 꿈꾸다",
+      "la": "somniare de",
+      "eo": "revi pri"
     },
     {
       "term": "que significa illo?",
@@ -21170,7 +21336,9 @@
       "zh": "这是什么意思？",
       "ja": "それはどういう意味ですか？",
       "ca": "què vol dir això?",
-      "ko": "그게 무슨 뜻이야?"
+      "ko": "그게 무슨 뜻이야?",
+      "la": "quid illud significat?",
+      "eo": "kion tio signifas?"
     },
     {
       "term": "illa me manca multo, e io desira facer la retornar",
@@ -21184,7 +21352,9 @@
       "zh": "我非常想念她，希望她回来",
       "ja": "彼女が本当に恋しい、戻ってきてほしい",
       "ca": "La trobo molt a faltar i vull que torni",
-      "ko": "그녀가 너무 그립고 돌아오길 원해"
+      "ko": "그녀가 너무 그립고 돌아오길 원해",
+      "la": "illa mihi valde deest, et eam redire volo",
+      "eo": "mi tre sopiras ŝin kaj volas ŝin reen"
     },
     {
       "term": "quanto costa illo?",
@@ -21198,7 +21368,9 @@
       "zh": "这个多少钱？",
       "ja": "それはいくらですか？",
       "ca": "quant costa això?",
-      "ko": "그거 얼마야?"
+      "ko": "그거 얼마야?",
+      "la": "quanti constat illud?",
+      "eo": "kiom tio kostas?"
     },
     {
       "term": "ille curre via",
@@ -21212,7 +21384,9 @@
       "zh": "他跑掉了",
       "ja": "彼は逃げる",
       "ca": "ell fuig",
-      "ko": "그는 도망친다"
+      "ko": "그는 도망친다",
+      "la": "ille fugit",
+      "eo": "li forkuras"
     },
     {
       "term": "como va tu retiro?",
@@ -21226,7 +21400,9 @@
       "zh": "你的退休生活怎么样？",
       "ja": "退職後はどうですか？",
       "ca": "com va la teva jubilació?",
-      "ko": "은퇴 생활은 어때?"
+      "ko": "은퇴 생활은 어때?",
+      "la": "quomodo se habet otium tuum?",
+      "eo": "kiel iras via emeritiĝo?"
     }
   ],
   "negativos": [
@@ -21242,7 +21418,9 @@
       "zh": "我不想要任何东西了",
       "ja": "もう何もいらない",
       "ca": "no vull res més",
-      "ko": "더 이상 아무것도 원하지 않아"
+      "ko": "더 이상 아무것도 원하지 않아",
+      "la": "ego nihil amplius volo",
+      "eo": "mi volas nenion plu"
     },
     {
       "term": "nihil",
@@ -21256,7 +21434,9 @@
       "zh": "什么都没有",
       "ja": "何もない",
       "ca": "res",
-      "ko": "아무것도"
+      "ko": "아무것도",
+      "la": "nihil",
+      "eo": "nenio"
     },
     {
       "term": "io vole un poco",
@@ -21270,7 +21450,9 @@
       "zh": "我想要一点",
       "ja": "少し欲しい",
       "ca": "vull una mica",
-      "ko": "조금 원해"
+      "ko": "조금 원해",
+      "la": "ego paulum volo",
+      "eo": "mi volas iom"
     },
     {
       "term": "nec, nec",
@@ -21284,7 +21466,9 @@
       "zh": "既不……也不……",
       "ja": "〜も〜もない",
       "ca": "ni..., ni...",
-      "ko": "~도 아니고 ~도 아니다"
+      "ko": "~도 아니고 ~도 아니다",
+      "la": "nec...nec",
+      "eo": "nek...nek"
     },
     {
       "term": "nemo",
@@ -21298,7 +21482,9 @@
       "zh": "没人",
       "ja": "誰も",
       "ca": "ningú",
-      "ko": "아무도"
+      "ko": "아무도",
+      "la": "nemo",
+      "eo": "neniu"
     },
     {
       "term": "per nihil",
@@ -21312,7 +21498,9 @@
       "zh": "白白地",
       "ja": "無駄に",
       "ca": "per res",
-      "ko": "헛되이"
+      "ko": "헛되이",
+      "la": "frustra",
+      "eo": "vane"
     },
     {
       "term": "nemo es perfecte",
@@ -21326,7 +21514,9 @@
       "zh": "没有人是完美的",
       "ja": "誰も完璧ではない",
       "ca": "ningú no és perfecte",
-      "ko": "완벽한 사람은 없다"
+      "ko": "완벽한 사람은 없다",
+      "la": "nemo perfectus est",
+      "eo": "neniu estas perfekta"
     },
     {
       "term": "que ha tu a dicer re illo?",
@@ -21340,7 +21530,9 @@
       "zh": "你对此有什么看法？",
       "ja": "それについて何と言いますか？",
       "ca": "què has de dir sobre això?",
-      "ko": "그에 대해 뭐라고 할래?"
+      "ko": "그에 대해 뭐라고 할래?",
+      "la": "quid de illo dicere habes?",
+      "eo": "kion vi devas diri pri tio?"
     },
     {
       "term": "il ha nulle dubita",
@@ -21354,7 +21546,9 @@
       "zh": "毫无疑问",
       "ja": "疑いの余地はない",
       "ca": "no hi ha cap dubte",
-      "ko": "의심할 여지가 없다"
+      "ko": "의심할 여지가 없다",
+      "la": "nullum dubium est",
+      "eo": "ne estas dubo"
     },
     {
       "term": "il non ha ulle plus que...",
@@ -21368,7 +21562,9 @@
       "zh": "不超过……",
       "ja": "〜以上はない",
       "ca": "no hi ha més de...",
-      "ko": "더 이상 ~이 없다"
+      "ko": "더 이상 ~이 없다",
+      "la": "non plus quam... est",
+      "eo": "ne estas pli ol..."
     },
     {
       "term": "le dies es plus e plus longe",
@@ -21382,7 +21578,9 @@
       "zh": "白天越来越长",
       "ja": "日に日に日が長くなる",
       "ca": "els dies són cada vegada més llargs",
-      "ko": "날이 점점 길어진다"
+      "ko": "날이 점점 길어진다",
+      "la": "dies longiores et longiores fiunt",
+      "eo": "la tagoj fariĝas pli kaj pli longaj"
     },
     {
       "term": "tu non offre alco",
@@ -21396,7 +21594,9 @@
       "zh": "你什么都没提供",
       "ja": "あなたは何も提供しない",
       "ca": "no ofereixes res",
-      "ko": "너는 아무것도 제공하지 않아"
+      "ko": "너는 아무것도 제공하지 않아",
+      "la": "tu nihil offers",
+      "eo": "vi ofertas nenion"
     },
     {
       "term": "il non va",
@@ -21410,7 +21610,9 @@
       "zh": "这不会起作用",
       "ja": "それはうまくいかない",
       "ca": "això no funcionarà",
-      "ko": "그건 안 될 거야"
+      "ko": "그건 안 될 거야",
+      "la": "non procedet",
+      "eo": "tio ne funkcios"
     },
     {
       "term": "iste cappello non va pro me.",
@@ -21424,7 +21626,9 @@
       "zh": "这顶帽子不适合我",
       "ja": "この帽子は私に合わない",
       "ca": "aquest barret no em queda bé",
-      "ko": "이 모자는 나한테 안 어울려"
+      "ko": "이 모자는 나한테 안 어울려",
+      "la": "hoc petasum mihi non convenit.",
+      "eo": "ĉi tiu ĉapelo ne taŭgas por mi"
     },
     {
       "term": "non plus",
@@ -21438,7 +21642,9 @@
       "zh": "不再",
       "ja": "もう〜ない",
       "ca": "ja no",
-      "ko": "더 이상 아니다"
+      "ko": "더 이상 아니다",
+      "la": "non amplius",
+      "eo": "ne plu"
     },
     {
       "term": "non",
@@ -21452,7 +21658,9 @@
       "zh": "不",
       "ja": "いいえ",
       "ca": "no",
-      "ko": "아니"
+      "ko": "아니",
+      "la": "non",
+      "eo": "ne"
     }
   ],
   "adverbios3": [
