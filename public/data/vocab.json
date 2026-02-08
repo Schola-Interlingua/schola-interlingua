@@ -8652,7 +8652,9 @@
       "zh": "狗",
       "ja": "犬",
       "ca": "els gossos",
-      "ko": "개들"
+      "ko": "개들",
+      "la": "canes",
+      "eo": "hundoj"
     },
     {
       "term": "le cattos",
@@ -8666,7 +8668,9 @@
       "zh": "猫",
       "ja": "猫",
       "ca": "els gats",
-      "ko": "고양이들"
+      "ko": "고양이들",
+      "la": "catti",
+      "eo": "katoj"
     },
     {
       "term": "le grande canes",
@@ -8680,7 +8684,9 @@
       "zh": "大狗",
       "ja": "大きい犬",
       "ca": "gossos grans",
-      "ko": "큰 개들"
+      "ko": "큰 개들",
+      "la": "canes magni",
+      "eo": "grandaj hundoj"
     },
     {
       "term": "le parolas",
@@ -8694,7 +8700,9 @@
       "zh": "词语",
       "ja": "言葉",
       "ca": "les paraules",
-      "ko": "단어들"
+      "ko": "단어들",
+      "la": "verba",
+      "eo": "vortoj"
     },
     {
       "term": "le pomos",
@@ -8708,7 +8716,9 @@
       "zh": "苹果",
       "ja": "りんご",
       "ca": "les pomes",
-      "ko": "사과들"
+      "ko": "사과들",
+      "la": "mala",
+      "eo": "pomoj"
     },
     {
       "term": "le parve pomos",
@@ -8722,7 +8732,9 @@
       "zh": "小苹果",
       "ja": "小さなりんご",
       "ca": "pomes petites",
-      "ko": "작은 사과들"
+      "ko": "작은 사과들",
+      "la": "mala parva",
+      "eo": "malgrandaj pomoj"
     },
     {
       "term": "le parve elephantes",
@@ -8736,7 +8748,9 @@
       "zh": "小象",
       "ja": "小さい象",
       "ca": "elefants petits",
-      "ko": "작은 코끼리들"
+      "ko": "작은 코끼리들",
+      "la": "elephanti parvi",
+      "eo": "malgrandaj elefantoj"
     },
     {
       "term": "le litteras",
@@ -8750,7 +8764,9 @@
       "zh": "信件；字母",
       "ja": "手紙；文字",
       "ca": "cartes; lletres",
-      "ko": "편지; 글자"
+      "ko": "편지; 글자",
+      "la": "litterae",
+      "eo": "leteroj"
     },
     {
       "term": "le sol anates",
@@ -8764,7 +8780,9 @@
       "zh": "唯一的鸭子",
       "ja": "唯一のアヒル",
       "ca": "els únics ànecs",
-      "ko": "유일한 오리들"
+      "ko": "유일한 오리들",
+      "la": "soli anates",
+      "eo": "la solaj anasoj"
     },
     {
       "term": "le anates sol",
@@ -8778,7 +8796,9 @@
       "zh": "孤独的鸭子",
       "ja": "孤独なアヒル",
       "ca": "ànecs sols",
-      "ko": "외로운 오리들"
+      "ko": "외로운 오리들",
+      "la": "anates soli",
+      "eo": "la solecaj anasoj"
     },
     {
       "term": "le pisces grande",
@@ -8792,7 +8812,9 @@
       "zh": "大鱼",
       "ja": "大きい魚",
       "ca": "peixos grans",
-      "ko": "큰 물고기들"
+      "ko": "큰 물고기들",
+      "la": "pisces magni",
+      "eo": "grandaj fiŝoj"
     },
     {
       "term": "le libros",
@@ -8806,7 +8828,9 @@
       "zh": "书",
       "ja": "本",
       "ca": "els llibres",
-      "ko": "책들"
+      "ko": "책들",
+      "la": "libri",
+      "eo": "libroj"
     },
     {
       "term": "le vitro rosate",
@@ -8820,7 +8844,9 @@
       "zh": "粉色玻璃",
       "ja": "ピンクのコップ",
       "ca": "el got rosa",
-      "ko": "분홍색 유리"
+      "ko": "분홍색 유리",
+      "la": "vitrum roseum",
+      "eo": "la rozkolora glaso"
     },
     {
       "term": "le vitros rosate",
@@ -8834,7 +8860,9 @@
       "zh": "粉色玻璃杯",
       "ja": "ピンクのグラス",
       "ca": "els gots roses",
-      "ko": "분홍색 유리컵들"
+      "ko": "분홍색 유리컵들",
+      "la": "vitra rosea",
+      "eo": "la rozkoloraj glasoj"
     },
     {
       "term": "le receptas",
@@ -8848,7 +8876,9 @@
       "zh": "食谱",
       "ja": "レシピ",
       "ca": "receptes",
-      "ko": "요리법"
+      "ko": "요리법",
+      "la": "receptae",
+      "eo": "receptoj"
     },
     {
       "term": "le limones",
@@ -8862,7 +8892,9 @@
       "zh": "柠檬",
       "ja": "レモン",
       "ca": "els llimones",
-      "ko": "레몬들"
+      "ko": "레몬들",
+      "la": "limones",
+      "eo": "citronoj"
     },
     {
       "term": "le sandwiches",
@@ -8876,7 +8908,9 @@
       "zh": "三明治",
       "ja": "サンドイッチ",
       "ca": "entrepans",
-      "ko": "샌드위치들"
+      "ko": "샌드위치들",
+      "la": "sandwiches",
+      "eo": "sandvicoj"
     },
     {
       "term": "le fructos",
@@ -8890,7 +8924,9 @@
       "zh": "水果",
       "ja": "果物",
       "ca": "les fruites",
-      "ko": "과일들"
+      "ko": "과일들",
+      "la": "fructus",
+      "eo": "fruktoj"
     },
     {
       "term": "le fragas",
@@ -8904,7 +8940,9 @@
       "zh": "草莓",
       "ja": "いちご",
       "ca": "maduixes",
-      "ko": "딸기들"
+      "ko": "딸기들",
+      "la": "fragae",
+      "eo": "fragoj"
     },
     {
       "term": "le crepes",
@@ -8918,7 +8956,9 @@
       "zh": "可丽饼",
       "ja": "クレープ",
       "ca": "creps",
-      "ko": "크레페"
+      "ko": "크레페",
+      "la": "crepes",
+      "eo": "krepoj"
     },
     {
       "term": "le verduras",
@@ -8932,7 +8972,9 @@
       "zh": "蔬菜",
       "ja": "野菜",
       "ca": "les verdures",
-      "ko": "채소"
+      "ko": "채소",
+      "la": "holera",
+      "eo": "legomoj"
     },
     {
       "term": "le patatas frite",
@@ -8946,7 +8988,9 @@
       "zh": "炸薯条",
       "ja": "フライドポテト",
       "ca": "les patates fregides",
-      "ko": "감자튀김"
+      "ko": "감자튀김",
+      "la": "tubera fricta",
+      "eo": "frititaj terpomoj"
     },
     {
       "term": "le phaseolos",
@@ -8960,7 +9004,9 @@
       "zh": "豆类",
       "ja": "豆",
       "ca": "els fesols",
-      "ko": "콩"
+      "ko": "콩",
+      "la": "phaseoli",
+      "eo": "fazeoloj"
     }
   ],
   "esser-haber": [
@@ -8976,7 +9022,9 @@
       "zh": "是",
       "ja": "である; いる",
       "ca": "ser; estar",
-      "ko": "이다; 있다"
+      "ko": "이다; 있다",
+      "la": "esse",
+      "eo": "esti"
     },
     {
       "term": "haber",
@@ -8990,7 +9038,9 @@
       "zh": "有",
       "ja": "持つ; ある",
       "ca": "tenir; haver",
-      "ko": "가지다; 있다"
+      "ko": "가지다; 있다",
+      "la": "habere",
+      "eo": "havi"
     },
     {
       "term": "io es",
@@ -9004,7 +9054,9 @@
       "zh": "我是",
       "ja": "私は〜です",
       "ca": "jo sóc; estic",
-      "ko": "나는 ~이다"
+      "ko": "나는 ~이다",
+      "la": "ego sum",
+      "eo": "mi estas"
     },
     {
       "term": "tu es",
@@ -9018,7 +9070,9 @@
       "zh": "你是",
       "ja": "あなたは〜です",
       "ca": "tu ets; estàs",
-      "ko": "너는 ~이다"
+      "ko": "너는 ~이다",
+      "la": "tu es",
+      "eo": "vi estas"
     },
     {
       "term": "io ha",
@@ -9032,7 +9086,9 @@
       "zh": "我有",
       "ja": "私は持っている",
       "ca": "jo tinc",
-      "ko": "나는 가지고 있다"
+      "ko": "나는 가지고 있다",
+      "la": "ego habeo",
+      "eo": "mi havas"
     },
     {
       "term": "tu ha",
@@ -9046,7 +9102,9 @@
       "zh": "你有",
       "ja": "あなたは持っている",
       "ca": "tu tens",
-      "ko": "너는 가지고 있다"
+      "ko": "너는 가지고 있다",
+      "la": "tu habes",
+      "eo": "vi havas"
     },
     {
       "term": "ille ha",
@@ -9060,7 +9118,9 @@
       "zh": "他有",
       "ja": "彼は持っている",
       "ca": "ell té",
-      "ko": "그는 가지고 있다"
+      "ko": "그는 가지고 있다",
+      "la": "ille habet",
+      "eo": "li havas"
     },
     {
       "term": "illa ha",
@@ -9074,7 +9134,9 @@
       "zh": "她有",
       "ja": "彼女は持っている",
       "ca": "ella té",
-      "ko": "그녀는 가지고 있다"
+      "ko": "그녀는 가지고 있다",
+      "la": "illa habet",
+      "eo": "ŝi havas"
     },
     {
       "term": "nos es",
@@ -9088,7 +9150,9 @@
       "zh": "我们是",
       "ja": "私たちは〜です",
       "ca": "nosaltres som; estem",
-      "ko": "우리는 ~이다"
+      "ko": "우리는 ~이다",
+      "la": "nos sumus",
+      "eo": "ni estas"
     },
     {
       "term": "vos es",
@@ -9102,7 +9166,9 @@
       "zh": "你们是",
       "ja": "あなたたちは〜です",
       "ca": "vosaltres sou; esteu",
-      "ko": "당신들은 ~이다"
+      "ko": "당신들은 ~이다",
+      "la": "vos estis",
+      "eo": "vi estas"
     },
     {
       "term": "nos ha",
@@ -9116,7 +9182,9 @@
       "zh": "我们有",
       "ja": "私たちは持っている",
       "ca": "nosaltres tenim",
-      "ko": "우리는 가지고 있다"
+      "ko": "우리는 가지고 있다",
+      "la": "nos habemus",
+      "eo": "ni havas"
     },
     {
       "term": "illes ha",
@@ -9130,7 +9198,9 @@
       "zh": "他们有",
       "ja": "彼らは持っている",
       "ca": "ells tenen",
-      "ko": "그들은 가지고 있다"
+      "ko": "그들은 가지고 있다",
+      "la": "illi habent",
+      "eo": "ili havas"
     },
     {
       "term": "ille ha un pisce e tu ha chocolate",
@@ -9144,7 +9214,9 @@
       "zh": "他有一条鱼，你有巧克力",
       "ja": "彼は魚を持っていて、あなたはチョコレートを持っている",
       "ca": "ell té un peix i tu tens xocolata",
-      "ko": "그는 물고기를 가지고 있고, 너는 초콜릿을 가지고 있다"
+      "ko": "그는 물고기를 가지고 있고, 너는 초콜릿을 가지고 있다",
+      "la": "ille habet piscem et tu habes chocolatum",
+      "eo": "li havas fiŝon kaj vi havas ĉokoladon"
     },
     {
       "term": "ille es un infante",
@@ -9158,7 +9230,9 @@
       "zh": "他是个孩子",
       "ja": "彼は子供です",
       "ca": "ell és un nen",
-      "ko": "그는 아이이다"
+      "ko": "그는 아이이다",
+      "la": "ille est infans",
+      "eo": "li estas infano"
     },
     {
       "term": "il ha un femina",
@@ -9172,7 +9246,9 @@
       "zh": "有一个女人",
       "ja": "女性がいる",
       "ca": "hi ha una dona",
-      "ko": "여자가 있다"
+      "ko": "여자가 있다",
+      "la": "est femina",
+      "eo": "estas virino"
     },
     {
       "term": "il ha duo libros",
@@ -9186,7 +9262,9 @@
       "zh": "有两本书",
       "ja": "本が二冊ある",
       "ca": "hi ha dos llibres",
-      "ko": "책이 두 권 있다"
+      "ko": "책이 두 권 있다",
+      "la": "sunt duo libri",
+      "eo": "estas du libroj"
     },
     {
       "term": "il es",
@@ -9200,7 +9278,9 @@
       "zh": "是；存在",
       "ja": "それは〜である; 存在する",
       "ca": "és; existeix",
-      "ko": "그것은 ~이다; 존재한다"
+      "ko": "그것은 ~이다; 존재한다",
+      "la": "est",
+      "eo": "estas"
     },
     {
       "term": "il ha",
@@ -9214,7 +9294,9 @@
       "zh": "有",
       "ja": "ある / いる",
       "ca": "hi ha",
-      "ko": "있다"
+      "ko": "있다",
+      "la": "est",
+      "eo": "estas"
     },
     {
       "term": "il es tarde",
@@ -9228,7 +9310,9 @@
       "zh": "晚了",
       "ja": "遅いです",
       "ca": "és tard",
-      "ko": "늦었어"
+      "ko": "늦었어",
+      "la": "sero est",
+      "eo": "estas malfrue"
     },
     {
       "term": "illes es ci",
@@ -9242,7 +9326,9 @@
       "zh": "他们在这里",
       "ja": "彼らはここにいる",
       "ca": "ells són aquí",
-      "ko": "그들은 여기 있다"
+      "ko": "그들은 여기 있다",
+      "la": "illi hic sunt",
+      "eo": "ili estas ĉi tie"
     },
     {
       "term": "illo es multo distante de ci",
@@ -9256,7 +9342,9 @@
       "zh": "离这里很远",
       "ja": "ここから遠いです",
       "ca": "és lluny d'aquí",
-      "ko": "여기서 멀리 있다"
+      "ko": "여기서 멀리 있다",
+      "la": "illud multum procul ab hic est",
+      "eo": "tio estas tre malproksime de ĉi tie"
     },
     {
       "term": "ille es advocato",
@@ -9270,7 +9358,9 @@
       "zh": "他是律师",
       "ja": "彼は弁護士です",
       "ca": "ell és advocat",
-      "ko": "그는 변호사이다"
+      "ko": "그는 변호사이다",
+      "la": "ille est advocatus",
+      "eo": "li estas advokato"
     },
     {
       "term": "illa es actrice",
@@ -9284,7 +9374,9 @@
       "zh": "她是演员",
       "ja": "彼女は女優です",
       "ca": "ella és actriu",
-      "ko": "그녀는 배우이다"
+      "ko": "그녀는 배우이다",
+      "la": "illa est actrix",
+      "eo": "ŝi estas aktorino"
     },
     {
       "term": "illa es un bon actrice",
@@ -9298,7 +9390,9 @@
       "zh": "她是个好演员",
       "ja": "彼女は良い女優です",
       "ca": "ella és una bona actriu",
-      "ko": "그녀는 좋은 배우이다"
+      "ko": "그녀는 좋은 배우이다",
+      "la": "illa est bona actrix",
+      "eo": "ŝi estas bona aktorino"
     },
     {
       "term": "ille es al banca",
@@ -9312,7 +9406,9 @@
       "zh": "他在银行",
       "ja": "彼は銀行にいる",
       "ca": "ell és al banc",
-      "ko": "그는 은행에 있다"
+      "ko": "그는 은행에 있다",
+      "la": "ille est ad bancam",
+      "eo": "li estas ĉe la banko"
     },
     {
       "term": "illa es in Francia",
@@ -9326,7 +9422,9 @@
       "zh": "她在法国",
       "ja": "彼女はフランスにいます",
       "ca": "ella és a França",
-      "ko": "그녀는 프랑스에 있다"
+      "ko": "그녀는 프랑스에 있다",
+      "la": "illa est in Francia",
+      "eo": "ŝi estas en Francio"
     },
     {
       "term": "il es Luca",
@@ -9340,7 +9438,9 @@
       "zh": "他是卢卡",
       "ja": "彼はルカです",
       "ca": "ell és en Luca",
-      "ko": "그는 루카이다"
+      "ko": "그는 루카이다",
+      "la": "ille est Luca",
+      "eo": "li estas Luka"
     },
     {
       "term": "il es io",
@@ -9354,7 +9454,9 @@
       "zh": "是我",
       "ja": "私です",
       "ca": "sóc jo",
-      "ko": "나다"
+      "ko": "나다",
+      "la": "ego sum",
+      "eo": "estas mi"
     },
     {
       "term": "il es necessari...",
@@ -9368,7 +9470,9 @@
       "zh": "有必要……",
       "ja": "必要です...",
       "ca": "és necessari...",
-      "ko": "필요하다..."
+      "ko": "필요하다...",
+      "la": "necessarium est...",
+      "eo": "estas necese..."
     }
   ],
   "vestimentos": [
@@ -9384,7 +9488,9 @@
       "zh": "钱包",
       "ja": "財布",
       "ca": "cartera",
-      "ko": "지갑"
+      "ko": "지갑",
+      "la": "marsupium",
+      "eo": "monujo"
     },
     {
       "term": "habito",
@@ -9398,7 +9504,9 @@
       "zh": "服装；习惯",
       "ja": "服; 習慣",
       "ca": "hàbit; vestit",
-      "ko": "의복; 습관"
+      "ko": "의복; 습관",
+      "la": "habitus",
+      "eo": "vesto; kostumo"
     },
     {
       "term": "roba",
@@ -9412,7 +9520,9 @@
       "zh": "连衣裙；衣服",
       "ja": "ドレス; 服",
       "ca": "vestit; roba",
-      "ko": "드레스; 옷"
+      "ko": "드레스; 옷",
+      "la": "vestis",
+      "eo": "robo; vestaĵo"
     },
     {
       "term": "guanto",
@@ -9426,7 +9536,9 @@
       "zh": "手套",
       "ja": "手袋",
       "ca": "guant",
-      "ko": "장갑"
+      "ko": "장갑",
+      "la": "chirotheca",
+      "eo": "ganto"
     },
     {
       "term": "jeans",
@@ -9440,7 +9552,9 @@
       "zh": "牛仔裤",
       "ja": "ジーンズ",
       "ca": "texans",
-      "ko": "청바지"
+      "ko": "청바지",
+      "la": "bracae jeans",
+      "eo": "ĝinzoj"
     },
     {
       "term": "jaco",
@@ -9454,7 +9568,9 @@
       "zh": "夹克",
       "ja": "ジャケット",
       "ca": "jaqueta",
-      "ko": "재킷"
+      "ko": "재킷",
+      "la": "iacca",
+      "eo": "jako"
     },
     {
       "term": "bursa",
@@ -9468,7 +9584,9 @@
       "zh": "包",
       "ja": "バッグ",
       "ca": "bossa",
-      "ko": "가방"
+      "ko": "가방",
+      "la": "bursa",
+      "eo": "sako"
     },
     {
       "term": "tasca",
@@ -9482,7 +9600,9 @@
       "zh": "口袋",
       "ja": "ポケット",
       "ca": "butxaca",
-      "ko": "주머니"
+      "ko": "주머니",
+      "la": "loculus",
+      "eo": "poŝo"
     },
     {
       "term": "sacco",
@@ -9496,7 +9616,9 @@
       "zh": "袋子；西装外套",
       "ja": "袋; 上着",
       "ca": "sac; jaqueta",
-      "ko": "자루; 재킷"
+      "ko": "자루; 재킷",
+      "la": "saccus",
+      "eo": "sako; jako"
     },
     {
       "term": "vestimento",
@@ -9510,7 +9632,9 @@
       "zh": "衣服",
       "ja": "服装",
       "ca": "vestimenta",
-      "ko": "의류"
+      "ko": "의류",
+      "la": "vestimentum",
+      "eo": "vestaĵo"
     },
     {
       "term": "pantalones",
@@ -9524,7 +9648,9 @@
       "zh": "裤子",
       "ja": "ズボン",
       "ca": "pantalons",
-      "ko": "바지"
+      "ko": "바지",
+      "la": "bracae",
+      "eo": "pantalonoj"
     },
     {
       "term": "cappello",
@@ -9538,7 +9664,9 @@
       "zh": "帽子",
       "ja": "帽子",
       "ca": "barret",
-      "ko": "모자"
+      "ko": "모자",
+      "la": "petasus",
+      "eo": "ĉapelo"
     },
     {
       "term": "camisa",
@@ -9552,7 +9680,9 @@
       "zh": "衬衫",
       "ja": "シャツ",
       "ca": "camisa",
-      "ko": "셔츠"
+      "ko": "셔츠",
+      "la": "camisia",
+      "eo": "ĉemizo"
     },
     {
       "term": "gonna",
@@ -9566,7 +9696,9 @@
       "zh": "裙子",
       "ja": "スカート",
       "ca": "faldilla",
-      "ko": "치마"
+      "ko": "치마",
+      "la": "tunica",
+      "eo": "jupo"
     },
     {
       "term": "cotta",
@@ -9580,7 +9712,9 @@
       "zh": "斗篷",
       "ja": "マント",
       "ca": "capa",
-      "ko": "망토"
+      "ko": "망토",
+      "la": "cappa",
+      "eo": "mantelo"
     },
     {
       "term": "botta",
@@ -9594,7 +9728,9 @@
       "zh": "靴子",
       "ja": "ブーツ",
       "ca": "bota",
-      "ko": "부츠"
+      "ko": "부츠",
+      "la": "ocrea",
+      "eo": "boto"
     },
     {
       "term": "calcetta",
@@ -9608,7 +9744,9 @@
       "zh": "袜子",
       "ja": "靴下",
       "ca": "mitjó",
-      "ko": "양말"
+      "ko": "양말",
+      "la": "tibiale",
+      "eo": "ŝtrumpeto"
     },
     {
       "term": "parapluvia",
@@ -9622,7 +9760,9 @@
       "zh": "雨伞",
       "ja": "傘",
       "ca": "paraigua",
-      "ko": "우산"
+      "ko": "우산",
+      "la": "umbella",
+      "eo": "ombrelo"
     },
     {
       "term": "charpa",
@@ -9636,7 +9776,9 @@
       "zh": "围巾",
       "ja": "マフラー",
       "ca": "bufanda",
-      "ko": "목도리"
+      "ko": "목도리",
+      "la": "focale",
+      "eo": "koltuko"
     },
     {
       "term": "bonetto",
@@ -9650,7 +9792,9 @@
       "zh": "帽子（鸭舌帽）",
       "ja": "キャップ",
       "ca": "gorra",
-      "ko": "야구모자"
+      "ko": "야구모자",
+      "la": "galerus",
+      "eo": "ĉapo"
     },
     {
       "term": "cravata",
@@ -9664,7 +9808,9 @@
       "zh": "领带",
       "ja": "ネクタイ",
       "ca": "corbata",
-      "ko": "넥타이"
+      "ko": "넥타이",
+      "la": "ligamen colli",
+      "eo": "kravato"
     },
     {
       "term": "scarpas",
@@ -9678,7 +9824,9 @@
       "zh": "鞋子",
       "ja": "靴",
       "ca": "sabates",
-      "ko": "신발"
+      "ko": "신발",
+      "la": "calcei",
+      "eo": "sxuoj"
     }
   ],
   "adjectivos-possessive": [
