@@ -14452,7 +14452,9 @@
       "zh": "数字",
       "ja": "数字",
       "ca": "nombre",
-      "ko": "숫자"
+      "ko": "숫자",
+      "la": "numerus",
+      "eo": "nombro"
     },
     {
       "term": "zero",
@@ -14466,7 +14468,9 @@
       "zh": "零",
       "ja": "ゼロ",
       "ca": "zero",
-      "ko": "영"
+      "ko": "영",
+      "la": "nulla",
+      "eo": "nulo"
     },
     {
       "term": "un",
@@ -14480,7 +14484,9 @@
       "zh": "一",
       "ja": "一",
       "ca": "un",
-      "ko": "하나"
+      "ko": "하나",
+      "la": "unus",
+      "eo": "unu"
     },
     {
       "term": "duo",
@@ -14494,7 +14500,9 @@
       "zh": "二",
       "ja": "二",
       "ca": "dos",
-      "ko": "둘"
+      "ko": "둘",
+      "la": "duo",
+      "eo": "du"
     },
     {
       "term": "tres",
@@ -14508,7 +14516,9 @@
       "zh": "三",
       "ja": "三",
       "ca": "tres",
-      "ko": "셋"
+      "ko": "셋",
+      "la": "tres",
+      "eo": "tri"
     },
     {
       "term": "quatro",
@@ -14522,7 +14532,9 @@
       "zh": "四",
       "ja": "四",
       "ca": "quatre",
-      "ko": "넷"
+      "ko": "넷",
+      "la": "quattuor",
+      "eo": "kvar"
     },
     {
       "term": "cinque",
@@ -14536,7 +14548,9 @@
       "zh": "五",
       "ja": "五",
       "ca": "cinc",
-      "ko": "다섯"
+      "ko": "다섯",
+      "la": "quinque",
+      "eo": "kvin"
     },
     {
       "term": "un femina",
@@ -14550,7 +14564,9 @@
       "zh": "一个女人",
       "ja": "女性",
       "ca": "una dona",
-      "ko": "여자"
+      "ko": "여자",
+      "la": "una femina",
+      "eo": "unu virino"
     },
     {
       "term": "sex",
@@ -14564,7 +14580,9 @@
       "zh": "六",
       "ja": "六",
       "ca": "sis",
-      "ko": "여섯"
+      "ko": "여섯",
+      "la": "sex",
+      "eo": "ses"
     },
     {
       "term": "septe",
@@ -14578,7 +14596,9 @@
       "zh": "七",
       "ja": "七",
       "ca": "set",
-      "ko": "일곱"
+      "ko": "일곱",
+      "la": "septem",
+      "eo": "sep"
     },
     {
       "term": "octo",
@@ -14592,7 +14612,9 @@
       "zh": "八",
       "ja": "八",
       "ca": "vuit",
-      "ko": "여덟"
+      "ko": "여덟",
+      "la": "octo",
+      "eo": "ok"
     },
     {
       "term": "nove",
@@ -14606,7 +14628,9 @@
       "zh": "九",
       "ja": "九",
       "ca": "nou",
-      "ko": "아홉"
+      "ko": "아홉",
+      "la": "novem",
+      "eo": "naŭ"
     },
     {
       "term": "dece",
@@ -14620,7 +14644,9 @@
       "zh": "十",
       "ja": "十",
       "ca": "deu",
-      "ko": "열"
+      "ko": "열",
+      "la": "decem",
+      "eo": "dek"
     },
     {
       "term": "un homine",
@@ -14634,7 +14660,9 @@
       "zh": "一个男人",
       "ja": "男性",
       "ca": "un home",
-      "ko": "남자"
+      "ko": "남자",
+      "la": "unus homo",
+      "eo": "unu viro"
     },
     {
       "term": "dece-un",
@@ -14648,7 +14676,9 @@
       "zh": "十一",
       "ja": "十一",
       "ca": "onze",
-      "ko": "열하나"
+      "ko": "열하나",
+      "la": "undecim",
+      "eo": "dek unu"
     },
     {
       "term": "dece-duo",
@@ -14662,7 +14692,9 @@
       "zh": "十二",
       "ja": "十二",
       "ca": "dotze",
-      "ko": "열둘"
+      "ko": "열둘",
+      "la": "duodecim",
+      "eo": "dek du"
     },
     {
       "term": "dece-tres",
@@ -14676,7 +14708,9 @@
       "zh": "十三",
       "ja": "十三",
       "ca": "tretze",
-      "ko": "열셋"
+      "ko": "열셋",
+      "la": "tredecim",
+      "eo": "dek tri"
     },
     {
       "term": "dece-quatro",
@@ -14690,7 +14724,9 @@
       "zh": "十四",
       "ja": "十四",
       "ca": "catorze",
-      "ko": "열넷"
+      "ko": "열넷",
+      "la": "quattuordecim",
+      "eo": "dek kvar"
     },
     {
       "term": "dece-cinque",
@@ -14704,7 +14740,9 @@
       "zh": "十五",
       "ja": "十五",
       "ca": "quinze",
-      "ko": "열다섯"
+      "ko": "열다섯",
+      "la": "quindecim",
+      "eo": "dek kvin"
     },
     {
       "term": "dece-un feminas",
@@ -14718,7 +14756,9 @@
       "zh": "十一个女人",
       "ja": "11人の女性",
       "ca": "onze dones",
-      "ko": "열한 명의 여성"
+      "ko": "열한 명의 여성",
+      "la": "undecim feminae",
+      "eo": "dek unu virinoj"
     },
     {
       "term": "dece-sex",
@@ -14732,7 +14772,9 @@
       "zh": "十六",
       "ja": "十六",
       "ca": "setze",
-      "ko": "열여섯"
+      "ko": "열여섯",
+      "la": "sedecim",
+      "eo": "dek ses"
     },
     {
       "term": "dece-septe",
@@ -14746,7 +14788,9 @@
       "zh": "十七",
       "ja": "十七",
       "ca": "disset",
-      "ko": "열일곱"
+      "ko": "열일곱",
+      "la": "septendecim",
+      "eo": "dek sep"
     },
     {
       "term": "dece-octo",
@@ -14760,7 +14804,9 @@
       "zh": "十八",
       "ja": "十八",
       "ca": "divuit",
-      "ko": "열여덟"
+      "ko": "열여덟",
+      "la": "octodecim",
+      "eo": "dek ok"
     },
     {
       "term": "dece-nove",
@@ -14774,7 +14820,9 @@
       "zh": "十九",
       "ja": "十九",
       "ca": "dinou",
-      "ko": "열아홉"
+      "ko": "열아홉",
+      "la": "novendecim",
+      "eo": "dek naŭ"
     },
     {
       "term": "vinti",
@@ -14788,7 +14836,9 @@
       "zh": "二十",
       "ja": "二十",
       "ca": "vint",
-      "ko": "스물"
+      "ko": "스물",
+      "la": "viginti",
+      "eo": "dudek"
     },
     {
       "term": "vinti-un homines",
@@ -14802,7 +14852,9 @@
       "zh": "二十一个男人",
       "ja": "21人の男性",
       "ca": "vint-i-un homes",
-      "ko": "스물한 명의 남자"
+      "ko": "스물한 명의 남자",
+      "la": "viginti unus homines",
+      "eo": "dudek unu viroj"
     },
     {
       "term": "vinti-un",
@@ -14816,7 +14868,9 @@
       "zh": "二十一",
       "ja": "二十一",
       "ca": "vint-i-u",
-      "ko": "스물하나"
+      "ko": "스물하나",
+      "la": "viginti unus",
+      "eo": "dudek unu"
     },
     {
       "term": "vinti-duo",
@@ -14830,7 +14884,9 @@
       "zh": "二十二",
       "ja": "二十二",
       "ca": "vint-i-dos",
-      "ko": "스물둘"
+      "ko": "스물둘",
+      "la": "viginti duo",
+      "eo": "dudek du"
     },
     {
       "term": "vinti-tres",
@@ -14844,7 +14900,9 @@
       "zh": "二十三",
       "ja": "二十三",
       "ca": "vint-i-tres",
-      "ko": "스물셋"
+      "ko": "스물셋",
+      "la": "viginti tres",
+      "eo": "dudek tri"
     },
     {
       "term": "vinti-quatro",
@@ -14858,7 +14916,9 @@
       "zh": "二十四",
       "ja": "二十四",
       "ca": "vint-i-quatre",
-      "ko": "스물넷"
+      "ko": "스물넷",
+      "la": "viginti quattuor",
+      "eo": "dudek kvar"
     },
     {
       "term": "vinti-cinque",
@@ -14872,7 +14932,9 @@
       "zh": "二十五",
       "ja": "二十五",
       "ca": "vint-i-cinc",
-      "ko": "스물다섯"
+      "ko": "스물다섯",
+      "la": "viginti quinque",
+      "eo": "dudek kvin"
     },
     {
       "term": "trenta-duo feminas",
@@ -14886,7 +14948,9 @@
       "zh": "三十二个女人",
       "ja": "32人の女性",
       "ca": "trenta-dues dones",
-      "ko": "서른두 명의 여성"
+      "ko": "서른두 명의 여성",
+      "la": "triginta duae feminae",
+      "eo": "tridek du virinoj"
     },
     {
       "term": "trenta",
@@ -14900,7 +14964,9 @@
       "zh": "三十",
       "ja": "三十",
       "ca": "trenta",
-      "ko": "서른"
+      "ko": "서른",
+      "la": "triginta",
+      "eo": "tridek"
     },
     {
       "term": "quaranta",
@@ -14914,7 +14980,9 @@
       "zh": "四十",
       "ja": "四十",
       "ca": "quaranta",
-      "ko": "마흔"
+      "ko": "마흔",
+      "la": "quadraginta",
+      "eo": "kvardek"
     },
     {
       "term": "cinquanta",
@@ -14928,7 +14996,9 @@
       "zh": "五十",
       "ja": "五十",
       "ca": "cinquanta",
-      "ko": "쉰"
+      "ko": "쉰",
+      "la": "quinquaginta",
+      "eo": "kvindek"
     },
     {
       "term": "sexanta",
@@ -14942,7 +15012,9 @@
       "zh": "六十",
       "ja": "六十",
       "ca": "seixanta",
-      "ko": "예순"
+      "ko": "예순",
+      "la": "sexaginta",
+      "eo": "sesdek"
     },
     {
       "term": "sexanta-cinque",
@@ -14956,7 +15028,9 @@
       "zh": "六十五",
       "ja": "六十五",
       "ca": "seixanta-cinc",
-      "ko": "예순다섯"
+      "ko": "예순다섯",
+      "la": "sexaginta quinque",
+      "eo": "sesdek kvin"
     },
     {
       "term": "sexanta-septe homines",
@@ -14970,7 +15044,9 @@
       "zh": "六十七个男人",
       "ja": "67人の男性",
       "ca": "seixanta-set homes",
-      "ko": "예순일곱 명의 남자"
+      "ko": "예순일곱 명의 남자",
+      "la": "sexaginta septem homines",
+      "eo": "sesdek sep viroj"
     },
     {
       "term": "septanta",
@@ -14984,7 +15060,9 @@
       "zh": "七十",
       "ja": "七十",
       "ca": "setanta",
-      "ko": "일흔"
+      "ko": "일흔",
+      "la": "septuaginta",
+      "eo": "sepdek"
     },
     {
       "term": "octanta",
@@ -14998,7 +15076,9 @@
       "zh": "八十",
       "ja": "八十",
       "ca": "vuitanta",
-      "ko": "여든"
+      "ko": "여든",
+      "la": "octoginta",
+      "eo": "okdek"
     },
     {
       "term": "novanta",
@@ -15012,7 +15092,9 @@
       "zh": "九十",
       "ja": "九十",
       "ca": "noranta",
-      "ko": "아흔"
+      "ko": "아흔",
+      "la": "nonaginta",
+      "eo": "naŭdek"
     },
     {
       "term": "cento",
@@ -15026,7 +15108,9 @@
       "zh": "一百",
       "ja": "百",
       "ca": "cent",
-      "ko": "백"
+      "ko": "백",
+      "la": "centum",
+      "eo": "cent"
     },
     {
       "term": "cento novanta euros",
@@ -15040,7 +15124,9 @@
       "zh": "一百九十欧元",
       "ja": "190ユーロ",
       "ca": "cent noranta euros",
-      "ko": "백아흔 유로"
+      "ko": "백아흔 유로",
+      "la": "centum nonaginta euri",
+      "eo": "cent naŭdek eŭroj"
     },
     {
       "term": "duo centos",
@@ -15054,7 +15140,9 @@
       "zh": "二百",
       "ja": "二百",
       "ca": "dos-cents",
-      "ko": "이백"
+      "ko": "이백",
+      "la": "ducenti",
+      "eo": "ducent"
     },
     {
       "term": "tres centos",
@@ -15068,7 +15156,9 @@
       "zh": "三百",
       "ja": "三百",
       "ca": "tres-cents",
-      "ko": "삼백"
+      "ko": "삼백",
+      "la": "trecenti",
+      "eo": "tricent"
     },
     {
       "term": "quatro centos",
@@ -15082,7 +15172,9 @@
       "zh": "四百",
       "ja": "四百",
       "ca": "quatre-cents",
-      "ko": "사백"
+      "ko": "사백",
+      "la": "quadringenti",
+      "eo": "kvarcent"
     },
     {
       "term": "nove centos",
@@ -15096,7 +15188,9 @@
       "zh": "九百",
       "ja": "九百",
       "ca": "nou-cents",
-      "ko": "구백"
+      "ko": "구백",
+      "la": "nongenti",
+      "eo": "naŭcent"
     },
     {
       "term": "novanta-nove",
@@ -15110,7 +15204,9 @@
       "zh": "九十九",
       "ja": "九十九",
       "ca": "noranta-nou",
-      "ko": "아흔아홉"
+      "ko": "아흔아홉",
+      "la": "nonaginta novem",
+      "eo": "naŭdek naŭ"
     },
     {
       "term": "mille",
@@ -15124,7 +15220,9 @@
       "zh": "一千",
       "ja": "千",
       "ca": "mil",
-      "ko": "천"
+      "ko": "천",
+      "la": "mille",
+      "eo": "mil"
     },
     {
       "term": "million",
@@ -15138,7 +15236,9 @@
       "zh": "百万",
       "ja": "百万",
       "ca": "milió",
-      "ko": "백만"
+      "ko": "백만",
+      "la": "millio",
+      "eo": "miliono"
     },
     {
       "term": "milliardo",
@@ -15152,7 +15252,9 @@
       "zh": "十亿",
       "ja": "10億",
       "ca": "mil milions",
-      "ko": "십억"
+      "ko": "십억",
+      "la": "milliardum",
+      "eo": "miliardo"
     },
     {
       "term": "billion",
@@ -15166,7 +15268,9 @@
       "zh": "一万亿",
       "ja": "一兆",
       "ca": "bilió",
-      "ko": "조"
+      "ko": "조",
+      "la": "billio",
+      "eo": "biliono"
     },
     {
       "term": "billiardo",
@@ -15180,7 +15284,9 @@
       "zh": "千兆",
       "ja": "千兆",
       "ca": "biliard",
-      "ko": "천조"
+      "ko": "천조",
+      "la": "billiardum",
+      "eo": "biliardo"
     },
     {
       "term": "trillion",
@@ -15194,7 +15300,9 @@
       "zh": "百京",
       "ja": "100京",
       "ca": "trilió",
-      "ko": "백경"
+      "ko": "백경",
+      "la": "trillio",
+      "eo": "triliono"
     },
     {
       "term": "trilliardo",
@@ -15208,7 +15316,9 @@
       "zh": "十万京",
       "ja": "十万京",
       "ca": "trilliard",
-      "ko": "백만경"
+      "ko": "백만경",
+      "la": "trilliardum",
+      "eo": "triliardo"
     }
   ],
   "familia": [
@@ -15224,7 +15334,9 @@
       "zh": "父亲",
       "ja": "父",
       "ca": "pare",
-      "ko": "아버지"
+      "ko": "아버지",
+      "la": "pater",
+      "eo": "patro"
     },
     {
       "term": "matre",
@@ -15238,7 +15350,9 @@
       "zh": "母亲",
       "ja": "母",
       "ca": "mare",
-      "ko": "어머니"
+      "ko": "어머니",
+      "la": "mater",
+      "eo": "patrino"
     },
     {
       "term": "puera",
@@ -15252,7 +15366,9 @@
       "zh": "女儿",
       "ja": "娘",
       "ca": "filla",
-      "ko": "딸"
+      "ko": "딸",
+      "la": "filia",
+      "eo": "filino"
     },
     {
       "term": "familia",
@@ -15266,7 +15382,9 @@
       "zh": "家庭",
       "ja": "家族",
       "ca": "família",
-      "ko": "가족"
+      "ko": "가족",
+      "la": "familia",
+      "eo": "familio"
     },
     {
       "term": "filio",
@@ -15280,7 +15398,9 @@
       "zh": "儿子",
       "ja": "息子",
       "ca": "fill",
-      "ko": "아들"
+      "ko": "아들",
+      "la": "filius",
+      "eo": "filo"
     },
     {
       "term": "nomine",
@@ -15294,7 +15414,9 @@
       "zh": "名字",
       "ja": "名前",
       "ca": "nom",
-      "ko": "이름"
+      "ko": "이름",
+      "la": "nomen",
+      "eo": "nomo"
     },
     {
       "term": "soror",
@@ -15308,7 +15430,9 @@
       "zh": "姐妹",
       "ja": "姉妹",
       "ca": "germana",
-      "ko": "여동생 / 누나"
+      "ko": "여동생 / 누나",
+      "la": "soror",
+      "eo": "fratino"
     },
     {
       "term": "fratre",
@@ -15322,7 +15446,9 @@
       "zh": "兄弟",
       "ja": "兄 / 弟",
       "ca": "germà",
-      "ko": "형 / 남동생"
+      "ko": "형 / 남동생",
+      "la": "frater",
+      "eo": "frato"
     },
     {
       "term": "mamma",
@@ -15336,7 +15462,9 @@
       "zh": "妈妈",
       "ja": "ママ",
       "ca": "mama",
-      "ko": "엄마"
+      "ko": "엄마",
+      "la": "mamma",
+      "eo": "panjo"
     },
     {
       "term": "papa",
@@ -15350,7 +15478,9 @@
       "zh": "爸爸",
       "ja": "パパ",
       "ca": "papa",
-      "ko": "아빠"
+      "ko": "아빠",
+      "la": "papa",
+      "eo": "paĉjo"
     },
     {
       "term": "marito",
@@ -15364,7 +15494,9 @@
       "zh": "丈夫",
       "ja": "夫",
       "ca": "marit",
-      "ko": "남편"
+      "ko": "남편",
+      "la": "maritus",
+      "eo": "edzo"
     },
     {
       "term": "copula",
@@ -15378,7 +15510,9 @@
       "zh": "伴侣",
       "ja": "パートナー",
       "ca": "parella",
-      "ko": "배우자 / 연인"
+      "ko": "배우자 / 연인",
+      "la": "socius",
+      "eo": "partnero"
     },
     {
       "term": "infante",
@@ -15392,7 +15526,9 @@
       "zh": "婴儿",
       "ja": "赤ちゃん",
       "ca": "nadó",
-      "ko": "아기"
+      "ko": "아기",
+      "la": "infans",
+      "eo": "bebo"
     },
     {
       "term": "oncle",
@@ -15406,7 +15542,9 @@
       "zh": "叔叔 / 舅舅",
       "ja": "おじ",
       "ca": "oncle",
-      "ko": "삼촌"
+      "ko": "삼촌",
+      "la": "avunculus",
+      "eo": "onklo"
     },
     {
       "term": "amita",
@@ -15420,7 +15558,9 @@
       "zh": "阿姨 / 姑姑",
       "ja": "おば",
       "ca": "tieta",
-      "ko": "이모 / 고모"
+      "ko": "이모 / 고모",
+      "la": "amita",
+      "eo": "onklino"
     },
     {
       "term": "granmatre",
@@ -15434,7 +15574,9 @@
       "zh": "祖母 / 外婆",
       "ja": "祖母",
       "ca": "àvia",
-      "ko": "할머니"
+      "ko": "할머니",
+      "la": "avia",
+      "eo": "avino"
     },
     {
       "term": "granpatre",
@@ -15448,7 +15590,9 @@
       "zh": "祖父 / 外公",
       "ja": "祖父",
       "ca": "avi",
-      "ko": "할아버지"
+      "ko": "할아버지",
+      "la": "avus",
+      "eo": "avo"
     },
     {
       "term": "cosino",
@@ -15462,7 +15606,9 @@
       "zh": "堂兄弟 / 表兄弟",
       "ja": "いとこ（男）",
       "ca": "cosí",
-      "ko": "사촌 형 / 동생"
+      "ko": "사촌 형 / 동생",
+      "la": "consobrinus",
+      "eo": "kuzo"
     },
     {
       "term": "cosina",
@@ -15476,7 +15622,9 @@
       "zh": "堂姐妹 / 表姐妹",
       "ja": "いとこ（女）",
       "ca": "cosina",
-      "ko": "사촌 누나 / 여동생"
+      "ko": "사촌 누나 / 여동생",
+      "la": "consobrina",
+      "eo": "kuzino"
     },
     {
       "term": "nepto",
@@ -15490,7 +15638,9 @@
       "zh": "侄子 / 外甥",
       "ja": "甥",
       "ca": "nebot",
-      "ko": "조카 (남)"
+      "ko": "조카 (남)",
+      "la": "nepos",
+      "eo": "nevo"
     },
     {
       "term": "nepta",
@@ -15504,7 +15654,9 @@
       "zh": "侄女 / 外甥女",
       "ja": "姪",
       "ca": "neboda",
-      "ko": "조카 (여)"
+      "ko": "조카 (여)",
+      "la": "neptis",
+      "eo": "nevino"
     },
     {
       "term": "granfilio",
@@ -15518,7 +15670,9 @@
       "zh": "孙子",
       "ja": "孫（男）",
       "ca": "nét",
-      "ko": "손자"
+      "ko": "손자",
+      "la": "nepos",
+      "eo": "nepo"
     },
     {
       "term": "granfilia",
@@ -15532,7 +15686,9 @@
       "zh": "孙女",
       "ja": "孫（女）",
       "ca": "neta",
-      "ko": "손녀"
+      "ko": "손녀",
+      "la": "neptis",
+      "eo": "nepino"
     },
     {
       "term": "sposa",
@@ -15546,7 +15702,9 @@
       "zh": "妻子",
       "ja": "妻",
       "ca": "esposa",
-      "ko": "아내"
+      "ko": "아내",
+      "la": "uxor",
+      "eo": "edzino"
     }
   ],
   "possessives2": [
@@ -15562,7 +15720,9 @@
       "zh": "我的",
       "ja": "私の",
       "ca": "el meu / la meva",
-      "ko": "내 것"
+      "ko": "내 것",
+      "la": "meum / mea",
+      "eo": "la mia"
     },
     {
       "term": "le tue",
@@ -15576,7 +15736,9 @@
       "zh": "你的",
       "ja": "あなたの",
       "ca": "el teu / la teva",
-      "ko": "네 것"
+      "ko": "네 것",
+      "la": "tuum / tua",
+      "eo": "la via"
     },
     {
       "term": "le sue",
@@ -15590,7 +15752,9 @@
       "zh": "他 / 她 的",
       "ja": "彼の / 彼女の",
       "ca": "el seu / la seva",
-      "ko": "그의 / 그녀의 것"
+      "ko": "그의 / 그녀의 것",
+      "la": "suum / sua",
+      "eo": "la lia / la ŝia"
     },
     {
       "term": "le nostre",
@@ -15604,7 +15768,9 @@
       "zh": "我们的",
       "ja": "私たちの",
       "ca": "el nostre / la nostra",
-      "ko": "우리 것"
+      "ko": "우리 것",
+      "la": "nostrum / nostra",
+      "eo": "la nia"
     },
     {
       "term": "le vostre",
@@ -15618,7 +15784,9 @@
       "zh": "你们的",
       "ja": "あなたたちの",
       "ca": "el vostre / la vostra",
-      "ko": "너희 것"
+      "ko": "너희 것",
+      "la": "vestrum / vestra",
+      "eo": "la via (pluralo)"
     },
     {
       "term": "le lore",
@@ -15632,7 +15800,9 @@
       "zh": "他们的 / 她们的",
       "ja": "彼らの / 彼女たちの",
       "ca": "el seu / la seva",
-      "ko": "그들의 것"
+      "ko": "그들의 것",
+      "la": "eorum / earum",
+      "eo": "la ilia"
     }
   ],
   "verbos3": [
