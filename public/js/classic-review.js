@@ -70,7 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const primary = alternatives[0] || answer;
     return {
       prompt: item.term || '',
-      answer,
+      answer: primary,
+      fullAnswer: answer,
       primary,
       alternatives
     };
