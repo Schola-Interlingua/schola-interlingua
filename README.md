@@ -29,6 +29,10 @@ Pro illes qui vole saper como le projecto es construite:
 * **Base de datos**: Nos usa **Supabase** pro le gestion de usatores e le persistentia de datos.
 * **Technologias**: Construite con standards web moderne pro garantir velocitate e compatibilitate.
 
+### 🧩 Notas pro le practica del curso
+* Le direction del exercitios de pratica (prompt/answer) segue le mesme logica de **Traducer**: le prompt es `term` e le responsa es `item[lang] || item.es`, ubi `lang` veni del selector de linguas in le navbar.
+* Le teclado in schermo adde claves extra in base al lingua seligite: pro Espaniol, on include `áéíóúüñ`; pro Interlingua/Anglese, on usa le set basico con apostrophe e hyphen.
+
 ---
 
 ### Gratias
