@@ -52,6 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
     return [];
   }
 
+  function getKeyboardKeys(answer, lang) {
+    const lower = (answer || '').toLowerCase();
+    const letters = new Set();
+    for (const char of lower) {
+      if (/[a-záéíóúüñ]/.test(char)) {
+        letters.add(char);
+      }
+    }
+    getExtraKeys(lang).forEach(key => letters.add(key));
+    return Array.from(letters);
+  }
+
   function getAnswerData(item, lang) {
     const answer = item[lang] || item.es || '';
     const alternatives = utils.splitAlternatives(answer);
@@ -86,24 +98,40 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  function createKeyboard(targetInput, lang) {
+  function createKeyboard(targetInput) {
     const keyboard = document.createElement('div');
     keyboard.className = 'on-screen-keyboard';
+    const keyContainer = document.createElement('div');
+    keyContainer.className = 'on-screen-keys';
+    keyboard.appendChild(keyContainer);
 
-    const keys = 'abcdefghijklmnopqrstuvwxyz'.split('');
-    const extraKeys = getExtraKeys(lang);
-    const punctuationKeys = ['-', '\''];
-    const fullKeys = [...keys, ...extraKeys, ...punctuationKeys];
-
-    fullKeys.forEach(key => {
+    function addKey(label, value, className = 'key-btn') {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'key-btn';
-      btn.textContent = key;
+      btn.className = className;
+      btn.textContent = label;
       btn.addEventListener('click', () => {
-        const { value, cursor } = utils.insertAtCursor(
+        const { value: nextValue, cursor } = utils.insertAtCursor(
           targetInput.value,
-          key,
+          value,
+          targetInput.selectionStart,
+          targetInput.selectionEnd
+        );
+        targetInput.value = nextValue;
+        targetInput.focus();
+        targetInput.setSelectionRange(cursor, cursor);
+      });
+      keyContainer.appendChild(btn);
+    }
+
+    function addBackspace() {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'key-btn key-btn-wide';
+      btn.textContent = '⌫';
+      btn.addEventListener('click', () => {
+        const { value, cursor } = utils.backspaceAtCursor(
+          targetInput.value,
           targetInput.selectionStart,
           targetInput.selectionEnd
         );
@@ -111,42 +139,16 @@ document.addEventListener('DOMContentLoaded', () => {
         targetInput.focus();
         targetInput.setSelectionRange(cursor, cursor);
       });
-      keyboard.appendChild(btn);
-    });
+      keyContainer.appendChild(btn);
+    }
 
-    const spaceBtn = document.createElement('button');
-    spaceBtn.type = 'button';
-    spaceBtn.className = 'key-btn key-btn-wide';
-    spaceBtn.textContent = '␣';
-    spaceBtn.addEventListener('click', () => {
-      const { value, cursor } = utils.insertAtCursor(
-        targetInput.value,
-        ' ',
-        targetInput.selectionStart,
-        targetInput.selectionEnd
-      );
-      targetInput.value = value;
-      targetInput.focus();
-      targetInput.setSelectionRange(cursor, cursor);
-    });
+    keyboard.render = (keys) => {
+      keyContainer.innerHTML = '';
+      keys.forEach(key => addKey(key, key));
+      addKey('␣', ' ', 'key-btn key-btn-wide');
+      addBackspace();
+    };
 
-    const backspaceBtn = document.createElement('button');
-    backspaceBtn.type = 'button';
-    backspaceBtn.className = 'key-btn key-btn-wide';
-    backspaceBtn.textContent = '⌫';
-    backspaceBtn.addEventListener('click', () => {
-      const { value, cursor } = utils.backspaceAtCursor(
-        targetInput.value,
-        targetInput.selectionStart,
-        targetInput.selectionEnd
-      );
-      targetInput.value = value;
-      targetInput.focus();
-      targetInput.setSelectionRange(cursor, cursor);
-    });
-
-    keyboard.appendChild(spaceBtn);
-    keyboard.appendChild(backspaceBtn);
     return keyboard;
   }
 
@@ -181,10 +183,13 @@ document.addEventListener('DOMContentLoaded', () => {
     inputWrapper.appendChild(input);
     inputWrapper.appendChild(ghost);
 
-    const keyboard = createKeyboard(input, getLang());
+    const keyboard = createKeyboard(input);
 
     const controls = document.createElement('div');
     controls.className = 'classic-review-controls';
+
+    const headerRow = document.createElement('div');
+    headerRow.className = 'classic-review-header';
 
     const btnHint = document.createElement('button');
     btnHint.type = 'button';
@@ -193,8 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const btnGiveUp = document.createElement('button');
     btnGiveUp.type = 'button';
-    btnGiveUp.className = 'btn btn-warning';
-    btnGiveUp.textContent = t('giveUp');
+    btnGiveUp.className = 'btn btn-light classic-review-giveup';
+    btnGiveUp.innerHTML = '<span class="classic-review-giveup-icon">?</span>' +
+      `<span>${t('giveUp')}</span>`;
 
     const btnCheck = document.createElement('button');
     btnCheck.type = 'button';
@@ -208,7 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
     btnNext.disabled = true;
 
     controls.appendChild(btnHint);
-    controls.appendChild(btnGiveUp);
     controls.appendChild(btnCheck);
     controls.appendChild(btnNext);
 
@@ -218,7 +223,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const reveal = document.createElement('div');
     reveal.className = 'classic-review-reveal';
 
-    card.appendChild(title);
+    headerRow.appendChild(title);
+    headerRow.appendChild(btnGiveUp);
+    card.appendChild(headerRow);
     card.appendChild(progress);
     card.appendChild(promptLabel);
     card.appendChild(promptText);
@@ -261,6 +268,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const lang = getLang();
       currentItem = session.queue[session.currentIndex];
       answerData = getAnswerData(currentItem, lang);
+      const keySet = getKeyboardKeys(answerData.primary, lang);
+      keyboard.render(keySet);
       promptLabel.textContent = t('promptLabel');
       promptText.textContent = answerData.prompt;
       updateProgress();
@@ -359,18 +368,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return card;
   }
 
-  function createStubCard(titleText) {
-    const card = document.createElement('section');
-    card.className = 'card classic-review-card classic-review-stub';
-    const title = document.createElement('h4');
-    title.textContent = titleText;
-    const message = document.createElement('p');
-    message.textContent = '...';
-    card.appendChild(title);
-    card.appendChild(message);
-    return card;
-  }
-
   function init() {
     if (!window.items || !window.items.length) {
       setTimeout(init, 100);
@@ -385,9 +382,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const session = buildSession(window.items, 10);
     const typingCard = createTypingCard(session, window.items);
     container.appendChild(typingCard);
-    container.appendChild(createStubCard('Multiple Choice'));
-    container.appendChild(createStubCard('Ordenar'));
-    container.appendChild(createStubCard('Listening'));
   }
 
   init();

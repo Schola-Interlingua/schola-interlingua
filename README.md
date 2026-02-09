@@ -31,7 +31,7 @@ Pro illes qui vole saper como le projecto es construite:
 
 ### 🧩 Notas pro le practica del curso
 * Le direction del exercitios de pratica (prompt/answer) segue le mesme logica de **Traducer**: le prompt es `term` e le responsa es `item[lang] || item.es`, ubi `lang` veni del selector de linguas in le navbar.
-* Le teclado in schermo adde claves extra in base al lingua seligite: pro Espaniol, on include `áéíóúüñ`; pro Interlingua/Anglese, on usa le set basico con apostrophe e hyphen.
+* Le teclado in schermo deriva su claves del responsa correcte (le litteras in le parola) e adde extras in base al lingua seligite: pro Espaniol, on include `áéíóúüñ`.
 
 ---
 
