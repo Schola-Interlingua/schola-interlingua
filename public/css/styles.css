@@ -974,6 +974,51 @@ h2 {
   border-color: #dc3545;
 }
 
+/* Controles de pronunciación */
+.reading-audio,
+.lesson-audio {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.speak-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.speak-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.speak-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.speak-on-click {
+  cursor: pointer;
+}
+
+.speak-on-click:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+}
+
 /* Curso buttons grid modernizado */
 .curso-grid {
   display: grid;

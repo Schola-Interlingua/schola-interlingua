@@ -174,6 +174,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const promptText = document.createElement('div');
     promptText.className = 'classic-review-prompt';
+    promptText.classList.add('speak-on-click');
+    promptText.setAttribute('role', 'button');
+    promptText.setAttribute('tabindex', '0');
 
     const inputWrapper = document.createElement('div');
     inputWrapper.className = 'classic-review-input-wrapper';
@@ -263,6 +266,19 @@ document.addEventListener('DOMContentLoaded', () => {
     input.addEventListener('input', () => {
       if (input.value) {
         ghost.textContent = '';
+      }
+    });
+
+    function speakPrompt() {
+      if (!answerData || !window.TTS) return;
+      window.TTS.speak(answerData.prompt, { lang: 'ia' });
+    }
+
+    promptText.addEventListener('click', speakPrompt);
+    promptText.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        speakPrompt();
       }
     });
 

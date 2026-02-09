@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.className = 'quiz-option';
         btn.textContent = choice;
         btn.addEventListener('click', () => {
+          if (window.TTS) {
+            window.TTS.speak(choice, { lang: 'ia' });
+          }
           optionsEl.querySelectorAll('button').forEach(b => (b.disabled = true));
           const correctBtn = [...optionsEl.children].find(
             b => b.textContent === item.term
@@ -59,4 +62,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   init();
 });
-
