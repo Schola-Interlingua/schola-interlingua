@@ -292,7 +292,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const correct = utils.isCorrect(
         input.value,
         answerData.primary,
-        answerData.alternatives
+        answerData.alternatives,
+        { ignoreDiacritics: true }
       );
       const isCountedCorrect = correct && usedHintLevel < 3 && !gaveUp;
       if (isCountedCorrect) {
