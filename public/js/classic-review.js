@@ -266,6 +266,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    function speakPrompt() {
+      if (!answerData || !window.TTS) return;
+      window.TTS.speak(answerData.prompt, { lang: 'ia' });
+    }
+
     function updateProgress() {
       progress.textContent = `${t('progress')} ${session.currentIndex + 1} / ${session.queue.length}`;
     }
@@ -289,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkAnswer() {
       if (answered) return;
+      speakPrompt();
       const correct = utils.isCorrect(
         input.value,
         answerData.primary,
