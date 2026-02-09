@@ -67,13 +67,19 @@ document.addEventListener('DOMContentLoaded', () => {
   function getAnswerData(item, lang) {
     const answer = item[lang] || item.es || '';
     const alternatives = utils.splitAlternatives(answer);
-    const primary = alternatives[0] || answer;
+    const cleanAnswer = (value) => {
+      const withoutParen = value.split('(')[0];
+      const beforeComma = withoutParen.split(',')[0];
+      return beforeComma.trim();
+    };
+    const cleanedAlternatives = alternatives.map(cleanAnswer).filter(Boolean);
+    const primary = cleanedAlternatives[0] || cleanAnswer(answer);
     return {
       prompt: item.term || '',
       answer: primary,
       fullAnswer: answer,
       primary,
-      alternatives
+      alternatives: cleanedAlternatives
     };
   }
 
