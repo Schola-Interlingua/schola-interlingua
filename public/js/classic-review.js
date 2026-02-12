@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sectionTitle: 'Revider',
       typingTitle: 'Scribe le traduction correcte',
       promptLabel: 'Traduce:',
-      letterBankLabel: 'Banco de litteras (del texto a traducir)',
+      letterBankLabel: 'Banco de litteras (responsa correcte, in disordine)',
       inputPlaceholder: 'Escribe tu respuesta',
       hint: 'Indicio',
       giveUp: 'Io non lo sape',
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sectionTitle: 'Revider',
       typingTitle: 'Type the correct translation',
       promptLabel: 'Translate:',
-      letterBankLabel: 'Letter bank (from source text)',
+      letterBankLabel: 'Letter bank (correct answer, shuffled)',
       inputPlaceholder: 'Type your answer',
       hint: 'Hint',
       giveUp: "I don't know",
@@ -307,11 +307,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function removeLastFromInput() {
       if (!input.value.length) return;
+
+      const removedChar = input.value.slice(-1);
       input.value = input.value.slice(0, -1);
-      const lastTileIndex = tileUsageStack.pop();
+
+      const lastTileIndex = tileUsageStack[tileUsageStack.length - 1];
       if (Number.isInteger(lastTileIndex)) {
-        setTileUsed(lastTileIndex, false);
+        const lastTileChar = letterTiles[lastTileIndex]?.char;
+        if (lastTileChar === removedChar) {
+          tileUsageStack.pop();
+          setTileUsed(lastTileIndex, false);
+        }
       }
+
       input.focus();
       const cursor = input.value.length;
       input.setSelectionRange(cursor, cursor);
@@ -366,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
       answerData = getAnswerData(currentItem, lang);
       const keySet = getKeyboardKeys(answerData.primary, lang);
       keyboard.render(keySet);
-      renderLetterBank(answerData.prompt);
+      renderLetterBank(answerData.primary);
       promptLabel.textContent = t('promptLabel');
       promptText.textContent = answerData.prompt;
       updateProgress();
