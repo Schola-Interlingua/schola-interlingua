@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sectionTitle: 'Revider',
       typingTitle: 'Scribe le traduction correcte',
       promptLabel: 'Traduce:',
-      letterBankLabel: 'Banco de litteras (responsa correcte, in disordine)',
+      letterBankLabel: 'Toca solo litteras correcte (in disordine)',
       inputPlaceholder: 'Escribe tu respuesta',
       hint: 'Indicio',
       giveUp: 'Io non lo sape',
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sectionTitle: 'Revider',
       typingTitle: 'Type the correct translation',
       promptLabel: 'Translate:',
-      letterBankLabel: 'Letter bank (correct answer, shuffled)',
+      letterBankLabel: 'Tap only correct letters (shuffled)',
       inputPlaceholder: 'Type your answer',
       hint: 'Hint',
       giveUp: "I don't know",
@@ -204,8 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
     letterBankWrapper.appendChild(letterBankLabel);
     letterBankWrapper.appendChild(letterBankTiles);
 
-    const keyboard = createKeyboard(input);
-
     const controls = document.createElement('div');
     controls.className = 'classic-review-controls';
 
@@ -258,7 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
     card.appendChild(promptText);
     card.appendChild(inputWrapper);
     card.appendChild(letterBankWrapper);
-    card.appendChild(keyboard);
     card.appendChild(controls);
     card.appendChild(feedback);
     card.appendChild(reveal);
@@ -372,8 +369,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const lang = getLang();
       currentItem = session.queue[session.currentIndex];
       answerData = getAnswerData(currentItem, lang);
-      const keySet = getKeyboardKeys(answerData.primary, lang);
-      keyboard.render(keySet);
       renderLetterBank(answerData.primary);
       promptLabel.textContent = t('promptLabel');
       promptText.textContent = answerData.prompt;
