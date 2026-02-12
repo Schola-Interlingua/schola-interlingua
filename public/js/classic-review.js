@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  function buildSession(items, count = 10, seed = Date.now()) {
+  function buildSession(items, count = items.length, seed = Date.now()) {
     const rng = mulberry32(seed);
     const shuffled = [...items].sort(() => rng() - 0.5);
     const limited = shuffled.slice(0, Math.min(count, shuffled.length));
@@ -472,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
     heading.textContent = t('sectionTitle');
     container.appendChild(heading);
 
-    const session = buildSession(window.items, 10);
+    const session = buildSession(window.items);
     const typingCard = createTypingCard(session, window.items);
     container.appendChild(typingCard);
   }
