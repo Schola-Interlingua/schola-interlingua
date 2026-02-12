@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sectionTitle: 'Revider',
       typingTitle: 'Scribe le traduction correcte',
       promptLabel: 'Traduce:',
+      letterBankLabel: 'Toca solo litteras correcte (in disordine)',
       inputPlaceholder: 'Escribe tu respuesta',
       hint: 'Indicio',
       giveUp: 'Io non lo sape',
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sectionTitle: 'Revider',
       typingTitle: 'Type the correct translation',
       promptLabel: 'Translate:',
+      letterBankLabel: 'Tap only correct letters (shuffled)',
       inputPlaceholder: 'Type your answer',
       hint: 'Hint',
       giveUp: "I don't know",
@@ -190,7 +192,17 @@ document.addEventListener('DOMContentLoaded', () => {
     inputWrapper.appendChild(input);
     inputWrapper.appendChild(ghost);
 
-    const keyboard = createKeyboard(input);
+    const letterBankWrapper = document.createElement('div');
+    letterBankWrapper.className = 'classic-review-letter-bank';
+
+    const letterBankLabel = document.createElement('div');
+    letterBankLabel.className = 'classic-review-letter-bank-label';
+
+    const letterBankTiles = document.createElement('div');
+    letterBankTiles.className = 'classic-review-letter-bank-tiles';
+
+    letterBankWrapper.appendChild(letterBankLabel);
+    letterBankWrapper.appendChild(letterBankTiles);
 
     const controls = document.createElement('div');
     controls.className = 'classic-review-controls';
@@ -220,7 +232,13 @@ document.addEventListener('DOMContentLoaded', () => {
     btnNext.textContent = t('next');
     btnNext.disabled = true;
 
+    const btnTileBackspace = document.createElement('button');
+    btnTileBackspace.type = 'button';
+    btnTileBackspace.className = 'btn btn-light';
+    btnTileBackspace.textContent = '⌫';
+
     controls.appendChild(btnHint);
+    controls.appendChild(btnTileBackspace);
     controls.appendChild(btnCheck);
     controls.appendChild(btnNext);
 
@@ -237,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
     card.appendChild(promptLabel);
     card.appendChild(promptText);
     card.appendChild(inputWrapper);
-    card.appendChild(keyboard);
+    card.appendChild(letterBankWrapper);
     card.appendChild(controls);
     card.appendChild(feedback);
     card.appendChild(reveal);
@@ -247,6 +265,81 @@ document.addEventListener('DOMContentLoaded', () => {
     let usedHintLevel = 0;
     let gaveUp = false;
     let answered = false;
+    let letterTiles = [];
+    let tileUsageStack = [];
+
+    function formatTileLabel(char) {
+      if (char === ' ') return '␣';
+      return char;
+    }
+
+    function shuffleTiles(chars) {
+      const shuffled = [...chars];
+      for (let i = shuffled.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    }
+
+    function setTileUsed(tileIndex, used) {
+      const tile = letterTiles[tileIndex];
+      if (!tile) return;
+      tile.used = used;
+      tile.button.disabled = used;
+      tile.button.classList.toggle('is-used', used);
+    }
+
+    function appendFromTile(tileIndex) {
+      const tile = letterTiles[tileIndex];
+      if (!tile || tile.used) return;
+      input.value += tile.char;
+      tileUsageStack.push(tileIndex);
+      setTileUsed(tileIndex, true);
+      input.focus();
+      const cursor = input.value.length;
+      input.setSelectionRange(cursor, cursor);
+      ghost.textContent = '';
+    }
+
+    function removeLastFromInput() {
+      if (!input.value.length) return;
+
+      const removedChar = input.value.slice(-1);
+      input.value = input.value.slice(0, -1);
+
+      const lastTileIndex = tileUsageStack[tileUsageStack.length - 1];
+      if (Number.isInteger(lastTileIndex)) {
+        const lastTileChar = letterTiles[lastTileIndex]?.char;
+        if (lastTileChar === removedChar) {
+          tileUsageStack.pop();
+          setTileUsed(lastTileIndex, false);
+        }
+      }
+
+      input.focus();
+      const cursor = input.value.length;
+      input.setSelectionRange(cursor, cursor);
+    }
+
+    function renderLetterBank(prompt) {
+      letterBankLabel.textContent = t('letterBankLabel');
+      letterBankTiles.innerHTML = '';
+      tileUsageStack = [];
+      letterTiles = shuffleTiles(Array.from(prompt || '')).map((char) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'key-btn classic-review-letter-tile';
+        button.textContent = formatTileLabel(char);
+        const tile = { char, used: false, button };
+        button.addEventListener('click', () => {
+          const tileIndex = letterTiles.indexOf(tile);
+          appendFromTile(tileIndex);
+        });
+        letterBankTiles.appendChild(button);
+        return tile;
+      });
+    }
 
     function resetState() {
       input.value = '';
@@ -258,6 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gaveUp = false;
       answered = false;
       btnNext.disabled = true;
+      tileUsageStack = [];
     }
 
     input.addEventListener('input', () => {
@@ -275,8 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const lang = getLang();
       currentItem = session.queue[session.currentIndex];
       answerData = getAnswerData(currentItem, lang);
-      const keySet = getKeyboardKeys(answerData.primary, lang);
-      keyboard.render(keySet);
+      renderLetterBank(answerData.primary);
       promptLabel.textContent = t('promptLabel');
       promptText.textContent = answerData.prompt;
       updateProgress();
@@ -353,6 +446,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnCheck.addEventListener('click', () => {
       checkAnswer();
+    });
+
+    btnTileBackspace.addEventListener('click', () => {
+      removeLastFromInput();
     });
 
     btnNext.addEventListener('click', () => {

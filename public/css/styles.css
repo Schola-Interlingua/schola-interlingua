@@ -423,6 +423,29 @@ body.dark-mode .classic-review-giveup-icon {
   position: relative;
 }
 
+.classic-review-letter-bank {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.classic-review-letter-bank-label {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.classic-review-letter-bank-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.classic-review-letter-tile.is-used {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .classic-review-input {
   width: 100%;
   padding: 14px 16px;
