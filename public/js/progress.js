@@ -21,7 +21,7 @@ import { supabase } from './supabase.js';
   }
 
   function defaultProgress() {
-    return { lessons: {}, streak: { current: 0, best: 0, last_study_date: null } };
+    return { lessons: {}, readings: {}, streak: { current: 0, best: 0, last_study_date: null } };
   }
 
   async function loadProgressFromDB(userId) {
@@ -150,10 +150,15 @@ import { supabase } from './supabase.js';
     }
   }
 
-  // Lesson page button
-  function setupLesson() {
-    const container = document.getElementById('exercise-container');
+  // Lesson/reading page button
+  function setupContentProgress() {
+    const lessonContainer = document.getElementById('exercise-container');
+    const readingContainer = document.querySelector('.reading-container');
+    const container = lessonContainer || readingContainer;
     if (!container) return;
+
+    const isReading = Boolean(readingContainer && !lessonContainer);
+    const progressKey = isReading ? 'readings' : 'lessons';
 
     // Clean up previous elements to prevent duplicates from multiple calls
     const existingWrapper = document.querySelector('.lesson-progress-wrapper');
@@ -168,7 +173,7 @@ import { supabase } from './supabase.js';
     const completionMessage = document.createElement('div');
     completionMessage.id = 'completion-message';
     completionMessage.style.cssText = 'display:none; background-color: #d4edda; color: #155724; padding: 10px; text-align: center; font-weight: bold; margin-bottom: 1em;';
-    completionMessage.textContent = 'Le lection es complete!';
+    completionMessage.textContent = isReading ? 'Le lectura es complete!' : 'Le lection es complete!';
     const main = document.querySelector('main');
     if (main) {
       main.prepend(completionMessage);
@@ -183,7 +188,7 @@ import { supabase } from './supabase.js';
       return;
     }
 
-    const lessonId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html', '');
+    const contentId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html', '');
 
     const btn = document.createElement('button');
     btn.id = 'lesson-progress-btn';
@@ -195,14 +200,14 @@ import { supabase } from './supabase.js';
 
     function refresh() {
       loadProgress().then(progress => {
-        const data = progress.lessons[lessonId];
+        const data = progress[progressKey]?.[contentId];
         const msg = document.getElementById('completion-message');
         if (data && data.completed) {
-          btn.textContent = 'Refacer le lection';
+          btn.textContent = isReading ? 'Releger lectura' : 'Refacer le lection';
           info.textContent = `Ultime vice: ${data.last_done}`;
           if (msg) msg.style.display = 'block';
         } else {
-          btn.textContent = 'Marcar le lection como facte';
+          btn.textContent = isReading ? 'Marcar lectura como legite' : 'Marcar le lection como facte';
           info.textContent = '';
           if (msg) msg.style.display = 'none';
         }
@@ -212,11 +217,12 @@ import { supabase } from './supabase.js';
     btn.addEventListener('click', async () => {
       const progress = await loadProgress();
       const today = new Date().toISOString().slice(0, 10);
-      const data = progress.lessons[lessonId];
+      progress[progressKey] = progress[progressKey] || {};
+      const data = progress[progressKey][contentId];
       if (data && data.completed) {
-        delete progress.lessons[lessonId];
+        delete progress[progressKey][contentId];
       } else {
-        progress.lessons[lessonId] = { completed: true, last_done: today };
+        progress[progressKey][contentId] = { completed: true, last_done: today };
         updateStreak(progress, today);
       }
       await saveProgress(progress);
@@ -265,7 +271,7 @@ import { supabase } from './supabase.js';
     supabase.auth.onAuthStateChange(async (_event, session) => {
       currentUser = session?.user ?? null;
       await renderIndex();
-      setupLesson();
+      setupContentProgress();
       await setupCurso();
     });
   }
