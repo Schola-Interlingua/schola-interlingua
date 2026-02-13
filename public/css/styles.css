@@ -1076,6 +1076,28 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
+
+.curso-btn.is-completed {
+  outline: 2px solid #4ade80;
+}
+
+.curso-completed-mark {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 999px;
+  background: #16a34a;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
 /* Responsive design mejorado */
 @media (max-width: 768px) {
   .nav-container {
