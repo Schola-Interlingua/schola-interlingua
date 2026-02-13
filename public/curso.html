@@ -17,22 +17,213 @@
 <body>
   <nav></nav>
   <main>
-    <section class="curso-grid" id="curso-grid"></section>
+    <section class="curso-levels" id="curso-levels"></section>
   </main>
   <footer></footer>
 
   <script src="/js/include.js"></script>
   <script type="module" src="/js/nav.js"></script>
   <script type="module">
-    const grid = document.getElementById('curso-grid');
-    window.cursoSlugs.forEach(slug => {
-      const icon = window.iconMap[slug] || 'fas fa-book';
-      const a = document.createElement('a');
-      a.href = `/lessons/${slug}.html`;
-      a.className = 'curso-btn';
-      const title = slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
-      a.innerHTML = `<i class="${icon}"></i><span>${title}</span>`;
-      grid.appendChild(a);
+    const levelsContainer = document.getElementById('curso-levels');
+
+    const readings = [
+      { slug: 'mi-familia', title: 'Mi familia' },
+      { slug: 'un-die-in-scola', title: 'Un die in scola' },
+      { slug: 'un-visita-al-mercato', title: 'Un visita al mercato' },
+      { slug: 'un-excursion-al-parco', title: 'Un excursion al parco' },
+      { slug: 'le-casa-de-libros', title: 'Le casa de libros' },
+      { slug: 'un-viage-in-tren', title: 'Un viage in tren' },
+      { slug: 'le-inventores', title: 'Le inventores' },
+      { slug: 'le-linguas-del-mundo', title: 'Le linguas del mundo' },
+      { slug: 'proque-interlingua-es-utile', title: 'Proque Interlingua es utile' },
+      { slug: 'un-futuro-interlingual', title: 'Un futuro interlingual' }
+    ];
+
+    const levelData = [
+      {
+        id: 'nivel-1',
+        title: 'Nivel 1',
+        sections: [
+          {
+            title: 'Lectiones',
+            items: Array.from({ length: 5 }, (_, i) => ({
+              href: `/lection/lection${i + 1}.html`,
+              title: `Lection ${i + 1}`,
+              icon: 'fas fa-graduation-cap'
+            }))
+          },
+          {
+            title: 'Curso',
+            items: [
+              {
+                href: '/lessons/basico1.html',
+                title: 'Basico1',
+                icon: window.iconMap.basico1 || 'fas fa-book'
+              }
+            ]
+          },
+          {
+            title: 'Lege',
+            items: readings.slice(0, 2).map(reading => ({
+              href: `/lecturas/${reading.slug}.html`,
+              title: reading.title,
+              icon: 'fas fa-book-open'
+            }))
+          }
+        ]
+      },
+      {
+        id: 'nivel-2',
+        title: 'Nivel 2',
+        sections: [
+          {
+            title: 'Lectiones',
+            items: Array.from({ length: 5 }, (_, i) => ({
+              href: `/lection/lection${i + 6}.html`,
+              title: `Lection ${i + 6}`,
+              icon: 'fas fa-graduation-cap'
+            }))
+          },
+          {
+            title: 'Curso',
+            items: [
+              {
+                href: '/lessons/basico2.html',
+                title: 'Basico2',
+                icon: window.iconMap.basico2 || 'fas fa-book'
+              }
+            ]
+          },
+          {
+            title: 'Lege',
+            items: readings.slice(2, 4).map(reading => ({
+              href: `/lecturas/${reading.slug}.html`,
+              title: reading.title,
+              icon: 'fas fa-book-open'
+            }))
+          }
+        ]
+      },
+      {
+        id: 'nivel-3',
+        title: 'Nivel 3',
+        sections: [
+          {
+            title: 'Curso',
+            items: window.cursoSlugs
+              .slice(window.cursoSlugs.indexOf('phrases-quotidian'), window.cursoSlugs.indexOf('colores') + 1)
+              .map(slug => ({
+                href: `/lessons/${slug}.html`,
+                title: slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+                icon: window.iconMap[slug] || 'fas fa-book'
+              }))
+          },
+          {
+            title: 'Lege',
+            items: readings.slice(4, 6).map(reading => ({
+              href: `/lecturas/${reading.slug}.html`,
+              title: reading.title,
+              icon: 'fas fa-book-open'
+            }))
+          }
+        ]
+      },
+      {
+        id: 'nivel-4',
+        title: 'Nivel 4',
+        sections: [
+          {
+            title: 'Curso',
+            items: window.cursoSlugs
+              .slice(window.cursoSlugs.indexOf('colores'), window.cursoSlugs.indexOf('familia') + 1)
+              .map(slug => ({
+                href: `/lessons/${slug}.html`,
+                title: slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+                icon: window.iconMap[slug] || 'fas fa-book'
+              }))
+          },
+          {
+            title: 'Lege',
+            items: readings.slice(6, 8).map(reading => ({
+              href: `/lecturas/${reading.slug}.html`,
+              title: reading.title,
+              icon: 'fas fa-book-open'
+            }))
+          }
+        ]
+      },
+      {
+        id: 'nivel-5',
+        title: 'Nivel 5',
+        sections: [
+          {
+            title: 'Curso',
+            items: window.cursoSlugs
+              .slice(window.cursoSlugs.indexOf('familia'), window.cursoSlugs.indexOf('adverbios1') + 1)
+              .map(slug => ({
+                href: `/lessons/${slug}.html`,
+                title: slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+                icon: window.iconMap[slug] || 'fas fa-book'
+              }))
+          },
+          {
+            title: 'Lege',
+            items: readings.slice(8, 10).map(reading => ({
+              href: `/lecturas/${reading.slug}.html`,
+              title: reading.title,
+              icon: 'fas fa-book-open'
+            }))
+          }
+        ]
+      },
+      {
+        id: 'nivel-6',
+        title: 'Nivel 6',
+        sections: [
+          {
+            title: 'Curso',
+            items: window.cursoSlugs
+              .slice(window.cursoSlugs.indexOf('adverbios1'), window.cursoSlugs.indexOf('technologia') + 1)
+              .map(slug => ({
+                href: `/lessons/${slug}.html`,
+                title: slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+                icon: window.iconMap[slug] || 'fas fa-book'
+              }))
+          }
+        ]
+      }
+    ];
+
+    levelData.forEach(level => {
+      const levelSection = document.createElement('section');
+      levelSection.className = 'curso-level-section';
+      levelSection.id = level.id;
+
+      const levelTitle = document.createElement('h2');
+      levelTitle.textContent = level.title;
+      levelSection.appendChild(levelTitle);
+
+      level.sections.forEach(group => {
+        const groupTitle = document.createElement('h3');
+        groupTitle.className = 'curso-group-title';
+        groupTitle.textContent = group.title;
+        levelSection.appendChild(groupTitle);
+
+        const grid = document.createElement('div');
+        grid.className = 'curso-grid';
+
+        group.items.forEach(item => {
+          const a = document.createElement('a');
+          a.href = item.href;
+          a.className = 'curso-btn';
+          a.innerHTML = `<i class="${item.icon}"></i><span>${item.title}</span>`;
+          grid.appendChild(a);
+        });
+
+        levelSection.appendChild(grid);
+      });
+
+      levelsContainer.appendChild(levelSection);
     });
   </script>
 </body>

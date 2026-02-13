@@ -68,7 +68,7 @@ function buildCursoLink() {
   if (!nav) return;
 
   // Evitar duplicarlo
-  if (document.getElementById("curso-link")) return;
+  if (document.getElementById("curso-link") || nav.querySelector('a[href="/curso.html"]')) return;
 
   const li = document.createElement("li");
   li.id = "curso-link";
