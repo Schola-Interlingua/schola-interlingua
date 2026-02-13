@@ -194,6 +194,16 @@
       }
     ];
 
+    function getTrackableLessonId(href) {
+      const lectionMatch = href.match(/^\/lection\/(lection\d+)\.html$/);
+      if (lectionMatch) return lectionMatch[1];
+
+      const lessonMatch = href.match(/^\/lessons\/([a-z0-9-]+)\.html$/);
+      if (lessonMatch) return lessonMatch[1];
+
+      return null;
+    }
+
     levelData.forEach(level => {
       const levelSection = document.createElement('section');
       levelSection.className = 'curso-level-section';
@@ -216,6 +226,10 @@
           const a = document.createElement('a');
           a.href = item.href;
           a.className = 'curso-btn';
+          const lessonId = getTrackableLessonId(item.href);
+          if (lessonId) {
+            a.dataset.lessonId = lessonId;
+          }
           a.innerHTML = `<i class="${item.icon}"></i><span>${item.title}</span>`;
           grid.appendChild(a);
         });

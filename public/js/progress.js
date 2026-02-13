@@ -226,30 +226,32 @@ import { supabase } from './supabase.js';
     refresh();
   }
 
-  function setupCurso() {
-    if (!currentUser) return;
-    const grid = document.getElementById('curso-grid');
-    if (!grid) return;
+  async function setupCurso() {
+    const courseButtons = document.querySelectorAll('.curso-btn[data-lesson-id]');
+    if (!courseButtons.length) return;
 
-    const wrap = document.createElement('div');
-    wrap.className = 'lesson-progress-wrapper';
-    grid.insertAdjacentElement('afterend', wrap);
+    courseButtons.forEach(btn => {
+      btn.classList.remove('is-completed');
+      const existingMark = btn.querySelector('.curso-completed-mark');
+      if (existingMark) existingMark.remove();
+    });
 
-    if (!storageAvailable()) {
-      wrap.textContent = 'Le progresso non pote esser salvate';
-      return;
-    }
+    if (!currentUser || !storageAvailable()) return;
 
-    const btn = document.createElement('button');
-    btn.id = 'save-progress-btn';
-    btn.className = 'btn btn-secondary';
-    btn.textContent = 'Guardar progresso';
-    wrap.appendChild(btn);
+    const progress = await loadProgress();
+    const lessons = progress.lessons || {};
 
-    btn.addEventListener('click', async () => {
-      const progress = await loadProgress();
-      await saveProgress(progress);
-      alert('Progreso guardado');
+    courseButtons.forEach(btn => {
+      const lessonId = btn.dataset.lessonId;
+      const data = lessonId ? lessons[lessonId] : null;
+      if (!data || !data.completed) return;
+
+      btn.classList.add('is-completed');
+      const mark = document.createElement('span');
+      mark.className = 'curso-completed-mark';
+      mark.setAttribute('aria-label', 'Lection complete');
+      mark.innerHTML = '<i class="fas fa-check"></i>';
+      btn.appendChild(mark);
     });
   }
 
@@ -264,7 +266,7 @@ import { supabase } from './supabase.js';
       currentUser = session?.user ?? null;
       await renderIndex();
       setupLesson();
-      setupCurso();
+      await setupCurso();
     });
   }
 
@@ -277,5 +279,6 @@ import { supabase } from './supabase.js';
 
   window.addEventListener('storage', (e) => {
     if (e.key === STORAGE_KEY) renderIndex();
+    if (e.key === STORAGE_KEY) setupCurso();
   });
 })();
