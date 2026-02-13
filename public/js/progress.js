@@ -121,7 +121,7 @@ import { supabase } from './supabase.js';
 
     const progress = await loadProgress();
     const lessons = progress.lessons || {};
-    const completed = Object.values(lessons).filter(l => l.completed).length;
+    const completed = LESSON_ORDER.filter(id => lessons[id]?.completed).length;
     const percent = TOTAL_LESSONS ? Math.round((completed / TOTAL_LESSONS) * 100) : 0;
 
     const noProgress = section.querySelector('#no-progress-msg');
@@ -150,10 +150,13 @@ import { supabase } from './supabase.js';
     }
   }
 
-  // Lesson page button
-  function setupLesson() {
-    const container = document.getElementById('exercise-container');
+  // Lesson/reading page button
+  function setupContentProgress() {
+    const lessonContainer = document.getElementById('exercise-container');
+    const readingContainer = document.querySelector('.reading-container');
+    const container = lessonContainer || readingContainer;
     if (!container) return;
+
 
     // Clean up previous elements to prevent duplicates from multiple calls
     const existingWrapper = document.querySelector('.lesson-progress-wrapper');
@@ -183,7 +186,7 @@ import { supabase } from './supabase.js';
       return;
     }
 
-    const lessonId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html', '');
+    const contentId = container.dataset.lesson || location.pathname.split('/').pop().replace('.html', '');
 
     const btn = document.createElement('button');
     btn.id = 'lesson-progress-btn';
@@ -195,7 +198,7 @@ import { supabase } from './supabase.js';
 
     function refresh() {
       loadProgress().then(progress => {
-        const data = progress.lessons[lessonId];
+        const data = progress.lessons?.[contentId];
         const msg = document.getElementById('completion-message');
         if (data && data.completed) {
           btn.textContent = 'Refacer le lection';
@@ -212,11 +215,12 @@ import { supabase } from './supabase.js';
     btn.addEventListener('click', async () => {
       const progress = await loadProgress();
       const today = new Date().toISOString().slice(0, 10);
-      const data = progress.lessons[lessonId];
+      progress.lessons = progress.lessons || {};
+      const data = progress.lessons[contentId];
       if (data && data.completed) {
-        delete progress.lessons[lessonId];
+        delete progress.lessons[contentId];
       } else {
-        progress.lessons[lessonId] = { completed: true, last_done: today };
+        progress.lessons[contentId] = { completed: true, last_done: today };
         updateStreak(progress, today);
       }
       await saveProgress(progress);
@@ -265,7 +269,7 @@ import { supabase } from './supabase.js';
     supabase.auth.onAuthStateChange(async (_event, session) => {
       currentUser = session?.user ?? null;
       await renderIndex();
-      setupLesson();
+      setupContentProgress();
       await setupCurso();
     });
   }
