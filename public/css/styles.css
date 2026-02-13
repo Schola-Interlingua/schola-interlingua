@@ -997,6 +997,31 @@ h2 {
   border-color: #dc3545;
 }
 
+/* Curso por niveles */
+.curso-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.curso-level-section {
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  background: var(--bg-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.curso-level-section h2 {
+  margin-bottom: 1rem;
+}
+
+.curso-group-title {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
 /* Curso buttons grid modernizado */
 .curso-grid {
   display: grid;
