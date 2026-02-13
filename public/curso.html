@@ -201,6 +201,9 @@
       const lessonMatch = href.match(/^\/lessons\/([a-z0-9-]+)\.html$/);
       if (lessonMatch) return lessonMatch[1];
 
+      const readingMatch = href.match(/^\/lecturas\/([a-z0-9-]+)\.html$/);
+      if (readingMatch) return readingMatch[1];
+
       return null;
     }
 
