@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">Le inventores</title>
+  <desc id="d">Illustration thematic pro Le inventores.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)" rx="36"/>
+  <circle cx="1010" cy="130" r="90" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="170" cy="560" r="120" fill="rgba(255,255,255,0.12)"/>
+  <text x="90" y="245" font-size="72" font-family="Inter,Segoe UI,Arial,sans-serif" fill="white" font-weight="700">Le inventores</text>
+  <text x="90" y="315" font-size="38" font-family="Inter,Segoe UI,Arial,sans-serif" fill="rgba(255,255,255,0.92)">Innovation e ideas nove</text>
+  <text x="1010" y="500" text-anchor="middle" font-size="168">💡</text>
+</svg>

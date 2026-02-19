@@ -1953,3 +1953,13 @@ body#wordsearch-page.dark-mode .word-item .tooltiptext {
 .dropdown.open .dropdown-menu {
   display: block;
 }
+
+.reading-illustration {
+  margin-top: 1.5rem;
+}
+
+.reading-illustration img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
