@@ -1,31 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Illustration">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Ilustración narrativa un visita al mercato">
+
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#fecaca"/>
-      <stop offset="100%" stop-color="#fee2e2"/>
+      <stop offset="0%" stop-color="#f4c37a"/>
+      <stop offset="70%" stop-color="#eba15e"/>
+      <stop offset="100%" stop-color="#6f9f7a"/>
     </linearGradient>
+    <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="noise"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.05"/>
+      </feComponentTransfer>
+    </filter>
   </defs>
+
   <rect width="900" height="520" rx="28" fill="url(#sky)"/>
+  <rect y="310" width="900" height="210" fill="#6b8f5f"/>
+  <ellipse cx="180" cy="250" rx="120" ry="130" fill="#5d7f4e" opacity="0.8"/>
+  <ellipse cx="760" cy="255" rx="140" ry="135" fill="#5d7f4e" opacity="0.8"/>
+  <rect x="0" y="340" width="900" height="180" fill="#7a9f63" opacity="0.75"/>
   
-  <rect x="0" y="345" width="900" height="175" fill="#86efac"/>
-  <rect x="200" y="210" width="500" height="140" fill="#fef3c7"/>
-  <polygon points="180,220 450,120 720,220" fill="#ef4444"/>
-  <rect x="255" y="250" width="90" height="45" fill="#fca5a5"/>
-  <rect x="365" y="250" width="90" height="45" fill="#fdba74"/>
-  <rect x="475" y="250" width="90" height="45" fill="#86efac"/>
-  <rect x="585" y="250" width="90" height="45" fill="#93c5fd"/>
+  <rect x="170" y="205" width="560" height="145" fill="#e8d7b8" stroke="#4a3424" stroke-width="4"/>
+  <polygon points="150,220 450,115 750,220" fill="#c06154" stroke="#4a3424" stroke-width="4"/>
+  <rect x="230" y="255" width="90" height="50" fill="#d17962"/><rect x="335" y="255" width="90" height="50" fill="#d9a462"/><rect x="440" y="255" width="90" height="50" fill="#8db773"/><rect x="545" y="255" width="90" height="50" fill="#7ea8c8"/>
+  <circle cx="270" cy="275" r="12" fill="#b8312f"/><circle cx="380" cy="274" r="12" fill="#ddc047"/><circle cx="490" cy="274" r="12" fill="#5ea449"/>
   
-  <circle cx="300" cy="300" r="18" fill="#f8d5b8"/>
-  <rect x="284" y="316" width="32" height="46" rx="12" fill="#f97316"/>
-  <rect x="287" y="362" width="10" height="36" rx="4" fill="#334155"/>
-  <rect x="303" y="362" width="10" height="36" rx="4" fill="#334155"/>
+  <g transform="translate(310,145) scale(0.98) scale(1,1)">
+    <ellipse cx="0" cy="120" rx="62" ry="86" fill="#f0d7a8" stroke="#4a3424" stroke-width="3"/>
+    <rect x="-55" y="188" width="46" height="80" rx="18" fill="#4f5560" stroke="#4a3424" stroke-width="3"/>
+    <rect x="9" y="188" width="46" height="80" rx="18" fill="#4f5560" stroke="#4a3424" stroke-width="3"/>
+    <ellipse cx="0" cy="34" rx="44" ry="48" fill="#f0b27c" stroke="#4a3424" stroke-width="3"/>
+    <path d="M-48 20 C-40 -32, 42 -34, 50 18 C38 2, 14 -8, -8 -3 C-24 0,-37 8,-48 20 Z" fill="#5a3824" stroke="#4a3424" stroke-width="3"/>
+    <ellipse cx="-15" cy="36" rx="4.2" ry="5.8" fill="#3b2a1f"/>
+    <ellipse cx="15" cy="36" rx="4.2" ry="5.8" fill="#3b2a1f"/>
+    <path d="M-12 56 Q0 66 12 56" fill="none" stroke="#9c4a2f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-58 114 Q-82 130 -70 162" fill="none" stroke="#f0b27c" stroke-width="16" stroke-linecap="round"/>
+    <path d="M58 114 Q82 130 72 162" fill="none" stroke="#f0b27c" stroke-width="16" stroke-linecap="round"/>
+  </g>
 
   
-  <circle cx="610" cy="300" r="18" fill="#f8d5b8"/>
-  <rect x="594" y="316" width="32" height="46" rx="12" fill="#0ea5e9"/>
-  <rect x="597" y="362" width="10" height="36" rx="4" fill="#334155"/>
-  <rect x="613" y="362" width="10" height="36" rx="4" fill="#334155"/>
+  <g transform="translate(585,145) scale(0.98) scale(-1,1)">
+    <ellipse cx="0" cy="120" rx="62" ry="86" fill="#5a7fa6" stroke="#4a3424" stroke-width="3"/>
+    <rect x="-55" y="188" width="46" height="80" rx="18" fill="#4f5560" stroke="#4a3424" stroke-width="3"/>
+    <rect x="9" y="188" width="46" height="80" rx="18" fill="#4f5560" stroke="#4a3424" stroke-width="3"/>
+    <ellipse cx="0" cy="34" rx="44" ry="48" fill="#efaf77" stroke="#4a3424" stroke-width="3"/>
+    <path d="M-48 20 C-40 -32, 42 -34, 50 18 C38 2, 14 -8, -8 -3 C-24 0,-37 8,-48 20 Z" fill="#3a2b21" stroke="#4a3424" stroke-width="3"/>
+    <ellipse cx="-15" cy="36" rx="4.2" ry="5.8" fill="#3b2a1f"/>
+    <ellipse cx="15" cy="36" rx="4.2" ry="5.8" fill="#3b2a1f"/>
+    <path d="M-12 56 Q0 66 12 56" fill="none" stroke="#9c4a2f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-58 114 Q-82 130 -70 162" fill="none" stroke="#efaf77" stroke-width="16" stroke-linecap="round"/>
+    <path d="M58 114 Q82 130 72 162" fill="none" stroke="#efaf77" stroke-width="16" stroke-linecap="round"/>
+  </g>
 
-  <circle cx="270" cy="265" r="10" fill="#ef4444"/><circle cx="390" cy="265" r="10" fill="#eab308"/><circle cx="520" cy="265" r="10" fill="#22c55e"/>
 
+  <rect width="900" height="520" rx="28" fill="#000" filter="url(#grain)" opacity="0.22"/>
 </svg>

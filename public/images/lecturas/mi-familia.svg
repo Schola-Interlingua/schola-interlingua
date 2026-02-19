@@ -1,34 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Illustration">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Ilustración narrativa mi familia">
+
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#fbcfe8"/>
-      <stop offset="100%" stop-color="#fde68a"/>
+      <stop offset="0%" stop-color="#f4c37a"/>
+      <stop offset="70%" stop-color="#eba15e"/>
+      <stop offset="100%" stop-color="#6f9f7a"/>
     </linearGradient>
+    <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="noise"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.05"/>
+      </feComponentTransfer>
+    </filter>
   </defs>
+
   <rect width="900" height="520" rx="28" fill="url(#sky)"/>
+  <rect y="310" width="900" height="210" fill="#6b8f5f"/>
+  <ellipse cx="180" cy="250" rx="120" ry="130" fill="#5d7f4e" opacity="0.8"/>
+  <ellipse cx="760" cy="255" rx="140" ry="135" fill="#5d7f4e" opacity="0.8"/>
+  <rect x="0" y="340" width="900" height="180" fill="#7a9f63" opacity="0.75"/>
   
-  <rect x="0" y="340" width="900" height="180" fill="#86efac"/>
-  <rect x="620" y="170" width="180" height="170" fill="#fef3c7"/>
-  <polygon points="600,180 710,110 820,180" fill="#f87171"/>
-  <rect x="680" y="250" width="40" height="90" fill="#92400e"/>
-  <circle cx="140" cy="180" r="45" fill="#22c55e"/><rect x="130" y="210" width="20" height="90" fill="#92400e"/>
+  <rect x="610" y="185" width="200" height="165" fill="#ead8b8" stroke="#4a3424" stroke-width="4"/>
+  <polygon points="588,198 710,128 832,198" fill="#bf6457" stroke="#4a3424" stroke-width="4"/>
+  <rect x="690" y="255" width="40" height="95" fill="#855a3c"/>
+  <ellipse cx="155" cy="190" rx="72" ry="55" fill="#4e7942"/><rect x="143" y="218" width="24" height="80" fill="#735039"/>
   
-  <circle cx="350" cy="285" r="18" fill="#f8d5b8"/>
-  <rect x="334" y="301" width="32" height="46" rx="12" fill="#f97316"/>
-  <rect x="337" y="347" width="10" height="36" rx="4" fill="#334155"/>
-  <rect x="353" y="347" width="10" height="36" rx="4" fill="#334155"/>
+  <g transform="translate(300,150) scale(0.83) scale(1,1)">
+    <ellipse cx="0" cy="120" rx="62" ry="86" fill="#d8c39b" stroke="#4a3424" stroke-width="3"/>
+    <rect x="-55" y="188" width="46" height="80" rx="18" fill="#4f5560" stroke="#4a3424" stroke-width="3"/>
+    <rect x="9" y="188" width="46" height="80" rx="18" fill="#4f5560" stroke="#4a3424" stroke-width="3"/>
+    <ellipse cx="0" cy="34" rx="44" ry="48" fill="#f1b57d" stroke="#4a3424" stroke-width="3"/>
+    <path d="M-48 20 C-40 -32, 42 -34, 50 18 C38 2, 14 -8, -8 -3 C-24 0,-37 8,-48 20 Z" fill="#6c4128" stroke="#4a3424" stroke-width="3"/>
+    <ellipse cx="-15" cy="36" rx="4.2" ry="5.8" fill="#3b2a1f"/>
+    <ellipse cx="15" cy="36" rx="4.2" ry="5.8" fill="#3b2a1f"/>
+    <path d="M-12 56 Q0 66 12 56" fill="none" stroke="#9c4a2f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-58 114 Q-82 130 -70 162" fill="none" stroke="#f1b57d" stroke-width="16" stroke-linecap="round"/>
+    <path d="M58 114 Q82 130 72 162" fill="none" stroke="#f1b57d" stroke-width="16" stroke-linecap="round"/>
+  </g>
 
   
-  <circle cx="430" cy="285" r="18" fill="#f8d5b8"/>
-  <rect x="414" y="301" width="32" height="46" rx="12" fill="#22c55e"/>
-  <rect x="417" y="347" width="10" height="36" rx="4" fill="#334155"/>
-  <rect x="433" y="347" width="10" height="36" rx="4" fill="#334155"/>
+  <g transform="translate(430,145) scale(0.86) scale(1,1)">
+    <ellipse cx="0" cy="120" rx="62" ry="86" fill="#5f83a8" stroke="#4a3424" stroke-width="3"/>
+    <rect x="-55" y="188" width="46" height="80" rx="18" fill="#4f5560" stroke="#4a3424" stroke-width="3"/>
+    <rect x="9" y="188" width="46" height="80" rx="18" fill="#4f5560" stroke="#4a3424" stroke-width="3"/>
+    <ellipse cx="0" cy="34" rx="44" ry="48" fill="#efb178" stroke="#4a3424" stroke-width="3"/>
+    <path d="M-48 20 C-40 -32, 42 -34, 50 18 C38 2, 14 -8, -8 -3 C-24 0,-37 8,-48 20 Z" fill="#2f2a26" stroke="#4a3424" stroke-width="3"/>
+    <ellipse cx="-15" cy="36" rx="4.2" ry="5.8" fill="#3b2a1f"/>
+    <ellipse cx="15" cy="36" rx="4.2" ry="5.8" fill="#3b2a1f"/>
+    <path d="M-12 56 Q0 66 12 56" fill="none" stroke="#9c4a2f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-58 114 Q-82 130 -70 162" fill="none" stroke="#efb178" stroke-width="16" stroke-linecap="round"/>
+    <path d="M58 114 Q82 130 72 162" fill="none" stroke="#efb178" stroke-width="16" stroke-linecap="round"/>
+  </g>
 
   
-  <circle cx="510" cy="285" r="18" fill="#f8d5b8"/>
-  <rect x="494" y="301" width="32" height="46" rx="12" fill="#3b82f6"/>
-  <rect x="497" y="347" width="10" height="36" rx="4" fill="#334155"/>
-  <rect x="513" y="347" width="10" height="36" rx="4" fill="#334155"/>
+  <g transform="translate(560,153) scale(0.79) scale(-1,1)">
+    <ellipse cx="0" cy="120" rx="62" ry="86" fill="#7da269" stroke="#4a3424" stroke-width="3"/>
+    <rect x="-55" y="188" width="46" height="80" rx="18" fill="#4f5560" stroke="#4a3424" stroke-width="3"/>
+    <rect x="9" y="188" width="46" height="80" rx="18" fill="#4f5560" stroke="#4a3424" stroke-width="3"/>
+    <ellipse cx="0" cy="34" rx="44" ry="48" fill="#f0b37b" stroke="#4a3424" stroke-width="3"/>
+    <path d="M-48 20 C-40 -32, 42 -34, 50 18 C38 2, 14 -8, -8 -3 C-24 0,-37 8,-48 20 Z" fill="#4a3426" stroke="#4a3424" stroke-width="3"/>
+    <ellipse cx="-15" cy="36" rx="4.2" ry="5.8" fill="#3b2a1f"/>
+    <ellipse cx="15" cy="36" rx="4.2" ry="5.8" fill="#3b2a1f"/>
+    <path d="M-12 56 Q0 66 12 56" fill="none" stroke="#9c4a2f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-58 114 Q-82 130 -70 162" fill="none" stroke="#f0b37b" stroke-width="16" stroke-linecap="round"/>
+    <path d="M58 114 Q82 130 72 162" fill="none" stroke="#f0b37b" stroke-width="16" stroke-linecap="round"/>
+  </g>
 
 
+  <rect width="900" height="520" rx="28" fill="#000" filter="url(#grain)" opacity="0.22"/>
 </svg>
