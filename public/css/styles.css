@@ -1956,10 +1956,12 @@ body#wordsearch-page.dark-mode .word-item .tooltiptext {
 
 .reading-illustration {
   margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .reading-illustration img {
-  width: 100%;
+  width: min(100%, 680px);
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
 }
