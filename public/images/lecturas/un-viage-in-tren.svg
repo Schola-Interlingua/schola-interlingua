@@ -1,12 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Illustration de un viage in tren">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Illustration">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0284c7"/>
-      <stop offset="100%" stop-color="#67e8f9"/>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
-  <rect width="900" height="520" rx="28" fill="url(#bg)"/>
-  <circle cx="450" cy="260" r="145" fill="rgba(255,255,255,0.28)"/>
-  <circle cx="450" cy="260" r="118" fill="rgba(255,255,255,0.42)"/>
-  <text x="450" y="312" text-anchor="middle" font-size="165">🚆</text>
+  <rect width="900" height="520" rx="28" fill="url(#sky)"/>
+  
+  <rect x="0" y="350" width="900" height="170" fill="#bbf7d0"/>
+  <rect x="140" y="200" width="620" height="140" rx="18" fill="#ef4444"/>
+  <rect x="180" y="230" width="110" height="52" fill="#bfdbfe"/>
+  <rect x="320" y="230" width="110" height="52" fill="#bfdbfe"/>
+  <rect x="460" y="230" width="110" height="52" fill="#bfdbfe"/>
+  <rect x="600" y="230" width="110" height="52" fill="#bfdbfe"/>
+  <circle cx="260" cy="350" r="28" fill="#1f2937"/><circle cx="640" cy="350" r="28" fill="#1f2937"/>
+  
+  <circle cx="90" cy="285" r="18" fill="#f8d5b8"/>
+  <rect x="74" y="301" width="32" height="46" rx="12" fill="#3b82f6"/>
+  <rect x="77" y="347" width="10" height="36" rx="4" fill="#334155"/>
+  <rect x="93" y="347" width="10" height="36" rx="4" fill="#334155"/>
+
+  
+  <circle cx="810" cy="285" r="18" fill="#f8d5b8"/>
+  <rect x="794" y="301" width="32" height="46" rx="12" fill="#22c55e"/>
+  <rect x="797" y="347" width="10" height="36" rx="4" fill="#334155"/>
+  <rect x="813" y="347" width="10" height="36" rx="4" fill="#334155"/>
+
+
 </svg>

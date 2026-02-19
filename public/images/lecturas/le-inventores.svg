@@ -1,12 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Illustration de le inventores">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Illustration">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#7c3aed"/>
-      <stop offset="100%" stop-color="#c4b5fd"/>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
     </linearGradient>
   </defs>
-  <rect width="900" height="520" rx="28" fill="url(#bg)"/>
-  <circle cx="450" cy="260" r="145" fill="rgba(255,255,255,0.28)"/>
-  <circle cx="450" cy="260" r="118" fill="rgba(255,255,255,0.42)"/>
-  <text x="450" y="312" text-anchor="middle" font-size="165">🔬</text>
+  <rect width="900" height="520" rx="28" fill="url(#sky)"/>
+  
+  <rect x="0" y="345" width="900" height="175" fill="#c7d2fe"/>
+  <rect x="200" y="220" width="500" height="110" rx="10" fill="#334155"/>
+  <rect x="260" y="170" width="44" height="70" rx="8" fill="#60a5fa"/>
+  <rect x="340" y="155" width="44" height="85" rx="8" fill="#a78bfa"/>
+  <rect x="420" y="180" width="44" height="60" rx="8" fill="#34d399"/>
+  <circle cx="560" cy="165" r="30" fill="#fde047" opacity="0.9"/>
+  <rect x="548" y="190" width="24" height="50" fill="#facc15"/>
+  
+  <circle cx="320" cy="285" r="18" fill="#f8d5b8"/>
+  <rect x="304" y="301" width="32" height="46" rx="12" fill="#6366f1"/>
+  <rect x="307" y="347" width="10" height="36" rx="4" fill="#334155"/>
+  <rect x="323" y="347" width="10" height="36" rx="4" fill="#334155"/>
+
+  
+  <circle cx="520" cy="285" r="18" fill="#f8d5b8"/>
+  <rect x="504" y="301" width="32" height="46" rx="12" fill="#14b8a6"/>
+  <rect x="507" y="347" width="10" height="36" rx="4" fill="#334155"/>
+  <rect x="523" y="347" width="10" height="36" rx="4" fill="#334155"/>
+
+
 </svg>

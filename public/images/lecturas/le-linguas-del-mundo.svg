@@ -1,12 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Illustration de le linguas del mundo">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Illustration">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0ea5e9"/>
-      <stop offset="100%" stop-color="#7dd3fc"/>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#67e8f9"/>
+      <stop offset="100%" stop-color="#bfdbfe"/>
     </linearGradient>
   </defs>
-  <rect width="900" height="520" rx="28" fill="url(#bg)"/>
-  <circle cx="450" cy="260" r="145" fill="rgba(255,255,255,0.28)"/>
-  <circle cx="450" cy="260" r="118" fill="rgba(255,255,255,0.42)"/>
-  <text x="450" y="312" text-anchor="middle" font-size="165">🌍</text>
+  <rect width="900" height="520" rx="28" fill="url(#sky)"/>
+  
+  <rect x="0" y="350" width="900" height="170" fill="#bbf7d0"/>
+  <circle cx="450" cy="210" r="120" fill="#38bdf8"/>
+  <path d="M380 190 C430 150, 500 150, 520 210 C500 260, 420 280, 380 240 Z" fill="#22c55e"/>
+  <path d="M440 120 C500 110, 545 145, 560 200 C530 185, 490 190, 460 170 Z" fill="#16a34a"/>
+  
+  <circle cx="280" cy="300" r="18" fill="#f8d5b8"/>
+  <rect x="264" y="316" width="32" height="46" rx="12" fill="#2563eb"/>
+  <rect x="267" y="362" width="10" height="36" rx="4" fill="#334155"/>
+  <rect x="283" y="362" width="10" height="36" rx="4" fill="#334155"/>
+
+  
+  <circle cx="620" cy="300" r="18" fill="#f8d5b8"/>
+  <rect x="604" y="316" width="32" height="46" rx="12" fill="#f43f5e"/>
+  <rect x="607" y="362" width="10" height="36" rx="4" fill="#334155"/>
+  <rect x="623" y="362" width="10" height="36" rx="4" fill="#334155"/>
+
+  <rect x="250" y="385" width="400" height="18" rx="9" fill="#64748b"/>
+
 </svg>

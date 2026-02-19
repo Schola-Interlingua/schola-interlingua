@@ -1,12 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Illustration de un visita al mercato">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Illustration">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#dc2626"/>
-      <stop offset="100%" stop-color="#fca5a5"/>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fecaca"/>
+      <stop offset="100%" stop-color="#fee2e2"/>
     </linearGradient>
   </defs>
-  <rect width="900" height="520" rx="28" fill="url(#bg)"/>
-  <circle cx="450" cy="260" r="145" fill="rgba(255,255,255,0.28)"/>
-  <circle cx="450" cy="260" r="118" fill="rgba(255,255,255,0.42)"/>
-  <text x="450" y="312" text-anchor="middle" font-size="165">🧺</text>
+  <rect width="900" height="520" rx="28" fill="url(#sky)"/>
+  
+  <rect x="0" y="345" width="900" height="175" fill="#86efac"/>
+  <rect x="200" y="210" width="500" height="140" fill="#fef3c7"/>
+  <polygon points="180,220 450,120 720,220" fill="#ef4444"/>
+  <rect x="255" y="250" width="90" height="45" fill="#fca5a5"/>
+  <rect x="365" y="250" width="90" height="45" fill="#fdba74"/>
+  <rect x="475" y="250" width="90" height="45" fill="#86efac"/>
+  <rect x="585" y="250" width="90" height="45" fill="#93c5fd"/>
+  
+  <circle cx="300" cy="300" r="18" fill="#f8d5b8"/>
+  <rect x="284" y="316" width="32" height="46" rx="12" fill="#f97316"/>
+  <rect x="287" y="362" width="10" height="36" rx="4" fill="#334155"/>
+  <rect x="303" y="362" width="10" height="36" rx="4" fill="#334155"/>
+
+  
+  <circle cx="610" cy="300" r="18" fill="#f8d5b8"/>
+  <rect x="594" y="316" width="32" height="46" rx="12" fill="#0ea5e9"/>
+  <rect x="597" y="362" width="10" height="36" rx="4" fill="#334155"/>
+  <rect x="613" y="362" width="10" height="36" rx="4" fill="#334155"/>
+
+  <circle cx="270" cy="265" r="10" fill="#ef4444"/><circle cx="390" cy="265" r="10" fill="#eab308"/><circle cx="520" cy="265" r="10" fill="#22c55e"/>
+
 </svg>
