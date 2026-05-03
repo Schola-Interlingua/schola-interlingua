@@ -1,0 +1,27 @@
+name: Supabase Heartbeat
+
+on:
+  schedule:
+    # Daily read-only heartbeat to help prevent Supabase Free inactivity pauses.
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  heartbeat:
+    name: Supabase heartbeat
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run Supabase heartbeat
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: node scripts/supabase-heartbeat.mjs
