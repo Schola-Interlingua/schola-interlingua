@@ -2,8 +2,8 @@ name: Supabase Heartbeat
 
 on:
   schedule:
-    # Daily read-only heartbeat to help prevent Supabase Free inactivity pauses.
-    - cron: "0 8 * * *"
+    # Minimal write heartbeat to help prevent Supabase Free inactivity pauses.
+    - cron: "17 */6 * * *"
   workflow_dispatch:
 
 jobs:
@@ -23,5 +23,6 @@ jobs:
       - name: Run Supabase heartbeat
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: node scripts/supabase-heartbeat.mjs
