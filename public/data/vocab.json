@@ -3697,18 +3697,18 @@
       "eo": "organizi"
     },
     {
-      "term": "cafe",
+      "term": "café",
       "es": "café",
-      "en": "cafe / coffee",
-      "ru": "кафе / кофе",
-      "de": "Café / Kaffee",
+      "en": "cafe",
+      "ru": "кафе",
+      "de": "Café",
       "fr": "café",
       "it": "caffè",
       "pt": "café",
-      "zh": "咖啡馆 / 咖啡",
-      "ja": "カフェ / コーヒー",
+      "zh": "咖啡馆",
+      "ja": "カフェ",
       "ca": "cafe",
-      "ko": "카페 / 커피",
+      "ko": "카페",
       "la": "cafe",
       "eo": "kafejo"
     },
@@ -7371,7 +7371,7 @@
       "eo": "persiko"
     },
     {
-      "term": "alberengina",
+      "term": "aubergina",
       "es": "berenjena",
       "en": "eggplant",
       "ru": "баклажан",
@@ -8029,7 +8029,7 @@
       "eo": "histrikso"
     },
     {
-      "term": "chameleon",
+      "term": "chameleonte",
       "es": "camaleón",
       "en": "chameleon",
       "ru": "хамелеон",
@@ -10491,7 +10491,7 @@
       "eo": "alporti"
     },
     {
-      "term": "apprendre",
+      "term": "apprender",
       "es": "aprender",
       "en": "to learn",
       "ru": "учить",
@@ -12303,7 +12303,7 @@
       "eo": "mi legas malgraŭ la nokto"
     },
     {
-      "term": "il me place le the, ma io ama le caffe",
+      "term": "me place le the, ma io ama le caffe",
       "es": "me gusta el té, pero amo el café",
       "en": "I like tea, but I love coffee",
       "ru": "мне нравится чай, но я люблю кофе",
@@ -14809,7 +14809,7 @@
       "eo": "dek ok"
     },
     {
-      "term": "dece-nove",
+      "term": "dece-novem",
       "es": "diecinueve",
       "en": "nineteen",
       "ru": "девятнадцать",
@@ -15193,7 +15193,7 @@
       "eo": "naŭcent"
     },
     {
-      "term": "novanta-nove",
+      "term": "novanta-novem",
       "es": "noventa y nueve",
       "en": "ninety-nine",
       "ru": "девяносто девять",
@@ -15951,7 +15951,7 @@
       "eo": "helpi iun por"
     },
     {
-      "term": "aprender a",
+      "term": "apprender a",
       "es": "aprender a",
       "en": "to learn to",
       "ru": "научиться",
@@ -15967,7 +15967,7 @@
       "eo": "lerni"
     },
     {
-      "term": "enseniar a alcuno",
+      "term": "inseniar a alcuno",
       "es": "enseñar a alguien",
       "en": "to teach someone",
       "ru": "учить кого-то",
@@ -16191,7 +16191,7 @@
       "eo": "malhavi iun"
     },
     {
-      "term": "narrar a alcuno",
+      "term": "contar a alcuno",
       "es": "hablar con alguien",
       "en": "to talk to someone / to tell someone",
       "ru": "рассказать кому-то",
@@ -16769,7 +16769,7 @@
       "eo": "monato"
     },
     {
-      "term": "medie-hora",
+      "term": "medie hora",
       "es": "media hora",
       "en": "half an hour",
       "ru": "полчаса",
@@ -17313,7 +17313,7 @@
       "eo": "ankoraŭ"
     },
     {
-      "term": "party",
+      "term": "festa",
       "es": "fiesta",
       "en": "party",
       "ru": "вечеринка",
@@ -18211,7 +18211,7 @@
       "eo": "perdi"
     },
     {
-      "term": "aumentar",
+      "term": "augmentar",
       "es": "aumentar",
       "en": "to increase",
       "ru": "увеличивать",
@@ -18517,13 +18517,13 @@
       "eo": "malpli"
     },
     {
-      "term": "jamais",
+      "term": "non ... jammais",
       "es": "nunca",
       "en": "never",
       "ru": "никогда",
       "de": "niemals",
-      "fr": "jamais",
-      "it": "mai",
+      "fr": "ne ... jamais",
+      "it": "non ... mai",
       "pt": "nunca",
       "zh": "从不",
       "ja": "決して〜ない",
@@ -18661,7 +18661,7 @@
       "eo": "false"
     },
     {
-      "term": "tam ben",
+      "term": "tamben",
       "es": "igualmente; así como",
       "en": "as well; just as",
       "ru": "так же",
@@ -18677,7 +18677,7 @@
       "eo": "ankaŭ"
     },
     {
-      "term": "nec me",
+      "term": "ni io",
       "es": "yo tampoco",
       "en": "me neither",
       "ru": "я тоже нет",
@@ -18773,8 +18773,8 @@
       "eo": "kiam"
     },
     {
-      "term": "magis",
-      "es": "más (no más)",
+      "term": "plus",
+      "es": "más",
       "en": "more",
       "ru": "больше",
       "de": "mehr",
@@ -18983,7 +18983,7 @@
       "eo": "dubi"
     },
     {
-      "term": "exambiar",
+      "term": "excambiar",
       "es": "intercambiar",
       "en": "to exchange",
       "ru": "обменивать",
@@ -19657,7 +19657,7 @@
       "eo": "malpli"
     },
     {
-      "term": "jamais",
+      "term": "nunquam",
       "es": "nunca",
       "en": "never",
       "ru": "никогда",
@@ -19881,22 +19881,6 @@
       "eo": "aparte"
     },
     {
-      "term": "magis",
-      "es": "más",
-      "en": "more",
-      "ru": "больше",
-      "de": "mehr",
-      "fr": "plus",
-      "it": "più",
-      "pt": "mais",
-      "zh": "更多",
-      "ja": "もっと",
-      "ca": "més",
-      "ko": "더",
-      "la": "magis",
-      "eo": "pli"
-    },
-    {
       "term": "al minus",
       "es": "por lo menos",
       "en": "at least",
@@ -19929,7 +19913,7 @@
       "eo": "ekde nun"
     },
     {
-      "term": "rapidamente",
+      "term": "rapidemente",
       "es": "rápidamente",
       "en": "quickly",
       "ru": "быстро",
@@ -19945,7 +19929,7 @@
       "eo": "rapide"
     },
     {
-      "term": "obviamente",
+      "term": "obviemente",
       "es": "obviamente; por supuesto; evidentemente",
       "en": "obviously",
       "ru": "очевидно",
@@ -19961,7 +19945,7 @@
       "eo": "evidente"
     },
     {
-      "term": "exactamente",
+      "term": "exactemente",
       "es": "exactamente",
       "en": "exactly",
       "ru": "именно",
@@ -20555,7 +20539,7 @@
       "eo": "emeritiĝi"
     },
     {
-      "term": "disoccupato",
+      "term": "disoccupate",
       "es": "desempleados",
       "en": "unemployed",
       "ru": "безработный",
@@ -20603,7 +20587,7 @@
       "eo": "kuiristo"
     },
     {
-      "term": "guidator",
+      "term": "conductor",
       "es": "conductor",
       "en": "driver",
       "ru": "водитель",
@@ -21455,7 +21439,7 @@
       "eo": "mi volas iom"
     },
     {
-      "term": "nec, nec",
+      "term": "ni..., ni...",
       "es": "tampoco",
       "en": "neither, nor",
       "ru": "ни..., ни...",
@@ -21583,7 +21567,7 @@
       "eo": "la tagoj fariĝas pli kaj pli longaj"
     },
     {
-      "term": "tu non offre alco",
+      "term": "tu non offere alco",
       "es": "vos no ofrecés nada",
       "en": "you offer nothing",
       "ru": "ты ничего не предлагаешь",
@@ -21809,7 +21793,7 @@
       "eo": "nuntempe"
     },
     {
-      "term": "sinon",
+      "term": "si non",
       "es": "de otra manera; de manera diferente",
       "en": "otherwise",
       "ru": "иначе",
@@ -21841,7 +21825,7 @@
       "eo": "certe"
     },
     {
-      "term": "absolutamente",
+      "term": "absolutemente",
       "es": "absolutamente",
       "en": "absolutely",
       "ru": "абсолютно",
@@ -21873,7 +21857,7 @@
       "eo": "legendo!"
     },
     {
-      "term": "relativamente",
+      "term": "relativemente",
       "es": "relativamente",
       "en": "relatively",
       "ru": "относительно",
@@ -21889,7 +21873,7 @@
       "eo": "relative"
     },
     {
-      "term": "inconsideradamente",
+      "term": "inconsideratemente",
       "es": "ligeramente",
       "en": "carelessly",
       "ru": "необдуманно",
@@ -21921,7 +21905,7 @@
       "eo": "interne"
     },
     {
-      "term": "immediatelymente",
+      "term": "immediatemente",
       "es": "inmediatamente",
       "en": "immediately",
       "ru": "немедленно",
@@ -21969,7 +21953,7 @@
       "eo": "esence"
     },
     {
-      "term": "lentamente",
+      "term": "lentemente",
       "es": "despacio",
       "en": "slowly",
       "ru": "медленно",
@@ -21985,7 +21969,7 @@
       "eo": "malrapide"
     },
     {
-      "term": "probabilmente",
+      "term": "probabilemente",
       "es": "probablemente",
       "en": "probably",
       "ru": "вероятно",
@@ -22049,7 +22033,7 @@
       "eo": "malofte"
     },
     {
-      "term": "facilmente",
+      "term": "facilemente",
       "es": "fácilmente",
       "en": "easily",
       "ru": "легко",
@@ -22065,7 +22049,7 @@
       "eo": "facile"
     },
     {
-      "term": "fortunatamente",
+      "term": "fortunatemente",
       "es": "por suerte; afortunadamente",
       "en": "fortunately",
       "ru": "к счастью",
@@ -22193,7 +22177,7 @@
       "eo": "vere"
     },
     {
-      "term": "definitivamente",
+      "term": "definitivemente",
       "es": "definitivamente; para siempre; de una vez por todas",
       "en": "definitely",
       "ru": "определенно",
@@ -22305,7 +22289,7 @@
       "eo": "lastatempe"
     },
     {
-      "term": "infortunatamente",
+      "term": "infortunatemente",
       "es": "desafortunadamente",
       "en": "unfortunately",
       "ru": "к сожалению",
@@ -23013,7 +22997,7 @@
       "eo": "mekanismo"
     },
     {
-      "term": "photocamera",
+      "term": "camera photographic",
       "es": "cámara fotográfica",
       "en": "camera",
       "ru": "фотоаппарат",
@@ -23105,7 +23089,7 @@
       "ko": "추가하다"
     },
     {
-      "term": "addentiante",
+      "term": "imminente",
       "es": "próximo, inminente",
       "en": "upcoming, imminent",
       "ru": "предстоящий",
@@ -23119,7 +23103,7 @@
       "ko": "임박한"
     },
     {
-      "term": "addi",
+      "term": "in plus",
       "es": "además",
       "en": "also, in addition",
       "ru": "дополнительно",
@@ -23189,7 +23173,7 @@
       "ko": "부사들"
     },
     {
-      "term": "aires",
+      "term": "aeres",
       "es": "aires, melodías",
       "en": "airs, tunes, moods",
       "ru": "мелодии, настроения",
@@ -23203,7 +23187,7 @@
       "ko": "분위기, 선율"
     },
     {
-      "term": "ajedrez",
+      "term": "chacos",
       "es": "ajedrez",
       "en": "chess",
       "ru": "шахматы",
@@ -23259,7 +23243,7 @@
       "ko": "사랑하다"
     },
     {
-      "term": "ana",
+      "term": "Anna",
       "es": "Ana (nombre propio)",
       "en": "Ana (proper name)",
       "ru": "Ана (имя)",
@@ -23287,7 +23271,7 @@
       "ko": "영어"
     },
     {
-      "term": "anta",
+      "term": "ante",
       "es": "antes de, previo a",
       "en": "before",
       "ru": "до",
@@ -23315,7 +23299,7 @@
       "ko": "앞에 놓인"
     },
     {
-      "term": "anteponerse",
+      "term": "anteponer se",
       "es": "anteponerse, ponerse delante",
       "en": "to put oneself before, to precede",
       "ru": "ставить перед",
@@ -23497,34 +23481,6 @@
       "ko": "가게들"
     },
     {
-      "term": "bottega",
-      "es": "tienda, negocio",
-      "en": "shop, store",
-      "ru": "лавка, магазин",
-      "de": "Laden, Geschäft",
-      "fr": "boutique, magasin",
-      "it": "bottega",
-      "pt": "loja",
-      "zh": "店铺",
-      "ja": "店",
-      "ca": "botiga",
-      "ko": "가게"
-    },
-    {
-      "term": "botteghe",
-      "es": "tiendas (plural italiano)",
-      "en": "shops",
-      "ru": "магазины",
-      "de": "Läden",
-      "fr": "boutiques",
-      "it": "botteghe",
-      "pt": "lojas",
-      "zh": "店铺们",
-      "ja": "店（複数）",
-      "ca": "botigues",
-      "ko": "가게들"
-    },
-    {
       "term": "breve",
       "es": "breve, corto",
       "en": "brief, short",
@@ -23539,7 +23495,7 @@
       "ko": "짧은, 간결한"
     },
     {
-      "term": "buenos",
+      "term": "bon",
       "es": "buenos (plural de 'bueno')",
       "en": "good (plural)",
       "ru": "хорошие",
@@ -23567,7 +23523,7 @@
       "ko": "떨어진다"
     },
     {
-      "term": "cadet",
+      "term": "cadetto",
       "es": "cadete",
       "en": "cadet",
       "ru": "кадет",
@@ -23679,7 +23635,7 @@
       "ko": "집들"
     },
     {
-      "term": "català",
+      "term": "catalano",
       "es": "catalán",
       "en": "Catalan",
       "ru": "каталанский",
@@ -23721,7 +23677,7 @@
       "ko": "센터"
     },
     {
-      "term": "chacos",
+      "term": "Chaco",
       "es": "Chaco (provincia argentina)",
       "en": "Chaco (Argentine province)",
       "ru": "Чако",
@@ -23931,7 +23887,7 @@
       "ko": "완전한, 완성하다"
     },
     {
-      "term": "compose",
+      "term": "componer",
       "es": "componer",
       "en": "compose",
       "ru": "сочинять",
@@ -23973,7 +23929,7 @@
       "ko": "이해하다"
     },
     {
-      "term": "comprobar",
+      "term": "verificar",
       "es": "comprobar, verificar",
       "en": "check, verify",
       "ru": "проверять",
@@ -24132,20 +24088,6 @@
       "en": "",
       "ru": "способствовать",
       "de": "beitragen",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "cordoba",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
       "fr": "",
       "it": "",
       "pt": "",
@@ -24323,20 +24265,6 @@
       "ko": ""
     },
     {
-      "term": "determinado",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
       "term": "detra",
       "es": "",
       "en": "",
@@ -24351,9 +24279,9 @@
       "ko": ""
     },
     {
-      "term": "deutsch",
+      "term": "germano",
       "es": "",
-      "en": "german",
+      "en": "German",
       "ru": "немецкий",
       "de": "deutsch",
       "fr": "",
@@ -24366,13 +24294,13 @@
     },
     {
       "term": "decenas",
-      "es": "",
-      "en": "",
+      "es": "decenas",
+      "en": "dozens",
       "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
+      "de": "Dutzende",
+      "fr": "dizaines",
+      "it": "decine",
+      "pt": "dezenas",
       "zh": "",
       "ja": "",
       "ca": "",
@@ -24381,9 +24309,9 @@
     {
       "term": "disveloppate",
       "es": "",
-      "en": "",
+      "en": "developed",
       "ru": "развивать",
-      "de": "fördern",
+      "de": "",
       "fr": "",
       "it": "",
       "pt": "",
@@ -24394,20 +24322,6 @@
     },
     {
       "term": "dura",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "el",
       "es": "",
       "en": "",
       "ru": "",
@@ -24435,13 +24349,13 @@
       "ko": ""
     },
     {
-      "term": "english",
-      "es": "",
-      "en": "english",
+      "term": "anglese",
+      "es": "ingles",
+      "en": "English",
       "ru": "английский",
       "de": "Englisch",
-      "fr": "",
-      "it": "",
+      "fr": "anglais",
+      "it": "inglese",
       "pt": "",
       "zh": "",
       "ja": "",
@@ -24463,9 +24377,9 @@
       "ko": ""
     },
     {
-      "term": "er",
-      "es": "",
-      "en": "",
+      "term": "essential",
+      "es": "esencial",
+      "en": "essential",
       "ru": "",
       "de": "",
       "fr": "",
@@ -24477,23 +24391,9 @@
       "ko": ""
     },
     {
-      "term": "esencial",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "español",
-      "es": "",
-      "en": "",
+      "term": "espaniol",
+      "es": "español",
+      "en": "Spanish",
       "ru": "",
       "de": "",
       "fr": "",
@@ -24744,25 +24644,11 @@
     },
     {
       "term": "felice",
-      "es": "",
-      "en": "",
+      "es": "feliz",
+      "en": "happy",
       "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "felix",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
+      "de": "glücklich",
+      "fr": "heureux",
       "it": "",
       "pt": "",
       "zh": "",
@@ -24897,20 +24783,6 @@
       "ko": ""
     },
     {
-      "term": "français",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
       "term": "frequentia",
       "es": "",
       "en": "",
@@ -24940,20 +24812,6 @@
     },
     {
       "term": "futuro",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "garcía",
       "es": "",
       "en": "",
       "ru": "",
@@ -25037,20 +24895,6 @@
       "ko": ""
     },
     {
-      "term": "gramática",
-      "es": "",
-      "en": "",
-      "ru": "Грамматика",
-      "de": "Grammatik",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
       "term": "gruppetto",
       "es": "",
       "en": "",
@@ -25065,12 +24909,12 @@
       "ko": ""
     },
     {
-      "term": "género",
-      "es": "",
-      "en": "",
+      "term": "genere",
+      "es": "género",
+      "en": "gender / genre / kind",
       "ru": "",
       "de": "",
-      "fr": "",
+      "fr": "genre",
       "it": "",
       "pt": "",
       "zh": "",
@@ -25191,7 +25035,7 @@
       "ko": ""
     },
     {
-      "term": "iala",
+      "term": "IALA",
       "es": "",
       "en": "",
       "ru": "",
@@ -25261,9 +25105,9 @@
       "ko": ""
     },
     {
-      "term": "impersonale",
+      "term": "impersonal",
       "es": "",
-      "en": "",
+      "en": "impersonal",
       "ru": "",
       "de": "",
       "fr": "",
@@ -25317,9 +25161,9 @@
       "ko": ""
     },
     {
-      "term": "indefinido",
-      "es": "",
-      "en": "",
+      "term": "indefinite",
+      "es": "indefinido",
+      "en": "indefinite",
       "ru": "",
       "de": "",
       "fr": "",
@@ -25499,9 +25343,9 @@
       "ko": ""
     },
     {
-      "term": "invariable",
+      "term": "invariabile",
       "es": "",
-      "en": "",
+      "en": "invariable",
       "ru": "",
       "de": "",
       "fr": "",
@@ -25527,37 +25371,9 @@
       "ko": ""
     },
     {
-      "term": "issime",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "issimo",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
       "term": "istas",
       "es": "",
-      "en": "",
+      "en": "these (feminine pural)",
       "ru": "",
       "de": "",
       "fr": "",
@@ -25597,23 +25413,9 @@
       "ko": ""
     },
     {
-      "term": "juan",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
       "term": "la",
       "es": "",
-      "en": "",
+      "en": "her",
       "ru": "",
       "de": "",
       "fr": "",
@@ -25835,20 +25637,6 @@
       "ko": ""
     },
     {
-      "term": "mail",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
       "term": "majoritate",
       "es": "",
       "en": "",
@@ -25878,20 +25666,6 @@
     },
     {
       "term": "mangia",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "maria",
       "es": "",
       "en": "",
       "ru": "",
@@ -26171,9 +25945,9 @@
       "ko": ""
     },
     {
-      "term": "navegador",
+      "term": "navigator",
       "es": "",
-      "en": "",
+      "en": "navigator / browser",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26214,20 +25988,6 @@
     },
     {
       "term": "nota",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "nte",
       "es": "",
       "en": "",
       "ru": "",
@@ -26297,21 +26057,7 @@
       "ko": ""
     },
     {
-      "term": "open",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "ordinale",
+      "term": "ordinal",
       "es": "",
       "en": "",
       "ru": "",
@@ -26411,7 +26157,7 @@
     {
       "term": "parla",
       "es": "",
-      "en": "",
+      "en": "talks",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26425,7 +26171,7 @@
     {
       "term": "parlante",
       "es": "",
-      "en": "",
+      "en": "talking",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26439,7 +26185,7 @@
     {
       "term": "parlarea",
       "es": "",
-      "en": "",
+      "en": "would talk",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26451,9 +26197,9 @@
       "ko": ""
     },
     {
-      "term": "parlarà",
+      "term": "parlara",
       "es": "",
-      "en": "",
+      "en": "will talk",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26467,7 +26213,7 @@
     {
       "term": "parlate",
       "es": "",
-      "en": "",
+      "en": "talked",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26481,7 +26227,7 @@
     {
       "term": "parlava",
       "es": "",
-      "en": "",
+      "en": "talked",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26495,7 +26241,7 @@
     {
       "term": "parola",
       "es": "",
-      "en": "",
+      "en": "word",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26509,21 +26255,7 @@
     {
       "term": "parolas",
       "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "paroles",
-      "es": "",
-      "en": "",
+      "en": "words",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26537,7 +26269,7 @@
     {
       "term": "participio",
       "es": "",
-      "en": "",
+      "en": "participle",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26563,9 +26295,9 @@
       "ko": ""
     },
     {
-      "term": "partitivos",
+      "term": "partitivo",
       "es": "",
-      "en": "",
+      "en": "partitive",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26647,9 +26379,9 @@
       "ko": ""
     },
     {
-      "term": "pedro",
+      "term": "petra",
       "es": "",
-      "en": "",
+      "en": "stone / rock",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26787,9 +26519,9 @@
       "ko": ""
     },
     {
-      "term": "pluscuamperfecte",
+      "term": "plusquamperfecto",
       "es": "",
-      "en": "",
+      "en": "pluperfect",
       "ru": "",
       "de": "",
       "fr": "",
@@ -26857,14 +26589,14 @@
       "ko": ""
     },
     {
-      "term": "portugu",
+      "term": "portugese",
       "es": "",
-      "en": "",
+      "en": "Portuguese",
       "ru": "",
       "de": "",
       "fr": "",
       "it": "",
-      "pt": "",
+      "pt": "português",
       "zh": "",
       "ja": "",
       "ca": "",
@@ -26887,7 +26619,7 @@
     {
       "term": "posta",
       "es": "",
-      "en": "",
+      "en": "mail / post",
       "ru": "",
       "de": "",
       "fr": "",
@@ -27039,9 +26771,9 @@
       "ko": ""
     },
     {
-      "term": "problemate",
+      "term": "problema",
       "es": "",
-      "en": "",
+      "en": "problem",
       "ru": "",
       "de": "",
       "fr": "",
@@ -27166,48 +26898,6 @@
     },
     {
       "term": "r",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "ra",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "rea",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "recibo",
       "es": "",
       "en": "",
       "ru": "",
@@ -27655,20 +27345,6 @@
       "ko": ""
     },
     {
-      "term": "sistema",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
       "term": "sito",
       "es": "",
       "en": "",
@@ -27711,9 +27387,9 @@
       "ko": ""
     },
     {
-      "term": "soporta",
+      "term": "supporto",
       "es": "",
-      "en": "",
+      "en": "support",
       "ru": "",
       "de": "",
       "fr": "",
@@ -27725,9 +27401,9 @@
       "ko": ""
     },
     {
-      "term": "source",
+      "term": "fonte",
       "es": "",
-      "en": "",
+      "en": "source",
       "ru": "",
       "de": "",
       "fr": "",
@@ -27768,34 +27444,6 @@
     },
     {
       "term": "specific",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "statione",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "stile",
       "es": "",
       "en": "",
       "ru": "",
@@ -27907,20 +27555,6 @@
       "ko": ""
     },
     {
-      "term": "sujeto",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
       "term": "superlative",
       "es": "",
       "en": "",
@@ -27963,9 +27597,9 @@
       "ko": ""
     },
     {
-      "term": "tamquam",
+      "term": "como si",
       "es": "",
-      "en": "",
+      "en": "as if",
       "ru": "",
       "de": "",
       "fr": "",
@@ -28089,9 +27723,9 @@
       "ko": ""
     },
     {
-      "term": "tooltip",
+      "term": "legenda emergente",
       "es": "",
-      "en": "",
+      "en": "tooltip",
       "ru": "",
       "de": "",
       "fr": "",
@@ -28173,9 +27807,9 @@
       "ko": ""
     },
     {
-      "term": "trait",
+      "term": "tracto",
       "es": "",
-      "en": "",
+      "en": "trait",
       "ru": "",
       "de": "",
       "fr": "",
@@ -28216,20 +27850,6 @@
     },
     {
       "term": "typos",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "ultimo",
       "es": "",
       "en": "",
       "ru": "",
@@ -28369,35 +27989,7 @@
       "ko": ""
     },
     {
-      "term": "variaciones",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
       "term": "variationes",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "veces",
       "es": "",
       "en": "",
       "ru": "",
@@ -28538,20 +28130,6 @@
     },
     {
       "term": "vidite",
-      "es": "",
-      "en": "",
-      "ru": "",
-      "de": "",
-      "fr": "",
-      "it": "",
-      "pt": "",
-      "zh": "",
-      "ja": "",
-      "ca": "",
-      "ko": ""
-    },
-    {
-      "term": "vinte",
       "es": "",
       "en": "",
       "ru": "",
