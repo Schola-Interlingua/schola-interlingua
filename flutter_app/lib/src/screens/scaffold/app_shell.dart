@@ -188,7 +188,12 @@ class _DesktopNav extends StatelessWidget {
               .toList(),
           onSelected: controller.setSelectedLanguage,
         ),
-        _NavTextButton(label: 'Login', onTap: () {}),
+        controller.isAuthenticated
+            ? _AccountMenu(email: controller.currentUser?.email ?? '')
+            : _NavTextButton(
+                label: 'Entrar',
+                onTap: () => context.go('/entrar'),
+              ),
         const SizedBox(width: 8),
         Container(
           decoration: BoxDecoration(
@@ -286,8 +291,64 @@ class _MobileMenu extends StatelessWidget {
             onTap: controller.toggleDarkMode,
           ),
           const Divider(),
-          ListTile(title: const Text('Login'), onTap: () {}),
+          if (controller.isAuthenticated) ...<Widget>[
+            ListTile(
+              title: Text(controller.currentUser?.email ?? 'Session aperte'),
+            ),
+            ListTile(
+              title: const Text('Exir'),
+              onTap: () async {
+                Navigator.of(context).pop();
+                await controller.signOut();
+              },
+            ),
+          ] else
+            ListTile(
+              title: const Text('Entrar'),
+              onTap: () {
+                Navigator.of(context).pop();
+                context.go('/entrar');
+              },
+            ),
         ],
+      ),
+    );
+  }
+}
+
+class _AccountMenu extends StatelessWidget {
+  const _AccountMenu({required this.email});
+
+  final String email;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppController controller = AppStateScope.of(context);
+    return PopupMenuButton<String>(
+      tooltip: email,
+      onSelected: (String value) async {
+        if (value == 'logout') {
+          await controller.signOut();
+        }
+      },
+      itemBuilder: (BuildContext context) => const <PopupMenuEntry<String>>[
+        PopupMenuItem<String>(value: 'logout', child: Text('Exir')),
+      ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: Row(
+          children: const <Widget>[
+            Icon(Icons.person, color: Colors.white, size: 18),
+            SizedBox(width: 6),
+            Text(
+              '▼',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

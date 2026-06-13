@@ -13,7 +13,6 @@ class CourseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CompletionTracker(
-      itemKey: 'course:main',
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,

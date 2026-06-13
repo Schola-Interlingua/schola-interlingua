@@ -37,7 +37,6 @@ class ReadingScreen extends StatelessWidget {
             final bool mobile = MediaQuery.sizeOf(context).width < 900;
 
             return CompletionTracker(
-              itemKey: 'reading:$slug',
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[

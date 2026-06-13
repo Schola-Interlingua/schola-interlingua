@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../app_state.dart';
+import '../data/course_seed.dart';
+import '../models/course_models.dart';
 import '../theme/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -26,6 +29,20 @@ class _ProgressCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppController controller = AppStateScope.of(context);
+    final List<String> trackableKeys = _trackableCompletionKeys();
+    final int totalItems = trackableKeys.length;
+    final int completedItems = trackableKeys
+        .where(controller.isCompleted)
+        .length;
+    final double progress = totalItems == 0 ? 0 : completedItems / totalItems;
+    final int percent = (progress * 100).round();
+    final int streak = controller.consecutiveDaysStreak;
+
+    final String summary = completedItems == 0
+        ? 'Tu non ha ancora comenciate'
+        : '$completedItems de $totalItems completate ($percent%)';
+
     return ScholaCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,10 +52,7 @@ class _ProgressCard extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: 12),
-          Text(
-            'Tu non ha ancora comenciate',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
+          Text(summary, style: Theme.of(context).textTheme.bodyLarge),
           const SizedBox(height: 20),
           Container(
             height: 12,
@@ -47,10 +61,10 @@ class _ProgressCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(99),
               border: Border.all(color: AppTheme.borderColor(context)),
             ),
-            child: const FractionallySizedBox(
+            child: FractionallySizedBox(
               alignment: Alignment.centerLeft,
-              widthFactor: 0,
-              child: DecoratedBox(
+              widthFactor: progress.clamp(0, 1),
+              child: const DecoratedBox(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: <Color>[AppTheme.primary, AppTheme.primaryLight],
@@ -66,7 +80,7 @@ class _ProgressCard extends StatelessWidget {
               const Text('🔥', style: TextStyle(fontSize: 24)),
               const SizedBox(width: 10),
               Text(
-                '0 dies consecutive',
+                '$streak dies consecutive',
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
             ],
@@ -74,6 +88,24 @@ class _ProgressCard extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  List<String> _trackableCompletionKeys() {
+    return courseLevels
+        .expand((CourseLevel level) => level.sections)
+        .expand((CourseSection section) => section.items)
+        .map((CourseItemRef item) {
+          switch (item.kind) {
+            case CourseItemKind.lesson:
+            case CourseItemKind.vocabulary:
+              return 'lesson:${item.slug}';
+            case CourseItemKind.reading:
+              return 'reading:${item.slug}';
+            case CourseItemKind.appendix:
+              return 'appendix:${item.slug}';
+          }
+        })
+        .toList();
   }
 }
 

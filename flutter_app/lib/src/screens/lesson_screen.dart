@@ -47,7 +47,6 @@ class LessonScreen extends StatelessWidget {
             final bool mobile = MediaQuery.sizeOf(context).width < 900;
 
             return CompletionTracker(
-              itemKey: 'lesson:$slug',
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,

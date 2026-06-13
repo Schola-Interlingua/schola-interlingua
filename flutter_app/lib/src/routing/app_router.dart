@@ -8,6 +8,7 @@ import '../screens/course_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/level_screen.dart';
 import '../screens/lesson_screen.dart';
+import '../screens/login_screen.dart';
 import '../screens/reading_screen.dart';
 import '../screens/scaffold/app_shell.dart';
 import '../screens/wordsearch_screen.dart';
@@ -16,6 +17,12 @@ final class AppRouter {
   static final GoRouter router = GoRouter(
     initialLocation: '/',
     routes: <RouteBase>[
+      GoRoute(
+        path: '/entrar',
+        builder: (BuildContext context, GoRouterState state) {
+          return const LoginScreen();
+        },
+      ),
       ShellRoute(
         builder: (BuildContext context, GoRouterState state, Widget child) {
           return AppShell(child: child);

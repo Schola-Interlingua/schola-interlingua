@@ -17,13 +17,18 @@ class CompletionPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppController controller = AppStateScope.of(context);
     final String? completedAt = controller.completionDate(itemKey);
-    if (completedAt == null) return const SizedBox.shrink();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         FilledButton(
-          onPressed: () => controller.markCompleted(itemKey),
+          onPressed: () {
+            if (completedAt == null) {
+              controller.markCompleted(itemKey);
+              return;
+            }
+            controller.clearCompleted(itemKey);
+          },
           style: FilledButton.styleFrom(
             backgroundColor: AppTheme.primary,
             foregroundColor: Colors.white,
@@ -32,15 +37,19 @@ class CompletionPanel extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-          child: Text(buttonLabel),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          'Ultime vice: ${_formatDate(completedAt)}',
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: AppTheme.mutedTextColor(context),
+          child: Text(
+            completedAt == null ? 'Marcar como complete' : buttonLabel,
           ),
         ),
+        if (completedAt != null) ...<Widget>[
+          const SizedBox(height: 8),
+          Text(
+            'Ultime vice: ${_formatDate(completedAt)}',
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: AppTheme.mutedTextColor(context),
+            ),
+          ),
+        ],
       ],
     );
   }
@@ -89,11 +98,9 @@ class CompletionBanner extends StatelessWidget {
 class CompletionTracker extends StatefulWidget {
   const CompletionTracker({
     super.key,
-    required this.itemKey,
     required this.child,
   });
 
-  final String itemKey;
   final Widget child;
 
   @override
@@ -101,19 +108,6 @@ class CompletionTracker extends StatefulWidget {
 }
 
 class _CompletionTrackerState extends State<CompletionTracker> {
-  bool _marked = false;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (_marked) return;
-    _marked = true;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
-      AppStateScope.of(context).markCompleted(widget.itemKey);
-    });
-  }
-
   @override
   Widget build(BuildContext context) => widget.child;
 }
