@@ -30,12 +30,15 @@ class CompletionPanel extends StatelessWidget {
             controller.clearCompleted(itemKey);
           },
           style: FilledButton.styleFrom(
-            backgroundColor: AppTheme.primary,
+            backgroundColor: Theme.of(context).brightness == Brightness.dark
+                ? Colors.white.withValues(alpha: 0.14)
+                : AppTheme.primary.withValues(alpha: 0.92),
             foregroundColor: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(18),
             ),
+            elevation: 0,
           ),
           child: Text(
             completedAt == null ? 'Marcar como complete' : buttonLabel,
@@ -55,7 +58,8 @@ class CompletionPanel extends StatelessWidget {
   }
 
   static String _formatDate(String isoDate) {
-    final DateTime parsed = DateTime.tryParse(isoDate)?.toLocal() ?? DateTime.now();
+    final DateTime parsed =
+        DateTime.tryParse(isoDate)?.toLocal() ?? DateTime.now();
     final String month = parsed.month.toString().padLeft(2, '0');
     final String day = parsed.day.toString().padLeft(2, '0');
     return '${parsed.year}-$month-$day';
@@ -81,7 +85,18 @@ class CompletionBanner extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-      color: const Color(0xFFDFF4E2),
+      decoration: BoxDecoration(
+        color: Theme.of(context).brightness == Brightness.dark
+            ? const Color(0x3321C779)
+            : const Color(0xCCDBF6E5),
+        borderRadius: BorderRadius.circular(22),
+        border: Border.all(
+          color: Theme.of(context).brightness == Brightness.dark
+              ? const Color(0x6650E3A4)
+              : const Color(0x9937B56F),
+        ),
+        boxShadow: AppTheme.glassShadow(context),
+      ),
       child: Text(
         message,
         textAlign: TextAlign.center,
@@ -96,10 +111,7 @@ class CompletionBanner extends StatelessWidget {
 }
 
 class CompletionTracker extends StatefulWidget {
-  const CompletionTracker({
-    super.key,
-    required this.child,
-  });
+  const CompletionTracker({super.key, required this.child});
 
   final Widget child;
 

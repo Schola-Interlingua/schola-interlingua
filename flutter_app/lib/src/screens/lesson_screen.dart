@@ -91,8 +91,13 @@ class LessonScreen extends StatelessWidget {
                                 children: <Widget>[
                                   Expanded(
                                     flex: 3,
-                                    child: _LessonTextBlock(
-                                      paragraphs: content.paragraphs,
+                                    child: ConstrainedBox(
+                                      constraints: const BoxConstraints(
+                                        maxWidth: 680,
+                                      ),
+                                      child: _LessonTextBlock(
+                                        paragraphs: content.paragraphs,
+                                      ),
                                     ),
                                   ),
                                   if (content.imageAsset != null) ...<Widget>[
@@ -178,9 +183,7 @@ class _LoadErrorCard extends StatelessWidget {
           const SizedBox(height: 12),
           SelectableText(
             detail,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium?.copyWith(
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: AppTheme.mutedTextColor(context),
             ),
           ),
@@ -221,7 +224,6 @@ class VocabLessonScreen extends StatelessWidget {
   }
 }
 
-
 class _LessonTextBlock extends StatelessWidget {
   const _LessonTextBlock({required this.paragraphs});
 
@@ -250,9 +252,16 @@ class _LessonImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(12),
-      child: Image.asset(imageAsset),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(28),
+        border: Border.all(color: AppTheme.borderColor(context)),
+        boxShadow: AppTheme.glassShadow(context),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(28),
+        child: Image.asset(imageAsset, fit: BoxFit.cover),
+      ),
     );
   }
 }

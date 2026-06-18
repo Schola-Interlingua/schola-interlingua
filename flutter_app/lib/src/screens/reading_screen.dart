@@ -65,7 +65,9 @@ class ReadingScreen extends StatelessWidget {
                                   _ReadingBody(reading: reading),
                                   if (reading.imageAsset != null) ...<Widget>[
                                     const SizedBox(height: 24),
-                                    _ReadingImage(imageAsset: reading.imageAsset!),
+                                    _ReadingImage(
+                                      imageAsset: reading.imageAsset!,
+                                    ),
                                   ],
                                 ],
                               )
@@ -74,7 +76,12 @@ class ReadingScreen extends StatelessWidget {
                                 children: <Widget>[
                                   Expanded(
                                     flex: 3,
-                                    child: _ReadingBody(reading: reading),
+                                    child: ConstrainedBox(
+                                      constraints: const BoxConstraints(
+                                        maxWidth: 700,
+                                      ),
+                                      child: _ReadingBody(reading: reading),
+                                    ),
                                   ),
                                   if (reading.imageAsset != null) ...<Widget>[
                                     const SizedBox(width: 32),
@@ -121,9 +128,7 @@ class _ReadingErrorState extends StatelessWidget {
           const SizedBox(height: 12),
           SelectableText(
             detail,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium?.copyWith(
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: AppTheme.mutedTextColor(context),
             ),
           ),
@@ -165,9 +170,16 @@ class _ReadingImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(12),
-      child: Image.asset(imageAsset, fit: BoxFit.cover),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(28),
+        border: Border.all(color: AppTheme.borderColor(context)),
+        boxShadow: AppTheme.glassShadow(context),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(28),
+        child: Image.asset(imageAsset, fit: BoxFit.cover),
+      ),
     );
   }
 }

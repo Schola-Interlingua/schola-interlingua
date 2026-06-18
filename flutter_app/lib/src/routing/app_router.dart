@@ -11,6 +11,7 @@ import '../screens/lesson_screen.dart';
 import '../screens/login_screen.dart';
 import '../screens/reading_screen.dart';
 import '../screens/scaffold/app_shell.dart';
+import '../screens/settings_screen.dart';
 import '../screens/wordsearch_screen.dart';
 
 final class AppRouter {
@@ -38,6 +39,12 @@ final class AppRouter {
             path: '/course',
             builder: (BuildContext context, GoRouterState state) {
               return const CourseScreen();
+            },
+          ),
+          GoRoute(
+            path: '/settings',
+            builder: (BuildContext context, GoRouterState state) {
+              return const SettingsScreen();
             },
           ),
           GoRoute(

@@ -1,24 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../app_state.dart';
 import '../../theme/app_theme.dart';
-
-const Map<String, String> _languageLabels = <String, String>{
-  'es': 'Español',
-  'en': 'English',
-  'ru': 'Русский',
-  'de': 'Deutsch',
-  'fr': 'Français',
-  'it': 'Italiano',
-  'la': 'Lingua Latina',
-  'eo': 'Esperanto',
-  'pt': 'Português',
-  'zh': '中文',
-  'ja': '日本語',
-  'ca': 'Català',
-  'ko': '한국어',
-};
+import '../../widgets/app_logo.dart';
 
 class AppShell extends StatelessWidget {
   const AppShell({super.key, required this.child});
@@ -27,442 +13,277 @@ class AppShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool mobile = MediaQuery.sizeOf(context).width < 900;
-
     return Scaffold(
-      drawer: mobile ? const Drawer(child: _MobileMenu()) : null,
-      body: Column(
+      backgroundColor: Colors.transparent,
+      body: Stack(
         children: <Widget>[
-          _Header(mobile: mobile),
-          Expanded(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(16, 32, 16, 0),
-              child: Center(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 1200),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      child,
-                      const SizedBox(height: 20),
-                      const _Footer(),
-                    ],
+          const _AmbientBackground(),
+          Column(
+            children: <Widget>[
+              const _Header(),
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 112),
+                  child: Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 1200),
+                      child: child,
+                    ),
                   ),
                 ),
               ),
+            ],
+          ),
+          const Positioned(
+            left: 16,
+            right: 16,
+            bottom: 16,
+            child: _BottomNavBar(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _AmbientBackground extends StatelessWidget {
+  const _AmbientBackground();
+
+  @override
+  Widget build(BuildContext context) {
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: dark
+              ? const <Color>[
+                  Color(0xFF091321),
+                  Color(0xFF10233B),
+                  Color(0xFF07111D),
+                ]
+              : const <Color>[
+                  Color(0xFFE8F1FF),
+                  Color(0xFFDCEAFF),
+                  Color(0xFFF4F8FF),
+                ],
+        ),
+      ),
+      child: Stack(
+        children: <Widget>[
+          Positioned(
+            top: -70,
+            left: -80,
+            child: _GlowOrb(
+              size: 260,
+              color: dark ? AppTheme.glowBlue : const Color(0xA0B7D7FF),
+            ),
+          ),
+          Positioned(
+            top: 130,
+            right: -100,
+            child: _GlowOrb(
+              size: 320,
+              color: dark ? AppTheme.glowCyan : const Color(0x80D0E4FF),
+            ),
+          ),
+          Positioned(
+            bottom: -140,
+            left: 60,
+            child: _GlowOrb(
+              size: 340,
+              color: dark ? const Color(0x404287FF) : const Color(0x66F5FBFF),
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _GlowOrb extends StatelessWidget {
+  const _GlowOrb({required this.size, required this.color});
+
+  final double size;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return IgnorePointer(
+      child: ImageFiltered(
+        imageFilter: ImageFilter.blur(sigmaX: 46, sigmaY: 46),
+        child: Container(
+          width: size,
+          height: size,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: RadialGradient(
+              colors: <Color>[color, color.withValues(alpha: 0.0)],
+            ),
+          ),
+        ),
       ),
     );
   }
 }
 
 class _Header extends StatelessWidget {
-  const _Header({required this.mobile});
-
-  final bool mobile;
+  const _Header();
 
   @override
   Widget build(BuildContext context) {
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
+    final bool compact = MediaQuery.sizeOf(context).width < 560;
+
     return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: <Color>[AppTheme.primary, AppTheme.primaryLight],
-        ),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Color.fromRGBO(0, 0, 0, 0.10),
-            blurRadius: 15,
-            offset: Offset(0, 6),
-          ),
-        ],
-      ),
+      margin: const EdgeInsets.fromLTRB(16, 10, 16, 0),
       child: SafeArea(
         bottom: false,
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1200),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-              child: Row(
-                children: <Widget>[
-                  InkWell(
-                    onTap: () => context.go('/'),
+            constraints: const BoxConstraints(maxWidth: 1240),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(28),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(28),
+                    color: dark
+                        ? Colors.white.withValues(alpha: 0.08)
+                        : Colors.white.withValues(alpha: 0.44),
+                    border: Border.all(
+                      color: dark
+                          ? Colors.white.withValues(alpha: 0.16)
+                          : Colors.white.withValues(alpha: 0.60),
+                    ),
+                    boxShadow: AppTheme.glassShadow(context),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 16,
+                    ),
                     child: Row(
                       children: <Widget>[
-                        Image.asset('assets/images/logo.png', height: 45),
-                        const SizedBox(width: 12),
-                        const Text(
-                          'Schola Interlingua',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.w600,
+                        InkWell(
+                          onTap: () => context.go('/'),
+                          child: Row(
+                            children: <Widget>[
+                              const AppLogo(size: 46),
+                              const SizedBox(width: 12),
+                              Text(
+                                'Schola Interlingua',
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: dark
+                                      ? Colors.white
+                                      : AppTheme.textColor(context),
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
+                        const Spacer(),
+                        if (!compact)
+                          Text(
+                            'Interlingua IALA',
+                            style: Theme.of(context).textTheme.bodyMedium
+                                ?.copyWith(
+                                  color: AppTheme.mutedTextColor(context),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
                       ],
                     ),
                   ),
-                  const Spacer(),
-                  if (mobile)
-                    Builder(
-                      builder: (BuildContext context) {
-                        return IconButton(
-                          onPressed: () => Scaffold.of(context).openDrawer(),
-                          icon: const Icon(
-                            Icons.menu_rounded,
-                            color: Colors.white,
-                          ),
-                        );
-                      },
-                    )
-                  else
-                    const _DesktopNav(),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _DesktopNav extends StatelessWidget {
-  const _DesktopNav();
-
-  @override
-  Widget build(BuildContext context) {
-    final AppController controller = AppStateScope.of(context);
-    return Row(
-      children: <Widget>[
-        _NavMenuButton(
-          label: 'Curso',
-          items: const <PopupMenuEntry<String>>[
-            PopupMenuItem<String>(value: 'nivel-1', child: Text('Nivello 1')),
-            PopupMenuItem<String>(value: 'nivel-2', child: Text('Nivello 2')),
-            PopupMenuItem<String>(value: 'nivel-3', child: Text('Nivello 3')),
-            PopupMenuItem<String>(value: 'nivel-4', child: Text('Nivello 4')),
-            PopupMenuItem<String>(value: 'nivel-5', child: Text('Nivello 5')),
-            PopupMenuItem<String>(value: 'nivel-6', child: Text('Nivello 6')),
-          ],
-          onSelected: (_) => context.go('/course'),
-        ),
-        _NavMenuButton(
-          label: 'Appendice',
-          items: const <PopupMenuEntry<String>>[
-            PopupMenuItem<String>(
-              value: 'grammatica',
-              child: Text('Breve grammatica'),
-            ),
-            PopupMenuItem<String>(value: 'numeros', child: Text('Numeros')),
-            PopupMenuItem<String>(
-              value: 'contos',
-              child: Text('Contos legite'),
-            ),
-          ],
-          onSelected: (String value) => context.go('/appendix/$value'),
-        ),
-        _NavMenuButton(
-          label: 'Jocos',
-          items: const <PopupMenuEntry<String>>[
-            PopupMenuItem<String>(
-              value: 'wordsearch',
-              child: Text('Cerca de parolas'),
-            ),
-          ],
-          onSelected: (_) => context.go('/jocos/wordsearch'),
-        ),
-        _NavMenuButton(
-          label: 'Linguas',
-          items: _languageLabels.entries
-              .map(
-                (MapEntry<String, String> entry) => PopupMenuItem<String>(
-                  value: entry.key,
-                  child: Text(entry.value),
                 ),
-              )
-              .toList(),
-          onSelected: controller.setSelectedLanguage,
-        ),
-        controller.isAuthenticated
-            ? _AccountMenu(email: controller.currentUser?.email ?? '')
-            : _NavTextButton(
-                label: 'Entrar',
-                onTap: () => context.go('/entrar'),
-              ),
-        const SizedBox(width: 8),
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha: 0.10),
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: Colors.white.withValues(alpha: 0.20)),
-          ),
-          child: IconButton(
-            onPressed: controller.toggleDarkMode,
-            icon: Icon(
-              controller.darkMode
-                  ? Icons.light_mode_outlined
-                  : Icons.dark_mode_outlined,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _MobileMenu extends StatelessWidget {
-  const _MobileMenu();
-
-  @override
-  Widget build(BuildContext context) {
-    final AppController controller = AppStateScope.of(context);
-    return SafeArea(
-      child: ListView(
-        padding: const EdgeInsets.all(16),
-        children: <Widget>[
-          ListTile(title: const Text('Inicio'), onTap: () => context.go('/')),
-          _MobileDropdownSection(
-            title: 'Curso',
-            children: List<Widget>.generate(
-              6,
-              (int index) => ListTile(
-                contentPadding: const EdgeInsets.only(left: 16, right: 8),
-                title: Text('Nivello ${index + 1}'),
-                onTap: () => context.go('/course'),
               ),
             ),
           ),
-          _MobileDropdownSection(
-            title: 'Appendice',
-            children: <Widget>[
-              ListTile(
-                contentPadding: const EdgeInsets.only(left: 16, right: 8),
-                title: const Text('Breve grammatica'),
-                onTap: () => context.go('/appendix/grammatica'),
-              ),
-              ListTile(
-                contentPadding: const EdgeInsets.only(left: 16, right: 8),
-                title: const Text('Numeros'),
-                onTap: () => context.go('/appendix/numeros'),
-              ),
-              ListTile(
-                contentPadding: const EdgeInsets.only(left: 16, right: 8),
-                title: const Text('Contos legite'),
-                onTap: () => context.go('/appendix/contos'),
-              ),
-            ],
-          ),
-          _MobileDropdownSection(
-            title: 'Jocos',
-            children: <Widget>[
-              ListTile(
-                contentPadding: const EdgeInsets.only(left: 16, right: 8),
-                title: const Text('Cerca de parolas'),
-                onTap: () => context.go('/jocos/wordsearch'),
-              ),
-            ],
-          ),
-          _MobileDropdownSection(
-            title:
-                'Linguas (${_languageLabels[controller.selectedLanguage] ?? controller.selectedLanguage})',
-            children: _languageLabels.entries
-                .map(
-                  (MapEntry<String, String> entry) => ListTile(
-                    contentPadding: const EdgeInsets.only(left: 16, right: 8),
-                    title: Text(entry.value),
-                    onTap: () => controller.setSelectedLanguage(entry.key),
-                  ),
-                )
-                .toList(),
-          ),
-          ListTile(
-            title: Text(controller.darkMode ? 'Modo clar' : 'Modo obscur'),
-            trailing: Icon(
-              controller.darkMode
-                  ? Icons.light_mode_outlined
-                  : Icons.dark_mode_outlined,
-            ),
-            onTap: controller.toggleDarkMode,
-          ),
-          const Divider(),
-          if (controller.isAuthenticated) ...<Widget>[
-            ListTile(
-              title: Text(controller.currentUser?.email ?? 'Session aperte'),
-            ),
-            ListTile(
-              title: const Text('Exir'),
-              onTap: () async {
-                Navigator.of(context).pop();
-                await controller.signOut();
-              },
-            ),
-          ] else
-            ListTile(
-              title: const Text('Entrar'),
-              onTap: () {
-                Navigator.of(context).pop();
-                context.go('/entrar');
-              },
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-class _AccountMenu extends StatelessWidget {
-  const _AccountMenu({required this.email});
-
-  final String email;
-
-  @override
-  Widget build(BuildContext context) {
-    final AppController controller = AppStateScope.of(context);
-    return PopupMenuButton<String>(
-      tooltip: email,
-      onSelected: (String value) async {
-        if (value == 'logout') {
-          await controller.signOut();
-        }
-      },
-      itemBuilder: (BuildContext context) => const <PopupMenuEntry<String>>[
-        PopupMenuItem<String>(value: 'logout', child: Text('Exir')),
-      ],
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: Row(
-          children: const <Widget>[
-            Icon(Icons.person, color: Colors.white, size: 18),
-            SizedBox(width: 6),
-            Text(
-              '▼',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ],
         ),
       ),
     );
   }
 }
 
-class _MobileDropdownSection extends StatefulWidget {
-  const _MobileDropdownSection({required this.title, required this.children});
-
-  final String title;
-  final List<Widget> children;
-
-  @override
-  State<_MobileDropdownSection> createState() => _MobileDropdownSectionState();
-}
-
-class _MobileDropdownSectionState extends State<_MobileDropdownSection> {
-  bool _expanded = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        ListTile(
-          title: Text(widget.title),
-          trailing: Icon(
-            _expanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-          ),
-          onTap: () => setState(() => _expanded = !_expanded),
-        ),
-        if (_expanded) ...widget.children,
-        const Divider(height: 1),
-      ],
-    );
-  }
-}
-
-class _NavTextButton extends StatelessWidget {
-  const _NavTextButton({required this.label, required this.onTap});
-
-  final String label;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onTap,
-      style: TextButton.styleFrom(
-        foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        textStyle: const TextStyle(fontWeight: FontWeight.w500),
-      ),
-      child: Text(label),
-    );
-  }
-}
-
-class _NavMenuButton extends StatelessWidget {
-  const _NavMenuButton({
+class _NavItemData {
+  const _NavItemData({
     required this.label,
-    required this.items,
-    required this.onSelected,
+    required this.icon,
+    required this.route,
   });
 
   final String label;
-  final List<PopupMenuEntry<String>> items;
-  final PopupMenuItemSelected<String> onSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    return PopupMenuButton<String>(
-      onSelected: onSelected,
-      itemBuilder: (BuildContext context) => items,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: Text(
-          '$label ▼',
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
+  final IconData icon;
+  final String route;
 }
 
-class _Footer extends StatelessWidget {
-  const _Footer();
+class _BottomNavBar extends StatelessWidget {
+  const _BottomNavBar();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: <Color>[AppTheme.primary, AppTheme.primaryLight],
-        ),
+    final String location = GoRouterState.of(context).uri.toString();
+    final List<_NavItemData> items = <_NavItemData>[
+      const _NavItemData(label: 'Domo', icon: Icons.home_rounded, route: '/'),
+      const _NavItemData(
+        label: 'Studiar',
+        icon: Icons.school_rounded,
+        route: '/course',
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1200),
-            child: Wrap(
-              alignment: WrapAlignment.center,
-              spacing: 18,
-              runSpacing: 18,
-              children: const <Widget>[
-                _FooterLink(label: 'Gruppetto'),
-                _FooterLink(label: 'Repositorio official'),
-                _FooterLink(label: 'Plus materiales'),
-                _FooterLink(label: 'Union Mundial pro Interlingua'),
-              ],
+      const _NavItemData(
+        label: 'Jocos',
+        icon: Icons.extension_rounded,
+        route: '/jocos/wordsearch',
+      ),
+      const _NavItemData(
+        label: 'Config',
+        icon: Icons.tune_rounded,
+        route: '/settings',
+      ),
+    ];
+
+    return SafeArea(
+      top: false,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(28),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white.withValues(alpha: 0.08)
+                  : Colors.white.withValues(alpha: 0.56),
+              borderRadius: BorderRadius.circular(28),
+              border: Border.all(color: AppTheme.borderColor(context)),
+              boxShadow: AppTheme.glassShadow(context),
+            ),
+            child: Row(
+              children: items.map((item) {
+                final bool selected =
+                    location == item.route ||
+                    (item.route == '/course' &&
+                        (location.startsWith('/course') ||
+                            location.startsWith('/level/') ||
+                            location.startsWith('/lesson/') ||
+                            location.startsWith('/reading/') ||
+                            location.startsWith('/appendix/'))) ||
+                    (item.route == '/jocos/wordsearch' &&
+                        location.startsWith('/jocos')) ||
+                    (item.route == '/settings' &&
+                        location.startsWith('/settings'));
+                return Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    child: _BottomNavButton(item: item, selected: selected),
+                  ),
+                );
+              }).toList(),
             ),
           ),
         ),
@@ -471,24 +292,57 @@ class _Footer extends StatelessWidget {
   }
 }
 
-class _FooterLink extends StatelessWidget {
-  const _FooterLink({required this.label});
+class _BottomNavButton extends StatelessWidget {
+  const _BottomNavButton({required this.item, required this.selected});
 
-  final String label;
+  final _NavItemData item;
+  final bool selected;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: Colors.white.withValues(alpha: 0.10),
-      ),
-      child: Text(
-        label,
-        style: const TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.w500,
+    return InkWell(
+      borderRadius: BorderRadius.circular(20),
+      onTap: () => context.go(item.route),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 180),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          gradient: selected
+              ? LinearGradient(
+                  colors: <Color>[
+                    AppTheme.primary.withValues(alpha: 0.92),
+                    AppTheme.primaryLight.withValues(alpha: 0.74),
+                  ],
+                )
+              : null,
+          color: selected ? null : Colors.white.withValues(alpha: 0.08),
+          border: Border.all(
+            color: selected
+                ? Colors.white.withValues(alpha: 0.18)
+                : AppTheme.borderColor(context),
+          ),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Icon(
+              item.icon,
+              size: 20,
+              color: selected ? Colors.white : AppTheme.textColor(context),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              item.label,
+              maxLines: 2,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.fade,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: selected ? Colors.white : AppTheme.textColor(context),
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
         ),
       ),
     );

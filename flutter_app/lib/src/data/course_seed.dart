@@ -73,6 +73,18 @@ const List<CourseLevel> courseLevels = <CourseLevel>[
           ),
         ],
       ),
+      CourseSection(
+        title: 'Appendice',
+        kind: LevelSectionKind.appendice,
+        items: <CourseItemRef>[
+          CourseItemRef(
+            slug: 'grammatica',
+            title: 'Breve grammatica',
+            kind: CourseItemKind.appendix,
+            icon: Icons.spellcheck_rounded,
+          ),
+        ],
+      ),
     ],
   ),
   CourseLevel(
@@ -142,6 +154,18 @@ const List<CourseLevel> courseLevels = <CourseLevel>[
             title: 'Un excursion al parco',
             kind: CourseItemKind.reading,
             icon: Icons.auto_stories_rounded,
+          ),
+        ],
+      ),
+      CourseSection(
+        title: 'Appendice',
+        kind: LevelSectionKind.appendice,
+        items: <CourseItemRef>[
+          CourseItemRef(
+            slug: 'numeros',
+            title: 'Numeros',
+            kind: CourseItemKind.appendix,
+            icon: Icons.pin_rounded,
           ),
         ],
       ),

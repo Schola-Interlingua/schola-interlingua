@@ -65,14 +65,17 @@ class _VocabularyTableState extends State<_VocabularyTable> {
                 1: FlexColumnWidth(),
               },
               children: <TableRow>[
-                const TableRow(
+                TableRow(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: <Color>[AppTheme.primary, AppTheme.primaryLight],
+                      colors: <Color>[
+                        AppTheme.primary.withValues(alpha: 0.96),
+                        AppTheme.primaryLight.withValues(alpha: 0.86),
+                      ],
                     ),
                   ),
                   children: <Widget>[
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.all(14),
                       child: Text(
                         'Interlingua',
@@ -82,7 +85,7 @@ class _VocabularyTableState extends State<_VocabularyTable> {
                         ),
                       ),
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.all(14),
                       child: Text(
                         'Tu lingua',
@@ -98,7 +101,9 @@ class _VocabularyTableState extends State<_VocabularyTable> {
                   (Map<String, String> item) => TableRow(
                     decoration: BoxDecoration(
                       border: Border(
-                        bottom: BorderSide(color: AppTheme.borderColor(context)),
+                        bottom: BorderSide(
+                          color: AppTheme.borderColor(context),
+                        ),
                       ),
                     ),
                     children: <Widget>[
@@ -182,9 +187,9 @@ class _QuizCardState extends State<_QuizCard> {
           const SizedBox(height: 20),
           Text(
             prompt,
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w700,
-            ),
+            style: Theme.of(
+              context,
+            ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 18),
           ..._choices.map((String choice) {
@@ -209,41 +214,46 @@ class _QuizCardState extends State<_QuizCard> {
               child: SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                onPressed: (_selected != null && _autoAdvancing) || _selected == choice
-                    ? null
-                    : () {
-                        setState(() {
-                          _selected = choice;
-                        });
-                        if (isCorrect) {
-                          _autoAdvancing = true;
-                          Future<void>.delayed(const Duration(milliseconds: 650), () {
-                            if (!mounted || !_autoAdvancing) return;
-                            _goToNext();
+                  onPressed:
+                      (_selected != null && _autoAdvancing) ||
+                          _selected == choice
+                      ? null
+                      : () {
+                          setState(() {
+                            _selected = choice;
                           });
-                        }
-                      },
-                style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: border, width: 2),
-                  backgroundColor: background,
-                  foregroundColor: foreground,
-                  alignment: Alignment.centerLeft,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 18,
-                    vertical: 22,
+                          if (isCorrect) {
+                            _autoAdvancing = true;
+                            Future<void>.delayed(
+                              const Duration(milliseconds: 650),
+                              () {
+                                if (!mounted || !_autoAdvancing) return;
+                                _goToNext();
+                              },
+                            );
+                          }
+                        },
+                  style: OutlinedButton.styleFrom(
+                    side: BorderSide(color: border, width: 2),
+                    backgroundColor: background,
+                    foregroundColor: foreground,
+                    alignment: Alignment.centerLeft,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 18,
+                      vertical: 22,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+                  child: Text(
+                    choice,
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: foreground,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
-                child: Text(
-                  choice,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    color: foreground,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                              ),
               ),
             );
           }),
@@ -471,9 +481,12 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
           Container(
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
-              color: AppTheme.cardColor(context),
-              borderRadius: BorderRadius.circular(16),
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white.withValues(alpha: 0.04)
+                  : Colors.white.withValues(alpha: 0.26),
+              borderRadius: BorderRadius.circular(24),
               border: Border.all(color: AppTheme.borderColor(context)),
+              boxShadow: AppTheme.glassShadow(context),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -506,6 +519,7 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
                         ),
                         side: BorderSide(color: AppTheme.borderColor(context)),
                         foregroundColor: AppTheme.textColor(context),
+                        backgroundColor: Colors.white.withValues(alpha: 0.08),
                       ),
                     ),
                   ],
@@ -536,9 +550,9 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
                 const SizedBox(height: 16),
                 Text(
                   'Toca solo litteras correcte (in disordine)',
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(height: 12),
                 Wrap(
@@ -557,14 +571,12 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
                               ? AppTheme.borderColor(context)
                               : const Color(0xFFBEC9D9),
                         ),
-                        backgroundColor:
-                            tile.used
-                                ? AppTheme.surfaceVariant(context)
-                                : AppTheme.cardColor(context),
-                        foregroundColor:
-                            tile.used
-                                ? AppTheme.mutedTextColor(context)
-                                : AppTheme.textColor(context),
+                        backgroundColor: tile.used
+                            ? AppTheme.surfaceVariant(context)
+                            : AppTheme.cardColor(context),
+                        foregroundColor: tile.used
+                            ? AppTheme.mutedTextColor(context)
+                            : AppTheme.textColor(context),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(999),
                         ),
@@ -584,9 +596,15 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
                           : () {
                               setState(() {
                                 _hintLevel = (_hintLevel + 1).clamp(0, 3);
-                                final int nextLength = (_controller.text.length + 1)
-                                    .clamp(0, expected.length);
-                                _controller.text = expected.substring(0, nextLength);
+                                final int nextLength =
+                                    (_controller.text.length + 1).clamp(
+                                      0,
+                                      expected.length,
+                                    );
+                                _controller.text = expected.substring(
+                                  0,
+                                  nextLength,
+                                );
                                 _controller.selection = TextSelection.collapsed(
                                   offset: _controller.text.length,
                                 );
@@ -613,11 +631,12 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
                               setState(() {
                                 final String normalizedAnswer =
                                     _normalizeReview(_controller.text);
-                                _correct = answerData.alternatives.any(
-                                  (String value) =>
-                                      _normalizeReview(value) ==
-                                      normalizedAnswer,
-                                ) &&
+                                _correct =
+                                    answerData.alternatives.any(
+                                      (String value) =>
+                                          _normalizeReview(value) ==
+                                          normalizedAnswer,
+                                    ) &&
                                     !_gaveUp &&
                                     _hintLevel < 3;
                                 _feedback = _correct!
@@ -673,7 +692,9 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
         .map((String value) => value.split('(').first.split(',').first.trim())
         .where((String value) => value.isNotEmpty)
         .toList();
-    final String answer = alternatives.isNotEmpty ? alternatives.first : raw.trim();
+    final String answer = alternatives.isNotEmpty
+        ? alternatives.first
+        : raw.trim();
     return _AnswerData(
       answer: answer,
       alternatives: alternatives.isEmpty ? <String>[answer] : alternatives,
@@ -681,11 +702,9 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
   }
 
   List<_LetterTile> _buildLetterTiles(String answer) {
-    final List<String> chars = answer
-        .split('')
-        .where((String char) => char.trim().isNotEmpty)
-        .toList()
-      ..shuffle(_random);
+    final List<String> chars =
+        answer.split('').where((String char) => char.trim().isNotEmpty).toList()
+          ..shuffle(_random);
     return List<_LetterTile>.generate(
       chars.length,
       (int index) => _LetterTile(index: index, char: chars[index]),
@@ -714,7 +733,10 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
   void _removeLastFromInput() {
     if (_controller.text.isEmpty) return;
     setState(() {
-      _controller.text = _controller.text.substring(0, _controller.text.length - 1);
+      _controller.text = _controller.text.substring(
+        0,
+        _controller.text.length - 1,
+      );
       _controller.selection = TextSelection.collapsed(
         offset: _controller.text.length,
       );
@@ -738,7 +760,10 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
     _hintLevel = 0;
     _gaveUp = false;
     _tileUsageStack.clear();
-    final String answer = _answerDataFor(_queue[_index % _queue.length], lang).answer;
+    final String answer = _answerDataFor(
+      _queue[_index % _queue.length],
+      lang,
+    ).answer;
     _letterTiles = _buildLetterTiles(answer);
   }
 

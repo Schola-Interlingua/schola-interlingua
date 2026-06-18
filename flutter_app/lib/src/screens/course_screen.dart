@@ -57,20 +57,33 @@ class _LevelSection extends StatelessWidget {
           ...level.sections.map((CourseSection section) {
             return Padding(
               padding: const EdgeInsets.only(top: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    section.title,
-                    style: Theme.of(
-                      context,
-                    ).textTheme.titleLarge?.copyWith(
-                      color: AppTheme.mutedTextColor(context),
-                    ),
+              child: Container(
+                padding: const EdgeInsets.all(18),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white.withValues(alpha: 0.04)
+                      : Colors.white.withValues(alpha: 0.18),
+                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white.withValues(alpha: 0.10)
+                        : AppTheme.borderColor(context),
                   ),
-                  const SizedBox(height: 20),
-                  _CourseGrid(items: section.items, controller: controller),
-                ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      section.title,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: AppTheme.mutedTextColor(context),
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    _CourseGrid(items: section.items, controller: controller),
+                  ],
+                ),
               ),
             );
           }),
@@ -112,24 +125,44 @@ class _CourseGrid extends StatelessWidget {
         final bool completed = controller.isCompleted(_completionKey(item));
         return InkWell(
           onTap: () => context.go(_pathForItem(item)),
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(22),
           child: Ink(
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
+              gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: <Color>[AppTheme.primary, AppTheme.primaryLight],
+                colors: <Color>[
+                  Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFF183A64)
+                      : AppTheme.primary.withValues(alpha: 0.86),
+                  Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFF2A5687)
+                      : AppTheme.primaryLight.withValues(alpha: 0.58),
+                ],
               ),
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(22),
               border: Border.all(
-                color: completed ? const Color(0xFF3AE374) : AppTheme.borderColor(context),
-                width: completed ? 2 : 1,
+                color: completed
+                    ? const Color(0xFF8CFFB7)
+                    : Theme.of(context).brightness == Brightness.dark
+                    ? const Color(0xB3D8E8FF)
+                    : Colors.white.withValues(alpha: 0.14),
+                width: completed ? 2.4 : 1.8,
               ),
-              boxShadow: const <BoxShadow>[
+              boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color: Color.fromRGBO(0, 0, 0, 0.08),
-                  blurRadius: 6,
-                  offset: Offset(0, 4),
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0x66020B16)
+                      : const Color(0x260B2F58),
+                  blurRadius: 20,
+                  offset: const Offset(0, 12),
+                ),
+                BoxShadow(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0x3352A8FF)
+                      : Colors.white.withValues(alpha: 0.08),
+                  blurRadius: 8,
+                  offset: const Offset(0, 0),
                 ),
               ],
             ),
@@ -152,15 +185,50 @@ class _CourseGrid extends StatelessWidget {
                         : const SizedBox(height: 32),
                   ),
                   const Spacer(),
-                  Icon(item.icon, color: Colors.white, size: 34),
+                  Container(
+                    width: 64,
+                    height: 64,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white.withValues(alpha: 0.12)
+                          : Colors.white.withValues(alpha: 0.10),
+                      border: Border.all(
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white.withValues(alpha: 0.20)
+                            : Colors.white.withValues(alpha: 0.12),
+                      ),
+                    ),
+                    child: Icon(item.icon, color: Colors.white, size: 32),
+                  ),
                   const SizedBox(height: 10),
-                  Text(
-                    item.title,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 8,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white.withValues(alpha: 0.10)
+                          : Colors.white.withValues(alpha: 0.08),
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white.withValues(alpha: 0.14)
+                            : Colors.white.withValues(alpha: 0.08),
+                      ),
+                    ),
+                    child: Text(
+                      item.title,
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                   const Spacer(),

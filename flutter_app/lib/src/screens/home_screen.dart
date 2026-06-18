@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../app_state.dart';
 import '../data/course_seed.dart';
@@ -16,10 +17,45 @@ class HomeScreen extends StatelessWidget {
       children: const <Widget>[
         _ProgressCard(),
         SizedBox(height: 24),
-        _AnkiCard(),
+        _AccessCard(),
         SizedBox(height: 24),
         _WelcomeCard(),
       ],
+    );
+  }
+}
+
+class _AccessCard extends StatelessWidget {
+  const _AccessCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppController controller = AppStateScope.of(context);
+
+    return ScholaCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            controller.isAuthenticated ? 'Session aperte' : 'Accesso',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 12),
+          Text(
+            controller.isAuthenticated
+                ? controller.currentUser?.email ?? 'Tu session es active.'
+                : 'Tu pote entrar pro synchronisar progresso o continuar como invitato.',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          const SizedBox(height: 16),
+          FilledButton(
+            onPressed: () => context.go('/entrar'),
+            child: Text(
+              controller.isAuthenticated ? 'Gerer accesso' : 'Entrar',
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -55,21 +91,28 @@ class _ProgressCard extends StatelessWidget {
           Text(summary, style: Theme.of(context).textTheme.bodyLarge),
           const SizedBox(height: 20),
           Container(
-            height: 12,
+            height: 14,
             decoration: BoxDecoration(
               color: AppTheme.surfaceVariant(context),
-              borderRadius: BorderRadius.circular(99),
+              borderRadius: BorderRadius.circular(999),
               border: Border.all(color: AppTheme.borderColor(context)),
+              boxShadow: AppTheme.glassShadow(context),
             ),
             child: FractionallySizedBox(
               alignment: Alignment.centerLeft,
               widthFactor: progress.clamp(0, 1),
-              child: const DecoratedBox(
+              child: DecoratedBox(
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: <Color>[AppTheme.primary, AppTheme.primaryLight],
                   ),
-                  borderRadius: BorderRadius.all(Radius.circular(99)),
+                  borderRadius: const BorderRadius.all(Radius.circular(999)),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      color: AppTheme.primaryLight.withValues(alpha: 0.35),
+                      blurRadius: 16,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -106,75 +149,6 @@ class _ProgressCard extends StatelessWidget {
           }
         })
         .toList();
-  }
-}
-
-class _AnkiCard extends StatelessWidget {
-  const _AnkiCard();
-
-  @override
-  Widget build(BuildContext context) {
-    final bool mobile = MediaQuery.sizeOf(context).width < 700;
-    return ScholaCard(
-      child: mobile
-          ? Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
-                _AnkiButton(),
-                SizedBox(height: 16),
-                _AnkiMeta(),
-              ],
-            )
-          : const Row(
-              children: <Widget>[
-                Expanded(child: _AnkiButton()),
-                SizedBox(width: 16),
-                _AnkiMeta(),
-              ],
-            ),
-    );
-  }
-}
-
-class _AnkiButton extends StatelessWidget {
-  const _AnkiButton();
-
-  @override
-  Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: <Color>[AppTheme.primary, AppTheme.primaryLight],
-        ),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        child: Text(
-          'Discarga Anki pro tote le curso',
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _AnkiMeta extends StatelessWidget {
-  const _AnkiMeta();
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        const Text('AnkiWeb', style: TextStyle(fontWeight: FontWeight.w500)),
-        const SizedBox(width: 10),
-        Image.asset('assets/images/logo_anki.png', width: 26, height: 26),
-      ],
-    );
   }
 }
 

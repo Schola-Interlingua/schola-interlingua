@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 enum CourseItemKind { lesson, reading, appendix, vocabulary }
 
-enum LevelSectionKind { lectiones, vocabulario, lege }
+enum LevelSectionKind { lectiones, vocabulario, lege, appendice }
 
 class CourseLevel {
   const CourseLevel({
