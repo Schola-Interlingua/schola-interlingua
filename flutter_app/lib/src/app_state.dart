@@ -91,7 +91,7 @@ class AppController extends ChangeNotifier {
       <String, List<ExportableVocabCard>>{};
   final Map<String, SrsCardProgress> _srsProgress = <String, SrsCardProgress>{};
   bool _vocabLoaded = false;
-  bool _darkMode = false;
+  bool _darkMode = true;
   SharedPreferences? _prefs;
   final Map<String, String> _completedItems = <String, String>{};
   User? _currentUser;
@@ -225,7 +225,7 @@ class AppController extends ChangeNotifier {
     _prefs = await SharedPreferences.getInstance();
     _selectedLanguage =
         _prefs?.getString('selected_language') ?? _selectedLanguage;
-    _darkMode = _prefs?.getBool('dark_mode') ?? false;
+    _darkMode = _prefs?.getBool('dark_mode') ?? true;
     final int storedCompletionVersion =
         _prefs?.getInt('completion_storage_version') ?? 0;
     if (storedCompletionVersion < _completionStorageVersion) {

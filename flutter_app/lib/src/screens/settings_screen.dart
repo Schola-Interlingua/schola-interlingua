@@ -45,6 +45,16 @@ const List<_FooterLinkData> _footerLinks = <_FooterLinkData>[
     icon: Icons.public_rounded,
     url: 'https://www.interlingua.com/interlingua-es/',
   ),
+  _FooterLinkData(
+    label: 'Terms',
+    icon: Icons.description_outlined,
+    url: 'https://www.scholainterlingua.com/terms',
+  ),
+  _FooterLinkData(
+    label: 'Privacy',
+    icon: Icons.privacy_tip_outlined,
+    url: 'https://www.scholainterlingua.com/privacy',
+  ),
 ];
 
 const String _aboutTitle = 'Benvenite a Schola Interlingua!';
