@@ -3697,18 +3697,18 @@
       "eo": "organizi"
     },
     {
-      "term": "cafe",
+      "term": "café",
       "es": "café",
-      "en": "cafe / coffee",
-      "ru": "кафе / кофе",
-      "de": "Café / Kaffee",
+      "en": "cafe",
+      "ru": "кафе",
+      "de": "Café",
       "fr": "café",
       "it": "caffè",
       "pt": "café",
-      "zh": "咖啡馆 / 咖啡",
-      "ja": "カフェ / コーヒー",
+      "zh": "咖啡馆",
+      "ja": "カフェ",
       "ca": "cafe",
-      "ko": "카페 / 커피",
+      "ko": "카페",
       "la": "cafe",
       "eo": "kafejo"
     },
@@ -7371,7 +7371,7 @@
       "eo": "persiko"
     },
     {
-      "term": "alberengina",
+      "term": "aubergina",
       "es": "berenjena",
       "en": "eggplant",
       "ru": "баклажан",
@@ -8029,7 +8029,7 @@
       "eo": "histrikso"
     },
     {
-      "term": "chameleon",
+      "term": "chameleonte",
       "es": "camaleón",
       "en": "chameleon",
       "ru": "хамелеон",
@@ -10491,7 +10491,7 @@
       "eo": "alporti"
     },
     {
-      "term": "apprendre",
+      "term": "apprender",
       "es": "aprender",
       "en": "to learn",
       "ru": "учить",
@@ -12303,7 +12303,7 @@
       "eo": "mi legas malgraŭ la nokto"
     },
     {
-      "term": "il me place le the, ma io ama le caffe",
+      "term": "me place le the, ma io ama le caffe",
       "es": "me gusta el té, pero amo el café",
       "en": "I like tea, but I love coffee",
       "ru": "мне нравится чай, но я люблю кофе",
@@ -14809,7 +14809,7 @@
       "eo": "dek ok"
     },
     {
-      "term": "dece-nove",
+      "term": "dece-novem",
       "es": "diecinueve",
       "en": "nineteen",
       "ru": "девятнадцать",
@@ -15193,7 +15193,7 @@
       "eo": "naŭcent"
     },
     {
-      "term": "novanta-nove",
+      "term": "novanta-novem",
       "es": "noventa y nueve",
       "en": "ninety-nine",
       "ru": "девяносто девять",
@@ -15951,7 +15951,7 @@
       "eo": "helpi iun por"
     },
     {
-      "term": "aprender a",
+      "term": "apprender a",
       "es": "aprender a",
       "en": "to learn to",
       "ru": "научиться",
@@ -15967,7 +15967,7 @@
       "eo": "lerni"
     },
     {
-      "term": "enseniar a alcuno",
+      "term": "inseniar a alcuno",
       "es": "enseñar a alguien",
       "en": "to teach someone",
       "ru": "учить кого-то",
@@ -16191,7 +16191,7 @@
       "eo": "malhavi iun"
     },
     {
-      "term": "narrar a alcuno",
+      "term": "contar a alcuno",
       "es": "hablar con alguien",
       "en": "to talk to someone / to tell someone",
       "ru": "рассказать кому-то",
@@ -16769,7 +16769,7 @@
       "eo": "monato"
     },
     {
-      "term": "medie-hora",
+      "term": "medie hora",
       "es": "media hora",
       "en": "half an hour",
       "ru": "полчаса",
@@ -17313,7 +17313,7 @@
       "eo": "ankoraŭ"
     },
     {
-      "term": "party",
+      "term": "festa",
       "es": "fiesta",
       "en": "party",
       "ru": "вечеринка",
@@ -18211,7 +18211,7 @@
       "eo": "perdi"
     },
     {
-      "term": "aumentar",
+      "term": "augmentar",
       "es": "aumentar",
       "en": "to increase",
       "ru": "увеличивать",
@@ -18517,13 +18517,13 @@
       "eo": "malpli"
     },
     {
-      "term": "jamais",
+      "term": "non ... jammais",
       "es": "nunca",
       "en": "never",
       "ru": "никогда",
       "de": "niemals",
-      "fr": "jamais",
-      "it": "mai",
+      "fr": "ne ... jamais",
+      "it": "non ... mai",
       "pt": "nunca",
       "zh": "从不",
       "ja": "決して〜ない",
@@ -18661,7 +18661,7 @@
       "eo": "false"
     },
     {
-      "term": "tam ben",
+      "term": "tamben",
       "es": "igualmente; así como",
       "en": "as well; just as",
       "ru": "так же",
@@ -18677,7 +18677,7 @@
       "eo": "ankaŭ"
     },
     {
-      "term": "nec me",
+      "term": "ni io",
       "es": "yo tampoco",
       "en": "me neither",
       "ru": "я тоже нет",
@@ -18773,8 +18773,8 @@
       "eo": "kiam"
     },
     {
-      "term": "magis",
-      "es": "más (no más)",
+      "term": "plus",
+      "es": "más",
       "en": "more",
       "ru": "больше",
       "de": "mehr",
@@ -18983,7 +18983,7 @@
       "eo": "dubi"
     },
     {
-      "term": "exambiar",
+      "term": "excambiar",
       "es": "intercambiar",
       "en": "to exchange",
       "ru": "обменивать",
@@ -19657,7 +19657,7 @@
       "eo": "malpli"
     },
     {
-      "term": "jamais",
+      "term": "nunquam",
       "es": "nunca",
       "en": "never",
       "ru": "никогда",
@@ -19881,22 +19881,6 @@
       "eo": "aparte"
     },
     {
-      "term": "magis",
-      "es": "más",
-      "en": "more",
-      "ru": "больше",
-      "de": "mehr",
-      "fr": "plus",
-      "it": "più",
-      "pt": "mais",
-      "zh": "更多",
-      "ja": "もっと",
-      "ca": "més",
-      "ko": "더",
-      "la": "magis",
-      "eo": "pli"
-    },
-    {
       "term": "al minus",
       "es": "por lo menos",
       "en": "at least",
@@ -19929,7 +19913,7 @@
       "eo": "ekde nun"
     },
     {
-      "term": "rapidamente",
+      "term": "rapidemente",
       "es": "rápidamente",
       "en": "quickly",
       "ru": "быстро",
@@ -19945,7 +19929,7 @@
       "eo": "rapide"
     },
     {
-      "term": "obviamente",
+      "term": "obviemente",
       "es": "obviamente; por supuesto; evidentemente",
       "en": "obviously",
       "ru": "очевидно",
@@ -19961,7 +19945,7 @@
       "eo": "evidente"
     },
     {
-      "term": "exactamente",
+      "term": "exactemente",
       "es": "exactamente",
       "en": "exactly",
       "ru": "именно",
@@ -20555,7 +20539,7 @@
       "eo": "emeritiĝi"
     },
     {
-      "term": "disoccupato",
+      "term": "disoccupate",
       "es": "desempleados",
       "en": "unemployed",
       "ru": "безработный",
