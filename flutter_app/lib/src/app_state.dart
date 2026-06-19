@@ -457,6 +457,28 @@ class AppController extends ChangeNotifier {
     await Supabase.instance.client.auth.signOut();
   }
 
+  Future<void> deleteCurrentAccount() async {
+    if (_currentUser == null) {
+      throw StateError('No authenticated user');
+    }
+
+    final FunctionResponse response = await Supabase.instance.client.functions
+        .invoke('delete-account', method: HttpMethod.post);
+
+    if (response.status != 200) {
+      final Object? data = response.data;
+      final String message = data is Map && data['error'] != null
+          ? data['error'].toString()
+          : 'Delete account failed';
+      throw Exception(message);
+    }
+
+    await Supabase.instance.client.auth.signOut();
+    await _clearLocalUserData();
+    _currentUser = null;
+    notifyListeners();
+  }
+
   static String normalizeTerm(String input) {
     return input
         .replaceAll(RegExp(r'[^\wáéíóúüñ-]', unicode: true), '')
@@ -629,6 +651,13 @@ class AppController extends ChangeNotifier {
         ),
       ),
     );
+  }
+
+  Future<void> _clearLocalUserData() async {
+    _completedItems.clear();
+    _srsProgress.clear();
+    await _prefs?.remove('completed_items');
+    await _prefs?.remove('srs_progress');
   }
 
   String _todayIso() => _today().toIso8601String();

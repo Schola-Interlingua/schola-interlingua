@@ -55,6 +55,11 @@ const List<_FooterLinkData> _footerLinks = <_FooterLinkData>[
     icon: Icons.privacy_tip_outlined,
     url: 'https://www.scholainterlingua.com/privacy',
   ),
+  _FooterLinkData(
+    label: 'Delete account',
+    icon: Icons.person_remove_outlined,
+    url: 'https://www.scholainterlingua.com/delete-account',
+  ),
 ];
 
 const String _aboutTitle = 'Benvenite a Schola Interlingua!';
@@ -73,6 +78,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   late final Set<String> _selectedLevels;
   bool _exporting = false;
+  bool _deletingAccount = false;
 
   @override
   void initState() {
@@ -269,9 +275,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 const SizedBox(height: 12),
-                OutlinedButton(
-                  onPressed: controller.signOut,
-                  child: const Text('Exir'),
+                Wrap(
+                  spacing: 12,
+                  runSpacing: 12,
+                  children: <Widget>[
+                    OutlinedButton(
+                      onPressed: controller.signOut,
+                      child: const Text('Exir'),
+                    ),
+                    FilledButton.icon(
+                      onPressed: _deletingAccount
+                          ? null
+                          : () => _confirmDeleteAccount(context, controller),
+                      style: FilledButton.styleFrom(
+                        backgroundColor: const Color(0xFFB83A3A),
+                        foregroundColor: Colors.white,
+                      ),
+                      icon: _deletingAccount
+                          ? const SizedBox(
+                              width: 16,
+                              height: 16,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                color: Colors.white,
+                              ),
+                            )
+                          : const Icon(Icons.delete_forever_rounded),
+                      label: Text(
+                        _deletingAccount ? 'Delente conto...' : 'Deler conto',
+                      ),
+                    ),
+                  ],
                 ),
               ] else ...<Widget>[
                 Text(
@@ -519,6 +553,73 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Theme.of(context).brightness == Brightness.dark
         ? const Color(0xB3121D2D)
         : const Color(0x8A0F2740);
+  }
+
+  Future<void> _confirmDeleteAccount(
+    BuildContext context,
+    AppController controller,
+  ) async {
+    final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
+    final GoRouter router = GoRouter.of(context);
+    final bool? confirmed = await showDialog<bool>(
+      context: context,
+      barrierColor: _dialogBarrierColor(context),
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: _dialogBackgroundColor(context),
+          surfaceTintColor: Colors.transparent,
+          shadowColor: Colors.black.withValues(alpha: 0.28),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(28),
+            side: BorderSide(color: AppTheme.borderColor(context)),
+          ),
+          title: const Text('Deler conto?'),
+          content: const Text(
+            'Iste action es permanente. Le conto e le progresso synchronisate essera delite de Supabase.',
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text('Cancellar'),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              style: FilledButton.styleFrom(
+                backgroundColor: const Color(0xFFB83A3A),
+                foregroundColor: Colors.white,
+              ),
+              child: const Text('Deler permanentemente'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (confirmed != true || !mounted) return;
+
+    setState(() {
+      _deletingAccount = true;
+    });
+
+    try {
+      await controller.deleteCurrentAccount();
+      if (!mounted) return;
+      messenger.showSnackBar(
+        const SnackBar(content: Text('Le conto esseva delite con successo.')),
+      );
+      router.go('/');
+    } catch (error) {
+      if (!mounted) return;
+      messenger.showSnackBar(
+        SnackBar(content: Text('Non pote deler le conto: $error')),
+      );
+    } finally {
+      if (mounted) {
+        setState(() {
+          _deletingAccount = false;
+        });
+      }
+    }
   }
 }
 
