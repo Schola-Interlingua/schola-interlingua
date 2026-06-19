@@ -5,7 +5,6 @@ import '../models/web_content_models.dart';
 import '../theme/app_theme.dart';
 import '../widgets/completion_panel.dart';
 import '../widgets/meaning_rich_text.dart';
-import '../widgets/reading_audio_control.dart';
 
 class ReadingScreen extends StatelessWidget {
   const ReadingScreen({super.key, required this.slug});
@@ -55,8 +54,6 @@ class ReadingScreen extends StatelessWidget {
                           text: reading.title,
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
-                        const SizedBox(height: 18),
-                        ReadingAudioControl(text: reading.paragraphs.join(' ')),
                         const SizedBox(height: 24),
                         mobile
                             ? Column(

@@ -18,8 +18,6 @@ class HomeScreen extends StatelessWidget {
         _ProgressCard(),
         SizedBox(height: 24),
         _AccessCard(),
-        SizedBox(height: 24),
-        _WelcomeCard(),
       ],
     );
   }
@@ -149,34 +147,5 @@ class _ProgressCard extends StatelessWidget {
           }
         })
         .toList();
-  }
-}
-
-class _WelcomeCard extends StatelessWidget {
-  const _WelcomeCard();
-
-  @override
-  Widget build(BuildContext context) {
-    return ScholaCard(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            'Benvenite a Schola Interlingua!',
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
-          const SizedBox(height: 18),
-          Text(
-            'Schola Interlingua es un platteforma digital disveloppate con le scopo de impulsar le apprension de Interlingua IALA. Con un stilo clar e moderne, nos offere lectiones structurate, vocabulario, explicationes del grammatica, e exercitios que te permitte apprender passo a passo e con confidentia.',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-          const SizedBox(height: 16),
-          Text(
-            'Nos crede in le fortia del saper collaborative, proque tote le material de Schola Interlingua es software libere e open source. Tu pote explorar, adaptar e compartir iste ressource sin restrictiones, e etiam contribuer al melioration continuate del sito.',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ],
-      ),
-    );
   }
 }

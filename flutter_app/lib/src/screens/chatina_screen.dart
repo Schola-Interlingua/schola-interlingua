@@ -9,9 +9,22 @@ class ChatinaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 900),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
+      child: const ChatinaPanel(showHeaderCard: true),
+    );
+  }
+}
+
+class ChatinaPanel extends StatelessWidget {
+  const ChatinaPanel({super.key, this.showHeaderCard = false});
+
+  final bool showHeaderCard;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        if (showHeaderCard) ...<Widget>[
           ScholaCard(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,63 +42,63 @@ class ChatinaScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
-          ScholaCard(
-            child: Column(
-              children: <Widget>[
-                const _ChatBubble(
-                  author: 'Chatina',
-                  text:
-                      'Salute! Io pote adjutar te con parolas, grammatica e conversation in Interlingua.',
-                ),
-                const SizedBox(height: 16),
-                const _ChatBubble(
-                  author: 'Tu',
-                  text: 'Que significa "gratia"?',
-                  mine: true,
-                ),
-                const SizedBox(height: 16),
-                const _ChatBubble(
-                  author: 'Chatina',
-                  text: 'In iste contexto, "gratia" pote significar "gracia".',
-                ),
-                const SizedBox(height: 20),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: TextField(
-                        decoration: const InputDecoration(
-                          hintText: 'Scribe un message...',
-                        ),
-                        minLines: 1,
-                        maxLines: 4,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    DecoratedBox(
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: <Color>[
-                            AppTheme.primary,
-                            AppTheme.primaryLight,
-                          ],
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 18,
-                          vertical: 16,
-                        ),
-                        child: Icon(Icons.send_rounded, color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
         ],
-      ),
+        ScholaCard(
+          child: Column(
+            children: <Widget>[
+              const _ChatBubble(
+                author: 'Chatina',
+                text:
+                    'Salute! Io pote adjutar te con parolas, grammatica e conversation in Interlingua.',
+              ),
+              const SizedBox(height: 16),
+              const _ChatBubble(
+                author: 'Tu',
+                text: 'Que significa "gratia"?',
+                mine: true,
+              ),
+              const SizedBox(height: 16),
+              const _ChatBubble(
+                author: 'Chatina',
+                text: 'In iste contexto, "gratia" pote significar "gracia".',
+              ),
+              const SizedBox(height: 20),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: TextField(
+                      decoration: const InputDecoration(
+                        hintText: 'Scribe un message...',
+                      ),
+                      minLines: 1,
+                      maxLines: 4,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: <Color>[
+                          AppTheme.primary,
+                          AppTheme.primaryLight,
+                        ],
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 18,
+                        vertical: 16,
+                      ),
+                      child: Icon(Icons.send_rounded, color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

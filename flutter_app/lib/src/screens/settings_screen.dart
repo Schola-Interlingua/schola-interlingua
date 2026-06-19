@@ -24,6 +24,35 @@ const Map<String, String> _languageLabels = <String, String>{
   'ko': '한국어',
 };
 
+const List<_FooterLinkData> _footerLinks = <_FooterLinkData>[
+  _FooterLinkData(
+    label: 'Gruppetto',
+    icon: Icons.forum_rounded,
+    url: 'https://t.me/scholainterlingua',
+  ),
+  _FooterLinkData(
+    label: 'Repositorio official',
+    icon: Icons.code_rounded,
+    url: 'https://github.com/Schola-Interlingua/schola-interlingua',
+  ),
+  _FooterLinkData(
+    label: 'Plus materiales',
+    icon: Icons.menu_book_rounded,
+    url: 'https://github.com/arrunzo/interlingua-es',
+  ),
+  _FooterLinkData(
+    label: 'Union Mundial pro Interlingua',
+    icon: Icons.public_rounded,
+    url: 'https://www.interlingua.com/interlingua-es/',
+  ),
+];
+
+const String _aboutTitle = 'Benvenite a Schola Interlingua!';
+const List<String> _aboutParagraphs = <String>[
+  'Schola Interlingua es un platteforma digital disveloppate con le scopo de impulsar le apprension de Interlingua IALA. Con un stilo clar e moderne, nos offere lectiones structurate, vocabulario, explicationes del grammatica, e exercitios que te permitte apprender passo a passo e con confidentia.',
+  'Nos crede in le fortia del saper collaborative, proque tote le material de Schola Interlingua es software libere e open source. Tu pote explorar, adaptar e compartir iste ressource sin restrictiones, e etiam contribuer al melioration continuate del sito.',
+];
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
@@ -81,7 +110,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Text('Deck Anki', style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 12),
               Text(
-                'Discarga un deck con le nivellos que tu selige, solo in ${_languageLabels[controller.selectedLanguage] ?? controller.selectedLanguage}.',
+                'Discarga un deck con le vocabulario del curso pro le nivellos que tu selige, solo in ${_languageLabels[controller.selectedLanguage] ?? controller.selectedLanguage}.',
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               const SizedBox(height: 16),
@@ -248,6 +277,47 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ],
           ),
         ),
+        const SizedBox(height: 24),
+        ScholaCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                'Schola Interlingua',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 16),
+              FilledButton.icon(
+                onPressed: () => _showAboutDialog(context),
+                icon: const Icon(Icons.info_outline_rounded),
+                label: const Text('A proposito de Schola Interlingua'),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 24),
+        ScholaCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text('Ligamines', style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 16),
+              Wrap(
+                spacing: 12,
+                runSpacing: 12,
+                children: _footerLinks
+                    .map(
+                      (_FooterLinkData link) => OutlinedButton.icon(
+                        onPressed: () => _showLinkDialog(context, link),
+                        icon: Icon(link.icon),
+                        label: Text(link.label),
+                      ),
+                    )
+                    .toList(),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -259,6 +329,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!_selectedLevels.contains(level.slug)) continue;
       for (final CourseSection section in level.sections) {
         for (final CourseItemRef item in section.items) {
+          if (item.kind != CourseItemKind.vocabulary) continue;
           final List<Map<String, String>> items = controller.lessonItems(
             item.slug,
           );
@@ -361,6 +432,94 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final String escaped = value.replaceAll('"', '""');
     return '"$escaped"';
   }
+
+  Future<void> _showAboutDialog(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      barrierColor: _dialogBarrierColor(context),
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: _dialogBackgroundColor(context),
+          surfaceTintColor: Colors.transparent,
+          shadowColor: Colors.black.withValues(alpha: 0.28),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(28),
+            side: BorderSide(color: AppTheme.borderColor(context)),
+          ),
+          title: const Text(_aboutTitle),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: _aboutParagraphs
+                  .map(
+                    (String paragraph) => Padding(
+                      padding: const EdgeInsets.only(bottom: 14),
+                      child: Text(paragraph),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Clauder'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _showLinkDialog(BuildContext context, _FooterLinkData link) {
+    return showDialog<void>(
+      context: context,
+      barrierColor: _dialogBarrierColor(context),
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: _dialogBackgroundColor(context),
+          surfaceTintColor: Colors.transparent,
+          shadowColor: Colors.black.withValues(alpha: 0.28),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(28),
+            side: BorderSide(color: AppTheme.borderColor(context)),
+          ),
+          title: Text(link.label),
+          content: SelectableText(link.url),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () async {
+                await Clipboard.setData(ClipboardData(text: link.url));
+                if (!context.mounted) return;
+                Navigator.of(context).pop();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Ligamine copiate: ${link.label}')),
+                );
+              },
+              child: const Text('Copiar ligamine'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Clauder'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Color _dialogBackgroundColor(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? const Color(0xFF163154)
+        : const Color(0xFFF6FAFF);
+  }
+
+  Color _dialogBarrierColor(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? const Color(0xB3121D2D)
+        : const Color(0x8A0F2740);
+  }
 }
 
 class _DeckPreview {
@@ -382,4 +541,16 @@ class _DeckCard {
   final String back;
   final String levelTitle;
   final String sourceTitle;
+}
+
+class _FooterLinkData {
+  const _FooterLinkData({
+    required this.label,
+    required this.icon,
+    required this.url,
+  });
+
+  final String label;
+  final IconData icon;
+  final String url;
 }

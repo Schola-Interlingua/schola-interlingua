@@ -134,7 +134,6 @@ class _Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool dark = Theme.of(context).brightness == Brightness.dark;
-    final bool compact = MediaQuery.sizeOf(context).width < 560;
 
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 10, 16, 0),
@@ -160,45 +159,71 @@ class _Header extends StatelessWidget {
                     ),
                     boxShadow: AppTheme.glassShadow(context),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 16,
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        InkWell(
-                          onTap: () => context.go('/'),
-                          child: Row(
-                            children: <Widget>[
-                              const AppLogo(size: 46),
-                              const SizedBox(width: 12),
-                              Text(
-                                'Schola Interlingua',
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  color: dark
-                                      ? Colors.white
-                                      : AppTheme.textColor(context),
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                  child: Stack(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 24,
+                          vertical: 16,
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            InkWell(
+                              onTap: () => context.go('/'),
+                              child: Row(
+                                children: <Widget>[
+                                  const AppLogo(size: 46),
+                                  const SizedBox(width: 12),
+                                  Text(
+                                    'Schola Interlingua',
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      color: dark
+                                          ? Colors.white
+                                          : AppTheme.textColor(context),
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
+                            const Spacer(),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: IgnorePointer(
+                          child: Container(
+                            width: 300,
+                            height: 92,
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(28),
+                                bottomRight: Radius.circular(28),
+                              ),
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: dark
+                                    ? <Color>[
+                                        const Color(0x00112940),
+                                        const Color(0xFF112940),
+                                        const Color(0xFF112940),
+                                      ]
+                                    : <Color>[
+                                        const Color(0x00FFFFFF),
+                                        const Color(0xFFF3F8FF),
+                                        const Color(0xFFF3F8FF),
+                                      ],
+                              ),
+                            ),
                           ),
                         ),
-                        const Spacer(),
-                        if (!compact)
-                          Text(
-                            'Interlingua IALA',
-                            style: Theme.of(context).textTheme.bodyMedium
-                                ?.copyWith(
-                                  color: AppTheme.mutedTextColor(context),
-                                  fontWeight: FontWeight.w600,
-                                ),
-                          ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),

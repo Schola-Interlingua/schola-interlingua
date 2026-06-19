@@ -29,9 +29,8 @@ class MeaningRichText extends StatelessWidget {
         final String clean = token
             .replaceAll(RegExp(r'[^\wáéíóúüñ-]', unicode: true), '')
             .toLowerCase();
-        final Map<String, String>? meaning = controller.lookupMeaning(clean);
         final String? translation = controller.resolveMeaning(clean, lang);
-        if (meaning == null && translation == null) {
+        if (translation == null || translation.trim().isEmpty) {
           return Text(token, style: baseStyle);
         }
         return GestureDetector(
@@ -39,13 +38,16 @@ class MeaningRichText extends StatelessWidget {
           onTapDown: (TapDownDetails details) {
             final RenderBox overlay =
                 Overlay.of(context).context.findRenderObject()! as RenderBox;
-            const double popupWidth = 220;
-            const double popupHeight = 92;
+            const double popupWidth = 160;
+            const double popupHeight = 58;
             const double edgePadding = 12;
-            const double gap = 10;
+            const double gap = 6;
 
             final double left = math.min(
-              math.max(edgePadding, details.globalPosition.dx - (popupWidth / 2)),
+              math.max(
+                edgePadding,
+                details.globalPosition.dx - (popupWidth / 2),
+              ),
               overlay.size.width - popupWidth - edgePadding,
             );
             final double top = math.max(
@@ -62,9 +64,11 @@ class MeaningRichText extends StatelessWidget {
             showMenu<void>(
               context: context,
               position: position,
-              color: AppTheme.cardColor(context),
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? const Color(0xFF173251)
+                  : const Color(0xFFF7FBFF),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(12),
                 side: BorderSide(color: AppTheme.borderColor(context)),
               ),
               items: <PopupMenuEntry<void>>[
@@ -72,23 +76,18 @@ class MeaningRichText extends StatelessWidget {
                   enabled: false,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 14,
-                    vertical: 8,
+                    vertical: 6,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Text(
-                        clean,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w700,
-                          color: AppTheme.primary,
+                        translation,
+                        style: TextStyle(
+                          color: AppTheme.textColor(context),
+                          fontWeight: FontWeight.w600,
                         ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        translation ?? clean,
-                        style: TextStyle(color: AppTheme.textColor(context)),
                       ),
                     ],
                   ),

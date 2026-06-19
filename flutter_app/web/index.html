@@ -31,6 +31,94 @@
 
   <title>flutter_app</title>
   <link rel="manifest" href="manifest.json">
+  <style>
+    #athena_fab_btn,
+    button#athena_fab_btn {
+      top: 20px !important;
+      right: 34px !important;
+      bottom: auto !important;
+      left: auto !important;
+      z-index: 9999 !important;
+    }
+
+    @media (min-width: 768px) {
+      #athena_fab_btn,
+      button#athena_fab_btn {
+        top: 22px !important;
+        right: 52px !important;
+      }
+    }
+  </style>
+  <script>
+    (function () {
+      const jquerySrc = 'https://code.jquery.com/jquery-3.7.1.min.js';
+      const chatinaSrc = 'https://ia.softwcloud.com/app/IA/chat_js/chat.js?type=mini&key=lnyghdrM5s7ixKFYr5q/u5FeWklsm25en5vAt5+fqknFt6Cnx1FYVlU=';
+
+      function ensureScript(src, onLoad) {
+        const existing = document.querySelector(`script[src="${src}"]`);
+        if (existing) {
+          if (onLoad) {
+            if (existing.dataset.loaded === 'true') {
+              onLoad();
+            } else {
+              existing.addEventListener('load', onLoad, { once: true });
+            }
+          }
+          return existing;
+        }
+
+        const script = document.createElement('script');
+        script.src = src;
+        script.addEventListener('load', () => {
+          script.dataset.loaded = 'true';
+          if (onLoad) onLoad();
+        }, { once: true });
+        document.body.appendChild(script);
+        return script;
+      }
+
+      function placeChatinaFab() {
+        const button = document.getElementById('athena_fab_btn');
+        if (!button) return false;
+
+        const mobile = window.innerWidth < 768;
+        const top = mobile ? '20px' : '22px';
+        const right = mobile ? '34px' : '52px';
+        const host = button.closest('div');
+
+        [button, host].filter(Boolean).forEach((element) => {
+          element.style.position = 'fixed';
+          element.style.top = top;
+          element.style.right = right;
+          element.style.bottom = 'auto';
+          element.style.left = 'auto';
+          element.style.zIndex = '9999';
+        });
+
+        return true;
+      }
+
+      function installChatinaObserver() {
+        ensureScript(jquerySrc, () => ensureScript(chatinaSrc));
+        placeChatinaFab();
+
+        const observer = new MutationObserver(() => {
+          placeChatinaFab();
+        });
+
+        observer.observe(document.documentElement, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['style', 'class'],
+        });
+
+        window.addEventListener('resize', placeChatinaFab);
+      }
+
+      document.addEventListener('DOMContentLoaded', installChatinaObserver);
+    })();
+  </script>
 </head>
 <body>
   <!--

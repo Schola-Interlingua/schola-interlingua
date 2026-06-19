@@ -9,7 +9,7 @@ void main() {
     await tester.pump();
 
     expect(find.text('Schola Interlingua'), findsWidgets);
-    expect(find.text('Benvenite a Schola Interlingua!'), findsOneWidget);
-    expect(find.text('Discarga Anki pro tote le curso'), findsOneWidget);
+    expect(find.text('Tu progresso'), findsOneWidget);
+    expect(find.text('Accesso'), findsOneWidget);
   });
 }
