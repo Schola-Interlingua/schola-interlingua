@@ -1,0 +1,451 @@
+{
+  "lections": {
+    "lection1": {
+      "title": "Lection 1",
+      "audioAsset": "assets/audios/lection1.mp3",
+      "paragraphs": [
+        "Io es Maria e io habita in un appartamento in Buenos Aires. Es tu Juan? Illa es Ana, mi amica. Nos parla interlingua con gratia. Iste lingua es facile a comprender si on practica cata die. Nos usa iste curso pro meliorar nostre comprension e expression."
+      ],
+      "imageAsset": "assets/images/lection1.png",
+      "grammarBullets": [
+        "Le articulo definite es le sin variationes ni de genere ni de numero.",
+        "Le articulo indefinite es un sin variationes ni de genere ni de numero.",
+        "Le pronomines personal son io, tu, ille, illa, nos, vos.",
+        "Le verbo esser in presente: io es, tu es, ille es.",
+        "Infinitivos in -ar/-er/-ir, per exemplo: parlar, comprender, habitar."
+      ]
+    },
+    "lection10": {
+      "title": "Lection 10",
+      "audioAsset": "assets/audios/lection10.mp3",
+      "paragraphs": [
+        "Mi passatempore principal es leger libros, jocar al football e codificar nove projectos in mi tempore libere. Io joca con mi amicos le fin de septimana in le parco local durante le matino. Post le joco nos bibe un caffe e discute del subjectos de technologia e ideas innovative. Io codifica in Python e JavaScript, construente applicationes web e automatisationes que facilita le vita quotidian. Quando io ha plus tempore, io practica musica in mi studio e explora nove instrumentos."
+      ],
+      "imageAsset": "assets/images/lection10.png",
+      "grammarBullets": [
+        "Infinitivos pro habitos: leger, jocar, codificar.",
+        "Enumeration con virgulas e **e** ante le ultimo elemento: leger, jocar e programmar.",
+        "Preposition **con** pro compania: joca con mi amicos, discute con ille.",
+        "Uso de **quando** pro tempore: quando io ha plus tempore."
+      ]
+    },
+    "lection2": {
+      "title": "Lection 2",
+      "audioAsset": "assets/audios/lection2.mp3",
+      "paragraphs": [
+        "Es le matino. Pedro se evelia e reguarda su horologio. Es septe horas. Ille non pote dormir e prende un libro pro leger. Pedro ama libros de multe generes. Iste libros ha colores rubie, verde, blau e jalne. Pedro jace in le lecto e non audi quando le seniora García aperi le porta. “Bon matino, matre!” Ille se leva e vade al cocina."
+      ],
+      "imageAsset": "assets/images/lection2.png",
+      "grammarBullets": [
+        "Le verbos reflexive se forma addentiante se como parola separate: eveliar se, mover se.",
+        "Pro formar le plural on addi -s o -es: libro → libros, tabula → tabulas.",
+        "Le adjectivos non se varia in genere ni numero: un libro jalne, duo libros jalne."
+      ]
+    },
+    "lection3": {
+      "title": "Lection 3",
+      "audioAsset": "assets/audios/lection3.mp3",
+      "paragraphs": [
+        "In mi casa il ha un grande dormitorio con un lecto molle e un matras confortabile. Le cossinos sur le lecto es suave e rubie. In le cocina il ha un tabula de ligno con quatro sedias elegante. Le salon es luminose e contine un sofa rubie e un television moderne. Le catto Felix ama dormir sub le tabula durante le matino e jacer sur le sofa durante le vespere. Nos invita amicos pro un parve reunion in le salon cata sabbato."
+      ],
+      "imageAsset": "assets/images/lection3.png",
+      "grammarBullets": []
+    },
+    "lection4": {
+      "title": "Lection 4",
+      "audioAsset": "assets/audios/lection4.mp3",
+      "paragraphs": [
+        "Io me leva a septe horas cata matino e me vesti rapidemente con un camisa e pantalones confortabile. Io mangia pan con lacte e un parve fructo pro le jentaculo. A octo horas io vade al officio in autobus e arriva a octo e medie. Le labor comencia, e io scribe reportos e responde a messages de e-mail con diligentia. Post le labor, io practica yoga in le studio e pois jace pro leger un libro durante un hora."
+      ],
+      "imageAsset": "assets/images/lection4.png",
+      "grammarBullets": [
+        "Pro indicar hora on usa a + numero: a septe horas, a octo e medie.",
+        "Le adverbios de modo se forma addentiante -mente: rapidemente.",
+        "Infinitivo post verbos de habito: me leva, practica yoga, lege un libro."
+      ]
+    },
+    "lection5": {
+      "title": "Lection 5",
+      "audioAsset": "assets/audios/lection5.mp3",
+      "paragraphs": [
+        "Io ama mangiar pizza con caseo e tomate in un parve pizzeria local. Le menu offere diverse specialitates, como pasta al pesto e gelato artisanal pro le fin del prandio. Io sovente bibe un caffe calide post le cena, ma a vices prefere aqua frigide durante le die. Le aqua in le refrigerator es sempre frigide e clar. Nos visita le restaurante cata venerdi pro gauder de un ambiente amical e del gastronomia excellente."
+      ],
+      "imageAsset": "assets/images/lection5.png",
+      "grammarBullets": [
+        "Le partitivos se forma con un + substantivo + con + ingrediente: un pan con tomate, pizza con caseo.",
+        "Pro exprimer preferentias on usa preferer: io prefere le aqua frigide, illa prefere le pasta al dente."
+      ]
+    },
+    "lection6": {
+      "title": "Lection 6",
+      "audioAsset": "assets/audios/lection6.mp3",
+      "paragraphs": [
+        "Buenos Aires es un grande citate con multe quartieros differente e un character vibrante. Il ha museos famose como le Museo National de Belle Artes e placias historic como le Placia de Maio. Le Placia de Maio se trova ante le Casa Rosate, un symbolo politic e historic. Le transporto public comprende autobus, metro e trainos rapide que connecte cata quartiero con le centro. Le stratas es animate de touristas que visita cata die le Obelisco e le librerias artisanal."
+      ],
+      "imageAsset": "assets/images/lection6.png",
+      "grammarBullets": [
+        "Prepositiones de loco: in (in), ante (ante), sub (sub), detra (detra).",
+        "Superlative con le plus: le plus grande citate, le plus famose museo.",
+        "Adjectivos de nationalitate o stile non se varia: historic, famose, rapide."
+      ]
+    },
+    "lection7": {
+      "title": "Lection 7",
+      "audioAsset": "assets/audios/lection7.mp3",
+      "paragraphs": [
+        "Le climate in Buenos Aires cambia durante le anno. In le estate il face plus de 30 grados e il ha multe dies insolate, ideal pro promenar in le parcos. In le hiberno il face minus 5 grados e il pote haber pluvia frequente, con vento frigide e intense. Nos ama ir al parco quando le celo es clar e le vento es suave. A vices le tempestas rapidemente arriva con vento forte e pluvia intense. Durante le die le temperatura pote variar bastante. Isto require que nos prepara vestimentos differente pro cata situation."
+      ],
+      "imageAsset": "assets/images/lection7.png",
+      "grammarBullets": [
+        "Prepositiones de tempore: in + statione (in le estate, in le hiberno).",
+        "Comparativo con plus…que e minus…que: plus calide que, minus frigide que.",
+        "Pro indicar frequentia on usa a vices (a veces)."
+      ]
+    },
+    "lection8": {
+      "title": "Lection 8",
+      "audioAsset": "assets/audios/lection8.mp3",
+      "paragraphs": [
+        "Io vole comprar un libro de grammatica e un camisa elegante pro mi presentation. Le precio del libro es 20 euros e le camisa 35 euros, faciente un total de 55 euros. Le mercator usa un systema digital e manda un recepta per e-posta a cata cliente. Nos beneficia de un disconto de 10 per cento pro clientes fidel. Io paga con mi carta de credito e conserva le recepta pro referentia futur."
+      ],
+      "imageAsset": "assets/images/lection8.png",
+      "grammarBullets": [
+        "Le numerales se scribe directemente: 20, 35, 55 (illos non se conjuga).",
+        "Le partitivos se forma con un + substantivo + de + quantitate: un disconto de 10 %.",
+        "Infinitivo post vole: io vole comprar, ille vole pagar.",
+        "Como tote le adjectivos, le adjectivo digital es invariable: systema digital, recepta digital."
+      ]
+    },
+    "lection9": {
+      "title": "Lection 9",
+      "audioAsset": "assets/audios/lection9.mp3",
+      "paragraphs": [
+        "Io vade in traino a Cordoba le proxime venerdi. Le trajecto dura circa 4 horas e passa per belle paisages montaniose e campos verde. Io reserva un sede sur le sito web official del compania ferroviari. Le station de Cordoba es grande e ben organisate, con cafés, botecas e information pro passageros. Durante le viage io lege un libro e ascolta musica pro passar le tempore."
+      ],
+      "imageAsset": "assets/images/lection9.png",
+      "grammarBullets": [
+        "Futuro con va + infinitivo: io va in traino, nos va partir.",
+        "Durante pro exprimer simultaneitate: durante le viage."
+      ]
+    }
+  },
+  "readings": {
+    "le-casa-de-libros": {
+      "title": "Le casa de libros",
+      "paragraphs": [
+        "In le centro de mi citate il ha un edificio antique e charmante. Su fenestras es alte e su porta es de ligno obscur. Supra le entrata, un signo dice: “Le casa de libros”. Illo es le nomine del bibliotheca public, un loco magic ubi io ama passar mi tempore libere.",
+        "Io visita le casa de libros cata septimana. Le ambiente es calme, le odor del libros antique es confortante, e le silentio invita al concentration. Le bibliothecarios es semper amabile e prompto a ajudar a trovar libros o suggerer nove lectiones.",
+        "Le bibliotheca ha multe sectiones: libros de historias, scientia, arte, geographia, linguas e etiam libros pro infantes. Mi section favorite es celle de aventuras. Io ama leger historias de exploratores, pirates, e viages inter continentes. Le libros me porta a mundos que io non pote visitar in realitate.",
+        "In un angulo del sala il ha tabulas e placias pro studiar. Altere personas veni pro facer deberes, recercas, o simplemente leger in pace. Qualque vices io me sede ibi pro scriber in mi jornal o pro traducer textos in Interlingua.",
+        "Hodie io ha prendite in préstamo tres libros: un roman de misterio, un libro de photos historic, e un dictionario de Interlingua. Io les va leger durante le septimana, probabilemente con un tassa de the caliente.",
+        "Le casa de libros non es solmente un edificio con libros. Illo es un templo del sapere, un refugio pro le mente, e un porta aperte al imagination. Io spera que illo remane aperte pro sempre, pro que nove generationes pote sentir le mesme fascino que io senti cata vice que io entra ibi."
+      ],
+      "imageAsset": "assets/images/lectura-le-casa-de-libros.png"
+    },
+    "le-inventores": {
+      "title": "Le inventores",
+      "paragraphs": [
+        "Le mundo in le qual nos vive hodie es plen de cosas que ha essite create per inventores. Sin lor ideas, nostre vita esserea multo differente. Le inventores es personas curiose, creative e determinate, qui cerca solutiones a problemas o vole meliorar le maniera in que nos face cosas.",
+        "Alcunos del inventiones plus importante in le historia es le imprimeria de Gutenberg, le lampona electric de Edison, le automobile de Karl Benz, e le avion de los fratres Wright. Cata invention cambiava le mundo de un maniera fundamental.",
+        "Ma non solmente le grande nomines es importante. Cata die, personas in le mundo integre crea nove instrumentos, applicationes, e mechanismos que meliora le vita quotidian. In hospitales, scholas, casas, e industria, le inventiones ha un rolo essential.",
+        "Un inventor non sempre trova le solution al prime tentativa. Le processo involve errores, experimentos, e multe patientia. Thomas Edison mesme diceva que ille non falleva, ma solmente trovava cento manieras que non functionava.",
+        "Hodie, con le technologia moderne, il es plus facile que jammais compartir ideas e collaborar con alteres pro inventar. Le internet, le intelligentia artificial e le robotica es campos ubi multe cosas nove se inventa cata anno.",
+        "Es importante que le juventute sia incoragiate a pensar de maniera creative e a explorar su proprie ideas. Qui sape? Forsan le proxime grande inventor del futuro es un infante qui hodie construe cosas con pecias de plastic o face experimentos in le jardin de su casa.",
+        "Le inventores es visionarios. Illes vide non solmente lo que es, ma lo que pote esser. Gratias a illes, le mundo continua cambiar e progredir. Es per le inventores que le imagination deveni realitate."
+      ],
+      "imageAsset": "assets/images/lectura-le-inventores.png"
+    },
+    "le-linguas-del-mundo": {
+      "title": "Le linguas del mundo",
+      "paragraphs": [
+        "In le mundo hodierne, il ha milles de linguas parlate per personas de differentes culturas, regiones e historias. Cata lingua es un tresor cultural que reflecte le maniera de pensar, viver e sentir de un populo.",
+        "Le linguas pote esser multo differente inter se. Alcun linguas ha alphabetes complexe, como le chinese; alteres usa alphabetes simile al latin, como le espaniol, le anglese o le Interlingua. In alcun linguas, le tonos cambia le signification del parola; in alteres, le ordine del parolas es le clave del significato.",
+        "Le linguas cambia con le tempore. Parolas nove appare, alteres desapare, e le grammatica pote evoluer. Isto monstra que le linguas es cosas vivente, parte del vita quotidian del humanos. Anque le mesme lingua pote esser parlate de maniera differente in diverse regiones, como le francese in Francia e Canada, o le portugese in Brasil e Portugal.",
+        "Alcun linguas ha milles de milliones de parlatores, como le anglese, le mandarino o le hindi. Altere ha solmente centos o decenas, e es in periculo de disparer. Organisationes international labora pro proteger e revitalisar linguas minoritari, proque cata lingua es parte del patrimonio human.",
+        "Interlingua es un exemplo de lingua planificate, create pro facilitar le communication inter personas de linguas differente. Su vocabulario veni del linguas romanice, e su grammatica es simple e regular. Illa es facile a apprender e a usar, e pote servir como un ponte linguistic inter culturas.",
+        "Studiar linguas del mundo es un maniera de comprender melio le humanitate. Le linguas aperi portas a nove ideas, nove perspectivas e nove amicitiis. Plus nos comprende le linguas, plus nos comprende nos mesme e le mundo in le qual nos vive."
+      ],
+      "imageAsset": "assets/images/lectura-le-linguas-del-mundo.png"
+    },
+    "mi-familia": {
+      "title": "Mi familia",
+      "paragraphs": [
+        "Mi familia es parve, ma multo unite. Nos habita in un casa in le suburbios de un citate tranquille. In mi familia, il ha quatro personas: mi patre, mi matre, mi soror minor e io.",
+        "Mi patre labora como medico in un hospital local. Ille es un homine intelligente e dedicate, qui ama su profession e cuida ben su pacientes. Cata die, ille reveni tarde del labor, ma il trova sempre tempore pro parlar con nos e narrar historias amusante.",
+        "Mi matre es un femina ben organisate e creative. Illa es un inseniatora in un schola primari. Illa ama inseniar le infantes e sempre ha ideas nove pro facer le lectiones interessante. In le casa, illa prepara delicat repas e decora le ambiente con flores e colores vivide.",
+        "Mi soror ha dece annos. Illa es curiose, energic e multo loquace. Illa ama leger libros de aventuras, jocar con su amicas, e scriber historias imaginari. Illa vole devenir scriptrice in le futuro. Quando nos ha tempore libere, nos joca inseme o guarda filmes.",
+        "Io es le primogenite. Io ha dece-septe annos e studia in le liceo. Mi materias favorite es historia e linguas. Io ha un interesse special in Interlingua, proque es un lingua que nos uni con multe culturas e es facile a apprender. Io usa Interlingua pro scriber textos, parlar con alteres in le internet, e explorar litteratura.",
+        "Cata sabbato, nos face un activitate commun: nos visita le bibliotheca, face un picnic in le parc o visita nostre granmatre, qui habita proxime. Illa es un femina sage e calide, e illa nos conta historias de su juventute, que nos ama audir.",
+        "Mi familia non es perfecte, ma nos supporta un le altere in tote circumstantias. Nos ride inseme, nos resolve problemas inseme, e nos celebra tote le bon momentos. Pro me, mi familia es le cosa le plus importante in le mundo."
+      ],
+      "imageAsset": "assets/images/lectura-mi-familia.png"
+    },
+    "proque-interlingua-es-utile": {
+      "title": "Proque Interlingua es utile",
+      "paragraphs": [
+        "Interlingua es un lingua international create pro render le communication inter personas de linguas differente plus facile. Su vocabulario es basate super le parolas commun del linguas romanice como le espaniol, italian, francese e portugese, ma anque recognoscibile pro parlatores de anglese e altere linguas europee.",
+        "Un del principales avantagios de Interlingua es su simpliciate. Le grammatica es regular e sin exceptiones complicate. Le verbos non cambia secundo le persona, e le substantivos non ha generos variabile. Isto face que le lingua es facile a apprender, mesmo pro qui non ha experientia previe con linguas estranier.",
+        "Interlingua es utile in multe contextos. Pro viagiar, illo pote servir como un lingua de base in paises ubi le linguas romanice es parlate. Pro communication scientific e technic, Interlingua pote servir como instrumento de divulgation, proque multe terminos in medicina, biologia e technologia es recognoscibile in Interlingua.",
+        "Un altere utilitate es in le mundo del traduction. Un texto in Interlingua pote esser comprehendite per milliones de personas sin traduction. Isto reduce le custos e tempore in projectos international. Pro medios de communication, blogs e materiales educative, Interlingua es un ponte inter culturas.",
+        "Ma le utilitate de Interlingua non es solmente practic. Illo anque promove le comprension intercultural, le tolerantia e le idea que le communication es possibile sin barreras. In un mundo ubi le contactos inter populos es quotidian, un lingua como Interlingua pote fomentar le pace e le cooperation.",
+        "Pro tote iste rationes, Interlingua es un instrumento utile, moderne e humanistic. Es un lingua non solmente pro parlar, ma pro connecter le mundo. Apprender Interlingua es un passo verso un mundo plus unite e accessible a omnes."
+      ],
+      "imageAsset": "assets/images/lectura-proque-interlingua-es-utile.png"
+    },
+    "un-die-in-scola": {
+      "title": "Un die in scola",
+      "paragraphs": [
+        "Io me leva cata matino a septe horas. Post lavar mi facie e vestir me, io prende un parve dejunator: usualmente un tassa de lacte e un pan con confitura. Postea, io prepara mi sachol e saluta mi familia ante que vader al scola.",
+        "Mi scola non es multo longe de mi casa, assi io vade a pede con mi amicos. Durante le cammino, nos parla de multe cosas: le lectiones, le professores, le sports e le cosas amusante que nos ha vidite o legite.",
+        "Le lectiones comencia a octo e medie. Le prime hora es de mathematica. Nos apprende a resolver problemas de algebra e geometria. Le maestra es patiente e explica le cosas con claritate. Post mathematica, nos ha historia, ubi nos parla del civilisations antique como le roman e le egiptie.",
+        "In le recreation, nos ha tempore pro jocar in le cortile. Alcunos joca football, alteres simplemente parla o mangia un snack. Io ama parlar con mi amicos e rider de cosas amusante que occurre in le classe.",
+        "Post le recreation, nos ha lectiones de linguas. Mi classe studia anglese e Interlingua. Le grammatica de Interlingua es simple e le vocabulario es recognoscibile. Nostre professor dice que Interlingua es un clave pro communicar con multe personas in le mundo.",
+        "Le ultime lection del die es scientia. Hodie nos ha experimentos in le laboratorio. Nos ha observate como le aqua cambia su stato con le calor. Illo es interessante e amusante apprender con le manos.",
+        "Le scola termina a duo horas. Io reveni al casa, prende mi prandio, e face un poco de deberes. In le tarde, io ha tempore libere pro leger, jocar o passar tempore con mi familia.",
+        "Un die in scola es plen de activitate, apprendimento e amusamento. Io ama apprender nove cosas e compartir mi tempore con amicos. Cata die porta nove opportunitates de crescer e esser melior."
+      ],
+      "imageAsset": "assets/images/lectura-un-die-in-scola.png"
+    },
+    "un-excursion-al-parco": {
+      "title": "Un excursion al parco",
+      "paragraphs": [
+        "Dominica passate, io faceva un excursion al parco con mi familia. Le die esseva soleate, le celo esseva blau, e un brisa placente moveva le folios del arbores. Nos decideva portar un picnic e passar le die in natura.",
+        "Nos arrivava al parco in le matino. Le parco es vaste e verde, con multo spatio pro jocar, caminar e relaxar. In le centro il ha un lacu con cygnos blanc e anates. Nos trovava un bon placia sub un arbore e poneva un mantello super le herba.",
+        "Post instalar nos, nos faceva un parve paseo. Nos videva flores colorate, ascoltava le canto del aves, e videva infantes qui jocabant in le area de ludos. Mi fratre portava un pelota e nos jocabant al football sur le prato.",
+        "Quando nos comenciava haber fame, nos retornava al mantello e prendeva nostre picnic. Nos mangiava sandwiches, fructos, e torta de chocolate. Postea, nos relaxava, qualcunos legeva, alteres simplemente prendeva un siesta al sombra.",
+        "In le postmeridie, nos faceva un altere camminata, iste vice per un sentiero que conduceva a un collinetta. Del summitate, nos poteva vider tote le parco. Illo esseva un vista superbe. Nos prendeva photos pro recordar le momento.",
+        "Al fin del die, nos colligiva nostre cosas e retornava al casa, un poco fatigate, ma multo contente. Le excursion al parco esseva simple, ma plen de gaudio, natura e tempore bon compartite con mi familia."
+      ],
+      "imageAsset": "assets/images/lectura-un-excursion-al-parco.png"
+    },
+    "un-futuro-interlingual": {
+      "title": "Un futuro interlingual",
+      "paragraphs": [
+        "In un mundo que deveni cata die plus connectite, le necessitate de comprender se inter culturas es plus importante que jammais. In iste contextos, Interlingua pote haber un rolo central in le futuro del communication international.",
+        "Interlingua es un lingua construite pro esser comprensibile sin studio previe pro milliones de personas, specialmente illes qui parla linguas romanice. Su grammatica simple e su vocabulario recognoscibile face de Interlingua un instrumento ideal pro communication global.",
+        "Imagina un mundo ubi textos official, instructiones, e informationes scientific es disponibile in Interlingua. Isto permiterea un accesso plus equitable al sapientia human, sin le barriera del traduction constante. Le medios de communication, le education, e mesmo le negotiationes international poterea profitar de un lingua-ponti como Interlingua.",
+        "In le futuro, Interlingua pote esser usate in conferentias, cooperationes inter organisationes non governamental, e projectos commun inter paises. Su neutralitate linguistic es un avantage: illo non appartene a un nation specific, ma es proprietate commun de tote le humanitate.",
+        "In le sphera digital, Interlingua pote servir como lingua de base pro contento web, intelligentia artificial, e communication inter robots e humanos. Le simpliciate del structura grammatical facilita le processus automatic de traduction e le comprehension per machinas.",
+        "Le education pote jocar un rolo clave. Si Interlingua es introducite como lingua auxiliar in scholas e universitate, le nove generationes potera communicar plus facilmente trans frontieras. Isto poterea fomentar plus tolerantia, cooperation, e mutual respectamento.",
+        "Un futuro interlingual non significa abandonar le linguas local, ma supplementar los con un instrumento commun. Illo es un futuro ubi le comprension ha prioritate, e ubi le parola deveni un ponte, non un muro. Con Interlingua, le mundo pote esser un poco plus unite."
+      ],
+      "imageAsset": "assets/images/lectura-un-futuro-interlingual.png"
+    },
+    "un-viage-in-tren": {
+      "title": "Un viage in tren",
+      "paragraphs": [
+        "Le septimana passate, io faceva un viage in tren con mi familia. Nos voleva visitar nostre parentes in un altere citate, e le tren esseva le maniera plus confortable e rapide de arrivar ibi. Nos comprava billetes in linea e nos preparava nostre valisetas le die anterior.",
+        "In le matino, nos arrivava al station con sufficiente tempore. Le tren arrivava punctualmente, e nos trovava nostre placias facilemente. Io sedeva vicino al fenestra, pro poter admirar le paisage durante le viage. Le tren esseva moderne, net e tranquille.",
+        "Durante le percurso, nos passava per campanias verde, montanias in le distantia, e parve villas con casas colorate. Io legeva un libro, mi soror ascoltava musica, e mi parentes parlava e prendeva cafe del vagone restaurant.",
+        "Un annuncio del conductor informava nos quando nos approximava al proxime stationes. Le voce esseva clar e cortes. Io trovava amusante observar le personas qui montava e dismontava: viagiatores, familias, personas de affares, e juvene studiosos.",
+        "Post circa duo horas e medie, nos arrivava a nostre destination. Le viage esseva confortabile e sin difficultates. Nos descendeva del tren, prendeva nostre bagage, e salutava nostre oncle e tante qui nos attendeva al station.",
+        "Iste viage in tren esseva un experientia placente. Io prefere trenes al carros, proque on pote relaxar, leger, parlar, o simplemente admirar le mundo que passa foras del fenestra. Io spera facer multe altere viages in tren in le futuro!"
+      ],
+      "imageAsset": "assets/images/lectura-un-viage-in-tren.png"
+    },
+    "un-visita-al-mercato": {
+      "title": "Un visita al mercato",
+      "paragraphs": [
+        "Hodie io ha facite un visita al mercato de mi citate. Le sol brillava e le aer era fresc, perfecte pro un cammino matinal. Le mercato es situate in le placia central, ubi multe personas se incontra pro comprar fructos, legumines, pan fresc e altere productos local.",
+        "Quando io arrivava, io poteva audir le voces del venditores que clamava su ofertas: “Pommes dulcissime! Tomates frescissime! Pan calide appena ex le furno!” Le colores del fructos e legumines era vive: rubie, verde, orange, e multe nuantias de jaune.",
+        "Io me stoppava a un banchina ubi un femina vendeva flores. Illa me salutava con un sorriso e me offereva un bouquet de tulipas. Io lo comprava pro decorar mi camera. Postea, io vadeva al banchina del paniero, ubi io trovava pan integral, croissants, e un torta de pomo irresistible.",
+        "Un altere banchina offereva formaggio, olivas, e productos del region. Le venditor me offereva un degustation de un formaggio herbarate. Illo esseva delicat! Io comprava un poco pro portar a casa e compartir con mi familia.",
+        "Io incontrava un amica de mi classe, e nos parlava un poco ante que continuar nostre compras. Illa comprava bananas e io trovava alcun herbas aromatic pro le cocina. Nos ambes diceva que nos ama le atmosfera del mercato, plen de vita e colores.",
+        "Post circa un hora, io habeva tote lo que io necessitava. Mi sacco esseva plen, e mi corde esseva contente. Le visita al mercato non es solmente un occasione pro comprar, ma etiam un experientia social e cultural que io apprecia multo.",
+        "Quando io retornava a casa, mi matre esseva felice de vider tote le cosas que io habeva portate. Nos preparava inseme un prandio con le ingredientes fresc. Illo esseva un die simple, ma plen de sapor e bon humor."
+      ],
+      "imageAsset": "assets/images/lectura-un-visita-al-mercato.png"
+    }
+  },
+  "appendices": {
+    "contos": {
+      "title": "Contos legite in interlingua",
+      "sections": []
+    },
+    "grammatica": {
+      "title": "Grammatica de Interlingua",
+      "sections": [
+        {
+          "title": "1. Verbo",
+          "paragraphs": [
+            "Il ha tres typos de verbos in Interlingua: illos que termina in -ar, -er e -ir. Le conjugation es regular e non varia secundo le persona o le numero. Le terminationes principal es:",
+            "Le verbos auxiliar como esser, haber e vader ha formas breve: es, ha, va. Illes se usa pro formar tempores composite o expressiones impersonal.",
+            "Exemplo de voce passive: le libro es vendite / le libro ha essite vendite."
+          ],
+          "bullets": [
+            "-r (infinitive): parlar, vider, audir",
+            "-a (presente): io parla, tu parla, nos parla",
+            "-va (imperfecte): io parlava, tu parlava",
+            "-ra (futuro): io parlara (con emphase sur le -a final), tu parlara; etiam con va: io va parlar",
+            "-rea (conditional): io parlarea (con emphase sur le -e- de -rea)",
+            "-te (participio passate): parlate, vidite, audite",
+            "-nte (participio presente): parlante, vidente, audiente"
+          ]
+        },
+        {
+          "title": "2. Grados de adjectivos e adverbios",
+          "paragraphs": [
+            "On forma le comparativo e le superlativo anteponente plus o le plus al adjectivo o adverbio: plus grande, le plus grande, plus rapidemente. On pote etiam intensificar con:",
+            "Comparation: Un avion vola plus rapidemente que un ave."
+          ],
+          "bullets": [
+            "-issime (adjectivo): bellissime",
+            "-issimo (adverbio): fortissimo",
+            "multo: multo rapide"
+          ]
+        },
+        {
+          "title": "3. Pronomines personal",
+          "paragraphs": [
+            "Le pronomines personal include:",
+            "Per exemplo:",
+            "Le pronomines non se omitte. Post prepositiones, on usa le forma de objecto, salvo in le tertie persona."
+          ],
+          "bullets": [
+            "Subjecto: io, tu, ille, illa, illo, on, nos, vos, illes",
+            "Objecto: me, te, le, la, lo, se, nos, vos, les, las, los",
+            "Possessive: mi, tu, su, nostre, vostre, lor",
+            "Formas independente: le mie, le tue, le sue, le nostre, le vostre, le lore",
+            "Mi papa e le tue joca al chacos. Io joca al chacos.",
+            "Illa se lava. On audi nihil.",
+            "Il ha vino. Il pluve."
+          ]
+        },
+        {
+          "title": "4. Pronomines relative",
+          "paragraphs": [
+            "Illos se usa pro unir phrases e referer a un elemento mentionate ante. Le principales es:"
+          ],
+          "bullets": [
+            "qui (subjecto, personas): le damas qui canta",
+            "que (complemento, cosas o personas): le libro que io lege",
+            "cuje: un anglese, cuje nomine es secrete",
+            "le qual, le quales: le casa vetere, le qual esseva renovate; cinque casos in le quales un minor trauma causava un major problema de chirurgia abdominal",
+            "lo que: non sape ancora lo que su filio ha facite"
+          ]
+        },
+        {
+          "title": "5. Pronomines demonstrative",
+          "paragraphs": [
+            "Iste pronomines non cambia pro genere o numero. Illes pote functionar como adjectivos o pronomines.",
+            "Pro exemplo: Vole tu iste tassa o ille?"
+          ],
+          "bullets": [
+            "iste (iste/iste/istes/istas): pro proxime del parlante",
+            "ille (ille/ille/illes/illas): pro le plus longe del parlante"
+          ]
+        },
+        {
+          "title": "6. Parolas interrogative",
+          "paragraphs": [
+            "Illes se usa pro formar questiones aperte. Alcun commun:"
+          ],
+          "bullets": [
+            "que",
+            "qui",
+            "qual",
+            "quando",
+            "como",
+            "ubi",
+            "proque",
+            "quanto",
+            "quante"
+          ]
+        },
+        {
+          "title": "7. Articulos",
+          "paragraphs": [
+            "Il ha articulos definite e indefinite:",
+            "Per exemplo: le libro, le femina, le infantes, un casa"
+          ],
+          "bullets": [
+            "un: articulo indefinite, non cambia pro genere",
+            "le: articulo definite, non cambia pro numero o genere"
+          ]
+        },
+        {
+          "title": "8. Substantivos",
+          "paragraphs": [
+            "Le plural se forma con:"
+          ],
+          "bullets": [
+            "-s post vocal: auto → autos",
+            "-es post consonante: nation → nationes"
+          ]
+        },
+        {
+          "title": "9. Adjectivos",
+          "paragraphs": [
+            "Adjectivos non se declina pro genere o numero. Generalmente illes se pone post le substantivo, benque adjectivos curte pote esser anteponite.",
+            "Pro exemplo: un libro bon, bon libros, feminas intelligente"
+          ],
+          "bullets": []
+        },
+        {
+          "title": "10. Adverbios",
+          "paragraphs": [
+            "Le majoritate se forma con -mente a partir del adjectivo. Si le adjectifo fini in -c, -amente es adjungite in su loco.",
+            "Il ha etiam adverbios curte como ben, mal, poco, multo."
+          ],
+          "bullets": [
+            "rapidemente de rapide",
+            "practicamente de practic"
+          ]
+        },
+        {
+          "title": "11. Conjugation composite",
+          "paragraphs": [
+            "Le perfecto e plusquamperfecto se forma con le verbo auxiliar haber + le participio passate (-te).",
+            "Pro exemplo: io ha parlate, nos haveva scribite",
+            "Le voce passive usa esser como auxiliar: le libro es vendite"
+          ],
+          "bullets": []
+        },
+        {
+          "title": "12. Phrases importante e forma special: sia",
+          "paragraphs": [
+            "Le phrase imperative non ha subjecto expresse: Parla!, Vide!, Audi!",
+            "Sia es un forma special del modo subjunctive de esser e pote esser usate como imperativo: Sia felice!"
+          ],
+          "bullets": []
+        },
+        {
+          "title": "13. Numeros cardinal e ordinal",
+          "paragraphs": [
+            "Cardinales: un, duo, tres, quatro…. Ordinales: 1e prime, 2e secunde, 3e tertie…",
+            "Per exemplo: hodie es le vinti-un de augusto"
+          ],
+          "bullets": []
+        },
+        {
+          "title": "14. Ordine de parolos e emphase",
+          "paragraphs": [
+            "Le ordine basic es Subjecto–Verbo–Objecto. Pro exemplo: Un autor scribe libros.",
+            "Negation ante le verbo: Io non mangia.",
+            "Le pronomines de objecto va ante le verbo: Tu la vide.",
+            "In le maniera simple de poner un question, le ordine es Verbo–Subjecto–Objecto: Vide tu nostre amica?",
+            "Interlingua usa le 26 litteras del alphabeto latin. Le emphase normalmente cade sur le penultime syllaba si illo fini con un vocal e sur le ultime syllaba si illo fini con un consonante."
+          ],
+          "bullets": []
+        }
+      ]
+    },
+    "numeros": {
+      "title": "numeros",
+      "sections": [
+        {
+          "title": "Regulas de formation",
+          "paragraphs": [],
+          "bullets": [
+            "Le cifras de zero a novem ha formas specific: zero, un, duo, tres, quatro, cinque, sex, septe, octo, novem (o nove; le -m final del latino classic es frequentemente usate pro evitar le confusion con le adjectivo nove que es le contrario de ancian).",
+            "Le prime decenas: dece [10], vinti [20], trenta [30], quaranta [40]. Le decenas a partir de 50 se forma con le cifra + \"anta\": cinquanta, sexanta, septanta, octanta, novanta.",
+            "Le numeros composite se forma con un tracto de union: dece-duo, septanta-novem.",
+            "Le centos se forma con le cifra + \"centos\": cento, duo centos, tres centos, etc.",
+            "Le milles se forma de maniera similar: mille, duo milles, tres milles, etc.",
+            "Es usate le scala longe: million, milliardo, billion, billiardo, trillion, trilliardo."
+          ]
+        }
+      ]
+    }
+  }
+}

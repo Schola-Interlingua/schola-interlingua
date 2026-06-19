@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="flutter_app">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>flutter_app</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    #athena_fab_btn,
+    button#athena_fab_btn {
+      top: 20px !important;
+      right: 34px !important;
+      bottom: auto !important;
+      left: auto !important;
+      z-index: 9999 !important;
+    }
+
+    @media (min-width: 768px) {
+      #athena_fab_btn,
+      button#athena_fab_btn {
+        top: 22px !important;
+        right: 52px !important;
+      }
+    }
+  </style>
+  <script>
+    (function () {
+      const jquerySrc = 'https://code.jquery.com/jquery-3.7.1.min.js';
+      const chatinaSrc = 'https://ia.softwcloud.com/app/IA/chat_js/chat.js?type=mini&key=lnyghdrM5s7ixKFYr5q/u5FeWklsm25en5vAt5+fqknFt6Cnx1FYVlU=';
+
+      function ensureScript(src, onLoad) {
+        const existing = document.querySelector(`script[src="${src}"]`);
+        if (existing) {
+          if (onLoad) {
+            if (existing.dataset.loaded === 'true') {
+              onLoad();
+            } else {
+              existing.addEventListener('load', onLoad, { once: true });
+            }
+          }
+          return existing;
+        }
+
+        const script = document.createElement('script');
+        script.src = src;
+        script.addEventListener('load', () => {
+          script.dataset.loaded = 'true';
+          if (onLoad) onLoad();
+        }, { once: true });
+        document.body.appendChild(script);
+        return script;
+      }
+
+      function placeChatinaFab() {
+        const button = document.getElementById('athena_fab_btn');
+        if (!button) return false;
+
+        const mobile = window.innerWidth < 768;
+        const top = mobile ? '20px' : '22px';
+        const right = mobile ? '34px' : '52px';
+        const host = button.closest('div');
+
+        [button, host].filter(Boolean).forEach((element) => {
+          element.style.position = 'fixed';
+          element.style.top = top;
+          element.style.right = right;
+          element.style.bottom = 'auto';
+          element.style.left = 'auto';
+          element.style.zIndex = '9999';
+        });
+
+        return true;
+      }
+
+      function installChatinaObserver() {
+        ensureScript(jquerySrc, () => ensureScript(chatinaSrc));
+        placeChatinaFab();
+
+        const observer = new MutationObserver(() => {
+          placeChatinaFab();
+        });
+
+        observer.observe(document.documentElement, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['style', 'class'],
+        });
+
+        window.addEventListener('resize', placeChatinaFab);
+      }
+
+      document.addEventListener('DOMContentLoaded', installChatinaObserver);
+    })();
+  </script>
+</head>
+<body>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

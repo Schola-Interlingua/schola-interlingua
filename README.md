@@ -7,6 +7,24 @@ Iste sito es create e mantenite per **Ian Blas**.
 
 ---
 
+## Stato actual del projecto
+Le version principal de Schola Interlingua es ora le application **Flutter** disponibile in `flutter_app/`, pensate pro servir como base unic pro:
+* web responsive
+* Android
+* iOS
+* macOS
+
+Le dossier `public/` contine le build web generate de iste application e es le variante publicabile del sito.
+
+### Como executar le app Flutter localmente
+1. Entra in `flutter_app/`
+2. Executa `flutter pub get`
+3. Pro web: `flutter run -d chrome` o `flutter build web`
+
+Le contento del curso, lectiones, vocabulario, lecturas, audio, traduction per parola, progresso e repetition integrate es mantenite in le migration Flutter.
+
+---
+
 ## 🚀 Como contribuir
 Omne adjuta es benvenite! Si tu vole dar nos un mano pro meliorar iste platteforma, tu pote facer lo in plure manieras:
 
@@ -25,9 +43,9 @@ Si tu prefere supportar le projecto financiarimente pro coperir le disveloppamen
 
 ## 🛠️ Detalios Technic
 Pro illes qui vole saper como le projecto es construite:
-* **Hosting**: Le sito es actualmente hospitate in **Vercel**, un platteforma moderne pro le distribution de applicationes web.
+* **Hosting**: Le sito es actualmente hospitate in **Vercel**, con le build web de Flutter como front-end principal.
 * **Base de datos**: Nos usa **Supabase** pro le gestion de usatores e le persistentia de datos.
-* **Technologias**: Construite con standards web moderne pro garantir velocitate e compatibilitate.
+* **Technologias**: Flutter, Supabase e assets del curso original mantenite in le migration.
 
 ### 🧩 Notas pro le practica del curso
 * Le direction del exercitios de pratica (prompt/answer) segue le mesme logica de **Traducer**: le prompt es `term` e le responsa es `item[lang] || item.es`, ubi `lang` veni del selector de linguas in le navbar.

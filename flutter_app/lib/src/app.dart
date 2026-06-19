@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+
+import 'app_state.dart';
+import 'routing/app_router.dart';
+import 'theme/app_theme.dart';
+
+class ScholaInterlinguaApp extends StatelessWidget {
+  const ScholaInterlinguaApp({super.key, required this.controller});
+
+  final AppController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return AppStateScope(
+      controller: controller,
+      child: AnimatedBuilder(
+        animation: controller,
+        builder: (BuildContext context, Widget? child) {
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            title: 'Schola Interlingua',
+            theme: AppTheme.light(),
+            darkTheme: AppTheme.dark(),
+            themeMode: controller.darkMode ? ThemeMode.dark : ThemeMode.light,
+            routerConfig: AppRouter.router,
+          );
+        },
+      ),
+    );
+  }
+}
