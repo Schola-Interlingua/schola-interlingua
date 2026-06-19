@@ -9,9 +9,11 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'data/course_seed.dart';
 import 'models/course_models.dart';
+import 'models/srs_models.dart';
+import 'services/exportable_vocab_catalog.dart';
 
 class AppController extends ChangeNotifier {
-  static const int _completionStorageVersion = 2;
+  static const int _completionStorageVersion = 3;
   static const Map<String, Map<String, String>> _glossaryOverrides =
       <String, Map<String, String>>{
         'definite': <String, String>{
@@ -83,6 +85,11 @@ class AppController extends ChangeNotifier {
   Map<String, Map<String, String>> _vocab = <String, Map<String, String>>{};
   final Map<String, List<Map<String, String>>> _lessonItems =
       <String, List<Map<String, String>>>{};
+  final Map<String, ExportableVocabCard> _exportableCardsById =
+      <String, ExportableVocabCard>{};
+  final Map<String, List<ExportableVocabCard>> _exportableCardsBySlug =
+      <String, List<ExportableVocabCard>>{};
+  final Map<String, SrsCardProgress> _srsProgress = <String, SrsCardProgress>{};
   bool _vocabLoaded = false;
   bool _darkMode = false;
   SharedPreferences? _prefs;
@@ -95,11 +102,38 @@ class AppController extends ChangeNotifier {
   bool get darkMode => _darkMode;
   User? get currentUser => _currentUser;
   bool get isAuthenticated => _currentUser != null;
+  List<ExportableVocabCard> get exportableCards =>
+      _exportableCardsById.values.toList()
+        ..sort((ExportableVocabCard a, ExportableVocabCard b) {
+          final int byLevel = a.levelTitle.compareTo(b.levelTitle);
+          if (byLevel != 0) return byLevel;
+          return a.term.compareTo(b.term);
+        });
   List<Map<String, String>> get allVocabItems => _lessonItems.values
       .expand((List<Map<String, String>> items) => items)
       .toList();
   Set<String> get completedKeys =>
       UnmodifiableSetView<String>(_completedItems.keys.toSet());
+  Map<SrsStage, int> get srsStageCounts {
+    final Map<SrsStage, int> counts = <SrsStage, int>{
+      for (final SrsStage stage in SrsStage.values) stage: 0,
+    };
+    for (final SrsCardProgress progress in _srsProgress.values) {
+      counts[progress.stage] = (counts[progress.stage] ?? 0) + 1;
+    }
+    return counts;
+  }
+
+  int get trackedSrsWordCount => _srsProgress.length;
+  int get dueSrsWordCount =>
+      _srsProgress.values.where((SrsCardProgress item) => item.isDue).length;
+  List<SrsCardProgress> get dueSrsProgress =>
+      _srsProgress.values.where((SrsCardProgress item) => item.isDue).toList()
+        ..sort((SrsCardProgress a, SrsCardProgress b) {
+          final int byDue = a.dueAt.compareTo(b.dueAt);
+          if (byDue != 0) return byDue;
+          return a.cardId.compareTo(b.cardId);
+        });
   int get consecutiveDaysStreak {
     final Set<DateTime> completionDays = _completedItems.values
         .map(DateTime.tryParse)
@@ -163,6 +197,29 @@ class AppController extends ChangeNotifier {
   List<Map<String, String>> lessonItems(String slug) =>
       _lessonItems[slug] ?? const <Map<String, String>>[];
 
+  List<ExportableVocabCard> exportableCardsForSlug(String slug) =>
+      _exportableCardsBySlug[slug] ?? const <ExportableVocabCard>[];
+  ExportableVocabCard? exportableCardById(String cardId) =>
+      _exportableCardsById[cardId];
+
+  List<ExportableVocabCard> exportableCardsForLevels(Set<String> levelSlugs) {
+    return exportableCards
+        .where(
+          (ExportableVocabCard card) => levelSlugs.contains(card.levelSlug),
+        )
+        .toList();
+  }
+
+  SrsCardProgress? srsProgressForCard(String cardId) => _srsProgress[cardId];
+
+  SrsCardProgress? srsProgressForSlugTerm(String slug, String term) {
+    return _srsProgress['$slug:${term.trim().toLowerCase()}'];
+  }
+
+  ExportableVocabCard? srsCardForSlugTerm(String slug, String term) {
+    return _exportableCardsById['$slug:${term.trim().toLowerCase()}'];
+  }
+
   Future<void> initialize() async {
     _currentUser = Supabase.instance.client.auth.currentUser;
     _prefs = await SharedPreferences.getInstance();
@@ -173,12 +230,13 @@ class AppController extends ChangeNotifier {
         _prefs?.getInt('completion_storage_version') ?? 0;
     if (storedCompletionVersion < _completionStorageVersion) {
       _completedItems.clear();
+      _srsProgress.clear();
       await _prefs?.remove('completed_items');
+      await _prefs?.remove('srs_progress');
       await _prefs?.setInt(
         'completion_storage_version',
         _completionStorageVersion,
       );
-      return;
     }
     final String? rawCompleted = _prefs?.getString('completed_items');
     if (rawCompleted != null && rawCompleted.isNotEmpty) {
@@ -189,6 +247,24 @@ class AppController extends ChangeNotifier {
         ..addAll(
           decoded.map(
             (String key, dynamic value) => MapEntry(key, value.toString()),
+          ),
+        );
+    }
+    final String? rawSrs = _prefs?.getString('srs_progress');
+    if (rawSrs != null && rawSrs.isNotEmpty) {
+      final Map<String, dynamic> decoded =
+          jsonDecode(rawSrs) as Map<String, dynamic>;
+      _srsProgress
+        ..clear()
+        ..addAll(
+          decoded.map(
+            (String key, dynamic value) => MapEntry(
+              key,
+              SrsCardProgress.fromJson(
+                key,
+                (value as Map).cast<String, dynamic>(),
+              ),
+            ),
           ),
         );
     }
@@ -237,6 +313,33 @@ class AppController extends ChangeNotifier {
     }
 
     _vocab = parsed;
+    final List<ExportableVocabCard> catalog = buildExportableVocabCatalog(
+      _lessonItems,
+    );
+    _exportableCardsById
+      ..clear()
+      ..addEntries(
+        catalog.map(
+          (ExportableVocabCard card) =>
+              MapEntry<String, ExportableVocabCard>(card.id, card),
+        ),
+      );
+    _exportableCardsBySlug
+      ..clear()
+      ..addEntries(
+        catalog.fold<Map<String, List<ExportableVocabCard>>>(
+          <String, List<ExportableVocabCard>>{},
+          (
+            Map<String, List<ExportableVocabCard>> grouped,
+            ExportableVocabCard card,
+          ) {
+            grouped
+                .putIfAbsent(card.sourceSlug, () => <ExportableVocabCard>[])
+                .add(card);
+            return grouped;
+          },
+        ).entries,
+      );
     _vocabLoaded = true;
     notifyListeners();
   }
@@ -257,6 +360,10 @@ class AppController extends ChangeNotifier {
   void markCompleted(String key) {
     final String timestamp = DateTime.now().toIso8601String();
     _completedItems[key] = timestamp;
+    final String slug = _slugFromCompletionKey(key);
+    if (_exportableCardsBySlug.containsKey(slug)) {
+      registerVocabularySeen(slug);
+    }
     _persistCompletedItems();
     unawaited(_syncProgressToRemote());
     notifyListeners();
@@ -272,6 +379,69 @@ class AppController extends ChangeNotifier {
   bool isCompleted(String key) => _completedItems.containsKey(key);
 
   String? completionDate(String key) => _completedItems[key];
+
+  void registerVocabularySeen(String slug) {
+    final List<ExportableVocabCard> cards = exportableCardsForSlug(slug);
+    if (cards.isEmpty) return;
+    final DateTime now = DateTime.now();
+    bool changed = false;
+    for (final ExportableVocabCard card in cards) {
+      if (_srsProgress.containsKey(card.id)) continue;
+      _srsProgress[card.id] = SrsCardProgress(
+        cardId: card.id,
+        stage: SrsStage.newWord,
+        intervalDays: 0,
+        ease: 2.3,
+        successCount: 0,
+        failureCount: 0,
+        dueAt: now,
+        seenAt: now,
+        updatedAt: now,
+      );
+      changed = true;
+    }
+    if (!changed) return;
+    _persistSrsProgress();
+    unawaited(_syncProgressToRemote());
+    notifyListeners();
+  }
+
+  void recordSrsReview(String cardId, {required bool success}) {
+    final ExportableVocabCard? card = _exportableCardsById[cardId];
+    if (card == null) return;
+    final DateTime now = DateTime.now();
+    final SrsCardProgress current =
+        _srsProgress[cardId] ??
+        SrsCardProgress(
+          cardId: cardId,
+          stage: SrsStage.newWord,
+          intervalDays: 0,
+          ease: 2.3,
+          successCount: 0,
+          failureCount: 0,
+          dueAt: now,
+          seenAt: now,
+          updatedAt: now,
+        );
+    final SrsCardProgress next = success
+        ? _advanceSrsCard(current, now)
+        : _resetSrsCard(current, now);
+    _srsProgress[cardId] = next;
+    _persistSrsProgress();
+    unawaited(_syncProgressToRemote());
+    notifyListeners();
+  }
+
+  void recordSrsReviewForSlugTerm(
+    String slug,
+    String term, {
+    required bool success,
+  }) {
+    final ExportableVocabCard? card = srsCardForSlugTerm(slug, term);
+    if (card == null) return;
+    registerVocabularySeen(slug);
+    recordSrsReview(card.id, success: success);
+  }
 
   Future<void> signInWithEmail(
     String email, {
@@ -291,6 +461,52 @@ class AppController extends ChangeNotifier {
     return input
         .replaceAll(RegExp(r'[^\wáéíóúüñ-]', unicode: true), '')
         .toLowerCase();
+  }
+
+  SrsCardProgress _advanceSrsCard(SrsCardProgress current, DateTime now) {
+    final int successes = current.successCount + 1;
+    final double ease = (current.ease + 0.12).clamp(1.4, 3.1);
+    late final int intervalDays;
+    late final SrsStage stage;
+
+    if (successes == 1) {
+      intervalDays = 1;
+      stage = SrsStage.learning;
+    } else if (successes == 2) {
+      intervalDays = 3;
+      stage = SrsStage.reviewing;
+    } else {
+      final int baseInterval = current.intervalDays <= 0
+          ? 3
+          : current.intervalDays;
+      intervalDays = (baseInterval * ease).round().clamp(baseInterval + 1, 180);
+      stage = intervalDays >= 14 || successes >= 5
+          ? SrsStage.mastered
+          : SrsStage.reviewing;
+    }
+
+    return current.copyWith(
+      stage: stage,
+      intervalDays: intervalDays,
+      ease: ease,
+      successCount: successes,
+      dueAt: now.add(Duration(days: intervalDays)),
+      updatedAt: now,
+      lastReviewedAt: now,
+    );
+  }
+
+  SrsCardProgress _resetSrsCard(SrsCardProgress current, DateTime now) {
+    final double ease = (current.ease - 0.18).clamp(1.3, 3.1);
+    return current.copyWith(
+      stage: SrsStage.learning,
+      intervalDays: 0,
+      ease: ease,
+      failureCount: current.failureCount + 1,
+      dueAt: now.add(const Duration(minutes: 15)),
+      updatedAt: now,
+      lastReviewedAt: now,
+    );
   }
 
   DateTime _today() {
@@ -324,6 +540,9 @@ class AppController extends ChangeNotifier {
     final Map<String, dynamic> lessons =
         (progress['lessons'] as Map?)?.cast<String, dynamic>() ??
         <String, dynamic>{};
+    final Map<String, dynamic> srs =
+        (progress['srs'] as Map?)?.cast<String, dynamic>() ??
+        <String, dynamic>{};
 
     final Map<String, String> merged = Map<String, String>.from(
       _completedItems,
@@ -341,7 +560,25 @@ class AppController extends ChangeNotifier {
     _completedItems
       ..clear()
       ..addAll(merged);
+    final Map<String, SrsCardProgress> mergedSrs =
+        Map<String, SrsCardProgress>.from(_srsProgress);
+    srs.forEach((String cardId, dynamic value) {
+      if (value is! Map) return;
+      final SrsCardProgress remoteProgress = SrsCardProgress.fromJson(
+        cardId,
+        value.cast<String, dynamic>(),
+      );
+      final SrsCardProgress? localProgress = mergedSrs[cardId];
+      if (localProgress == null ||
+          remoteProgress.updatedAt.isAfter(localProgress.updatedAt)) {
+        mergedSrs[cardId] = remoteProgress;
+      }
+    });
+    _srsProgress
+      ..clear()
+      ..addAll(mergedSrs);
     _persistCompletedItems();
+    _persistSrsProgress();
     await _syncProgressToRemote();
   }
 
@@ -358,11 +595,16 @@ class AppController extends ChangeNotifier {
 
     final List<String> sortedDates =
         _completedItems.values.map(_dateOnly).toList()..sort();
+    final Map<String, dynamic> srs = <String, dynamic>{};
+    _srsProgress.forEach((String key, SrsCardProgress value) {
+      srs[key] = value.toJson();
+    });
 
     await Supabase.instance.client.from('progress').upsert(<String, dynamic>{
       'user_id': _currentUser!.id,
       'data': <String, dynamic>{
         'lessons': lessons,
+        'srs': srs,
         'streak': <String, dynamic>{
           'current': consecutiveDaysStreak,
           'best': consecutiveDaysStreak,
@@ -375,6 +617,18 @@ class AppController extends ChangeNotifier {
   void _persistCompletedItems() {
     _prefs?.setInt('completion_storage_version', _completionStorageVersion);
     _prefs?.setString('completed_items', jsonEncode(_completedItems));
+  }
+
+  void _persistSrsProgress() {
+    _prefs?.setString(
+      'srs_progress',
+      jsonEncode(
+        _srsProgress.map(
+          (String key, SrsCardProgress value) =>
+              MapEntry<String, dynamic>(key, value.toJson()),
+        ),
+      ),
+    );
   }
 
   String _todayIso() => _today().toIso8601String();

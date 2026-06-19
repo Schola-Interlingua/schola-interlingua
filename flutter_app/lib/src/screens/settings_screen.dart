@@ -324,31 +324,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   _DeckPreview _buildDeckPreview(AppController controller) {
     final Map<String, _DeckCard> uniqueCards = <String, _DeckCard>{};
-
-    for (final CourseLevel level in courseLevels) {
-      if (!_selectedLevels.contains(level.slug)) continue;
-      for (final CourseSection section in level.sections) {
-        for (final CourseItemRef item in section.items) {
-          if (item.kind != CourseItemKind.vocabulary) continue;
-          final List<Map<String, String>> items = controller.lessonItems(
-            item.slug,
-          );
-          for (final Map<String, String> vocabItem in items) {
-            final String front = (vocabItem['term'] ?? '').trim();
-            final String back = (vocabItem[controller.selectedLanguage] ?? '')
-                .trim();
-            if (front.isEmpty || back.isEmpty) continue;
-            final String key =
-                '${front.toLowerCase()}|${back.toLowerCase()}|${level.slug}';
-            uniqueCards[key] = _DeckCard(
-              front: front,
-              back: back,
-              levelTitle: level.title,
-              sourceTitle: item.title,
-            );
-          }
-        }
-      }
+    for (final card in controller.exportableCardsForLevels(_selectedLevels)) {
+      final String back =
+          (card.translations[controller.selectedLanguage] ??
+                  card.translations['es'] ??
+                  '')
+              .trim();
+      if (back.isEmpty) continue;
+      final String key =
+          '${card.term.toLowerCase()}|${back.toLowerCase()}|${card.levelSlug}';
+      uniqueCards[key] = _DeckCard(
+        front: card.term,
+        back: back,
+        levelTitle: card.levelTitle,
+        sourceTitle: card.sourceTitle,
+      );
     }
 
     final List<_DeckCard> cards = uniqueCards.values.toList()

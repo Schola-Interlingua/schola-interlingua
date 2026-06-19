@@ -1,8 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../app_state.dart';
+import '../services/auth_redirect.dart';
 import '../theme/app_theme.dart';
 import '../widgets/app_logo.dart';
 
@@ -112,14 +112,8 @@ class _LoginScreenState extends State<LoginScreen> {
     });
 
     try {
-      final Uri baseUri = Uri.base.removeFragment();
-      final String redirectTo = kIsWeb
-          ? baseUri
-                .replace(
-                  queryParameters: <String, String>{'auth_callback': '1'},
-                )
-                .toString()
-          : baseUri.toString();
+      final Uri baseUri = Uri.base;
+      final String redirectTo = buildAuthRedirectUri(baseUri);
 
       await controller.signInWithEmail(email, redirectTo: redirectTo);
       if (!mounted) return;

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../app_state.dart';
 import '../data/course_seed.dart';
 import '../models/course_models.dart';
+import '../models/srs_models.dart';
 import '../theme/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,6 +17,10 @@ class HomeScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: const <Widget>[
         _ProgressCard(),
+        SizedBox(height: 24),
+        _SrsOverviewCard(),
+        SizedBox(height: 24),
+        _QuickReviewCard(),
         SizedBox(height: 24),
         _AccessCard(),
       ],
@@ -147,5 +152,160 @@ class _ProgressCard extends StatelessWidget {
           }
         })
         .toList();
+  }
+}
+
+class _SrsOverviewCard extends StatelessWidget {
+  const _SrsOverviewCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppController controller = AppStateScope.of(context);
+    final Map<SrsStage, int> counts = controller.srsStageCounts;
+    final int total = controller.trackedSrsWordCount;
+    final int due = controller.dueSrsWordCount;
+    const Map<SrsStage, Color> colors = <SrsStage, Color>{
+      SrsStage.newWord: Color(0xFF7C8AA5),
+      SrsStage.learning: Color(0xFF3BA4FF),
+      SrsStage.reviewing: Color(0xFF20C997),
+      SrsStage.mastered: Color(0xFFF5B942),
+    };
+    const Map<SrsStage, String> labels = <SrsStage, String>{
+      SrsStage.newWord: 'Nove',
+      SrsStage.learning: 'In studio',
+      SrsStage.reviewing: 'In revision',
+      SrsStage.mastered: 'Apprendite',
+    };
+
+    return ScholaCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'Parolas e repetition',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          const SizedBox(height: 12),
+          Text(
+            total == 0
+                ? 'Nulle parola ha entrate ancora in le repetition integrate.'
+                : '$total parolas in le systema. $due debite ora.',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          const SizedBox(height: 18),
+          Container(
+            height: 18,
+            decoration: BoxDecoration(
+              color: AppTheme.surfaceVariant(context),
+              borderRadius: BorderRadius.circular(999),
+              border: Border.all(color: AppTheme.borderColor(context)),
+            ),
+            child: total == 0
+                ? const SizedBox.expand()
+                : Row(
+                    children: SrsStage.values.map((SrsStage stage) {
+                      final int count = counts[stage] ?? 0;
+                      if (count == 0) {
+                        return const SizedBox.shrink();
+                      }
+                      return Expanded(
+                        flex: count,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: colors[stage],
+                            borderRadius: BorderRadius.only(
+                              topLeft: stage == SrsStage.values.first
+                                  ? const Radius.circular(999)
+                                  : Radius.zero,
+                              bottomLeft: stage == SrsStage.values.first
+                                  ? const Radius.circular(999)
+                                  : Radius.zero,
+                              topRight: stage == SrsStage.values.last
+                                  ? const Radius.circular(999)
+                                  : Radius.zero,
+                              bottomRight: stage == SrsStage.values.last
+                                  ? const Radius.circular(999)
+                                  : Radius.zero,
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+          ),
+          const SizedBox(height: 18),
+          Wrap(
+            spacing: 12,
+            runSpacing: 12,
+            children: SrsStage.values.map((SrsStage stage) {
+              return Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 10,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.10),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: AppTheme.borderColor(context)),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Container(
+                      width: 10,
+                      height: 10,
+                      decoration: BoxDecoration(
+                        color: colors[stage],
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      '${labels[stage]}: ${counts[stage] ?? 0}',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _QuickReviewCard extends StatelessWidget {
+  const _QuickReviewCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppController controller = AppStateScope.of(context);
+    final int due = controller.dueSrsWordCount;
+
+    return ScholaCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'Repaso rapide',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          const SizedBox(height: 12),
+          Text(
+            due == 0
+                ? 'Tu non ha cartas debite ora. Quando tu vide vocabulario del curso, illos appare hic automaticamente.'
+                : 'Tu ha $due cartas preste pro un quiz rapide.',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          const SizedBox(height: 18),
+          FilledButton.icon(
+            onPressed: due == 0 ? null : () => context.go('/review'),
+            icon: const Icon(Icons.bolt_rounded),
+            label: Text(due == 0 ? 'Nulle repaso ora' : 'Repasar ora'),
+          ),
+        ],
+      ),
+    );
   }
 }

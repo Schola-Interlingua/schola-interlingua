@@ -5,15 +5,39 @@ import 'package:flutter/material.dart';
 import '../app_state.dart';
 import '../theme/app_theme.dart';
 
-class PracticePanel extends StatelessWidget {
+class PracticePanel extends StatefulWidget {
   const PracticePanel({super.key, required this.slug});
 
   final String slug;
 
   @override
+  State<PracticePanel> createState() => _PracticePanelState();
+}
+
+class _PracticePanelState extends State<PracticePanel> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      AppStateScope.of(context).registerVocabularySeen(widget.slug);
+    });
+  }
+
+  @override
+  void didUpdateWidget(covariant PracticePanel oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.slug == widget.slug) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      AppStateScope.of(context).registerVocabularySeen(widget.slug);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final AppController controller = AppStateScope.of(context);
-    final List<Map<String, String>> items = controller.lessonItems(slug);
+    final List<Map<String, String>> items = controller.lessonItems(widget.slug);
     if (items.isEmpty) return const SizedBox.shrink();
 
     return Column(
@@ -21,9 +45,9 @@ class PracticePanel extends StatelessWidget {
       children: <Widget>[
         _VocabularyTable(items: items),
         const SizedBox(height: 24),
-        _ClassicReviewCard(items: items),
+        _ClassicReviewCard(items: items, slug: widget.slug),
         const SizedBox(height: 24),
-        _QuizCard(items: items),
+        _QuizCard(items: items, slug: widget.slug),
       ],
     );
   }
@@ -53,6 +77,17 @@ class _VocabularyTableState extends State<_VocabularyTable> {
           onPressed: () => setState(() => _visible = !_visible),
           icon: Icon(_visible ? Icons.visibility_off : Icons.menu_book_rounded),
           label: Text(_visible ? 'Celar vocabulario' : 'Monstrar vocabulario'),
+          style: TextButton.styleFrom(
+            foregroundColor: AppTheme.textColor(context),
+            backgroundColor: Theme.of(context).brightness == Brightness.dark
+                ? Colors.white.withValues(alpha: 0.08)
+                : Colors.white.withValues(alpha: 0.62),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+              side: BorderSide(color: AppTheme.borderColor(context)),
+            ),
+          ),
         ),
         if (_visible)
           ScholaCard(
@@ -125,9 +160,10 @@ class _VocabularyTableState extends State<_VocabularyTable> {
 }
 
 class _QuizCard extends StatefulWidget {
-  const _QuizCard({required this.items});
+  const _QuizCard({required this.items, required this.slug});
 
   final List<Map<String, String>> items;
+  final String slug;
 
   @override
   State<_QuizCard> createState() => _QuizCardState();
@@ -220,6 +256,11 @@ class _QuizCardState extends State<_QuizCard> {
                           setState(() {
                             _selected = choice;
                           });
+                          controller.recordSrsReviewForSlugTerm(
+                            widget.slug,
+                            correct,
+                            success: isCorrect,
+                          );
                           if (isCorrect) {
                             _autoAdvancing = true;
                             Future<void>.delayed(
@@ -279,9 +320,10 @@ class _QuizCardState extends State<_QuizCard> {
 }
 
 class _ClassicReviewCard extends StatefulWidget {
-  const _ClassicReviewCard({required this.items});
+  const _ClassicReviewCard({required this.items, required this.slug});
 
   final List<Map<String, String>> items;
+  final String slug;
 
   @override
   State<_ClassicReviewCard> createState() => _ClassicReviewCardState();
@@ -365,6 +407,11 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
                       onPressed: answered
                           ? null
                           : () {
+                              app.recordSrsReviewForSlugTerm(
+                                widget.slug,
+                                prompt,
+                                success: false,
+                              );
                               setState(() {
                                 _gaveUp = true;
                                 _correct = false;
@@ -489,17 +536,24 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
                       onPressed: answered
                           ? null
                           : () {
+                              final String normalizedAnswer = _normalizeReview(
+                                _controller.text,
+                              );
+                              final bool isCorrect =
+                                  answerData.alternatives.any(
+                                    (String value) =>
+                                        _normalizeReview(value) ==
+                                        normalizedAnswer,
+                                  ) &&
+                                  !_gaveUp &&
+                                  _hintLevel < 3;
+                              app.recordSrsReviewForSlugTerm(
+                                widget.slug,
+                                prompt,
+                                success: isCorrect,
+                              );
                               setState(() {
-                                final String normalizedAnswer =
-                                    _normalizeReview(_controller.text);
-                                _correct =
-                                    answerData.alternatives.any(
-                                      (String value) =>
-                                          _normalizeReview(value) ==
-                                          normalizedAnswer,
-                                    ) &&
-                                    !_gaveUp &&
-                                    _hintLevel < 3;
+                                _correct = isCorrect;
                                 _feedback = _correct!
                                     ? 'Correcte'
                                     : 'Responsa: ${answerData.answer}';

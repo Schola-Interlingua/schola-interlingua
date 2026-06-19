@@ -204,6 +204,11 @@ class VocabLessonScreen extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
+        CompletionBanner(
+          itemKey: 'lesson:$slug',
+          message: 'Le vocabulario es complete!',
+        ),
+        const SizedBox(height: 16),
         ScholaCard(
           child: MeaningRichText(
             text: _titleFromSlug(slug),
@@ -212,6 +217,11 @@ class VocabLessonScreen extends StatelessWidget {
         ),
         const SizedBox(height: 24),
         PracticePanel(slug: slug),
+        const SizedBox(height: 24),
+        CompletionPanel(
+          itemKey: 'lesson:$slug',
+          buttonLabel: 'Refacer le vocabulario',
+        ),
       ],
     );
   }
