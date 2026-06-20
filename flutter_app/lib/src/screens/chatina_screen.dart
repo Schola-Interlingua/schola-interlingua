@@ -1,150 +1,72 @@
 import 'package:flutter/material.dart';
 
-import '../theme/app_theme.dart';
+import '../widgets/chatina_embed.dart';
+
+Future<void> showChatinaSheet(BuildContext context) {
+  return showModalBottomSheet<void>(
+    context: context,
+    isScrollControlled: true,
+    useSafeArea: true,
+    backgroundColor: Colors.transparent,
+    barrierColor: Colors.black.withValues(alpha: 0.34),
+    builder: (BuildContext context) {
+      return const _ChatinaBottomSheet();
+    },
+  );
+}
 
 class ChatinaScreen extends StatelessWidget {
   const ChatinaScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 900),
-      child: const ChatinaPanel(showHeaderCard: true),
+    return const _ChatinaSurface(fullPage: true);
+  }
+}
+
+class _ChatinaBottomSheet extends StatelessWidget {
+  const _ChatinaBottomSheet();
+
+  @override
+  Widget build(BuildContext context) {
+    return const FractionallySizedBox(
+      heightFactor: 0.78,
+      child: _ChatinaSurface(),
     );
   }
 }
 
-class ChatinaPanel extends StatelessWidget {
-  const ChatinaPanel({super.key, this.showHeaderCard = false});
+class _ChatinaSurface extends StatelessWidget {
+  const _ChatinaSurface({this.fullPage = false});
 
-  final bool showHeaderCard;
+  final bool fullPage;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        if (showHeaderCard) ...<Widget>[
-          ScholaCard(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Chatina',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Chat tutor simple integrate in Schola.',
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 24),
-        ],
-        ScholaCard(
-          child: Column(
-            children: <Widget>[
-              const _ChatBubble(
-                author: 'Chatina',
-                text:
-                    'Salute! Io pote adjutar te con parolas, grammatica e conversation in Interlingua.',
-              ),
-              const SizedBox(height: 16),
-              const _ChatBubble(
-                author: 'Tu',
-                text: 'Que significa "gratia"?',
-                mine: true,
-              ),
-              const SizedBox(height: 16),
-              const _ChatBubble(
-                author: 'Chatina',
-                text: 'In iste contexto, "gratia" pote significar "gracia".',
-              ),
-              const SizedBox(height: 20),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: TextField(
-                      decoration: const InputDecoration(
-                        hintText: 'Scribe un message...',
-                      ),
-                      minLines: 1,
-                      maxLines: 4,
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: <Color>[
-                          AppTheme.primary,
-                          AppTheme.primaryLight,
-                        ],
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 18,
-                        vertical: 16,
-                      ),
-                      child: Icon(Icons.send_rounded, color: Colors.white),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+    return Padding(
+      padding: EdgeInsets.fromLTRB(10, fullPage ? 0 : 0, 10, fullPage ? 0 : 10),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(28),
         ),
-      ],
-    );
-  }
-}
-
-class _ChatBubble extends StatelessWidget {
-  const _ChatBubble({
-    required this.author,
-    required this.text,
-    this.mine = false,
-  });
-
-  final String author;
-  final String text;
-  final bool mine;
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: mine ? Alignment.centerRight : Alignment.centerLeft,
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 620),
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: mine
-                ? AppTheme.surfaceVariant(context)
-                : AppTheme.cardColor(context),
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: AppTheme.borderColor(context)),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  author,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: AppTheme.primary,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Text(text, style: Theme.of(context).textTheme.bodyLarge),
-              ],
+        child: Column(
+          children: <Widget>[
+            Container(
+              width: 56,
+              height: 5,
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.30),
+                borderRadius: BorderRadius.circular(999),
+              ),
             ),
-          ),
+            const Expanded(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                child: ChatinaEmbed(),
+              ),
+            ),
+          ],
         ),
       ),
     );

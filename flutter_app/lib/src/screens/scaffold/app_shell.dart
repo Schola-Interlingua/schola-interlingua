@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../chatina_screen.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/app_logo.dart';
 
@@ -162,6 +163,37 @@ class _Header extends StatelessWidget {
                   ),
                   child: Stack(
                     children: <Widget>[
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: IgnorePointer(
+                          child: Container(
+                            width: compact ? 120 : 220,
+                            height: compact ? 72 : 92,
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(28),
+                                bottomRight: Radius.circular(28),
+                              ),
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: dark
+                                    ? <Color>[
+                                        const Color(0x00112940),
+                                        const Color(0xFF112940),
+                                        const Color(0xFF112940),
+                                      ]
+                                    : <Color>[
+                                        const Color(0x00FFFFFF),
+                                        const Color(0xFFF3F8FF),
+                                        const Color(0xFFF3F8FF),
+                                      ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                       Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: compact ? 16 : 24,
@@ -220,7 +252,7 @@ class _Header extends StatelessWidget {
                                 ],
                               ),
                               child: IconButton(
-                                onPressed: () => context.go('/chat'),
+                                onPressed: () => showChatinaSheet(context),
                                 icon: const Icon(
                                   Icons.chat_bubble_rounded,
                                   color: Colors.white,
@@ -234,37 +266,6 @@ class _Header extends StatelessWidget {
                               ),
                             ),
                           ],
-                        ),
-                      ),
-                      Positioned(
-                        top: 0,
-                        right: 0,
-                        child: IgnorePointer(
-                          child: Container(
-                            width: compact ? 120 : 220,
-                            height: compact ? 72 : 92,
-                            decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(28),
-                                bottomRight: Radius.circular(28),
-                              ),
-                              gradient: LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: dark
-                                    ? <Color>[
-                                        const Color(0x00112940),
-                                        const Color(0xFF112940),
-                                        const Color(0xFF112940),
-                                      ]
-                                    : <Color>[
-                                        const Color(0x00FFFFFF),
-                                        const Color(0xFFF3F8FF),
-                                        const Color(0xFFF3F8FF),
-                                      ],
-                              ),
-                            ),
-                          ),
                         ),
                       ),
                     ],
