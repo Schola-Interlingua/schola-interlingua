@@ -36,6 +36,7 @@ class _WordsearchScreenState extends State<WordsearchScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    AppStateScope.of(context).loadVocab();
     if (_words.isEmpty) {
       _newRound();
     }
@@ -43,18 +44,31 @@ class _WordsearchScreenState extends State<WordsearchScreen> {
 
   void _newRound() {
     final AppController controller = AppStateScope.of(context);
-    final List<String> allTerms = controller.allVocabItems
-        .map((Map<String, String> item) => item['term'] ?? '')
-        .where((String term) {
-          final String normalized = _normalizeWord(term);
-          return normalized.length >= 3 && normalized.length <= 8;
-        })
-        .toSet()
-        .toList()
-      ..shuffle(_random);
+    final List<String> allTerms =
+        controller.allVocabItems
+            .map((Map<String, String> item) => item['term'] ?? '')
+            .where((String term) {
+              final String normalized = _normalizeWord(term);
+              return normalized.length >= 3 && normalized.length <= 8;
+            })
+            .toSet()
+            .toList()
+          ..shuffle(_random);
+    final List<String> fallbackWords = <String>[
+      'io',
+      'tu',
+      'nos',
+      'gratia',
+      'schola',
+      'lingua',
+    ];
 
-    final int targetCount = _minWords + _random.nextInt(_maxWords - _minWords + 1);
-    final List<String> selectedWords = allTerms.take(targetCount).toList();
+    final int targetCount =
+        _minWords + _random.nextInt(_maxWords - _minWords + 1);
+    final List<String> selectedWords =
+        (allTerms.isEmpty ? fallbackWords : allTerms)
+            .take(targetCount)
+            .toList();
 
     setState(() {
       _words = selectedWords;
@@ -167,30 +181,12 @@ class _WordsearchScreenState extends State<WordsearchScreen> {
   String _normalizeWord(String value) {
     return value
         .toLowerCase()
-        .replaceAllMapped(
-          RegExp(r'[áàäâ]'),
-          (_) => 'a',
-        )
-        .replaceAllMapped(
-          RegExp(r'[éèëê]'),
-          (_) => 'e',
-        )
-        .replaceAllMapped(
-          RegExp(r'[íìïî]'),
-          (_) => 'i',
-        )
-        .replaceAllMapped(
-          RegExp(r'[óòöô]'),
-          (_) => 'o',
-        )
-        .replaceAllMapped(
-          RegExp(r'[úùüû]'),
-          (_) => 'u',
-        )
-        .replaceAllMapped(
-          RegExp(r'[ñ]'),
-          (_) => 'n',
-        )
+        .replaceAllMapped(RegExp(r'[áàäâ]'), (_) => 'a')
+        .replaceAllMapped(RegExp(r'[éèëê]'), (_) => 'e')
+        .replaceAllMapped(RegExp(r'[íìïî]'), (_) => 'i')
+        .replaceAllMapped(RegExp(r'[óòöô]'), (_) => 'o')
+        .replaceAllMapped(RegExp(r'[úùüû]'), (_) => 'u')
+        .replaceAllMapped(RegExp(r'[ñ]'), (_) => 'n')
         .replaceAll(RegExp(r'[^a-z]'), '');
   }
 
@@ -340,11 +336,7 @@ class _WordsearchScreenState extends State<WordsearchScreen> {
           const SizedBox(height: 24),
           _InstructionCard(mobile: mobile),
           const SizedBox(height: 24),
-          _GameInfo(
-            words: _words,
-            foundWords: _foundWords,
-            mobile: mobile,
-          ),
+          _GameInfo(words: _words, foundWords: _foundWords, mobile: mobile),
           const SizedBox(height: 24),
           Center(child: _buildBoard()),
           const SizedBox(height: 24),
@@ -426,8 +418,8 @@ class _WordsearchScreenState extends State<WordsearchScreen> {
                     color: isFound
                         ? const Color(0xFF28A745)
                         : isSelected
-                            ? AppTheme.primary
-                            : AppTheme.cardColor(context),
+                        ? AppTheme.primary
+                        : AppTheme.cardColor(context),
                   ),
                   child: Stack(
                     children: <Widget>[
@@ -542,11 +534,33 @@ class _GameInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flex(
-      direction: mobile ? Axis.vertical : Axis.horizontal,
-      crossAxisAlignment:
-          mobile ? CrossAxisAlignment.stretch : CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    if (mobile) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: words.map((String word) {
+              final bool found = foundWords.contains(word);
+              return _WordChip(word: word, found: found);
+            }).toList(),
+          ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              _StatCard(value: foundWords.length.toString(), label: 'Trovate'),
+              const SizedBox(width: 16),
+              _StatCard(value: words.length.toString(), label: 'Total'),
+            ],
+          ),
+        ],
+      );
+    }
+
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Expanded(
           child: Wrap(
@@ -554,38 +568,13 @@ class _GameInfo extends StatelessWidget {
             runSpacing: 8,
             children: words.map((String word) {
               final bool found = foundWords.contains(word);
-              return Container(
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                decoration: BoxDecoration(
-                  color: found
-                      ? const Color(0xFFD4EDDA)
-                      : AppTheme.surfaceVariant(context),
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    color: found
-                        ? const Color(0xFF28A745)
-                        : AppTheme.borderColor(context),
-                    width: 2,
-                  ),
-                ),
-                child: MeaningRichText(
-                  text: word,
-                  style: TextStyle(
-                    color: found
-                        ? const Color(0xFF155724)
-                        : AppTheme.textColor(context),
-                    fontWeight: FontWeight.w600,
-                    height: 1.2,
-                  ),
-                ),
-              );
+              return _WordChip(word: word, found: found);
             }).toList(),
           ),
         ),
-        SizedBox(width: mobile ? 0 : 16, height: mobile ? 16 : 0),
+        const SizedBox(width: 16),
         Row(
-          mainAxisAlignment:
-              mobile ? MainAxisAlignment.center : MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             _StatCard(value: foundWords.length.toString(), label: 'Trovate'),
             const SizedBox(width: 16),
@@ -593,6 +582,40 @@ class _GameInfo extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+}
+
+class _WordChip extends StatelessWidget {
+  const _WordChip({required this.word, required this.found});
+
+  final String word;
+  final bool found;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      decoration: BoxDecoration(
+        color: found
+            ? const Color(0xFFD4EDDA)
+            : AppTheme.surfaceVariant(context),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: found
+              ? const Color(0xFF28A745)
+              : AppTheme.borderColor(context),
+          width: 2,
+        ),
+      ),
+      child: MeaningRichText(
+        text: word,
+        style: TextStyle(
+          color: found ? const Color(0xFF155724) : AppTheme.textColor(context),
+          fontWeight: FontWeight.w600,
+          height: 1.2,
+        ),
+      ),
     );
   }
 }

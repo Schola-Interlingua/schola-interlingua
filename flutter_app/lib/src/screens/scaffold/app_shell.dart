@@ -134,6 +134,7 @@ class _Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool dark = Theme.of(context).brightness == Brightness.dark;
+    final bool compact = MediaQuery.sizeOf(context).width < 560;
 
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 10, 16, 0),
@@ -162,33 +163,76 @@ class _Header extends StatelessWidget {
                   child: Stack(
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 24,
-                          vertical: 16,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: compact ? 16 : 24,
+                          vertical: compact ? 14 : 16,
                         ),
                         child: Row(
                           children: <Widget>[
-                            InkWell(
-                              onTap: () => context.go('/'),
-                              child: Row(
-                                children: <Widget>[
-                                  const AppLogo(size: 46),
-                                  const SizedBox(width: 12),
-                                  Text(
-                                    'Schola Interlingua',
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      color: dark
-                                          ? Colors.white
-                                          : AppTheme.textColor(context),
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.w600,
+                            Expanded(
+                              child: InkWell(
+                                onTap: () => context.go('/'),
+                                child: Row(
+                                  children: <Widget>[
+                                    AppLogo(
+                                      size: compact ? 40 : 46,
+                                      padding: EdgeInsets.all(compact ? 4 : 6),
+                                      radius: compact ? 12 : null,
                                     ),
+                                    const SizedBox(width: 12),
+                                    Expanded(
+                                      child: Text(
+                                        'Schola Interlingua',
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          color: dark
+                                              ? Colors.white
+                                              : AppTheme.textColor(context),
+                                          fontSize: compact ? 18 : 22,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            DecoratedBox(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient: LinearGradient(
+                                  colors: <Color>[
+                                    AppTheme.primary.withValues(alpha: 0.94),
+                                    AppTheme.primaryLight.withValues(
+                                      alpha: 0.78,
+                                    ),
+                                  ],
+                                ),
+                                boxShadow: <BoxShadow>[
+                                  BoxShadow(
+                                    color: AppTheme.primaryLight.withValues(
+                                      alpha: 0.28,
+                                    ),
+                                    blurRadius: 18,
                                   ),
                                 ],
                               ),
+                              child: IconButton(
+                                onPressed: () => context.go('/chat'),
+                                icon: const Icon(
+                                  Icons.chat_bubble_rounded,
+                                  color: Colors.white,
+                                ),
+                                tooltip: 'Chatina',
+                                iconSize: compact ? 20 : 22,
+                                constraints: BoxConstraints.tightFor(
+                                  width: compact ? 44 : 50,
+                                  height: compact ? 44 : 50,
+                                ),
+                              ),
                             ),
-                            const Spacer(),
                           ],
                         ),
                       ),
@@ -197,8 +241,8 @@ class _Header extends StatelessWidget {
                         right: 0,
                         child: IgnorePointer(
                           child: Container(
-                            width: 300,
-                            height: 92,
+                            width: compact ? 120 : 220,
+                            height: compact ? 72 : 92,
                             decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(28),

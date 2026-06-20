@@ -109,6 +109,13 @@ class _CourseGrid extends StatelessWidget {
         : width >= 650
         ? 3
         : 2;
+    final double childAspectRatio = width < 420
+        ? 0.72
+        : width < 650
+        ? 0.78
+        : width < 900
+        ? 0.88
+        : 0.96;
 
     return GridView.builder(
       shrinkWrap: true,
@@ -118,124 +125,15 @@ class _CourseGrid extends StatelessWidget {
         crossAxisCount: columns,
         crossAxisSpacing: 18,
         mainAxisSpacing: 18,
-        childAspectRatio: 1,
+        childAspectRatio: childAspectRatio,
       ),
       itemBuilder: (BuildContext context, int index) {
         final item = items[index];
         final bool completed = controller.isCompleted(_completionKey(item));
-        return InkWell(
+        return _CourseGridCard(
+          item: item,
+          completed: completed,
           onTap: () => context.go(_pathForItem(item)),
-          borderRadius: BorderRadius.circular(22),
-          child: Ink(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: <Color>[
-                  Theme.of(context).brightness == Brightness.dark
-                      ? const Color(0xFF183A64)
-                      : AppTheme.primary.withValues(alpha: 0.86),
-                  Theme.of(context).brightness == Brightness.dark
-                      ? const Color(0xFF2A5687)
-                      : AppTheme.primaryLight.withValues(alpha: 0.58),
-                ],
-              ),
-              borderRadius: BorderRadius.circular(22),
-              border: Border.all(
-                color: completed
-                    ? const Color(0xFF8CFFB7)
-                    : Theme.of(context).brightness == Brightness.dark
-                    ? const Color(0xB3D8E8FF)
-                    : Colors.white.withValues(alpha: 0.14),
-                width: completed ? 2.4 : 1.8,
-              ),
-              boxShadow: <BoxShadow>[
-                BoxShadow(
-                  color: Theme.of(context).brightness == Brightness.dark
-                      ? const Color(0x66020B16)
-                      : const Color(0x260B2F58),
-                  blurRadius: 20,
-                  offset: const Offset(0, 12),
-                ),
-                BoxShadow(
-                  color: Theme.of(context).brightness == Brightness.dark
-                      ? const Color(0x3352A8FF)
-                      : Colors.white.withValues(alpha: 0.08),
-                  blurRadius: 8,
-                  offset: const Offset(0, 0),
-                ),
-              ],
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(14),
-              child: Column(
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: completed
-                        ? const CircleAvatar(
-                            radius: 16,
-                            backgroundColor: Color(0xFF25B14B),
-                            child: Icon(
-                              Icons.check_rounded,
-                              color: Colors.white,
-                              size: 22,
-                            ),
-                          )
-                        : const SizedBox(height: 32),
-                  ),
-                  const Spacer(),
-                  Container(
-                    width: 64,
-                    height: 64,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white.withValues(alpha: 0.12)
-                          : Colors.white.withValues(alpha: 0.10),
-                      border: Border.all(
-                        color: Theme.of(context).brightness == Brightness.dark
-                            ? Colors.white.withValues(alpha: 0.20)
-                            : Colors.white.withValues(alpha: 0.12),
-                      ),
-                    ),
-                    child: Icon(item.icon, color: Colors.white, size: 32),
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white.withValues(alpha: 0.10)
-                          : Colors.white.withValues(alpha: 0.08),
-                      borderRadius: BorderRadius.circular(14),
-                      border: Border.all(
-                        color: Theme.of(context).brightness == Brightness.dark
-                            ? Colors.white.withValues(alpha: 0.14)
-                            : Colors.white.withValues(alpha: 0.08),
-                      ),
-                    ),
-                    child: Text(
-                      item.title,
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                ],
-              ),
-            ),
-          ),
         );
       },
     );
@@ -263,5 +161,138 @@ class _CourseGrid extends StatelessWidget {
       case CourseItemKind.appendix:
         return 'appendix:${item.slug}';
     }
+  }
+}
+
+class _CourseGridCard extends StatelessWidget {
+  const _CourseGridCard({
+    required this.item,
+    required this.completed,
+    required this.onTap,
+  });
+
+  final CourseItemRef item;
+  final bool completed;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
+
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(22),
+      child: Ink(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: <Color>[
+              dark
+                  ? const Color(0xFF183A64)
+                  : AppTheme.primary.withValues(alpha: 0.86),
+              dark
+                  ? const Color(0xFF2A5687)
+                  : AppTheme.primaryLight.withValues(alpha: 0.58),
+            ],
+          ),
+          borderRadius: BorderRadius.circular(22),
+          border: Border.all(
+            color: completed
+                ? const Color(0xFF8CFFB7)
+                : dark
+                ? const Color(0xB3D8E8FF)
+                : Colors.white.withValues(alpha: 0.14),
+            width: completed ? 2.4 : 1.8,
+          ),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: dark ? const Color(0x66020B16) : const Color(0x260B2F58),
+              blurRadius: 20,
+              offset: const Offset(0, 12),
+            ),
+            BoxShadow(
+              color: dark
+                  ? const Color(0x3352A8FF)
+                  : Colors.white.withValues(alpha: 0.08),
+              blurRadius: 8,
+            ),
+          ],
+        ),
+        child: Stack(
+          children: <Widget>[
+            if (completed)
+              const Positioned(
+                top: 10,
+                right: 10,
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundColor: Color(0xFF25B14B),
+                  child: Icon(
+                    Icons.check_rounded,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                ),
+              ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(14, 18, 14, 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    width: 62,
+                    height: 62,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: dark
+                          ? Colors.white.withValues(alpha: 0.12)
+                          : Colors.white.withValues(alpha: 0.10),
+                      border: Border.all(
+                        color: dark
+                            ? Colors.white.withValues(alpha: 0.20)
+                            : Colors.white.withValues(alpha: 0.12),
+                      ),
+                    ),
+                    child: Icon(item.icon, color: Colors.white, size: 30),
+                  ),
+                  const SizedBox(height: 14),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      color: dark
+                          ? Colors.white.withValues(alpha: 0.10)
+                          : Colors.white.withValues(alpha: 0.08),
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(
+                        color: dark
+                            ? Colors.white.withValues(alpha: 0.14)
+                            : Colors.white.withValues(alpha: 0.08),
+                      ),
+                    ),
+                    child: Text(
+                      item.title,
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        height: 1.15,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
