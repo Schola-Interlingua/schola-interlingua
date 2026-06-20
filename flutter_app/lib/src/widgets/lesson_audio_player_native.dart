@@ -40,6 +40,8 @@ class _LessonAudioPlayerState extends State<LessonAudioPlayer> {
 
   @override
   Widget build(BuildContext context) {
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
@@ -100,18 +102,47 @@ class _LessonAudioPlayerState extends State<LessonAudioPlayer> {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Slider(
-                                  value: value,
-                                  max: max,
-                                  onChanged: !_ready
-                                      ? null
-                                      : (double newValue) async {
-                                          await _player.seek(
-                                            Duration(
-                                              milliseconds: newValue.round(),
-                                            ),
-                                          );
-                                        },
+                                SliderTheme(
+                                  data: SliderTheme.of(context).copyWith(
+                                    trackHeight: 6,
+                                    activeTrackColor: dark
+                                        ? const Color(0xFF68B5FF)
+                                        : AppTheme.primaryLight,
+                                    inactiveTrackColor: dark
+                                        ? Colors.white.withValues(alpha: 0.10)
+                                        : AppTheme.primary.withValues(
+                                            alpha: 0.12,
+                                          ),
+                                    thumbColor: dark
+                                        ? const Color(0xFF8FD0FF)
+                                        : AppTheme.primary,
+                                    overlayColor: dark
+                                        ? const Color(
+                                            0xFF8FD0FF,
+                                          ).withValues(alpha: 0.18)
+                                        : AppTheme.primary.withValues(
+                                            alpha: 0.16,
+                                          ),
+                                    thumbShape: const RoundSliderThumbShape(
+                                      enabledThumbRadius: 12,
+                                    ),
+                                    overlayShape: const RoundSliderOverlayShape(
+                                      overlayRadius: 22,
+                                    ),
+                                  ),
+                                  child: Slider(
+                                    value: value,
+                                    max: max,
+                                    onChanged: !_ready
+                                        ? null
+                                        : (double newValue) async {
+                                            await _player.seek(
+                                              Duration(
+                                                milliseconds: newValue.round(),
+                                              ),
+                                            );
+                                          },
+                                  ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(

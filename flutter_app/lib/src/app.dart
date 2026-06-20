@@ -23,6 +23,24 @@ class ScholaInterlinguaApp extends StatelessWidget {
             darkTheme: AppTheme.dark(),
             themeMode: controller.darkMode ? ThemeMode.dark : ThemeMode.light,
             routerConfig: AppRouter.router,
+            builder: (BuildContext context, Widget? child) {
+              final MediaQueryData media = MediaQuery.of(context);
+              final double width = media.size.width;
+              final double maxScale = width < 430
+                  ? 1.05
+                  : width < 600
+                  ? 1.1
+                  : 1.2;
+              return MediaQuery(
+                data: media.copyWith(
+                  textScaler: media.textScaler.clamp(
+                    minScaleFactor: 0.95,
+                    maxScaleFactor: maxScale,
+                  ),
+                ),
+                child: child ?? const SizedBox.shrink(),
+              );
+            },
           );
         },
       ),

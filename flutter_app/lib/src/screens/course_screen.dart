@@ -47,48 +47,61 @@ class _LevelSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppController controller = AppStateScope.of(context);
-    return ScholaCard(
-      padding: const EdgeInsets.all(24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(level.title, style: Theme.of(context).textTheme.headlineMedium),
-          const SizedBox(height: 8),
-          ...level.sections.map((CourseSection section) {
-            return Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Container(
-                padding: const EdgeInsets.all(18),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).brightness == Brightness.dark
-                      ? Colors.white.withValues(alpha: 0.04)
-                      : Colors.white.withValues(alpha: 0.18),
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(
-                    color: Theme.of(context).brightness == Brightness.dark
-                        ? Colors.white.withValues(alpha: 0.10)
-                        : AppTheme.borderColor(context),
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      section.title,
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        color: AppTheme.mutedTextColor(context),
-                        fontWeight: FontWeight.w700,
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final bool compact = constraints.maxWidth < 430;
+
+        return ScholaCard(
+          padding: EdgeInsets.all(compact ? 18 : 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                level.title,
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              const SizedBox(height: 8),
+              ...level.sections.map((CourseSection section) {
+                return Padding(
+                  padding: EdgeInsets.only(top: compact ? 16 : 20),
+                  child: Container(
+                    padding: EdgeInsets.all(compact ? 14 : 18),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white.withValues(alpha: 0.04)
+                          : Colors.white.withValues(alpha: 0.18),
+                      borderRadius: BorderRadius.circular(compact ? 20 : 24),
+                      border: Border.all(
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white.withValues(alpha: 0.10)
+                            : AppTheme.borderColor(context),
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    _CourseGrid(items: section.items, controller: controller),
-                  ],
-                ),
-              ),
-            );
-          }),
-        ],
-      ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          section.title,
+                          style: Theme.of(context).textTheme.titleLarge
+                              ?.copyWith(
+                                color: AppTheme.mutedTextColor(context),
+                                fontWeight: FontWeight.w700,
+                              ),
+                        ),
+                        SizedBox(height: compact ? 16 : 20),
+                        _CourseGrid(
+                          items: section.items,
+                          controller: controller,
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }),
+            ],
+          ),
+        );
+      },
     );
   }
 }
@@ -109,8 +122,9 @@ class _CourseGrid extends StatelessWidget {
         : width >= 650
         ? 3
         : 2;
+    final bool compact = width < 430;
     final double childAspectRatio = width < 420
-        ? 0.72
+        ? 0.84
         : width < 650
         ? 0.78
         : width < 900
@@ -123,8 +137,8 @@ class _CourseGrid extends StatelessWidget {
       itemCount: items.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: columns,
-        crossAxisSpacing: 18,
-        mainAxisSpacing: 18,
+        crossAxisSpacing: compact ? 12 : 18,
+        mainAxisSpacing: compact ? 12 : 18,
         childAspectRatio: childAspectRatio,
       ),
       itemBuilder: (BuildContext context, int index) {
@@ -178,10 +192,11 @@ class _CourseGridCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool dark = Theme.of(context).brightness == Brightness.dark;
+    final bool compact = MediaQuery.sizeOf(context).width < 430;
 
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(22),
+      borderRadius: BorderRadius.circular(compact ? 18 : 22),
       child: Ink(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -196,7 +211,7 @@ class _CourseGridCard extends StatelessWidget {
                   : AppTheme.primaryLight.withValues(alpha: 0.58),
             ],
           ),
-          borderRadius: BorderRadius.circular(22),
+          borderRadius: BorderRadius.circular(compact ? 18 : 22),
           border: Border.all(
             color: completed
                 ? const Color(0xFF8CFFB7)
@@ -236,13 +251,18 @@ class _CourseGridCard extends StatelessWidget {
                 ),
               ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(14, 18, 14, 16),
+              padding: EdgeInsets.fromLTRB(
+                compact ? 10 : 14,
+                compact ? 14 : 18,
+                compact ? 10 : 14,
+                compact ? 12 : 16,
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    width: 62,
-                    height: 62,
+                    width: compact ? 52 : 62,
+                    height: compact ? 52 : 62,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: dark
@@ -254,14 +274,18 @@ class _CourseGridCard extends StatelessWidget {
                             : Colors.white.withValues(alpha: 0.12),
                       ),
                     ),
-                    child: Icon(item.icon, color: Colors.white, size: 30),
+                    child: Icon(
+                      item.icon,
+                      color: Colors.white,
+                      size: compact ? 24 : 30,
+                    ),
                   ),
-                  const SizedBox(height: 14),
+                  SizedBox(height: compact ? 10 : 14),
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 10,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: compact ? 8 : 10,
+                      vertical: compact ? 8 : 10,
                     ),
                     decoration: BoxDecoration(
                       color: dark
@@ -282,7 +306,7 @@ class _CourseGridCard extends StatelessWidget {
                       style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
-                        fontSize: 16,
+                        fontSize: 14,
                         height: 1.15,
                       ),
                     ),

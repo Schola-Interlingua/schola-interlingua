@@ -376,226 +376,245 @@ class _ClassicReviewCardState extends State<_ClassicReviewCard> {
     final bool answered = _feedback != null;
 
     return ScholaCard(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text('Revider', style: Theme.of(context).textTheme.titleLarge),
-          const SizedBox(height: 12),
-          Container(
-            padding: const EdgeInsets.all(24),
-            decoration: BoxDecoration(
-              color: Theme.of(context).brightness == Brightness.dark
-                  ? Colors.white.withValues(alpha: 0.04)
-                  : Colors.white.withValues(alpha: 0.26),
-              borderRadius: BorderRadius.circular(24),
-              border: Border.all(color: AppTheme.borderColor(context)),
-              boxShadow: AppTheme.glassShadow(context),
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          final bool compact = constraints.maxWidth < 560;
+
+          final Widget giveUpButton = OutlinedButton.icon(
+            onPressed: answered
+                ? null
+                : () {
+                    app.recordSrsReviewForSlugTerm(
+                      widget.slug,
+                      prompt,
+                      success: false,
+                    );
+                    setState(() {
+                      _gaveUp = true;
+                      _correct = false;
+                      _feedback = 'Responsa: $expected';
+                    });
+                  },
+            icon: const Icon(Icons.question_mark_rounded),
+            label: const Text('Io non lo sape'),
+            style: OutlinedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+              side: BorderSide(color: AppTheme.borderColor(context)),
+              foregroundColor: AppTheme.textColor(context),
+              backgroundColor: Colors.white.withValues(alpha: 0.08),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Row(
+          );
+
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text('Revider', style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 12),
+              Container(
+                padding: EdgeInsets.all(compact ? 18 : 24),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white.withValues(alpha: 0.04)
+                      : Colors.white.withValues(alpha: 0.26),
+                  borderRadius: BorderRadius.circular(compact ? 20 : 24),
+                  border: Border.all(color: AppTheme.borderColor(context)),
+                  boxShadow: AppTheme.glassShadow(context),
+                ),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Expanded(
-                      child: Text(
+                    if (compact) ...<Widget>[
+                      Text(
                         'Scribe le traduction correcte',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
+                      const SizedBox(height: 12),
+                      SizedBox(width: double.infinity, child: giveUpButton),
+                    ] else
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Expanded(
+                            child: Text(
+                              'Scribe le traduction correcte',
+                              style: Theme.of(context).textTheme.titleLarge,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          giveUpButton,
+                        ],
+                      ),
+                    const SizedBox(height: 16),
+                    Text(
+                      'Carta ${_index + 1} / ${_queue.length}',
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
-                    OutlinedButton.icon(
-                      onPressed: answered
-                          ? null
-                          : () {
-                              app.recordSrsReviewForSlugTerm(
-                                widget.slug,
-                                prompt,
-                                success: false,
-                              );
-                              setState(() {
-                                _gaveUp = true;
-                                _correct = false;
-                                _feedback = 'Responsa: $expected';
-                              });
-                            },
-                      icon: const Icon(Icons.question_mark_rounded),
-                      label: const Text('Io non lo sape'),
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 14,
-                          vertical: 14,
-                        ),
-                        side: BorderSide(color: AppTheme.borderColor(context)),
-                        foregroundColor: AppTheme.textColor(context),
-                        backgroundColor: Colors.white.withValues(alpha: 0.08),
+                    const SizedBox(height: 16),
+                    Text(
+                      'Traduce:',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    const SizedBox(height: 16),
+                    Center(
+                      child: Text(
+                        prompt,
+                        style: Theme.of(context).textTheme.headlineMedium,
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  'Carta ${_index + 1} / ${_queue.length}',
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-                const SizedBox(height: 16),
-                Text('Traduce:', style: Theme.of(context).textTheme.bodyMedium),
-                const SizedBox(height: 16),
-                Center(
-                  child: Text(
-                    prompt,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                TextField(
-                  controller: _controller,
-                  enabled: !answered,
-                  decoration: const InputDecoration(
-                    hintText: 'Escribe tu respuesta',
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  'Toca solo litteras correcte (in disordine)',
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(height: 12),
-                Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: _letterTiles.map((tile) {
-                    return OutlinedButton(
-                      onPressed: answered || tile.used
-                          ? null
-                          : () => _appendFromTile(tile.index),
-                      style: OutlinedButton.styleFrom(
-                        minimumSize: const Size(44, 36),
-                        padding: const EdgeInsets.symmetric(horizontal: 14),
-                        side: BorderSide(
-                          color: tile.used
-                              ? AppTheme.borderColor(context)
-                              : const Color(0xFFBEC9D9),
-                        ),
-                        backgroundColor: tile.used
-                            ? AppTheme.surfaceVariant(context)
-                            : AppTheme.cardColor(context),
-                        foregroundColor: tile.used
-                            ? AppTheme.mutedTextColor(context)
-                            : AppTheme.textColor(context),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(999),
-                        ),
+                    const SizedBox(height: 20),
+                    TextField(
+                      controller: _controller,
+                      enabled: !answered,
+                      decoration: const InputDecoration(
+                        hintText: 'Escribe tu respuesta',
                       ),
-                      child: Text(tile.char),
-                    );
-                  }).toList(),
-                ),
-                const SizedBox(height: 16),
-                Wrap(
-                  spacing: 12,
-                  runSpacing: 12,
-                  children: <Widget>[
-                    FilledButton(
-                      onPressed: answered
-                          ? null
-                          : () {
-                              setState(() {
-                                _hintLevel = (_hintLevel + 1).clamp(0, 3);
-                                final int nextLength =
-                                    (_controller.text.length + 1).clamp(
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      'Toca solo litteras correcte (in disordine)',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Wrap(
+                      spacing: 10,
+                      runSpacing: 10,
+                      children: _letterTiles.map((tile) {
+                        return OutlinedButton(
+                          onPressed: answered || tile.used
+                              ? null
+                              : () => _appendFromTile(tile.index),
+                          style: OutlinedButton.styleFrom(
+                            minimumSize: const Size(44, 36),
+                            padding: const EdgeInsets.symmetric(horizontal: 14),
+                            side: BorderSide(
+                              color: tile.used
+                                  ? AppTheme.borderColor(context)
+                                  : const Color(0xFFBEC9D9),
+                            ),
+                            backgroundColor: tile.used
+                                ? AppTheme.surfaceVariant(context)
+                                : AppTheme.cardColor(context),
+                            foregroundColor: tile.used
+                                ? AppTheme.mutedTextColor(context)
+                                : AppTheme.textColor(context),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(999),
+                            ),
+                          ),
+                          child: Text(tile.char),
+                        );
+                      }).toList(),
+                    ),
+                    const SizedBox(height: 16),
+                    Wrap(
+                      spacing: 12,
+                      runSpacing: 12,
+                      children: <Widget>[
+                        FilledButton(
+                          onPressed: answered
+                              ? null
+                              : () {
+                                  setState(() {
+                                    _hintLevel = (_hintLevel + 1).clamp(0, 3);
+                                    final int nextLength =
+                                        (_controller.text.length + 1).clamp(
+                                          0,
+                                          expected.length,
+                                        );
+                                    _controller.text = expected.substring(
                                       0,
-                                      expected.length,
+                                      nextLength,
                                     );
-                                _controller.text = expected.substring(
-                                  0,
-                                  nextLength,
-                                );
-                                _controller.selection = TextSelection.collapsed(
-                                  offset: _controller.text.length,
-                                );
-                              });
-                            },
-                      style: FilledButton.styleFrom(
-                        backgroundColor: const Color(0xFF6C757D),
-                        foregroundColor: Colors.white,
-                      ),
-                      child: const Text('Indicio'),
+                                    _controller.selection =
+                                        TextSelection.collapsed(
+                                          offset: _controller.text.length,
+                                        );
+                                  });
+                                },
+                          style: FilledButton.styleFrom(
+                            backgroundColor: const Color(0xFF6C757D),
+                            foregroundColor: Colors.white,
+                          ),
+                          child: const Text('Indicio'),
+                        ),
+                        OutlinedButton(
+                          onPressed: answered ? null : _removeLastFromInput,
+                          style: OutlinedButton.styleFrom(
+                            side: BorderSide(
+                              color: AppTheme.borderColor(context),
+                            ),
+                            foregroundColor: AppTheme.textColor(context),
+                          ),
+                          child: const Text('⌫'),
+                        ),
+                        FilledButton(
+                          onPressed: answered
+                              ? null
+                              : () {
+                                  final String normalizedAnswer =
+                                      _normalizeReview(_controller.text);
+                                  final bool isCorrect =
+                                      answerData.alternatives.any(
+                                        (String value) =>
+                                            _normalizeReview(value) ==
+                                            normalizedAnswer,
+                                      ) &&
+                                      !_gaveUp &&
+                                      _hintLevel < 3;
+                                  app.recordSrsReviewForSlugTerm(
+                                    widget.slug,
+                                    prompt,
+                                    success: isCorrect,
+                                  );
+                                  setState(() {
+                                    _correct = isCorrect;
+                                    _feedback = _correct!
+                                        ? 'Correcte'
+                                        : 'Responsa: ${answerData.answer}';
+                                  });
+                                },
+                          style: FilledButton.styleFrom(
+                            backgroundColor: const Color(0xFF20C997),
+                            foregroundColor: Colors.white,
+                          ),
+                          child: const Text('Verificar'),
+                        ),
+                        FilledButton(
+                          onPressed: () {
+                            setState(() {
+                              _index = (_index + 1) % _queue.length;
+                              _resetReviewState(lang);
+                            });
+                          },
+                          style: FilledButton.styleFrom(
+                            backgroundColor: AppTheme.primary,
+                            foregroundColor: Colors.white,
+                          ),
+                          child: const Text('Sequente'),
+                        ),
+                      ],
                     ),
-                    OutlinedButton(
-                      onPressed: answered ? null : _removeLastFromInput,
-                      style: OutlinedButton.styleFrom(
-                        side: BorderSide(color: AppTheme.borderColor(context)),
-                        foregroundColor: AppTheme.textColor(context),
+                    if (_feedback != null) ...<Widget>[
+                      const SizedBox(height: 14),
+                      Text(
+                        _feedback!,
+                        style: TextStyle(
+                          color: (_correct ?? false)
+                              ? const Color(0xFF198754)
+                              : const Color(0xFFDC3545),
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                      child: const Text('⌫'),
-                    ),
-                    FilledButton(
-                      onPressed: answered
-                          ? null
-                          : () {
-                              final String normalizedAnswer = _normalizeReview(
-                                _controller.text,
-                              );
-                              final bool isCorrect =
-                                  answerData.alternatives.any(
-                                    (String value) =>
-                                        _normalizeReview(value) ==
-                                        normalizedAnswer,
-                                  ) &&
-                                  !_gaveUp &&
-                                  _hintLevel < 3;
-                              app.recordSrsReviewForSlugTerm(
-                                widget.slug,
-                                prompt,
-                                success: isCorrect,
-                              );
-                              setState(() {
-                                _correct = isCorrect;
-                                _feedback = _correct!
-                                    ? 'Correcte'
-                                    : 'Responsa: ${answerData.answer}';
-                              });
-                            },
-                      style: FilledButton.styleFrom(
-                        backgroundColor: const Color(0xFF20C997),
-                        foregroundColor: Colors.white,
-                      ),
-                      child: const Text('Verificar'),
-                    ),
-                    FilledButton(
-                      onPressed: () {
-                        setState(() {
-                          _index = (_index + 1) % _queue.length;
-                          _resetReviewState(lang);
-                        });
-                      },
-                      style: FilledButton.styleFrom(
-                        backgroundColor: AppTheme.primary,
-                        foregroundColor: Colors.white,
-                      ),
-                      child: const Text('Sequente'),
-                    ),
+                    ],
                   ],
                 ),
-                if (_feedback != null) ...<Widget>[
-                  const SizedBox(height: 14),
-                  Text(
-                    _feedback!,
-                    style: TextStyle(
-                      color: (_correct ?? false)
-                          ? const Color(0xFF198754)
-                          : const Color(0xFFDC3545),
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ],
-            ),
-          ),
-        ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }

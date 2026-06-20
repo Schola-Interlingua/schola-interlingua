@@ -31,7 +31,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:scheme="scholainterlingua"
+                    android:scheme="com.scholainterlingua.app"
                     android:host="login-callback" />
             </intent-filter>
         </activity>

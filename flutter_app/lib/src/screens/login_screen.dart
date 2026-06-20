@@ -118,7 +118,8 @@ class _LoginScreenState extends State<LoginScreen> {
       await controller.signInWithEmail(email, redirectTo: redirectTo);
       if (!mounted) return;
       setState(() {
-        _message = 'Nos ha inviate un ligamine per e-mail.';
+        _message =
+            'Nos ha inviate un ligamine per e-mail. Aperi lo in iste mesme telephono pro retornar al app.';
       });
     } catch (_) {
       if (!mounted) return;
