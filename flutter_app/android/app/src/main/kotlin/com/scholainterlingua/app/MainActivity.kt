@@ -1,4 +1,4 @@
-package com.scholainterlingua.flutter_app
+package com.scholainterlingua.app
 
 import io.flutter.embedding.android.FlutterActivity
 
