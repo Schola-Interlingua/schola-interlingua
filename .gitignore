@@ -1,0 +1,11 @@
+# Ignora varie artefactos
+**/.DS_Store
+**/#*#
+*~
+*.bak
+*.old
+*.orig
+*.rej
+.*.swp
+*.tmp
+tags
