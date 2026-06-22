@@ -168,18 +168,6 @@ const List<CourseLevel> courseLevels = <CourseLevel>[
             icon: Icons.copy_all_rounded,
           ),
           CourseItemRef(
-            slug: 'esser-haber',
-            title: 'Esser Haber',
-            kind: CourseItemKind.vocabulary,
-            icon: Icons.checklist_rounded,
-          ),
-          CourseItemRef(
-            slug: 'vestimentos',
-            title: 'Vestimentos',
-            kind: CourseItemKind.vocabulary,
-            icon: Icons.checkroom_rounded,
-          ),
-          CourseItemRef(
             slug: 'colores',
             title: 'Colores',
             kind: CourseItemKind.vocabulary,
@@ -239,6 +227,30 @@ const List<CourseLevel> courseLevels = <CourseLevel>[
             kind: CourseItemKind.vocabulary,
             icon: Icons.favorite_outline_rounded,
           ),
+          CourseItemRef(
+            slug: 'esser-haber',
+            title: 'Esser Haber',
+            kind: CourseItemKind.vocabulary,
+            icon: Icons.checklist_rounded,
+          ),
+          CourseItemRef(
+            slug: 'vestimentos',
+            title: 'Vestimentos',
+            kind: CourseItemKind.vocabulary,
+            icon: Icons.checkroom_rounded,
+          ),
+          CourseItemRef(
+            slug: 'questiones',
+            title: 'Questiones',
+            kind: CourseItemKind.vocabulary,
+            icon: Icons.help_outline_rounded,
+          ),
+          CourseItemRef(
+            slug: 'prepositiones',
+            title: 'Prepositiones',
+            kind: CourseItemKind.vocabulary,
+            icon: Icons.alt_route_rounded,
+          ),
         ],
       ),
       CourseSection(
@@ -288,12 +300,6 @@ const List<CourseLevel> courseLevels = <CourseLevel>[
             icon: Icons.account_tree_outlined,
           ),
           CourseItemRef(
-            slug: 'questiones',
-            title: 'Questiones',
-            kind: CourseItemKind.vocabulary,
-            icon: Icons.help_outline_rounded,
-          ),
-          CourseItemRef(
             slug: 'verbos2',
             title: 'Verbos 2',
             kind: CourseItemKind.vocabulary,
@@ -304,12 +310,6 @@ const List<CourseLevel> courseLevels = <CourseLevel>[
             title: 'Adjectivos 2',
             kind: CourseItemKind.vocabulary,
             icon: Icons.format_size_rounded,
-          ),
-          CourseItemRef(
-            slug: 'prepositiones',
-            title: 'Prepositiones',
-            kind: CourseItemKind.vocabulary,
-            icon: Icons.alt_route_rounded,
           ),
           CourseItemRef(
             slug: 'numeros',
