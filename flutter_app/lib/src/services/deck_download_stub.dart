@@ -1,6 +1,7 @@
 Future<bool> downloadDeckFile({
   required String fileName,
-  required String content,
+  required List<int> bytes,
+  String mimeType = 'application/octet-stream',
 }) async {
   return false;
 }
