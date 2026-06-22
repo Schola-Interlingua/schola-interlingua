@@ -270,7 +270,7 @@ class AppController extends ChangeNotifier {
     }
 
     if (_currentUser != null) {
-      await _loadProgressFromRemote();
+      await _loadProgressFromRemote(preferRemote: true);
     }
 
     _authSubscription?.cancel();
@@ -456,6 +456,9 @@ class AppController extends ChangeNotifier {
       token: token,
       type: OtpType.email,
     );
+    _currentUser = Supabase.instance.client.auth.currentUser;
+    await _loadProgressFromRemote(preferRemote: true);
+    notifyListeners();
   }
 
   Future<void> signOut() async {
@@ -547,13 +550,13 @@ class AppController extends ChangeNotifier {
     _currentUser = nextUser;
 
     if (previousId != nextId && nextUser != null) {
-      await _loadProgressFromRemote();
+      await _loadProgressFromRemote(preferRemote: true);
     }
 
     notifyListeners();
   }
 
-  Future<void> _loadProgressFromRemote() async {
+  Future<void> _loadProgressFromRemote({bool preferRemote = false}) async {
     if (_currentUser == null) return;
 
     final PostgrestMap? row = await Supabase.instance.client
@@ -570,10 +573,12 @@ class AppController extends ChangeNotifier {
     final Map<String, dynamic> srs =
         (progress['srs'] as Map?)?.cast<String, dynamic>() ??
         <String, dynamic>{};
+    final bool hasRemoteProgress = lessons.isNotEmpty || srs.isNotEmpty;
 
-    final Map<String, String> merged = Map<String, String>.from(
-      _completedItems,
-    );
+    final Map<String, String> merged =
+        preferRemote && hasRemoteProgress
+        ? <String, String>{}
+        : Map<String, String>.from(_completedItems);
     lessons.forEach((String slug, dynamic value) {
       if (value is! Map) return;
       if (value['completed'] != true) return;
@@ -588,7 +593,9 @@ class AppController extends ChangeNotifier {
       ..clear()
       ..addAll(merged);
     final Map<String, SrsCardProgress> mergedSrs =
-        Map<String, SrsCardProgress>.from(_srsProgress);
+        preferRemote && hasRemoteProgress
+        ? <String, SrsCardProgress>{}
+        : Map<String, SrsCardProgress>.from(_srsProgress);
     srs.forEach((String cardId, dynamic value) {
       if (value is! Map) return;
       final SrsCardProgress remoteProgress = SrsCardProgress.fromJson(
@@ -607,6 +614,7 @@ class AppController extends ChangeNotifier {
     _persistCompletedItems();
     _persistSrsProgress();
     await _syncProgressToRemote();
+    notifyListeners();
   }
 
   Future<void> _syncProgressToRemote() async {
