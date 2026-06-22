@@ -561,39 +561,78 @@ class _SettingsScreenState extends State<SettingsScreen> {
   ) async {
     final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
     final GoRouter router = GoRouter.of(context);
+    final String confirmationValue =
+        controller.currentUser?.email?.trim() ?? 'DELER';
+    final String confirmationLabel =
+        controller.currentUser?.email?.trim().isNotEmpty == true
+        ? 'tu email'
+        : '"DELER"';
+    final TextEditingController confirmationController =
+        TextEditingController();
     final bool? confirmed = await showDialog<bool>(
       context: context,
       barrierColor: _dialogBarrierColor(context),
       builder: (BuildContext context) {
-        return AlertDialog(
-          backgroundColor: _dialogBackgroundColor(context),
-          surfaceTintColor: Colors.transparent,
-          shadowColor: Colors.black.withValues(alpha: 0.28),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(28),
-            side: BorderSide(color: AppTheme.borderColor(context)),
-          ),
-          title: const Text('Deler conto?'),
-          content: const Text(
-            'Iste action es permanente. Le conto e le progresso synchronisate essera delite de Supabase.',
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('Cancellar'),
-            ),
-            FilledButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              style: FilledButton.styleFrom(
-                backgroundColor: const Color(0xFFB83A3A),
-                foregroundColor: Colors.white,
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setDialogState) {
+            final bool matchesConfirmation =
+                confirmationController.text.trim() == confirmationValue;
+            return AlertDialog(
+              backgroundColor: _dialogBackgroundColor(context),
+              surfaceTintColor: Colors.transparent,
+              shadowColor: Colors.black.withValues(alpha: 0.28),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(28),
+                side: BorderSide(color: AppTheme.borderColor(context)),
               ),
-              child: const Text('Deler permanentemente'),
-            ),
-          ],
+              title: const Text('Deler conto?'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const Text(
+                    'Iste action es permanente. Le conto e le progresso synchronisate essera delite de Supabase.',
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Pro confirmar, scribe $confirmationLabel.',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: confirmationController,
+                    autofocus: true,
+                    onChanged: (_) => setDialogState(() {}),
+                    decoration: InputDecoration(hintText: confirmationValue),
+                  ),
+                ],
+              ),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: const Text('Cancellar'),
+                ),
+                FilledButton(
+                  onPressed: matchesConfirmation
+                      ? () => Navigator.of(context).pop(true)
+                      : null,
+                  style: FilledButton.styleFrom(
+                    backgroundColor: const Color(0xFFB83A3A),
+                    foregroundColor: Colors.white,
+                    disabledBackgroundColor: const Color(
+                      0xFFB83A3A,
+                    ).withValues(alpha: 0.45),
+                    disabledForegroundColor: Colors.white70,
+                  ),
+                  child: const Text('Deler permanentemente'),
+                ),
+              ],
+            );
+          },
         );
       },
     );
+    confirmationController.dispose();
 
     if (confirmed != true || !mounted) return;
 
