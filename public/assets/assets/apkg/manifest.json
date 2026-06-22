@@ -1,0 +1,136 @@
+{
+  "deckName": "Schola Interlingua",
+  "structure": "level-source",
+  "languages": {
+    "es": {
+      "language": "es",
+      "label": "Español",
+      "file": "schola-interlingua-es.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-es.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53143014
+    },
+    "en": {
+      "language": "en",
+      "label": "English",
+      "file": "schola-interlingua-en.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-en.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53138918
+    },
+    "ru": {
+      "language": "ru",
+      "label": "Русский",
+      "file": "schola-interlingua-ru.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-ru.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53151206
+    },
+    "de": {
+      "language": "de",
+      "label": "Deutsch",
+      "file": "schola-interlingua-de.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-de.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53138918
+    },
+    "fr": {
+      "language": "fr",
+      "label": "Français",
+      "file": "schola-interlingua-fr.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-fr.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53138918
+    },
+    "it": {
+      "language": "it",
+      "label": "Italiano",
+      "file": "schola-interlingua-it.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-it.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53138918
+    },
+    "la": {
+      "language": "la",
+      "label": "Lingua Latina",
+      "file": "schola-interlingua-la.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-la.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53138918
+    },
+    "eo": {
+      "language": "eo",
+      "label": "Esperanto",
+      "file": "schola-interlingua-eo.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-eo.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53138918
+    },
+    "pt": {
+      "language": "pt",
+      "label": "Português",
+      "file": "schola-interlingua-pt.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-pt.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53138918
+    },
+    "zh": {
+      "language": "zh",
+      "label": "中文",
+      "file": "schola-interlingua-zh.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-zh.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53138918
+    },
+    "ja": {
+      "language": "ja",
+      "label": "日本語",
+      "file": "schola-interlingua-ja.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-ja.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53143014
+    },
+    "ca": {
+      "language": "ca",
+      "label": "Català",
+      "file": "schola-interlingua-ca.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-ca.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53138918
+    },
+    "ko": {
+      "language": "ko",
+      "label": "한국어",
+      "file": "schola-interlingua-ko.apkg",
+      "assetPath": "assets/apkg/schola-interlingua-ko.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 53143014
+    }
+  }
+}

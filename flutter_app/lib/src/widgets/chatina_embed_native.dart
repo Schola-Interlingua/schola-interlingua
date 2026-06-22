@@ -108,6 +108,15 @@ class _ChatinaEmbedState extends State<ChatinaEmbed> {
         });
       }
 
+      function hideFab(button) {
+        const host = button.closest('div');
+        [button, host].filter(Boolean).forEach((element) => {
+          element.style.opacity = '0';
+          element.style.pointerEvents = 'none';
+          element.style.visibility = 'hidden';
+        });
+      }
+
       function openChatina() {
         const button =
           document.getElementById('athena_fab_btn') ||
@@ -117,6 +126,7 @@ class _ChatinaEmbedState extends State<ChatinaEmbed> {
         if (!button) return false;
 
         placeFab(button);
+        hideFab(button);
 
         if (!opened) {
           opened = true;

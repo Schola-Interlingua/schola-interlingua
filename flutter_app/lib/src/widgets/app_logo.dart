@@ -8,7 +8,7 @@ class AppLogo extends StatelessWidget {
     this.size = 48,
     this.radius,
     this.padding,
-    this.assetPath = 'assets/images/logo.png',
+    this.assetPath = 'assets/images/logo_foreground.png',
   });
 
   final double size;

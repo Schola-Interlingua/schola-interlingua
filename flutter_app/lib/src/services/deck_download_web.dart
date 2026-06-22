@@ -1,15 +1,13 @@
 // ignore_for_file: deprecated_member_use, avoid_web_libraries_in_flutter
 
-import 'dart:convert';
 import 'dart:html' as html;
 
 Future<bool> downloadDeckFile({
   required String fileName,
-  required String content,
+  required List<int> bytes,
+  String mimeType = 'application/octet-stream',
 }) async {
-  final html.Blob blob = html.Blob(<List<int>>[
-    utf8.encode(content),
-  ], 'text/csv;charset=utf-8');
+  final html.Blob blob = html.Blob(<List<int>>[bytes], mimeType);
   final String url = html.Url.createObjectUrlFromBlob(blob);
   final html.AnchorElement anchor = html.AnchorElement(href: url)
     ..download = fileName

@@ -3,8 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 import '../app_state.dart';
-import '../data/course_seed.dart';
-import '../models/course_models.dart';
+import '../services/anki_export_manifest.dart';
 import '../services/deck_download.dart';
 import '../theme/app_theme.dart';
 
@@ -88,16 +87,15 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  late final Set<String> _selectedLevels;
   bool _exporting = false;
   bool _deletingAccount = false;
+  AnkiExportManifest? _ankiManifest;
+  String? _ankiManifestError;
 
   @override
   void initState() {
     super.initState();
-    _selectedLevels = courseLevels
-        .map((CourseLevel level) => level.slug)
-        .toSet();
+    _loadAnkiManifest();
   }
 
   @override
@@ -106,10 +104,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
     AppStateScope.of(context).loadVocab();
   }
 
+  Future<void> _loadAnkiManifest() async {
+    try {
+      final AnkiExportManifest manifest = await loadAnkiExportManifest();
+      if (!mounted) return;
+      setState(() {
+        _ankiManifest = manifest;
+        _ankiManifestError = null;
+      });
+    } catch (error) {
+      if (!mounted) return;
+      setState(() {
+        _ankiManifestError = error.toString();
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final AppController controller = AppStateScope.of(context);
     final _DeckPreview deckPreview = _buildDeckPreview(controller);
+    final AnkiDeckAsset? deckAsset = _ankiManifest?.deckForLanguage(
+      controller.selectedLanguage,
+    );
+    final String selectedLanguageLabel =
+        _languageLabels[controller.selectedLanguage] ??
+        controller.selectedLanguage;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -138,82 +158,75 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Text('Deck Anki', style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 12),
               Text(
-                'Discarga un deck con le vocabulario del curso pro le nivellos que tu selige, solo in ${_languageLabels[controller.selectedLanguage] ?? controller.selectedLanguage}.',
+                'Discarga un deck `.apkg` con audio de pronunciation e subdecks separate per nivello e gruppo de vocabulario in $selectedLanguageLabel.',
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               const SizedBox(height: 16),
-              Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                children: courseLevels.map((CourseLevel level) {
-                  final bool selected = _selectedLevels.contains(level.slug);
-                  return FilterChip(
-                    label: Text(level.title),
-                    selected: selected,
-                    onSelected: (_) {
-                      setState(() {
-                        if (selected) {
-                          _selectedLevels.remove(level.slug);
-                        } else {
-                          _selectedLevels.add(level.slug);
-                        }
-                      });
-                    },
-                    selectedColor: AppTheme.primary.withValues(alpha: 0.92),
-                    checkmarkColor: Colors.white,
-                    labelStyle: Theme.of(context).textTheme.bodyMedium
-                        ?.copyWith(
-                          color: selected
-                              ? Colors.white
-                              : AppTheme.textColor(context),
-                        ),
-                    backgroundColor: Colors.white.withValues(alpha: 0.10),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                      side: BorderSide(color: AppTheme.borderColor(context)),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.08),
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: AppTheme.borderColor(context)),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Structura in Anki',
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
-                  );
-                }).toList(),
-              ),
-              const SizedBox(height: 16),
-              Wrap(
-                spacing: 12,
-                runSpacing: 12,
-                children: <Widget>[
-                  OutlinedButton(
-                    onPressed: () {
-                      setState(() {
-                        _selectedLevels
-                          ..clear()
-                          ..addAll(
-                            courseLevels.map((CourseLevel level) => level.slug),
-                          );
-                      });
-                    },
-                    child: const Text('Tote le nivellos'),
-                  ),
-                  OutlinedButton(
-                    onPressed: () {
-                      setState(() {
-                        _selectedLevels.clear();
-                      });
-                    },
-                    child: const Text('Nulle'),
-                  ),
-                ],
+                    const SizedBox(height: 10),
+                    Text(
+                      '${_ankiManifest?.deckName ?? 'Schola Interlingua'}::Nivello 1::Basico1',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      '${_ankiManifest?.deckName ?? 'Schola Interlingua'}::Nivello 4::Familia',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 16),
               Text(
-                '${deckPreview.cards.length} cartas preste a exportar',
+                '${deckAsset?.noteCount ?? deckPreview.cardsCount} cartas, ${deckPreview.levelCount} nivellos, ${deckPreview.sourceCount} gruppos de vocabulario',
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
+              if (deckAsset != null) ...<Widget>[
+                const SizedBox(height: 8),
+                Text(
+                  'Dimension estimate: ${_formatBytes(deckAsset.sizeBytes)}',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ],
+              if (_ankiManifestError != null) ...<Widget>[
+                const SizedBox(height: 8),
+                Text(
+                  'Le manifesto del deck non pote esser cargate: $_ankiManifestError',
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyMedium?.copyWith(color: Colors.red.shade300),
+                ),
+              ] else if (_ankiManifest != null && deckAsset == null) ...<Widget>[
+                const SizedBox(height: 8),
+                Text(
+                  'Le package pro $selectedLanguageLabel non es ancora generate. Usa le script de generation ante publicar iste lingua.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ],
               const SizedBox(height: 16),
               FilledButton(
-                onPressed: _exporting || deckPreview.cards.isEmpty
-                    ? null
-                    : () => _exportDeck(context, controller, deckPreview),
+                onPressed:
+                    _exporting || deckAsset == null
+                        ? null
+                        : () => _exportDeck(context, deckAsset),
                 child: Text(
-                  _exporting ? 'Preparante deck...' : 'Discargar deck Anki',
+                  _exporting
+                      ? 'Preparante deck...'
+                      : 'Discargar deck Anki (.apkg)',
                 ),
               ),
             ],
@@ -379,43 +392,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   _DeckPreview _buildDeckPreview(AppController controller) {
-    final Map<String, _DeckCard> uniqueCards = <String, _DeckCard>{};
-    for (final card in controller.exportableCardsForLevels(_selectedLevels)) {
+    final Set<String> levels = <String>{};
+    final Set<String> sources = <String>{};
+    int cardsCount = 0;
+    for (final card in controller.exportableCards) {
       final String back =
           (card.translations[controller.selectedLanguage] ??
                   card.translations['es'] ??
                   '')
               .trim();
       if (back.isEmpty) continue;
-      final String key =
-          '${card.term.toLowerCase()}|${back.toLowerCase()}|${card.levelSlug}';
-      uniqueCards[key] = _DeckCard(
-        front: card.term,
-        back: back,
-        levelTitle: card.levelTitle,
-        sourceTitle: card.sourceTitle,
-      );
+      cardsCount += 1;
+      levels.add(card.levelTitle);
+      sources.add(card.sourceTitle);
     }
-
-    final List<_DeckCard> cards = uniqueCards.values.toList()
-      ..sort((a, b) {
-        final int byLevel = a.levelTitle.compareTo(b.levelTitle);
-        if (byLevel != 0) return byLevel;
-        return a.front.compareTo(b.front);
-      });
-
-    final List<String> levelTitles = courseLevels
-        .where((CourseLevel level) => _selectedLevels.contains(level.slug))
-        .map((CourseLevel level) => level.title)
-        .toList();
-
-    return _DeckPreview(cards: cards, levelTitles: levelTitles);
+    return _DeckPreview(
+      cardsCount: cardsCount,
+      levelCount: levels.length,
+      sourceCount: sources.length,
+    );
   }
 
   Future<void> _exportDeck(
     BuildContext context,
-    AppController controller,
-    _DeckPreview preview,
+    AnkiDeckAsset deckAsset,
   ) async {
     final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
 
@@ -423,60 +423,46 @@ class _SettingsScreenState extends State<SettingsScreen> {
       _exporting = true;
     });
 
-    final String csv = _buildCsv(preview.cards);
-    final String fileName = _buildFileName(
-      controller.selectedLanguage,
-      preview,
-    );
-    final bool downloaded = await downloadDeckFile(
-      fileName: fileName,
-      content: csv,
-    );
-
-    if (!mounted) return;
-
-    if (!downloaded) {
-      await Clipboard.setData(ClipboardData(text: csv));
-    }
-
-    messenger.showSnackBar(
-      SnackBar(
-        content: Text(
-          downloaded
-              ? 'Deck descargate con successo.'
-              : 'Le deck esseva copiate al area de transferentia pro importar lo manualmente.',
+    try {
+      final ByteData packageData = await rootBundle.load(deckAsset.assetPath);
+      final bool downloaded = await downloadDeckFile(
+        fileName: deckAsset.file,
+        bytes: packageData.buffer.asUint8List(
+          packageData.offsetInBytes,
+          packageData.lengthInBytes,
         ),
-      ),
-    );
-
-    setState(() {
-      _exporting = false;
-    });
-  }
-
-  String _buildCsv(List<_DeckCard> cards) {
-    final StringBuffer buffer = StringBuffer();
-    buffer.writeln('Front,Back,Level,Source');
-    for (final _DeckCard card in cards) {
-      buffer.writeln(
-        '${_csv(card.front)},${_csv(card.back)},${_csv(card.levelTitle)},${_csv(card.sourceTitle)}',
+        mimeType: 'application/octet-stream',
       );
+
+      if (!mounted) return;
+
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(
+            downloaded
+                ? 'Deck descargate con successo.'
+                : 'Iste platteforma non supporta ancora le descarga directe del `.apkg`.',
+          ),
+        ),
+      );
+    } catch (error) {
+      if (!mounted) return;
+      messenger.showSnackBar(
+        SnackBar(content: Text('Non pote preparar le deck: $error')),
+      );
+    } finally {
+      if (mounted) {
+        setState(() {
+          _exporting = false;
+        });
+      }
     }
-    return buffer.toString();
   }
 
-  String _buildFileName(String language, _DeckPreview preview) {
-    final String levels = preview.levelTitles.isEmpty
-        ? 'vacue'
-        : preview.levelTitles
-              .map((String title) => title.toLowerCase().replaceAll(' ', '-'))
-              .join('_');
-    return 'schola-interlingua-$language-$levels.csv';
-  }
-
-  String _csv(String value) {
-    final String escaped = value.replaceAll('"', '""');
-    return '"$escaped"';
+  String _formatBytes(int bytes) {
+    if (bytes <= 0) return '0 MB';
+    final double sizeInMb = bytes / (1024 * 1024);
+    return '${sizeInMb.toStringAsFixed(sizeInMb >= 100 ? 0 : 1)} MB';
   }
 
   Future<void> _showAboutDialog(BuildContext context) {
@@ -695,24 +681,15 @@ class _DeleteAccountDialogState extends State<_DeleteAccountDialog> {
 }
 
 class _DeckPreview {
-  const _DeckPreview({required this.cards, required this.levelTitles});
-
-  final List<_DeckCard> cards;
-  final List<String> levelTitles;
-}
-
-class _DeckCard {
-  const _DeckCard({
-    required this.front,
-    required this.back,
-    required this.levelTitle,
-    required this.sourceTitle,
+  const _DeckPreview({
+    required this.cardsCount,
+    required this.levelCount,
+    required this.sourceCount,
   });
 
-  final String front;
-  final String back;
-  final String levelTitle;
-  final String sourceTitle;
+  final int cardsCount;
+  final int levelCount;
+  final int sourceCount;
 }
 
 class _FooterLinkData {
