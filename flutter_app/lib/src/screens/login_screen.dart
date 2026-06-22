@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../app_state.dart';
-import '../services/auth_redirect.dart';
 import '../theme/app_theme.dart';
 import '../widgets/app_logo.dart';
 
@@ -15,12 +14,16 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _otpController = TextEditingController();
   bool _submitting = false;
+  bool _awaitingOtp = false;
+  String? _pendingEmail;
   String? _message;
 
   @override
   void dispose() {
     _emailController.dispose();
+    _otpController.dispose();
     super.dispose();
   }
 
@@ -66,9 +69,22 @@ class _LoginScreenState extends State<LoginScreen> {
                             _LoginPanel(
                               controller: controller,
                               emailController: _emailController,
+                              otpController: _otpController,
                               message: _message,
                               submitting: _submitting,
+                              awaitingOtp: _awaitingOtp,
                               onSubmit: () => _submit(controller),
+                              onVerify: () => _verifyOtp(controller),
+                              onBack: _awaitingOtp
+                                  ? () {
+                                      setState(() {
+                                        _awaitingOtp = false;
+                                        _pendingEmail = null;
+                                        _otpController.clear();
+                                        _message = null;
+                                      });
+                                    }
+                                  : null,
                             ),
                           ],
                         )
@@ -81,9 +97,22 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: _LoginPanel(
                                 controller: controller,
                                 emailController: _emailController,
+                                otpController: _otpController,
                                 message: _message,
                                 submitting: _submitting,
+                                awaitingOtp: _awaitingOtp,
                                 onSubmit: () => _submit(controller),
+                                onVerify: () => _verifyOtp(controller),
+                                onBack: _awaitingOtp
+                                    ? () {
+                                        setState(() {
+                                          _awaitingOtp = false;
+                                          _pendingEmail = null;
+                                          _otpController.clear();
+                                          _message = null;
+                                        });
+                                      }
+                                    : null,
                               ),
                             ),
                           ],
@@ -112,19 +141,53 @@ class _LoginScreenState extends State<LoginScreen> {
     });
 
     try {
-      final Uri baseUri = Uri.base;
-      final String redirectTo = buildAuthRedirectUri(baseUri);
-
-      await controller.signInWithEmail(email, redirectTo: redirectTo);
+      await controller.signInWithEmailOtp(email);
       if (!mounted) return;
       setState(() {
-        _message =
-            'Nos ha inviate un ligamine per e-mail. Aperi lo in iste mesme telephono pro retornar al app.';
+        _awaitingOtp = true;
+        _pendingEmail = email;
+        _otpController.clear();
+        _message = 'Nos ha inviate un codice de 6 digitos a $email.';
       });
     } catch (_) {
       if (!mounted) return;
       setState(() {
-        _message = 'Error al inviar le e-mail, proba de novo plus tarde.';
+        _message = 'Error al inviar le codice, proba de novo plus tarde.';
+      });
+    } finally {
+      if (mounted) {
+        setState(() {
+          _submitting = false;
+        });
+      }
+    }
+  }
+
+  Future<void> _verifyOtp(AppController controller) async {
+    final String email = _pendingEmail ?? _emailController.text.trim();
+    final String token = _otpController.text.replaceAll(RegExp(r'\s+'), '');
+    if (token.length != 6) {
+      setState(() {
+        _message = 'Entra le codice complete de 6 digitos.';
+      });
+      return;
+    }
+
+    setState(() {
+      _submitting = true;
+      _message = null;
+    });
+
+    try {
+      await controller.verifyEmailOtp(email: email, token: token);
+      if (!mounted) return;
+      setState(() {
+        _message = 'Session aperite.';
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _message = 'Le codice non esseva valide o jam expirava.';
       });
     } finally {
       if (mounted) {
@@ -188,16 +251,24 @@ class _LoginPanel extends StatelessWidget {
   const _LoginPanel({
     required this.controller,
     required this.emailController,
+    required this.otpController,
     required this.message,
     required this.submitting,
+    required this.awaitingOtp,
     required this.onSubmit,
+    required this.onVerify,
+    this.onBack,
   });
 
   final AppController controller;
   final TextEditingController emailController;
+  final TextEditingController otpController;
   final String? message;
   final bool submitting;
+  final bool awaitingOtp;
   final VoidCallback onSubmit;
+  final VoidCallback onVerify;
+  final VoidCallback? onBack;
 
   @override
   Widget build(BuildContext context) {
@@ -214,25 +285,57 @@ class _LoginPanel extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  'Nos te inviara un ligamine per e-mail con le qual tu accedera.',
+                  awaitingOtp
+                      ? 'Entra le codice que nos inviava per e-mail.'
+                      : 'Nos te inviara un codice per e-mail pro initiar session.',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 const SizedBox(height: 24),
-                TextField(
-                  controller: emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    hintText: 'exemplo@email.com',
+                if (!awaitingOtp) ...<Widget>[
+                  TextField(
+                    controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      hintText: 'exemplo@email.com',
+                    ),
                   ),
-                ),
-                const SizedBox(height: 16),
-                FilledButton(
-                  onPressed: submitting ? null : onSubmit,
-                  child: Text(
-                    submitting ? 'Inviante ligamine...' : 'Inviar ligamine',
+                  const SizedBox(height: 16),
+                  FilledButton(
+                    onPressed: submitting ? null : onSubmit,
+                    child: Text(
+                      submitting ? 'Inviante codice...' : 'Inviar codice',
+                    ),
                   ),
-                ),
+                ] else ...<Widget>[
+                  TextField(
+                    controller: otpController,
+                    keyboardType: TextInputType.number,
+                    textAlign: TextAlign.center,
+                    maxLength: 6,
+                    decoration: const InputDecoration(
+                      hintText: '123456',
+                      counterText: '',
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  FilledButton(
+                    onPressed: submitting ? null : onVerify,
+                    child: Text(
+                      submitting ? 'Verificante...' : 'Confirmar codice',
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  OutlinedButton(
+                    onPressed: submitting ? null : onSubmit,
+                    child: const Text('Reinviar codice'),
+                  ),
+                  const SizedBox(height: 12),
+                  OutlinedButton(
+                    onPressed: submitting ? null : onBack,
+                    child: const Text('Cambiar e-mail'),
+                  ),
+                ],
                 const SizedBox(height: 12),
                 OutlinedButton(
                   onPressed: () => context.go('/'),

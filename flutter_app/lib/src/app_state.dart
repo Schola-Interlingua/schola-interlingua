@@ -443,13 +443,18 @@ class AppController extends ChangeNotifier {
     recordSrsReview(card.id, success: success);
   }
 
-  Future<void> signInWithEmail(
-    String email, {
-    required String redirectTo,
+  Future<void> signInWithEmailOtp(String email) async {
+    await Supabase.instance.client.auth.signInWithOtp(email: email);
+  }
+
+  Future<void> verifyEmailOtp({
+    required String email,
+    required String token,
   }) async {
-    await Supabase.instance.client.auth.signInWithOtp(
+    await Supabase.instance.client.auth.verifyOTP(
       email: email,
-      emailRedirectTo: redirectTo,
+      token: token,
+      type: OtpType.email,
     );
   }
 
