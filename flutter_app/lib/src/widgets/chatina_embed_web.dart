@@ -22,8 +22,10 @@ class _ChatinaEmbedState extends State<ChatinaEmbed> {
   static bool _registered = false;
   static bool _jqueryInjected = false;
   static bool _scriptInjected = false;
+  static bool _styleInjected = false;
 
   Timer? _scriptTimer;
+  Timer? _openTimer;
 
   @override
   void initState() {
@@ -35,6 +37,7 @@ class _ChatinaEmbedState extends State<ChatinaEmbed> {
   @override
   void dispose() {
     _scriptTimer?.cancel();
+    _openTimer?.cancel();
     super.dispose();
   }
 
@@ -47,22 +50,13 @@ class _ChatinaEmbedState extends State<ChatinaEmbed> {
         ..style.width = '100%'
         ..style.height = '560px'
         ..style.minHeight = '560px'
-        ..style.display = 'flex'
-        ..style.alignItems = 'center'
-        ..style.justifyContent = 'flex-start';
-
-      final html.DivElement note = html.DivElement()
-        ..text = 'Chatina original se carga como in le sito web.'
-        ..style.fontFamily = 'sans-serif'
-        ..style.fontSize = '15px'
-        ..style.color = '#6b7f99';
-
-      container.children.add(note);
+        ..style.display = 'block';
       return container;
     });
   }
 
   void _injectOriginalScript() {
+    _ensureHideLauncherStyle();
     if (html.document.querySelector('script[src="$_jquerySrc"]') != null) {
       _jqueryInjected = true;
     }
@@ -80,6 +74,7 @@ class _ChatinaEmbedState extends State<ChatinaEmbed> {
         jqueryScript.onLoad.first.then((_) {
           _jqueryInjected = true;
           _appendChatinaScript();
+          _scheduleOpen();
         });
         html.document.body?.append(jqueryScript);
         _jqueryInjected = true;
@@ -87,7 +82,29 @@ class _ChatinaEmbedState extends State<ChatinaEmbed> {
       }
 
       _appendChatinaScript();
+      _scheduleOpen();
     });
+  }
+
+  void _ensureHideLauncherStyle() {
+    if (_styleInjected) return;
+    if (html.document.getElementById('schola-chatina-hide-style') != null) {
+      _styleInjected = true;
+      return;
+    }
+    final html.StyleElement style = html.StyleElement()
+      ..id = 'schola-chatina-hide-style'
+      ..text = '''
+#athena_fab_btn,
+button#athena_fab_btn,
+[id*="athena_fab"] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+''';
+    html.document.head?.append(style);
+    _styleInjected = true;
   }
 
   void _appendChatinaScript() {
@@ -100,6 +117,39 @@ class _ChatinaEmbedState extends State<ChatinaEmbed> {
     final html.ScriptElement script = html.ScriptElement()..src = _chatinaSrc;
     html.document.body?.append(script);
     _scriptInjected = true;
+  }
+
+  void _scheduleOpen() {
+    _openTimer?.cancel();
+    _openTimer = Timer.periodic(const Duration(milliseconds: 700), (Timer timer) {
+      if (_openChatinaAndHideLauncher()) {
+        timer.cancel();
+      }
+    });
+  }
+
+  bool _openChatinaAndHideLauncher() {
+    final html.Element? button =
+        html.document.getElementById('athena_fab_btn') ??
+        html.document.querySelector('button[aria-label="Open support chat"]') ??
+        html.document.querySelector('[id*="athena_fab"]');
+
+    if (button == null) return false;
+
+    final html.HtmlElement htmlButton = button as html.HtmlElement;
+    htmlButton.style.opacity = '0';
+    htmlButton.style.pointerEvents = 'none';
+    htmlButton.style.visibility = 'hidden';
+
+    final String pageText = html.document.body?.text ?? '';
+    final bool alreadyOpen =
+        pageText.contains('Type your message') ||
+        pageText.contains('Designed by softwcloud.com') ||
+        pageText.contains('Salute! Io es Chatina');
+    if (!alreadyOpen) {
+      htmlButton.click();
+    }
+    return true;
   }
 
   @override

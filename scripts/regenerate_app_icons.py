@@ -60,9 +60,17 @@ def main() -> int:
 
     regular_master = make_icon(foreground, bg_color, 1024, 0.76)
     maskable_master = make_icon(foreground, bg_color, 1024, 0.62)
+    logo_foreground = make_icon(
+        foreground,
+        bg_color,
+        1024,
+        0.76,
+        transparent_background=True,
+    )
 
     save_png(regular_master, ROOT / "flutter_app/assets/images/logo_app_icon_master.png")
     save_png(maskable_master, ROOT / "flutter_app/assets/images/logo_app_icon_maskable.png")
+    save_png(logo_foreground, ROOT / "flutter_app/assets/images/logo_foreground.png")
 
     web_regular_sizes = {
         ROOT / "flutter_app/web/icons/Icon-192.png": 192,
