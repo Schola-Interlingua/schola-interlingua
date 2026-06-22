@@ -156,40 +156,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text('Deck Anki', style: Theme.of(context).textTheme.titleLarge),
-              const SizedBox(height: 12),
-              Text(
-                'Discarga un deck `.apkg` con audio de pronunciation e subdecks separate per nivello e gruppo de vocabulario in $selectedLanguageLabel.',
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              const SizedBox(height: 16),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.08),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: AppTheme.borderColor(context)),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Structura in Anki',
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      '${_ankiManifest?.deckName ?? 'Schola Interlingua'}::Nivello 1::Basico1',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                    const SizedBox(height: 6),
-                    Text(
-                      '${_ankiManifest?.deckName ?? 'Schola Interlingua'}::Nivello 4::Familia',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                  ],
-                ),
-              ),
               const SizedBox(height: 16),
               Text(
                 '${deckAsset?.noteCount ?? deckPreview.cardsCount} cartas, ${deckPreview.levelCount} nivellos, ${deckPreview.sourceCount} gruppos de vocabulario',
