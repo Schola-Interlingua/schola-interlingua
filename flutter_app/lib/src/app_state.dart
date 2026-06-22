@@ -238,35 +238,42 @@ class AppController extends ChangeNotifier {
         _completionStorageVersion,
       );
     }
-    final String? rawCompleted = _prefs?.getString('completed_items');
-    if (rawCompleted != null && rawCompleted.isNotEmpty) {
-      final Map<String, dynamic> decoded =
-          jsonDecode(rawCompleted) as Map<String, dynamic>;
-      _completedItems
-        ..clear()
-        ..addAll(
-          decoded.map(
-            (String key, dynamic value) => MapEntry(key, value.toString()),
-          ),
-        );
-    }
-    final String? rawSrs = _prefs?.getString('srs_progress');
-    if (rawSrs != null && rawSrs.isNotEmpty) {
-      final Map<String, dynamic> decoded =
-          jsonDecode(rawSrs) as Map<String, dynamic>;
-      _srsProgress
-        ..clear()
-        ..addAll(
-          decoded.map(
-            (String key, dynamic value) => MapEntry(
-              key,
-              SrsCardProgress.fromJson(
+    if (_currentUser == null) {
+      final String? rawCompleted = _prefs?.getString('completed_items');
+      if (rawCompleted != null && rawCompleted.isNotEmpty) {
+        final Map<String, dynamic> decoded =
+            jsonDecode(rawCompleted) as Map<String, dynamic>;
+        _completedItems
+          ..clear()
+          ..addAll(
+            decoded.map(
+              (String key, dynamic value) => MapEntry(key, value.toString()),
+            ),
+          );
+      }
+      final String? rawSrs = _prefs?.getString('srs_progress');
+      if (rawSrs != null && rawSrs.isNotEmpty) {
+        final Map<String, dynamic> decoded =
+            jsonDecode(rawSrs) as Map<String, dynamic>;
+        _srsProgress
+          ..clear()
+          ..addAll(
+            decoded.map(
+              (String key, dynamic value) => MapEntry(
                 key,
-                (value as Map).cast<String, dynamic>(),
+                SrsCardProgress.fromJson(
+                  key,
+                  (value as Map).cast<String, dynamic>(),
+                ),
               ),
             ),
-          ),
-        );
+          );
+      }
+    } else {
+      await _prefs?.remove('completed_items');
+      await _prefs?.remove('srs_progress');
+      _completedItems.clear();
+      _srsProgress.clear();
     }
 
     if (_currentUser != null) {
@@ -550,7 +557,12 @@ class AppController extends ChangeNotifier {
     _currentUser = nextUser;
 
     if (previousId != nextId && nextUser != null) {
+      await _clearLocalUserData();
       await _loadProgressFromRemote(preferRemote: true);
+    }
+
+    if (previousId != nextId && nextUser == null) {
+      await _clearLocalUserData();
     }
 
     notifyListeners();
@@ -573,47 +585,29 @@ class AppController extends ChangeNotifier {
     final Map<String, dynamic> srs =
         (progress['srs'] as Map?)?.cast<String, dynamic>() ??
         <String, dynamic>{};
-    final bool hasRemoteProgress = lessons.isNotEmpty || srs.isNotEmpty;
-
-    final Map<String, String> merged =
-        preferRemote && hasRemoteProgress
-        ? <String, String>{}
-        : Map<String, String>.from(_completedItems);
+    final Map<String, String> merged = <String, String>{};
     lessons.forEach((String slug, dynamic value) {
       if (value is! Map) return;
       if (value['completed'] != true) return;
       final String key = _completionKeyFromSlug(slug);
-      final String remoteValue = value['last_done']?.toString() ?? _todayIso();
-      final String? currentValue = merged[key];
-      if (currentValue == null || remoteValue.compareTo(currentValue) >= 0) {
-        merged[key] = remoteValue;
-      }
+      merged[key] = value['last_done']?.toString() ?? _todayIso();
     });
     _completedItems
       ..clear()
       ..addAll(merged);
-    final Map<String, SrsCardProgress> mergedSrs =
-        preferRemote && hasRemoteProgress
-        ? <String, SrsCardProgress>{}
-        : Map<String, SrsCardProgress>.from(_srsProgress);
+    final Map<String, SrsCardProgress> mergedSrs = <String, SrsCardProgress>{};
     srs.forEach((String cardId, dynamic value) {
       if (value is! Map) return;
-      final SrsCardProgress remoteProgress = SrsCardProgress.fromJson(
+      mergedSrs[cardId] = SrsCardProgress.fromJson(
         cardId,
         value.cast<String, dynamic>(),
       );
-      final SrsCardProgress? localProgress = mergedSrs[cardId];
-      if (localProgress == null ||
-          remoteProgress.updatedAt.isAfter(localProgress.updatedAt)) {
-        mergedSrs[cardId] = remoteProgress;
-      }
     });
     _srsProgress
       ..clear()
       ..addAll(mergedSrs);
     _persistCompletedItems();
     _persistSrsProgress();
-    await _syncProgressToRemote();
     notifyListeners();
   }
 
@@ -650,11 +644,13 @@ class AppController extends ChangeNotifier {
   }
 
   void _persistCompletedItems() {
+    if (_currentUser != null) return;
     _prefs?.setInt('completion_storage_version', _completionStorageVersion);
     _prefs?.setString('completed_items', jsonEncode(_completedItems));
   }
 
   void _persistSrsProgress() {
+    if (_currentUser != null) return;
     _prefs?.setString(
       'srs_progress',
       jsonEncode(
