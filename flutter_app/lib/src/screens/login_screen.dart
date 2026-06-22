@@ -12,6 +12,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  static const int _otpLength = 6;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _otpController = TextEditingController();
   bool _submitting = false;
@@ -109,12 +110,15 @@ class _LoginScreenState extends State<LoginScreen> {
         _awaitingOtp = true;
         _pendingEmail = email;
         _otpController.clear();
-        _message = 'Nos ha inviate un codice de 6 digitos a $email.';
+        _message = 'Nos ha inviate un codice de $_otpLength digitos a $email.';
       });
-    } catch (_) {
+    } catch (error) {
       if (!mounted) return;
       setState(() {
-        _message = 'Error al inviar le codice, proba de novo plus tarde.';
+        _message = _formatAuthError(
+          error,
+          fallback: 'Error al inviar le codice, proba de novo plus tarde.',
+        );
       });
     } finally {
       if (mounted) {
@@ -128,9 +132,9 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> _verifyOtp(AppController controller) async {
     final String email = _pendingEmail ?? _emailController.text.trim();
     final String token = _otpController.text.replaceAll(RegExp(r'\s+'), '');
-    if (token.length != 6) {
+    if (token.length != _otpLength) {
       setState(() {
-        _message = 'Entra le codice complete de 6 digitos.';
+        _message = 'Entra le codice complete de $_otpLength digitos.';
       });
       return;
     }
@@ -146,10 +150,13 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() {
         _message = 'Session aperite.';
       });
-    } catch (_) {
+    } catch (error) {
       if (!mounted) return;
       setState(() {
-        _message = 'Le codice non esseva valide o jam expirava.';
+        _message = _formatAuthError(
+          error,
+          fallback: 'Le codice non esseva valide o jam expirava.',
+        );
       });
     } finally {
       if (mounted) {
@@ -158,6 +165,35 @@ class _LoginScreenState extends State<LoginScreen> {
         });
       }
     }
+  }
+
+  String _formatAuthError(Object error, {required String fallback}) {
+    final String raw = error.toString().trim();
+    if (raw.isEmpty) return fallback;
+
+    String message = raw;
+    const List<String> prefixes = <String>[
+      'AuthException: ',
+      'Exception: ',
+      'PostgrestException: ',
+    ];
+
+    for (final String prefix in prefixes) {
+      if (message.startsWith(prefix)) {
+        message = message.substring(prefix.length).trim();
+      }
+    }
+
+    if (message.startsWith('AuthException(') && message.endsWith(')')) {
+      final RegExpMatch? match =
+          RegExp(r'message:\s*([^,]+)').firstMatch(message);
+      final String? extracted = match?.group(1)?.trim();
+      if (extracted != null && extracted.isNotEmpty) {
+        message = extracted;
+      }
+    }
+
+    return message.isEmpty ? fallback : message;
   }
 }
 
@@ -226,7 +262,7 @@ class _LoginPanel extends StatelessWidget {
                     controller: otpController,
                     keyboardType: TextInputType.number,
                     textAlign: TextAlign.center,
-                    maxLength: 6,
+                    maxLength: _LoginScreenState._otpLength,
                     decoration: const InputDecoration(
                       hintText: '123456',
                       counterText: '',
