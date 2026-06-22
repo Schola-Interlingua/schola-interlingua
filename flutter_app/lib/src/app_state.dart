@@ -238,43 +238,10 @@ class AppController extends ChangeNotifier {
         _completionStorageVersion,
       );
     }
-    if (_currentUser == null) {
-      final String? rawCompleted = _prefs?.getString('completed_items');
-      if (rawCompleted != null && rawCompleted.isNotEmpty) {
-        final Map<String, dynamic> decoded =
-            jsonDecode(rawCompleted) as Map<String, dynamic>;
-        _completedItems
-          ..clear()
-          ..addAll(
-            decoded.map(
-              (String key, dynamic value) => MapEntry(key, value.toString()),
-            ),
-          );
-      }
-      final String? rawSrs = _prefs?.getString('srs_progress');
-      if (rawSrs != null && rawSrs.isNotEmpty) {
-        final Map<String, dynamic> decoded =
-            jsonDecode(rawSrs) as Map<String, dynamic>;
-        _srsProgress
-          ..clear()
-          ..addAll(
-            decoded.map(
-              (String key, dynamic value) => MapEntry(
-                key,
-                SrsCardProgress.fromJson(
-                  key,
-                  (value as Map).cast<String, dynamic>(),
-                ),
-              ),
-            ),
-          );
-      }
-    } else {
-      await _prefs?.remove('completed_items');
-      await _prefs?.remove('srs_progress');
-      _completedItems.clear();
-      _srsProgress.clear();
-    }
+    await _prefs?.remove('completed_items');
+    await _prefs?.remove('srs_progress');
+    _completedItems.clear();
+    _srsProgress.clear();
 
     if (_currentUser != null) {
       await _loadProgressFromRemote(preferRemote: true);
@@ -644,22 +611,10 @@ class AppController extends ChangeNotifier {
   }
 
   void _persistCompletedItems() {
-    if (_currentUser != null) return;
     _prefs?.setInt('completion_storage_version', _completionStorageVersion);
-    _prefs?.setString('completed_items', jsonEncode(_completedItems));
   }
 
   void _persistSrsProgress() {
-    if (_currentUser != null) return;
-    _prefs?.setString(
-      'srs_progress',
-      jsonEncode(
-        _srsProgress.map(
-          (String key, SrsCardProgress value) =>
-              MapEntry<String, dynamic>(key, value.toJson()),
-        ),
-      ),
-    );
   }
 
   Future<void> _clearLocalUserData() async {
