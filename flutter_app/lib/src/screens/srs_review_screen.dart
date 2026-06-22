@@ -1,10 +1,12 @@
 import 'dart:math';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 
 import '../app_state.dart';
 import '../models/srs_models.dart';
 import '../services/exportable_vocab_catalog.dart';
+import '../services/option_audio_service.dart';
 import '../theme/app_theme.dart';
 
 class SrsReviewScreen extends StatefulWidget {
@@ -201,6 +203,7 @@ class _SrsReviewScreenState extends State<SrsReviewScreen> {
     required String choice,
     required String correctChoice,
   }) {
+    unawaited(OptionAudioService.instance.playOptionAudio(choice));
     final bool success = choice == correctChoice;
     controller.recordSrsReview(card.id, success: success);
     if (success) {

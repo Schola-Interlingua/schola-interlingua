@@ -247,6 +247,21 @@ final class AppTheme {
       ? const Color(0xFF8BC8FF)
       : primary;
 
+  static Color successBannerBackground(BuildContext context) =>
+      Theme.of(context).brightness == Brightness.dark
+      ? const Color(0x3347D98A)
+      : const Color(0xCCDBF6E5);
+
+  static Color successBannerBorder(BuildContext context) =>
+      Theme.of(context).brightness == Brightness.dark
+      ? const Color(0xAA6EF0B1)
+      : const Color(0x9937B56F);
+
+  static Color successBannerText(BuildContext context) =>
+      Theme.of(context).brightness == Brightness.dark
+      ? const Color(0xFFD9FFE8)
+      : const Color(0xFF156C2F);
+
   static List<BoxShadow> glassShadow(BuildContext context) =>
       Theme.of(context).brightness == Brightness.dark
       ? const <BoxShadow>[

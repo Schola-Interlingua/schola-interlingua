@@ -68,6 +68,18 @@ const List<String> _aboutParagraphs = <String>[
   'Nos crede in le fortia del saper collaborative, proque tote le material de Schola Interlingua es software libere e open source. Tu pote explorar, adaptar e compartir iste ressource sin restrictiones, e etiam contribuer al melioration continuate del sito.',
 ];
 
+Color _dialogBackgroundColor(BuildContext context) {
+  return Theme.of(context).brightness == Brightness.dark
+      ? const Color(0xFF163154)
+      : const Color(0xFFF6FAFF);
+}
+
+Color _dialogBarrierColor(BuildContext context) {
+  return Theme.of(context).brightness == Brightness.dark
+      ? const Color(0xB3121D2D)
+      : const Color(0x8A0F2740);
+}
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
@@ -543,18 +555,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  Color _dialogBackgroundColor(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? const Color(0xFF163154)
-        : const Color(0xFFF6FAFF);
-  }
-
-  Color _dialogBarrierColor(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? const Color(0xB3121D2D)
-        : const Color(0x8A0F2740);
-  }
-
   Future<void> _confirmDeleteAccount(
     BuildContext context,
     AppController controller,
@@ -567,73 +567,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
         controller.currentUser?.email?.trim().isNotEmpty == true
         ? 'tu email'
         : '"DELER"';
-    final TextEditingController confirmationController =
-        TextEditingController();
     final bool? confirmed = await showDialog<bool>(
       context: context,
       barrierDismissible: false,
       barrierColor: _dialogBarrierColor(context),
       builder: (BuildContext context) {
-        return StatefulBuilder(
-          builder: (BuildContext context, StateSetter setDialogState) {
-            final bool matchesConfirmation =
-                confirmationController.text.trim() == confirmationValue;
-            return AlertDialog(
-              backgroundColor: _dialogBackgroundColor(context),
-              surfaceTintColor: Colors.transparent,
-              shadowColor: Colors.black.withValues(alpha: 0.28),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(28),
-                side: BorderSide(color: AppTheme.borderColor(context)),
-              ),
-              title: const Text('Deler conto?'),
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  const Text(
-                    'Iste action es permanente. Le conto e le progresso synchronisate essera delite de Supabase.',
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    'Pro confirmar, scribe $confirmationLabel.',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  const SizedBox(height: 12),
-                  TextField(
-                    controller: confirmationController,
-                    autofocus: true,
-                    onChanged: (_) => setDialogState(() {}),
-                    decoration: InputDecoration(hintText: confirmationValue),
-                  ),
-                ],
-              ),
-              actions: <Widget>[
-                OutlinedButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  child: const Text('Cancellar'),
-                ),
-                FilledButton(
-                  onPressed: matchesConfirmation
-                      ? () => Navigator.of(context).pop(true)
-                      : null,
-                  style: FilledButton.styleFrom(
-                    backgroundColor: const Color(0xFFB83A3A),
-                    foregroundColor: Colors.white,
-                    disabledBackgroundColor: const Color(
-                      0xFFB83A3A,
-                    ).withValues(alpha: 0.45),
-                    disabledForegroundColor: Colors.white70,
-                  ),
-                  child: const Text('Deler permanentemente'),
-                ),
-              ],
-            );
-          },
+        return _DeleteAccountDialog(
+          confirmationValue: confirmationValue,
+          confirmationLabel: confirmationLabel,
         );
       },
     );
-    confirmationController.dispose();
 
     if (confirmed != true || !mounted) return;
 
@@ -660,6 +604,93 @@ class _SettingsScreenState extends State<SettingsScreen> {
         });
       }
     }
+  }
+}
+
+class _DeleteAccountDialog extends StatefulWidget {
+  const _DeleteAccountDialog({
+    required this.confirmationValue,
+    required this.confirmationLabel,
+  });
+
+  final String confirmationValue;
+  final String confirmationLabel;
+
+  @override
+  State<_DeleteAccountDialog> createState() => _DeleteAccountDialogState();
+}
+
+class _DeleteAccountDialogState extends State<_DeleteAccountDialog> {
+  late final TextEditingController _confirmationController;
+
+  bool get _matchesConfirmation =>
+      _confirmationController.text.trim() == widget.confirmationValue;
+
+  @override
+  void initState() {
+    super.initState();
+    _confirmationController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _confirmationController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: _dialogBackgroundColor(context),
+      surfaceTintColor: Colors.transparent,
+      shadowColor: Colors.black.withValues(alpha: 0.28),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(28),
+        side: BorderSide(color: AppTheme.borderColor(context)),
+      ),
+      title: const Text('Deler conto?'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const Text(
+            'Iste action es permanente. Le conto e le progresso synchronisate essera delite de Supabase.',
+          ),
+          const SizedBox(height: 16),
+          Text(
+            'Pro confirmar, scribe ${widget.confirmationLabel}.',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          const SizedBox(height: 12),
+          TextField(
+            controller: _confirmationController,
+            autofocus: true,
+            onChanged: (_) => setState(() {}),
+            decoration: InputDecoration(hintText: widget.confirmationValue),
+          ),
+        ],
+      ),
+      actions: <Widget>[
+        OutlinedButton(
+          onPressed: () => Navigator.of(context).pop(false),
+          child: const Text('Cancellar'),
+        ),
+        FilledButton(
+          onPressed: _matchesConfirmation
+              ? () => Navigator.of(context).pop(true)
+              : null,
+          style: FilledButton.styleFrom(
+            backgroundColor: const Color(0xFFB83A3A),
+            foregroundColor: Colors.white,
+            disabledBackgroundColor: const Color(
+              0xFFB83A3A,
+            ).withValues(alpha: 0.45),
+            disabledForegroundColor: Colors.white70,
+          ),
+          child: const Text('Deler permanentemente'),
+        ),
+      ],
+    );
   }
 }
 

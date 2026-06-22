@@ -1,8 +1,10 @@
 import 'dart:math';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 
 import '../app_state.dart';
+import '../services/option_audio_service.dart';
 import '../theme/app_theme.dart';
 
 class PracticePanel extends StatefulWidget {
@@ -253,6 +255,9 @@ class _QuizCardState extends State<_QuizCard> {
                           _selected == choice
                       ? null
                       : () {
+                          unawaited(
+                            OptionAudioService.instance.playOptionAudio(choice),
+                          );
                           setState(() {
                             _selected = choice;
                           });
