@@ -571,6 +571,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         TextEditingController();
     final bool? confirmed = await showDialog<bool>(
       context: context,
+      barrierDismissible: false,
       barrierColor: _dialogBarrierColor(context),
       builder: (BuildContext context) {
         return StatefulBuilder(
@@ -608,7 +609,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
               ),
               actions: <Widget>[
-                TextButton(
+                OutlinedButton(
                   onPressed: () => Navigator.of(context).pop(false),
                   child: const Text('Cancellar'),
                 ),
