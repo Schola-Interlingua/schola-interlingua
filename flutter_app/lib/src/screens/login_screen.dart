@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 
 import '../app_state.dart';
 import '../theme/app_theme.dart';
-import '../widgets/app_logo.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -30,7 +29,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final AppController controller = AppStateScope.of(context);
-    final bool mobile = MediaQuery.sizeOf(context).width < 900;
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -60,63 +58,27 @@ class _LoginScreenState extends State<LoginScreen> {
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(24),
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 1080),
-                  child: mobile
-                      ? Column(
-                          children: <Widget>[
-                            const _LoginBrandBlock(),
-                            const SizedBox(height: 20),
-                            _LoginPanel(
-                              controller: controller,
-                              emailController: _emailController,
-                              otpController: _otpController,
-                              message: _message,
-                              submitting: _submitting,
-                              awaitingOtp: _awaitingOtp,
-                              onSubmit: () => _submit(controller),
-                              onVerify: () => _verifyOtp(controller),
-                              onBack: _awaitingOtp
-                                  ? () {
-                                      setState(() {
-                                        _awaitingOtp = false;
-                                        _pendingEmail = null;
-                                        _otpController.clear();
-                                        _message = null;
-                                      });
-                                    }
-                                  : null,
-                            ),
-                          ],
-                        )
-                      : Row(
-                          children: <Widget>[
-                            const Expanded(flex: 6, child: _LoginBrandBlock()),
-                            const SizedBox(width: 28),
-                            Expanded(
-                              flex: 5,
-                              child: _LoginPanel(
-                                controller: controller,
-                                emailController: _emailController,
-                                otpController: _otpController,
-                                message: _message,
-                                submitting: _submitting,
-                                awaitingOtp: _awaitingOtp,
-                                onSubmit: () => _submit(controller),
-                                onVerify: () => _verifyOtp(controller),
-                                onBack: _awaitingOtp
-                                    ? () {
-                                        setState(() {
-                                          _awaitingOtp = false;
-                                          _pendingEmail = null;
-                                          _otpController.clear();
-                                          _message = null;
-                                        });
-                                      }
-                                    : null,
-                              ),
-                            ),
-                          ],
-                        ),
+                  constraints: const BoxConstraints(maxWidth: 560),
+                  child: _LoginPanel(
+                    controller: controller,
+                    emailController: _emailController,
+                    otpController: _otpController,
+                    message: _message,
+                    submitting: _submitting,
+                    awaitingOtp: _awaitingOtp,
+                    onSubmit: () => _submit(controller),
+                    onVerify: () => _verifyOtp(controller),
+                    onBack: _awaitingOtp
+                        ? () {
+                            setState(() {
+                              _awaitingOtp = false;
+                              _pendingEmail = null;
+                              _otpController.clear();
+                              _message = null;
+                            });
+                          }
+                        : null,
+                  ),
                 ),
               ),
             ),
@@ -196,54 +158,6 @@ class _LoginScreenState extends State<LoginScreen> {
         });
       }
     }
-  }
-}
-
-class _LoginBrandBlock extends StatelessWidget {
-  const _LoginBrandBlock();
-
-  @override
-  Widget build(BuildContext context) {
-    final bool mobile = MediaQuery.sizeOf(context).width < 900;
-
-    return ScholaCard(
-      padding: EdgeInsets.all(mobile ? 28 : 36),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const AppLogo(size: 68),
-          const SizedBox(height: 20),
-          Text(
-            'Schola Interlingua',
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
-          const SizedBox(height: 12),
-          Text(
-            'Lectiones, lecturas, audio, traductiones per parola e practica in Interlingua IALA.',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-          const SizedBox(height: 24),
-          Wrap(
-            spacing: 12,
-            runSpacing: 12,
-            children: const <Widget>[
-              _FeatureChip(
-                icon: Icons.language_rounded,
-                label: 'Web, mobile e desktop',
-              ),
-              _FeatureChip(
-                icon: Icons.menu_book_rounded,
-                label: 'Curso complete',
-              ),
-              _FeatureChip(
-                icon: Icons.record_voice_over_rounded,
-                label: 'Audio e lectura',
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
   }
 }
 
@@ -351,33 +265,6 @@ class _LoginPanel extends StatelessWidget {
                 ],
               ],
             ),
-    );
-  }
-}
-
-class _FeatureChip extends StatelessWidget {
-  const _FeatureChip({required this.icon, required this.label});
-
-  final IconData icon;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.18),
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: AppTheme.borderColor(context)),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Icon(icon, size: 18, color: AppTheme.textColor(context)),
-          const SizedBox(width: 8),
-          Text(label, style: Theme.of(context).textTheme.bodyMedium),
-        ],
-      ),
     );
   }
 }
