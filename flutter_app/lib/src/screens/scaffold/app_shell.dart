@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../chatina_screen.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/app_logo.dart';
 
@@ -240,41 +239,6 @@ class _Header extends StatelessWidget {
                                       ),
                                     ),
                                   ],
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            DecoratedBox(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                gradient: LinearGradient(
-                                  colors: <Color>[
-                                    AppTheme.primary.withValues(alpha: 0.94),
-                                    AppTheme.primaryLight.withValues(
-                                      alpha: 0.78,
-                                    ),
-                                  ],
-                                ),
-                                boxShadow: <BoxShadow>[
-                                  BoxShadow(
-                                    color: AppTheme.primaryLight.withValues(
-                                      alpha: 0.28,
-                                    ),
-                                    blurRadius: 18,
-                                  ),
-                                ],
-                              ),
-                              child: IconButton(
-                                onPressed: () => showChatinaSheet(context),
-                                icon: const Icon(
-                                  Icons.chat_bubble_rounded,
-                                  color: Colors.white,
-                                ),
-                                tooltip: 'Chatina',
-                                iconSize: compact ? 20 : 22,
-                                constraints: BoxConstraints.tightFor(
-                                  width: compact ? 44 : 50,
-                                  height: compact ? 44 : 50,
                                 ),
                               ),
                             ),
