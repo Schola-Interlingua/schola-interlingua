@@ -86,22 +86,16 @@ class CompletionBanner extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
       decoration: BoxDecoration(
-        color: Theme.of(context).brightness == Brightness.dark
-            ? const Color(0x3321C779)
-            : const Color(0xCCDBF6E5),
+        color: AppTheme.successBannerBackground(context),
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(
-          color: Theme.of(context).brightness == Brightness.dark
-              ? const Color(0x6650E3A4)
-              : const Color(0x9937B56F),
-        ),
+        border: Border.all(color: AppTheme.successBannerBorder(context)),
         boxShadow: AppTheme.glassShadow(context),
       ),
       child: Text(
         message,
         textAlign: TextAlign.center,
-        style: const TextStyle(
-          color: Color(0xFF156C2F),
+        style: TextStyle(
+          color: AppTheme.successBannerText(context),
           fontWeight: FontWeight.w700,
           fontSize: 16,
         ),

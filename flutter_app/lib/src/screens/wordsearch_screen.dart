@@ -1,7 +1,9 @@
 import 'dart:math';
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../app_state.dart';
+import '../services/option_audio_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/meaning_rich_text.dart';
 
@@ -305,6 +307,7 @@ class _WordsearchScreenState extends State<WordsearchScreen> {
     }
 
     if (foundWord != null && !_foundWords.contains(foundWord)) {
+      unawaited(OptionAudioService.instance.playOptionAudio(foundWord));
       setState(() {
         _foundWords.add(foundWord!);
         _foundCells.addAll(selection);
@@ -336,7 +339,14 @@ class _WordsearchScreenState extends State<WordsearchScreen> {
           const SizedBox(height: 24),
           _InstructionCard(mobile: mobile),
           const SizedBox(height: 24),
-          _GameInfo(words: _words, foundWords: _foundWords, mobile: mobile),
+          _GameInfo(
+            words: _words,
+            foundWords: _foundWords,
+            mobile: mobile,
+            onWordTap: (String word) {
+              unawaited(OptionAudioService.instance.playOptionAudio(word));
+            },
+          ),
           const SizedBox(height: 24),
           Center(child: _buildBoard()),
           const SizedBox(height: 24),
@@ -526,11 +536,13 @@ class _GameInfo extends StatelessWidget {
     required this.words,
     required this.foundWords,
     required this.mobile,
+    required this.onWordTap,
   });
 
   final List<String> words;
   final Set<String> foundWords;
   final bool mobile;
+  final ValueChanged<String> onWordTap;
 
   @override
   Widget build(BuildContext context) {
@@ -543,7 +555,7 @@ class _GameInfo extends StatelessWidget {
             runSpacing: 8,
             children: words.map((String word) {
               final bool found = foundWords.contains(word);
-              return _WordChip(word: word, found: found);
+              return _WordChip(word: word, found: found, onTap: onWordTap);
             }).toList(),
           ),
           const SizedBox(height: 16),
@@ -568,7 +580,7 @@ class _GameInfo extends StatelessWidget {
             runSpacing: 8,
             children: words.map((String word) {
               final bool found = foundWords.contains(word);
-              return _WordChip(word: word, found: found);
+              return _WordChip(word: word, found: found, onTap: onWordTap);
             }).toList(),
           ),
         ),
@@ -587,33 +599,47 @@ class _GameInfo extends StatelessWidget {
 }
 
 class _WordChip extends StatelessWidget {
-  const _WordChip({required this.word, required this.found});
+  const _WordChip({
+    required this.word,
+    required this.found,
+    required this.onTap,
+  });
 
   final String word;
   final bool found;
+  final ValueChanged<String> onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-      decoration: BoxDecoration(
-        color: found
-            ? const Color(0xFFD4EDDA)
-            : AppTheme.surfaceVariant(context),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () => onTap(word),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: found
-              ? const Color(0xFF28A745)
-              : AppTheme.borderColor(context),
-          width: 2,
-        ),
-      ),
-      child: MeaningRichText(
-        text: word,
-        style: TextStyle(
-          color: found ? const Color(0xFF155724) : AppTheme.textColor(context),
-          fontWeight: FontWeight.w600,
-          height: 1.2,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+          decoration: BoxDecoration(
+            color: found
+                ? const Color(0xFFD4EDDA)
+                : AppTheme.surfaceVariant(context),
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: found
+                  ? const Color(0xFF28A745)
+                  : AppTheme.borderColor(context),
+              width: 2,
+            ),
+          ),
+          child: MeaningRichText(
+            text: word,
+            style: TextStyle(
+              color: found
+                  ? const Color(0xFF155724)
+                  : AppTheme.textColor(context),
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+          ),
         ),
       ),
     );
