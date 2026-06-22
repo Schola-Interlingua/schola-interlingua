@@ -5,6 +5,8 @@ Iste sito es create e mantenite per **Ian Blas**.
 
 ### Gruppo dedicate a meliorar iste curso: https://t.me/scholainterlingua
 
+### Google Play: https://play.google.com/store/apps/details?id=com.scholainterlingua.app
+
 ---
 
 ## Stato actual del projecto
@@ -22,6 +24,16 @@ Le dossier `public/` contine le build web generate de iste application e es le v
 3. Pro web: `flutter run -d chrome` o `flutter build web`
 
 Le contento del curso, lectiones, vocabulario, lecturas, audio, traduction per parola, progresso e repetition integrate es mantenite in le migration Flutter.
+
+## Functiones principal
+Le app include actualmente:
+* lectiones e vocabulario structurate per nivellos
+* lecturas, appendices e practica integrate
+* quiz rapide e repaso rapide con audio de pronunciation super parolas e phrases
+* jocos como le sopa de litteras con audio quando on toca le parola
+* synchronization de progresso con Supabase quando le usator aperi session
+* deletion de conto con passos de confirmation pro evitar deletion accidental
+* supporto pro web, Android, iOS e macOS ab le mesme base de codice
 
 ---
 
