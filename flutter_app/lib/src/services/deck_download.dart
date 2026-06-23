@@ -5,12 +5,7 @@ import 'deck_download_stub.dart'
 
 Future<bool> downloadDeckFile({
   required String fileName,
-  required List<int> bytes,
-  String mimeType = 'application/octet-stream',
+  required String sourceUrl,
 }) {
-  return impl.downloadDeckFile(
-    fileName: fileName,
-    bytes: bytes,
-    mimeType: mimeType,
-  );
+  return impl.downloadDeckFile(fileName: fileName, sourceUrl: sourceUrl);
 }

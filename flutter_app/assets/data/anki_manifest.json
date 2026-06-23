@@ -1,0 +1,149 @@
+{
+  "deckName": "Schola Interlingua",
+  "structure": "level-source",
+  "languages": {
+    "es": {
+      "language": "es",
+      "label": "Español",
+      "file": "schola-interlingua-es.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25855238,
+      "objectPath": "anki/schola-interlingua-es.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-es.apkg"
+    },
+    "en": {
+      "language": "en",
+      "label": "English",
+      "file": "schola-interlingua-en.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25855668,
+      "objectPath": "anki/schola-interlingua-en.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-en.apkg"
+    },
+    "ru": {
+      "language": "ru",
+      "label": "Русский",
+      "file": "schola-interlingua-ru.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25859106,
+      "objectPath": "anki/schola-interlingua-ru.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-ru.apkg"
+    },
+    "de": {
+      "language": "de",
+      "label": "Deutsch",
+      "file": "schola-interlingua-de.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25856241,
+      "objectPath": "anki/schola-interlingua-de.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-de.apkg"
+    },
+    "fr": {
+      "language": "fr",
+      "label": "Français",
+      "file": "schola-interlingua-fr.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25854815,
+      "objectPath": "anki/schola-interlingua-fr.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-fr.apkg"
+    },
+    "it": {
+      "language": "it",
+      "label": "Italiano",
+      "file": "schola-interlingua-it.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25854252,
+      "objectPath": "anki/schola-interlingua-it.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-it.apkg"
+    },
+    "la": {
+      "language": "la",
+      "label": "Lingua Latina",
+      "file": "schola-interlingua-la.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25853759,
+      "objectPath": "anki/schola-interlingua-la.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-la.apkg"
+    },
+    "eo": {
+      "language": "eo",
+      "label": "Esperanto",
+      "file": "schola-interlingua-eo.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25853927,
+      "objectPath": "anki/schola-interlingua-eo.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-eo.apkg"
+    },
+    "pt": {
+      "language": "pt",
+      "label": "Português",
+      "file": "schola-interlingua-pt.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25855272,
+      "objectPath": "anki/schola-interlingua-pt.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-pt.apkg"
+    },
+    "zh": {
+      "language": "zh",
+      "label": "中文",
+      "file": "schola-interlingua-zh.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25857135,
+      "objectPath": "anki/schola-interlingua-zh.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-zh.apkg"
+    },
+    "ja": {
+      "language": "ja",
+      "label": "日本語",
+      "file": "schola-interlingua-ja.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25858032,
+      "objectPath": "anki/schola-interlingua-ja.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-ja.apkg"
+    },
+    "ca": {
+      "language": "ca",
+      "label": "Català",
+      "file": "schola-interlingua-ca.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25854938,
+      "objectPath": "anki/schola-interlingua-ca.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-ca.apkg"
+    },
+    "ko": {
+      "language": "ko",
+      "label": "한국어",
+      "file": "schola-interlingua-ko.apkg",
+      "noteCount": 1123,
+      "levelCount": 6,
+      "sourceCount": 33,
+      "sizeBytes": 25858455,
+      "objectPath": "anki/schola-interlingua-ko.apkg",
+      "publicUrl": "https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/anki-decks/anki/schola-interlingua-ko.apkg"
+    }
+  }
+}

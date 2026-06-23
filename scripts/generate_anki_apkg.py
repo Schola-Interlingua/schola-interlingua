@@ -6,6 +6,8 @@ import hashlib
 import json
 import re
 import sys
+import tempfile
+import zipfile
 from collections import OrderedDict
 from pathlib import Path
 
@@ -24,6 +26,9 @@ AUDIO_DIR = ROOT / "flutter_app" / "assets" / "audios" / "interlingua"
 AUDIO_MANIFEST_PATH = AUDIO_DIR / "manifest.json"
 OUTPUT_DIR = ROOT / "flutter_app" / "assets" / "apkg"
 OUTPUT_MANIFEST_PATH = OUTPUT_DIR / "manifest.json"
+APP_MANIFEST_PATH = ROOT / "flutter_app" / "assets" / "data" / "anki_manifest.json"
+STORAGE_BUCKET = "anki-decks"
+STORAGE_PREFIX = "anki"
 
 ROOT_DECK_NAME = "Schola Interlingua"
 SUPPORTED_LANGUAGES = OrderedDict(
@@ -258,6 +263,38 @@ hr#answer {
     )
 
 
+def recompress_apkg(path: Path) -> None:
+    with tempfile.NamedTemporaryFile(
+        suffix=path.suffix,
+        dir=path.parent,
+        delete=False,
+    ) as temp_file:
+        temp_path = Path(temp_file.name)
+
+    try:
+        with zipfile.ZipFile(path, "r") as source, zipfile.ZipFile(
+            temp_path,
+            "w",
+            compression=zipfile.ZIP_DEFLATED,
+            compresslevel=9,
+        ) as target:
+            for info in source.infolist():
+                compressed_info = zipfile.ZipInfo(info.filename)
+                compressed_info.date_time = info.date_time
+                compressed_info.comment = info.comment
+                compressed_info.extra = info.extra
+                compressed_info.create_system = info.create_system
+                compressed_info.external_attr = info.external_attr
+                compressed_info.internal_attr = info.internal_attr
+                compressed_info.flag_bits = info.flag_bits
+                compressed_info.compress_type = zipfile.ZIP_DEFLATED
+                target.writestr(compressed_info, source.read(info.filename))
+        temp_path.replace(path)
+    finally:
+        if temp_path.exists():
+            temp_path.unlink()
+
+
 def build_package_for_language(language: str) -> dict[str, object]:
     if language not in SUPPORTED_LANGUAGES:
         raise SystemExit(f"Unsupported language: {language}")
@@ -341,12 +378,17 @@ def build_package_for_language(language: str) -> dict[str, object]:
         list(decks.values()),
         media_files=sorted(media_files),
     ).write_to_file(str(output_path))
+    recompress_apkg(output_path)
 
     return {
         "language": language,
         "label": SUPPORTED_LANGUAGES[language],
         "file": output_path.name,
-        "assetPath": f"assets/apkg/{output_path.name}",
+        "objectPath": f"{STORAGE_PREFIX}/{output_path.name}",
+        "publicUrl": (
+            f"https://redvymknnxehwveyzmyw.supabase.co/storage/v1/object/public/"
+            f"{STORAGE_BUCKET}/{STORAGE_PREFIX}/{output_path.name}"
+        ),
         "noteCount": note_count,
         "levelCount": len(used_levels),
         "sourceCount": len(used_sources),
@@ -360,9 +402,9 @@ def write_manifest(entries: list[dict[str, object]]) -> None:
         "structure": "level-source",
         "languages": {entry["language"]: entry for entry in entries},
     }
-    OUTPUT_MANIFEST_PATH.write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
-    )
+    manifest_json = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
+    OUTPUT_MANIFEST_PATH.write_text(manifest_json)
+    APP_MANIFEST_PATH.write_text(manifest_json)
 
 
 def parse_args() -> argparse.Namespace:
@@ -404,7 +446,8 @@ def main() -> int:
     write_manifest(built_entries)
     print(
         f"wrote manifest with {len(built_entries)} package(s) to "
-        f"{OUTPUT_MANIFEST_PATH.relative_to(ROOT)}"
+        f"{OUTPUT_MANIFEST_PATH.relative_to(ROOT)} and "
+        f"{APP_MANIFEST_PATH.relative_to(ROOT)}"
     )
     return 0
 

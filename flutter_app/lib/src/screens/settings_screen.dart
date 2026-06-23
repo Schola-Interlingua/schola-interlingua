@@ -176,7 +176,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     context,
                   ).textTheme.bodyMedium?.copyWith(color: Colors.red.shade300),
                 ),
-              ] else if (_ankiManifest != null && deckAsset == null) ...<Widget>[
+              ] else if (_ankiManifest != null &&
+                  deckAsset == null) ...<Widget>[
                 const SizedBox(height: 8),
                 Text(
                   'Le package pro $selectedLanguageLabel non es ancora generate. Usa le script de generation ante publicar iste lingua.',
@@ -185,10 +186,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ],
               const SizedBox(height: 16),
               FilledButton(
-                onPressed:
-                    _exporting || deckAsset == null
-                        ? null
-                        : () => _exportDeck(context, deckAsset),
+                onPressed: _exporting || deckAsset == null
+                    ? null
+                    : () => _exportDeck(context, deckAsset),
                 child: Text(
                   _exporting
                       ? 'Preparante deck...'
@@ -390,14 +390,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     });
 
     try {
-      final ByteData packageData = await rootBundle.load(deckAsset.assetPath);
       final bool downloaded = await downloadDeckFile(
         fileName: deckAsset.file,
-        bytes: packageData.buffer.asUint8List(
-          packageData.offsetInBytes,
-          packageData.lengthInBytes,
-        ),
-        mimeType: 'application/octet-stream',
+        sourceUrl: deckAsset.downloadUrl,
       );
 
       if (!mounted) return;

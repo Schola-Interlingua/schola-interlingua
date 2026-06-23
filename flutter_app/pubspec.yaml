@@ -34,9 +34,11 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_tts: ^4.2.3
   go_router: ^16.2.1
+  http: ^1.5.0
   just_audio: ^0.10.5
   shared_preferences: ^2.5.3
   supabase_flutter: ^2.10.2
+  url_launcher: ^6.3.2
   webview_flutter: ^4.10.0
 
 dev_dependencies:
@@ -52,7 +54,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/apkg/
     - assets/audios/
     - assets/audios/interlingua/
     - assets/content/appendice/
@@ -60,5 +61,6 @@ flutter:
     - assets/content/lection/
     - assets/content/lessons/
     - assets/images/
+    - assets/data/anki_manifest.json
     - assets/data/content.json
     - assets/data/vocab.json

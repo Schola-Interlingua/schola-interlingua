@@ -4,17 +4,21 @@ import 'dart:html' as html;
 
 Future<bool> downloadDeckFile({
   required String fileName,
-  required List<int> bytes,
-  String mimeType = 'application/octet-stream',
+  required String sourceUrl,
 }) async {
-  final html.Blob blob = html.Blob(<List<int>>[bytes], mimeType);
-  final String url = html.Url.createObjectUrlFromBlob(blob);
-  final html.AnchorElement anchor = html.AnchorElement(href: url)
-    ..download = fileName
-    ..style.display = 'none';
+  final Uri uri = Uri.parse(sourceUrl);
+  final Uri downloadUri = uri.replace(
+    queryParameters: <String, String>{
+      ...uri.queryParameters,
+      'download': fileName,
+    },
+  );
+  final html.AnchorElement anchor =
+      html.AnchorElement(href: downloadUri.toString())
+        ..download = fileName
+        ..style.display = 'none';
   html.document.body?.children.add(anchor);
   anchor.click();
   anchor.remove();
-  html.Url.revokeObjectUrl(url);
   return true;
 }
