@@ -14,14 +14,14 @@ class ScholaInterlinguaApp extends StatelessWidget {
     return AppStateScope(
       controller: controller,
       child: AnimatedBuilder(
-        animation: controller,
+        animation: controller.themeModeListenable,
         builder: (BuildContext context, Widget? child) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: 'Schola Interlingua',
             theme: AppTheme.light(),
             darkTheme: AppTheme.dark(),
-            themeMode: controller.darkMode ? ThemeMode.dark : ThemeMode.light,
+            themeMode: controller.themeMode,
             routerConfig: AppRouter.router,
             builder: (BuildContext context, Widget? child) {
               final MediaQueryData media = MediaQuery.of(context);

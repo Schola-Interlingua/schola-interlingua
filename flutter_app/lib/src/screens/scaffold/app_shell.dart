@@ -6,10 +6,17 @@ import 'package:go_router/go_router.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/app_logo.dart';
 
-class AppShell extends StatelessWidget {
+class AppShell extends StatefulWidget {
   const AppShell({super.key, required this.child});
 
   final Widget child;
+
+  @override
+  State<AppShell> createState() => _AppShellState();
+}
+
+class _AppShellState extends State<AppShell> {
+  bool _scrollLocked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -28,17 +35,32 @@ class AppShell extends StatelessWidget {
                 children: <Widget>[
                   const _Header(),
                   Expanded(
-                    child: SingleChildScrollView(
-                      padding: EdgeInsets.fromLTRB(
-                        horizontalPadding,
-                        compact ? 18 : 24,
-                        horizontalPadding,
-                        bottomNavHeight,
-                      ),
-                      child: Center(
-                        child: ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 1200),
-                          child: child,
+                    child: NotificationListener<AppShellScrollLockNotification>(
+                      onNotification:
+                          (AppShellScrollLockNotification notification) {
+                            if (_scrollLocked == notification.locked) {
+                              return true;
+                            }
+                            setState(() {
+                              _scrollLocked = notification.locked;
+                            });
+                            return true;
+                          },
+                      child: SingleChildScrollView(
+                        physics: _scrollLocked
+                            ? const NeverScrollableScrollPhysics()
+                            : null,
+                        padding: EdgeInsets.fromLTRB(
+                          horizontalPadding,
+                          compact ? 18 : 24,
+                          horizontalPadding,
+                          bottomNavHeight,
+                        ),
+                        child: Center(
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 1200),
+                            child: widget.child,
+                          ),
                         ),
                       ),
                     ),
@@ -57,6 +79,12 @@ class AppShell extends StatelessWidget {
       },
     );
   }
+}
+
+class AppShellScrollLockNotification extends Notification {
+  const AppShellScrollLockNotification({required this.locked});
+
+  final bool locked;
 }
 
 class _AmbientBackground extends StatelessWidget {

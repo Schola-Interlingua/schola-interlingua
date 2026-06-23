@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../app_state.dart';
 import '../services/option_audio_service.dart';
+import 'scaffold/app_shell.dart';
 import '../theme/app_theme.dart';
 import '../widgets/meaning_rich_text.dart';
 
@@ -209,8 +210,9 @@ class _WordsearchScreenState extends State<WordsearchScreen> {
     return _GridCell(row, col);
   }
 
-  void _handlePointerDown(PointerDownEvent event) {
-    final _GridCell? cell = _cellFromGlobal(event.position);
+  void _handlePanStart(DragStartDetails details) {
+    final Offset globalPosition = details.globalPosition;
+    final _GridCell? cell = _cellFromGlobal(globalPosition);
     if (cell == null) return;
 
     setState(() {
@@ -220,9 +222,10 @@ class _WordsearchScreenState extends State<WordsearchScreen> {
     });
   }
 
-  void _handlePointerMove(PointerMoveEvent event) {
+  void _handlePanUpdate(DragUpdateDetails details) {
     if (!_isSelecting || _startCell == null) return;
-    final _GridCell? cell = _cellFromGlobal(event.position);
+    final Offset globalPosition = details.globalPosition;
+    final _GridCell? cell = _cellFromGlobal(globalPosition);
     if (cell == null) return;
 
     final List<_GridCell> nextSelection = _cellsInLine(_startCell!, cell);
@@ -233,9 +236,19 @@ class _WordsearchScreenState extends State<WordsearchScreen> {
     });
   }
 
-  void _handlePointerUp(PointerEvent event) {
+  void _handlePanEnd([Object? _]) {
     if (!_isSelecting) return;
+    const AppShellScrollLockNotification(locked: false).dispatch(context);
     _checkSelection();
+  }
+
+  void _handleBoardPointerDown(PointerDownEvent event) {
+    const AppShellScrollLockNotification(locked: true).dispatch(context);
+  }
+
+  void _handleBoardPointerUp(PointerEvent event) {
+    if (_isSelecting) return;
+    const AppShellScrollLockNotification(locked: false).dispatch(context);
   }
 
   List<_GridCell> _cellsInLine(_GridCell start, _GridCell end) {
@@ -403,65 +416,71 @@ class _WordsearchScreenState extends State<WordsearchScreen> {
           ),
           clipBehavior: Clip.antiAlias,
           child: Listener(
-            onPointerDown: _handlePointerDown,
-            onPointerMove: _handlePointerMove,
-            onPointerUp: _handlePointerUp,
-            onPointerCancel: _handlePointerUp,
-            child: GridView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.all(2),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: _gridSize,
-                crossAxisSpacing: 2,
-                mainAxisSpacing: 2,
-              ),
-              itemCount: _gridSize * _gridSize,
-              itemBuilder: (BuildContext context, int index) {
-                final int row = index ~/ _gridSize;
-                final int col = index % _gridSize;
-                final _GridCell cell = _GridCell(row, col);
-                final bool isSelected = _selectedCells.contains(cell);
-                final bool isFound = _foundCells.contains(cell);
+            onPointerDown: _handleBoardPointerDown,
+            onPointerUp: _handleBoardPointerUp,
+            onPointerCancel: _handleBoardPointerUp,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onPanStart: _handlePanStart,
+              onPanUpdate: _handlePanUpdate,
+              onPanEnd: _handlePanEnd,
+              onPanCancel: _handlePanEnd,
+              child: GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                padding: const EdgeInsets.all(2),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: _gridSize,
+                  crossAxisSpacing: 2,
+                  mainAxisSpacing: 2,
+                ),
+                itemCount: _gridSize * _gridSize,
+                itemBuilder: (BuildContext context, int index) {
+                  final int row = index ~/ _gridSize;
+                  final int col = index % _gridSize;
+                  final _GridCell cell = _GridCell(row, col);
+                  final bool isSelected = _selectedCells.contains(cell);
+                  final bool isFound = _foundCells.contains(cell);
 
-                return DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: isFound
-                        ? const Color(0xFF28A745)
-                        : isSelected
-                        ? AppTheme.primary
-                        : AppTheme.cardColor(context),
-                  ),
-                  child: Stack(
-                    children: <Widget>[
-                      Center(
-                        child: Text(
-                          _grid[row][col],
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            color: isFound || isSelected
-                                ? Colors.white
-                                : AppTheme.textColor(context),
-                          ),
-                        ),
-                      ),
-                      if (isFound)
-                        const Positioned(
-                          top: 2,
-                          right: 2,
+                  return DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: isFound
+                          ? const Color(0xFF28A745)
+                          : isSelected
+                          ? AppTheme.primary
+                          : AppTheme.cardColor(context),
+                    ),
+                    child: Stack(
+                      children: <Widget>[
+                        Center(
                           child: Text(
-                            '✓',
+                            _grid[row][col],
                             style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10,
+                              fontSize: 20,
                               fontWeight: FontWeight.w700,
+                              color: isFound || isSelected
+                                  ? Colors.white
+                                  : AppTheme.textColor(context),
                             ),
                           ),
                         ),
-                    ],
-                  ),
-                );
-              },
+                        if (isFound)
+                          const Positioned(
+                            top: 2,
+                            right: 2,
+                            child: Text(
+                              '✓',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         ),
@@ -654,23 +673,28 @@ class _StatCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
+    final Color valueColor = dark ? const Color(0xFF8BC8FF) : AppTheme.primary;
+    final TextStyle labelStyle =
+        (Theme.of(context).textTheme.bodySmall ?? const TextStyle()).copyWith(
+          color: dark ? AppTheme.darkText : AppTheme.textMuted,
+          fontWeight: FontWeight.w600,
+        );
+
     return SizedBox(
       width: 90,
       child: Column(
         children: <Widget>[
           Text(
             value,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.w700,
-              color: AppTheme.primary,
+              color: valueColor,
             ),
           ),
           const SizedBox(height: 4),
-          MeaningRichText(
-            text: label,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
+          MeaningRichText(text: label, style: labelStyle),
         ],
       ),
     );

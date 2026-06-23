@@ -13,6 +13,8 @@ Future<void> main() async {
   );
   final AppController controller = AppController();
   await controller.initialize();
-  await controller.loadVocab();
   runApp(ScholaInterlinguaApp(controller: controller));
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    controller.loadVocab();
+  });
 }

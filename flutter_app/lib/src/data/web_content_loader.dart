@@ -6,6 +6,7 @@ import '../models/web_content_models.dart';
 
 class WebContentLoader {
   static Map<String, dynamic>? _content;
+  static Future<Map<String, dynamic>>? _contentFuture;
 
   static Future<ParsedLectionContent?> loadLection(String slug) async {
     try {
@@ -53,7 +54,8 @@ class WebContentLoader {
               as Map<String, dynamic>?;
       if (item == null) return null;
 
-      final List<ParsedAppendixSection> sections = (item['sections'] as List?)
+      final List<ParsedAppendixSection> sections =
+          (item['sections'] as List?)
               ?.whereType<Map>()
               .map(
                 (Map section) => ParsedAppendixSection(
@@ -77,12 +79,24 @@ class WebContentLoader {
   static Future<Map<String, dynamic>> _loadContent() async {
     try {
       if (_content != null) return _content!;
-      final String raw = await rootBundle.loadString('assets/data/content.json');
-      _content = jsonDecode(raw) as Map<String, dynamic>;
-      return _content!;
+      final Future<Map<String, dynamic>> inFlight = _contentFuture ??=
+          _loadContentInternal();
+      try {
+        return await inFlight;
+      } finally {
+        if (identical(_contentFuture, inFlight) && _content == null) {
+          _contentFuture = null;
+        }
+      }
     } catch (error, stackTrace) {
       throw StateError('loadContent: $error\n$stackTrace');
     }
+  }
+
+  static Future<Map<String, dynamic>> _loadContentInternal() async {
+    final String raw = await rootBundle.loadString('assets/data/content.json');
+    _content = jsonDecode(raw) as Map<String, dynamic>;
+    return _content!;
   }
 
   static List<String> _stringList(dynamic value) {

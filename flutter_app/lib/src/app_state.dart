@@ -2,6 +2,8 @@ import 'dart:collection';
 import 'dart:convert';
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart' show ThemeMode;
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -89,9 +91,16 @@ class AppController extends ChangeNotifier {
       <String, ExportableVocabCard>{};
   final Map<String, List<ExportableVocabCard>> _exportableCardsBySlug =
       <String, List<ExportableVocabCard>>{};
+  final List<ExportableVocabCard> _sortedExportableCards =
+      <ExportableVocabCard>[];
+  final List<Map<String, String>> _allVocabItems = <Map<String, String>>[];
   final Map<String, SrsCardProgress> _srsProgress = <String, SrsCardProgress>{};
+  final ValueNotifier<ThemeMode> _themeModeNotifier = ValueNotifier<ThemeMode>(
+    ThemeMode.dark,
+  );
   bool _vocabLoaded = false;
   bool _darkMode = true;
+  Future<void>? _loadVocabFuture;
   SharedPreferences? _prefs;
   final Map<String, String> _completedItems = <String, String>{};
   User? _currentUser;
@@ -100,18 +109,12 @@ class AppController extends ChangeNotifier {
   String get selectedLanguage => _selectedLanguage;
   bool get vocabLoaded => _vocabLoaded;
   bool get darkMode => _darkMode;
+  ThemeMode get themeMode => _darkMode ? ThemeMode.dark : ThemeMode.light;
+  ValueListenable<ThemeMode> get themeModeListenable => _themeModeNotifier;
   User? get currentUser => _currentUser;
   bool get isAuthenticated => _currentUser != null;
-  List<ExportableVocabCard> get exportableCards =>
-      _exportableCardsById.values.toList()
-        ..sort((ExportableVocabCard a, ExportableVocabCard b) {
-          final int byLevel = a.levelTitle.compareTo(b.levelTitle);
-          if (byLevel != 0) return byLevel;
-          return a.term.compareTo(b.term);
-        });
-  List<Map<String, String>> get allVocabItems => _lessonItems.values
-      .expand((List<Map<String, String>> items) => items)
-      .toList();
+  List<ExportableVocabCard> get exportableCards => _sortedExportableCards;
+  List<Map<String, String>> get allVocabItems => _allVocabItems;
   Set<String> get completedKeys =>
       UnmodifiableSetView<String>(_completedItems.keys.toSet());
   Map<SrsStage, int> get srsStageCounts {
@@ -226,6 +229,7 @@ class AppController extends ChangeNotifier {
     _selectedLanguage =
         _prefs?.getString('selected_language') ?? _selectedLanguage;
     _darkMode = _prefs?.getBool('dark_mode') ?? true;
+    _themeModeNotifier.value = themeMode;
     final int storedCompletionVersion =
         _prefs?.getInt('completion_storage_version') ?? 0;
     if (storedCompletionVersion < _completionStorageVersion) {
@@ -257,10 +261,24 @@ class AppController extends ChangeNotifier {
 
   Future<void> loadVocab() async {
     if (_vocabLoaded) return;
+    final Future<void> inFlight = _loadVocabFuture ??= _loadVocabInternal();
+    try {
+      await inFlight;
+    } finally {
+      if (identical(_loadVocabFuture, inFlight)) {
+        _loadVocabFuture = null;
+      }
+    }
+  }
+
+  Future<void> _loadVocabInternal() async {
     final String raw = await rootBundle.loadString('assets/data/vocab.json');
     final Map<String, dynamic> data = jsonDecode(raw) as Map<String, dynamic>;
     final Map<String, Map<String, String>> parsed =
         <String, Map<String, String>>{};
+    final Map<String, List<Map<String, String>>> parsedLessonItems =
+        <String, List<Map<String, String>>>{};
+    final List<Map<String, String>> flattenedItems = <Map<String, String>>[];
 
     for (final MapEntry<String, dynamic> entry in data.entries) {
       final dynamic value = entry.value;
@@ -270,30 +288,44 @@ class AppController extends ChangeNotifier {
         if (item is! Map<String, dynamic>) continue;
         final String term = normalizeTerm(item['term'] as String? ?? '');
         if (term.isEmpty) continue;
+        final Map<String, String> normalizedItem = item.map(
+          (dynamic key, dynamic value) =>
+              MapEntry(key.toString(), value?.toString() ?? ''),
+        );
         final Map<String, String> translations = <String, String>{};
-        item.forEach((key, value) {
-          if (key == 'term' || value == null) return;
-          translations[key] = value.toString();
+        normalizedItem.forEach((String key, String value) {
+          if (key == 'term' || value.isEmpty) return;
+          translations[key] = value;
         });
         parsed[term] = translations;
-        lessonList.add(
-          item.map(
-            (dynamic key, dynamic value) =>
-                MapEntry(key.toString(), value?.toString() ?? ''),
-          ),
-        );
+        lessonList.add(normalizedItem);
       }
-      _lessonItems[entry.key] = lessonList;
+      parsedLessonItems[entry.key] = lessonList;
+      flattenedItems.addAll(lessonList);
     }
 
+    _lessonItems
+      ..clear()
+      ..addAll(parsedLessonItems);
+    _allVocabItems
+      ..clear()
+      ..addAll(flattenedItems);
     _vocab = parsed;
     final List<ExportableVocabCard> catalog = buildExportableVocabCatalog(
       _lessonItems,
     );
+    _sortedExportableCards
+      ..clear()
+      ..addAll(catalog)
+      ..sort((ExportableVocabCard a, ExportableVocabCard b) {
+        final int byLevel = a.levelTitle.compareTo(b.levelTitle);
+        if (byLevel != 0) return byLevel;
+        return a.term.compareTo(b.term);
+      });
     _exportableCardsById
       ..clear()
       ..addEntries(
-        catalog.map(
+        _sortedExportableCards.map(
           (ExportableVocabCard card) =>
               MapEntry<String, ExportableVocabCard>(card.id, card),
         ),
@@ -301,7 +333,7 @@ class AppController extends ChangeNotifier {
     _exportableCardsBySlug
       ..clear()
       ..addEntries(
-        catalog.fold<Map<String, List<ExportableVocabCard>>>(
+        _sortedExportableCards.fold<Map<String, List<ExportableVocabCard>>>(
           <String, List<ExportableVocabCard>>{},
           (
             Map<String, List<ExportableVocabCard>> grouped,
@@ -327,6 +359,7 @@ class AppController extends ChangeNotifier {
 
   void toggleDarkMode() {
     _darkMode = !_darkMode;
+    _themeModeNotifier.value = themeMode;
     _prefs?.setBool('dark_mode', _darkMode);
     notifyListeners();
   }
@@ -614,8 +647,7 @@ class AppController extends ChangeNotifier {
     _prefs?.setInt('completion_storage_version', _completionStorageVersion);
   }
 
-  void _persistSrsProgress() {
-  }
+  void _persistSrsProgress() {}
 
   Future<void> _clearLocalUserData() async {
     _completedItems.clear();
@@ -659,6 +691,7 @@ class AppController extends ChangeNotifier {
   @override
   void dispose() {
     _authSubscription?.cancel();
+    _themeModeNotifier.dispose();
     super.dispose();
   }
 }
