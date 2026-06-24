@@ -17,6 +17,10 @@ android {
     namespace = "com.scholainterlingua.app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
+    setProperty(
+        "archivesBaseName",
+        "schola-interlingua-android-v${flutter.versionName}-build${flutter.versionCode}"
+    )
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
