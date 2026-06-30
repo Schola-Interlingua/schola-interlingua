@@ -7,6 +7,8 @@ Iste sito es create e mantenite per **Ian Blas**.
 
 ### Google Play: https://play.google.com/store/apps/details?id=com.scholainterlingua.app
 
+### App Store: https://apps.apple.com/us/app/schola-interlingua/id6783944116
+
 ---
 
 ## Stato actual del projecto
