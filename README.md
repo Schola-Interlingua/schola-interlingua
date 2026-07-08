@@ -1,7 +1,7 @@
 # Schola Interlingua
 Platteforma digital e de codice aperte pro promover le apprendimento de Interlingua IALA.
 
-Iste sito es create e mantenite per **Ian Blas**.
+Le projecto es disveloppate e mantenite per **Ian Blas**, un disveloppator basate in **Buenos Aires, Argentina**, focalisate sur software educational, apprentissage de linguas, etymologia, e instrumentos de apprentissage de software libere.
 
 ### Gruppo dedicate a meliorar iste curso: https://t.me/scholainterlingua
 
