@@ -32,6 +32,30 @@
   <title>flutter_app</title>
   <link rel="manifest" href="manifest.json">
   <style>
+    .site-about-link {
+      position: fixed;
+      right: 18px;
+      bottom: 126px;
+      z-index: 9998;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      color: #17324d;
+      font: 600 14px/1.2 "Avenir Next", "Segoe UI", sans-serif;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(20, 50, 80, 0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .site-about-link:hover,
+    .site-about-link:focus-visible {
+      background: #ffffff;
+      outline: 2px solid #1c7ed6;
+      outline-offset: 2px;
+    }
+
     #athena_fab_btn,
     button#athena_fab_btn {
       top: 20px !important;
@@ -42,6 +66,12 @@
     }
 
     @media (min-width: 768px) {
+      .site-about-link {
+        top: 29px;
+        right: 138px;
+        bottom: auto;
+      }
+
       #athena_fab_btn,
       button#athena_fab_btn {
         top: 22px !important;
@@ -121,6 +151,9 @@
   </script>
 </head>
 <body>
+  <nav aria-label="Website information">
+    <a class="site-about-link" href="/about">About</a>
+  </nav>
   <!--
     You can customize the "flutter_bootstrap.js" script.
     This is useful to provide a custom configuration to the Flutter loader

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Schola Interlingua | Ian Blas</title>
+  <meta
+    name="description"
+    content="Learn about Schola Interlingua, a free and open-source educational platform for Interlingua IALA developed and maintained by Ian Blas in Buenos Aires, Argentina."
+  >
+  <link rel="canonical" href="https://scholainterlingua.com/about">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Schola Interlingua">
+  <meta property="og:title" content="About Schola Interlingua | Ian Blas">
+  <meta
+    property="og:description"
+    content="Learn about Schola Interlingua, a free and open-source educational platform for Interlingua IALA developed and maintained by Ian Blas in Buenos Aires, Argentina."
+  >
+  <meta property="og:url" content="https://scholainterlingua.com/about">
+  <meta property="og:image" content="https://scholainterlingua.com/icons/Icon-512.png">
+  <meta property="og:image:alt" content="Schola Interlingua logo">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="About Schola Interlingua | Ian Blas">
+  <meta
+    name="twitter:description"
+    content="Learn about Schola Interlingua, a free and open-source educational platform for Interlingua IALA developed and maintained by Ian Blas in Buenos Aires, Argentina."
+  >
+  <meta name="twitter:image" content="https://scholainterlingua.com/icons/Icon-512.png">
+  <meta name="twitter:image:alt" content="Schola Interlingua logo">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://scholainterlingua.com/#software",
+        "name": "Schola Interlingua",
+        "url": "https://scholainterlingua.com",
+        "description": "A free and open-source educational platform for learning Interlingua IALA through structured lessons, readings, review tools, and progress tracking.",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web, Android, iOS, macOS",
+        "isAccessibleForFree": true,
+        "creator": {
+          "@id": "https://github.com/ianblas#person"
+        },
+        "maintainer": {
+          "@id": "https://github.com/ianblas#person"
+        },
+        "sameAs": [
+          "https://github.com/Schola-Interlingua",
+          "https://apps.apple.com/us/app/schola-interlingua/id6783944116",
+          "https://play.google.com/store/apps/details?id=com.scholainterlingua.app"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://github.com/ianblas#person",
+        "name": "Ian Blas",
+        "jobTitle": "Software developer",
+        "url": "https://github.com/ianblas",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Buenos Aires, Argentina"
+        },
+        "knowsAbout": [
+          "Mandarin Chinese",
+          "Interlingua IALA",
+          "Etymology",
+          "Morphology",
+          "Writing systems",
+          "Open-source language learning"
+        ],
+        "sameAs": [
+          "https://github.com/ianblas"
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #eef4fb;
+      --panel: rgba(255, 255, 255, 0.82);
+      --text: #17324d;
+      --muted: #5e7389;
+      --accent: #1c7ed6;
+      --accent-dark: #125da4;
+      --border: rgba(184, 205, 226, 0.82);
+      --shadow: 0 24px 60px rgba(20, 50, 80, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(174, 209, 255, 0.72), transparent 34rem),
+        radial-gradient(circle at 92% 24%, rgba(202, 229, 255, 0.7), transparent 30rem),
+        linear-gradient(180deg, #e8f1ff 0%, #f4f8ff 58%, #edf4fb 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    a:focus-visible {
+      outline: 3px solid rgba(28, 126, 214, 0.38);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .site-header,
+    main,
+    .site-footer {
+      width: min(100% - 32px, 1060px);
+      margin-inline: auto;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 14px;
+      padding: 14px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.56);
+      box-shadow: 0 14px 38px rgba(20, 50, 80, 0.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+    }
+
+    nav a {
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    nav a[aria-current="page"] {
+      color: var(--text);
+    }
+
+    main {
+      padding-block: clamp(44px, 8vw, 88px) 56px;
+    }
+
+    .hero {
+      max-width: 850px;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent-dark);
+      font-size: 0.84rem;
+      font-weight: 750;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2 {
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+    }
+
+    h1 {
+      max-width: 800px;
+      margin: 0;
+      font-size: clamp(2.45rem, 7vw, 4.6rem);
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: #3f5f7c;
+      font-size: clamp(1.08rem, 2.3vw, 1.28rem);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      padding: clamp(24px, 4vw, 34px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .card-wide {
+      grid-column: 1 / -1;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.45rem, 3vw, 1.9rem);
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .link-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .link-list a {
+      display: block;
+      min-height: 100%;
+      padding: 13px 15px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: rgba(246, 250, 255, 0.86);
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px 24px;
+      padding: 24px 0 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    @media (max-width: 720px) {
+      .content-grid,
+      .link-list {
+        grid-template-columns: 1fr;
+      }
+
+      .card-wide {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .site-header {
+        align-items: flex-start;
+        padding: 12px 14px;
+      }
+
+      .brand span {
+        max-width: 130px;
+        line-height: 1.15;
+      }
+
+      nav {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Schola Interlingua home">
+      <img src="/icons/Icon-192.png" alt="" width="42" height="42">
+      <span>Schola Interlingua</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="/">Learn</a>
+      <a href="/about" aria-current="page">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <header class="hero">
+      <p class="eyebrow">Free and open-source language learning</p>
+      <h1>About Schola Interlingua</h1>
+      <p class="lead">
+        Schola Interlingua is a free and open-source educational platform for
+        learning Interlingua IALA through a clear, structured course experience.
+      </p>
+    </header>
+
+    <div class="content-grid">
+      <section class="card" aria-labelledby="learning-heading">
+        <h2 id="learning-heading">Learning Interlingua</h2>
+        <p>
+          The platform brings together structured lessons and vocabulary,
+          readings, appendices, practice activities, and review tools. Quick
+          quizzes and audio-supported review help learners revisit words and
+          phrases, while progress tracking keeps study connected over time.
+        </p>
+        <p>
+          A shared Flutter codebase supports a responsive web experience as
+          well as Android, iOS, and macOS applications.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="developer-heading">
+        <h2 id="developer-heading">About the developer</h2>
+        <p>
+          Schola Interlingua is developed and maintained by Ian Blas, a
+          software developer based in Buenos Aires, Argentina.
+        </p>
+        <p>
+          Ian Blas builds educational software for Mandarin Chinese,
+          Interlingua IALA, etymology, morphology, writing systems, and
+          open-source language learning.
+        </p>
+        <p>
+          He also develops <a href="https://www.chinesecharacters.info">Chety</a>,
+          an educational app for learning Mandarin Chinese characters through
+          etymology and morphology.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="open-source-heading">
+        <h2 id="open-source-heading">Open-source project</h2>
+        <p>
+          Schola Interlingua is free and open source. Its code and project
+          repositories are publicly available through the
+          <a href="https://github.com/Schola-Interlingua">Schola Interlingua organization on GitHub</a>,
+          where developers and language learners can inspect the project and
+          contribute improvements.
+        </p>
+      </section>
+
+      <section class="card card-wide" aria-labelledby="find-heading">
+        <h2 id="find-heading">Where to find Schola</h2>
+        <p>Use Schola Interlingua on the web, install the app, or explore its source code.</p>
+        <ul class="link-list">
+          <li><a href="https://scholainterlingua.com">Schola Interlingua website</a></li>
+          <li><a href="https://github.com/Schola-Interlingua">Schola Interlingua on GitHub</a></li>
+          <li><a href="https://apps.apple.com/us/app/schola-interlingua/id6783944116">Download on the App Store</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.scholainterlingua.app">Get it on Google Play</a></li>
+          <li><a href="https://github.com/ianblas">Ian Blas on GitHub</a></li>
+          <li><a href="https://www.chinesecharacters.info">Chety</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>Schola Interlingua</span>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/about">About</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/delete-account">Delete account</a>
+    </nav>
+  </footer>
+</body>
+</html>
