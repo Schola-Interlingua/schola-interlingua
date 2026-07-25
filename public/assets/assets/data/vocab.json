@@ -9638,7 +9638,7 @@
     },
     {
       "term": "pantalones",
-      "es": "pantalón",
+      "es": "pantalones",
       "en": "pants; trousers",
       "ru": "брюки",
       "de": "Hose",
@@ -10859,7 +10859,7 @@
       "eo": "kutimi"
     },
     {
-      "term": "saper",
+      "term": "cognoscer",
       "es": "conocer",
       "en": "to know",
       "ru": "знать",
@@ -10972,7 +10972,7 @@
     },
     {
       "term": "io spera que vos place le suppa",
-      "es": "espero que usted tenga gusto de la sopa; yo espero que le guste la sopa",
+      "es": "espero que le guste la sopa",
       "en": "I hope you like the soup",
       "ru": "я надеюсь, что вам нравится суп",
       "de": "ich hoffe, Ihnen schmeckt die Suppe",
@@ -11036,7 +11036,7 @@
     },
     {
       "term": "io sole biber lacte",
-      "es": "por lo general tomar leche; yo acostumbro a tomar leche",
+      "es": "suelo beber leche; por lo general tomo leche",
       "en": "I usually drink milk",
       "ru": "я обычно пью молоко",
       "de": "ich trinke normalerweise Milch",
@@ -14200,7 +14200,7 @@
     },
     {
       "term": "quanto a",
-      "es": "como para; cuanto a",
+      "es": "en cuanto a; con respecto a",
       "en": "as for; regarding",
       "ru": "что касается",
       "de": "was ... betrifft",
@@ -14232,7 +14232,7 @@
     },
     {
       "term": "secundo",
-      "es": "dependiendo; de acuerdo con Functional",
+      "es": "según; de acuerdo con; dependiendo de",
       "en": "according to; depending on",
       "ru": "в зависимости от; согласно",
       "de": "laut; je nach",
@@ -14248,7 +14248,7 @@
     },
     {
       "term": "al",
-      "es": "El A +; A + les",
+      "es": "al; a los; a las",
       "en": "to the",
       "ru": "к; ко",
       "de": "zum; zur",
@@ -14360,7 +14360,7 @@
     },
     {
       "term": "tanto que",
-      "es": "como mucho; ya que muchos",
+      "es": "tanto que; tanto como",
       "en": "so much that; as much as",
       "ru": "настолько, что; поскольку много",
       "de": "so sehr, dass; da viele",
@@ -19288,7 +19288,7 @@
     },
     {
       "term": "tu prefere",
-      "es": "tú preferes",
+      "es": "tú prefieres",
       "en": "you prefer",
       "ru": "ты предпочитаешь",
       "de": "du bevorzugst",
@@ -19336,7 +19336,7 @@
     },
     {
       "term": "vos prefere",
-      "es": "preferes (pl., formal)",
+      "es": "ustedes prefieren",
       "en": "you prefer (plural, formal)",
       "ru": "вы предпочитаете",
       "de": "ihr bevorzugt / Sie bevorzugen",
@@ -19610,7 +19610,7 @@
     },
     {
       "term": "assi",
-      "es": "así que",
+      "es": "así; por eso",
       "en": "so",
       "ru": "так что",
       "de": "also",
@@ -20540,7 +20540,7 @@
     },
     {
       "term": "disoccupate",
-      "es": "desempleados",
+      "es": "desempleado/a",
       "en": "unemployed",
       "ru": "безработный",
       "de": "arbeitslos",
@@ -21392,7 +21392,7 @@
   "negativos": [
     {
       "term": "io non vole alco plus",
-      "es": "yo no quiero nada",
+      "es": "ya no quiero nada; no quiero nada más",
       "en": "I don't want anything else",
       "ru": "я больше ничего не хочу",
       "de": "ich will nichts mehr",
@@ -21567,8 +21567,8 @@
       "eo": "la tagoj fariĝas pli kaj pli longaj"
     },
     {
-      "term": "tu non offre alco",
-      "es": "vos no ofrecés nada",
+      "term": "tu non offere alco",
+      "es": "tú no ofreces nada",
       "en": "you offer nothing",
       "ru": "ты ничего не предлагаешь",
       "de": "du bietest nichts an",
@@ -21600,7 +21600,7 @@
     },
     {
       "term": "iste cappello non va pro me.",
-      "es": "este sombrero no funciona para mí",
+      "es": "este sombrero no me queda bien",
       "en": "this hat doesn't work for me",
       "ru": "эта шляпа мне не подходит",
       "de": "dieser Hut passt nicht zu mir",
@@ -21730,7 +21730,7 @@
     },
     {
       "term": "normalmente",
-      "es": "normal",
+      "es": "normalmente",
       "en": "normally",
       "ru": "обычно",
       "de": "normalerweise",
@@ -21746,7 +21746,7 @@
     },
     {
       "term": "justo",
-      "es": "justa; precisamente; correctamente",
+      "es": "justamente; precisamente; correctamente",
       "en": "just; precisely; rightly",
       "ru": "просто; точно; правильно",
       "de": "einfach; genau; gerecht",
@@ -21825,7 +21825,7 @@
       "eo": "certe"
     },
     {
-      "term": "absolutamente",
+      "term": "absolutemente",
       "es": "absolutamente",
       "en": "absolutely",
       "ru": "абсолютно",
@@ -21857,7 +21857,7 @@
       "eo": "legendo!"
     },
     {
-      "term": "relativamente",
+      "term": "relativemente",
       "es": "relativamente",
       "en": "relatively",
       "ru": "относительно",
@@ -21873,8 +21873,8 @@
       "eo": "relative"
     },
     {
-      "term": "inconsideradamente",
-      "es": "ligeramente",
+      "term": "inconsideratemente",
+      "es": "inconsideradamente; irreflexivamente",
       "en": "carelessly",
       "ru": "необдуманно",
       "de": "rücksichtslos",
@@ -21905,7 +21905,7 @@
       "eo": "interne"
     },
     {
-      "term": "immediatelymente",
+      "term": "immediatemente",
       "es": "inmediatamente",
       "en": "immediately",
       "ru": "немедленно",
@@ -21953,7 +21953,7 @@
       "eo": "esence"
     },
     {
-      "term": "lentamente",
+      "term": "lentemente",
       "es": "despacio",
       "en": "slowly",
       "ru": "медленно",
@@ -21969,7 +21969,7 @@
       "eo": "malrapide"
     },
     {
-      "term": "probabilmente",
+      "term": "probabilemente",
       "es": "probablemente",
       "en": "probably",
       "ru": "вероятно",
@@ -22033,7 +22033,7 @@
       "eo": "malofte"
     },
     {
-      "term": "facilmente",
+      "term": "facilemente",
       "es": "fácilmente",
       "en": "easily",
       "ru": "легко",
@@ -22049,7 +22049,7 @@
       "eo": "facile"
     },
     {
-      "term": "fortunatamente",
+      "term": "fortunatemente",
       "es": "por suerte; afortunadamente",
       "en": "fortunately",
       "ru": "к счастью",
@@ -22177,7 +22177,7 @@
       "eo": "vere"
     },
     {
-      "term": "definitivamente",
+      "term": "definitivemente",
       "es": "definitivamente; para siempre; de una vez por todas",
       "en": "definitely",
       "ru": "определенно",
@@ -22289,7 +22289,7 @@
       "eo": "lastatempe"
     },
     {
-      "term": "infortunatamente",
+      "term": "infortunatemente",
       "es": "desafortunadamente",
       "en": "unfortunately",
       "ru": "к сожалению",
