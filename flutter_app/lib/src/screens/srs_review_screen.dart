@@ -10,7 +10,14 @@ import '../services/option_audio_service.dart';
 import '../theme/app_theme.dart';
 
 class SrsReviewScreen extends StatefulWidget {
-  const SrsReviewScreen({super.key});
+  const SrsReviewScreen({
+    super.key,
+    this.cardIds,
+    this.title = 'Repaso rapide',
+  });
+
+  final List<String>? cardIds;
+  final String title;
 
   @override
   State<SrsReviewScreen> createState() => _SrsReviewScreenState();
@@ -24,29 +31,51 @@ class _SrsReviewScreenState extends State<SrsReviewScreen> {
   List<String> _choices = const <String>[];
   bool _showSummary = false;
   List<String> _sessionCardIds = const <String>[];
+  bool _sessionInitialized = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    AppStateScope.of(context).loadVocab();
+  }
 
   @override
   Widget build(BuildContext context) {
     final AppController controller = AppStateScope.of(context);
-    final List<SrsCardProgress> dueProgress = controller.dueSrsProgress;
-    if (_sessionCardIds.isEmpty && dueProgress.isNotEmpty) {
-      _sessionCardIds = dueProgress
-          .map((SrsCardProgress progress) => progress.cardId)
-          .toList();
+    if (!controller.vocabLoaded) {
+      return const ScholaCard(
+        child: Center(child: CircularProgressIndicator()),
+      );
     }
 
-    if (dueProgress.isEmpty) {
+    if (!_sessionInitialized) {
+      final Iterable<String> availableCardIds =
+          widget.cardIds ??
+          controller.dueSrsProgress.map(
+            (SrsCardProgress progress) => progress.cardId,
+          );
+      _sessionCardIds = availableCardIds
+          .where(
+            (String cardId) => controller.exportableCardById(cardId) != null,
+          )
+          .toList();
+      _sessionInitialized = true;
+    }
+
+    if (_sessionCardIds.isEmpty) {
       return ScholaCard(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'Repaso rapide',
+              widget.title,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: 12),
             Text(
-              'Non ha parolas debite pro hodie. Bon obra.',
+              widget.cardIds == null
+                  ? 'Non ha parolas debite pro hodie. Bon obra.'
+                  : 'Iste deck non ha parolas disponibile pro le quiz.',
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ],
@@ -77,9 +106,11 @@ class _SrsReviewScreenState extends State<SrsReviewScreen> {
                   _selectedChoice = null;
                   _showSummary = false;
                   _choices = const <String>[];
-                  _sessionCardIds = controller.dueSrsProgress
-                      .map((SrsCardProgress progress) => progress.cardId)
-                      .toList();
+                  _sessionCardIds =
+                      widget.cardIds ??
+                      controller.dueSrsProgress
+                          .map((SrsCardProgress progress) => progress.cardId)
+                          .toList();
                 });
               },
               child: const Text('Recomenciar'),
@@ -105,14 +136,14 @@ class _SrsReviewScreenState extends State<SrsReviewScreen> {
     final String correctChoice = currentCard.term;
 
     if (_choices.isEmpty) {
-      _choices = _buildChoices(controller.exportableCards, currentCard);
+      _choices = _buildChoices(controller.srsReviewCards, currentCard);
     }
 
     return ScholaCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('Repaso rapide', style: Theme.of(context).textTheme.titleLarge),
+          Text(widget.title, style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: 8),
           Text(
             'Carta ${_index + 1} de ${_sessionCardIds.length}',

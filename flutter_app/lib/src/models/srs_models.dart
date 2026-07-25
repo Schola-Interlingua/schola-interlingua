@@ -28,6 +28,7 @@ class SrsCardProgress {
   bool get isDue => !dueAt.isAfter(DateTime.now());
 
   SrsCardProgress copyWith({
+    String? cardId,
     SrsStage? stage,
     int? intervalDays,
     double? ease,
@@ -39,7 +40,7 @@ class SrsCardProgress {
     DateTime? lastReviewedAt,
   }) {
     return SrsCardProgress(
-      cardId: cardId,
+      cardId: cardId ?? this.cardId,
       stage: stage ?? this.stage,
       intervalDays: intervalDays ?? this.intervalDays,
       ease: ease ?? this.ease,

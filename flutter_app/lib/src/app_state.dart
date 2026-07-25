@@ -9,13 +9,18 @@ import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import 'data/content_seed.dart';
 import 'data/course_seed.dart';
+import 'models/content_models.dart';
 import 'models/course_models.dart';
+import 'models/deck_models.dart';
 import 'models/srs_models.dart';
 import 'services/exportable_vocab_catalog.dart';
 
 class AppController extends ChangeNotifier {
   static const int _completionStorageVersion = 3;
+  static const String _favoriteWordsStorageKey = 'favorite_word_ids_v1';
+  static const String _customDecksStorageKey = 'custom_decks_v1';
   static const Map<String, Map<String, String>> _glossaryOverrides =
       <String, Map<String, String>>{
         'definite': <String, String>{
@@ -93,7 +98,16 @@ class AppController extends ChangeNotifier {
       <String, List<ExportableVocabCard>>{};
   final List<ExportableVocabCard> _sortedExportableCards =
       <ExportableVocabCard>[];
+  final Map<String, ExportableVocabCard> _srsReviewCardsById =
+      <String, ExportableVocabCard>{};
+  final List<ExportableVocabCard> _sortedSrsReviewCards =
+      <ExportableVocabCard>[];
   final List<Map<String, String>> _allVocabItems = <Map<String, String>>[];
+  final Map<String, VocabularyWord> _vocabularyWordsById =
+      <String, VocabularyWord>{};
+  final List<VocabularyWord> _sortedVocabularyWords = <VocabularyWord>[];
+  final Set<String> _favoriteWordIds = <String>{};
+  final Map<String, CustomDeck> _customDecks = <String, CustomDeck>{};
   final Map<String, SrsCardProgress> _srsProgress = <String, SrsCardProgress>{};
   final ValueNotifier<ThemeMode> _themeModeNotifier = ValueNotifier<ThemeMode>(
     ThemeMode.dark,
@@ -105,6 +119,7 @@ class AppController extends ChangeNotifier {
   final Map<String, String> _completedItems = <String, String>{};
   User? _currentUser;
   StreamSubscription<AuthState>? _authSubscription;
+  Future<void> _progressSyncChain = Future<void>.value();
 
   String get selectedLanguage => _selectedLanguage;
   bool get vocabLoaded => _vocabLoaded;
@@ -114,7 +129,34 @@ class AppController extends ChangeNotifier {
   User? get currentUser => _currentUser;
   bool get isAuthenticated => _currentUser != null;
   List<ExportableVocabCard> get exportableCards => _sortedExportableCards;
+  List<ExportableVocabCard> get srsReviewCards => _sortedSrsReviewCards;
   List<Map<String, String>> get allVocabItems => _allVocabItems;
+  List<VocabularyWord> get vocabularyWords =>
+      UnmodifiableListView<VocabularyWord>(_sortedVocabularyWords);
+  Set<String> get favoriteWordIds =>
+      UnmodifiableSetView<String>(_favoriteWordIds);
+  List<VocabularyWord> get favoriteWords {
+    final List<VocabularyWord> words = _favoriteWordIds
+        .map((String id) => _vocabularyWordsById[id])
+        .whereType<VocabularyWord>()
+        .toList();
+    words.sort(
+      (VocabularyWord a, VocabularyWord b) =>
+          a.term.toLowerCase().compareTo(b.term.toLowerCase()),
+    );
+    return words;
+  }
+
+  List<CustomDeck> get customDecks {
+    final List<CustomDeck> decks = _customDecks.values.toList();
+    decks.sort((CustomDeck a, CustomDeck b) {
+      final int byDate = a.createdAt.compareTo(b.createdAt);
+      if (byDate != 0) return byDate;
+      return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+    });
+    return decks;
+  }
+
   Set<String> get completedKeys =>
       UnmodifiableSetView<String>(_completedItems.keys.toSet());
   Map<SrsStage, int> get srsStageCounts {
@@ -164,8 +206,6 @@ class AppController extends ChangeNotifier {
       _vocab[normalizeTerm(term)];
   String? resolveMeaning(String term, String language) {
     final String normalized = normalizeTerm(term);
-    final Map<String, String>? override = _glossaryOverrides[normalized];
-    final Map<String, String>? meaning = _vocab[normalized];
 
     String? pick(Map<String, String>? source, String key) {
       final String? value = source?[key]?.trim();
@@ -187,14 +227,122 @@ class AppController extends ChangeNotifier {
       'ko',
     ];
 
-    for (final String key in fallbackOrder) {
-      final String? overrideValue = pick(override, key);
-      if (overrideValue != null) return overrideValue;
-      final String? vocabValue = pick(meaning, key);
-      if (vocabValue != null) return vocabValue;
+    for (final String candidate in _meaningCandidates(normalized)) {
+      final Map<String, String>? override = _glossaryOverrides[candidate];
+      final Map<String, String>? meaning = _vocab[candidate];
+      for (final String key in fallbackOrder) {
+        final String? overrideValue = pick(override, key);
+        if (overrideValue != null) return overrideValue;
+        final String? vocabValue = pick(meaning, key);
+        if (vocabValue != null) return vocabValue;
+      }
     }
 
     return null;
+  }
+
+  Iterable<String> _meaningCandidates(String normalized) sync* {
+    if (normalized.isEmpty) return;
+
+    final Set<String> candidates = <String>{normalized};
+    if (normalized.endsWith('es') && normalized.length > 2) {
+      candidates.add(normalized.substring(0, normalized.length - 2));
+    }
+    if (normalized.endsWith('s') && normalized.length > 1) {
+      candidates.add(normalized.substring(0, normalized.length - 1));
+    }
+
+    if (!normalized.endsWith('r')) {
+      candidates.add('${normalized}r');
+    }
+    for (final String suffix in const <String>['va', 'ra', 'te']) {
+      if (normalized.endsWith(suffix) && normalized.length > suffix.length) {
+        candidates.add(
+          '${normalized.substring(0, normalized.length - suffix.length)}r',
+        );
+      }
+    }
+
+    yield* candidates;
+  }
+
+  VocabularyWord? vocabularyWordForTerm(String term) =>
+      _vocabularyWordsById[normalizeTerm(term)];
+
+  bool isFavoriteWord(String term) =>
+      _favoriteWordIds.contains(normalizeTerm(term));
+
+  bool toggleFavoriteWord(String term) {
+    final String wordId = normalizeTerm(term);
+    if (wordId.isEmpty) return false;
+
+    final bool isNowFavorite;
+    if (_favoriteWordIds.remove(wordId)) {
+      isNowFavorite = false;
+    } else {
+      _favoriteWordIds.add(wordId);
+      isNowFavorite = true;
+    }
+    _persistDeckLibrary();
+    notifyListeners();
+    return isNowFavorite;
+  }
+
+  CustomDeck? customDeckById(String deckId) => _customDecks[deckId];
+
+  List<VocabularyWord> wordsForCustomDeck(String deckId) {
+    final CustomDeck? deck = _customDecks[deckId];
+    if (deck == null) return const <VocabularyWord>[];
+    return deck.wordIds
+        .map((String id) => _vocabularyWordsById[id])
+        .whereType<VocabularyWord>()
+        .toList();
+  }
+
+  String createCustomDeck(String name) {
+    final String trimmedName = name.trim();
+    if (trimmedName.isEmpty) {
+      throw ArgumentError.value(name, 'name', 'Le nomine non pote esser vacue');
+    }
+    final DateTime now = DateTime.now();
+    final String id = 'custom-${now.microsecondsSinceEpoch}';
+    _customDecks[id] = CustomDeck(
+      id: id,
+      name: trimmedName,
+      wordIds: const <String>[],
+      createdAt: now,
+    );
+    _persistDeckLibrary();
+    notifyListeners();
+    return id;
+  }
+
+  void deleteCustomDeck(String deckId) {
+    if (_customDecks.remove(deckId) == null) return;
+    _persistDeckLibrary();
+    notifyListeners();
+  }
+
+  void addWordToCustomDeck(String deckId, String term) {
+    final CustomDeck? deck = _customDecks[deckId];
+    final String wordId = normalizeTerm(term);
+    if (deck == null || wordId.isEmpty || deck.wordIds.contains(wordId)) return;
+    _customDecks[deckId] = deck.copyWith(
+      wordIds: <String>[...deck.wordIds, wordId],
+    );
+    _persistDeckLibrary();
+    notifyListeners();
+  }
+
+  void removeWordFromCustomDeck(String deckId, String term) {
+    final CustomDeck? deck = _customDecks[deckId];
+    final String wordId = normalizeTerm(term);
+    if (deck == null || !deck.wordIds.contains(wordId)) return;
+    _customDecks[deckId] = deck.copyWith(
+      wordIds: deck.wordIds.where((String id) => id != wordId).toList(),
+    );
+    _persistDeckLibrary();
+    notifyListeners();
   }
 
   List<Map<String, String>> lessonItems(String slug) =>
@@ -203,6 +351,7 @@ class AppController extends ChangeNotifier {
   List<ExportableVocabCard> exportableCardsForSlug(String slug) =>
       _exportableCardsBySlug[slug] ?? const <ExportableVocabCard>[];
   ExportableVocabCard? exportableCardById(String cardId) =>
+      _srsReviewCardsById[_canonicalSrsCardId(cardId)] ??
       _exportableCardsById[cardId];
 
   List<ExportableVocabCard> exportableCardsForLevels(Set<String> levelSlugs) {
@@ -213,14 +362,24 @@ class AppController extends ChangeNotifier {
         .toList();
   }
 
-  SrsCardProgress? srsProgressForCard(String cardId) => _srsProgress[cardId];
+  SrsCardProgress? srsProgressForCard(String cardId) =>
+      _srsProgress[_canonicalSrsCardId(cardId)];
 
   SrsCardProgress? srsProgressForSlugTerm(String slug, String term) {
-    return _srsProgress['$slug:${term.trim().toLowerCase()}'];
+    return _srsProgress[_srsCardIdForTerm(term)];
   }
 
   ExportableVocabCard? srsCardForSlugTerm(String slug, String term) {
-    return _exportableCardsById['$slug:${term.trim().toLowerCase()}'];
+    return _exportableCardsById['$slug:${term.trim().toLowerCase()}'] ??
+        _srsReviewCardsById[_srsCardIdForTerm(term)];
+  }
+
+  List<String> srsCardIdsForTerms(Iterable<String> terms) {
+    return terms
+        .map(_srsCardIdForTerm)
+        .where(_srsReviewCardsById.containsKey)
+        .toSet()
+        .toList();
   }
 
   Future<void> initialize() async {
@@ -230,6 +389,7 @@ class AppController extends ChangeNotifier {
         _prefs?.getString('selected_language') ?? _selectedLanguage;
     _darkMode = _prefs?.getBool('dark_mode') ?? true;
     _themeModeNotifier.value = themeMode;
+    _loadDeckLibrary();
     final int storedCompletionVersion =
         _prefs?.getInt('completion_storage_version') ?? 0;
     if (storedCompletionVersion < _completionStorageVersion) {
@@ -279,6 +439,8 @@ class AppController extends ChangeNotifier {
     final Map<String, List<Map<String, String>>> parsedLessonItems =
         <String, List<Map<String, String>>>{};
     final List<Map<String, String>> flattenedItems = <Map<String, String>>[];
+    final Map<String, VocabularyWord> parsedVocabularyWords =
+        <String, VocabularyWord>{};
 
     for (final MapEntry<String, dynamic> entry in data.entries) {
       final dynamic value = entry.value;
@@ -298,10 +460,32 @@ class AppController extends ChangeNotifier {
           translations[key] = value;
         });
         parsed[term] = translations;
+        parsedVocabularyWords[term] = VocabularyWord(
+          id: term,
+          term: (normalizedItem['term'] ?? term).trim(),
+          translations: Map<String, String>.unmodifiable(translations),
+        );
         lessonList.add(normalizedItem);
       }
       parsedLessonItems[entry.key] = lessonList;
       flattenedItems.addAll(lessonList);
+    }
+
+    for (final MapEntry<String, VocabMeaning> entry in vocabMeanings.entries) {
+      final String term = normalizeTerm(entry.value.term);
+      if (term.isEmpty) continue;
+      final Map<String, String> translations = Map<String, String>.from(
+        entry.value.meanings,
+      );
+      parsed.putIfAbsent(term, () => translations);
+      parsedVocabularyWords.putIfAbsent(
+        term,
+        () => VocabularyWord(
+          id: term,
+          term: entry.value.term,
+          translations: Map<String, String>.unmodifiable(translations),
+        ),
+      );
     }
 
     _lessonItems
@@ -310,6 +494,16 @@ class AppController extends ChangeNotifier {
     _allVocabItems
       ..clear()
       ..addAll(flattenedItems);
+    _vocabularyWordsById
+      ..clear()
+      ..addAll(parsedVocabularyWords);
+    _sortedVocabularyWords
+      ..clear()
+      ..addAll(parsedVocabularyWords.values)
+      ..sort(
+        (VocabularyWord a, VocabularyWord b) =>
+            a.term.toLowerCase().compareTo(b.term.toLowerCase()),
+      );
     _vocab = parsed;
     final List<ExportableVocabCard> catalog = buildExportableVocabCatalog(
       _lessonItems,
@@ -346,6 +540,7 @@ class AppController extends ChangeNotifier {
           },
         ).entries,
       );
+    _buildSrsReviewCatalog();
     _vocabLoaded = true;
     notifyListeners();
   }
@@ -368,18 +563,18 @@ class AppController extends ChangeNotifier {
     final String timestamp = DateTime.now().toIso8601String();
     _completedItems[key] = timestamp;
     final String slug = _slugFromCompletionKey(key);
-    if (_exportableCardsBySlug.containsKey(slug)) {
+    if ((_lessonItems[slug] ?? const <Map<String, String>>[]).isNotEmpty) {
       registerVocabularySeen(slug);
     }
     _persistCompletedItems();
-    unawaited(_syncProgressToRemote());
+    _scheduleProgressSync();
     notifyListeners();
   }
 
   void clearCompleted(String key) {
     if (_completedItems.remove(key) == null) return;
     _persistCompletedItems();
-    unawaited(_syncProgressToRemote());
+    _scheduleProgressSync();
     notifyListeners();
   }
 
@@ -388,14 +583,18 @@ class AppController extends ChangeNotifier {
   String? completionDate(String key) => _completedItems[key];
 
   void registerVocabularySeen(String slug) {
-    final List<ExportableVocabCard> cards = exportableCardsForSlug(slug);
-    if (cards.isEmpty) return;
+    final List<String> cardIds = srsCardIdsForTerms(
+      (_lessonItems[slug] ?? const <Map<String, String>>[]).map(
+        (Map<String, String> item) => item['term'] ?? '',
+      ),
+    );
+    if (cardIds.isEmpty) return;
     final DateTime now = DateTime.now();
     bool changed = false;
-    for (final ExportableVocabCard card in cards) {
-      if (_srsProgress.containsKey(card.id)) continue;
-      _srsProgress[card.id] = SrsCardProgress(
-        cardId: card.id,
+    for (final String cardId in cardIds) {
+      if (_srsProgress.containsKey(cardId)) continue;
+      _srsProgress[cardId] = SrsCardProgress(
+        cardId: cardId,
         stage: SrsStage.newWord,
         intervalDays: 0,
         ease: 2.3,
@@ -409,18 +608,19 @@ class AppController extends ChangeNotifier {
     }
     if (!changed) return;
     _persistSrsProgress();
-    unawaited(_syncProgressToRemote());
+    _scheduleProgressSync();
     notifyListeners();
   }
 
   void recordSrsReview(String cardId, {required bool success}) {
-    final ExportableVocabCard? card = _exportableCardsById[cardId];
+    final ExportableVocabCard? card = exportableCardById(cardId);
     if (card == null) return;
+    final String globalCardId = _srsCardIdForTerm(card.term);
     final DateTime now = DateTime.now();
     final SrsCardProgress current =
-        _srsProgress[cardId] ??
+        _srsProgress[globalCardId] ??
         SrsCardProgress(
-          cardId: cardId,
+          cardId: globalCardId,
           stage: SrsStage.newWord,
           intervalDays: 0,
           ease: 2.3,
@@ -433,9 +633,9 @@ class AppController extends ChangeNotifier {
     final SrsCardProgress next = success
         ? _advanceSrsCard(current, now)
         : _resetSrsCard(current, now);
-    _srsProgress[cardId] = next;
+    _srsProgress[globalCardId] = next;
     _persistSrsProgress();
-    unawaited(_syncProgressToRemote());
+    _scheduleProgressSync();
     notifyListeners();
   }
 
@@ -448,6 +648,40 @@ class AppController extends ChangeNotifier {
     if (card == null) return;
     registerVocabularySeen(slug);
     recordSrsReview(card.id, success: success);
+  }
+
+  void _buildSrsReviewCatalog() {
+    final Map<String, ExportableVocabCard> firstCourseCardByWordId =
+        <String, ExportableVocabCard>{};
+    for (final ExportableVocabCard card in _sortedExportableCards) {
+      firstCourseCardByWordId.putIfAbsent(
+        _srsCardIdForTerm(card.term),
+        () => card,
+      );
+    }
+
+    _srsReviewCardsById.clear();
+    for (final VocabularyWord word in _sortedVocabularyWords) {
+      final String cardId = _srsCardIdForTerm(word.term);
+      final ExportableVocabCard? courseCard = firstCourseCardByWordId[cardId];
+      _srsReviewCardsById[cardId] = ExportableVocabCard(
+        id: cardId,
+        term: word.term,
+        translations: word.translations,
+        levelSlug: courseCard?.levelSlug ?? 'vocabulario',
+        levelTitle: courseCard?.levelTitle ?? 'Vocabulario',
+        sourceSlug: courseCard?.sourceSlug ?? 'vocabulario',
+        sourceTitle: courseCard?.sourceTitle ?? 'Vocabulario del app',
+      );
+    }
+
+    _sortedSrsReviewCards
+      ..clear()
+      ..addAll(_srsReviewCardsById.values)
+      ..sort(
+        (ExportableVocabCard a, ExportableVocabCard b) =>
+            a.term.toLowerCase().compareTo(b.term.toLowerCase()),
+      );
   }
 
   Future<void> signInWithEmailOtp(String email) async {
@@ -496,8 +730,21 @@ class AppController extends ChangeNotifier {
 
   static String normalizeTerm(String input) {
     return input
-        .replaceAll(RegExp(r'[^\wáéíóúüñ-]', unicode: true), '')
+        .replaceAll(RegExp(r'[^\wáéíóúüñàèìòùâêîôûäëïöç-]', unicode: true), '')
         .toLowerCase();
+  }
+
+  static String _srsCardIdForTerm(String term) => 'word:${normalizeTerm(term)}';
+
+  static String _canonicalSrsCardId(String cardId) {
+    final String trimmed = cardId.trim();
+    if (trimmed.startsWith('word:')) {
+      return _srsCardIdForTerm(trimmed.substring('word:'.length));
+    }
+    final int separator = trimmed.indexOf(':');
+    return _srsCardIdForTerm(
+      separator < 0 ? trimmed : trimmed.substring(separator + 1),
+    );
   }
 
   SrsCardProgress _advanceSrsCard(SrsCardProgress current, DateTime now) {
@@ -596,19 +843,41 @@ class AppController extends ChangeNotifier {
       ..clear()
       ..addAll(merged);
     final Map<String, SrsCardProgress> mergedSrs = <String, SrsCardProgress>{};
+    bool migratedLegacySrs = false;
     srs.forEach((String cardId, dynamic value) {
       if (value is! Map) return;
-      mergedSrs[cardId] = SrsCardProgress.fromJson(
+      final String globalCardId = _canonicalSrsCardId(cardId);
+      migratedLegacySrs = migratedLegacySrs || globalCardId != cardId;
+      final SrsCardProgress candidate = SrsCardProgress.fromJson(
         cardId,
         value.cast<String, dynamic>(),
-      );
+      ).copyWith(cardId: globalCardId);
+      final SrsCardProgress? existing = mergedSrs[globalCardId];
+      if (existing == null ||
+          candidate.updatedAt.isAfter(existing.updatedAt) ||
+          (candidate.updatedAt == existing.updatedAt &&
+              candidate.successCount > existing.successCount)) {
+        mergedSrs[globalCardId] = candidate;
+      }
     });
     _srsProgress
       ..clear()
       ..addAll(mergedSrs);
     _persistCompletedItems();
     _persistSrsProgress();
+    if (migratedLegacySrs) {
+      _scheduleProgressSync();
+    }
     notifyListeners();
+  }
+
+  void _scheduleProgressSync() {
+    if (_currentUser == null) return;
+    _progressSyncChain = _progressSyncChain
+        .then((_) => _syncProgressToRemote())
+        .catchError((Object error, StackTrace stackTrace) {
+          debugPrint('Progress sync failed: $error');
+        });
   }
 
   Future<void> _syncProgressToRemote() async {
@@ -649,11 +918,51 @@ class AppController extends ChangeNotifier {
 
   void _persistSrsProgress() {}
 
+  void _loadDeckLibrary() {
+    _favoriteWordIds
+      ..clear()
+      ..addAll(
+        (_prefs?.getStringList(_favoriteWordsStorageKey) ?? const <String>[])
+            .map(normalizeTerm)
+            .where((String id) => id.isNotEmpty),
+      );
+
+    _customDecks.clear();
+    final String? encodedDecks = _prefs?.getString(_customDecksStorageKey);
+    if (encodedDecks == null || encodedDecks.trim().isEmpty) return;
+
+    try {
+      final dynamic decoded = jsonDecode(encodedDecks);
+      if (decoded is! List<dynamic>) return;
+      for (final dynamic value in decoded) {
+        if (value is! Map<String, dynamic>) continue;
+        final CustomDeck deck = CustomDeck.fromJson(value);
+        if (deck.id.isEmpty || deck.name.trim().isEmpty) continue;
+        _customDecks[deck.id] = deck;
+      }
+    } on FormatException {
+      _customDecks.clear();
+    }
+  }
+
+  void _persistDeckLibrary() {
+    final List<String> favorites = _favoriteWordIds.toList()..sort();
+    _prefs?.setStringList(_favoriteWordsStorageKey, favorites);
+    _prefs?.setString(
+      _customDecksStorageKey,
+      jsonEncode(customDecks.map((CustomDeck deck) => deck.toJson()).toList()),
+    );
+  }
+
   Future<void> _clearLocalUserData() async {
     _completedItems.clear();
     _srsProgress.clear();
+    _favoriteWordIds.clear();
+    _customDecks.clear();
     await _prefs?.remove('completed_items');
     await _prefs?.remove('srs_progress');
+    await _prefs?.remove(_favoriteWordsStorageKey);
+    await _prefs?.remove(_customDecksStorageKey);
   }
 
   String _todayIso() => _today().toIso8601String();

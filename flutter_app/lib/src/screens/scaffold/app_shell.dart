@@ -345,6 +345,7 @@ class _BottomNavBar extends StatelessWidget {
                     location == item.route ||
                     (item.route == '/course' &&
                         (location.startsWith('/course') ||
+                            location.startsWith('/decks') ||
                             location.startsWith('/level/') ||
                             location.startsWith('/lesson/') ||
                             location.startsWith('/reading/') ||

@@ -243,12 +243,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
             children: <Widget>[
               Text('Modo', style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 16),
-              SwitchListTile(
-                value: controller.darkMode,
-                onChanged: (_) => controller.toggleDarkMode(),
-                contentPadding: EdgeInsets.zero,
-                title: const Text('Modo obscur'),
-                subtitle: const Text('Alterna inter modo clar e obscur.'),
+              Material(
+                color: Colors.transparent,
+                child: SwitchListTile(
+                  value: controller.darkMode,
+                  onChanged: (_) => controller.toggleDarkMode(),
+                  contentPadding: EdgeInsets.zero,
+                  title: const Text('Modo obscur'),
+                  subtitle: const Text('Alterna inter modo clar e obscur.'),
+                ),
               ),
             ],
           ),
@@ -318,11 +321,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Schola Interlingua',
+                'A proposito',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 16),
               FilledButton.icon(
+                key: const Key('settings-about-button'),
                 onPressed: () => _showAboutDialog(context),
                 icon: const Icon(Icons.info_outline_rounded),
                 label: const Text('A proposito de Schola Interlingua'),

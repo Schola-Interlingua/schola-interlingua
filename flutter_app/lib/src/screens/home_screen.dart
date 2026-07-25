@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:go_router/go_router.dart';
 
 import '../app_state.dart';
@@ -6,6 +7,7 @@ import '../data/course_seed.dart';
 import '../models/course_models.dart';
 import '../models/srs_models.dart';
 import '../theme/app_theme.dart';
+import '../widgets/meaning_rich_text.dart';
 
 const Map<String, String> _languageLabels = <String, String>{
   'es': 'Español',
@@ -33,6 +35,8 @@ class HomeScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: const <Widget>[
         _InlineVocabSearch(),
+        SizedBox(height: 24),
+        _TextReaderCard(),
         SizedBox(height: 24),
         _ProgressCard(),
         SizedBox(height: 16),
@@ -290,6 +294,243 @@ class _InlineVocabSearchState extends State<_InlineVocabSearch> {
   }
 }
 
+class _TextReaderCard extends StatefulWidget {
+  const _TextReaderCard();
+
+  @override
+  State<_TextReaderCard> createState() => _TextReaderCardState();
+}
+
+class _TextReaderCardState extends State<_TextReaderCard> {
+  late final _ReaderTextEditingController _controller;
+  final GlobalKey _readerFieldKey = GlobalKey();
+  String _text = '';
+  Offset? _pointerDownPosition;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = _ReaderTextEditingController();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    AppStateScope.of(context).loadVocab();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _clear() {
+    _controller.clear();
+    FocusScope.of(context).unfocus();
+    setState(() {
+      _text = '';
+    });
+  }
+
+  void _showMeaningAt(Offset globalPosition) {
+    final RenderEditable? editable = _findRenderEditable();
+    if (editable == null || _controller.text.isEmpty) {
+      return;
+    }
+
+    final TextPosition position = editable.getPositionForPoint(globalPosition);
+    final int offset = position.offset.clamp(0, _controller.text.length);
+    final RegExp wordPattern = RegExp(
+      r"[\wáéíóúüñàèìòùâêîôûäëïöç]+(?:[-'][\wáéíóúüñàèìòùâêîôûäëïöç]+)*",
+      unicode: true,
+    );
+    RegExpMatch? tappedWord;
+    for (final RegExpMatch match in wordPattern.allMatches(_controller.text)) {
+      if (offset >= match.start && offset <= match.end) {
+        tappedWord = match;
+        break;
+      }
+    }
+    if (tappedWord == null) {
+      return;
+    }
+
+    final String word = tappedWord.group(0)!;
+    final AppController controller = AppStateScope.of(context);
+    if (controller.resolveMeaning(word, controller.selectedLanguage) == null) {
+      return;
+    }
+
+    FocusScope.of(context).unfocus();
+    showWordMeaningMenu(
+      context: context,
+      globalPosition: globalPosition,
+      word: word,
+    );
+  }
+
+  RenderEditable? _findRenderEditable() {
+    final BuildContext? fieldContext = _readerFieldKey.currentContext;
+    if (fieldContext == null) {
+      return null;
+    }
+
+    RenderEditable? result;
+    void visit(Element element) {
+      if (result != null) {
+        return;
+      }
+      final RenderObject? renderObject = element.renderObject;
+      if (renderObject is RenderEditable) {
+        result = renderObject;
+        return;
+      }
+      element.visitChildren(visit);
+    }
+
+    visit(fieldContext as Element);
+    return result;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final bool hasText = _text.trim().isNotEmpty;
+    final bool compact = MediaQuery.sizeOf(context).width < 520;
+
+    return ScholaCard(
+      padding: EdgeInsets.all(compact ? 20 : 32),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                width: 48,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: AppTheme.interactiveTextColor(
+                    context,
+                  ).withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: AppTheme.borderColor(context)),
+                ),
+                child: Icon(
+                  Icons.chrome_reader_mode_rounded,
+                  color: AppTheme.interactiveTextColor(context),
+                ),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Lector de textos',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      'Incolla un texto in Interlingua e tocca le parolas sublineate pro vider lor traduction.',
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        color: AppTheme.mutedTextColor(context),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Listener(
+            key: _readerFieldKey,
+            onPointerDown: (PointerDownEvent event) {
+              _pointerDownPosition = event.position;
+            },
+            onPointerMove: (PointerMoveEvent event) {
+              final Offset? start = _pointerDownPosition;
+              if (start != null && (event.position - start).distance > 8) {
+                _pointerDownPosition = null;
+              }
+            },
+            onPointerCancel: (_) {
+              _pointerDownPosition = null;
+            },
+            onPointerUp: (PointerUpEvent event) {
+              if (_pointerDownPosition != null) {
+                _showMeaningAt(event.position);
+              }
+              _pointerDownPosition = null;
+            },
+            child: TextField(
+              key: const Key('home-reader-input'),
+              controller: _controller,
+              minLines: 4,
+              maxLines: 9,
+              keyboardType: TextInputType.multiline,
+              textCapitalization: TextCapitalization.sentences,
+              autocorrect: false,
+              enableSuggestions: false,
+              onChanged: (String value) {
+                setState(() {
+                  _text = value;
+                });
+              },
+              decoration: InputDecoration(
+                hintText: 'Incolla hic le texto que tu vole leger...',
+                suffixIcon: hasText
+                    ? IconButton(
+                        key: const Key('home-reader-clear'),
+                        onPressed: _clear,
+                        tooltip: 'Vacuar',
+                        icon: const Icon(Icons.close_rounded),
+                      )
+                    : null,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ReaderTextEditingController extends TextEditingController {
+  @override
+  TextSpan buildTextSpan({
+    required BuildContext context,
+    TextStyle? style,
+    required bool withComposing,
+  }) {
+    final AppController controller = AppStateScope.of(context);
+    final String language = controller.selectedLanguage;
+    final List<String> tokens = RegExp(
+      r'[\wáéíóúüñàèìòùâêîôûäëïöç]+|\s+|[^\s\wáéíóúüñàèìòùâêîôûäëïöç]+',
+      unicode: true,
+    ).allMatches(text).map((RegExpMatch match) => match.group(0)!).toList();
+
+    return TextSpan(
+      style: style,
+      children: <InlineSpan>[
+        for (final String token in tokens)
+          TextSpan(
+            text: token,
+            style: controller.resolveMeaning(token, language) == null
+                ? null
+                : TextStyle(
+                    decoration: TextDecoration.underline,
+                    decorationStyle: TextDecorationStyle.dotted,
+                    decorationColor: AppTheme.interactiveTextColor(context),
+                    color: AppTheme.interactiveTextColor(context),
+                    fontWeight: FontWeight.w500,
+                  ),
+          ),
+      ],
+    );
+  }
+}
+
 class _ProgressCard extends StatelessWidget {
   const _ProgressCard();
 
@@ -351,9 +592,11 @@ class _ProgressCard extends StatelessWidget {
             children: <Widget>[
               const Text('🔥', style: TextStyle(fontSize: 24)),
               const SizedBox(width: 10),
-              Text(
-                '$streak dies consecutive',
-                style: Theme.of(context).textTheme.bodyLarge,
+              Expanded(
+                child: Text(
+                  '$streak dies consecutive',
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
               ),
             ],
           ),
@@ -509,7 +752,9 @@ class _SearchResultTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppController controller = AppStateScope.of(context);
     final bool dark = Theme.of(context).brightness == Brightness.dark;
+    final bool isFavorite = controller.isFavoriteWord(item.term);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
@@ -553,10 +798,24 @@ class _SearchResultTile extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          Icon(
-            Icons.chevron_right_rounded,
-            size: 28,
-            color: AppTheme.mutedTextColor(context),
+          IconButton(
+            key: ValueKey<String>(
+              'search-favorite-${AppController.normalizeTerm(item.term)}',
+            ),
+            onPressed: () {
+              controller.toggleFavoriteWord(item.term);
+            },
+            tooltip: isFavorite
+                ? 'Retirar del favoritos'
+                : 'Adder al favoritos',
+            icon: Icon(
+              isFavorite
+                  ? Icons.favorite_rounded
+                  : Icons.favorite_border_rounded,
+              color: isFavorite
+                  ? const Color(0xFFE54867)
+                  : AppTheme.mutedTextColor(context),
+            ),
           ),
         ],
       ),

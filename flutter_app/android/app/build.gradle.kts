@@ -12,6 +12,14 @@ val keystorePropertiesFile = rootProject.file("key.properties")
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(keystorePropertiesFile.inputStream())
 }
+val storeVersionName = if (
+    flutter.versionName.count { character -> character == '.' } >= 2 &&
+    flutter.versionName.endsWith(".0")
+) {
+    flutter.versionName.removeSuffix(".0")
+} else {
+    flutter.versionName
+}
 
 android {
     namespace = "com.scholainterlingua.app"
@@ -19,7 +27,7 @@ android {
     ndkVersion = flutter.ndkVersion
     setProperty(
         "archivesBaseName",
-        "schola-interlingua-android-v${flutter.versionName}-build${flutter.versionCode}"
+        "schola-interlingua-android-v${storeVersionName}-build${flutter.versionCode}"
     )
 
     compileOptions {
@@ -39,7 +47,7 @@ android {
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        versionName = storeVersionName
     }
 
     signingConfigs {

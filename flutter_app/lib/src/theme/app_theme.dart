@@ -62,6 +62,9 @@ final class AppTheme {
           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
         ),
       ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(foregroundColor: primaryLight),
+      ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: text,
@@ -159,6 +162,9 @@ final class AppTheme {
           ),
           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
         ),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(foregroundColor: const Color(0xFF8BC8FF)),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(

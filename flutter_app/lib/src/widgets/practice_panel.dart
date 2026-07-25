@@ -98,6 +98,7 @@ class _VocabularyTableState extends State<_VocabularyTable> {
               columnWidths: const <int, TableColumnWidth>{
                 0: FlexColumnWidth(),
                 1: FlexColumnWidth(),
+                2: FixedColumnWidth(58),
               },
               children: <TableRow>[
                 TableRow(
@@ -130,10 +131,20 @@ class _VocabularyTableState extends State<_VocabularyTable> {
                         ),
                       ),
                     ),
+                    const Padding(
+                      padding: EdgeInsets.all(14),
+                      child: Icon(
+                        Icons.favorite_rounded,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
                   ],
                 ),
-                ...widget.items.map(
-                  (Map<String, String> item) => TableRow(
+                ...widget.items.map((Map<String, String> item) {
+                  final String term = item['term'] ?? '';
+                  final bool isFavorite = controller.isFavoriteWord(term);
+                  return TableRow(
                     decoration: BoxDecoration(
                       border: Border(
                         bottom: BorderSide(
@@ -144,15 +155,36 @@ class _VocabularyTableState extends State<_VocabularyTable> {
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(14),
-                        child: Text(item['term'] ?? ''),
+                        child: Text(term),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(14),
                         child: Text(item[lang] ?? item['es'] ?? ''),
                       ),
+                      Center(
+                        child: IconButton(
+                          key: ValueKey<String>(
+                            'vocab-favorite-${AppController.normalizeTerm(term)}',
+                          ),
+                          onPressed: () {
+                            controller.toggleFavoriteWord(term);
+                          },
+                          tooltip: isFavorite
+                              ? 'Retirar del favoritos'
+                              : 'Adder al favoritos',
+                          icon: Icon(
+                            isFavorite
+                                ? Icons.favorite_rounded
+                                : Icons.favorite_border_rounded,
+                            color: isFavorite
+                                ? const Color(0xFFE54867)
+                                : AppTheme.mutedTextColor(context),
+                          ),
+                        ),
+                      ),
                     ],
-                  ),
-                ),
+                  );
+                }),
               ],
             ),
           ),

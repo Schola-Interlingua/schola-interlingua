@@ -23,6 +23,8 @@ class CourseScreen extends StatelessWidget {
             message: 'Le curso es complete!',
           ),
           const SizedBox(height: 16),
+          const _DecksEntryCard(),
+          const SizedBox(height: 24),
           ...courseLevels.map(
             (CourseLevel level) => Padding(
               padding: const EdgeInsets.only(bottom: 28),
@@ -35,6 +37,95 @@ class CourseScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _DecksEntryCard extends StatelessWidget {
+  const _DecksEntryCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppController controller = AppStateScope.of(context);
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final bool compact = constraints.maxWidth < 620;
+        final Widget copy = Row(
+          children: <Widget>[
+            Container(
+              width: 58,
+              height: 58,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: <Color>[Color(0xFFE54867), Color(0xFF6C8CFF)],
+                ),
+                borderRadius: BorderRadius.circular(19),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    color: const Color(0xFF6C8CFF).withValues(alpha: 0.28),
+                    blurRadius: 18,
+                    offset: const Offset(0, 8),
+                  ),
+                ],
+              ),
+              child: const Icon(
+                Icons.style_rounded,
+                color: Colors.white,
+                size: 30,
+              ),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Decks de vocabulario',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    '${controller.favoriteWords.length} favorite · ${controller.customDecks.length} decks personal',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: AppTheme.mutedTextColor(context),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        );
+
+        return ScholaCard(
+          padding: EdgeInsets.all(compact ? 20 : 26),
+          child: compact
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    copy,
+                    const SizedBox(height: 18),
+                    FilledButton.icon(
+                      key: const Key('open-decks-button'),
+                      onPressed: () => context.push('/decks'),
+                      icon: const Icon(Icons.collections_bookmark_rounded),
+                      label: const Text('Aperir decks'),
+                    ),
+                  ],
+                )
+              : Row(
+                  children: <Widget>[
+                    Expanded(child: copy),
+                    const SizedBox(width: 24),
+                    FilledButton.icon(
+                      key: const Key('open-decks-button'),
+                      onPressed: () => context.push('/decks'),
+                      icon: const Icon(Icons.collections_bookmark_rounded),
+                      label: const Text('Aperir decks'),
+                    ),
+                  ],
+                ),
+        );
+      },
     );
   }
 }
@@ -114,40 +205,45 @@ class _CourseGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.sizeOf(context).width;
-    final int columns = width >= 1100
-        ? 5
-        : width >= 900
-        ? 4
-        : width >= 650
-        ? 3
-        : 2;
-    final bool compact = width < 430;
-    final double childAspectRatio = width < 420
-        ? 0.84
-        : width < 650
-        ? 0.78
-        : width < 900
-        ? 0.88
-        : 0.96;
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final double width = constraints.maxWidth;
+        final int columns = width >= 1100
+            ? 5
+            : width >= 900
+            ? 4
+            : width >= 650
+            ? 3
+            : 2;
+        final bool compact = width < 430;
+        final double childAspectRatio = width < 420
+            ? 0.84
+            : width < 650
+            ? 0.78
+            : width < 900
+            ? 0.88
+            : 0.96;
 
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: items.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: columns,
-        crossAxisSpacing: compact ? 12 : 18,
-        mainAxisSpacing: compact ? 12 : 18,
-        childAspectRatio: childAspectRatio,
-      ),
-      itemBuilder: (BuildContext context, int index) {
-        final item = items[index];
-        final bool completed = controller.isCompleted(_completionKey(item));
-        return _CourseGridCard(
-          item: item,
-          completed: completed,
-          onTap: () => context.go(_pathForItem(item)),
+        return GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: items.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: columns,
+            crossAxisSpacing: compact ? 12 : 18,
+            mainAxisSpacing: compact ? 12 : 18,
+            childAspectRatio: childAspectRatio,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            final item = items[index];
+            final bool completed = controller.isCompleted(_completionKey(item));
+            return _CourseGridCard(
+              item: item,
+              completed: completed,
+              compact: compact,
+              onTap: () => context.go(_pathForItem(item)),
+            );
+          },
         );
       },
     );
@@ -182,17 +278,18 @@ class _CourseGridCard extends StatelessWidget {
   const _CourseGridCard({
     required this.item,
     required this.completed,
+    required this.compact,
     required this.onTap,
   });
 
   final CourseItemRef item;
   final bool completed;
+  final bool compact;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     final bool dark = Theme.of(context).brightness == Brightness.dark;
-    final bool compact = MediaQuery.sizeOf(context).width < 430;
 
     return InkWell(
       onTap: onTap,
