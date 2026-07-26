@@ -1,6 +1,48 @@
 {
   "voice": "Flo (Spanish (Spain))",
-  "count": 1659,
+  "voiceOverrides": {
+    "engine": "eSpeak NG",
+    "voice": "ia",
+    "rate": 175,
+    "pitch": 50,
+    "filenames": [
+      "absolutemente.wav",
+      "aere.wav",
+      "anteponer_se.wav",
+      "apprehension_apprendimento.wav",
+      "cadetto.wav",
+      "caffes.wav",
+      "camera_photographic.wav",
+      "catalano.wav",
+      "chaco.wav",
+      "compone.wav",
+      "de_plus.wav",
+      "dece_nove.wav",
+      "definitivemente.wav",
+      "dossier.wav",
+      "facilemente.wav",
+      "filia.wav",
+      "fortunatemente.wav",
+      "il_me_place_le_the_ma_io_ama_le_caffe.wav",
+      "immediatemente.wav",
+      "imminente.wav",
+      "inconsideratemente.wav",
+      "infortunatemente.wav",
+      "io_bibe_vino_ben_que_ci_on_prefere_bira.wav",
+      "lentemente.wav",
+      "narrar_a_alcuno.wav",
+      "ni_ni.wav",
+      "novanta_nove.wav",
+      "nove_centos_novanta_nove.wav",
+      "probabilemente.wav",
+      "relativemente.wav",
+      "tam_ben.wav",
+      "technicas.wav",
+      "telephonar_a_alicuno.wav",
+      "tu_non_offere_alco.wav"
+    ]
+  },
+  "count": 1328,
   "entries": [
     {
       "text": "a",
@@ -47,8 +89,8 @@
       "filename": "absentia.wav"
     },
     {
-      "text": "absolutamente",
-      "filename": "absolutamente.wav"
+      "text": "absolutemente",
+      "filename": "absolutemente.wav"
     },
     {
       "text": "accender",
@@ -71,16 +113,8 @@
       "filename": "adde.wav"
     },
     {
-      "text": "addentiante",
-      "filename": "addentiante.wav"
-    },
-    {
       "text": "adder",
       "filename": "adder.wav"
-    },
-    {
-      "text": "addi",
-      "filename": "addi.wav"
     },
     {
       "text": "adeo",
@@ -115,6 +149,10 @@
       "filename": "advocato.wav"
     },
     {
+      "text": "aere",
+      "filename": "aere.wav"
+    },
+    {
       "text": "affirmar",
       "filename": "affirmar.wav"
     },
@@ -133,10 +171,6 @@
     {
       "text": "aires",
       "filename": "aires.wav"
-    },
-    {
-      "text": "ajedrez",
-      "filename": "ajedrez.wav"
     },
     {
       "text": "al",
@@ -255,10 +289,6 @@
       "filename": "anno.wav"
     },
     {
-      "text": "anta",
-      "filename": "anta.wav"
-    },
-    {
       "text": "ante",
       "filename": "ante.wav"
     },
@@ -267,8 +297,8 @@
       "filename": "anteponente.wav"
     },
     {
-      "text": "anteponerse",
-      "filename": "anteponerse.wav"
+      "text": "anteponer se",
+      "filename": "anteponer_se.wav"
     },
     {
       "text": "ape",
@@ -319,16 +349,16 @@
       "filename": "apportar.wav"
     },
     {
+      "text": "apprehension; apprendimento",
+      "filename": "apprehension_apprendimento.wav"
+    },
+    {
       "text": "apprender",
       "filename": "apprender.wav"
     },
     {
       "text": "apprender a",
       "filename": "apprender_a.wav"
-    },
-    {
-      "text": "apprension",
-      "filename": "apprension.wav"
     },
     {
       "text": "appunctamento",
@@ -341,10 +371,6 @@
     {
       "text": "aqua",
       "filename": "aqua.wav"
-    },
-    {
-      "text": "ar",
-      "filename": "ar.wav"
     },
     {
       "text": "aranea",
@@ -559,14 +585,6 @@
       "filename": "botta.wav"
     },
     {
-      "text": "bottega",
-      "filename": "bottega.wav"
-    },
-    {
-      "text": "botteghe",
-      "filename": "botteghe.wav"
-    },
-    {
       "text": "bove",
       "filename": "bove.wav"
     },
@@ -581,10 +599,6 @@
     {
       "text": "bubo",
       "filename": "bubo.wav"
-    },
-    {
-      "text": "buenos",
-      "filename": "buenos.wav"
     },
     {
       "text": "Buenos Aires",
@@ -615,20 +629,20 @@
       "filename": "cader_foras_de.wav"
     },
     {
-      "text": "cadet",
-      "filename": "cadet.wav"
+      "text": "cadetto",
+      "filename": "cadetto.wav"
     },
     {
       "text": "caffe",
       "filename": "caffe.wav"
     },
     {
-      "text": "café",
-      "filename": "cafe.wav"
+      "text": "caffes",
+      "filename": "caffes.wav"
     },
     {
-      "text": "cafés",
-      "filename": "cafes.wav"
+      "text": "café",
+      "filename": "cafe.wav"
     },
     {
       "text": "calcetta",
@@ -653,6 +667,10 @@
     {
       "text": "cambia",
       "filename": "cambia.wav"
+    },
+    {
+      "text": "camera photographic",
+      "filename": "camera_photographic.wav"
     },
     {
       "text": "camisa",
@@ -739,8 +757,8 @@
       "filename": "cata_septimana_ab_lunedi_a_venerdi.wav"
     },
     {
-      "text": "català",
-      "filename": "catala.wav"
+      "text": "catalano",
+      "filename": "catalano.wav"
     },
     {
       "text": "catena",
@@ -797,6 +815,10 @@
     {
       "text": "certo",
       "filename": "certo.wav"
+    },
+    {
+      "text": "Chaco",
+      "filename": "chaco.wav"
     },
     {
       "text": "chacos",
@@ -939,10 +961,6 @@
       "filename": "comenciar_a.wav"
     },
     {
-      "text": "comenciate",
-      "filename": "comenciate.wav"
-    },
-    {
       "text": "commercio",
       "filename": "commercio.wav"
     },
@@ -1003,8 +1021,8 @@
       "filename": "completemente.wav"
     },
     {
-      "text": "compose",
-      "filename": "compose.wav"
+      "text": "compone",
+      "filename": "compone.wav"
     },
     {
       "text": "composite",
@@ -1119,56 +1137,24 @@
       "filename": "construente.wav"
     },
     {
-      "text": "contar a alcuno",
-      "filename": "contar_a_alcuno.wav"
-    },
-    {
       "text": "contexto",
       "filename": "contexto.wav"
-    },
-    {
-      "text": "contine",
-      "filename": "contine.wav"
     },
     {
       "text": "continer",
       "filename": "continer.wav"
     },
     {
-      "text": "continuate",
-      "filename": "continuate.wav"
-    },
-    {
-      "text": "contos",
-      "filename": "contos.wav"
-    },
-    {
       "text": "contra",
       "filename": "contra.wav"
-    },
-    {
-      "text": "contribuer",
-      "filename": "contribuer.wav"
     },
     {
       "text": "copula",
       "filename": "copula.wav"
     },
     {
-      "text": "cordoba",
-      "filename": "cordoba.wav"
-    },
-    {
       "text": "corresponder",
       "filename": "corresponder.wav"
-    },
-    {
-      "text": "cosa",
-      "filename": "cosa.wav"
-    },
-    {
-      "text": "cosas",
-      "filename": "cosas.wav"
     },
     {
       "text": "cosina",
@@ -1183,10 +1169,6 @@
       "filename": "cossino.wav"
     },
     {
-      "text": "cossinos",
-      "filename": "cossinos.wav"
-    },
-    {
       "text": "costar",
       "filename": "costar.wav"
     },
@@ -1199,16 +1181,8 @@
       "filename": "cravata.wav"
     },
     {
-      "text": "crede",
-      "filename": "crede.wav"
-    },
-    {
       "text": "creder in",
       "filename": "creder_in.wav"
-    },
-    {
-      "text": "credito",
-      "filename": "credito.wav"
     },
     {
       "text": "crepe",
@@ -1235,18 +1209,6 @@
       "filename": "curso.wav"
     },
     {
-      "text": "curte",
-      "filename": "curte.wav"
-    },
-    {
-      "text": "d",
-      "filename": "d.wav"
-    },
-    {
-      "text": "damas",
-      "filename": "damas.wav"
-    },
-    {
       "text": "data",
       "filename": "data.wav"
     },
@@ -1271,6 +1233,10 @@
       "filename": "de_nihil.wav"
     },
     {
+      "text": "de plus",
+      "filename": "de_plus.wav"
+    },
+    {
       "text": "deber",
       "filename": "deber.wav"
     },
@@ -1291,8 +1257,8 @@
       "filename": "dece_duo.wav"
     },
     {
-      "text": "dece-novem",
-      "filename": "dece_novem.wav"
+      "text": "dece-nove",
+      "filename": "dece_nove.wav"
     },
     {
       "text": "dece-octo",
@@ -1327,20 +1293,8 @@
       "filename": "decembre.wav"
     },
     {
-      "text": "decenas",
-      "filename": "decenas.wav"
-    },
-    {
-      "text": "declina",
-      "filename": "declina.wav"
-    },
-    {
-      "text": "definite",
-      "filename": "definite.wav"
-    },
-    {
-      "text": "definitivamente",
-      "filename": "definitivamente.wav"
+      "text": "definitivemente",
+      "filename": "definitivemente.wav"
     },
     {
       "text": "del",
@@ -1359,20 +1313,8 @@
       "filename": "demandar_a_alcuno_de_facer_alco.wav"
     },
     {
-      "text": "demo",
-      "filename": "demo.wav"
-    },
-    {
       "text": "demonstrar",
       "filename": "demonstrar.wav"
-    },
-    {
-      "text": "demonstrative",
-      "filename": "demonstrative.wav"
-    },
-    {
-      "text": "dente",
-      "filename": "dente.wav"
     },
     {
       "text": "depender",
@@ -1385,18 +1327,6 @@
     {
       "text": "desde",
       "filename": "desde.wav"
-    },
-    {
-      "text": "determinado",
-      "filename": "determinado.wav"
-    },
-    {
-      "text": "detra",
-      "filename": "detra.wav"
-    },
-    {
-      "text": "deutsch",
-      "filename": "deutsch.wav"
     },
     {
       "text": "devenir",
@@ -1463,10 +1393,6 @@
       "filename": "dispositivo.wav"
     },
     {
-      "text": "disveloppate",
-      "filename": "disveloppate.wav"
-    },
-    {
       "text": "diverse",
       "filename": "diverse.wav"
     },
@@ -1489,6 +1415,10 @@
     {
       "text": "dormitorio",
       "filename": "dormitorio.wav"
+    },
+    {
+      "text": "dossier",
+      "filename": "dossier.wav"
     },
     {
       "text": "dubitar",
@@ -1517,10 +1447,6 @@
     {
       "text": "dur",
       "filename": "dur.wav"
-    },
-    {
-      "text": "dura",
-      "filename": "dura.wav"
     },
     {
       "text": "durante",
@@ -1571,16 +1497,8 @@
       "filename": "effortiar_se_a_dormir.wav"
     },
     {
-      "text": "el",
-      "filename": "el.wav"
-    },
-    {
       "text": "elegante",
       "filename": "elegante.wav"
-    },
-    {
-      "text": "elemento",
-      "filename": "elemento.wav"
     },
     {
       "text": "elephante",
@@ -1591,16 +1509,8 @@
       "filename": "eliger_de.wav"
     },
     {
-      "text": "emphase",
-      "filename": "emphase.wav"
-    },
-    {
       "text": "empleo",
       "filename": "empleo.wav"
-    },
-    {
-      "text": "english",
-      "filename": "english.wav"
     },
     {
       "text": "enorme",
@@ -1609,10 +1519,6 @@
     {
       "text": "entrar",
       "filename": "entrar.wav"
-    },
-    {
-      "text": "enumeration",
-      "filename": "enumeration.wav"
     },
     {
       "text": "epocha, era",
@@ -1627,24 +1533,12 @@
       "filename": "equipamento.wav"
     },
     {
-      "text": "er",
-      "filename": "er.wav"
-    },
-    {
       "text": "es",
       "filename": "es.wav"
     },
     {
       "text": "escappar",
       "filename": "escappar.wav"
-    },
-    {
-      "text": "esencial",
-      "filename": "esencial.wav"
-    },
-    {
-      "text": "español",
-      "filename": "espanol.wav"
     },
     {
       "text": "essentialmente",
@@ -1667,24 +1561,8 @@
       "filename": "esser_mancate_a_alcuno.wav"
     },
     {
-      "text": "esseva",
-      "filename": "esseva.wav"
-    },
-    {
-      "text": "essite",
-      "filename": "essite.wav"
-    },
-    {
       "text": "estate",
       "filename": "estate.wav"
-    },
-    {
-      "text": "etc",
-      "filename": "etc.wav"
-    },
-    {
-      "text": "etiam",
-      "filename": "etiam.wav"
     },
     {
       "text": "euro",
@@ -1693,18 +1571,6 @@
     {
       "text": "europee",
       "filename": "europee.wav"
-    },
-    {
-      "text": "euros",
-      "filename": "euros.wav"
-    },
-    {
-      "text": "evelia",
-      "filename": "evelia.wav"
-    },
-    {
-      "text": "eveliar",
-      "filename": "eveliar.wav"
     },
     {
       "text": "eveliar se",
@@ -1721,18 +1587,6 @@
     {
       "text": "excellente",
       "filename": "excellente.wav"
-    },
-    {
-      "text": "excepte",
-      "filename": "excepte.wav"
-    },
-    {
-      "text": "exemplo",
-      "filename": "exemplo.wav"
-    },
-    {
-      "text": "exercitios",
-      "filename": "exercitios.wav"
     },
     {
       "text": "exir",
@@ -1755,10 +1609,6 @@
       "filename": "explicar.wav"
     },
     {
-      "text": "explicationes",
-      "filename": "explicationes.wav"
-    },
-    {
       "text": "explora",
       "filename": "explora.wav"
     },
@@ -1767,20 +1617,8 @@
       "filename": "explorar.wav"
     },
     {
-      "text": "expresse",
-      "filename": "expresse.wav"
-    },
-    {
       "text": "expression",
       "filename": "expression.wav"
-    },
-    {
-      "text": "expressiones",
-      "filename": "expressiones.wav"
-    },
-    {
-      "text": "exprimer",
-      "filename": "exprimer.wav"
     },
     {
       "text": "extrememente",
@@ -1791,32 +1629,20 @@
       "filename": "faba.wav"
     },
     {
-      "text": "face",
-      "filename": "face.wav"
-    },
-    {
       "text": "facer",
       "filename": "facer.wav"
-    },
-    {
-      "text": "faciente",
-      "filename": "faciente.wav"
     },
     {
       "text": "facile",
       "filename": "facile.wav"
     },
     {
+      "text": "facilemente",
+      "filename": "facilemente.wav"
+    },
+    {
       "text": "facilita",
       "filename": "facilita.wav"
-    },
-    {
-      "text": "facilmente",
-      "filename": "facilmente.wav"
-    },
-    {
-      "text": "facite",
-      "filename": "facite.wav"
     },
     {
       "text": "falso",
@@ -1843,24 +1669,8 @@
       "filename": "fede.wav"
     },
     {
-      "text": "felice",
-      "filename": "felice.wav"
-    },
-    {
       "text": "felice anno nove",
       "filename": "felice_anno_nove.wav"
-    },
-    {
-      "text": "felix",
-      "filename": "felix.wav"
-    },
-    {
-      "text": "femina",
-      "filename": "femina.wav"
-    },
-    {
-      "text": "feminas",
-      "filename": "feminas.wav"
     },
     {
       "text": "ferroviari",
@@ -1883,6 +1693,10 @@
       "filename": "file.wav"
     },
     {
+      "text": "filia",
+      "filename": "filia.wav"
+    },
+    {
       "text": "filio",
       "filename": "filio.wav"
     },
@@ -1901,10 +1715,6 @@
     {
       "text": "finalmente",
       "filename": "finalmente.wav"
-    },
-    {
-      "text": "fini",
-      "filename": "fini.wav"
     },
     {
       "text": "finir",
@@ -1935,22 +1745,6 @@
       "filename": "foras_de_se.wav"
     },
     {
-      "text": "forma",
-      "filename": "forma.wav"
-    },
-    {
-      "text": "formar",
-      "filename": "formar.wav"
-    },
-    {
-      "text": "formas",
-      "filename": "formas.wav"
-    },
-    {
-      "text": "formation",
-      "filename": "formation.wav"
-    },
-    {
       "text": "formica",
       "filename": "formica.wav"
     },
@@ -1963,16 +1757,8 @@
       "filename": "fortemente.wav"
     },
     {
-      "text": "fortia",
-      "filename": "fortia.wav"
-    },
-    {
-      "text": "fortissimo",
-      "filename": "fortissimo.wav"
-    },
-    {
-      "text": "fortunatamente",
-      "filename": "fortunatamente.wav"
+      "text": "fortunatemente",
+      "filename": "fortunatemente.wav"
     },
     {
       "text": "fraga",
@@ -1991,10 +1777,6 @@
       "filename": "francese.wav"
     },
     {
-      "text": "français",
-      "filename": "francais.wav"
-    },
-    {
       "text": "fratre",
       "filename": "fratre.wav"
     },
@@ -2005,10 +1787,6 @@
     {
       "text": "frequentemente",
       "filename": "frequentemente.wav"
-    },
-    {
-      "text": "frequentia",
-      "filename": "frequentia.wav"
     },
     {
       "text": "fresc",
@@ -2023,10 +1801,6 @@
       "filename": "fructo.wav"
     },
     {
-      "text": "functionar",
-      "filename": "functionar.wav"
-    },
-    {
       "text": "functionario",
       "filename": "functionario.wav"
     },
@@ -2039,10 +1813,6 @@
       "filename": "futur.wav"
     },
     {
-      "text": "futuro",
-      "filename": "futuro.wav"
-    },
-    {
       "text": "gallina",
       "filename": "gallina.wav"
     },
@@ -2051,16 +1821,8 @@
       "filename": "ganiar.wav"
     },
     {
-      "text": "garcía",
-      "filename": "garcia.wav"
-    },
-    {
       "text": "gastronomia",
       "filename": "gastronomia.wav"
-    },
-    {
-      "text": "gauder",
-      "filename": "gauder.wav"
     },
     {
       "text": "gauder de",
@@ -2069,18 +1831,6 @@
     {
       "text": "gelato",
       "filename": "gelato.wav"
-    },
-    {
-      "text": "gelatos",
-      "filename": "gelatos.wav"
-    },
-    {
-      "text": "generalmente",
-      "filename": "generalmente.wav"
-    },
-    {
-      "text": "genere",
-      "filename": "genere.wav"
     },
     {
       "text": "generes",
@@ -2107,16 +1857,8 @@
       "filename": "grado.wav"
     },
     {
-      "text": "grados",
-      "filename": "grados.wav"
-    },
-    {
       "text": "grammatica",
       "filename": "grammatica.wav"
-    },
-    {
-      "text": "gramática",
-      "filename": "gramatica.wav"
     },
     {
       "text": "grande",
@@ -2159,10 +1901,6 @@
       "filename": "gris.wav"
     },
     {
-      "text": "gruppetto",
-      "filename": "gruppetto.wav"
-    },
-    {
       "text": "guanto",
       "filename": "guanto.wav"
     },
@@ -2173,10 +1911,6 @@
     {
       "text": "guidator",
       "filename": "guidator.wav"
-    },
-    {
-      "text": "género",
-      "filename": "genero.wav"
     },
     {
       "text": "ha",
@@ -2191,10 +1925,6 @@
       "filename": "haber_successo_a.wav"
     },
     {
-      "text": "habita",
-      "filename": "habita.wav"
-    },
-    {
       "text": "habitar",
       "filename": "habitar.wav"
     },
@@ -2207,48 +1937,16 @@
       "filename": "habito.wav"
     },
     {
-      "text": "habitos",
-      "filename": "habitos.wav"
-    },
-    {
-      "text": "haver",
-      "filename": "haver.wav"
-    },
-    {
-      "text": "haveva",
-      "filename": "haveva.wav"
-    },
-    {
       "text": "hiberno",
       "filename": "hiberno.wav"
-    },
-    {
-      "text": "historias",
-      "filename": "historias.wav"
     },
     {
       "text": "historic",
       "filename": "historic.wav"
     },
     {
-      "text": "hodie",
-      "filename": "hodie.wav"
-    },
-    {
-      "text": "hora",
-      "filename": "hora.wav"
-    },
-    {
-      "text": "horas",
-      "filename": "horas.wav"
-    },
-    {
       "text": "horologio",
       "filename": "horologio.wav"
-    },
-    {
-      "text": "iala",
-      "filename": "iala.wav"
     },
     {
       "text": "idea",
@@ -2261,10 +1959,6 @@
     {
       "text": "ideas",
       "filename": "ideas.wav"
-    },
-    {
-      "text": "il",
-      "filename": "il.wav"
     },
     {
       "text": "il es",
@@ -2329,6 +2023,10 @@
     {
       "text": "il ha un femina",
       "filename": "il_ha_un_femina.wav"
+    },
+    {
+      "text": "il me place le the, ma io ama le caffe",
+      "filename": "il_me_place_le_the_ma_io_ama_le_caffe.wav"
     },
     {
       "text": "il non ha ulle plus que...",
@@ -2659,40 +2357,20 @@
       "filename": "illos.wav"
     },
     {
-      "text": "immediatelymente",
-      "filename": "immediatelymente.wav"
+      "text": "immediatemente",
+      "filename": "immediatemente.wav"
+    },
+    {
+      "text": "imminente",
+      "filename": "imminente.wav"
     },
     {
       "text": "immunde",
       "filename": "immunde.wav"
     },
     {
-      "text": "imperative",
-      "filename": "imperative.wav"
-    },
-    {
-      "text": "imperativo",
-      "filename": "imperativo.wav"
-    },
-    {
-      "text": "imperfecte",
-      "filename": "imperfecte.wav"
-    },
-    {
-      "text": "impersonale",
-      "filename": "impersonale.wav"
-    },
-    {
-      "text": "importante",
-      "filename": "importante.wav"
-    },
-    {
       "text": "importar",
       "filename": "importar.wav"
-    },
-    {
-      "text": "impulsar",
-      "filename": "impulsar.wav"
     },
     {
       "text": "in",
@@ -2719,56 +2397,20 @@
       "filename": "in_vice.wav"
     },
     {
-      "text": "include",
-      "filename": "include.wav"
-    },
-    {
-      "text": "inconsideradamente",
-      "filename": "inconsideradamente.wav"
-    },
-    {
-      "text": "indefinido",
-      "filename": "indefinido.wav"
-    },
-    {
-      "text": "indefinite",
-      "filename": "indefinite.wav"
-    },
-    {
-      "text": "independente",
-      "filename": "independente.wav"
-    },
-    {
-      "text": "indicar",
-      "filename": "indicar.wav"
+      "text": "inconsideratemente",
+      "filename": "inconsideratemente.wav"
     },
     {
       "text": "infante",
       "filename": "infante.wav"
     },
     {
-      "text": "infantes",
-      "filename": "infantes.wav"
-    },
-    {
-      "text": "infinitive",
-      "filename": "infinitive.wav"
-    },
-    {
-      "text": "infinitivo",
-      "filename": "infinitivo.wav"
-    },
-    {
-      "text": "infinitivos",
-      "filename": "infinitivos.wav"
-    },
-    {
       "text": "information",
       "filename": "information.wav"
     },
     {
-      "text": "infortunatamente",
-      "filename": "infortunatamente.wav"
+      "text": "infortunatemente",
+      "filename": "infortunatemente.wav"
     },
     {
       "text": "infra",
@@ -2777,10 +2419,6 @@
     {
       "text": "ingeniero",
       "filename": "ingeniero.wav"
-    },
-    {
-      "text": "ingrediente",
-      "filename": "ingrediente.wav"
     },
     {
       "text": "initio",
@@ -2815,20 +2453,8 @@
       "filename": "instrumentos.wav"
     },
     {
-      "text": "intelligente",
-      "filename": "intelligente.wav"
-    },
-    {
       "text": "intense",
       "filename": "intense.wav"
-    },
-    {
-      "text": "intensemente",
-      "filename": "intensemente.wav"
-    },
-    {
-      "text": "intensificar",
-      "filename": "intensificar.wav"
     },
     {
       "text": "inter",
@@ -2843,10 +2469,6 @@
       "filename": "interlingua.wav"
     },
     {
-      "text": "interrogative",
-      "filename": "interrogative.wav"
-    },
-    {
       "text": "intertanto",
       "filename": "intertanto.wav"
     },
@@ -2857,14 +2479,6 @@
     {
       "text": "inutile",
       "filename": "inutile.wav"
-    },
-    {
-      "text": "invariable",
-      "filename": "invariable.wav"
-    },
-    {
-      "text": "invita",
-      "filename": "invita.wav"
     },
     {
       "text": "invitar",
@@ -2893,6 +2507,10 @@
     {
       "text": "io bibe perque illa bibe",
       "filename": "io_bibe_perque_illa_bibe.wav"
+    },
+    {
+      "text": "io bibe vino, ben que ci on prefere bira",
+      "filename": "io_bibe_vino_ben_que_ci_on_prefere_bira.wav"
     },
     {
       "text": "io cerca mi can",
@@ -3071,18 +2689,6 @@
       "filename": "ir_a_lecto.wav"
     },
     {
-      "text": "issime",
-      "filename": "issime.wav"
-    },
-    {
-      "text": "issimo",
-      "filename": "issimo.wav"
-    },
-    {
-      "text": "istas",
-      "filename": "istas.wav"
-    },
-    {
       "text": "iste",
       "filename": "iste.wav"
     },
@@ -3159,14 +2765,6 @@
       "filename": "isto_es_un_can.wav"
     },
     {
-      "text": "italiano",
-      "filename": "italiano.wav"
-    },
-    {
-      "text": "jace",
-      "filename": "jace.wav"
-    },
-    {
       "text": "jacer",
       "filename": "jacer.wav"
     },
@@ -3223,10 +2821,6 @@
       "filename": "jovedi.wav"
     },
     {
-      "text": "juan",
-      "filename": "juan.wav"
-    },
-    {
       "text": "judice",
       "filename": "judice.wav"
     },
@@ -3249,10 +2843,6 @@
     {
       "text": "juventute",
       "filename": "juventute.wav"
-    },
-    {
-      "text": "la",
-      "filename": "la.wav"
     },
     {
       "text": "labor",
@@ -3281,18 +2871,6 @@
     {
       "text": "largemente",
       "filename": "largemente.wav"
-    },
-    {
-      "text": "las",
-      "filename": "las.wav"
-    },
-    {
-      "text": "latin",
-      "filename": "latin.wav"
-    },
-    {
-      "text": "lava",
-      "filename": "lava.wav"
     },
     {
       "text": "lavar",
@@ -3523,20 +3101,8 @@
       "filename": "le_vostre.wav"
     },
     {
-      "text": "lection",
-      "filename": "lection.wav"
-    },
-    {
-      "text": "lectiones",
-      "filename": "lectiones.wav"
-    },
-    {
       "text": "lecto",
       "filename": "lecto.wav"
-    },
-    {
-      "text": "lege",
-      "filename": "lege.wav"
     },
     {
       "text": "leger",
@@ -3547,12 +3113,8 @@
       "filename": "legier.wav"
     },
     {
-      "text": "legite",
-      "filename": "legite.wav"
-    },
-    {
-      "text": "lentamente",
-      "filename": "lentamente.wav"
+      "text": "lentemente",
+      "filename": "lentemente.wav"
     },
     {
       "text": "leon",
@@ -3561,14 +3123,6 @@
     {
       "text": "lepore",
       "filename": "lepore.wav"
-    },
-    {
-      "text": "les",
-      "filename": "les.wav"
-    },
-    {
-      "text": "leva",
-      "filename": "leva.wav"
     },
     {
       "text": "levar se",
@@ -3585,10 +3139,6 @@
     {
       "text": "libreria",
       "filename": "libreria.wav"
-    },
-    {
-      "text": "librerias",
-      "filename": "librerias.wav"
     },
     {
       "text": "libro",
@@ -3611,10 +3161,6 @@
       "filename": "lingua.wav"
     },
     {
-      "text": "linguas",
-      "filename": "linguas.wav"
-    },
-    {
       "text": "liquide",
       "filename": "liquide.wav"
     },
@@ -3623,20 +3169,8 @@
       "filename": "littera.wav"
     },
     {
-      "text": "litteras",
-      "filename": "litteras.wav"
-    },
-    {
-      "text": "lo",
-      "filename": "lo.wav"
-    },
-    {
       "text": "local",
       "filename": "local.wav"
-    },
-    {
-      "text": "loco",
-      "filename": "loco.wav"
     },
     {
       "text": "longe",
@@ -3657,10 +3191,6 @@
     {
       "text": "lor infantes lege",
       "filename": "lor_infantes_lege.wav"
-    },
-    {
-      "text": "los",
-      "filename": "los.wav"
     },
     {
       "text": "luce",
@@ -3695,16 +3225,8 @@
       "filename": "machina.wav"
     },
     {
-      "text": "mail",
-      "filename": "mail.wav"
-    },
-    {
       "text": "maio",
       "filename": "maio.wav"
-    },
-    {
-      "text": "majoritate",
-      "filename": "majoritate.wav"
     },
     {
       "text": "mal",
@@ -3723,24 +3245,12 @@
       "filename": "mancar_de.wav"
     },
     {
-      "text": "manda",
-      "filename": "manda.wav"
-    },
-    {
       "text": "mandar",
       "filename": "mandar.wav"
     },
     {
-      "text": "mangia",
-      "filename": "mangia.wav"
-    },
-    {
       "text": "mangiar",
       "filename": "mangiar.wav"
-    },
-    {
-      "text": "maria",
-      "filename": "maria.wav"
     },
     {
       "text": "marito",
@@ -3763,14 +3273,6 @@
       "filename": "martio.wav"
     },
     {
-      "text": "material",
-      "filename": "material.wav"
-    },
-    {
-      "text": "materiales",
-      "filename": "materiales.wav"
-    },
-    {
       "text": "matino",
       "filename": "matino.wav"
     },
@@ -3783,16 +3285,8 @@
       "filename": "matre.wav"
     },
     {
-      "text": "me",
-      "filename": "me.wav"
-    },
-    {
       "text": "me place",
       "filename": "me_place.wav"
-    },
-    {
-      "text": "me place le the, ma io ama le caffe",
-      "filename": "me_place_le_the_ma_io_ama_le_caffe.wav"
     },
     {
       "text": "mechanismo",
@@ -3819,20 +3313,8 @@
       "filename": "meliorar.wav"
     },
     {
-      "text": "melioration",
-      "filename": "melioration.wav"
-    },
-    {
       "text": "mense",
       "filename": "mense.wav"
-    },
-    {
-      "text": "mente",
-      "filename": "mente.wav"
-    },
-    {
-      "text": "mentionate",
-      "filename": "mentionate.wav"
     },
     {
       "text": "mentir",
@@ -3841,10 +3323,6 @@
     {
       "text": "menu",
       "filename": "menu.wav"
-    },
-    {
-      "text": "mercator",
-      "filename": "mercator.wav"
     },
     {
       "text": "mercuridi",
@@ -3859,14 +3337,6 @@
       "filename": "mesmo_plus.wav"
     },
     {
-      "text": "messages",
-      "filename": "messages.wav"
-    },
-    {
-      "text": "metro",
-      "filename": "metro.wav"
-    },
-    {
       "text": "mi",
       "filename": "mi.wav"
     },
@@ -3875,16 +3345,8 @@
       "filename": "mi_libros_es_vetule.wav"
     },
     {
-      "text": "mie",
-      "filename": "mie.wav"
-    },
-    {
       "text": "mille",
       "filename": "mille.wav"
-    },
-    {
-      "text": "milles",
-      "filename": "milles.wav"
     },
     {
       "text": "milliardo",
@@ -3901,14 +3363,6 @@
     {
       "text": "mitter",
       "filename": "mitter.wav"
-    },
-    {
-      "text": "moderne",
-      "filename": "moderne.wav"
-    },
-    {
-      "text": "modo",
-      "filename": "modo.wav"
     },
     {
       "text": "molle",
@@ -3939,10 +3393,6 @@
       "filename": "motivar.wav"
     },
     {
-      "text": "mover",
-      "filename": "mover.wav"
-    },
-    {
       "text": "multe",
       "filename": "multe.wav"
     },
@@ -3959,10 +3409,6 @@
       "filename": "munde.wav"
     },
     {
-      "text": "mundial",
-      "filename": "mundial.wav"
-    },
-    {
       "text": "mus",
       "filename": "mus.wav"
     },
@@ -3973,10 +3419,6 @@
     {
       "text": "museo",
       "filename": "museo.wav"
-    },
-    {
-      "text": "museos",
-      "filename": "museos.wav"
     },
     {
       "text": "musica",
@@ -3991,20 +3433,12 @@
       "filename": "nam.wav"
     },
     {
-      "text": "nation",
-      "filename": "nation.wav"
+      "text": "narrar a alcuno",
+      "filename": "narrar_a_alcuno.wav"
     },
     {
       "text": "National",
       "filename": "national.wav"
-    },
-    {
-      "text": "nationalitate",
-      "filename": "nationalitate.wav"
-    },
-    {
-      "text": "nationes",
-      "filename": "nationes.wav"
     },
     {
       "text": "natural",
@@ -4017,18 +3451,6 @@
     {
       "text": "naturalmente non",
       "filename": "naturalmente_non.wav"
-    },
-    {
-      "text": "navegador",
-      "filename": "navegador.wav"
-    },
-    {
-      "text": "nec, nec",
-      "filename": "nec_nec.wav"
-    },
-    {
-      "text": "negation",
-      "filename": "negation.wav"
     },
     {
       "text": "nemo",
@@ -4047,8 +3469,8 @@
       "filename": "nepto.wav"
     },
     {
-      "text": "ni",
-      "filename": "ni.wav"
+      "text": "ni ... ni",
+      "filename": "ni_ni.wav"
     },
     {
       "text": "ni io",
@@ -4227,10 +3649,6 @@
       "filename": "nostre_bira_es_frigide.wav"
     },
     {
-      "text": "nota",
-      "filename": "nota.wav"
-    },
-    {
       "text": "notorimente",
       "filename": "notorimente.wav"
     },
@@ -4239,8 +3657,8 @@
       "filename": "novanta.wav"
     },
     {
-      "text": "novanta-novem",
-      "filename": "novanta_novem.wav"
+      "text": "novanta-nove",
+      "filename": "novanta_nove.wav"
     },
     {
       "text": "nove",
@@ -4251,28 +3669,20 @@
       "filename": "nove_centos.wav"
     },
     {
-      "text": "novembre",
-      "filename": "novembre.wav"
+      "text": "nove centos novanta-nove",
+      "filename": "nove_centos_novanta_nove.wav"
     },
     {
-      "text": "nte",
-      "filename": "nte.wav"
+      "text": "novembre",
+      "filename": "novembre.wav"
     },
     {
       "text": "nude",
       "filename": "nude.wav"
     },
     {
-      "text": "numerales",
-      "filename": "numerales.wav"
-    },
-    {
       "text": "numero",
       "filename": "numero.wav"
-    },
-    {
-      "text": "numeros",
-      "filename": "numeros.wav"
     },
     {
       "text": "numerose",
@@ -4315,10 +3725,6 @@
       "filename": "octobre.wav"
     },
     {
-      "text": "offere",
-      "filename": "offere.wav"
-    },
-    {
       "text": "offerer",
       "filename": "offerer.wav"
     },
@@ -4335,10 +3741,6 @@
       "filename": "oleo.wav"
     },
     {
-      "text": "omitte",
-      "filename": "omitte.wav"
-    },
-    {
       "text": "on",
       "filename": "on.wav"
     },
@@ -4351,36 +3753,16 @@
       "filename": "oncle.wav"
     },
     {
-      "text": "open",
-      "filename": "open.wav"
-    },
-    {
       "text": "orange",
       "filename": "orange.wav"
-    },
-    {
-      "text": "ordinale",
-      "filename": "ordinale.wav"
-    },
-    {
-      "text": "ordinales",
-      "filename": "ordinales.wav"
     },
     {
       "text": "ordinar",
       "filename": "ordinar.wav"
     },
     {
-      "text": "ordine",
-      "filename": "ordine.wav"
-    },
-    {
       "text": "organisar",
       "filename": "organisar.wav"
-    },
-    {
-      "text": "organisate",
-      "filename": "organisate.wav"
     },
     {
       "text": "ovo",
@@ -4389,10 +3771,6 @@
     {
       "text": "pacchetto",
       "filename": "pacchetto.wav"
-    },
-    {
-      "text": "paga",
-      "filename": "paga.wav"
     },
     {
       "text": "pagar",
@@ -4405,10 +3783,6 @@
     {
       "text": "paisage",
       "filename": "paisage.wav"
-    },
-    {
-      "text": "paisages",
-      "filename": "paisages.wav"
     },
     {
       "text": "pan",
@@ -4435,20 +3809,8 @@
       "filename": "parco.wav"
     },
     {
-      "text": "parcos",
-      "filename": "parcos.wav"
-    },
-    {
       "text": "pardono",
       "filename": "pardono.wav"
-    },
-    {
-      "text": "parla",
-      "filename": "parla.wav"
-    },
-    {
-      "text": "parlante",
-      "filename": "parlante.wav"
     },
     {
       "text": "parlar",
@@ -4459,84 +3821,24 @@
       "filename": "parlar_al_telephono.wav"
     },
     {
-      "text": "parlarea",
-      "filename": "parlarea.wav"
-    },
-    {
-      "text": "parlarà",
-      "filename": "parlara.wav"
-    },
-    {
-      "text": "parlate",
-      "filename": "parlate.wav"
-    },
-    {
-      "text": "parlava",
-      "filename": "parlava.wav"
-    },
-    {
-      "text": "parola",
-      "filename": "parola.wav"
-    },
-    {
-      "text": "parolas",
-      "filename": "parolas.wav"
-    },
-    {
-      "text": "paroles",
-      "filename": "paroles.wav"
-    },
-    {
-      "text": "participio",
-      "filename": "participio.wav"
-    },
-    {
       "text": "particularmente",
       "filename": "particularmente.wav"
-    },
-    {
-      "text": "partir",
-      "filename": "partir.wav"
-    },
-    {
-      "text": "partitivos",
-      "filename": "partitivos.wav"
     },
     {
       "text": "parve",
       "filename": "parve.wav"
     },
     {
-      "text": "passa",
-      "filename": "passa.wav"
-    },
-    {
       "text": "passagero",
       "filename": "passagero.wav"
-    },
-    {
-      "text": "passageros",
-      "filename": "passageros.wav"
     },
     {
       "text": "passar",
       "filename": "passar.wav"
     },
     {
-      "text": "passate",
-      "filename": "passate.wav"
-    },
-    {
       "text": "passatempore",
       "filename": "passatempore.wav"
-    },
-    {
-      "text": "passive",
-      "filename": "passive.wav"
-    },
-    {
-      "text": "passo",
-      "filename": "passo.wav"
     },
     {
       "text": "pasta",
@@ -4549,10 +3851,6 @@
     {
       "text": "pecia",
       "filename": "pecia.wav"
-    },
-    {
-      "text": "pedro",
-      "filename": "pedro.wav"
     },
     {
       "text": "pensar",
@@ -4595,10 +3893,6 @@
       "filename": "periodo.wav"
     },
     {
-      "text": "permitte",
-      "filename": "permitte.wav"
-    },
-    {
       "text": "perque",
       "filename": "perque.wav"
     },
@@ -4615,16 +3909,8 @@
       "filename": "persica.wav"
     },
     {
-      "text": "persona",
-      "filename": "persona.wav"
-    },
-    {
       "text": "personal",
       "filename": "personal.wav"
-    },
-    {
-      "text": "personas",
-      "filename": "personas.wav"
     },
     {
       "text": "pertiner",
@@ -4651,20 +3937,8 @@
       "filename": "photo.wav"
     },
     {
-      "text": "photocamera",
-      "filename": "photocamera.wav"
-    },
-    {
       "text": "photographar",
       "filename": "photographar.wav"
-    },
-    {
-      "text": "phrase",
-      "filename": "phrase.wav"
-    },
-    {
-      "text": "phrases",
-      "filename": "phrases.wav"
     },
     {
       "text": "pipere",
@@ -4695,28 +3969,8 @@
       "filename": "placer.wav"
     },
     {
-      "text": "placia",
-      "filename": "placia.wav"
-    },
-    {
-      "text": "placias",
-      "filename": "placias.wav"
-    },
-    {
       "text": "plantar",
       "filename": "plantar.wav"
-    },
-    {
-      "text": "platteforma",
-      "filename": "platteforma.wav"
-    },
-    {
-      "text": "plica",
-      "filename": "plica.wav"
-    },
-    {
-      "text": "plural",
-      "filename": "plural.wav"
     },
     {
       "text": "plus",
@@ -4725,14 +3979,6 @@
     {
       "text": "plus tosto",
       "filename": "plus_tosto.wav"
-    },
-    {
-      "text": "pluscuamperfecte",
-      "filename": "pluscuamperfecte.wav"
-    },
-    {
-      "text": "pluve",
-      "filename": "pluve.wav"
     },
     {
       "text": "pluver",
@@ -4747,10 +3993,6 @@
       "filename": "poc.wav"
     },
     {
-      "text": "poco",
-      "filename": "poco.wav"
-    },
-    {
       "text": "pois",
       "filename": "pois.wav"
     },
@@ -4759,16 +4001,8 @@
       "filename": "policiero.wav"
     },
     {
-      "text": "politic",
-      "filename": "politic.wav"
-    },
-    {
       "text": "pomo",
       "filename": "pomo.wav"
-    },
-    {
-      "text": "pone",
-      "filename": "pone.wav"
     },
     {
       "text": "poner",
@@ -4795,48 +4029,24 @@
       "filename": "portar.wav"
     },
     {
-      "text": "portugu",
-      "filename": "portugu.wav"
-    },
-    {
       "text": "posseder",
       "filename": "posseder.wav"
-    },
-    {
-      "text": "possessive",
-      "filename": "possessive.wav"
     },
     {
       "text": "post",
       "filename": "post.wav"
     },
     {
-      "text": "posta",
-      "filename": "posta.wav"
-    },
-    {
       "text": "posto",
       "filename": "posto.wav"
-    },
-    {
-      "text": "pote",
-      "filename": "pote.wav"
     },
     {
       "text": "poter",
       "filename": "poter.wav"
     },
     {
-      "text": "practic",
-      "filename": "practic.wav"
-    },
-    {
       "text": "practica",
       "filename": "practica.wav"
-    },
-    {
-      "text": "practicamente",
-      "filename": "practicamente.wav"
     },
     {
       "text": "practicar",
@@ -4855,16 +4065,8 @@
       "filename": "prefere.wav"
     },
     {
-      "text": "preferentias",
-      "filename": "preferentias.wav"
-    },
-    {
       "text": "preferer",
       "filename": "preferer.wav"
-    },
-    {
-      "text": "prende",
-      "filename": "prende.wav"
     },
     {
       "text": "prender",
@@ -4879,20 +4081,8 @@
       "filename": "prender_sol.wav"
     },
     {
-      "text": "prepara",
-      "filename": "prepara.wav"
-    },
-    {
       "text": "preparar",
       "filename": "preparar.wav"
-    },
-    {
-      "text": "preposition",
-      "filename": "preposition.wav"
-    },
-    {
-      "text": "prepositiones",
-      "filename": "prepositiones.wav"
     },
     {
       "text": "presentar",
@@ -4903,20 +4093,12 @@
       "filename": "presentation.wav"
     },
     {
-      "text": "presente",
-      "filename": "presente.wav"
-    },
-    {
       "text": "presso",
       "filename": "presso.wav"
     },
     {
       "text": "preste",
       "filename": "preste.wav"
-    },
-    {
-      "text": "prime",
-      "filename": "prime.wav"
     },
     {
       "text": "prince",
@@ -4939,20 +4121,12 @@
       "filename": "pro.wav"
     },
     {
-      "text": "probabilmente",
-      "filename": "probabilmente.wav"
+      "text": "probabilemente",
+      "filename": "probabilemente.wav"
     },
     {
       "text": "probar alco",
       "filename": "probar_alco.wav"
-    },
-    {
-      "text": "problemate",
-      "filename": "problemate.wav"
-    },
-    {
-      "text": "producite",
-      "filename": "producite.wav"
     },
     {
       "text": "programmar",
@@ -4971,20 +4145,8 @@
       "filename": "promenar.wav"
     },
     {
-      "text": "pronomines",
-      "filename": "pronomines.wav"
-    },
-    {
-      "text": "pronunciation",
-      "filename": "pronunciation.wav"
-    },
-    {
       "text": "proponer",
       "filename": "proponer.wav"
-    },
-    {
-      "text": "proque",
-      "filename": "proque.wav"
     },
     {
       "text": "proxime",
@@ -4993,10 +4155,6 @@
     {
       "text": "public",
       "filename": "public.wav"
-    },
-    {
-      "text": "puera",
-      "filename": "puera.wav"
     },
     {
       "text": "pur",
@@ -5019,20 +4177,12 @@
       "filename": "qual.wav"
     },
     {
-      "text": "quales",
-      "filename": "quales.wav"
-    },
-    {
       "text": "quando",
       "filename": "quando.wav"
     },
     {
       "text": "quante",
       "filename": "quante.wav"
-    },
-    {
-      "text": "quantitate",
-      "filename": "quantitate.wav"
     },
     {
       "text": "quanto",
@@ -5053,10 +4203,6 @@
     {
       "text": "quartiero",
       "filename": "quartiero.wav"
-    },
-    {
-      "text": "quartieros",
-      "filename": "quartieros.wav"
     },
     {
       "text": "quatro",
@@ -5087,10 +4233,6 @@
       "filename": "querer_de_facer_alco.wav"
     },
     {
-      "text": "questiones",
-      "filename": "questiones.wav"
-    },
-    {
       "text": "qui",
       "filename": "qui.wav"
     },
@@ -5101,14 +4243,6 @@
     {
       "text": "quotidian",
       "filename": "quotidian.wav"
-    },
-    {
-      "text": "r",
-      "filename": "r.wav"
-    },
-    {
-      "text": "ra",
-      "filename": "ra.wav"
     },
     {
       "text": "radio",
@@ -5139,10 +4273,6 @@
       "filename": "rasar_se.wav"
     },
     {
-      "text": "rea",
-      "filename": "rea.wav"
-    },
-    {
       "text": "recentemente",
       "filename": "recentemente.wav"
     },
@@ -5151,24 +4281,12 @@
       "filename": "recepta.wav"
     },
     {
-      "text": "recibo",
-      "filename": "recibo.wav"
-    },
-    {
       "text": "reciper",
       "filename": "reciper.wav"
     },
     {
       "text": "referentia",
       "filename": "referentia.wav"
-    },
-    {
-      "text": "referer",
-      "filename": "referer.wav"
-    },
-    {
-      "text": "reflexive",
-      "filename": "reflexive.wav"
     },
     {
       "text": "refrigerator",
@@ -5187,32 +4305,16 @@
       "filename": "regina.wav"
     },
     {
-      "text": "reguarda",
-      "filename": "reguarda.wav"
-    },
-    {
       "text": "reguardar",
       "filename": "reguardar.wav"
-    },
-    {
-      "text": "regular",
-      "filename": "regular.wav"
-    },
-    {
-      "text": "regulas",
-      "filename": "regulas.wav"
     },
     {
       "text": "reimbursar",
       "filename": "reimbursar.wav"
     },
     {
-      "text": "relativamente",
-      "filename": "relativamente.wav"
-    },
-    {
-      "text": "relative",
-      "filename": "relative.wav"
+      "text": "relativemente",
+      "filename": "relativemente.wav"
     },
     {
       "text": "remarcar",
@@ -5221,10 +4323,6 @@
     {
       "text": "render",
       "filename": "render.wav"
-    },
-    {
-      "text": "renovate",
-      "filename": "renovate.wav"
     },
     {
       "text": "repasto",
@@ -5243,32 +4341,16 @@
       "filename": "reporto.wav"
     },
     {
-      "text": "reportos",
-      "filename": "reportos.wav"
-    },
-    {
       "text": "reposar",
       "filename": "reposar.wav"
-    },
-    {
-      "text": "repositorio",
-      "filename": "repositorio.wav"
     },
     {
       "text": "representar",
       "filename": "representar.wav"
     },
     {
-      "text": "require",
-      "filename": "require.wav"
-    },
-    {
       "text": "requirer",
       "filename": "requirer.wav"
-    },
-    {
-      "text": "reserva",
-      "filename": "reserva.wav"
     },
     {
       "text": "reservar",
@@ -5279,10 +4361,6 @@
       "filename": "respectar.wav"
     },
     {
-      "text": "responde",
-      "filename": "responde.wav"
-    },
-    {
       "text": "responder",
       "filename": "responder.wav"
     },
@@ -5291,20 +4369,12 @@
       "filename": "responder_a.wav"
     },
     {
-      "text": "ressource",
-      "filename": "ressource.wav"
-    },
-    {
       "text": "restaurante",
       "filename": "restaurante.wav"
     },
     {
       "text": "restituer",
       "filename": "restituer.wav"
-    },
-    {
-      "text": "restrictiones",
-      "filename": "restrictiones.wav"
     },
     {
       "text": "retirar se",
@@ -5355,10 +4425,6 @@
       "filename": "rubie.wav"
     },
     {
-      "text": "s",
-      "filename": "s.wav"
-    },
-    {
       "text": "sabbato",
       "filename": "sabbato.wav"
     },
@@ -5399,10 +4465,6 @@
       "filename": "sandwich.wav"
     },
     {
-      "text": "sape",
-      "filename": "sape.wav"
-    },
-    {
       "text": "saper",
       "filename": "saper.wav"
     },
@@ -5415,40 +4477,16 @@
       "filename": "sauce.wav"
     },
     {
-      "text": "scala",
-      "filename": "scala.wav"
-    },
-    {
       "text": "scarpas",
       "filename": "scarpas.wav"
-    },
-    {
-      "text": "schola",
-      "filename": "schola.wav"
     },
     {
       "text": "sciuro",
       "filename": "sciuro.wav"
     },
     {
-      "text": "scopo",
-      "filename": "scopo.wav"
-    },
-    {
-      "text": "scribe",
-      "filename": "scribe.wav"
-    },
-    {
       "text": "scriber",
       "filename": "scriber.wav"
-    },
-    {
-      "text": "scribite",
-      "filename": "scribite.wav"
-    },
-    {
-      "text": "se",
-      "filename": "se.wav"
     },
     {
       "text": "se trova",
@@ -5461,18 +4499,6 @@
     {
       "text": "secretario",
       "filename": "secretario.wav"
-    },
-    {
-      "text": "secrete",
-      "filename": "secrete.wav"
-    },
-    {
-      "text": "secunde",
-      "filename": "secunde.wav"
-    },
-    {
-      "text": "secundemente",
-      "filename": "secundemente.wav"
     },
     {
       "text": "secundo",
@@ -5491,16 +4517,8 @@
       "filename": "sedia.wav"
     },
     {
-      "text": "sedias",
-      "filename": "sedias.wav"
-    },
-    {
       "text": "semblar",
       "filename": "semblar.wav"
-    },
-    {
-      "text": "sempre",
-      "filename": "sempre.wav"
     },
     {
       "text": "seniora",
@@ -5513,10 +4531,6 @@
     {
       "text": "sentir",
       "filename": "sentir.wav"
-    },
-    {
-      "text": "separate",
-      "filename": "separate.wav"
     },
     {
       "text": "septanta",
@@ -5595,10 +4609,6 @@
       "filename": "si_si_tu_can_es_parve.wav"
     },
     {
-      "text": "sia",
-      "filename": "sia.wav"
-    },
-    {
       "text": "sic",
       "filename": "sic.wav"
     },
@@ -5609,10 +4619,6 @@
     {
       "text": "simia",
       "filename": "simia.wav"
-    },
-    {
-      "text": "similar",
-      "filename": "similar.wav"
     },
     {
       "text": "similar a",
@@ -5627,24 +4633,12 @@
       "filename": "simplemente.wav"
     },
     {
-      "text": "simultaneitate",
-      "filename": "simultaneitate.wav"
-    },
-    {
       "text": "sin",
       "filename": "sin.wav"
     },
     {
       "text": "sinon",
       "filename": "sinon.wav"
-    },
-    {
-      "text": "sistema",
-      "filename": "sistema.wav"
-    },
-    {
-      "text": "sito",
-      "filename": "sito.wav"
     },
     {
       "text": "sito web",
@@ -5657,10 +4651,6 @@
     {
       "text": "sofa",
       "filename": "sofa.wav"
-    },
-    {
-      "text": "software",
-      "filename": "software.wav"
     },
     {
       "text": "sol",
@@ -5679,10 +4669,6 @@
       "filename": "solo.wav"
     },
     {
-      "text": "son",
-      "filename": "son.wav"
-    },
-    {
       "text": "sonar",
       "filename": "sonar.wav"
     },
@@ -5695,40 +4681,20 @@
       "filename": "soniar_re.wav"
     },
     {
-      "text": "soporta",
-      "filename": "soporta.wav"
-    },
-    {
       "text": "soror",
       "filename": "soror.wav"
-    },
-    {
-      "text": "source",
-      "filename": "source.wav"
     },
     {
       "text": "sovente",
       "filename": "sovente.wav"
     },
     {
-      "text": "special",
-      "filename": "special.wav"
-    },
-    {
       "text": "specialitate",
       "filename": "specialitate.wav"
     },
     {
-      "text": "specialitates",
-      "filename": "specialitates.wav"
-    },
-    {
       "text": "specialmente",
       "filename": "specialmente.wav"
-    },
-    {
-      "text": "specific",
-      "filename": "specific.wav"
     },
     {
       "text": "sperar",
@@ -5755,28 +4721,12 @@
       "filename": "station.wav"
     },
     {
-      "text": "statione",
-      "filename": "statione.wav"
-    },
-    {
-      "text": "stile",
-      "filename": "stile.wav"
-    },
-    {
-      "text": "stilo",
-      "filename": "stilo.wav"
-    },
-    {
       "text": "stratas",
       "filename": "stratas.wav"
     },
     {
       "text": "strige",
       "filename": "strige.wav"
-    },
-    {
-      "text": "structurate",
-      "filename": "structurate.wav"
     },
     {
       "text": "struthio",
@@ -5819,18 +4769,6 @@
       "filename": "subjectos.wav"
     },
     {
-      "text": "subjunctive",
-      "filename": "subjunctive.wav"
-    },
-    {
-      "text": "substantivo",
-      "filename": "substantivo.wav"
-    },
-    {
-      "text": "substantivos",
-      "filename": "substantivos.wav"
-    },
-    {
       "text": "succo",
       "filename": "succo.wav"
     },
@@ -5839,24 +4777,12 @@
       "filename": "sucro.wav"
     },
     {
-      "text": "sue",
-      "filename": "sue.wav"
-    },
-    {
-      "text": "sujeto",
-      "filename": "sujeto.wav"
-    },
-    {
       "text": "super",
       "filename": "super.wav"
     },
     {
       "text": "super toto",
       "filename": "super_toto.wav"
-    },
-    {
-      "text": "superlative",
-      "filename": "superlative.wav"
     },
     {
       "text": "suppa",
@@ -5875,10 +4801,6 @@
       "filename": "sur.wav"
     },
     {
-      "text": "syllaba",
-      "filename": "syllaba.wav"
-    },
-    {
       "text": "symbolo",
       "filename": "symbolo.wav"
     },
@@ -5887,16 +4809,8 @@
       "filename": "systema.wav"
     },
     {
-      "text": "tabula",
-      "filename": "tabula.wav"
-    },
-    {
-      "text": "tamben",
-      "filename": "tamben.wav"
-    },
-    {
-      "text": "tamquam",
-      "filename": "tamquam.wav"
+      "text": "tam ben",
+      "filename": "tam_ben.wav"
     },
     {
       "text": "tanto",
@@ -5911,28 +4825,20 @@
       "filename": "tasca.wav"
     },
     {
-      "text": "tassa",
-      "filename": "tassa.wav"
-    },
-    {
-      "text": "te",
-      "filename": "te.wav"
+      "text": "technicas",
+      "filename": "technicas.wav"
     },
     {
       "text": "technico",
       "filename": "technico.wav"
     },
     {
-      "text": "technicos",
-      "filename": "technicos.wav"
-    },
-    {
       "text": "technologia",
       "filename": "technologia.wav"
     },
     {
-      "text": "telephonar a alcuno",
-      "filename": "telephonar_a_alcuno.wav"
+      "text": "telephonar a alicuno",
+      "filename": "telephonar_a_alicuno.wav"
     },
     {
       "text": "television",
@@ -5947,10 +4853,6 @@
       "filename": "tempesta.wav"
     },
     {
-      "text": "tempestas",
-      "filename": "tempestas.wav"
-    },
-    {
       "text": "tempore",
       "filename": "tempore.wav"
     },
@@ -5959,32 +4861,12 @@
       "filename": "tempore_libere.wav"
     },
     {
-      "text": "tempos",
-      "filename": "tempos.wav"
-    },
-    {
       "text": "tener",
       "filename": "tener.wav"
     },
     {
-      "text": "termina",
-      "filename": "termina.wav"
-    },
-    {
       "text": "terminar",
       "filename": "terminar.wav"
-    },
-    {
-      "text": "terminationes",
-      "filename": "terminationes.wav"
-    },
-    {
-      "text": "tertia",
-      "filename": "tertia.wav"
-    },
-    {
-      "text": "tertie",
-      "filename": "tertie.wav"
     },
     {
       "text": "the",
@@ -5999,10 +4881,6 @@
       "filename": "tomate.wav"
     },
     {
-      "text": "tooltip",
-      "filename": "tooltip.wav"
-    },
-    {
       "text": "tornar",
       "filename": "tornar.wav"
     },
@@ -6015,16 +4893,8 @@
       "filename": "tortuca.wav"
     },
     {
-      "text": "total",
-      "filename": "total.wav"
-    },
-    {
       "text": "totalmente",
       "filename": "totalmente.wav"
-    },
-    {
-      "text": "tote",
-      "filename": "tote.wav"
     },
     {
       "text": "totevia",
@@ -6035,24 +4905,8 @@
       "filename": "tourista.wav"
     },
     {
-      "text": "touristas",
-      "filename": "touristas.wav"
-    },
-    {
-      "text": "traduce",
-      "filename": "traduce.wav"
-    },
-    {
       "text": "traino",
       "filename": "traino.wav"
-    },
-    {
-      "text": "trainos",
-      "filename": "trainos.wav"
-    },
-    {
-      "text": "trait",
-      "filename": "trait.wav"
     },
     {
       "text": "trajecto",
@@ -6089,10 +4943,6 @@
     {
       "text": "troppo",
       "filename": "troppo.wav"
-    },
-    {
-      "text": "trova",
-      "filename": "trova.wav"
     },
     {
       "text": "trovar",
@@ -6159,8 +5009,8 @@
       "filename": "tu_mori.wav"
     },
     {
-      "text": "tu non offre alco",
-      "filename": "tu_non_offre_alco.wav"
+      "text": "tu non offere alco",
+      "filename": "tu_non_offere_alco.wav"
     },
     {
       "text": "tu pantalon",
@@ -6211,24 +5061,12 @@
       "filename": "tu_vive.wav"
     },
     {
-      "text": "tue",
-      "filename": "tue.wav"
-    },
-    {
-      "text": "typos",
-      "filename": "typos.wav"
-    },
-    {
       "text": "ubi",
       "filename": "ubi.wav"
     },
     {
       "text": "ultime",
       "filename": "ultime.wav"
-    },
-    {
-      "text": "ultimo",
-      "filename": "ultimo.wav"
     },
     {
       "text": "ultra",
@@ -6275,32 +5113,12 @@
       "filename": "un_puero.wav"
     },
     {
-      "text": "una",
-      "filename": "una.wav"
-    },
-    {
-      "text": "union",
-      "filename": "union.wav"
-    },
-    {
-      "text": "unir",
-      "filename": "unir.wav"
-    },
-    {
       "text": "urso",
       "filename": "urso.wav"
     },
     {
-      "text": "usa",
-      "filename": "usa.wav"
-    },
-    {
       "text": "usar",
       "filename": "usar.wav"
-    },
-    {
-      "text": "uso",
-      "filename": "uso.wav"
     },
     {
       "text": "usque",
@@ -6311,24 +5129,12 @@
       "filename": "usque_lunedi.wav"
     },
     {
-      "text": "utile",
-      "filename": "utile.wav"
-    },
-    {
       "text": "uva",
       "filename": "uva.wav"
     },
     {
-      "text": "va",
-      "filename": "va.wav"
-    },
-    {
       "text": "vacca",
       "filename": "vacca.wav"
-    },
-    {
-      "text": "vade",
-      "filename": "vade.wav"
     },
     {
       "text": "vader",
@@ -6339,28 +5145,8 @@
       "filename": "valer.wav"
     },
     {
-      "text": "varia",
-      "filename": "varia.wav"
-    },
-    {
-      "text": "variaciones",
-      "filename": "variaciones.wav"
-    },
-    {
       "text": "variar",
       "filename": "variar.wav"
-    },
-    {
-      "text": "variationes",
-      "filename": "variationes.wav"
-    },
-    {
-      "text": "veces",
-      "filename": "veces.wav"
-    },
-    {
-      "text": "vendite",
-      "filename": "vendite.wav"
     },
     {
       "text": "venditor",
@@ -6383,14 +5169,6 @@
       "filename": "ver.wav"
     },
     {
-      "text": "verbo",
-      "filename": "verbo.wav"
-    },
-    {
-      "text": "verbos",
-      "filename": "verbos.wav"
-    },
-    {
       "text": "verde",
       "filename": "verde.wav"
     },
@@ -6407,24 +5185,12 @@
       "filename": "vespere.wav"
     },
     {
-      "text": "vesti",
-      "filename": "vesti.wav"
-    },
-    {
       "text": "vestimento",
       "filename": "vestimento.wav"
     },
     {
-      "text": "vestimentos",
-      "filename": "vestimentos.wav"
-    },
-    {
       "text": "vestir se",
       "filename": "vestir_se.wav"
-    },
-    {
-      "text": "vetere",
-      "filename": "vetere.wav"
     },
     {
       "text": "viage",
@@ -6439,28 +5205,8 @@
       "filename": "vices.wav"
     },
     {
-      "text": "vide",
-      "filename": "vide.wav"
-    },
-    {
-      "text": "videos",
-      "filename": "videos.wav"
-    },
-    {
-      "text": "vider",
-      "filename": "vider.wav"
-    },
-    {
-      "text": "vidite",
-      "filename": "vidite.wav"
-    },
-    {
       "text": "vino",
       "filename": "vino.wav"
-    },
-    {
-      "text": "vinte",
-      "filename": "vinte.wav"
     },
     {
       "text": "vinti",
@@ -6495,14 +5241,6 @@
       "filename": "violette.wav"
     },
     {
-      "text": "virgulas",
-      "filename": "virgulas.wav"
-    },
-    {
-      "text": "visita",
-      "filename": "visita.wav"
-    },
-    {
       "text": "vita",
       "filename": "vita.wav"
     },
@@ -6515,28 +5253,8 @@
       "filename": "viver.wav"
     },
     {
-      "text": "vocabulario",
-      "filename": "vocabulario.wav"
-    },
-    {
-      "text": "vocal",
-      "filename": "vocal.wav"
-    },
-    {
       "text": "vocar",
       "filename": "vocar.wav"
-    },
-    {
-      "text": "voce",
-      "filename": "voce.wav"
-    },
-    {
-      "text": "vola",
-      "filename": "vola.wav"
-    },
-    {
-      "text": "vole",
-      "filename": "vole.wav"
     },
     {
       "text": "voler",

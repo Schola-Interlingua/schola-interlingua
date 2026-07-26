@@ -7,10 +7,10 @@ const Map<String, ReadingContent> readingContent = <String, ReadingContent>{
     imageAsset: 'assets/images/lectura-mi-familia.png',
     paragraphs: <String>[
       'Mi familia es parve, ma multo unite. Nos habita in un casa in le suburbios de un citate tranquille. In mi familia, il ha quatro personas: mi patre, mi matre, mi soror minor e io.',
-      'Mi patre labora como medico in un hospital local. Ille es un homine intelligente e dedicate, qui ama su profession e cuida ben su pacientes. Cata die, ille reveni tarde del labor, ma il trova sempre tempore pro parlar con nos e narrar historias amusante.',
-      'Mi matre es un femina ben organisate e creative. Illa es un inseniatora in un schola primari. Illa ama inseniar le infantes e sempre ha ideas nove pro facer le lectiones interessante. In le casa, illa prepara delicat repas e decora le ambiente con flores e colores vivide.',
-      'Mi soror ha dece annos. Illa es curiose, energic e multo loquace. Illa ama leger libros de aventuras, jocar con su amicas, e scriber historias imaginari. Illa vole devenir scriptrice in le futuro. Quando nos ha tempore libere, nos joca inseme o guarda filmes.',
-      'Io es le primogenite. Io ha dece-septe annos e studia in le liceo. Mi materias favorite es historia e linguas. Io ha un interesse special in Interlingua, proque es un lingua que nos uni con multe culturas e es facile a apprender.',
+      'Mi patre labora como medico in un hospital local. Ille es un homine intelligente e dedicate, qui ama su profession e cura ben su patientes. Cata die, ille reveni tarde del labor, ma ille trova sempre tempore pro parlar con nos e narrar historias amusante.',
+      'Mi matre es un femina ben organisate e creative. Illa es un inseniante in un schola primari. Illa ama inseniar le infantes e sempre ha ideas nove pro facer le lectiones interessante. In le casa, illa prepara repastos delicate e decora le ambiente con flores e colores vivide.',
+      'Mi soror ha dece annos. Illa es curiose, energic e multo loquace. Illa ama leger libros de aventuras, jocar con su amicas e scriber historias imaginari. Illa vole devenir scriptrice in le futuro. Quando nos ha tempore libere, nos joca insimul o guarda filmes.',
+      'Io es le primogenite. Io ha dece-septe annos e studia in le lyceo. Mi materias favorite es historia e linguas. Io ha un interesse special in interlingua, proque es un lingua que nos uni con multe culturas e es facile a apprender.',
     ],
   ),
 };
@@ -23,15 +23,17 @@ const Map<String, AppendixContent> appendixContent = <String, AppendixContent>{
       AppendixSection(
         title: '1. Verbo',
         paragraphs: <String>[
-          'Il ha tres typos de verbos in Interlingua: illos que termina in -ar, -er e -ir. Le conjugation es regular e non varia secundo le persona o le numero.',
-          'Le verbos auxiliar como esser, haber e vader ha formas breve: es, ha, va. Illes se usa pro formar tempores composite o expressiones impersonal.',
+          'Il ha tres typos de verbos in Interlingua: illos que termina in -ar, -er e -ir. Le conjugation es regular e non varia secundo le persona o le numero. Le terminationes principal es:',
+          'Le verbos esser, haber e vader ha le formas breve es, ha e va. Es e ha se usa como auxiliares; va se usa pro exprimer le futuro proxime.',
         ],
         bullets: <String>[
-          '-r (infinitive): parlar, vider, audir',
+          '-r (infinitivo): parlar, vider, audir',
           '-a (presente): io parla, tu parla, nos parla',
-          '-va (imperfecte): io parlava, tu parlava',
+          '-va (passato): io parlava, tu parlava',
           '-ra (futuro): io parlara, tu parlara',
+          '-rea (conditional): io parlarea, tu parlarea',
           '-te (participio passate): parlate, vidite, audite',
+          '-nte (participio presente): parlante, vidente, audiente',
         ],
       ),
       AppendixSection(
@@ -59,7 +61,7 @@ const Map<String, AppendixContent> appendixContent = <String, AppendixContent>{
       AppendixSection(
         title: '4. Articulos e substantivos',
         paragraphs: <String>[
-          'Il ha articulos definite e indefinite: un e le. Le plural se forma con -s post vocal e -es post consonante.',
+          'Le articulo definite es le; le articulo indefinite es un. Le plural del substantivos se forma con -s post un vocal e -es post un consonante.',
         ],
       ),
     ],

@@ -265,7 +265,7 @@ const List<CourseLevel> courseLevels = <CourseLevel>[
           ),
           CourseItemRef(
             slug: 'un-viage-in-tren',
-            title: 'Un viage in tren',
+            title: 'Un viage in traino',
             kind: CourseItemKind.reading,
             icon: Icons.auto_stories_rounded,
           ),
