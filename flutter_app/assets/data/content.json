@@ -49,7 +49,11 @@
         "In mi casa il ha un grande dormitorio con un lecto molle e un matras confortabile. Le cossinos sur le lecto es suave e rubie. In le cocina il ha un tabula de ligno con quatro sedias elegante. Le salon es luminose e contine un sofa rubie e un television moderne. Le catto Felix ama dormir sub le tabula durante le matino e jacer sur le sofa durante le vespere. Nos invita amicos pro un parve reunion in le salon cata sabbato."
       ],
       "imageAsset": "assets/images/lection3.png",
-      "grammarBullets": []
+      "grammarBullets": [
+        "Le articulo non cambia: un lecto, un tabula; le lecto, le cossinos.",
+        "Le adjectivo resta invariable: un cossino suave → le cossinos suave; un sedia elegante → quatro sedias elegante.",
+        "Le presente non varia con le persona o numero: le salon es luminose; le cossinos es suave."
+      ]
     },
     "lection4": {
       "title": "Lection 4",
@@ -274,12 +278,12 @@
           ],
           "bullets": [
             "-r (infinitivo): parlar, vider, audir",
-            "-a (presente): io parla, tu parla, nos parla",
-            "-va (passato): io parlava, tu parlava",
-            "-ra (futuro): io parlara (con accento sur le -a final), tu parlara; etiam con va: io va parlar",
-            "-rea (conditional): io parlarea (con accento sur le -e- de -rea)",
-            "-te (participio passate): parlate, vidite, audite",
-            "-nte (participio presente): parlante, vidente, audiente"
+            "Presente: retira le -r del infinitivo. Parlar → parla; vider → vide; audir → audi. Le forma non varia con le persona.",
+            "Passato: retira -r e adde -va. Parlar → parlava; vider → videva; audir → audiva.",
+            "Futuro: adde -a al infinitivo complete. Parlar → parlara; vider → videra. Le accento es sur le a final, sin marca graphic. Anque: io va parlar.",
+            "Conditional: adde -ea al infinitivo complete. Parlar → parlarea; vider → viderea. Le accento es sur e in -ea.",
+            "Participio passate regular: -ar → -ate, -er → -ite, -ir → -ite. Parlate, vidite, audite.",
+            "Participio presente regular: -ar → -ante, -er → -ente, -ir → -iente. Parlante, vidente, audiente; certe verbos in -er usa -iente (p.ex. faciente)."
           ]
         },
         {
@@ -299,7 +303,7 @@
           "paragraphs": [
             "Le pronomines personal include:",
             "Per exemplo:",
-            "Le pronomine subjecto se exprime normalmente, salvo quando le contexto lo rende clar. Post prepositiones, on usa le forma de objecto, salvo in le tertie persona."
+            "Le subjecto es generalmente exprimite. Post un preposition: me, te, nos, vos; in le tertie persona, usa ille, illa, illo, illes, illas, illos."
           ],
           "bullets": [
             "Subjecto: io, tu, ille, illa, illo, on, nos, vos, illes",
@@ -328,7 +332,7 @@
           "title": "5. Pronomines demonstrative",
           "paragraphs": [
             "Iste e ille, quando illos es adjectivos, non cambia. Como pronomines, illos pote indicar genere natural e numero.",
-            "Pro exemplo: Vole tu iste tassa o ille?"
+            "Pro exemplo: Vole tu iste tassa o ille tassa?"
           ],
           "bullets": [
             "iste (adjectivo); iste, ista, isto, istes, istas, istos (pronomines): pro lo proxime al parlante",
@@ -360,7 +364,8 @@
           ],
           "bullets": [
             "un: articulo indefinite, non cambia pro genere",
-            "le: articulo definite, non cambia pro numero o genere"
+            "le: articulo definite, non cambia pro numero o genere",
+            "a + le → al; de + le → del: al museo, del museo"
           ]
         },
         {
@@ -370,7 +375,8 @@
           ],
           "bullets": [
             "-s post vocal: auto → autos",
-            "-es post consonante: nation → nationes"
+            "-es post consonante: nation → nationes",
+            "-c → -ches: roc → roches; certe parolas estranier conserva plurales special"
           ]
         },
         {
@@ -384,7 +390,7 @@
         {
           "title": "10. Adverbios",
           "paragraphs": [
-            "Le majoritate se forma con -mente a partir del adjectivo. Si le adjectivo fini in -c, -amente es adjungite in su loco.",
+            "Le formation regular usa le adjectivo complete + -mente. Post un -c final, insere -a- ante -mente: practic → practicamente.",
             "Il ha etiam adverbios curte como ben, mal, poco, multo."
           ],
           "bullets": [

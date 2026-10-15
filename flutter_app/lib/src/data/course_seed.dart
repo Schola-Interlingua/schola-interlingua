@@ -103,7 +103,7 @@ const List<CourseLevel> courseLevels = <CourseLevel>[
         items: <CourseItemRef>[
           CourseItemRef(
             slug: 'grammatica',
-            title: 'Breve grammatica',
+            title: 'Grammatica interactive',
             kind: CourseItemKind.appendix,
             icon: Icons.spellcheck_rounded,
           ),

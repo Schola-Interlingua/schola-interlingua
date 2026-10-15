@@ -4,6 +4,7 @@ import '../data/web_content_loader.dart';
 import '../models/web_content_models.dart';
 import '../theme/app_theme.dart';
 import '../widgets/meaning_rich_text.dart';
+import '../widgets/grammar_workshop.dart';
 
 class AppendixScreen extends StatefulWidget {
   const AppendixScreen({super.key, required this.slug});
@@ -56,7 +57,7 @@ class _AppendixScreenState extends State<AppendixScreen> {
               );
             }
 
-            return ScholaCard(
+            final reference = ScholaCard(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,6 +125,21 @@ class _AppendixScreenState extends State<AppendixScreen> {
                   ),
                 ],
               ),
+            );
+            if (slug != 'grammatica') return reference;
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const GrammarWorkshop(),
+                const SizedBox(height: 24),
+                ExpansionTile(
+                  title: const Text('Consulta le compendio'),
+                  subtitle: Text(
+                    '${content.sections.length} sectiones de referentia',
+                  ),
+                  children: [reference],
+                ),
+              ],
             );
           },
     );

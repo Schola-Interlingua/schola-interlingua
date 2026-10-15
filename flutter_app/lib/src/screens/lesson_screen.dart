@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../data/web_content_loader.dart';
 import '../models/web_content_models.dart';
@@ -174,6 +175,14 @@ class _LessonScreenState extends State<LessonScreen> {
                                   ),
                                 ],
                               ),
+                            ),
+                          ),
+                          TextButton.icon(
+                            onPressed: () =>
+                                context.push('/appendix/grammatica'),
+                            icon: const Icon(Icons.auto_stories_rounded),
+                            label: const Text(
+                              'Explora le grammatica interactive',
                             ),
                           ),
                         ],

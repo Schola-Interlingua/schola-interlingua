@@ -28,12 +28,12 @@ const Map<String, AppendixContent> appendixContent = <String, AppendixContent>{
         ],
         bullets: <String>[
           '-r (infinitivo): parlar, vider, audir',
-          '-a (presente): io parla, tu parla, nos parla',
-          '-va (passato): io parlava, tu parlava',
-          '-ra (futuro): io parlara, tu parlara',
-          '-rea (conditional): io parlarea, tu parlarea',
-          '-te (participio passate): parlate, vidite, audite',
-          '-nte (participio presente): parlante, vidente, audiente',
+          'Presente: retira le -r del infinitivo. Parlar → parla; vider → vide; audir → audi. Le forma non varia con le persona.',
+          'Passato: retira -r e adde -va. Parlar → parlava; vider → videva; audir → audiva.',
+          'Futuro: infinitivo + -a. Parlar → parlara; vider → videra.',
+          'Conditional: infinitivo + -ea. Parlar → parlarea; vider → viderea.',
+          'Participio passate regular: -ar → -ate, -er → -ite, -ir → -ite. Parlate, vidite, audite.',
+          'Participio presente regular: -ar → -ante, -er → -ente, -ir → -iente. Parlante, vidente, audiente; certe verbos in -er usa -iente (p.ex. faciente).',
         ],
       ),
       AppendixSection(

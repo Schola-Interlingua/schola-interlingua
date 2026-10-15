@@ -24,7 +24,16 @@ class CourseScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const _DecksEntryCard(),
-          const SizedBox(height: 24),
+          const SizedBox(height: 12),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextButton.icon(
+              onPressed: () => context.go('/appendix/grammatica'),
+              icon: const Icon(Icons.auto_stories_rounded),
+              label: const Text('Explora le grammatica interactive'),
+            ),
+          ),
+          const SizedBox(height: 12),
           ...courseLevels.map(
             (CourseLevel level) => Padding(
               padding: const EdgeInsets.only(bottom: 28),
