@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../data/web_content_loader.dart';
 import '../models/web_content_models.dart';
@@ -8,6 +7,7 @@ import '../widgets/completion_panel.dart';
 import '../widgets/lesson_audio_player.dart';
 import '../widgets/meaning_rich_text.dart';
 import '../widgets/practice_panel.dart';
+import '../widgets/lesson_grammar.dart';
 
 class LessonScreen extends StatefulWidget {
   const LessonScreen({super.key, required this.slug});
@@ -141,54 +141,12 @@ class _LessonScreenState extends State<LessonScreen> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 24),
-                  PracticePanel(slug: slug),
                   if (content.grammarBullets.isNotEmpty) ...<Widget>[
                     const SizedBox(height: 24),
-                    ScholaCard(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          MeaningRichText(
-                            text: 'Grammatica',
-                            style: Theme.of(context).textTheme.titleLarge,
-                          ),
-                          const SizedBox(height: 16),
-                          ...content.grammarBullets.map(
-                            (String bullet) => Padding(
-                              padding: const EdgeInsets.only(bottom: 12),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: EdgeInsets.only(top: 7),
-                                    child: Icon(
-                                      Icons.circle,
-                                      size: 6,
-                                      color: AppTheme.textColor(context),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Expanded(
-                                    child: MeaningRichText(text: bullet),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          TextButton.icon(
-                            onPressed: () =>
-                                context.push('/appendix/grammatica'),
-                            icon: const Icon(Icons.auto_stories_rounded),
-                            label: const Text(
-                              'Explora le grammatica interactive',
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    LessonGrammar(slug: slug, bullets: content.grammarBullets),
                   ],
+                  const SizedBox(height: 24),
+                  PracticePanel(slug: slug),
                   const SizedBox(height: 24),
                   CompletionPanel(
                     itemKey: 'lesson:$slug',
