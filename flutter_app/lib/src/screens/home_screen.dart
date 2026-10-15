@@ -7,6 +7,7 @@ import '../data/course_seed.dart';
 import '../models/course_models.dart';
 import '../models/srs_models.dart';
 import '../theme/app_theme.dart';
+import '../services/vocab_search_index.dart';
 import '../widgets/meaning_rich_text.dart';
 
 const Map<String, String> _languageLabels = <String, String>{
@@ -95,6 +96,10 @@ class _InlineVocabSearch extends StatefulWidget {
 class _InlineVocabSearchState extends State<_InlineVocabSearch> {
   final TextEditingController _controller = TextEditingController();
   String _query = '';
+  VocabSearchIndex? _searchIndex;
+  List<Map<String, String>>? _indexedItems;
+  int _indexedCount = -1;
+  String? _indexedLanguage;
 
   @override
   void dispose() {
@@ -109,12 +114,20 @@ class _InlineVocabSearchState extends State<_InlineVocabSearch> {
     final String language =
         _languageLabels[controller.selectedLanguage] ??
         controller.selectedLanguage;
-    final List<_VocabSearchResult> results = _buildResults(
-      controller.allVocabItems,
-      controller.selectedLanguage,
-      _query,
-    );
     final bool showResults = _query.trim().isNotEmpty;
+    final items = controller.allVocabItems;
+    if (showResults &&
+        (!identical(_indexedItems, items) ||
+            _indexedCount != items.length ||
+            _indexedLanguage != controller.selectedLanguage)) {
+      _searchIndex = VocabSearchIndex(items, controller.selectedLanguage);
+      _indexedItems = items;
+      _indexedCount = items.length;
+      _indexedLanguage = controller.selectedLanguage;
+    }
+    final List<VocabSearchResult> results = showResults
+        ? _searchIndex!.search(_query)
+        : const <VocabSearchResult>[];
     final bool compact = MediaQuery.sizeOf(context).width < 430;
 
     return Column(
@@ -217,15 +230,12 @@ class _InlineVocabSearchState extends State<_InlineVocabSearch> {
                     ),
                   )
                 : Column(
-                    children: List<Widget>.generate(results.take(8).length, (
+                    children: List<Widget>.generate(results.length, (
                       int index,
                     ) {
-                      final List<_VocabSearchResult> visibleResults = results
-                          .take(8)
-                          .toList();
                       return _SearchResultTile(
-                        item: visibleResults[index],
-                        isLast: index == visibleResults.length - 1,
+                        item: results[index],
+                        isLast: index == results.length - 1,
                       );
                     }),
                   ),
@@ -233,64 +243,6 @@ class _InlineVocabSearchState extends State<_InlineVocabSearch> {
         ],
       ],
     );
-  }
-
-  List<_VocabSearchResult> _buildResults(
-    List<Map<String, String>> items,
-    String language,
-    String query,
-  ) {
-    final String normalizedQuery = _normalizeSearch(query);
-    final Map<String, _VocabSearchResult> unique =
-        <String, _VocabSearchResult>{};
-
-    for (final Map<String, String> item in items) {
-      final String term = (item['term'] ?? '').trim();
-      if (term.isEmpty) continue;
-      final String translation = (item[language] ?? item['es'] ?? '').trim();
-      if (translation.isEmpty) continue;
-
-      final bool matchesTerm = _normalizeSearch(term).contains(normalizedQuery);
-      final bool matchesTranslation = _normalizeSearch(
-        translation,
-      ).contains(normalizedQuery);
-      if (!matchesTerm && !matchesTranslation) continue;
-
-      final _VocabSearchResult result = _VocabSearchResult(
-        term: term,
-        translation: translation,
-      );
-      final String key = '${term.toLowerCase()}|${translation.toLowerCase()}';
-      unique.putIfAbsent(key, () => result);
-    }
-
-    final List<_VocabSearchResult> results = unique.values.toList();
-    results.sort((_VocabSearchResult a, _VocabSearchResult b) {
-      final bool aStarts =
-          _normalizeSearch(a.term).startsWith(normalizedQuery) ||
-          _normalizeSearch(a.translation).startsWith(normalizedQuery);
-      final bool bStarts =
-          _normalizeSearch(b.term).startsWith(normalizedQuery) ||
-          _normalizeSearch(b.translation).startsWith(normalizedQuery);
-      if (aStarts != bStarts) return aStarts ? -1 : 1;
-      return a.term.compareTo(b.term);
-    });
-    return results;
-  }
-
-  String _normalizeSearch(String value) {
-    return value
-        .toLowerCase()
-        .replaceAll('á', 'a')
-        .replaceAll('é', 'e')
-        .replaceAll('í', 'i')
-        .replaceAll('ó', 'o')
-        .replaceAll('ú', 'u')
-        .replaceAll('ü', 'u')
-        .replaceAll('ñ', 'n')
-        .replaceAll(RegExp(r'[^\w\s]', unicode: true), ' ')
-        .replaceAll(RegExp(r'\s+'), ' ')
-        .trim();
   }
 }
 
@@ -747,7 +699,7 @@ class _SrsOverviewCard extends StatelessWidget {
 class _SearchResultTile extends StatelessWidget {
   const _SearchResultTile({required this.item, required this.isLast});
 
-  final _VocabSearchResult item;
+  final VocabSearchResult item;
   final bool isLast;
 
   @override
@@ -821,13 +773,6 @@ class _SearchResultTile extends StatelessWidget {
       ),
     );
   }
-}
-
-class _VocabSearchResult {
-  const _VocabSearchResult({required this.term, required this.translation});
-
-  final String term;
-  final String translation;
 }
 
 class _QuickReviewCard extends StatelessWidget {

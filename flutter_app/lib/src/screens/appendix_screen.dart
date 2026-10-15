@@ -5,15 +5,39 @@ import '../models/web_content_models.dart';
 import '../theme/app_theme.dart';
 import '../widgets/meaning_rich_text.dart';
 
-class AppendixScreen extends StatelessWidget {
+class AppendixScreen extends StatefulWidget {
   const AppendixScreen({super.key, required this.slug});
 
   final String slug;
 
   @override
+  State<AppendixScreen> createState() => _AppendixScreenState();
+}
+
+class _AppendixScreenState extends State<AppendixScreen> {
+  late Future<ParsedAppendixContent?> _content;
+  String get slug => widget.slug;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadContent();
+  }
+
+  @override
+  void didUpdateWidget(covariant AppendixScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.slug != slug) _loadContent();
+  }
+
+  void _loadContent() {
+    _content = WebContentLoader.loadAppendix(slug);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FutureBuilder<ParsedAppendixContent?>(
-      future: WebContentLoader.loadAppendix(slug),
+      future: _content,
       builder:
           (
             BuildContext context,
@@ -34,73 +58,72 @@ class AppendixScreen extends StatelessWidget {
 
             return ScholaCard(
               child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    MeaningRichText(
-                      text: content.title,
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                    const SizedBox(height: 24),
-                    ...content.sections.map(
-                      (ParsedAppendixSection section) => Padding(
-                        padding: const EdgeInsets.only(bottom: 24),
-                        child: Container(
-                          padding: const EdgeInsets.all(24),
-                          decoration: BoxDecoration(
-                            color: AppTheme.cardColor(context),
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              color: AppTheme.borderColor(context),
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  MeaningRichText(
+                    text: content.title,
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                  const SizedBox(height: 24),
+                  ...content.sections.map(
+                    (ParsedAppendixSection section) => Padding(
+                      padding: const EdgeInsets.only(bottom: 24),
+                      child: Container(
+                        padding: const EdgeInsets.all(24),
+                        decoration: BoxDecoration(
+                          color: AppTheme.cardColor(context),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: AppTheme.borderColor(context),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            if (section.title.isNotEmpty)
+                              MeaningRichText(
+                                text: section.title,
+                                style: Theme.of(context).textTheme.titleLarge,
+                              ),
+                            if (section.title.isNotEmpty)
+                              const SizedBox(height: 12),
+                            ...section.paragraphs.map(
+                              (String paragraph) => Padding(
+                                padding: const EdgeInsets.only(bottom: 12),
+                                child: MeaningRichText(text: paragraph),
+                              ),
                             ),
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              if (section.title.isNotEmpty)
-                                MeaningRichText(
-                                  text: section.title,
-                                  style: Theme.of(context).textTheme.titleLarge,
-                                ),
-                              if (section.title.isNotEmpty)
-                                const SizedBox(height: 12),
-                              ...section.paragraphs.map(
-                                (String paragraph) => Padding(
-                                  padding: const EdgeInsets.only(bottom: 12),
-                                  child: MeaningRichText(text: paragraph),
+                            ...section.bullets.map(
+                              (String bullet) => Padding(
+                                padding: const EdgeInsets.only(bottom: 8),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 7),
+                                      child: Icon(
+                                        Icons.circle,
+                                        size: 6,
+                                        color: AppTheme.textColor(context),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Expanded(
+                                      child: MeaningRichText(text: bullet),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              ...section.bullets.map(
-                                (String bullet) => Padding(
-                                  padding: const EdgeInsets.only(bottom: 8),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Padding(
-                                        padding: EdgeInsets.only(top: 7),
-                                        child: Icon(
-                                          Icons.circle,
-                                          size: 6,
-                                          color: AppTheme.textColor(context),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Expanded(
-                                        child: MeaningRichText(text: bullet),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
             );
           },
     );
@@ -125,9 +148,7 @@ class _AppendixErrorState extends StatelessWidget {
           const SizedBox(height: 12),
           SelectableText(
             detail,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium?.copyWith(
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: AppTheme.mutedTextColor(context),
             ),
           ),

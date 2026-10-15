@@ -6,15 +6,39 @@ import '../theme/app_theme.dart';
 import '../widgets/completion_panel.dart';
 import '../widgets/meaning_rich_text.dart';
 
-class ReadingScreen extends StatelessWidget {
+class ReadingScreen extends StatefulWidget {
   const ReadingScreen({super.key, required this.slug});
 
   final String slug;
 
   @override
+  State<ReadingScreen> createState() => _ReadingScreenState();
+}
+
+class _ReadingScreenState extends State<ReadingScreen> {
+  late Future<ParsedReadingContent?> _content;
+  String get slug => widget.slug;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadContent();
+  }
+
+  @override
+  void didUpdateWidget(covariant ReadingScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.slug != slug) _loadContent();
+  }
+
+  void _loadContent() {
+    _content = WebContentLoader.loadReading(slug);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FutureBuilder<ParsedReadingContent?>(
-      future: WebContentLoader.loadReading(slug),
+      future: _content,
       builder:
           (
             BuildContext context,

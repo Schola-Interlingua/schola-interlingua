@@ -6,6 +6,27 @@ import 'package:schola_interlingua_flutter/src/screens/home_screen.dart';
 import 'package:schola_interlingua_flutter/src/theme/app_theme.dart';
 
 void main() {
+  testWidgets('search refreshes when the language changes and clears results', (
+    WidgetTester tester,
+  ) async {
+    final controller = AppController();
+    await tester.runAsync(controller.loadVocab);
+    await tester.pumpWidget(_ReaderTestApp(controller: controller));
+    final search = find.byType(TextField).first;
+    await tester.enterText(search, 'parlar');
+    await tester.pump();
+    expect(find.text('hablar'), findsWidgets);
+
+    controller.setSelectedLanguage('en');
+    await tester.pump();
+    expect(find.text('to speak'), findsWidgets);
+    expect(find.text('hablar'), findsNothing);
+
+    await tester.enterText(search, '');
+    await tester.pump();
+    expect(find.text('to speak'), findsNothing);
+  });
+
   testWidgets('reader highlights pasted text in place and translates a word', (
     WidgetTester tester,
   ) async {

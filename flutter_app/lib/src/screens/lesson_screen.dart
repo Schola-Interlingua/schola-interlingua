@@ -8,10 +8,36 @@ import '../widgets/lesson_audio_player.dart';
 import '../widgets/meaning_rich_text.dart';
 import '../widgets/practice_panel.dart';
 
-class LessonScreen extends StatelessWidget {
+class LessonScreen extends StatefulWidget {
   const LessonScreen({super.key, required this.slug});
 
   final String slug;
+
+  @override
+  State<LessonScreen> createState() => _LessonScreenState();
+}
+
+class _LessonScreenState extends State<LessonScreen> {
+  late Future<ParsedLectionContent?> _content;
+  String get slug => widget.slug;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadContent();
+  }
+
+  @override
+  void didUpdateWidget(covariant LessonScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.slug != slug) _loadContent();
+  }
+
+  void _loadContent() {
+    _content = slug.startsWith('lection')
+        ? WebContentLoader.loadLection(slug)
+        : Future<ParsedLectionContent?>.value();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +47,7 @@ class LessonScreen extends StatelessWidget {
     }
 
     return FutureBuilder<ParsedLectionContent?>(
-      future: WebContentLoader.loadLection(slug),
+      future: _content,
       builder:
           (
             BuildContext context,
