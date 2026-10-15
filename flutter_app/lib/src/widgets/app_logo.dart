@@ -38,7 +38,12 @@ class AppLogo extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(resolvedRadius * 0.72),
-        child: Image.asset(assetPath, fit: BoxFit.contain),
+        // The foreground asset includes transparent margins for launcher icons.
+        // Compensate here so the emblem reads clearly at header sizes.
+        child: Transform.scale(
+          scale: 1.4,
+          child: Image.asset(assetPath, fit: BoxFit.contain),
+        ),
       ),
     );
   }

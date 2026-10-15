@@ -138,9 +138,9 @@ class _Header extends StatelessWidget {
               child: Row(
                 children: [
                   AppLogo(
-                    size: compact ? 38 : 42,
-                    padding: const EdgeInsets.all(5),
-                    radius: 12,
+                    size: compact ? 46 : 52,
+                    padding: const EdgeInsets.all(3),
+                    radius: 14,
                   ),
                   const SizedBox(width: 12),
                   Expanded(
