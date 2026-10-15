@@ -71,7 +71,12 @@ class _AppShellState extends State<AppShell> {
                 left: horizontalPadding,
                 right: horizontalPadding,
                 bottom: compact ? 12 : 16,
-                child: const _BottomNavBar(),
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 620),
+                    child: const _BottomNavBar(),
+                  ),
+                ),
               ),
             ],
           ),
@@ -93,75 +98,18 @@ class _AmbientBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool dark = Theme.of(context).brightness == Brightness.dark;
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: dark
-              ? const <Color>[
-                  Color(0xFF091321),
-                  Color(0xFF10233B),
-                  Color(0xFF07111D),
-                ]
-              : const <Color>[
-                  Color(0xFFE8F1FF),
-                  Color(0xFFDCEAFF),
-                  Color(0xFFF4F8FF),
-                ],
-        ),
-      ),
-      child: Stack(
-        children: <Widget>[
-          Positioned(
-            top: -70,
-            left: -80,
-            child: _GlowOrb(
-              size: 260,
-              color: dark ? AppTheme.glowBlue : const Color(0xA0B7D7FF),
-            ),
-          ),
-          Positioned(
-            top: 130,
-            right: -100,
-            child: _GlowOrb(
-              size: 320,
-              color: dark ? AppTheme.glowCyan : const Color(0x80D0E4FF),
-            ),
-          ),
-          Positioned(
-            bottom: -140,
-            left: 60,
-            child: _GlowOrb(
-              size: 340,
-              color: dark ? const Color(0x404287FF) : const Color(0x66F5FBFF),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _GlowOrb extends StatelessWidget {
-  const _GlowOrb({required this.size, required this.color});
-
-  final double size;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return IgnorePointer(
-      child: ImageFiltered(
-        imageFilter: ImageFilter.blur(sigmaX: 46, sigmaY: 46),
-        child: Container(
-          width: size,
-          height: size,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            gradient: RadialGradient(
-              colors: <Color>[color, color.withValues(alpha: 0.0)],
-            ),
+    return Positioned.fill(
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: dark
+                ? const [
+                    AppTheme.darkBackgroundSecondary,
+                    AppTheme.darkBackground,
+                  ]
+                : const [AppTheme.backgroundSecondary, AppTheme.background],
           ),
         ),
       ),
@@ -177,105 +125,38 @@ class _Header extends StatelessWidget {
     final bool dark = Theme.of(context).brightness == Brightness.dark;
     final bool compact = MediaQuery.sizeOf(context).width < 560;
 
-    return Container(
-      margin: const EdgeInsets.fromLTRB(16, 10, 16, 0),
-      child: SafeArea(
-        bottom: false,
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1240),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(28),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(28),
-                    color: dark
-                        ? Colors.white.withValues(alpha: 0.08)
-                        : Colors.white.withValues(alpha: 0.44),
-                    border: Border.all(
-                      color: dark
-                          ? Colors.white.withValues(alpha: 0.16)
-                          : Colors.white.withValues(alpha: 0.60),
+    return SafeArea(
+      bottom: false,
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 1240),
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(24, compact ? 16 : 20, 76, 12),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(14),
+              onTap: () => context.go('/'),
+              child: Row(
+                children: [
+                  AppLogo(
+                    size: compact ? 38 : 42,
+                    padding: const EdgeInsets.all(5),
+                    radius: 12,
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      'Schola Interlingua',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: dark ? AppTheme.darkText : AppTheme.text,
+                        fontSize: compact ? 18 : 21,
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: -0.5,
+                      ),
                     ),
-                    boxShadow: AppTheme.glassShadow(context),
                   ),
-                  child: Stack(
-                    children: <Widget>[
-                      Positioned(
-                        top: 0,
-                        right: 0,
-                        child: IgnorePointer(
-                          child: Container(
-                            width: compact ? 120 : 220,
-                            height: compact ? 72 : 92,
-                            decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(28),
-                                bottomRight: Radius.circular(28),
-                              ),
-                              gradient: LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: dark
-                                    ? <Color>[
-                                        const Color(0x00112940),
-                                        const Color(0xFF112940),
-                                        const Color(0xFF112940),
-                                      ]
-                                    : <Color>[
-                                        const Color(0x00FFFFFF),
-                                        const Color(0xFFF3F8FF),
-                                        const Color(0xFFF3F8FF),
-                                      ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: compact ? 16 : 24,
-                          vertical: compact ? 14 : 16,
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: InkWell(
-                                onTap: () => context.go('/'),
-                                child: Row(
-                                  children: <Widget>[
-                                    AppLogo(
-                                      size: compact ? 40 : 46,
-                                      padding: EdgeInsets.all(compact ? 4 : 6),
-                                      radius: compact ? 12 : null,
-                                    ),
-                                    const SizedBox(width: 12),
-                                    Expanded(
-                                      child: Text(
-                                        'Schola Interlingua',
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          color: dark
-                                              ? Colors.white
-                                              : AppTheme.textColor(context),
-                                          fontSize: compact ? 18 : 22,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                ],
               ),
             ),
           ),
@@ -330,11 +211,11 @@ class _BottomNavBar extends StatelessWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
           child: Container(
-            padding: EdgeInsets.all(compact ? 6 : 10),
+            padding: const EdgeInsets.all(6),
             decoration: BoxDecoration(
               color: Theme.of(context).brightness == Brightness.dark
-                  ? Colors.white.withValues(alpha: 0.08)
-                  : Colors.white.withValues(alpha: 0.56),
+                  ? AppTheme.darkCard.withValues(alpha: 0.96)
+                  : Colors.white.withValues(alpha: 0.96),
               borderRadius: BorderRadius.circular(28),
               border: Border.all(color: AppTheme.borderColor(context)),
               boxShadow: AppTheme.glassShadow(context),
@@ -397,20 +278,7 @@ class _BottomNavButton extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(compact ? 18 : 20),
-          gradient: selected
-              ? LinearGradient(
-                  colors: <Color>[
-                    AppTheme.primary.withValues(alpha: 0.92),
-                    AppTheme.primaryLight.withValues(alpha: 0.74),
-                  ],
-                )
-              : null,
-          color: selected ? null : Colors.white.withValues(alpha: 0.08),
-          border: Border.all(
-            color: selected
-                ? Colors.white.withValues(alpha: 0.18)
-                : AppTheme.borderColor(context),
-          ),
+          color: selected ? AppTheme.primaryLight : Colors.transparent,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -418,7 +286,7 @@ class _BottomNavButton extends StatelessWidget {
             Icon(
               item.icon,
               size: compact ? 18 : 20,
-              color: selected ? Colors.white : AppTheme.textColor(context),
+              color: selected ? Colors.white : AppTheme.mutedTextColor(context),
             ),
             SizedBox(height: compact ? 4 : 6),
             Text(
@@ -427,7 +295,9 @@ class _BottomNavButton extends StatelessWidget {
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: selected ? Colors.white : AppTheme.textColor(context),
+                color: selected
+                    ? Colors.white
+                    : AppTheme.mutedTextColor(context),
                 fontWeight: FontWeight.w700,
                 fontSize: compact ? 11.5 : 14,
                 height: 1.1,

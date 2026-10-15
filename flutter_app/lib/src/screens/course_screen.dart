@@ -291,127 +291,126 @@ class _CourseGridCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool dark = Theme.of(context).brightness == Brightness.dark;
 
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(compact ? 18 : 22),
-      child: Ink(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: <Color>[
-              dark
-                  ? const Color(0xFF183A64)
-                  : AppTheme.primary.withValues(alpha: 0.86),
-              dark
-                  ? const Color(0xFF2A5687)
-                  : AppTheme.primaryLight.withValues(alpha: 0.58),
+    return Material(
+      type: MaterialType.transparency,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(compact ? 18 : 22),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: <Color>[
+                dark ? const Color(0xFF183A64) : const Color(0xFF183E65),
+                dark ? const Color(0xFF2A5687) : const Color(0xFF235B88),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(compact ? 18 : 22),
+            border: Border.all(
+              color: completed
+                  ? const Color(0xFF8CFFB7)
+                  : dark
+                  ? const Color(0xFF365B80)
+                  : Colors.white.withValues(alpha: 0.14),
+              width: completed ? 2 : 1,
+            ),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: dark ? const Color(0x66020B16) : const Color(0x260B2F58),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+              BoxShadow(
+                color: dark
+                    ? const Color(0x3352A8FF)
+                    : Colors.white.withValues(alpha: 0.08),
+                blurRadius: 8,
+              ),
             ],
           ),
-          borderRadius: BorderRadius.circular(compact ? 18 : 22),
-          border: Border.all(
-            color: completed
-                ? const Color(0xFF8CFFB7)
-                : dark
-                ? const Color(0xB3D8E8FF)
-                : Colors.white.withValues(alpha: 0.14),
-            width: completed ? 2.4 : 1.8,
-          ),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              color: dark ? const Color(0x66020B16) : const Color(0x260B2F58),
-              blurRadius: 20,
-              offset: const Offset(0, 12),
-            ),
-            BoxShadow(
-              color: dark
-                  ? const Color(0x3352A8FF)
-                  : Colors.white.withValues(alpha: 0.08),
-              blurRadius: 8,
-            ),
-          ],
-        ),
-        child: Stack(
-          children: <Widget>[
-            if (completed)
-              const Positioned(
-                top: 10,
-                right: 10,
-                child: CircleAvatar(
-                  radius: 15,
-                  backgroundColor: Color(0xFF25B14B),
-                  child: Icon(
-                    Icons.check_rounded,
-                    color: Colors.white,
-                    size: 20,
+          child: Stack(
+            children: <Widget>[
+              if (completed)
+                const Positioned(
+                  top: 10,
+                  right: 10,
+                  child: CircleAvatar(
+                    radius: 15,
+                    backgroundColor: Color(0xFF25B14B),
+                    child: Icon(
+                      Icons.check_rounded,
+                      color: Colors.white,
+                      size: 20,
+                    ),
                   ),
                 ),
-              ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(
-                compact ? 10 : 14,
-                compact ? 14 : 18,
-                compact ? 10 : 14,
-                compact ? 12 : 16,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: compact ? 52 : 62,
-                    height: compact ? 52 : 62,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: dark
-                          ? Colors.white.withValues(alpha: 0.12)
-                          : Colors.white.withValues(alpha: 0.10),
-                      border: Border.all(
+              Padding(
+                padding: EdgeInsets.fromLTRB(
+                  compact ? 10 : 14,
+                  compact ? 14 : 18,
+                  compact ? 10 : 14,
+                  compact ? 12 : 16,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: compact ? 52 : 62,
+                      height: compact ? 52 : 62,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
                         color: dark
-                            ? Colors.white.withValues(alpha: 0.20)
-                            : Colors.white.withValues(alpha: 0.12),
+                            ? Colors.white.withValues(alpha: 0.12)
+                            : Colors.white.withValues(alpha: 0.10),
+                        border: Border.all(
+                          color: dark
+                              ? Colors.white.withValues(alpha: 0.20)
+                              : Colors.white.withValues(alpha: 0.12),
+                        ),
                       ),
-                    ),
-                    child: Icon(
-                      item.icon,
-                      color: Colors.white,
-                      size: compact ? 24 : 30,
-                    ),
-                  ),
-                  SizedBox(height: compact ? 10 : 14),
-                  Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: compact ? 8 : 10,
-                      vertical: compact ? 8 : 10,
-                    ),
-                    decoration: BoxDecoration(
-                      color: dark
-                          ? Colors.white.withValues(alpha: 0.10)
-                          : Colors.white.withValues(alpha: 0.08),
-                      borderRadius: BorderRadius.circular(14),
-                      border: Border.all(
-                        color: dark
-                            ? Colors.white.withValues(alpha: 0.14)
-                            : Colors.white.withValues(alpha: 0.08),
-                      ),
-                    ),
-                    child: Text(
-                      item.title,
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
+                      child: Icon(
+                        item.icon,
                         color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
-                        height: 1.15,
+                        size: compact ? 24 : 30,
                       ),
                     ),
-                  ),
-                ],
+                    SizedBox(height: compact ? 10 : 14),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: compact ? 8 : 10,
+                        vertical: compact ? 8 : 10,
+                      ),
+                      decoration: BoxDecoration(
+                        color: dark
+                            ? Colors.white.withValues(alpha: 0.10)
+                            : Colors.white.withValues(alpha: 0.08),
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: dark
+                              ? Colors.white.withValues(alpha: 0.14)
+                              : Colors.white.withValues(alpha: 0.08),
+                        ),
+                      ),
+                      child: Text(
+                        item.title,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                          height: 1.15,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
