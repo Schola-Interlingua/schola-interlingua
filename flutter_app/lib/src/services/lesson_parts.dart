@@ -21,10 +21,17 @@ class LessonPart {
 
 /// Stable content partitions: every existing exercise belongs to exactly one
 /// part. Review scheduling never removes required content from a part.
+final _partsByCatalog = Expando<Map<String, List<LessonPart>>>();
+
 List<LessonPart> lessonParts(LearningActivityCatalog catalog, String slug) {
-  final activities = catalog.activities
-      .where((a) => a.sourceSlug == slug)
-      .toList();
+  // Catalogs are fixed snapshots. Cache only content, never user progress;
+  // Expando releases this cache when its catalog is no longer referenced.
+  final cached = _partsByCatalog[catalog] ??= {};
+  return cached.putIfAbsent(slug, () => _buildParts(catalog, slug));
+}
+
+List<LessonPart> _buildParts(LearningActivityCatalog catalog, String slug) {
+  final activities = catalog.activitiesForSource(slug);
   final clozes = activities.where((a) => a.mode == PracticeMode.cloze).toList();
   final dictations = activities
       .where((a) => a.mode == PracticeMode.dictation)
@@ -64,14 +71,14 @@ List<LessonPart> lessonParts(LearningActivityCatalog catalog, String slug) {
     }
     wordGroups[smallest].add(term);
   }
-  return [
+  return List.unmodifiable([
     for (var i = 0; i < count; i++)
       LessonPart(
         id: '$slug-part-${i + 1}',
         index: i,
-        activities: chunks[i],
-        terms: wordGroups[i],
+        activities: List.unmodifiable(chunks[i]),
+        terms: List.unmodifiable(wordGroups[i]),
         grammarIndex: i < topics.length ? i : null,
       ),
-  ];
+  ]);
 }

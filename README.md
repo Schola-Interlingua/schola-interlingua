@@ -81,6 +81,10 @@ Pro illes qui vole saper como le projecto es construite:
 * **Technologias**: Flutter, Supabase e assets del curso original mantenite in le migration.
 
 ### 🧩 Notas pro le practica del curso
+Le catalogo de practica carga su tres fontes in parallelo e indexa le exercitios per ID, fonte e modo. Le partes del curso es calculate un vice per catalogo e reutilisate; le cache non contine progresso del usator. Le selection de repaso gruppa le historia un vice e ordina solmente le eventos del exercitios considerate.
+
+Pro comparar iste calculos con le implementation anterior: in `flutter_app/`, executa `flutter test tool/benchmark_learning.dart --reporter expanded`. Iste benchmark mesura solmente le algoritmos, non le velocitate total del app o de un dispositivo. Le tests de equivalenta verifica le ordine, le partitiones de contento e le programmation de repaso con historias non ordinate e eventos al mesme instante.
+
 * Le direction del exercitios de pratica (prompt/answer) segue le mesme logica de **Traducer**: le prompt es `term` e le responsa es `item[lang] || item.es`, ubi `lang` veni del selector de linguas in le navbar.
 * Le teclado in schermo deriva su claves del responsa correcte (le litteras in le parola) e adde extras in base al lingua seligite: pro Espaniol, on include `áéíóúüñ`.
 

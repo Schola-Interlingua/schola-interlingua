@@ -14,6 +14,52 @@ DateTime? practiceDueAt(List<PracticeEvent> events, String activityId) {
           )
           .toList()
         ..sort((a, b) => a.at.compareTo(b.at));
+  return _dueFromSortedEvents(relevant);
+}
+
+/// Group once, then sort only the activities actually considered for review.
+/// A session that finds its first due activity early need not sort all history.
+class PracticeDueIndex {
+  PracticeDueIndex(List<PracticeEvent> events) {
+    for (final event in events) {
+      if (event.kind == PracticeEventKind.audio) continue;
+      _grouped.putIfAbsent(event.activityId, () => []).add(event);
+    }
+  }
+  final _grouped = <String, List<PracticeEvent>>{};
+  final _dates = <String, DateTime>{};
+  DateTime? dueAt(String id) {
+    final events = _grouped[id];
+    if (events == null) return null;
+    return _dates.putIfAbsent(
+      id,
+      () => _dueFromSortedEvents(events..sort((a, b) => a.at.compareTo(b.at)))!,
+    );
+  }
+}
+
+LearningActivity? priorPracticeActivity(
+  List<LearningActivity> activities,
+  List<PracticeEvent> events,
+  String sourceSlug,
+  DateTime now,
+) {
+  if (events.isEmpty) return null;
+  PracticeDueIndex? dates;
+  var checked = 0;
+  for (final activity in activities) {
+    if (activity.sourceSlug == sourceSlug) continue;
+    // Keep the common early match cheap; build the full index only when the
+    // search continues, instead of repeatedly scanning a large history.
+    final due = ++checked <= 3
+        ? practiceDueAt(events, activity.id)
+        : (dates ??= PracticeDueIndex(events)).dueAt(activity.id);
+    if (due != null && !due.isAfter(now)) return activity;
+  }
+  return null;
+}
+
+DateTime? _dueFromSortedEvents(List<PracticeEvent> relevant) {
   if (relevant.isEmpty) return null;
   final last = relevant.last;
   final clean =
@@ -48,13 +94,14 @@ List<LearningActivity> selectSessionActivities(
   List<PracticeEvent> events,
   DateTime now,
 ) {
+  final dueDates = PracticeDueIndex(events);
   final candidates =
       activities.where((item) {
-        final due = practiceDueAt(events, item.id);
+        final due = dueDates.dueAt(item.id);
         return due == null || !due.isAfter(now);
       }).toList()..sort((a, b) {
         int priority(LearningActivity item) {
-          final due = practiceDueAt(events, item.id);
+          final due = dueDates.dueAt(item.id);
           return due == null
               ? 1
               : !due.isAfter(now)
@@ -64,8 +111,8 @@ List<LearningActivity> selectSessionActivities(
 
         final order = priority(a).compareTo(priority(b));
         if (order != 0) return order;
-        final ad = practiceDueAt(events, a.id);
-        final bd = practiceDueAt(events, b.id);
+        final ad = dueDates.dueAt(a.id);
+        final bd = dueDates.dueAt(b.id);
         return ad != null && bd != null
             ? ad.compareTo(bd)
             : a.id.compareTo(b.id);

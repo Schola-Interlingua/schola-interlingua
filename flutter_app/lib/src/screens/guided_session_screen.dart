@@ -87,14 +87,13 @@ class _GuidedSessionScreenState extends State<GuidedSessionScreen> {
     content = loadedContent;
     parts = lessonParts(catalog, slug);
     final existing = store.forSource(slug);
-    final ids = catalog.activities.map((a) => a.id).toSet();
     if (existing != null &&
         existing.steps.every(
           (s) =>
               s == 'intro' ||
               s == 'grammar' ||
               s == 'finish' ||
-              ids.contains(s),
+              catalog.activityById(s) != null,
         )) {
       final unfinishedParts =
           store.nextPartIndex(slug, parts.length) < parts.length;
@@ -142,14 +141,12 @@ class _GuidedSessionScreenState extends State<GuidedSessionScreen> {
       session = previous;
       return;
     }
-    final prior = catalog.activities
-        .where((a) {
-          if (a.sourceSlug == widget.slug) return false;
-          final due = practiceDueAt(history.events, a.id);
-          return due != null && !due.isAfter(DateTime.now());
-        })
-        .take(1)
-        .toList();
+    final prior = priorPracticeActivity(
+      catalog.activities,
+      history.events,
+      widget.slug,
+      DateTime.now(),
+    );
     final next = GuidedSession(
       slug: widget.slug,
       id: DateTime.now().microsecondsSinceEpoch.toString(),
@@ -162,7 +159,7 @@ class _GuidedSessionScreenState extends State<GuidedSessionScreen> {
         'intro',
         if (part.grammarIndex != null) 'grammar',
         ...part.activities.map((a) => a.id),
-        ...prior.map((a) => a.id),
+        if (prior != null) prior.id,
         'finish',
       ],
     );
@@ -249,9 +246,7 @@ class _GuidedSessionScreenState extends State<GuidedSessionScreen> {
       }
       final state = session!;
       final step = state.steps[state.index];
-      final activity = catalog.activities
-          .where((a) => a.id == step)
-          .firstOrNull;
+      final activity = catalog.activityById(step);
       return Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 660),
@@ -365,7 +360,7 @@ class _GuidedSessionScreenState extends State<GuidedSessionScreen> {
       if (session!.partId != null) ...parts[session!.partIndex].terms,
     };
     for (final id in session!.steps) {
-      final activity = catalog.activities.where((a) => a.id == id).firstOrNull;
+      final activity = catalog.activityById(id);
       if (activity != null &&
           activity.sourceSlug == widget.slug &&
           activity.mode == PracticeMode.dictation) {
