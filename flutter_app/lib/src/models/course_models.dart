@@ -9,11 +9,13 @@ class CourseLevel {
     required this.slug,
     required this.title,
     required this.sections,
+    this.learningGoals = const [],
   });
 
   final String slug;
   final String title;
   final List<CourseSection> sections;
+  final List<String> learningGoals;
 
   int get totalItems =>
       sections.fold<int>(0, (sum, section) => sum + section.items.length);

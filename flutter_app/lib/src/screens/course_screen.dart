@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,406 +15,362 @@ class CourseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CompletionTracker(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          const SizedBox(height: 4),
-          const CompletionBanner(
-            itemKey: 'course:main',
-            message: 'Le curso es complete!',
-          ),
-          const SizedBox(height: 16),
-          const _DecksEntryCard(),
-          const SizedBox(height: 24),
-          ...courseLevels.map(
-            (CourseLevel level) => Padding(
-              padding: const EdgeInsets.only(bottom: 28),
-              child: _LevelSection(level: level),
-            ),
-          ),
-          const CompletionPanel(
-            itemKey: 'course:main',
-            buttonLabel: 'Refacer le curso',
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _DecksEntryCard extends StatelessWidget {
-  const _DecksEntryCard();
-
-  @override
-  Widget build(BuildContext context) {
-    final AppController controller = AppStateScope.of(context);
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        final bool compact = constraints.maxWidth < 620;
-        final Widget copy = Row(
-          children: <Widget>[
-            Container(
-              width: 58,
-              height: 58,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: <Color>[Color(0xFFE54867), Color(0xFF6C8CFF)],
-                ),
-                borderRadius: BorderRadius.circular(19),
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    color: const Color(0xFF6C8CFF).withValues(alpha: 0.28),
-                    blurRadius: 18,
-                    offset: const Offset(0, 8),
-                  ),
-                ],
-              ),
-              child: const Icon(
-                Icons.style_rounded,
-                color: Colors.white,
-                size: 30,
-              ),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Decks de vocabulario',
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    '${controller.favoriteWords.length} favorite · ${controller.customDecks.length} decks personal',
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppTheme.mutedTextColor(context),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        );
-
-        return ScholaCard(
-          padding: EdgeInsets.all(compact ? 20 : 26),
-          child: compact
-              ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    copy,
-                    const SizedBox(height: 18),
-                    FilledButton.icon(
-                      key: const Key('open-decks-button'),
-                      onPressed: () => context.push('/decks'),
-                      icon: const Icon(Icons.collections_bookmark_rounded),
-                      label: const Text('Aperir decks'),
-                    ),
-                  ],
-                )
-              : Row(
-                  children: <Widget>[
-                    Expanded(child: copy),
-                    const SizedBox(width: 24),
-                    FilledButton.icon(
-                      key: const Key('open-decks-button'),
-                      onPressed: () => context.push('/decks'),
-                      icon: const Icon(Icons.collections_bookmark_rounded),
-                      label: const Text('Aperir decks'),
-                    ),
-                  ],
-                ),
-        );
-      },
-    );
-  }
-}
-
-class _LevelSection extends StatelessWidget {
-  const _LevelSection({required this.level});
-
-  final CourseLevel level;
-
-  @override
-  Widget build(BuildContext context) {
-    final AppController controller = AppStateScope.of(context);
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        final bool compact = constraints.maxWidth < 430;
-
-        return ScholaCard(
-          padding: EdgeInsets.all(compact ? 18 : 24),
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 480),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                level.title,
-                style: Theme.of(context).textTheme.headlineMedium,
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const CompletionBanner(
+                itemKey: 'course:main',
+                message: 'Le curso es complete!',
               ),
-              const SizedBox(height: 8),
-              ...level.sections.map((CourseSection section) {
-                return Padding(
-                  padding: EdgeInsets.only(top: compact ? 16 : 20),
-                  child: Container(
-                    padding: EdgeInsets.all(compact ? 14 : 18),
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white.withValues(alpha: 0.04)
-                          : Colors.white.withValues(alpha: 0.18),
-                      borderRadius: BorderRadius.circular(compact ? 20 : 24),
-                      border: Border.all(
-                        color: Theme.of(context).brightness == Brightness.dark
-                            ? Colors.white.withValues(alpha: 0.10)
-                            : AppTheme.borderColor(context),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          section.title,
-                          style: Theme.of(context).textTheme.titleLarge
-                              ?.copyWith(
-                                color: AppTheme.mutedTextColor(context),
-                                fontWeight: FontWeight.w700,
-                              ),
-                        ),
-                        SizedBox(height: compact ? 16 : 20),
-                        _CourseGrid(
-                          items: section.items,
-                          controller: controller,
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              }),
-            ],
-          ),
-        );
-      },
-    );
-  }
-}
-
-class _CourseGrid extends StatelessWidget {
-  const _CourseGrid({required this.items, required this.controller});
-
-  final List<CourseItemRef> items;
-  final AppController controller;
-
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        final double width = constraints.maxWidth;
-        final int columns = width >= 1100
-            ? 5
-            : width >= 900
-            ? 4
-            : width >= 650
-            ? 3
-            : 2;
-        final bool compact = width < 430;
-        final double childAspectRatio = width < 420
-            ? 0.84
-            : width < 650
-            ? 0.78
-            : width < 900
-            ? 0.88
-            : 0.96;
-
-        return GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: items.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: columns,
-            crossAxisSpacing: compact ? 12 : 18,
-            mainAxisSpacing: compact ? 12 : 18,
-            childAspectRatio: childAspectRatio,
-          ),
-          itemBuilder: (BuildContext context, int index) {
-            final item = items[index];
-            final bool completed = controller.isCompleted(_completionKey(item));
-            return _CourseGridCard(
-              item: item,
-              completed: completed,
-              compact: compact,
-              onTap: () => context.go(_pathForItem(item)),
-            );
-          },
-        );
-      },
-    );
-  }
-
-  String _pathForItem(CourseItemRef item) {
-    switch (item.kind) {
-      case CourseItemKind.lesson:
-      case CourseItemKind.vocabulary:
-        return '/lesson/${item.slug}';
-      case CourseItemKind.reading:
-        return '/reading/${item.slug}';
-      case CourseItemKind.appendix:
-        return '/appendix/${item.slug}';
-    }
-  }
-
-  String _completionKey(CourseItemRef item) {
-    switch (item.kind) {
-      case CourseItemKind.lesson:
-      case CourseItemKind.vocabulary:
-        return 'lesson:${item.slug}';
-      case CourseItemKind.reading:
-        return 'reading:${item.slug}';
-      case CourseItemKind.appendix:
-        return 'appendix:${item.slug}';
-    }
-  }
-}
-
-class _CourseGridCard extends StatelessWidget {
-  const _CourseGridCard({
-    required this.item,
-    required this.completed,
-    required this.compact,
-    required this.onTap,
-  });
-
-  final CourseItemRef item;
-  final bool completed;
-  final bool compact;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final bool dark = Theme.of(context).brightness == Brightness.dark;
-
-    return Material(
-      type: MaterialType.transparency,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(compact ? 18 : 22),
-        child: Ink(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: <Color>[
-                dark ? const Color(0xFF183A64) : const Color(0xFF183E65),
-                dark ? const Color(0xFF2A5687) : const Color(0xFF235B88),
-              ],
-            ),
-            borderRadius: BorderRadius.circular(compact ? 18 : 22),
-            border: Border.all(
-              color: completed
-                  ? const Color(0xFF8CFFB7)
-                  : dark
-                  ? const Color(0xFF365B80)
-                  : Colors.white.withValues(alpha: 0.14),
-              width: completed ? 2 : 1,
-            ),
-            boxShadow: <BoxShadow>[
-              BoxShadow(
-                color: dark ? const Color(0x66020B16) : const Color(0x260B2F58),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
-              ),
-              BoxShadow(
-                color: dark
-                    ? const Color(0x3352A8FF)
-                    : Colors.white.withValues(alpha: 0.08),
-                blurRadius: 8,
-              ),
-            ],
-          ),
-          child: Stack(
-            children: <Widget>[
-              if (completed)
-                const Positioned(
-                  top: 10,
-                  right: 10,
-                  child: CircleAvatar(
-                    radius: 15,
-                    backgroundColor: Color(0xFF25B14B),
-                    child: Icon(
-                      Icons.check_rounded,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                  ),
-                ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(
-                  compact ? 10 : 14,
-                  compact ? 14 : 18,
-                  compact ? 10 : 14,
-                  compact ? 12 : 16,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: compact ? 52 : 62,
-                      height: compact ? 52 : 62,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: dark
-                            ? Colors.white.withValues(alpha: 0.12)
-                            : Colors.white.withValues(alpha: 0.10),
-                        border: Border.all(
-                          color: dark
-                              ? Colors.white.withValues(alpha: 0.20)
-                              : Colors.white.withValues(alpha: 0.12),
-                        ),
-                      ),
-                      child: Icon(
-                        item.icon,
-                        color: Colors.white,
-                        size: compact ? 24 : 30,
-                      ),
-                    ),
-                    SizedBox(height: compact ? 10 : 14),
-                    Container(
-                      width: double.infinity,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: compact ? 8 : 10,
-                        vertical: compact ? 8 : 10,
-                      ),
-                      decoration: BoxDecoration(
-                        color: dark
-                            ? Colors.white.withValues(alpha: 0.10)
-                            : Colors.white.withValues(alpha: 0.08),
-                        borderRadius: BorderRadius.circular(14),
-                        border: Border.all(
-                          color: dark
-                              ? Colors.white.withValues(alpha: 0.14)
-                              : Colors.white.withValues(alpha: 0.08),
-                        ),
-                      ),
-                      child: Text(
-                        item.title,
-                        textAlign: TextAlign.center,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14,
-                          height: 1.15,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              const _DecksEntry(),
+              const SizedBox(height: 18),
+              for (final level in courseLevels) _LevelPath(level: level),
+              const SizedBox(height: 12),
             ],
           ),
         ),
       ),
     );
   }
+}
+
+class _DecksEntry extends StatelessWidget {
+  const _DecksEntry();
+  @override
+  Widget build(BuildContext context) => TextButton(
+    key: const Key('open-decks-button'),
+    onPressed: () => context.push('/decks'),
+    style: TextButton.styleFrom(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+      foregroundColor: AppTheme.textColor(context),
+      backgroundColor: AppTheme.surfaceVariant(context),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+    ),
+    child: const Row(
+      children: [
+        Icon(Icons.collections_bookmark_rounded, size: 22),
+        SizedBox(width: 12),
+        Expanded(child: Text('Decks de vocabulario')),
+        Icon(Icons.chevron_right_rounded, size: 20),
+      ],
+    ),
+  );
+}
+
+class _LevelPath extends StatelessWidget {
+  const _LevelPath({required this.level});
+  final CourseLevel level;
+
+  @override
+  Widget build(BuildContext context) {
+    final controller = AppStateScope.of(context);
+    final items = level.sections.expand((section) => section.items).toList();
+    final nextIndex = items.indexWhere(
+      (item) => !controller.isCompleted(_completionKey(item)),
+    );
+    final sections = <({CourseSection section, int offset})>[];
+    var offset = 0;
+    for (final section in level.sections) {
+      sections.add((section: section, offset: offset));
+      offset += section.items.length;
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Semantics(
+          header: true,
+          button: true,
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: () => _showLevelSummary(context, level),
+              borderRadius: BorderRadius.circular(18),
+              child: Container(
+                key: ValueKey('course-level-${level.slug}'),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 16,
+                ),
+                decoration: BoxDecoration(
+                  color: AppTheme.primary,
+                  borderRadius: BorderRadius.circular(18),
+                  boxShadow: const [
+                    BoxShadow(color: Color(0xFF12385B), offset: Offset(0, 4)),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        level.title,
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                    const Icon(
+                      Icons.menu_book_rounded,
+                      color: Colors.white70,
+                      size: 24,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 12),
+        for (final entry in sections) ...[
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+            child: Row(
+              children: [
+                Expanded(child: Divider(color: AppTheme.borderColor(context))),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Text(
+                    entry.section.title,
+                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                      color: AppTheme.mutedTextColor(context),
+                    ),
+                  ),
+                ),
+                Expanded(child: Divider(color: AppTheme.borderColor(context))),
+              ],
+            ),
+          ),
+          _TopicPath(
+            items: entry.section.items,
+            startIndex: entry.offset,
+            nextIndex: nextIndex,
+            controller: controller,
+          ),
+        ],
+        const SizedBox(height: 28),
+      ],
+    );
+  }
+}
+
+const _wave = <double>[0, .65, 1, .65, 0, -.65, -1, -.65];
+
+class _TopicPath extends StatelessWidget {
+  const _TopicPath({
+    required this.items,
+    required this.startIndex,
+    required this.nextIndex,
+    required this.controller,
+  });
+  final List<CourseItemRef> items;
+  final int startIndex, nextIndex;
+  final AppController controller;
+
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) {
+      final amplitude = math.min(
+        88.0,
+        math.max(0.0, constraints.maxWidth / 2 - 76),
+      );
+      final textScale = MediaQuery.textScalerOf(context).scale(13) / 13;
+      final step = 116.0 + math.max(0.0, textScale - 1) * 60;
+      final centers = [
+        for (var index = 0; index < items.length; index++)
+          Offset(
+            constraints.maxWidth / 2 +
+                _wave[(startIndex + index) % _wave.length] * amplitude,
+            index * step + 32,
+          ),
+      ];
+      return Column(
+        children: [
+          for (var index = 0; index < items.length; index++)
+            SizedBox(
+              height: step,
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Transform.translate(
+                  offset: Offset(
+                    centers[index].dx - constraints.maxWidth / 2,
+                    0,
+                  ),
+                  child: _TopicNode(
+                    item: items[index],
+                    completed: controller.isCompleted(
+                      _completionKey(items[index]),
+                    ),
+                    next: startIndex + index == nextIndex,
+                    height: step,
+                  ),
+                ),
+              ),
+            ),
+        ],
+      );
+    },
+  );
+}
+
+class _TopicNode extends StatelessWidget {
+  const _TopicNode({
+    required this.item,
+    required this.completed,
+    required this.next,
+    required this.height,
+  });
+  final CourseItemRef item;
+  final bool completed, next;
+  final double height;
+
+  @override
+  Widget build(BuildContext context) {
+    final dark = Theme.of(context).brightness == Brightness.dark;
+    final fill = completed
+        ? const Color(0xFF23794F)
+        : next
+        ? const Color(0xFF327BB7)
+        : dark
+        ? const Color(0xFF234B70)
+        : const Color(0xFF2C6292);
+    return Semantics(
+      key: ValueKey('course-node-${item.kind.name}-${item.slug}'),
+      button: true,
+      label: completed ? '${item.title}, complete' : item.title,
+      child: Tooltip(
+        message: item.title,
+        excludeFromSemantics: true,
+        child: Material(
+          type: MaterialType.transparency,
+          child: InkWell(
+            onTap: () => context.go(_pathForItem(item)),
+            borderRadius: BorderRadius.circular(16),
+            child: ExcludeSemantics(
+              child: SizedBox(
+                width: 148,
+                height: height,
+                child: Column(
+                  children: [
+                    Container(
+                      key: ValueKey(
+                        'course-circle-${item.kind.name}-${item.slug}',
+                      ),
+                      width: 62,
+                      height: 62,
+                      padding: const EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: next && !completed
+                            ? Border.all(
+                                color: dark
+                                    ? const Color(0xFF8DC9FF)
+                                    : AppTheme.primary,
+                                width: 2,
+                              )
+                            : null,
+                      ),
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: fill,
+                          boxShadow: [
+                            BoxShadow(
+                              color: completed
+                                  ? const Color(0xFF154B32)
+                                  : const Color(0xFF163952),
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: Icon(
+                          completed ? Icons.check_rounded : item.icon,
+                          color: Colors.white,
+                          size: 25,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 7),
+                    Text(
+                      item.title,
+                      textAlign: TextAlign.center,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        fontSize: 13,
+                        height: 1.15,
+                        fontWeight: FontWeight.w600,
+                        color: AppTheme.textColor(context),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+String _pathForItem(CourseItemRef item) => switch (item.kind) {
+  CourseItemKind.lesson || CourseItemKind.vocabulary => '/lesson/${item.slug}',
+  CourseItemKind.reading => '/reading/${item.slug}',
+  CourseItemKind.appendix => '/appendix/${item.slug}',
+};
+
+String _completionKey(CourseItemRef item) => switch (item.kind) {
+  CourseItemKind.lesson || CourseItemKind.vocabulary => 'lesson:${item.slug}',
+  CourseItemKind.reading => 'reading:${item.slug}',
+  CourseItemKind.appendix => 'appendix:${item.slug}',
+};
+
+Future<void> _showLevelSummary(BuildContext context, CourseLevel level) {
+  return showDialog<void>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Text(level.title),
+      content: SizedBox(
+        width: 360,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Que apprendera tu?',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: 16),
+              for (final goal in level.learningGoals)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 3),
+                        child: Icon(Icons.check_rounded, size: 18),
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(child: Text(goal)),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Continuar'),
+        ),
+      ],
+    ),
+  );
 }

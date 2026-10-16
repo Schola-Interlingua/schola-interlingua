@@ -7,6 +7,11 @@ const List<CourseLevel> _baseCourseLevels = <CourseLevel>[
   CourseLevel(
     slug: 'nivel-1',
     title: 'Nivello 1',
+    learningGoals: [
+      'Formar phrases simple con articulos, plurales e verbos in le presente.',
+      'Usar parolas de base e expressiones quotidian, e parlar de alimentos e animales.',
+      'Ascoltar le prime cinque lectiones e leger textos sur le familia e le scola.',
+    ],
     sections: <CourseSection>[
       CourseSection(
         title: 'Lectiones',
@@ -103,6 +108,11 @@ const List<CourseLevel> _baseCourseLevels = <CourseLevel>[
   CourseLevel(
     slug: 'nivel-2',
     title: 'Nivello 2',
+    learningGoals: [
+      'Describer e comparar personas e cosas con adjectivos e pronomines.',
+      'Parlar de colores e familia, formar plurales e usar numeros.',
+      'Ascoltar le lectiones 6–10 e leger sur un visita al mercato e un excursion.',
+    ],
     sections: <CourseSection>[
       CourseSection(
         title: 'Lectiones',
@@ -205,6 +215,11 @@ const List<CourseLevel> _baseCourseLevels = <CourseLevel>[
   CourseLevel(
     slug: 'nivel-3',
     title: 'Nivello 3',
+    learningGoals: [
+      'Indicar possession, facer questiones e combinar verbos con le infinitivo.',
+      'Usar esser e haber, e parlar de vestimentos e locationes con prepositiones.',
+      'Leger sur un bibliotheca e un viage in traino.',
+    ],
     sections: <CourseSection>[
       CourseSection(
         title: 'Vocabulario',
@@ -265,6 +280,11 @@ const List<CourseLevel> _baseCourseLevels = <CourseLevel>[
   CourseLevel(
     slug: 'nivel-4',
     title: 'Nivello 4',
+    learningGoals: [
+      'Indicar cosas con demonstrativos e connecter ideas con conjunctiones.',
+      'Precisar como un action occurre con adverbios, e ampliar le uso de verbos e numeros.',
+      'Leger sur inventores e linguas del mundo.',
+    ],
     sections: <CourseSection>[
       CourseSection(
         title: 'Vocabulario',
@@ -331,6 +351,11 @@ const List<CourseLevel> _baseCourseLevels = <CourseLevel>[
   CourseLevel(
     slug: 'nivel-5',
     title: 'Nivello 5',
+    learningGoals: [
+      'Parlar del passato e del futuro, e exprimer actiones ja completate.',
+      'Invitar a agir con le imperativo e usar datas, expressiones de tempore e possessivos.',
+      'Leger sur le utilitate de Interlingua e su futuro.',
+    ],
     sections: <CourseSection>[
       CourseSection(
         title: 'Vocabulario',
@@ -391,6 +416,11 @@ const List<CourseLevel> _baseCourseLevels = <CourseLevel>[
   CourseLevel(
     slug: 'nivel-6',
     title: 'Nivello 6',
+    learningGoals: [
+      'Negar phrases, usar pronomines objecto e unir ideas con phrases relative.',
+      'Cambiar le puncto de vista con le passivo e ampliar le uso de verbos e adverbios.',
+      'Parlar de occupationes, habitation e technologia.',
+    ],
     sections: <CourseSection>[
       CourseSection(
         title: 'Vocabulario',
@@ -455,6 +485,7 @@ final List<CourseLevel> courseLevels = _baseCourseLevels
       (level) => CourseLevel(
         slug: level.slug,
         title: level.title,
+        learningGoals: level.learningGoals,
         sections: [
           CourseSection(
             title: 'Grammatica',
