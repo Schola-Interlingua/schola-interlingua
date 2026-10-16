@@ -681,9 +681,11 @@ class _SrsOverviewCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    Text(
-                      '${labels[stage]}: ${counts[stage] ?? 0}',
-                      style: Theme.of(context).textTheme.bodyMedium,
+                    Flexible(
+                      child: Text(
+                        '${labels[stage]}: ${counts[stage] ?? 0}',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
                     ),
                   ],
                 ),
