@@ -32,6 +32,8 @@ Le app include actualmente:
 * lectiones e vocabulario structurate per nivellos
 * lecturas, appendices e practica integrate
 * quiz rapide e repaso rapide con audio de pronunciation super parolas e phrases
+* completar phrases del textos e dictato con le audios existente
+* registro interne local de tentativas e adjutas pro le practica
 * jocos como le sopa de litteras con audio quando on toca le parola
 * synchronization de progresso con Supabase quando le usator aperi session
 * deletion de conto con passos de confirmation pro evitar deletion accidental
@@ -72,3 +74,11 @@ Pro illes qui vole saper como le projecto es construite:
 * Multe gratias etiam a Martijn Dekker pro le audios del dece lectiones e pro su contributiones via pull requests.
 * Un sincere gratias a tote illes qui contribue a meliorar iste repositorio con lor suggestiones e aportes.
 * Un regratiamento special a Jacinto Jay Bowks, creator de Chatina, pro su valorose collaboration e supporto al projecto.
+
+
+### Practica in contexto
+Le nove practica appare intra le lectiones, ante le practica de vocabulario existente. `flutter_app/assets/data/learning_activities.json` contine le phrases a completar, le responsas acceptate e le explicationes. Le dictatos es construite ab `vocab.json` e le manifesto del audios, con un maximo de octo exercitios per session; le session sequente priorisa actividades non ancora practicate o plus ancian.
+
+Le historia usa le clave local `learning_practice_events_v1`. Illo registra le modo, activitate, responsa, resultato, indicios, revelationes, reproductiones, numero de tentativa e tempore transcurrite. Un correcte post un error, un indicio o un audio repetite es distinguite de un correcte al prime tentativa sin adjuta. Le responsas revelate non conta como correctes. Le registro non modifica le SRS existente e non es synchronisate inter dispositivos. Illo resta interne; le interfacie presenta solmente completar phrases e dictato, sin un tabula de historia o statisticas.
+
+Validation del practica (2026-10-16): 35 tests Flutter, analyse sin problemas e build web release correcte. Le nove tests verifica le fontes del 38 phrases, existentia del audios de dictato, correction, indicios, revelationes, errores de audio, persistentia, scripturas concurrente e navigation a un altere lection. Le verification in le navigator local includeva un error e un indicio ante le correcte, un dictato correcte sin indicio, reproduction de un phrase WAV (HTTP 200), repetition del audio, revelation del responsa e historia identic post recargar le pagina. Le tests de widgets include un viewport de 320 px; dispositivos iOS/Android non esseva probate.

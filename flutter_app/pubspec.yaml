@@ -64,5 +64,6 @@ flutter:
     - assets/content/lessons/
     - assets/images/
     - assets/data/anki_manifest.json
+    - assets/data/learning_activities.json
     - assets/data/content.json
     - assets/data/vocab.json

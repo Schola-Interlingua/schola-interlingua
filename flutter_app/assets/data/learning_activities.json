@@ -1,0 +1,388 @@
+{
+  "version": 1,
+  "cloze": [
+    {
+      "id": "lection1-cloze-1",
+      "sourceSlug": "lection1",
+      "sourceText": "Nos parla interlingua con placer.",
+      "prompt": "Nos ____ interlingua con placer.",
+      "answers": [
+        "parla"
+      ],
+      "explanation": "Le presente non cambia con nos: parlar perde solmente -r."
+    },
+    {
+      "id": "lection1-cloze-2",
+      "sourceSlug": "lection1",
+      "sourceText": "Illa es Ana, mi amica.",
+      "prompt": "Illa es Ana, ____ amica.",
+      "answers": [
+        "mi"
+      ],
+      "explanation": "Mi precede amica e indica le possessor."
+    },
+    {
+      "id": "lection2-cloze-1",
+      "sourceSlug": "lection2",
+      "sourceText": "Pedro se evelia e reguarda su horologio.",
+      "prompt": "Pedro ____ evelia e reguarda su horologio.",
+      "answers": [
+        "se"
+      ],
+      "explanation": "Se es le reflexivo pro Pedro, un tertie persona."
+    },
+    {
+      "id": "lection2-cloze-2",
+      "sourceSlug": "lection2",
+      "sourceText": "Ille non pote dormir e prende un libro pro leger.",
+      "prompt": "Ille non pote ____ e prende un libro pro leger.",
+      "answers": [
+        "dormir"
+      ],
+      "explanation": "Post poter, usa le infinitivo sin preposition."
+    },
+    {
+      "id": "lection3-cloze-1",
+      "sourceSlug": "lection3",
+      "sourceText": "Le cossinos sur le lecto es suave e rubie.",
+      "prompt": "Le cossinos sur le lecto ____ suave e rubie.",
+      "answers": [
+        "es",
+        "son"
+      ],
+      "explanation": "Es pote esser usate con un subjecto plural; le forma optional son es anque correcte."
+    },
+    {
+      "id": "lection3-cloze-2",
+      "sourceSlug": "lection3",
+      "sourceText": "In le cocina il ha un tabula de ligno con quatro sedias elegante.",
+      "prompt": "In le cocina il ____ un tabula de ligno con quatro sedias elegante.",
+      "answers": [
+        "ha"
+      ],
+      "explanation": "Il ha exprime existentia: il ha un tabula."
+    },
+    {
+      "id": "lection4-cloze-1",
+      "sourceSlug": "lection4",
+      "sourceText": "Io me leva a septe horas cata matino e me vesti rapidemente con un camisa e pantalones confortabile.",
+      "prompt": "Io ____ leva a septe horas cata matino e me vesti rapidemente con un camisa e pantalones confortabile.",
+      "answers": [
+        "me"
+      ],
+      "explanation": "Io usa le reflexivo me: io me leva."
+    },
+    {
+      "id": "lection4-cloze-2",
+      "sourceSlug": "lection4",
+      "sourceText": "A octo horas io vade al officio in autobus e arriva a octo e medie.",
+      "prompt": "A octo horas io vade ____ officio in autobus e arriva a octo e medie.",
+      "answers": [
+        "al"
+      ],
+      "explanation": "A + le se contrahe a al."
+    },
+    {
+      "id": "lection5-cloze-1",
+      "sourceSlug": "lection5",
+      "sourceText": "Io ama mangiar pizza con caseo e tomate in un parve pizzeria local.",
+      "prompt": "Io ama mangiar pizza ____ caseo e tomate in un parve pizzeria local.",
+      "answers": [
+        "con"
+      ],
+      "explanation": "Con introduce le ingredientes del pizza."
+    },
+    {
+      "id": "lection5-cloze-2",
+      "sourceSlug": "lection5",
+      "sourceText": "Le aqua in le refrigerator es sempre frigide e clar.",
+      "prompt": "Le aqua in le refrigerator es ____ frigide e clar.",
+      "answers": [
+        "sempre",
+        "semper"
+      ],
+      "explanation": "Semper e sempre exprime que le situation se repete sin exception."
+    },
+    {
+      "id": "lection6-cloze-1",
+      "sourceSlug": "lection6",
+      "sourceText": "Le Placia de Maio se trova ante le Casa Rosate, un symbolo politic e historic.",
+      "prompt": "Le Placia de Maio se trova ____ le Casa Rosate, un symbolo politic e historic.",
+      "answers": [
+        "ante"
+      ],
+      "explanation": "Ante indica un position in fronte de un referente."
+    },
+    {
+      "id": "lection6-cloze-2",
+      "sourceSlug": "lection6",
+      "sourceText": "Le transporto public comprende autobus, metro e trainos rapide que connecte cata quartiero con le centro.",
+      "prompt": "Le transporto public comprende autobus, metro e trainos rapide ____ connecte cata quartiero con le centro.",
+      "answers": [
+        "que"
+      ],
+      "explanation": "Que introduce un proposition relative que describe le transportos."
+    },
+    {
+      "id": "lection7-cloze-1",
+      "sourceSlug": "lection7",
+      "sourceText": "Le climate in Buenos Aires cambia durante le anno.",
+      "prompt": "Le climate in Buenos Aires cambia ____ le anno.",
+      "answers": [
+        "durante"
+      ],
+      "explanation": "Durante situa le cambio in un periodo de tempore."
+    },
+    {
+      "id": "lection7-cloze-2",
+      "sourceSlug": "lection7",
+      "sourceText": "Nos ama ir al parco quando le celo es clar e le vento es suave.",
+      "prompt": "Nos ama ir al parco ____ le celo es clar e le vento es suave.",
+      "answers": [
+        "quando"
+      ],
+      "explanation": "Quando introduce le circumstantia temporal."
+    },
+    {
+      "id": "lection8-cloze-1",
+      "sourceSlug": "lection8",
+      "sourceText": "Io vole comprar un libro de grammatica e un camisa elegante pro mi presentation.",
+      "prompt": "Io vole ____ un libro de grammatica e un camisa elegante pro mi presentation.",
+      "answers": [
+        "comprar"
+      ],
+      "explanation": "Post voler, le secunde verbo resta in infinitivo."
+    },
+    {
+      "id": "lection8-cloze-2",
+      "sourceSlug": "lection8",
+      "sourceText": "Io paga con mi carta de credito e conserva le recepta pro referentia futur.",
+      "prompt": "Io paga con ____ carta de credito e conserva le recepta pro referentia futur.",
+      "answers": [
+        "mi"
+      ],
+      "explanation": "Mi es invariable ante le nomine carta."
+    },
+    {
+      "id": "lection9-cloze-1",
+      "sourceSlug": "lection9",
+      "sourceText": "Le trajecto dura circa quatro horas e passa per belle paisages montaniose e campos verde.",
+      "prompt": "Le trajecto dura ____ quatro horas e passa per belle paisages montaniose e campos verde.",
+      "answers": [
+        "circa"
+      ],
+      "explanation": "Circa indica un valor approximative, hic un duration."
+    },
+    {
+      "id": "lection9-cloze-2",
+      "sourceSlug": "lection9",
+      "sourceText": "Durante le viage io lege un libro e ascolta musica pro passar le tempore.",
+      "prompt": "Durante le viage io lege un libro e ascolta musica pro ____ le tempore.",
+      "answers": [
+        "passar"
+      ],
+      "explanation": "Pro + infinitivo introduce le scopo."
+    },
+    {
+      "id": "lection10-cloze-1",
+      "sourceSlug": "lection10",
+      "sourceText": "Io joca con mi amicos le fin de septimana in le parco local durante le matino.",
+      "prompt": "Io joca con ____ amicos le fin de septimana in le parco local durante le matino.",
+      "answers": [
+        "mi"
+      ],
+      "explanation": "Mi resta invariable ante le plural amicos."
+    },
+    {
+      "id": "lection10-cloze-2",
+      "sourceSlug": "lection10",
+      "sourceText": "Quando io ha plus tempore, io practica musica in mi studio e explora nove instrumentos.",
+      "prompt": "____ io ha plus tempore, io practica musica in mi studio e explora nove instrumentos.",
+      "answers": [
+        "Quando"
+      ],
+      "explanation": "Quando liga le action al circumstantia temporal."
+    },
+    {
+      "id": "basico1-cloze-1",
+      "sourceSlug": "basico1",
+      "sourceText": "le puera es belle",
+      "prompt": "le puera ____ belle",
+      "answers": [
+        "es"
+      ],
+      "explanation": "Es liga le subjecto al adjectivo."
+    },
+    {
+      "id": "basico2-cloze-1",
+      "sourceSlug": "basico2",
+      "sourceText": "vos es bon homines",
+      "prompt": "vos ____ bon homines",
+      "answers": [
+        "es",
+        "son"
+      ],
+      "explanation": "Es non cambia pro vos; son es un plural optional."
+    },
+    {
+      "id": "adjectivos1-cloze-1",
+      "sourceSlug": "adjectivos1",
+      "sourceText": "il ha personas multo bon",
+      "prompt": "il ha personas ____ bon",
+      "answers": [
+        "multo"
+      ],
+      "explanation": "Multo modifica le adjectivo bon; multe precederea un nomine."
+    },
+    {
+      "id": "plurales-cloze-1",
+      "sourceSlug": "plurales",
+      "sourceText": "le grande canes",
+      "prompt": "le grande ____",
+      "answers": [
+        "canes"
+      ],
+      "explanation": "Can termina in consonante: le plural regular es canes."
+    },
+    {
+      "id": "esser-haber-cloze-1",
+      "sourceSlug": "esser-haber",
+      "sourceText": "il ha duo libros",
+      "prompt": "il ____ duo libros",
+      "answers": [
+        "ha"
+      ],
+      "explanation": "Il ha annuncia le existentia de cosas, anque in plural."
+    },
+    {
+      "id": "adjectivos-possessive-cloze-1",
+      "sourceSlug": "adjectivos-possessive",
+      "sourceText": "mi libros es vetule",
+      "prompt": "____ libros es vetule",
+      "answers": [
+        "mi"
+      ],
+      "explanation": "Ante libros, mi resta invariable."
+    },
+    {
+      "id": "colores-cloze-1",
+      "sourceSlug": "colores",
+      "sourceText": "le tortuca es verde",
+      "prompt": "le tortuca es ____",
+      "answers": [
+        "verde"
+      ],
+      "explanation": "Verde es un adjectivo e non cambia pro genere o numero."
+    },
+    {
+      "id": "presente1-cloze-1",
+      "sourceSlug": "presente1",
+      "sourceText": "io pote parlar interlingua",
+      "prompt": "io pote ____ interlingua",
+      "answers": [
+        "parlar"
+      ],
+      "explanation": "Post pote, usa le infinitivo sin preposition."
+    },
+    {
+      "id": "demonstrativos1-cloze-1",
+      "sourceSlug": "demonstrativos1",
+      "sourceText": "iste scarpas es blanc",
+      "prompt": "____ scarpas es blanc",
+      "answers": [
+        "iste"
+      ],
+      "explanation": "Ante un nomine plural, iste resta invariable."
+    },
+    {
+      "id": "conjunctiones-cloze-1",
+      "sourceSlug": "conjunctiones",
+      "sourceText": "io lege durante que illa dormi",
+      "prompt": "io lege ____ illa dormi",
+      "answers": [
+        "durante que"
+      ],
+      "explanation": "Durante que introduce un action simultanee."
+    },
+    {
+      "id": "verbos2-cloze-1",
+      "sourceSlug": "verbos2",
+      "sourceText": "nos dormi",
+      "prompt": "nos ____",
+      "answers": [
+        "dormi"
+      ],
+      "explanation": "Dormir perde -r; dormi es le mesme pro omne personas."
+    },
+    {
+      "id": "verbos3-cloze-1",
+      "sourceSlug": "verbos3",
+      "sourceText": "nos mangia pro viver",
+      "prompt": "nos mangia ____ viver",
+      "answers": [
+        "pro"
+      ],
+      "explanation": "Pro + infinitivo exprime le scopo del action."
+    },
+    {
+      "id": "datas-tempore-cloze-1",
+      "sourceSlug": "datas-tempore",
+      "sourceText": "ab lunedi a venerdi",
+      "prompt": "____b lunedi a venerdi",
+      "answers": [
+        "a"
+      ],
+      "explanation": "Ab ... a ... indica le initio e le fin de un periodo."
+    },
+    {
+      "id": "verbos4-cloze-1",
+      "sourceSlug": "verbos4",
+      "sourceText": "retornar a casa",
+      "prompt": "retorn____r a casa",
+      "answers": [
+        "a"
+      ],
+      "explanation": "A introduce le destination."
+    },
+    {
+      "id": "verbos5-cloze-1",
+      "sourceSlug": "verbos5",
+      "sourceText": "io prefere",
+      "prompt": "io ____",
+      "answers": [
+        "prefere"
+      ],
+      "explanation": "Preferer perde solmente -r; le vocal e resta."
+    },
+    {
+      "id": "verbos6-cloze-1",
+      "sourceSlug": "verbos6",
+      "sourceText": "illa me manca multo",
+      "prompt": "illa ____ manca multo",
+      "answers": [
+        "me"
+      ],
+      "explanation": "Me indica le persona qui senti le absentia de illa."
+    },
+    {
+      "id": "negativos-cloze-1",
+      "sourceSlug": "negativos",
+      "sourceText": "nemo es perfecte",
+      "prompt": "____ es perfecte",
+      "answers": [
+        "nemo"
+      ],
+      "explanation": "Nemo significa nulle persona e functiona como subjecto."
+    },
+    {
+      "id": "prender-casa-cloze-1",
+      "sourceSlug": "prender-casa",
+      "sourceText": "parlar al telephono",
+      "prompt": "parlar ____ telephono",
+      "answers": [
+        "al"
+      ],
+      "explanation": "A + le se contrahe a al."
+    }
+  ]
+}

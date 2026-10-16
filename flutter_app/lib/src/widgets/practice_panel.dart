@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../app_state.dart';
+import 'learning_practice_panel.dart';
 import '../services/option_audio_service.dart';
 import '../theme/app_theme.dart';
 
@@ -45,6 +46,8 @@ class _PracticePanelState extends State<PracticePanel> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
+        LearningPracticePanel(slug: widget.slug),
+        const SizedBox(height: 24),
         _VocabularyTable(items: items),
         const SizedBox(height: 24),
         _ClassicReviewCard(items: items, slug: widget.slug),
