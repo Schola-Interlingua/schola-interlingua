@@ -18,7 +18,14 @@ Le version principal de Schola Interlingua es ora le application **Flutter** dis
 * iOS
 * macOS
 
-Le dossier `public/` contine le build web generate de iste application e es le variante publicabile del sito.
+Vercel compila `flutter_app/` a cata push e publica `flutter_app/build/web/`. Le dossier `public/` conserva le ancian build e le paginas static; su JavaScript non es plus usate como build de production.
+
+### Publication web automatic
+`vercel.json` defini `bash scripts/build_web.sh` como commando de build. Le script installa Flutter 3.44.7 al revision fixate, restaura le dependentias del lockfile, executa le analyse e le tests, e genera un nove build release. Un error stoppa le publication; il non ha fallback al ancian build.
+
+Le integration Git de Vercel publica `main` in production e crea previews pro le altere brancas. Le paginas `/about`, `/privacy`, `/terms` e `/delete-account` es preservate. Le JavaScript usa un nomine con hash e le files es revalidate pro evitar versiones ancian in le navigator. `/build-info.json` identifica le commit publicate.
+
+Pro verificar localmente con le SDK fixate: `SCHOLA_FLUTTER_BIN="$(command -v flutter)" bash scripts/build_web.sh`. Non es necessari copiar builds a `public/` ni committer files generate.
 
 ### Como executar le app Flutter localmente
 1. Entra in `flutter_app/`

@@ -1,0 +1,3 @@
+# Local Vercel metadata and cached build tooling.
+.vercel/
+node_modules/
