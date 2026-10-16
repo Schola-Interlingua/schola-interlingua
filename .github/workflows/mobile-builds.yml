@@ -1,0 +1,136 @@
+name: Mobile builds
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# This workflow only compiles and saves artifacts. It has no store credentials
+# and cannot create releases or publish to Google Play, App Store or TestFlight.
+permissions:
+  contents: read
+
+env:
+  FLUTTER_VERSION: '3.44.7'
+  FLUTTER_SUPPRESS_ANALYTICS: 'true'
+  CI: 'true'
+
+defaults:
+  run:
+    shell: bash
+    working-directory: flutter_app
+
+jobs:
+  verify:
+    name: Analyze and test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - run: flutter pub get --enforce-lockfile
+      - run: flutter analyze --no-pub
+      - run: flutter test --no-pub
+
+  android:
+    name: Android APK and AAB (test signing)
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - run: flutter pub get --enforce-lockfile
+      - name: Build release APK and AAB with disposable test key
+        run: |
+          # Never silently consume a production signing file in this workflow.
+          test ! -e android/key.properties
+          flutter build apk --release --no-pub
+          flutter build appbundle --release --no-pub
+      - name: Collect Android artifacts
+        run: |
+          mkdir -p build/ci-android
+          cp build/app/outputs/flutter-apk/*.apk build/ci-android/
+          cp build/app/outputs/bundle/release/*.aab build/ci-android/
+          cat > build/ci-android/BUILD-INFO.txt <<EOF
+          Commit: $GITHUB_SHA
+          Workflow run: $GITHUB_RUN_ID (attempt $GITHUB_RUN_ATTEMPT)
+          Flutter: $FLUTTER_VERSION
+          Release compilation with a disposable Android debug signing key.
+          APK: for testing; cannot update the official store-signed app.
+          AAB: compilation artifact only; not signed for Google Play.
+          No upload to stores has been performed.
+          EOF
+          (cd build/ci-android && sha256sum *.apk *.aab > SHA256SUMS.txt)
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: android-test-build-${{ github.sha }}-${{ github.run_attempt }}
+          path: flutter_app/build/ci-android/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+
+  ios:
+    name: iOS unsigned archive and simulator
+    needs: verify
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - name: Record Apple toolchain
+        run: |
+          xcodebuild -version
+          pod --version
+          uname -m
+      - run: flutter pub get --enforce-lockfile
+      - name: Build device archive without signing or export
+        run: flutter build ipa --release --no-pub --no-codesign
+      - name: Build simulator app
+        run: flutter build ios --simulator --debug --no-pub
+      - name: Package Apple bundles preserving permissions and symlinks
+        run: |
+          test -d build/ios/archive/Runner.xcarchive
+          test -d build/ios/iphonesimulator/Runner.app
+          mkdir -p build/ci-ios
+          tar -czf build/ci-ios/ios-device-unsigned.xcarchive.tar.gz -C build/ios/archive Runner.xcarchive
+          tar -czf build/ci-ios/ios-simulator.app.tar.gz -C build/ios/iphonesimulator Runner.app
+          cat > build/ci-ios/BUILD-INFO.txt <<EOF
+          Commit: $GITHUB_SHA
+          Workflow run: $GITHUB_RUN_ID (attempt $GITHUB_RUN_ATTEMPT)
+          Flutter: $FLUTTER_VERSION
+          Simulator host architecture: $(uname -m)
+          Device archive: unsigned, requires Apple signing before installation/export.
+          Simulator app: extract and install on a compatible Mac simulator.
+          No upload to stores or TestFlight has been performed.
+          EOF
+          (cd build/ci-ios && shasum -a 256 *.tar.gz > SHA256SUMS.txt)
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ios-build-${{ github.sha }}-${{ github.run_attempt }}
+          path: flutter_app/build/ci-ios/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0

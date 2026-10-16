@@ -27,6 +27,16 @@ Le integration Git de Vercel publica `main` in production e crea previews pro le
 
 Pro verificar localmente con le SDK fixate: `SCHOLA_FLUTTER_BIN="$(command -v flutter)" bash scripts/build_web.sh`. Non es necessari copiar builds a `public/` ni committer files generate.
 
+### Builds mobile automatic, sin publication
+Le workflow [Mobile builds](https://github.com/Schola-Interlingua/schola-interlingua/actions/workflows/mobile-builds.yml) executa le analyse e le tests a cata push a `main`, pois compila Android e iOS in parallelo. Illo pote etiam esser executate manualmente con **Run workflow**. Flutter es fixate a 3.44.7, como le build web, e le dependentias debe respectar le lockfile.
+
+In GitHub, aperi **Actions → Mobile builds → le execution → Artifacts** pro discargar le archivos (conservate durante 14 dies). Cata artifact include le commit, le execution e le checksums:
+
+* **Android:** APK e AAB compilate in release con un clave de firma de test temporari. Le APK servi pro provas; illo non pote actualisar le app official signate e un altere execution pote requirer un reinstallo. Le AAB non es signate pro Google Play.
+* **iOS:** archivo `.xcarchive.tar.gz` de dispositivo sin firma, e `.app.tar.gz` pro le simulator del architectura indicate in `BUILD-INFO.txt`. Le paquetes tar conserva permisos e ligamines symbolic. Pro installar in un iPhone o exportar un IPA distribuibile, le archivo necessita le firma e le provisioning de Apple. Pro le simulator, extrahe le app e usa `xcrun simctl install booted Runner.app` in un Mac compatibile.
+
+Iste workflow non usa claves de production, non crea GitHub Releases e non invia builds a Google Play, App Store ni TestFlight. Le publication in le botecas resta manual. Le build number del app resta illo definite in `pubspec.yaml`; le nomine del artifact identifica le commit e le tentativa.
+
 ### Como executar le app Flutter localmente
 1. Entra in `flutter_app/`
 2. Executa `flutter pub get`
