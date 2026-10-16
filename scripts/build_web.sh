@@ -25,6 +25,9 @@ fi
 
 export CI=true
 export FLUTTER_SUPPRESS_ANALYTICS=true
+# A fresh SDK prints download progress to stdout during its first invocation.
+# Bootstrap separately so --machine below contains only JSON.
+"$flutter_bin" --version
 "$flutter_bin" --version --machine | node -e '
 let input = "";
 process.stdin.on("data", chunk => input += chunk);
