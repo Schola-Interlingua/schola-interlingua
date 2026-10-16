@@ -423,4 +423,434 @@ const grammarLessons = <GrammarLesson>[
         'https://www.interlingua.com/grammatica/grammatica/comparation-de-adjectivos/',
     sections: '§§34–36',
   ),
+  GrammarLesson(
+    id: "pronomines",
+    title: "Qui face le action?",
+    summary: "Le subjecto indica qui age.",
+    rule:
+        "Io, tu, ille, illa, illo; nos, vos, illes. Le verbo resta le mesme quando le persona cambia.",
+    caution: "Vos pote indicar plure personas o un adresse formal.",
+    examples: [
+      GrammarExample(
+        "Io → nos",
+        "io studia",
+        "nos studia",
+        "Nos include le parlator e altere personas; studia non cambia.",
+      ),
+      GrammarExample(
+        "Illa → illes",
+        "illa parla",
+        "illes parla",
+        "Le subjecto cambia al plural, ma le verbo resta parla.",
+      ),
+    ],
+    questions: [
+      GrammarQuestion(
+        "Completa pro un gruppo que include te: ___ studia.",
+        ["Nos", "Illa", "Io"],
+        0,
+        "Nos indica le parlator con altere personas.",
+      ),
+      GrammarQuestion(
+        "Cambia io a illes: io lege.",
+        ["illes leges", "illes lege", "illes leger"],
+        1,
+        "Le verbo non recipe un termination personal.",
+      ),
+    ],
+    source:
+        "https://www.interlingua.com/grammatica/grammatica/pronomines-personal/",
+    sections: "§§56–63",
+  ),
+  GrammarLesson(
+    id: "possessivos",
+    title: "De qui es isto?",
+    summary: "Distingue le possessor del cosa possedite.",
+    rule:
+        "Ante un substantivo, usa mi, tu, su, nostre, vostre, lor. Quando le substantivo es omittite, usa le mie, le tue, le sue, le nostre, le vostre, le lore; adde -s si le cosas es plural.",
+    caution:
+        "Su pote referer a ille o illa. De ille o de illa pote clarificar le possessor.",
+    examples: [
+      GrammarExample(
+        "Ante le nomine",
+        "le libro de me",
+        "mi libro",
+        "Mi precede libro sin articulo.",
+      ),
+      GrammarExample(
+        "Sin le nomine",
+        "mi libros",
+        "le mies",
+        "Le nomine es omittite; mie recipe s pro plure libros.",
+      ),
+    ],
+    questions: [
+      GrammarQuestion(
+        "Completa: Nos ama ___ familia.",
+        ["nostre", "nostres", "nos"],
+        0,
+        "Nostre es invariable ante familia.",
+      ),
+      GrammarQuestion(
+        "Substitue mi libros sin repeter libros.",
+        ["le mi", "le mies", "mi"],
+        1,
+        "Como pronomine plural, usa le mies.",
+      ),
+    ],
+    source: "https://www.interlingua.com/grammatica/grammatica/possessivos/",
+    sections: "§§64–65",
+  ),
+  GrammarLesson(
+    id: "questiones",
+    title: "Facer questiones",
+    summary: "Cambia un affirmation in un question.",
+    rule:
+        "Tu pote inverter verbo e subjecto, usar intonation, o poner an al initio. Ubi demanda un loco; quando demanda un tempore; qui demanda un persona.",
+    caution: "Non adde un auxiliar equivalente al anglese do.",
+    examples: [
+      GrammarExample(
+        "Inversion",
+        "vos parla interlingua",
+        "Parla vos interlingua?",
+        "Le verbo passa ante le subjecto.",
+      ),
+      GrammarExample(
+        "An",
+        "vos parla interlingua",
+        "An vos parla interlingua?",
+        "An marca le question sin cambiar le ordine interne.",
+      ),
+      GrammarExample(
+        "Loco",
+        "le curso es hic",
+        "Ubi es le curso?",
+        "Ubi substitue le information de loco.",
+      ),
+    ],
+    questions: [
+      GrammarQuestion(
+        "Demanda le loco: ___ es le bibliotheca?",
+        ["Quando", "Ubi", "Qui"],
+        1,
+        "Ubi demanda ubi un cosa se trova.",
+      ),
+      GrammarQuestion(
+        "Qual question conserva le ordine del affirmation?",
+        ["An tu lege?", "Lege an tu?", "Tu an lege?"],
+        0,
+        "An se pone al initio.",
+      ),
+    ],
+    source:
+        "https://www.interlingua.com/grammatica/grammatica/tabula-de-conjugation/",
+    sections: "§116",
+  ),
+  GrammarLesson(
+    id: "infinitivo",
+    title: "Combinar duo verbos",
+    summary: "Un intention plus un action.",
+    rule:
+        "Post voler, poter e deber, le secunde verbo es un infinitivo sin preposition: vole leger, pote venir, debe partir. Post un preposition, un action pote anque esser exprimite per un infinitivo.",
+    caution: "Non conjuga le secunde verbo: io vole leger, non io vole lege.",
+    examples: [
+      GrammarExample(
+        "Voler",
+        "io lege",
+        "io vole leger",
+        "Vole exprime le intention; leger nomina le action.",
+      ),
+      GrammarExample(
+        "Poter",
+        "nos veni",
+        "nos pote venir",
+        "Pote indica possibilitate. Venir conserva su -r.",
+      ),
+      GrammarExample(
+        "Sin",
+        "io parla",
+        "sin parlar",
+        "Post sin, usa le infinitivo pro nominar un action.",
+      ),
+    ],
+    questions: [
+      GrammarQuestion(
+        "Completa: Tu pote ___ hic.",
+        ["studia", "studiar", "studiava"],
+        1,
+        "Poter es sequite per le infinitivo sin preposition.",
+      ),
+      GrammarQuestion(
+        "Completa: Illa parti sin ___.",
+        ["mangia", "mangiava", "mangiar"],
+        2,
+        "Post sin, le action es exprimite per un infinitivo.",
+      ),
+    ],
+    source: "https://www.interlingua.com/grammatica/grammatica/infinitivo/",
+    sections: "§§81, 83, 88",
+  ),
+  GrammarLesson(
+    id: "demonstrativos",
+    title: "Iste o ille?",
+    summary: "Monstra proximitate o distantia.",
+    rule:
+        "Ante un nomine, iste indica proximitate e ille distantia. Iste e ille non cambia con le numero del nomine. Como pronomines, illos pote variar: isto, illo, istes, illos.",
+    caution: "Isto es un forma pronominal neutre; ante libro usa iste libro.",
+    examples: [
+      GrammarExample(
+        "Proxime",
+        "le libro hic",
+        "iste libro",
+        "Iste presenta le libro como proxime.",
+      ),
+      GrammarExample(
+        "Distante",
+        "le libros illac",
+        "ille libros",
+        "Ante le nomine plural, ille resta invariable.",
+      ),
+      GrammarExample(
+        "Sin nomine",
+        "iste cosa",
+        "isto",
+        "Isto pote representar un cosa sin nominar lo.",
+      ),
+    ],
+    questions: [
+      GrammarQuestion(
+        "Indica plure libros proxime: ___ libros.",
+        ["istes", "iste", "isto"],
+        1,
+        "Le demonstrativo adjectival es invariable.",
+      ),
+      GrammarQuestion(
+        "Completa sin un nomine: Que es ___?",
+        ["iste libro", "isto", "istes libros"],
+        1,
+        "Isto es un pronomine neutre pro un cosa.",
+      ),
+    ],
+    source: "https://www.interlingua.com/grammatica/grammatica/demonstrativos/",
+    sections: "§§78–79",
+  ),
+  GrammarLesson(
+    id: "conjunctiones",
+    title: "Connecter ideas",
+    summary: "Adde, oppone o explica.",
+    rule:
+        "E adde information; o presenta un alternativa; sed introduce un contrasto; proque introduce un causa. Selige le connexion secundo le relation inter le ideas.",
+    caution:
+        "Proque explica un causa; pro + infinitivo exprime sovente un scopo.",
+    examples: [
+      GrammarExample(
+        "Addition",
+        "io lege / io scribe",
+        "io lege e io scribe",
+        "E reuni duo actiones.",
+      ),
+      GrammarExample(
+        "Contrasto",
+        "io vole partir / io resta",
+        "io vole partir, sed io resta",
+        "Sed monstra le contrasto inter intention e action.",
+      ),
+      GrammarExample(
+        "Causa",
+        "io resta / io es fatigate",
+        "io resta proque io es fatigate",
+        "Proque introduce le ration de restar.",
+      ),
+    ],
+    questions: [
+      GrammarQuestion(
+        "Exprime un alternativa: the ___ caffe.",
+        ["e", "o", "proque"],
+        1,
+        "O presenta un selection inter duo possibilitates.",
+      ),
+      GrammarQuestion(
+        "Exprime le causa: Io studia ___ io vole apprender.",
+        ["sed", "o", "proque"],
+        2,
+        "Proque introduce le ration de studiar.",
+      ),
+    ],
+    source:
+        "https://www.interlingua.com/grammatica/grammatica/particulas-grammatic/",
+    sections: "§134; Lista de particulas grammatic",
+  ),
+  GrammarLesson(
+    id: "perfecte",
+    title: "Actiones ja completate",
+    summary: "Construe le participio e combina lo con haber.",
+    rule:
+        "Le participio regular cambia -ar a -ate, -er a -ite e -ir a -ite. Usa ha + participio pro le presente perfecte e habeva + participio pro le passato perfecte.",
+    caution:
+        "Ha studiate pote anque exprimer un action passate como studiava; non impone le restrictiones del anglese.",
+    examples: [
+      GrammarExample(
+        "Haber + -ar",
+        "studiar → studiate",
+        "io ha studiate",
+        "Ha es le auxiliar; studiate es le participio.",
+      ),
+      GrammarExample(
+        "Haber + -er",
+        "vider → vidite",
+        "nos ha vidite le film",
+        "Le participio regular de vider es vidite.",
+      ),
+      GrammarExample(
+        "Anterioritate",
+        "io ha mangiate",
+        "io habeva mangiate ante le reunion",
+        "Habeva situa le action ante un altere momento passate.",
+      ),
+    ],
+    questions: [
+      GrammarQuestion(
+        "Completa: Nos ha ___ le musica. (audir)",
+        ["audiva", "audite", "audir"],
+        1,
+        "Audir forma audite; ha audite es un tempore composite.",
+      ),
+      GrammarQuestion(
+        "Un action ante un altere momento passate: io ___ studiate.",
+        ["habeva", "essera", "es"],
+        0,
+        "Habeva + participio forma le passato perfecte.",
+      ),
+    ],
+    source:
+        "https://www.interlingua.com/grammatica/grammatica/tempore-passate/",
+    sections: "§§105–106; participio: §95",
+  ),
+  GrammarLesson(
+    id: "imperativo",
+    title: "Invitar a agir",
+    summary: "Un instruction breve e directe.",
+    rule:
+        "Le imperativo ha le forma del presente e generalmente omitte le subjecto: parla!, lege!, audi! Pro un invitation con nos, usa que nos + verbo.",
+    caution: "Le imperativo non require un termination special pro vos.",
+    examples: [
+      GrammarExample(
+        "Instruction",
+        "tu lege le texto",
+        "Lege le texto!",
+        "Le verbo resta lege; le subjecto es generalmente omittite.",
+      ),
+      GrammarExample(
+        "Invitation",
+        "nos studia",
+        "Que nos studia!",
+        "Que nos introduce un invitation collective.",
+      ),
+    ],
+    questions: [
+      GrammarQuestion(
+        "Da un instruction con parlar.",
+        ["Parlar!", "Parlava!", "Parla!"],
+        2,
+        "Le imperativo coincide con le presente.",
+      ),
+      GrammarQuestion(
+        "Invita le gruppo a leger.",
+        ["Que nos lege!", "Que nos leger!", "Nos leges!"],
+        0,
+        "Que nos + verbo exprime le invitation collective.",
+      ),
+    ],
+    source: "https://www.interlingua.com/grammatica/grammatica/imperativo/",
+    sections: "§§110–111",
+  ),
+  GrammarLesson(
+    id: "relativos",
+    title: "Unir phrases con que",
+    summary: "Describe un persona o un cosa sin recommenciar.",
+    rule:
+        "Que introduce un proposition relative. Qui pote referer a personas como subjecto o post un preposition. Cuje exprime possession. Le pronomine relative non es omittite.",
+    caution:
+        "Qui non substitue que como objecto directe: le persona que io vide.",
+    examples: [
+      GrammarExample(
+        "Cosa",
+        "io lege un libro / le libro es breve",
+        "io lege un libro que es breve",
+        "Que reprende libro como subjecto de es.",
+      ),
+      GrammarExample(
+        "Persona",
+        "un amico / ille parla interlingua",
+        "un amico qui parla interlingua",
+        "Qui reprende un persona como subjecto.",
+      ),
+      GrammarExample(
+        "Possession",
+        "un autor / su libro es famose",
+        "un autor cuje libro es famose",
+        "Cuje liga le autor al libro que le pertine.",
+      ),
+    ],
+    questions: [
+      GrammarQuestion(
+        "Completa: Le libro ___ io lege es nove.",
+        ["qui", "que", "cuje"],
+        1,
+        "Que es le objecto de lege in le proposition relative.",
+      ),
+      GrammarQuestion(
+        "Exprime possession: un studente ___ matre es docente.",
+        ["cuje", "que", "qui"],
+        0,
+        "Cuje introduce le relation de possession.",
+      ),
+    ],
+    source: "https://www.interlingua.com/grammatica/grammatica/relativos/",
+    sections: "§§74–77",
+  ),
+  GrammarLesson(
+    id: "passivo",
+    title: "Cambiar le puncto de vista",
+    summary: "Mitte le cosa que recipe le action al centro.",
+    rule:
+        "Le passivo usa esser + participio passate. Le objecto del phrase active deveni le subjecto. Per pote introducer qui face le action. Cambia esser pro exprimer le tempore.",
+    caution: "Non confunde ha create (action active) con es create (passivo).",
+    examples: [
+      GrammarExample(
+        "Presente",
+        "le studentes prepara le projecto",
+        "le projecto es preparate per le studentes",
+        "Le projecto deveni le subjecto; es + preparate forma le passivo.",
+      ),
+      GrammarExample(
+        "Passato",
+        "le studentes preparava le projecto",
+        "le projecto esseva preparate per le studentes",
+        "Esseva cambia le tempore del passivo al passato.",
+      ),
+      GrammarExample(
+        "Futuro",
+        "le studentes preparara le projecto",
+        "le projecto essera preparate per le studentes",
+        "Essera situa le action passive in le futuro.",
+      ),
+    ],
+    questions: [
+      GrammarQuestion(
+        "Completa le passivo: Le texto ___ traducite per Ana.",
+        ["ha", "es", "habeva"],
+        1,
+        "Esser + participio forma le passivo.",
+      ),
+      GrammarQuestion(
+        "Selige le passivo in le passato.",
+        ["es preparate", "ha preparate", "esseva preparate"],
+        2,
+        "Esseva es le passato de esser.",
+      ),
+    ],
+    source: "https://www.interlingua.com/grammatica/grammatica/passivo/",
+    sections: "§§112–114",
+  ),
 ];

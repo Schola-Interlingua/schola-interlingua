@@ -3,10 +3,20 @@ import 'grammar_lessons.dart';
 /// Indices refer to the existing grammarBullets of each recorded lesson.
 /// Keep the explanation in the lesson and explore its rule with local examples.
 class LessonGrammarTopic {
-  const LessonGrammarTopic(this.title, this.bulletIndices, this.examples);
+  const LessonGrammarTopic(
+    this.title,
+    this.bulletIndices,
+    this.examples, {
+    this.explanation,
+    this.source,
+    this.sections,
+  });
   final String title;
   final List<int> bulletIndices;
   final List<GrammarExample> examples;
+  final String? explanation;
+  final String? source;
+  final String? sections;
 }
 
 const lessonGrammarTopics = <String, List<LessonGrammarTopic>>{

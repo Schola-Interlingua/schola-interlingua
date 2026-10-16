@@ -6,6 +6,11 @@ import 'package:schola_interlingua_flutter/src/theme/app_theme.dart';
 import 'package:schola_interlingua_flutter/src/widgets/grammar_workshop.dart';
 
 void main() {
+  final totalQuestions = grammarLessons.fold<int>(
+    0,
+    (sum, topic) => sum + topic.questions.length,
+  );
+  final afterReset = totalQuestions - grammarLessons.last.questions.length;
   test(
     'teaching data has distinct topics, valid answers and official sources',
     () {
@@ -53,7 +58,13 @@ void main() {
           await tap(
             find.byKey(ValueKey('grammar-example-${lesson.id}-$index')),
           );
-          expect(find.text(lesson.examples[index].after), findsOneWidget);
+          expect(
+            find.descendant(
+              of: find.byKey(const Key('grammar-transformation')),
+              matching: find.text(lesson.examples[index].after),
+            ),
+            findsOneWidget,
+          );
         }
         for (var index = 0; index < lesson.questions.length; index++) {
           final question = lesson.questions[index];
@@ -71,7 +82,7 @@ void main() {
           completed++;
           expect(
             tester.widget<Text>(find.byKey(const Key('grammar-progress'))).data,
-            startsWith('$completed / 16'),
+            startsWith('$completed / $totalQuestions'),
           );
           if (index < lesson.questions.length - 1) {
             await tap(find.byKey(const Key('grammar-next-question')));
@@ -83,14 +94,14 @@ void main() {
       await tap(find.text('Refacer iste thema'));
       expect(
         tester.widget<Text>(find.byKey(const Key('grammar-progress'))).data,
-        startsWith('14 / 16'),
+        startsWith('$afterReset / $totalQuestions'),
       );
       expect(find.byKey(const Key('grammar-feedback')), findsNothing);
       await tap(find.byKey(const ValueKey('grammar-topic-articulos')));
       expect(find.byKey(const Key('grammar-feedback')), findsOneWidget);
       expect(
         tester.widget<Text>(find.byKey(const Key('grammar-progress'))).data,
-        startsWith('14 / 16'),
+        startsWith('$afterReset / $totalQuestions'),
       );
     },
   );

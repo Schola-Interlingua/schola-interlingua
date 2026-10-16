@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../data/web_content_loader.dart';
+import '../data/grammar_curriculum.dart';
+import 'package:go_router/go_router.dart';
 import '../models/web_content_models.dart';
 import '../theme/app_theme.dart';
 import '../widgets/meaning_rich_text.dart';
@@ -32,11 +34,30 @@ class _AppendixScreenState extends State<AppendixScreen> {
   }
 
   void _loadContent() {
-    _content = WebContentLoader.loadAppendix(slug);
+    _content = grammarLessonForSlug(slug) == null
+        ? WebContentLoader.loadAppendix(slug)
+        : Future.value(null);
   }
 
   @override
   Widget build(BuildContext context) {
+    final grammar = grammarLessonForSlug(slug);
+    if (grammar != null) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextButton.icon(
+              onPressed: () => context.go('/course'),
+              icon: const Icon(Icons.arrow_back_rounded),
+              label: const Text('Retornar al curso'),
+            ),
+          ),
+          GrammarWorkshop(key: ValueKey(slug), lessons: [grammar]),
+        ],
+      );
+    }
     return FutureBuilder<ParsedAppendixContent?>(
       future: _content,
       builder:

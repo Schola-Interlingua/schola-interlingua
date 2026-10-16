@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../data/lesson_grammar_topics.dart';
 import '../theme/app_theme.dart';
 
 /// The lesson's own explanations, with compact, selectable examples.
 class LessonGrammar extends StatefulWidget {
-  const LessonGrammar({super.key, required this.slug, required this.bullets});
+  const LessonGrammar({
+    super.key,
+    required this.slug,
+    this.bullets = const [],
+    this.topics,
+  });
 
   final String slug;
   final List<String> bullets;
+  final List<LessonGrammarTopic>? topics;
 
   @override
   State<LessonGrammar> createState() => _LessonGrammarState();
@@ -29,7 +36,7 @@ class _LessonGrammarState extends State<LessonGrammar> {
 
   @override
   Widget build(BuildContext context) {
-    final topics = lessonGrammarTopics[widget.slug];
+    final topics = widget.topics ?? lessonGrammarTopics[widget.slug];
     if (topics == null || topics.isEmpty) {
       return ScholaCard(
         child: Column(
@@ -48,10 +55,12 @@ class _LessonGrammarState extends State<LessonGrammar> {
     final topic = topics[_topic];
     final exampleIndex = _examples[_topic] ?? 0;
     final example = topic.examples[exampleIndex];
-    final explanation = topic.bulletIndices
-        .where((index) => index < widget.bullets.length)
-        .map((index) => widget.bullets[index].replaceAll('**', ''))
-        .join(' ');
+    final explanation =
+        topic.explanation ??
+        topic.bulletIndices
+            .where((index) => index < widget.bullets.length)
+            .map((index) => widget.bullets[index].replaceAll('**', ''))
+            .join(' ');
 
     return ScholaCard(
       key: const Key('lesson-grammar-card'),
@@ -60,20 +69,23 @@ class _LessonGrammarState extends State<LessonGrammar> {
         children: [
           Text('Grammatica', style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: 12),
-          Wrap(
-            spacing: 6,
-            runSpacing: 6,
-            children: [
-              for (var index = 0; index < topics.length; index++)
-                _choice(
-                  context,
-                  topics[index].title,
-                  _topic == index,
-                  ValueKey('lesson-grammar-topic-$index'),
-                  () => setState(() => _topic = index),
-                ),
-            ],
-          ),
+          if (topics.length > 1)
+            Wrap(
+              spacing: 6,
+              runSpacing: 6,
+              children: [
+                for (var index = 0; index < topics.length; index++)
+                  _choice(
+                    context,
+                    topics[index].title,
+                    _topic == index,
+                    ValueKey('lesson-grammar-topic-$index'),
+                    () => setState(() => _topic = index),
+                  ),
+              ],
+            )
+          else
+            Text(topic.title, style: Theme.of(context).textTheme.labelLarge),
           const SizedBox(height: 14),
           Text(
             explanation,
@@ -148,6 +160,37 @@ class _LessonGrammarState extends State<LessonGrammar> {
                 ),
               ],
             ),
+          ),
+          if (topic.source != null)
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                onPressed: () => _openSource(topic.source!),
+                icon: const Icon(Icons.open_in_new_rounded, size: 14),
+                label: Text('UMI · ${topic.sections ?? "Fonte official"}'),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _openSource(String source) async {
+    try {
+      if (await launchUrl(Uri.parse(source))) return;
+    } catch (_) {
+      // Keep the source readable when a platform cannot open the browser.
+    }
+    if (!mounted) return;
+    showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Fonte official'),
+        content: SelectableText(source),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Clauder'),
           ),
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/web_content_loader.dart';
+import '../data/vocab_grammar_topics.dart';
 import '../models/web_content_models.dart';
 import '../theme/app_theme.dart';
 import '../widgets/completion_panel.dart';
@@ -208,6 +209,10 @@ class VocabLessonScreen extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
+        if (vocabGrammarTopics[slug] case final topics?) ...[
+          const SizedBox(height: 24),
+          LessonGrammar(slug: slug, topics: topics),
+        ],
         const SizedBox(height: 24),
         PracticePanel(slug: slug),
         const SizedBox(height: 24),

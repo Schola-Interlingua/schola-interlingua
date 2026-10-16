@@ -6,7 +6,9 @@ import '../theme/app_theme.dart';
 
 /// Session-only practice: grammar experiments do not change vocabulary SRS.
 class GrammarWorkshop extends StatefulWidget {
-  const GrammarWorkshop({super.key});
+  const GrammarWorkshop({super.key, this.lessons = grammarLessons});
+
+  final List<GrammarLesson> lessons;
 
   @override
   State<GrammarWorkshop> createState() => _GrammarWorkshopState();
@@ -20,7 +22,7 @@ class _GrammarWorkshopState extends State<GrammarWorkshop> {
 
   @override
   Widget build(BuildContext context) {
-    final lesson = grammarLessons[_topic];
+    final lesson = widget.lessons[_topic];
     final exampleIndex = _examples[lesson.id] ?? 0;
     final example = lesson.examples[exampleIndex];
     final questionIndex = _questions[lesson.id] ?? 0;
@@ -29,7 +31,7 @@ class _GrammarWorkshopState extends State<GrammarWorkshop> {
     final response = _responses[responseKey];
     final answered = response != null;
     final correct = response == question.answer;
-    final completed = grammarLessons.fold<int>(
+    final completed = widget.lessons.fold<int>(
       0,
       (total, item) =>
           total +
@@ -41,7 +43,7 @@ class _GrammarWorkshopState extends State<GrammarWorkshop> {
               )
               .length,
     );
-    final totalQuestions = grammarLessons.fold<int>(
+    final totalQuestions = widget.lessons.fold<int>(
       0,
       (sum, item) => sum + item.questions.length,
     );
@@ -50,71 +52,77 @@ class _GrammarWorkshopState extends State<GrammarWorkshop> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        ScholaCard(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        if (widget.lessons.length > 1)
+          ScholaCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(
+                  Icons.auto_stories_rounded,
+                  size: 32,
+                  color: AppTheme.interactiveTextColor(context),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  'Grammatica interactive',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+                const SizedBox(height: 8),
+                const Text(
+                  'Comprende le regula. Explora le exemplos. Practica con un explication.',
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  '${widget.lessons.length} themas · $totalQuestions exercitios',
+                  style: Theme.of(context).textTheme.labelLarge,
+                ),
+                const SizedBox(height: 16),
+                LinearProgressIndicator(
+                  value: completed / totalQuestions,
+                  color: AppTheme.interactiveTextColor(context),
+                  backgroundColor: AppTheme.borderColor(context),
+                  minHeight: 6,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  '$completed / $totalQuestions correcte in iste session',
+                  key: const Key('grammar-progress'),
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              ],
+            ),
+          ),
+        const SizedBox(height: 20),
+        if (widget.lessons.length > 1)
+          Text(
+            'Selige un thema',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+        const SizedBox(height: 10),
+        if (widget.lessons.length > 1)
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
             children: [
-              Icon(
-                Icons.auto_stories_rounded,
-                size: 32,
-                color: AppTheme.interactiveTextColor(context),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                'Grammatica interactive',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              const SizedBox(height: 8),
-              const Text(
-                'Comprende le regula. Explora le exemplos. Practica con un explication.',
-              ),
-              const SizedBox(height: 16),
-              Text(
-                '${grammarLessons.length} themas · $totalQuestions exercitios',
-                style: Theme.of(context).textTheme.labelLarge,
-              ),
-              const SizedBox(height: 16),
-              LinearProgressIndicator(
-                value: completed / totalQuestions,
-                color: AppTheme.interactiveTextColor(context),
-                backgroundColor: AppTheme.borderColor(context),
-                minHeight: 6,
-                borderRadius: BorderRadius.circular(6),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                '$completed / $totalQuestions correcte in iste session',
-                key: const Key('grammar-progress'),
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
+              for (var index = 0; index < widget.lessons.length; index++)
+                ChoiceChip(
+                  key: ValueKey('grammar-topic-${widget.lessons[index].id}'),
+                  label: Text('${index + 1}. ${widget.lessons[index].title}'),
+                  selected: _topic == index,
+                  selectedColor: AppTheme.primaryLight,
+                  backgroundColor: AppTheme.surfaceVariant(context),
+                  checkmarkColor: Colors.white,
+                  side: BorderSide(color: AppTheme.borderColor(context)),
+                  labelStyle: TextStyle(
+                    color: _topic == index
+                        ? Colors.white
+                        : AppTheme.textColor(context),
+                  ),
+                  onSelected: (_) => setState(() => _topic = index),
+                ),
             ],
           ),
-        ),
-        const SizedBox(height: 20),
-        Text('Selige un thema', style: Theme.of(context).textTheme.titleMedium),
-        const SizedBox(height: 10),
-        Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          children: [
-            for (var index = 0; index < grammarLessons.length; index++)
-              ChoiceChip(
-                key: ValueKey('grammar-topic-${grammarLessons[index].id}'),
-                label: Text('${index + 1}. ${grammarLessons[index].title}'),
-                selected: _topic == index,
-                selectedColor: AppTheme.primaryLight,
-                backgroundColor: AppTheme.surfaceVariant(context),
-                checkmarkColor: Colors.white,
-                side: BorderSide(color: AppTheme.borderColor(context)),
-                labelStyle: TextStyle(
-                  color: _topic == index
-                      ? Colors.white
-                      : AppTheme.textColor(context),
-                ),
-                onSelected: (_) => setState(() => _topic = index),
-              ),
-          ],
-        ),
         const SizedBox(height: 20),
         ScholaCard(
           child: Column(
@@ -348,7 +356,7 @@ class _GrammarWorkshopState extends State<GrammarWorkshop> {
                       icon: const Icon(Icons.arrow_forward_rounded, size: 18),
                       label: const Text('Sequente exercitio'),
                     )
-                  else if (correct && _topic < grammarLessons.length - 1)
+                  else if (correct && _topic < widget.lessons.length - 1)
                     FilledButton.icon(
                       key: const Key('grammar-next-topic'),
                       onPressed: () => setState(() => _topic += 1),

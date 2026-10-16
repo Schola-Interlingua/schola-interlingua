@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../models/course_models.dart';
+import 'grammar_curriculum.dart';
 
-const List<CourseLevel> courseLevels = <CourseLevel>[
+const List<CourseLevel> _baseCourseLevels = <CourseLevel>[
   CourseLevel(
     slug: 'nivel-1',
     title: 'Nivello 1',
@@ -94,18 +95,6 @@ const List<CourseLevel> courseLevels = <CourseLevel>[
             title: 'Un die in scola',
             kind: CourseItemKind.reading,
             icon: Icons.auto_stories_rounded,
-          ),
-        ],
-      ),
-      CourseSection(
-        title: 'Appendice',
-        kind: LevelSectionKind.appendice,
-        items: <CourseItemRef>[
-          CourseItemRef(
-            slug: 'grammatica',
-            title: 'Grammatica',
-            kind: CourseItemKind.appendix,
-            icon: Icons.spellcheck_rounded,
           ),
         ],
       ),
@@ -460,3 +449,28 @@ const List<CourseLevel> courseLevels = <CourseLevel>[
     ],
   ),
 ];
+
+final List<CourseLevel> courseLevels = _baseCourseLevels
+    .map(
+      (level) => CourseLevel(
+        slug: level.slug,
+        title: level.title,
+        sections: [
+          CourseSection(
+            title: 'Grammatica',
+            kind: LevelSectionKind.grammatica,
+            items: [
+              for (final lesson in grammarForLevel(level.slug))
+                CourseItemRef(
+                  slug: 'grammatica-${lesson.id}',
+                  title: lesson.title,
+                  kind: CourseItemKind.appendix,
+                  icon: Icons.spellcheck_rounded,
+                ),
+            ],
+          ),
+          ...level.sections,
+        ],
+      ),
+    )
+    .toList(growable: false);
