@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../data/web_content_loader.dart';
 import '../data/vocab_grammar_topics.dart';
@@ -79,6 +80,11 @@ class _LessonScreenState extends State<LessonScreen> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
+                  FilledButton.icon(
+                    onPressed: () => context.go('/session/$slug'),
+                    icon: const Icon(Icons.play_arrow_rounded),
+                    label: const Text('Session guidate'),
+                  ),
                   const SizedBox(height: 4),
                   CompletionBanner(
                     itemKey: 'lesson:$slug',
@@ -198,6 +204,11 @@ class VocabLessonScreen extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
+        FilledButton.icon(
+          onPressed: () => context.go('/session/$slug'),
+          icon: const Icon(Icons.play_arrow_rounded),
+          label: const Text('Session guidate'),
+        ),
         CompletionBanner(
           itemKey: 'lesson:$slug',
           message: 'Le vocabulario es complete!',

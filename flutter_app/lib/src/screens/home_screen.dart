@@ -1,3 +1,4 @@
+import '../widgets/continue_learning.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:go_router/go_router.dart';
@@ -35,6 +36,7 @@ class HomeScreen extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: const <Widget>[
+        ContinueLearning(),
         _InlineVocabSearch(),
         SizedBox(height: 24),
         _TextReaderCard(),

@@ -13,8 +13,18 @@ class LearningPracticePanel extends StatefulWidget {
     this.store,
     this.catalog,
     this.playAudio,
+    this.activity,
+    this.runId,
+    this.initialInput = '',
+    this.onInputChanged,
+    this.onAdvance,
   });
   final String slug;
+  final LearningActivity? activity;
+  final String? runId;
+  final String initialInput;
+  final ValueChanged<String>? onInputChanged;
+  final Future<void> Function(bool needsReview)? onAdvance;
   final LearningPracticeStore? store;
   final Future<LearningActivityCatalog>? catalog;
 
@@ -26,7 +36,9 @@ class LearningPracticePanel extends StatefulWidget {
 
 class _ExerciseState {
   final started = DateTime.now();
-  final runId = DateTime.now().microsecondsSinceEpoch.toString();
+  _ExerciseState({String? runId})
+    : runId = runId ?? DateTime.now().microsecondsSinceEpoch.toString();
+  final String runId;
   final support = <String>{};
   String input = '';
   String? feedback;
@@ -91,6 +103,38 @@ class _LearningPracticePanelState extends State<LearningPracticePanel> {
   }
 
   void _prepare(LearningActivityCatalog catalog) {
+    if (widget.activity case final activity?) {
+      _round = {
+        for (final mode in PracticeMode.values)
+          mode: mode == activity.mode ? [activity] : [],
+      };
+      _mode = activity.mode;
+      final state = _ExerciseState(runId: widget.runId);
+      final events = _store.events.where(
+        (e) => e.activityId == activity.id && e.runId == state.runId,
+      );
+      for (final event in events) {
+        state.support.addAll(event.support);
+        state.plays = event.plays;
+        state.checks = event.attemptNumber;
+        if (event.kind == PracticeEventKind.answer) {
+          state.input = event.answer ?? '';
+          state.solved = event.correct == true;
+          if (event.correct == false) state.support.add('retry');
+          state.feedback = event.correct == true
+              ? 'Correcte! ${activity.explanation}'
+              : 'Non ancora. Essaya de novo.';
+        } else if (event.kind == PracticeEventKind.reveal) {
+          state.solved = true;
+          state.feedback =
+              'Responsa: ${activity.answers.first}. ${activity.explanation}';
+        }
+      }
+      if (!state.solved) state.input = widget.initialInput;
+      _states[activity.id] = state;
+      _input.text = state.input;
+      return;
+    }
     final lastSeen = <String, DateTime>{};
     for (final event in _store.forSource(widget.slug)) {
       lastSeen[event.activityId] = event.at;
@@ -237,39 +281,41 @@ class _LearningPracticePanelState extends State<LearningPracticePanel> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              'Practica in contexto',
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
+            if (widget.activity == null)
+              Text(
+                'Practica in contexto',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
             const SizedBox(height: 12),
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: [
-                for (final choice in PracticeMode.values)
-                  if (_round![choice]!.isNotEmpty)
-                    ChoiceChip(
-                      key: ValueKey('practice-mode-${choice.name}'),
-                      label: Text(
-                        choice == PracticeMode.cloze
-                            ? 'Completar phrases'
-                            : 'Dictato',
+            if (widget.activity == null)
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (final choice in PracticeMode.values)
+                    if (_round![choice]!.isNotEmpty)
+                      ChoiceChip(
+                        key: ValueKey('practice-mode-${choice.name}'),
+                        label: Text(
+                          choice == PracticeMode.cloze
+                              ? 'Completar phrases'
+                              : 'Dictato',
+                        ),
+                        selected: mode == choice,
+                        onSelected: _busy || _playing
+                            ? null
+                            : (_) => setState(() {
+                                _mode = choice;
+                                final list = _round![choice]!;
+                                final nextIndex = _indices[choice] ?? 0;
+                                _input.text = nextIndex < list.length
+                                    ? (_states[list[nextIndex].id]?.input ?? '')
+                                    : '';
+                                _error = null;
+                              }),
                       ),
-                      selected: mode == choice,
-                      onSelected: _busy || _playing
-                          ? null
-                          : (_) => setState(() {
-                              _mode = choice;
-                              final list = _round![choice]!;
-                              final nextIndex = _indices[choice] ?? 0;
-                              _input.text = nextIndex < list.length
-                                  ? (_states[list[nextIndex].id]?.input ?? '')
-                                  : '';
-                              _error = null;
-                            }),
-                    ),
-              ],
-            ),
+                ],
+              ),
             const SizedBox(height: 18),
             if (index >= activities.length) ...[
               const Text('Ben facite! Tu ha finite iste session.'),
@@ -309,7 +355,11 @@ class _LearningPracticePanelState extends State<LearningPracticePanel> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          'Exercitio ${index + 1} / $total',
+          widget.activity != null
+              ? (activity.mode == PracticeMode.cloze
+                    ? 'Completar phrases'
+                    : 'Dictato')
+              : 'Exercitio ${index + 1} / $total',
           style: Theme.of(context).textTheme.labelLarge,
         ),
         const SizedBox(height: 12),
@@ -344,7 +394,10 @@ class _LearningPracticePanelState extends State<LearningPracticePanel> {
           autocorrect: false,
           enableSuggestions: false,
           textInputAction: TextInputAction.done,
-          onChanged: (value) => state.input = value,
+          onChanged: (value) {
+            state.input = value;
+            widget.onInputChanged?.call(value);
+          },
           decoration: InputDecoration(
             labelText: 'Scribe in Interlingua',
             counterText: '',
@@ -399,13 +452,24 @@ class _LearningPracticePanelState extends State<LearningPracticePanel> {
             ),
             TextButton(
               key: const Key('practice-next'),
-              onPressed: locked
+              onPressed: locked || (widget.onAdvance != null && !state.solved)
                   ? null
-                  : () => setState(() {
-                      _indices[activity.mode] = index + 1;
-                      _input.clear();
-                      _error = null;
-                    }),
+                  : () {
+                      if (widget.onAdvance != null) {
+                        _action(
+                          () => widget.onAdvance!(
+                            state.checks != 1 ||
+                                state.support.any((s) => s != 'replay'),
+                          ),
+                        );
+                      } else {
+                        setState(() {
+                          _indices[activity.mode] = index + 1;
+                          _input.clear();
+                          _error = null;
+                        });
+                      }
+                    },
               child: const Text('Sequente'),
             ),
           ],

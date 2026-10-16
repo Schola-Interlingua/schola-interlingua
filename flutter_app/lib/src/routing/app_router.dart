@@ -7,6 +7,7 @@ import '../screens/chatina_screen.dart';
 import '../screens/course_screen.dart';
 import '../screens/decks_screen.dart';
 import '../screens/home_screen.dart';
+import '../screens/guided_session_screen.dart';
 import '../screens/level_screen.dart';
 import '../screens/lesson_screen.dart';
 import '../screens/login_screen.dart';
@@ -109,6 +110,12 @@ final class AppRouter {
           final level = courseLevels.firstWhere((level) => level.slug == slug);
           return _withShell(LevelScreen(level: level));
         },
+      ),
+      GoRoute(
+        path: '/session/:slug',
+        builder: (context, state) => _withShell(
+          GuidedSessionScreen(slug: state.pathParameters['slug']!),
+        ),
       ),
       GoRoute(
         path: '/lesson/:slug',

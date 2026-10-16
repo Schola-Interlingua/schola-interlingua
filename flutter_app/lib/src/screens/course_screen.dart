@@ -1,3 +1,8 @@
+import '../services/learning_activity_catalog.dart';
+import '../services/lesson_parts.dart';
+import '../services/guided_session_store.dart';
+import '../widgets/topic_progress_ring.dart';
+import '../widgets/continue_learning.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -9,11 +14,33 @@ import '../models/course_models.dart';
 import '../theme/app_theme.dart';
 import '../widgets/completion_panel.dart';
 
-class CourseScreen extends StatelessWidget {
+class CourseScreen extends StatefulWidget {
   const CourseScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<CourseScreen> createState() => _CourseScreenState();
+}
+
+class _CourseScreenState extends State<CourseScreen> {
+  Future<LearningActivityCatalog> load() async {
+    await GuidedSessionStore.instance.load();
+    return LearningActivityCatalog.load();
+  }
+
+  late Future<LearningActivityCatalog> loading = load();
+  @override
+  Widget build(BuildContext context) => FutureBuilder<LearningActivityCatalog>(
+    future: loading,
+    builder: (context, snapshot) => ListenableBuilder(
+      listenable: GuidedSessionStore.instance,
+      builder: (context, _) => _body(context, snapshot.data, snapshot.hasError),
+    ),
+  );
+  Widget _body(
+    BuildContext context,
+    LearningActivityCatalog? catalog,
+    bool failed,
+  ) {
     return CompletionTracker(
       child: Center(
         child: ConstrainedBox(
@@ -26,9 +53,16 @@ class CourseScreen extends StatelessWidget {
                 itemKey: 'course:main',
                 message: 'Le curso es complete!',
               ),
+              const ContinueLearning(),
+              if (failed)
+                TextButton(
+                  onPressed: () => setState(() => loading = load()),
+                  child: const Text('Recargar le partes'),
+                ),
               const _DecksEntry(),
               const SizedBox(height: 18),
-              for (final level in courseLevels) _LevelPath(level: level),
+              for (final level in courseLevels)
+                _LevelPath(level: level, catalog: catalog),
               const SizedBox(height: 12),
             ],
           ),
@@ -62,7 +96,8 @@ class _DecksEntry extends StatelessWidget {
 }
 
 class _LevelPath extends StatelessWidget {
-  const _LevelPath({required this.level});
+  const _LevelPath({required this.level, this.catalog});
+  final LearningActivityCatalog? catalog;
   final CourseLevel level;
 
   @override
@@ -149,6 +184,7 @@ class _LevelPath extends StatelessWidget {
             startIndex: entry.offset,
             nextIndex: nextIndex,
             controller: controller,
+            catalog: catalog,
           ),
         ],
         const SizedBox(height: 28),
@@ -165,10 +201,12 @@ class _TopicPath extends StatelessWidget {
     required this.startIndex,
     required this.nextIndex,
     required this.controller,
+    this.catalog,
   });
   final List<CourseItemRef> items;
   final int startIndex, nextIndex;
   final AppController controller;
+  final LearningActivityCatalog? catalog;
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(
@@ -201,6 +239,12 @@ class _TopicPath extends StatelessWidget {
                   ),
                   child: _TopicNode(
                     item: items[index],
+                    totalParts: catalog == null
+                        ? 1
+                        : lessonParts(catalog!, items[index].slug).length,
+                    completedParts: GuidedSessionStore.instance
+                        .completedParts(items[index].slug)
+                        .length,
                     completed: controller.isCompleted(
                       _completionKey(items[index]),
                     ),
@@ -222,10 +266,16 @@ class _TopicNode extends StatelessWidget {
     required this.completed,
     required this.next,
     required this.height,
+    required this.totalParts,
+    required this.completedParts,
   });
   final CourseItemRef item;
   final bool completed, next;
   final double height;
+  final int totalParts, completedParts;
+  bool get hasParts =>
+      item.kind == CourseItemKind.lesson ||
+      item.kind == CourseItemKind.vocabulary;
 
   @override
   Widget build(BuildContext context) {
@@ -240,7 +290,11 @@ class _TopicNode extends StatelessWidget {
     return Semantics(
       key: ValueKey('course-node-${item.kind.name}-${item.slug}'),
       button: true,
-      label: completed ? '${item.title}, complete' : item.title,
+      label: completed
+          ? '${item.title}, complete'
+          : hasParts && totalParts > 1
+          ? '${item.title}, $completedParts de $totalParts partes completate'
+          : item.title,
       child: Tooltip(
         message: item.title,
         excludeFromSemantics: true,
@@ -255,41 +309,36 @@ class _TopicNode extends StatelessWidget {
                 height: height,
                 child: Column(
                   children: [
-                    Container(
+                    SizedBox(
                       key: ValueKey(
                         'course-circle-${item.kind.name}-${item.slug}',
                       ),
                       width: 62,
                       height: 62,
-                      padding: const EdgeInsets.all(3),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: next && !completed
-                            ? Border.all(
-                                color: dark
-                                    ? const Color(0xFF8DC9FF)
-                                    : AppTheme.primary,
-                                width: 2,
-                              )
-                            : null,
-                      ),
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: fill,
-                          boxShadow: [
-                            BoxShadow(
-                              color: completed
-                                  ? const Color(0xFF154B32)
-                                  : const Color(0xFF163952),
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Icon(
-                          completed ? Icons.check_rounded : item.icon,
-                          color: Colors.white,
-                          size: 25,
+                      child: TopicProgressRing(
+                        key: ValueKey('course-ring-${item.slug}'),
+                        parts: hasParts ? totalParts : 1,
+                        completed: completed
+                            ? (hasParts ? totalParts : 1)
+                            : completedParts.clamp(0, totalParts),
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: fill,
+                            boxShadow: [
+                              BoxShadow(
+                                color: completed
+                                    ? const Color(0xFF154B32)
+                                    : const Color(0xFF163952),
+                                offset: const Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: Icon(
+                            completed ? Icons.check_rounded : item.icon,
+                            color: Colors.white,
+                            size: 25,
+                          ),
                         ),
                       ),
                     ),
@@ -297,7 +346,7 @@ class _TopicNode extends StatelessWidget {
                     Text(
                       item.title,
                       textAlign: TextAlign.center,
-                      maxLines: 3,
+                      maxLines: hasParts && totalParts > 1 ? 2 : 3,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         fontSize: 13,
@@ -306,6 +355,13 @@ class _TopicNode extends StatelessWidget {
                         color: AppTheme.textColor(context),
                       ),
                     ),
+                    if (hasParts && totalParts > 1)
+                      Text(
+                        '${completed ? totalParts : completedParts.clamp(0, totalParts)}/$totalParts',
+                        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                          color: AppTheme.mutedTextColor(context),
+                        ),
+                      ),
                   ],
                 ),
               ),
@@ -318,7 +374,7 @@ class _TopicNode extends StatelessWidget {
 }
 
 String _pathForItem(CourseItemRef item) => switch (item.kind) {
-  CourseItemKind.lesson || CourseItemKind.vocabulary => '/lesson/${item.slug}',
+  CourseItemKind.lesson || CourseItemKind.vocabulary => '/session/${item.slug}',
   CourseItemKind.reading => '/reading/${item.slug}',
   CourseItemKind.appendix => '/appendix/${item.slug}',
 };

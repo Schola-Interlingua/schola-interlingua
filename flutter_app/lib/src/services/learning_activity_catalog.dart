@@ -4,7 +4,8 @@ import '../models/learning_practice.dart';
 import 'option_audio_service.dart';
 
 class LearningActivityCatalog {
-  LearningActivityCatalog(this.activities);
+  LearningActivityCatalog(this.activities, {this.termsBySource = const {}});
+  final Map<String, List<String>> termsBySource;
   final List<LearningActivity> activities;
   static Future<LearningActivityCatalog>? _future;
   static Future<LearningActivityCatalog> load() =>
@@ -65,7 +66,16 @@ class LearningActivityCatalog {
         );
       }
     }
-    return LearningActivityCatalog(List.unmodifiable(activities));
+    return LearningActivityCatalog(
+      List.unmodifiable(activities),
+      termsBySource: {
+        for (final entry in vocab.entries)
+          if (entry.key != 'extra')
+            entry.key: [
+              for (final item in entry.value as List) item['term'] as String,
+            ],
+      },
+    );
   }
 
   List<LearningActivity> forSource(String slug, PracticeMode mode) => activities

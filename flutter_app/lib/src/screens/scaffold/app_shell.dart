@@ -16,6 +16,7 @@ class AppShell extends StatefulWidget {
 }
 
 class _AppShellState extends State<AppShell> {
+  static final _scrollPositions = PageStorageBucket();
   bool _scrollLocked = false;
 
   @override
@@ -46,20 +47,26 @@ class _AppShellState extends State<AppShell> {
                             });
                             return true;
                           },
-                      child: SingleChildScrollView(
-                        physics: _scrollLocked
-                            ? const NeverScrollableScrollPhysics()
-                            : null,
-                        padding: EdgeInsets.fromLTRB(
-                          horizontalPadding,
-                          compact ? 18 : 24,
-                          horizontalPadding,
-                          bottomNavHeight,
-                        ),
-                        child: Center(
-                          child: ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 1200),
-                            child: widget.child,
+                      child: PageStorage(
+                        bucket: _scrollPositions,
+                        child: SingleChildScrollView(
+                          key: PageStorageKey(
+                            'shell-scroll-${GoRouterState.of(context).uri.path}',
+                          ),
+                          physics: _scrollLocked
+                              ? const NeverScrollableScrollPhysics()
+                              : null,
+                          padding: EdgeInsets.fromLTRB(
+                            horizontalPadding,
+                            compact ? 18 : 24,
+                            horizontalPadding,
+                            bottomNavHeight,
+                          ),
+                          child: Center(
+                            child: ConstrainedBox(
+                              constraints: const BoxConstraints(maxWidth: 1200),
+                              child: widget.child,
+                            ),
                           ),
                         ),
                       ),
@@ -229,6 +236,7 @@ class _BottomNavBar extends StatelessWidget {
                             location.startsWith('/decks') ||
                             location.startsWith('/level/') ||
                             location.startsWith('/lesson/') ||
+                            location.startsWith('/session/') ||
                             location.startsWith('/reading/') ||
                             location.startsWith('/appendix/'))) ||
                     (item.route == '/jocos/wordsearch' &&

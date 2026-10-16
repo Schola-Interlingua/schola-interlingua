@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:schola_interlingua_flutter/src/services/learning_activity_catalog.dart';
+import 'package:schola_interlingua_flutter/src/services/learning_practice_store.dart';
+import 'package:schola_interlingua_flutter/src/services/guided_session_store.dart';
 import 'package:schola_interlingua_flutter/src/app.dart';
 import 'package:schola_interlingua_flutter/src/app_state.dart';
 import 'package:schola_interlingua_flutter/src/data/course_seed.dart';
@@ -9,6 +13,12 @@ import 'package:schola_interlingua_flutter/src/screens/course_screen.dart';
 import 'package:schola_interlingua_flutter/src/theme/app_theme.dart';
 
 void main() {
+  setUpAll(() async {
+    SharedPreferences.setMockInitialValues({});
+    await GuidedSessionStore.instance.load();
+    await LearningPracticeStore.instance.load();
+    await LearningActivityCatalog.load();
+  });
   testWidgets('each level opens its own summary and returns to the path', (
     tester,
   ) async {
@@ -111,10 +121,10 @@ void main() {
           'grammatica-articulos',
           '/appendix/grammatica-articulos',
         ),
-        (CourseItemKind.lesson, 'lection1', '/lesson/lection1'),
-        (CourseItemKind.vocabulary, 'basico1', '/lesson/basico1'),
+        (CourseItemKind.lesson, 'lection1', '/session/lection1'),
+        (CourseItemKind.vocabulary, 'basico1', '/session/basico1'),
         (CourseItemKind.reading, 'mi-familia', '/reading/mi-familia'),
-        (CourseItemKind.vocabulary, 'technologia', '/lesson/technologia'),
+        (CourseItemKind.vocabulary, 'technologia', '/session/technologia'),
       ];
       for (final (kind, slug, route) in cases) {
         AppRouter.router.go('/course');
@@ -128,6 +138,28 @@ void main() {
         }
         await tester.ensureVisible(node);
         await tester.tap(node);
+        if (kind == CourseItemKind.lesson) {
+          // This checks routing; real recorded-audio playback is browser QA.
+          expect(
+            AppRouter.router.routeInformationProvider.value.uri.path,
+            route,
+          );
+          AppRouter.router.go('/course');
+          await tester.pumpAndSettle();
+          continue;
+        }
+        // Route transitions and bundled catalog I/O cross frame/real async zones.
+        for (var frame = 0; frame < 20; frame++) {
+          await tester.pump(const Duration(milliseconds: 100));
+          await tester.runAsync(
+            () => Future<void>.delayed(const Duration(milliseconds: 20)),
+          );
+        }
+        expect(
+          find.byType(CircularProgressIndicator),
+          findsNothing,
+          reason: route,
+        );
         await tester.pumpAndSettle();
         expect(AppRouter.router.routeInformationProvider.value.uri.path, route);
         expect(tester.takeException(), isNull, reason: route);
