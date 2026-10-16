@@ -12,11 +12,19 @@ if [[ -n "${SCHOLA_FLUTTER_BIN:-}" ]]; then
   flutter_bin="$SCHOLA_FLUTTER_BIN"
 else
   sdk_dir="$repo_dir/node_modules/.cache/schola-flutter-$flutter_version"
-  if [[ ! -x "$sdk_dir/bin/flutter" ]]; then
+  # Restored caches can omit the SDK's .git directory. Never let Git walk up
+  # and mistake the application's revision for the Flutter revision.
+  cached_revision=''
+  if [[ -d "$sdk_dir/.git" ]]; then
+    cached_revision="$(git --git-dir="$sdk_dir/.git" rev-parse HEAD 2>/dev/null || true)"
+  fi
+  if [[ ! -x "$sdk_dir/bin/flutter" || "$cached_revision" != "$flutter_revision" ]]; then
+    echo 'Installing the pinned Flutter SDK (cache missing or incompatible).'
+    rm -rf -- "$sdk_dir"
     mkdir -p "$(dirname "$sdk_dir")"
     git clone --depth 1 --branch "$flutter_version" https://github.com/flutter/flutter.git "$sdk_dir"
   fi
-  if [[ "$(git -C "$sdk_dir" rev-parse HEAD)" != "$flutter_revision" ]]; then
+  if [[ "$(git --git-dir="$sdk_dir/.git" rev-parse HEAD)" != "$flutter_revision" ]]; then
     echo 'Cached Flutter SDK does not match the pinned revision.' >&2
     exit 1
   fi
@@ -47,5 +55,5 @@ cd "$repo_dir/flutter_app"
 rm -rf -- "$repo_dir/flutter_app/build/web"
 "$flutter_bin" build web --release --no-pub
 cd "$repo_dir"
-node --test tests/web_build.test.mjs
+node --test tests/web_build.test.mjs tests/flutter_sdk_cache.test.mjs
 node scripts/finalize_web_build.mjs "$flutter_version"
